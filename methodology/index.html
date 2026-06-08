@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.baker1031.com/methodology">
+<title>Track-Record Methodology &amp; Metric Definitions | Baker 1031</title><meta property="og:image" content="https://www.baker1031.com/assets/img/og-cover.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Baker 1031 Investments — Independent DST &amp; 1031 Exchange Advisory"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Track-Record Methodology &amp; Metric Definitions | Baker 1031"><meta name="twitter:description" content="How Baker 1031 compiles and defines DST and 1031 sponsor performance: full-cycle scope, metric definitions, aggregation method, and the limitations behind"><meta name="twitter:image" content="https://www.baker1031.com/assets/img/og-cover.png">
+<meta name="description" content="How Baker 1031 compiles and defines DST and 1031 sponsor performance: full-cycle scope, metric definitions, aggregation method, and the limitations behind">
+<meta property="og:title" content="Track-Record Methodology & Metric Definitions — Baker 1031">
+<meta property="og:description" content="What our performance numbers mean, how they're compiled, and what they are not. Sponsor-reported, realized-only, net of fees — stated plainly.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Track-Record Methodology & Metric Definitions","description":"How Baker 1031 compiles and defines DST and 1031 sponsor performance, and the limitations behind every figure published.","author":{"@type":"Organization","name":"Baker 1031 Investments"},"publisher":{"@type":"Organization","name":"Baker 1031 Investments"},"mainEntityOfPage":"https://www.baker1031.com/methodology"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.baker1031.com/"},{"@type":"ListItem","position":2,"name":"Methodology","item":"https://www.baker1031.com/methodology"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are these returns net of fees and taxes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Figures are net of selling and dealer-manager commissions, sponsor load, and ongoing program fees and expenses. Your individual tax result still depends on your own circumstances."}},
+{"@type":"Question","name":"Do these averages include deals that lost money?","acceptedAnswer":{"@type":"Answer","text":"They include every full-cycle (realized) program a sponsor reports, including those that returned less than invested capital. They exclude active and unrealized programs, which is a survivorship limitation: a sponsor's currently troubled deals are not yet reflected."}},
+{"@type":"Question","name":"Has Baker independently verified these numbers?","acceptedAnswer":{"@type":"Answer","text":"No. Performance is sponsor-reported and compiled from sponsor and public sources. We present it as reported and do not audit or recalculate sponsor figures."}},
+{"@type":"Question","name":"Does a 'preferred sponsor' designation mean Baker recommends it?","acceptedAnswer":{"@type":"Answer","text":"No. Preferred reflects the depth of our due-diligence coverage of a sponsor, not an endorsement, rating, or guarantee of any program's outcome."}}
+]}
+</script>
+<style>
+  :root{
+    --navy:#0a2540;--navy-deep:#06192e;--navy-soft:#15314f;--paper:#fff;--paper-2:#f3f6f9;
+    --ink:#0c1c2e;--muted:#5b6b7d;--line:#dce3ea;--brass-2:#6fc3ee;--brass-soft:#4aa6dd;
+    --gold-bg:#f7efdd;--gold:#1a9fe0;--amber:#1a9fe0;
+    --serif:"Source Serif 4",Georgia,serif;--sans:"Inter",Helvetica,Arial,sans-serif;--maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.65}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  a{color:inherit}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+  .brand .b1{font-family:var(--serif);font-size:23px;color:var(--navy)}
+  .brand .b2{font-size:9px;font-weight:600;letter-spacing:.15em;color:var(--navy);margin-top:5px;text-transform:uppercase}
+  
+  
+  
+  @media(max-width:680px){}
+  /* hero */
+  .crumb{font-size:12px;color:var(--muted);padding:26px 0 0}
+  .crumb a{text-decoration:none}.crumb a:hover{color:var(--navy)}
+  .hero{padding:22px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a9fe0}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.04;color:var(--navy);margin:14px 0 16px;letter-spacing:-.015em}
+  .lead{font-size:17px;color:#33384e;max-width:70ch}
+  .lead.muted{color:var(--muted);font-size:15px;margin-top:14px}
+  /* sections */
+  section{padding:42px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,32px);color:var(--navy);margin-bottom:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-bottom:22px;max-width:74ch}
+  p{font-size:15.5px;color:#2c3047;margin-bottom:15px;max-width:74ch}
+  p strong{color:var(--ink);font-weight:600}
+  .num{font-family:var(--serif);color:var(--navy)}
+  /* definition rows */
+  .defs{border-top:1px solid var(--line);margin-top:6px}
+  .def{display:grid;grid-template-columns:230px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .def .term{font-family:var(--serif);font-size:19px;color:var(--navy);line-height:1.2}
+  .def .term .tag{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+  .def .body{font-size:14.5px;color:#2c3047}
+  .def .body p{margin-bottom:10px;font-size:14.5px}
+  .def .body p:last-child{margin-bottom:0}
+  .def .body em{color:var(--muted);font-style:normal;font-size:13px;display:block;margin-top:8px}
+  @media(max-width:680px){.def{grid-template-columns:1fr;gap:8px}}
+  /* limitation cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
+  .card{border:1px solid var(--line);border-left:3px solid var(--brass-soft);border-radius:6px;padding:20px;background:var(--paper-2)}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:17px;color:var(--navy);margin-bottom:7px}
+  .card p{font-size:13.5px;color:#3a3f57;margin:0}
+  /* steps */
+  .steps{counter-reset:s;margin-top:8px}
+  .step{display:grid;grid-template-columns:42px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .step .n{counter-increment:s;font-family:var(--serif);font-size:22px;color:var(--brass-soft)}
+  .step .n:before{content:counter(s,decimal-leading-zero)}
+  .step h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .step p{font-size:14px;color:#3a3f57;margin:0}
+  /* faq */
+  .faq{margin-top:6px}
+  .qa{padding:18px 0;border-bottom:1px solid var(--line)}
+  .qa:last-child{border-bottom:0}
+  .qa .q{font-family:var(--serif);font-size:18px;color:var(--navy);margin-bottom:6px}
+  .qa .a{font-size:14.5px;color:#2c3047;max-width:74ch}
+  /* preferred callout */
+  .pref-note{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:var(--gold-bg);padding:4px 10px;border-radius:30px;margin-bottom:14px}
+  /* cta */
+  .cta{background:var(--navy-deep);color:#fff;border-radius:8px;padding:34px;margin:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .cta h2{color:#fff;margin:0}
+  .cta p{color:rgba(255,255,255,.72);margin:8px 0 0;font-size:14px}
+  .cta .btn{background:#fff;color:var(--navy);text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.03em;padding:13px 22px;border-radius:5px;white-space:nowrap}
+  /* disclosures + footer */
+  .disc{font-size:11.5px;line-height:1.7;color:var(--muted);padding:30px 0 0}
+  .disc strong{color:var(--ink);font-weight:600}
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.7);font-size:12px;padding:30px 0;text-align:center;margin-top:42px}
+  footer a{color:rgba(255,255,255,.85)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+/* ===== unified header + institutional footer ===== */
+
+
+
+
+
+@media(max-width:860px){}
+footer{background:var(--navy-deep,#06192e);color:rgba(255,255,255,.66);margin-top:46px}
+footer a{color:rgba(255,255,255,.82);text-decoration:none}
+footer a:hover{color:#fff}
+.f-top{display:grid;grid-template-columns:1.4fr 2fr;gap:48px;padding:54px 32px 38px;max-width:var(--maxw,1180px);margin:0 auto}
+.f-brand .b1{font-family:var(--serif),Georgia,serif;font-size:24px;color:#fff;line-height:1}
+.f-brand .b2{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-2,#6fc3ee);margin-top:6px}
+.f-tag{font-size:13.5px;color:rgba(255,255,255,.6);margin-top:16px;max-width:34ch;line-height:1.6}
+.f-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.f-col{display:flex;flex-direction:column;gap:10px}
+.f-h{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2,#6fc3ee);margin-bottom:2px}
+.f-col a{font-size:13.5px;line-height:1.4}
+.f-addr{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;margin-top:2px}
+.f-legal{max-width:var(--maxw,1180px);margin:0 auto;padding:24px 32px 42px;border-top:1px solid rgba(255,255,255,.12)}
+.f-legal p{font-size:11px;line-height:1.65;color:rgba(255,255,255,.5);margin:0 0 12px 0;max-width:none}
+.f-legal a{color:rgba(255,255,255,.72);text-decoration:underline}
+.f-copy{font-size:11px;color:rgba(255,255,255,.45)}
+@media(max-width:760px){.f-top{grid-template-columns:1fr;gap:30px;padding:40px 20px 26px}.f-cols{grid-template-columns:1fr 1fr}.f-legal{padding:22px 20px 36px}}
+
+/* ===== unified header + institutional footer ===== */
+
+
+
+
+
+@media(max-width:860px){}
+footer{background:var(--navy-deep,#06192e);color:rgba(255,255,255,.66);margin-top:46px}
+footer a{color:rgba(255,255,255,.82);text-decoration:none}
+footer a:hover{color:#fff}
+.f-top{display:grid;grid-template-columns:1.4fr 2fr;gap:48px;padding:54px 32px 38px;max-width:var(--maxw,1180px);margin:0 auto}
+.f-brand .b1{font-family:var(--serif),Georgia,serif;font-size:24px;color:#fff;line-height:1}
+.f-brand .b2{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-2,#6fc3ee);margin-top:6px}
+.f-tag{font-size:13.5px;color:rgba(255,255,255,.6);margin-top:16px;max-width:34ch;line-height:1.6}
+.f-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.f-col{display:flex;flex-direction:column;gap:10px}
+.f-h{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2,#6fc3ee);margin-bottom:2px}
+.f-col a{font-size:13.5px;line-height:1.4}
+.f-addr{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;margin-top:2px}
+.f-legal{max-width:var(--maxw,1180px);margin:0 auto;padding:24px 32px 42px;border-top:1px solid rgba(255,255,255,.12)}
+.f-legal p{font-size:11px;line-height:1.65;color:rgba(255,255,255,.5);margin:0 0 12px 0;max-width:none}
+.f-legal a{color:rgba(255,255,255,.72);text-decoration:underline}
+.f-copy{font-size:11px;color:rgba(255,255,255,.45)}
+@media(max-width:760px){.f-top{grid-template-columns:1fr;gap:30px;padding:40px 20px 26px}.f-cols{grid-template-columns:1fr 1fr}.f-legal{padding:22px 20px 36px}}
+/*BK-ROLLOUT*/
+.brand{display:flex;align-items:center;gap:11px}
+.brand .logo{height:38px;width:auto;display:block}
+.f-brand .logo{height:40px;width:auto;display:block;margin-bottom:16px}
+@media(max-width:760px){.brand .logo{height:31px}}
+.band{background:var(--navy,#0a2540);color:#fff;padding:72px 0;text-align:left}
+.band .wrap{max-width:var(--maxw,1180px);margin:0 auto;padding:0 32px;display:block;position:relative}
+.band .eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-2,#6fc3ee);display:block;margin-bottom:16px}
+.band h2{font-family:var(--serif);font-size:clamp(28px,4vw,44px);color:#fff;max-width:24ch;margin:0;font-weight:400;line-height:1.12}
+.band p{font-size:16px;color:rgba(255,255,255,.84);margin:18px 0 0;max-width:62ch;line-height:1.6}
+.cta-actions{display:flex;flex-wrap:wrap;gap:13px;margin:30px 0 24px}
+.cta-actions .act{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 22px;border:1px solid rgba(255,255,255,.34);color:#fff;text-decoration:none;border-radius:3px;transition:all .2s}
+.cta-actions .act:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.cta-actions .act .ic{width:18px;height:18px;flex:none}
+.cta-actions .act-primary{background:transparent;color:#fff;border-color:rgba(255,255,255,.7);border-radius:40px}
+.cta-actions .act-primary:hover{background:#fff;border-color:#fff;color:#0a2540}
+.cta-direct{font-size:13px;color:rgba(255,255,255,.72);letter-spacing:.02em;margin:0}
+.cta-direct a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32)}
+.cta-direct a:hover{border-color:#fff}
+@media(max-width:600px){.cta-actions .act{flex:1 1 100%;justify-content:center}}
+
+/*BK-LAYOUT-V1*/
+.band+footer{margin-top:0}
+.band{margin-top:64px}
+@media(max-width:680px){.band{margin-top:44px}}
+
+/*BK-V2*/
+/* ===== Nav V2 (declutter + login/register + mega) ===== */
+header .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px;position:relative;flex-wrap:nowrap}
+.nav{display:flex;align-items:center;flex:1 1 auto;min-width:0}
+.nav-toggle-cb{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
+.nav-hamburger{display:none}
+.nav-menu{display:flex;align-items:center;width:100%;gap:10px;flex-wrap:nowrap}
+.nav-primary{display:flex;align-items:center;gap:1px;flex-wrap:nowrap}
+.nav-utility{display:flex;align-items:center;gap:11px;margin-left:auto;flex:none;flex-wrap:nowrap}
+.nav-utility::before{content:"";width:1px;height:22px;background:var(--line,#dce3ea);margin-right:0}
+.nav-item{position:relative}
+.nav a.nav-top{display:inline-flex;align-items:center;gap:5px;padding:8px 9px;font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.005em;text-transform:none;color:var(--ink,#0c1c2e);white-space:nowrap;text-decoration:none;border-radius:5px;background:none;border:none;transition:color .15s,background .15s}
+.nav a.nav-top:hover{color:var(--navy,#0a2540);background:var(--tint,#eef4fa)}
+.nav a.nav-top .cv{width:11px;height:11px;opacity:.5;transition:transform .2s}
+.nav-item:hover>a.nav-top .cv,.nav-item:focus-within>a.nav-top .cv{transform:rotate(180deg);opacity:.85}
+/* login link */
+.nav a.nav-login{display:inline-flex;align-items:center;gap:5px;font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.01em;color:var(--navy,#0a2540);text-decoration:none;white-space:nowrap;padding:7px 4px;border-radius:4px}
+.nav a.nav-login .lk{width:14px;height:14px;opacity:.85}
+.nav a.nav-login:hover{color:var(--navy-deep,#06192e);text-decoration:underline;text-underline-offset:3px}
+/* primary CTA — solid, vertically centered */
+.nav a.cta{display:inline-flex;align-items:center;margin:0;gap:0;flex-wrap:nowrap;justify-content:center;line-height:1;padding:10px 14px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#0a2540;background:transparent;border:1px solid #0a2540;border-radius:40px;white-space:nowrap;text-decoration:none;transition:background .15s,border-color .15s}
+.nav a.cta:hover{background:#0a2540;border-color:#0a2540;color:#fff}
+/* dropdowns */
+.dd{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line,#dce3ea);border-radius:9px;box-shadow:0 22px 50px -22px rgba(6,25,46,.32);padding:9px;opacity:0;visibility:hidden;transform:translateY(7px);transition:opacity .16s ease,transform .16s ease;z-index:90}
+.dd::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-item:hover>.dd,.nav-item:focus-within>.dd{opacity:1;visibility:visible;transform:translateY(0)}
+.dd-list{min-width:286px}
+.nav .dd a{display:block;text-decoration:none;border-radius:6px}
+.nav .dd-list>a:not(.dd-rich):not(.dd-all){padding:10px 13px;font-size:13.5px;font-weight:500;color:var(--ink,#0c1c2e)}
+.nav .dd-list>a:not(.dd-rich):not(.dd-all):hover{background:var(--tint,#eef4fa);color:var(--navy,#0a2540)}
+.nav a.dd-rich{padding:9px 13px}
+.nav a.dd-rich:hover{background:var(--tint,#eef4fa)}
+.dd-rich .dd-t{display:block;font-size:13.5px;font-weight:600;color:var(--ink,#0c1c2e);line-height:1.25}
+.dd-rich:hover .dd-t{color:var(--navy,#0a2540)}
+.dd-rich .dd-d{display:block;font-size:11.5px;color:var(--muted,#5b6b7d);margin-top:2px;line-height:1.3}
+.nav a.dd-all{margin-top:5px;padding:11px 13px 5px;border-top:1px solid var(--line,#dce3ea);font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--gold,#1a9fe0)}
+.nav a.dd-all:hover{color:var(--navy,#0a2540)}
+/* mega */
+.dd.mega{display:flex;gap:8px;padding:14px;min-width:720px;left:auto}
+.dd.mega .mega-main{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;padding:4px 8px 4px 4px}
+.dd.mega .mega-h{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted,#5b6b7d);font-weight:700;padding:4px 13px 8px}
+.dd.mega .mega-sectors{display:grid;grid-template-columns:1fr 1fr;gap:1px 10px}
+.dd.mega .mega-sectors a{padding:7px 13px;font-size:13px;font-weight:500;color:var(--ink,#0c1c2e)}
+.dd.mega .mega-sectors a:hover{background:var(--tint,#eef4fa);color:var(--navy,#0a2540)}
+.mega-feature{flex:0 0 232px;background:var(--navy,#0a2540);color:#fff;border-radius:7px;padding:20px 20px 18px;display:flex;flex-direction:column}
+.mega-feat-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--brass-2,#6fc3ee)}
+.mega-feat-h{font-family:var(--serif),Georgia,serif;font-size:18px;font-weight:400;line-height:1.18;margin-top:9px;color:#fff}
+.mega-feat-p{font-size:12px;line-height:1.5;color:rgba(255,255,255,.78);margin:10px 0 0}
+.nav .mega-feature a.mega-feat-cta{display:inline-block;margin-top:15px;padding:9px 15px;background:#fff;color:var(--navy,#0a2540);border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-align:center}
+.nav .mega-feature a.mega-feat-cta:hover{background:var(--brass-2,#6fc3ee);color:var(--navy-deep,#06192e)}
+.nav .mega-feature a.mega-feat-stat{margin-top:13px;font-size:11px;color:rgba(255,255,255,.72);line-height:1.4;border-top:1px solid rgba(255,255,255,.16);padding-top:11px}
+.nav .mega-feature a.mega-feat-stat:hover{color:#fff}
+/* ===== Footer alignment fix (defeat inherited text-align:center) ===== */
+footer .f-top,footer .f-brand,footer .f-cols,footer .f-col,footer .f-legal{text-align:left}
+footer .f-top{grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;align-items:start}
+footer .f-brand{grid-column:auto}
+footer .f-cols{display:contents}
+footer .f-col{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
+footer .f-brand .logo{margin-left:0}
+footer .f-legal p{margin-left:0;margin-right:0}
+/* ===== Secondary button row (property pages) ===== */
+.btn.ghost{background:transparent;color:var(--navy,#0a2540);border:1px solid var(--brass-soft,#4aa6dd)}
+.btn.ghost:hover{background:var(--navy,#0a2540);color:#fff;border-color:var(--navy,#0a2540)}
+.toolcta{gap:16px!important}
+.toolcta .btn{transition:background .15s,color .15s,border-color .15s}
+@media(max-width:1100px){
+  header .bar{gap:12px}
+  .nav{margin-left:auto;flex:0 0 auto}
+  .nav-hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:40px;cursor:pointer}
+  .nav-hamburger span{display:block;height:2px;width:23px;background:var(--navy,#0a2540);border-radius:2px;transition:transform .22s ease,opacity .22s ease}
+  .nav-toggle-cb:checked ~ .nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle-cb:checked ~ .nav .nav-hamburger span:nth-child(2){opacity:0}
+  .nav-toggle-cb:checked ~ .nav .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav{position:static}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-top:1px solid var(--line,#dce3ea);box-shadow:0 26px 44px -24px rgba(6,25,46,.45);padding:8px 20px 24px;max-height:82vh;overflow-y:auto;z-index:90}
+  .nav-toggle-cb:checked ~ .nav .nav-menu{display:flex}
+  .nav-primary{flex-direction:column;align-items:stretch;gap:0;width:100%}
+  .nav-item{position:static;border-bottom:1px solid var(--line,#dce3ea)}
+  .nav a.nav-top{padding:15px 2px;font-size:15.5px;justify-content:space-between;width:100%}
+  .nav a.nav-top:hover{background:none}
+  .nav a.nav-top .cv{display:none}
+  .dd,.dd.mega{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;border-radius:0;padding:2px 0 12px 12px;min-width:0;display:block}
+  .dd::before{display:none}
+  .dd.mega .mega-main{grid-template-columns:1fr;gap:0;padding:0}
+  .dd.mega .mega-sectors{grid-template-columns:1fr 1fr}
+  .dd.mega .mega-h{padding:12px 2px 4px}
+  .mega-feature{margin-top:12px;flex:none}
+  .nav .dd a,.nav a.dd-rich{padding:10px 2px}
+  .dd.mega .mega-sectors a{padding:9px 2px}
+  .nav a.dd-all{border-top:none;padding:11px 2px 4px}
+  .nav-utility{flex-direction:column;align-items:stretch;gap:12px;margin:16px 0 0;width:100%}
+  .nav-utility::before{display:none}
+  .nav a.nav-login{justify-content:center;padding:13px;border:1px solid var(--line,#dce3ea);border-radius:4px}
+  .nav a.cta{justify-content:center;padding:14px}
+  footer .f-top{grid-template-columns:1fr 1fr;gap:26px}
+}
+@media(max-width:560px){
+  footer .f-top{grid-template-columns:1fr}
+}
+
+
+/*BK-V2-LOGO*/
+header .brand .logo{height:47px;width:auto;display:block;background:none;border:0;border-radius:0}
+.f-brand .logo{height:52px;width:auto;background:none;border:0;border-radius:0}
+</style>
+<link rel="icon" type="image/png" href="/assets/img/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png"><script>/*BK-HSDEFER*/(function(){var done=0,ev=["scroll","mousemove","touchstart","keydown","click"];function load(){if(done)return;done=1;ev.forEach(function(e){window.removeEventListener(e,load)});var s=document.createElement("script");s.type="text/javascript";s.id="hs-script-loader";s.async=1;s.defer=1;s.src="//js-na2.hs-scripts.com/244891969.js";document.body.appendChild(s);}ev.forEach(function(e){window.addEventListener(e,load,{passive:true,once:true})});setTimeout(load,4000);})();</script>
+<style id="b1031-gate-css">.b1031-gate{display:none}html.b1031-needgate .b1031-gate{display:flex}html.b1031-needgate,html.b1031-needgate body{overflow:hidden}.b1031-gate{position:fixed;inset:0;z-index:2147483000;background:rgba(6,25,46,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:20px;font-family:"Inter",system-ui,-apple-system,sans-serif}.b1031-gate__box{background:#fff;max-width:760px;width:100%;max-height:90vh;display:flex;flex-direction:column;border-radius:12px;box-shadow:0 30px 80px rgba(6,25,46,.35);overflow:hidden}.b1031-gate__hd{padding:28px 36px 4px;text-align:center;border-bottom:1px solid #f3f6f9}.b1031-gate__hd img{height:30px;margin:0 auto 14px;display:block}.b1031-gate__hd h2{font-family:"Source Serif 4",Georgia,serif;color:#0a2540;font-size:22px;font-weight:600;margin:0}.b1031-gate__hd p{color:#5b6b7d;font-size:12.5px;margin:10px 0 16px;font-weight:600;letter-spacing:.01em}.b1031-gate__bd{padding:18px 36px;overflow-y:auto;color:#0c1c2e;font-size:13.5px;line-height:1.7;-webkit-overflow-scrolling:touch}.b1031-gate__bd p{margin:0 0 13px}.b1031-gate__bd p:last-child{margin-bottom:0}.b1031-gate__bd strong{color:#0a2540}.b1031-gate__bd a{color:#0a2540;text-decoration:underline}.b1031-gate__ft{padding:16px 36px;border-top:1px solid #dce3ea;display:flex;flex-direction:column;gap:14px;background:#f3f6f9}.b1031-gate__chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#0c1c2e;line-height:1.5;cursor:pointer;user-select:none}.b1031-gate__chk input{margin-top:2px;width:16px;height:16px;flex:none;accent-color:#0a2540;cursor:pointer}.b1031-gate__btns{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}.b1031-gate__ft button{font-family:inherit;font-size:13.5px;font-weight:600;padding:12px 24px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:background .15s}.b1031-gate__leave{background:#e6ebf0;color:#5b6b7d;border-color:#d3dbe4}.b1031-gate__leave:hover{background:#d9e0e8}.b1031-gate__accept{background:#0a2540;color:#fff}.b1031-gate__accept:hover{background:#06192e}.b1031-gate__accept:disabled{background:#6fc3ee;color:#f3f6f9;cursor:not-allowed}.b1031-gate__accept:disabled:hover{background:#6fc3ee}@media(max-width:560px){.b1031-gate__hd,.b1031-gate__bd,.b1031-gate__ft{padding-left:20px;padding-right:20px}.b1031-gate__btns{justify-content:stretch}.b1031-gate__btns button{flex:1 1 auto}}</style><script>try{if(!localStorage.getItem("b1031_disclaimer_ok"))document.documentElement.classList.add("b1031-needgate");}catch(e){document.documentElement.classList.add("b1031-needgate");}</script></head>
+<body><div class="b1031-gate" role="dialog" aria-modal="true" aria-labelledby="b1031-gate-title"><div class="b1031-gate__box"><div class="b1031-gate__hd"><img decoding="async" src="/assets/img/logo.png" alt="Baker 1031 Investments"><h2 id="b1031-gate-title">Welcome to Baker 1031 Investments</h2><p>Please read this notice carefully. You must accept its terms before continuing.</p></div><div class="b1031-gate__bd"><p>This website is for informational purposes only and is intended solely for accredited investors who are U.S. citizens or U.S. permanent residents (green-card holders). Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security. Any offering of securities is made solely through a confidential Private Placement Memorandum (PPM) and related offering documents, which must be read in their entirety before investing.</p><p>For these purposes, an &ldquo;accredited investor&rdquo; is generally defined by the U.S. Securities and Exchange Commission under Rule 501 of Regulation D and includes, among others: a natural person whose earned income exceeded $200,000 (or $300,000 together with a spouse or spousal equivalent) in each of the two most recent years, with a reasonable expectation of the same for the current year; a natural person whose individual net worth, or joint net worth with a spouse or spousal equivalent, exceeds $1,000,000, excluding the value of a primary residence; or a person holding a Series 7, 65, or 82 license in good standing. Certain trusts, entities, and family offices with more than $5,000,000 in assets may also qualify. This is a summary only and is not legal advice; the full SEC definition controls.</p><p>Securities are offered through Aurora Securities, Inc., member FINRA/SIPC. Baker 1031 Investments is independent of Aurora Securities, Inc.</p><p>Investments in Delaware Statutory Trusts (DSTs) and other private real estate programs are speculative, illiquid, and involve substantial risk, including the possible loss of your entire principal. They are suitable only for persons who qualify as accredited investors and who can bear such risks.</p><p>Any performance figures shown are sponsor-reported and have not been independently verified by Baker 1031; where presented, they are net of all fees, sales load, and program expenses and reflect realized or projected results that are not guaranteed. Past performance does not indicate future results. 1031 exchange and tax outcomes depend on your individual circumstances. This site does not provide investment, tax, or legal advice; consult your own advisors. See our <a href="/disclosures">full disclosures</a>.</p><p>Baker 1031 Investments, LLC and Gerald F. &ldquo;Jerry&rdquo; Baker, III are securities brokers only. They are not investment advisers, accountants, or attorneys, and nothing on this website constitutes investment, tax, accounting, or legal advice, a recommendation, or an offer or solicitation. No information or communication provided through this site is advice or assistance of any kind; any decision to invest is made solely by you, in reliance on your own independent judgment and your own professional advisors. To the fullest extent permitted by law, Baker 1031 Investments, LLC and Gerald F. &ldquo;Jerry&rdquo; Baker, III disclaim all liability arising from any use of, or reliance on, this website or its contents.</p><p>By selecting &ldquo;I Agree &mdash; Enter Site,&rdquo; you represent that you are an accredited investor and a U.S. citizen or U.S. permanent resident, that you have read and understood this notice, and that you accept the terms above.</p></div><div class="b1031-gate__ft"><label class="b1031-gate__chk"><input type="checkbox" id="b1031-acc" onchange="document.getElementById('b1031-accept-btn').disabled=!this.checked"> I certify that I am an accredited investor and a U.S. citizen or U.S. permanent resident, and that I have read and accept the terms above.</label><div class="b1031-gate__btns"><button type="button" class="b1031-gate__leave" onclick="window.location.href='https://www.google.com'">Leave site</button><button type="button" id="b1031-accept-btn" class="b1031-gate__accept" disabled onclick="if(!document.getElementById('b1031-acc').checked)return;try{localStorage.setItem('b1031_disclaimer_ok','1')}catch(e){}document.documentElement.classList.remove('b1031-needgate');">I Agree &mdash; Enter Site</button></div></div></div></div>
+<header><div class="wrap bar"><a href="/" class="brand" aria-label="Baker 1031 Investments home"><img decoding="async" class="logo" src="/assets/img/logo.png" alt="Baker 1031 Investments"></a><input type="checkbox" id="navtoggle" class="nav-toggle-cb" hidden><nav class="nav" aria-label="Primary navigation"><label for="navtoggle" class="nav-hamburger" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></label><div class="nav-menu"><div class="nav-primary"><div class="nav-item has-dd"><a href="/strategies/" class="nav-top">Strategies <svg class="cv" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5l4 3.5 4-3.5"/></svg></a><div class="dd dd-list"><a class="dd-rich" href="/strategies/delaware-statutory-trusts/"><span class="dd-t">Delaware Statutory Trusts</span><span class="dd-d">Fractional institutional ownership</span></a><a class="dd-rich" href="/strategies/qualified-opportunity-funds/"><span class="dd-t">Qualified Opportunity Funds</span><span class="dd-d">Defer &amp; potentially reduce gains</span></a><a class="dd-rich" href="/strategies/721-upreit-exchanges/"><span class="dd-t">721 UPREIT Exchanges</span><span class="dd-d">Exchange into REIT OP units</span></a><a class="dd-rich" href="/strategies/mineral-rights-royalties/"><span class="dd-t">Mineral Rights &amp; Royalties</span><span class="dd-d">Real-property royalty interests</span></a><a class="dd-all" href="/strategies/">View all strategies &rarr;</a></div></div><div class="nav-item has-dd has-mega"><a href="/properties/" class="nav-top">Properties <svg class="cv" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5l4 3.5 4-3.5"/></svg></a><div class="dd mega"><div class="mega-main"><div class="mega-col"><div class="mega-h">Explore</div><a class="dd-rich" href="/properties/"><span class="dd-t">Browse all properties</span><span class="dd-d">Current DST &amp; 1031 offerings</span></a><a class="dd-rich" href="/property-types/"><span class="dd-t">Property types</span><span class="dd-d">By sector &amp; structure</span></a><a class="dd-rich" href="/performance/"><span class="dd-t">Full-cycle track record</span><span class="dd-d">634 realized programs</span></a></div><div class="mega-col"><div class="mega-h">By sector</div><div class="mega-sectors"><a href="/property-types/Multifamily/">Multifamily</a><a href="/property-types/Net-Lease-Retail/">Net-Lease Retail</a><a href="/property-types/Industrial/">Industrial</a><a href="/property-types/Medical/">Medical Office</a><a href="/property-types/Self-Storage/">Self-Storage</a><a href="/property-types/Hospitality/">Hospitality</a><a href="/property-types/Student-Housing/">Student Housing</a><a href="/property-types/Senior-Living/">Senior Living</a><a href="/property-types/Office/">Office</a><a href="/property-types/Data-Centers/">Data Centers</a></div></div></div><div class="mega-feature"><div class="mega-feat-eyebrow">Current Inventory</div><div class="mega-feat-h">Offerings for accredited investors</div><p class="mega-feat-p">Reviewed DST and 1031 replacement properties from institutional sponsors, updated as availability changes.</p><a class="mega-feat-cta" href="/contact/">Request access &rarr;</a><a class="mega-feat-stat" href="/performance/">634 full-cycle programs tracked &middot; net of fees</a></div></div></div><div class="nav-item"><a href="/sponsors/" class="nav-top">Sponsors</a></div><div class="nav-item"><a href="/performance/" class="nav-top">Track Record</a></div><div class="nav-item has-dd"><a href="/insights/" class="nav-top">Insights <svg class="cv" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5l4 3.5 4-3.5"/></svg></a><div class="dd dd-list"><a href="/insights/">Investing Memos</a><a href="/learn/">Learning Center</a><a href="/learn/what-is-a-1031-exchange/">What is a 1031 Exchange?</a><a href="/learn/what-is-a-dst/">What is a DST?</a><a href="/learn/1031-exchange-timeline/">The 1031 Timeline</a><a href="/learn/721-exchange-upreit/">721 UPREIT Exchanges</a><a href="/learn/dst-risks-and-considerations/">DST Risks &amp; Considerations</a><a href="/learn/accredited-investor-requirements/">Accredited Investor Rules</a><a class="dd-all" href="/learn/">All insights &rarr;</a></div></div><div class="nav-item has-dd"><a href="/about/" class="nav-top">About <svg class="cv" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5l4 3.5 4-3.5"/></svg></a><div class="dd dd-list"><a href="/about/">About Baker 1031</a><a href="/approach/">Our Approach</a><a href="/team/">Our Team</a><a href="/due-diligence/">Due Diligence</a><a href="/methodology/">Methodology</a><a href="/calculators/">Calculators</a><a href="/contact/">Contact</a><a href="/disclosures/">Disclosures</a></div></div></div><div class="nav-utility"><a href="/properties/" class="nav-login" id="investorLink"><svg class="lk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Investor Login</a><a href="/contact/" class="cta">Request Access</a></div></div></nav></div></header>
+
+<main class="wrap">
+  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Methodology</div>
+
+  <div class="hero">
+    <div class="eyebrow">Methodology</div>
+    <h1>What our numbers mean &mdash; and what they don&rsquo;t.</h1>
+    <p class="lead">Every performance figure on this site carries an asterisk. This is where the asterisk leads. We publish the sources, the definitions, the way we aggregate, and the limitations in plain terms, because a track record an investor can&rsquo;t interrogate isn&rsquo;t worth much.</p>
+    <p class="lead muted">In short: figures are <strong>sponsor-reported</strong>, cover <strong>realized programs only</strong>, are <strong>net of fees and expenses</strong>, and are <strong>not a forecast or a recommendation</strong>. The detail below explains each of those words.</p>
+  </div>
+
+  <section class="reveal">
+    <h2>The data behind the numbers</h2>
+    <p class="sub">Where the figures come from and what they cover.</p>
+    <p><strong>Sources.</strong> Performance is compiled from sponsor-published full-cycle track records, offering materials, investor reporting, and public filings. We present these figures <strong>as reported by the sponsor</strong>. We do not audit, recalculate, or independently verify them, and a sponsor&rsquo;s reporting conventions are its own.</p>
+    <p><strong>Scope.</strong> Aggregate statistics reflect <strong>full-cycle (realized) programs</strong> &mdash; offerings that have been acquired, operated, and ultimately sold or otherwise liquidated, so that total investor proceeds are known. Active and unrealized programs are excluded until they complete. This is the single most important thing to understand about every average shown, and the reason the limitations section below exists.</p>
+    <p><strong>Coverage.</strong> Sponsor profiles span the institutional 1031 / DST universe we track. A subset are designated <em>preferred sponsors</em>, reflecting the depth of our diligence coverage &mdash; defined precisely further down. Figures are refreshed as sponsors publish updated track records; they are point-in-time, not continuously audited.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>What each metric means</h2>
+    <p class="sub">Definitions as we use them. Where a sponsor reports a figure on a different basis, we present it as reported rather than normalize across sponsors &mdash; so read these as the common meaning, not a guarantee of identical calculation.</p>
+    <div class="defs">
+
+      <div class="def">
+        <div class="term">Full-Cycle Program<span class="tag">a.k.a. Realized</span></div>
+        <div class="body">
+          <p>An offering that has completed its life cycle &mdash; raised, deployed, operated, and exited (sold, refinanced to liquidation, or otherwise wound down) &mdash; so that the total return to investors is known and final.</p>
+          <em>Active and ongoing programs are not full-cycle and are excluded from realized averages.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Average Annual Return<span class="tag">Annualized, sponsor-reported</span></div>
+        <div class="body">
+          <p>The average annualized total return realized across a sponsor&rsquo;s full-cycle programs, as the sponsor reports it. Total return generally combines distributions received during the hold with the gain or loss at sale. These figures are reported <strong>net</strong> of fees, sponsor load, and program expenses.</p>
+          <em>Methodologies vary: some sponsors report an internal rate of return (IRR), others an average annual yield plus appreciation. We do not reconcile these to a single basis. A simple average of program-level returns also weights a small deal the same as a large one.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Equity Multiple<span class="tag">&ldquo;x&rdquo;</span></div>
+        <div class="body">
+          <p>Total cash returned to an investor divided by the equity originally invested. A 1.8x multiple means $1.00 invested returned $1.80 in total &mdash; original capital plus $0.80 of profit &mdash; over the hold.</p>
+          <em>A multiple ignores time: 1.8x over four years and 1.8x over twelve years are very different annualized outcomes. Read it alongside hold period.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Hold Period<span class="tag">Years</span></div>
+        <div class="body">
+          <p>The time from a program&rsquo;s acquisition to its exit, in years. Averages are across realized programs.</p>
+          <em>DSTs are illiquid and the hold is determined by the sponsor&rsquo;s business plan, not the investor; realized averages do not promise any future program&rsquo;s timeline.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Success Rate<span class="tag">Share of realized programs</span></div>
+        <div class="body">
+          <p>The share of a sponsor&rsquo;s full-cycle programs that returned at least an investor&rsquo;s original invested equity &mdash; i.e., did not result in a loss of principal &mdash; as reported by the sponsor.</p>
+          <em>Definitions differ by sponsor; some define success as meeting a target return rather than simply avoiding loss. A high success rate measures avoidance of loss across realized deals, not the size of gains, and excludes any active program not yet resolved.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Assets Under Management<span class="tag">AUM</span></div>
+        <div class="body">
+          <p>The sponsor&rsquo;s reported total assets under management across its platform &mdash; a measure of scale and tenure, not of DST-program performance.</p>
+          <em>Firm-wide AUM may include strategies unrelated to 1031 / DST offerings, so it can overstate a sponsor&rsquo;s relevance to a given exchange.</em>
+        </div>
+      </div>
+
+      <div class="def">
+        <div class="term">Mean vs. Median<span class="tag">How we present averages</span></div>
+        <div class="body">
+          <p>Where we lead with a <strong>mean</strong> (simple average), we show the <strong>median</strong> (midpoint) alongside it. The mean is pulled upward by a few exceptional outcomes; the median better reflects a typical program.</p>
+          <em>When the two diverge, the spread is the story &mdash; averages conceal dispersion, and dispersion is risk.</em>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>How we aggregate</h2>
+    <p class="sub">Turning many programs into one number.</p>
+    <p>Aggregate statistics are computed <strong>across realized programs</strong>, generally equal-weighting each program unless a figure is explicitly stated as dollar-weighted. We report sponsor-universe figures and preferred-sponsor figures separately, and we lead with the mean while disclosing the median so the distribution isn&rsquo;t hidden behind a single headline.</p>
+    <p>Because sponsors report on differing bases, an aggregate blends programs of different vintages, asset types, leverage levels, and structures. We treat these aggregates as <strong>directional context</strong> for evaluating a sponsor&rsquo;s history &mdash; not as a precise, like-for-like benchmark, and never as an expected return for any specific offering.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>What these numbers are not</h2>
+    <p class="sub">The limitations, stated as plainly as the figures themselves.</p>
+    <div class="cards">
+      <div class="card"><h3>Survivorship</h3><p>Realized-only means a sponsor&rsquo;s currently active or troubled programs aren&rsquo;t yet in the average. A clean full-cycle record can coexist with strained active deals.</p></div>
+      <div class="card"><h3>Net &mdash; but taxes vary</h3><p>Figures are net of selling and dealer-manager commissions, sponsor load, and program fees and expenses. Your own after-tax result still depends on your circumstances, entry point, and holding period.</p></div>
+      <div class="card"><h3>Not normalized</h3><p>Different sponsors compute returns differently. We don&rsquo;t force them onto one basis, so cross-sponsor comparisons are imperfect.</p></div>
+      <div class="card"><h3>Dispersion</h3><p>An average is not a typical outcome. Individual programs range widely around it; some return less than invested capital.</p></div>
+      <div class="card"><h3>Unverified</h3><p>Performance is sponsor-reported and compiled from sponsor and public sources. We have not independently audited it.</p></div>
+      <div class="card"><h3>Not a forecast</h3><p>Past full-cycle results do not indicate, predict, or guarantee the outcome of any current or future offering.</p></div>
+      <div class="card"><h3>Not a recommendation</h3><p>Nothing here is investment, tax, or legal advice, an offer, or a solicitation. Suitability is determined for each investor through offering documents.</p></div>
+      <div class="card"><h3>Structural risk</h3><p>DST interests are illiquid securities; a 1031 exchange can fail to qualify for tax deferral. Loss of principal is possible.</p></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="pref-note">Preferred = Coverage, not endorsement</span>
+    <h2>How a sponsor becomes &ldquo;preferred&rdquo;</h2>
+    <p class="sub">What the designation reflects &mdash; and what it deliberately does not.</p>
+    <p>A <strong>preferred sponsor</strong> is one whose platform, programs, and reporting we cover in depth. The designation reflects the breadth of our diligence relationship, not a rating, ranking, endorsement, or any assurance about a program&rsquo;s outcome. Coverage considerations include:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div><h3>Tenure and full-cycle history</h3><p>A multi-cycle operating record, including how programs performed through a downturn, not only in a rising market.</p></div></div>
+      <div class="step"><div class="n"></div><div><h3>Transparency of reporting</h3><p>Consistent, accessible investor reporting and full-cycle disclosure &mdash; including the deals that didn&rsquo;t work.</p></div></div>
+      <div class="step"><div class="n"></div><div><h3>Asset and strategy focus</h3><p>Demonstrated specialization in the property types and structures a sponsor underwrites, rather than opportunistic drift.</p></div></div>
+      <div class="step"><div class="n"></div><div><h3>Structural and sponsor diligence</h3><p>Review of program structure, leverage, fees, and the sponsor&rsquo;s organizational depth and alignment.</p></div></div>
+    </div>
+    <p style="margin-top:18px">Designation can change as coverage evolves, and a sponsor&rsquo;s absence from the preferred list is not a negative judgment. Every offering &mdash; preferred or not &mdash; is evaluated on its own facts and is subject to registered-principal review before it is presented.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <div class="qa"><div class="q">Are these returns net of fees and taxes?</div><div class="a">Yes &mdash; net of selling and dealer-manager commissions, sponsor load, and ongoing program fees and expenses. Your individual tax result still depends on your own circumstances, so we don&rsquo;t represent the figures as net of your personal taxes.</div></div>
+      <div class="qa"><div class="q">Do the averages include deals that lost money?</div><div class="a">They include every full-cycle program a sponsor reports, including those that returned less than invested capital. They exclude active, unrealized programs &mdash; so a sponsor&rsquo;s currently troubled deals are not yet reflected.</div></div>
+      <div class="qa"><div class="q">Has Baker independently verified the figures?</div><div class="a">No. Performance is sponsor-reported and compiled from sponsor and public sources. We present it as reported and do not audit or recalculate it.</div></div>
+      <div class="qa"><div class="q">Does &ldquo;preferred&rdquo; mean Baker recommends a sponsor?</div><div class="a">No. Preferred reflects the depth of our diligence coverage, not an endorsement, rating, or guarantee of any program&rsquo;s outcome.</div></div>
+      <div class="qa"><div class="q">Can I rely on these numbers to choose an investment?</div><div class="a">No single figure should drive a decision. They are context for evaluating a sponsor&rsquo;s history. Any investment decision is made through an offering&rsquo;s documents, with your own tax and legal advisors, after a suitability determination.</div></div>
+    </div>
+  </section>
+
+  <section class="reveal" style="border-bottom:0">
+    <div class="cta">
+      <div>
+        <h2>See the record itself.</h2>
+        <p>Review sponsor-level track records, or request access to current 1031 / DST inventory.</p>
+      </div>
+      <a href="/sponsors/" class="btn">View sponsors &rarr;</a>
+    </div>
+    <div class="disc">
+      <p><strong>Important disclosures.</strong> This page describes how Baker 1031 Investments compiles and defines the performance information presented across this site. All performance is <strong>sponsor-reported</strong>, compiled from sponsor and public sources, <strong>not independently verified</strong>, and subject to change. Aggregate figures reflect <strong>realized (full-cycle) programs only</strong> and are therefore subject to <strong>survivorship bias</strong>; they are averaged across differing assets, vintages, leverage, and structures, are <strong>net of fees, sponsor load, and program expenses</strong>, and are <strong>not indicative of future results</strong>. Nothing herein is investment, tax, or legal advice, a recommendation, an offer to sell, or a solicitation of an offer to buy any security. DST and related securities are speculative and illiquid and involve substantial risk, including possible loss of principal and the risk that a 1031 exchange fails to qualify for tax deferral; consult your own tax and legal advisors. Designation as a preferred sponsor reflects diligence coverage, not an endorsement. For accredited investors as defined under SEC Rule 501 of Regulation&nbsp;D. Securities offered through Aurora Securities, Inc. (ASI), member FINRA/SIPC; all performance content is subject to registered-principal approval.</p>
+    </div>
+  </section>
+</main>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Better Call Jerry</span>
+    <h2>Most exchanges are won before the clock starts.</h2>
+    <p>A 1031 exchange runs on hard deadlines &mdash; 45 days to identify, 180 to close. The decision behind it deserves more room than that. Reach Jerry directly, while every option is still open.</p>
+    <div class="cta-actions">
+      <a href="tel:+14155791660" class="act act-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Jerry</a>
+      <a href="sms:+14155791660" class="act"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>Text Jerry</a>
+      <a href="/schedule/" class="act"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule a Meeting</a>
+      <a href="/contact/" class="act"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Request Investment Access</a>
+    </div>
+    <p class="cta-direct">Direct line <a href="tel:+14155791660">+1&nbsp;415&nbsp;579&nbsp;1660</a> &middot; <a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
+  </div>
+</section>
+<footer><div class="f-top"><div class="f-brand"><a href="/" class="f-logo-link" aria-label="Baker 1031 Investments home"><img decoding="async" class="logo" src="/assets/img/logo-white.png" alt="Baker 1031 Investments"></a><p class="f-tag">Independent, institutional DST and 1031 exchange advisory for accredited investors.</p></div><div class="f-cols"><div class="f-col"><div class="f-h">Firm</div><a href="/about/">About</a><a href="/approach/">Our Approach</a><a href="/team/">Our Team</a><a href="/due-diligence/">Due Diligence</a><a href="/strategies/">Strategies</a><a href="/sponsors/">Sponsors</a><a href="/methodology/">Methodology</a><a href="/disclosures/">Disclosures</a></div><div class="f-col"><div class="f-h">Explore</div><a href="/properties/">Properties</a><a href="/property-types/">Property Types</a><a href="/calculators/">Calculators</a><a href="/insights/">Insights</a><a href="/learn/">Learning Center</a><a href="/contact/">Contact</a></div><div class="f-col"><div class="f-h">Contact</div><a href="tel:+14155791660">+1 415 579 1660</a><a href="mailto:invest@baker1031.com">invest@baker1031.com</a><span class="f-addr">650 California Street, 7th Floor<br>San Francisco, CA 94108</span></div></div></div><div class="f-legal"><p>Securities offered through Aurora Securities, Inc. (ASI), member <a href="https://www.finra.org" target="_blank" rel="noopener">FINRA</a>/<a href="https://www.sipc.org" target="_blank" rel="noopener">SIPC</a>. Baker 1031 Investments is independent of Aurora Securities, Inc. <a href="https://brokercheck.finra.org/" target="_blank" rel="noopener">Check this firm on FINRA BrokerCheck</a> &middot; <a href="https://irp.cdn-website.com/1764ea31/files/uploaded/Aurora+Form+CRS.pdf" target="_blank" rel="noopener">Aurora Securities Form CRS</a>.</p><p>For accredited investors only. This website is for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any security; any offer is made solely through a sponsor&rsquo;s private placement memorandum following a suitability determination. Calculators and property-type profiles provide educational illustrations only and are not tax, legal, or investment advice, offers, or projections. Investments in DSTs, Qualified Opportunity Funds, 721 UPREIT transactions, mineral and royalty interests, and other real estate securities are speculative and illiquid and involve substantial risk, including possible loss of principal, lack of control, and the potential failure of a 1031 exchange to qualify for tax deferral. Performance information is sponsor-reported, reflects realized (full-cycle) programs only, is net of all fees and expenses, has not been independently verified, and is not indicative of future results. Tax treatment depends on individual circumstances; Baker 1031 Investments does not provide tax or legal advice. This site is published for U.S. residents only; representatives may transact business only in states where registered or exempt.</p><p class="f-copy">&copy; 2026 Baker 1031 Investments &middot; For accredited investors only &middot; Member FINRA/SIPC</p></div></footer>
+
+<script>
+  (function(){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+  })();
+</script>
+<script>/*BK-AUTHNAV*/(function(){try{var r=JSON.parse(localStorage.getItem("bk_access")||"null");if(!(r&&r.ok&&(Date.now()-r.ts)<2592000000))return;var a=document.getElementById("investorLink");if(!a)return;a.href="#";a.setAttribute("aria-label","Log out");a.innerHTML='<svg class="lk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Logout';a.onclick=function(e){e.preventDefault();try{localStorage.removeItem("bk_access")}catch(_){}location.href="/"};}catch(e){}})();</script></body>
+</html>

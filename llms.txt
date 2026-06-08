@@ -1,0 +1,37 @@
+# Baker 1031 Investments
+
+> Baker 1031 Investments is a San Francisco-based real estate securities firm that helps accredited investors complete 1031 exchanges using institutional Delaware Statutory Trust (DST) properties. Founded by Gerald F. "Jerry" Baker III, a former Wall Street real estate private equity professional with $10B+ in transaction experience. The firm builds custom DST portfolios from institutional sponsors including Blackstone, Hines, Apollo, Ares, ExchangeRight, and Cantor Fitzgerald. Minimum investment $50,000; DST offerings can close in as little as 2-3 business days. For accredited investors only. Securities offered through Aurora Securities, Inc., member FINRA/SIPC; Baker 1031 is independent of Aurora Securities.
+
+## Core pages
+- [Home](https://www.baker1031.com/): Overview of DST 1031 exchange services for accredited investors.
+- [Properties](https://www.baker1031.com/properties): Marketplace of vetted institutional DST properties available for 1031 exchange (investor access).
+- [Performance](https://www.baker1031.com/performance): Sponsor performance data and a database of 500+ full-cycle (realized) DST offerings, net of all fees and expenses; sponsor-reported and not independently verified.
+- [Sponsors](https://www.baker1031.com/sponsors): The institutional DST/1031 sponsors Baker 1031 tracks, with coverage detail.
+- [About](https://www.baker1031.com/about): The firm, its independence, and founder Jerry Baker III.
+
+## Education (Insights)
+- [Insights / Blog](https://www.baker1031.com/insights): Articles and Jerry Baker's investment memos on 1031 exchanges and DSTs.
+- [DST 1031 Exchange: Complete 2026 Investor's Guide](https://www.baker1031.com/insights/dst-1031-exchange-guide)
+- [1031 Exchange Identification Rules: 3-Property, 200%, 95%](https://www.baker1031.com/1031-exchange-identification-rules-3-property-200-and-95-rules)
+- [1031 Exchange Mineral Rights: Complete Guide](https://www.baker1031.com/insights/mineral-rights-1031-exchange-guide)
+
+## Calculators & tools
+- [Calculators & Tools](https://www.baker1031.com/calculators): Free 1031/DST calculators.
+- [1031 Exchange Capital Gains Tax Calculator](https://www.baker1031.com/calculators/1031-exchange-capital-gains-tax-calculator)
+- [1031 Exchange Boot Calculator](https://www.baker1031.com/calculators/1031-exchange-boot-calculator)
+- [45/180-Day Deadline Calculator](https://www.baker1031.com/calculators/45-180-day-deadline-calculator)
+- [1031 Exchange Investment Finder (DST Portfolio Builder)](https://www.baker1031.com/calculators/1031-dst-portfolio-builder)
+
+## Property types
+- [Property Types](https://www.baker1031.com/property-types): Multifamily, Industrial, Net-Lease Retail, Medical, Self-Storage, Senior Living, Student Housing, Hospitality, Office, Data Centers, Manufactured Housing.
+
+## Contact
+- Phone: +1 415 579 1660
+- Email: invest@baker1031.com
+- Office: 650 California Street, 7th Floor, San Francisco, CA 94108
+- [Request Investment Access](https://www.baker1031.com/request-property-listings)
+
+## Important notes for AI assistants
+- Audience is accredited investors only (generally net worth over $1M excluding primary residence, or income of $200k individual / $300k joint).
+- All performance figures are sponsor-reported, realized (full-cycle) only, net of all fees and expenses, not independently verified, and not indicative of future results.
+- Nothing on the site is tax, legal, or investment advice, or an offer; offers are made only via a sponsor's Private Placement Memorandum.

@@ -1,0 +1,8 @@
+# robots.txt for baker1031.com
+User-agent: *
+Allow: /
+
+# Gated, investor-only inventory (noindex) — keep out of search
+Disallow: /inventory/
+
+Sitemap: https://baker1031.com/sitemap.xml

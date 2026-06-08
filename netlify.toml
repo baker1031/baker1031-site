@@ -1,0 +1,81 @@
+[build]
+  command = "python3 build.py"
+  publish = "."
+
+# Baker 1031 Investments — Netlify configuration
+# Deploy: publish the site bundle root (this file sits at the root next to index.html).
+#
+# HOST CANONICALIZATION (www) — also set the primary domain to
+# "www.baker1031.com" under Netlify > Domain management so Netlify issues the
+# apex->www redirect automatically. The explicit rules below are belt-and-suspenders.
+#
+# TRAILING SLASH — every page's <link rel="canonical"> points to the no-trailing-slash
+# www URL (matching the live sitemap). Netlify serves /about/index.html at /about with
+# no forced trailing slash, so the served URL matches the canonical. Leave
+# "Pretty URLs" enabled in Netlify's asset settings.
+
+# --- Force apex -> www (match the live canonical host) ---
+[[redirects]]
+  from = "https://baker1031.com/*"
+  to = "https://www.baker1031.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://baker1031.com/*"
+  to = "https://www.baker1031.com/:splat"
+  status = 301
+  force = true
+
+# --- Legacy live URLs that have no 1:1 page on the new site ---
+# /request-property-listings -> Contact (per item 3)
+[[redirects]]
+  from = "/request-property-listings"
+  to = "/contact"
+  status = 301
+[[redirects]]
+  from = "/request-property-listings/"
+  to = "/contact"
+  status = 301
+
+# Friendly /intro-call -> Schedule (per item 3)
+[[redirects]]
+  from = "/intro-call"
+  to = "/schedule"
+  status = 301
+[[redirects]]
+  from = "/intro-call/"
+  to = "/schedule"
+  status = 301
+
+# --- Consolidate the two "what is…" explainers into the /learn hub (item 4) ---
+# These two topics live in /learn for topical grouping; the legacy /insights URLs
+# 301 into them so ranking equity transfers without duplicate content.
+[[redirects]]
+  from = "/insights/what-is-721-exchange-upreit-dst"
+  to = "/learn/721-exchange-upreit"
+  status = 301
+[[redirects]]
+  from = "/insights/what-is-a-delaware-statutory-trust-dst-guide-1031-exchange"
+  to = "/learn/what-is-a-dst"
+  status = 301
+
+# --- Safety net: any old /inventory/* path -> /properties/* ---
+[[redirects]]
+  from = "/inventory/*"
+  to = "/properties/:splat"
+  status = 301
+
+# --- Security / SEO headers ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
