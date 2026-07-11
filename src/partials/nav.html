@@ -1,3 +1,62 @@
+  <style>
+    /* ---------- nav dropdowns (scoped to the partial) ---------- */
+    .main-nav .nav-item { position: relative; }
+    .main-nav .nav-drop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -14px;
+      padding-top: 10px;
+      z-index: 60;
+    }
+    .main-nav .nav-item:hover .nav-drop,
+    .main-nav .nav-item:focus-within .nav-drop { display: block; }
+    .main-nav .nav-drop-inner {
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+      min-width: 235px;
+      padding: 10px 0;
+    }
+    .main-nav .nav-drop a {
+      display: block;
+      font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 14px;
+      color: #243856;
+      padding: 6px 16px;
+      white-space: nowrap;
+    }
+    .main-nav .nav-drop a:hover { color: #0099ff; }
+    .main-nav .nav-drop a::after { content: none; }
+    .main-nav .nav-drop a::before {
+      content: "\276F";
+      display: inline-block;
+      color: #ff9900;
+      font-weight: 900;
+      font-size: 11px;
+      margin-right: 7px;
+    }
+    .mobile-menu a.sub {
+      font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 14px;
+      padding: 5px 0 5px 18px;
+    }
+    .mobile-menu a.sub::before {
+      content: "\276F";
+      display: inline-block;
+      color: #ff9900;
+      font-weight: 900;
+      font-size: 11px;
+      margin-right: 7px;
+    }
+  </style>
+
   <nav class="top-links">
     <a href="#">Client Login</a>
     <a href="contact.html">Request Investment Access</a>
@@ -7,20 +66,95 @@
     <img class="logo" src="assets/logo.png" alt="Baker 1031 Investments logo">
     <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
     <nav class="main-nav">
-      <a href="investments.html">Investments</a>
-      <a href="strategies.html">Strategies</a>
-      <a href="insights.html">Insights</a>
-      <a href="faq.html">Resources</a>
-      <a href="about.html">About</a>
+      <div class="nav-item">
+        <a href="investments.html">Investments</a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a href="investments.html">Browse Offerings</a>
+          <a href="property-types.html">Property Types</a>
+          <a href="contact.html">Request Investment Access</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="strategies.html">Strategies</a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a href="delaware-statutory-trusts.html">Delaware Statutory Trusts</a>
+          <a href="1031-exchanges.html">1031 Exchanges</a>
+          <a href="721-exchange-upreit.html">721 Exchanges (UPREIT)</a>
+          <a href="opportunity-zone-funds.html">Opportunity Zone Funds</a>
+          <a href="mineral-royalty-interests.html">Mineral &amp; Royalty Interests</a>
+          <a href="reits.html">REITs</a>
+          <a href="strategies.html">All Strategies</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="insights.html">Insights</a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a href="insights.html">All Insights</a>
+          <a href="guides.html">Guides &amp; Learning Center</a>
+          <a href="1031-exchange-guide.html">1031 Exchange Guide</a>
+          <a href="dst-guide.html">DST Guide</a>
+          <a href="721-exchange-guide.html">721 / UPREIT Guide</a>
+          <a href="opportunity-zones-guide.html">Opportunity Zones Guide</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="faq.html">Resources</a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a href="faq.html">FAQ</a>
+          <a href="calculators.html">Calculators</a>
+          <a href="glossary.html">Glossary</a>
+          <a href="tax-center.html">Tax Center</a>
+          <a href="sponsors.html">Sponsor Directory</a>
+          <a href="data-center.html">Market Data Center</a>
+          <a href="1031-exchange.html">1031 Exchange by State</a>
+          <a href="for-advisors-cpas.html">For Advisors &amp; CPAs</a>
+          <a href="for-agents-brokers.html">For Agents &amp; Brokers</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="about.html">About</a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a href="about.html">About Baker 1031</a>
+          <a href="our-approach.html">Our Approach</a>
+          <a href="methodology.html">Methodology</a>
+          <a href="due-diligence.html">Due Diligence</a>
+          <a href="team-partners.html">Our Team</a>
+          <a href="jerry-baker-bio.html">Jerry Baker</a>
+          <a href="contact.html">Contact an Advisor</a>
+        </div></div>
+      </div>
     </nav>
   </header>
 
   <nav class="mobile-menu" id="mobileMenu">
     <a href="investments.html">Investments</a>
+    <a class="sub" href="investments.html">Browse Offerings</a>
+    <a class="sub" href="property-types.html">Property Types</a>
     <a href="strategies.html">Strategies</a>
+    <a class="sub" href="delaware-statutory-trusts.html">Delaware Statutory Trusts</a>
+    <a class="sub" href="1031-exchanges.html">1031 Exchanges</a>
+    <a class="sub" href="721-exchange-upreit.html">721 Exchanges (UPREIT)</a>
+    <a class="sub" href="opportunity-zone-funds.html">Opportunity Zone Funds</a>
+    <a class="sub" href="mineral-royalty-interests.html">Mineral &amp; Royalty Interests</a>
+    <a class="sub" href="reits.html">REITs</a>
     <a href="insights.html">Insights</a>
+    <a class="sub" href="guides.html">Guides &amp; Learning Center</a>
     <a href="faq.html">Resources</a>
+    <a class="sub" href="faq.html">FAQ</a>
+    <a class="sub" href="calculators.html">Calculators</a>
+    <a class="sub" href="glossary.html">Glossary</a>
+    <a class="sub" href="tax-center.html">Tax Center</a>
+    <a class="sub" href="sponsors.html">Sponsor Directory</a>
+    <a class="sub" href="data-center.html">Market Data Center</a>
+    <a class="sub" href="1031-exchange.html">1031 Exchange by State</a>
+    <a class="sub" href="for-advisors-cpas.html">For Advisors &amp; CPAs</a>
+    <a class="sub" href="for-agents-brokers.html">For Agents &amp; Brokers</a>
     <a href="about.html">About</a>
+    <a class="sub" href="our-approach.html">Our Approach</a>
+    <a class="sub" href="methodology.html">Methodology</a>
+    <a class="sub" href="team-partners.html">Our Team</a>
+    <a class="sub" href="jerry-baker-bio.html">Jerry Baker</a>
+    <a class="sub" href="contact.html">Contact an Advisor</a>
     <hr class="menu-divider">
     <a class="secondary" href="#">Client Login</a>
     <a class="secondary" href="contact.html">Request Investment Access</a>
