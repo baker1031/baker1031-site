@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Across State Lines | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Across State Lines
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Across State Lines</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">You can exchange property in one state for property in another — the federal 1031 rules apply uniformly nationwide. But a cross-state exchange brings multistate tax filing, clawback and reporting states, and the challenge of sourcing out-of-state replacements. This guide explains how to handle an exchange across state lines and coordinate the professionals involved.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Investors often want to exchange out of property in one state and into property in another — to relocate their real estate to a different market, follow opportunities, move toward a state where they live or plan to retire, or diversify geographically. The good news is that the federal 1031 rules permit this freely: U.S. real property is like-kind to other U.S. real property regardless of state, so a cross-state exchange qualifies just like an in-state one. But exchanging across state lines adds complexity the federal rules don't address — multistate tax filing, the clawback and reporting requirements some states impose, and the practical challenge of sourcing and diligencing replacement property in an unfamiliar state. This guide explains that you can exchange across states, the multistate tax issues, the clawback states, how to source out-of-state replacements, and how to coordinate the professionals a cross-state exchange requires.</p>
+<h2 id="can-exchange-across">You can exchange across states</h2>
+<p>The foundational point is that you can exchange property across state lines — there's no federal restriction. The like-kind standard treats all U.S. real property held for investment as like-kind to all other U.S. real property held for investment, regardless of where it's located. So relinquishing a property in one state and acquiring a replacement in another is a valid like-kind exchange; the geographic difference doesn't affect the federal qualification. An investor in California can exchange into Texas property, or a New York owner into Florida real estate, with the gain deferred just as in an in-state exchange.</p>
+<p>This geographic flexibility is one of the 1031's valuable features. It lets investors relocate their real estate holdings — moving from a market they want to exit into one they prefer, consolidating out-of-state properties closer to home, or spreading holdings across multiple states for diversification, all tax-deferred. An investor isn't confined to reinvesting in the same state; the entire country's investment real estate is available as replacement property. This freedom to exchange across state lines is what makes the 1031 a tool for geographic repositioning, not just same-market trading.</p>
+<p>The only geographic limitation in the like-kind rules is that U.S. real property is like-kind only to other U.S. real property — foreign real estate is like-kind to other foreign real estate, not to U.S. property. So you can't exchange a U.S. property for a foreign one (or vice versa) and qualify. But within the United States, you can exchange across any state lines freely. The federal rules' indifference to which state the properties are in is what enables cross-state exchanges — the complexity comes not from the federal qualification, which is uniform, but from the state-level tax issues that a cross-state exchange raises, which the rest of this guide addresses.</p>
+<h2 id="multistate-filing">Multistate tax filing issues</h2>
+<p>A cross-state exchange can create multistate tax filing obligations, because more than one state may have a claim on the income. The state where the relinquished property is located (the source state) generally has the right to tax gain from property within its borders, and the state where you reside generally taxes its residents on income from all sources. So a cross-state exchange potentially involves the source state, your residence state, and the state where the replacement is located, each with its own filing and tax considerations.</p>
+<p>In a fully-deferred exchange, the gain is deferred at both the federal and (for conforming states) state level, so there may be no current state tax — but filing obligations can still arise. The source state may require reporting the exchange (especially clawback states, discussed next), and your residence state's return reflects your overall situation. As you hold the out-of-state replacement and eventually generate income or sell it, the relevant states' tax rules apply. The multistate dimension means a cross-state exchange isn't just a federal matter; it touches the tax systems of multiple states, each of which must be considered.</p>
+<p>The interaction of source-state and residence-state taxation, with credits to avoid double taxation, is the core multistate issue. Most states tax their residents on out-of-state income but credit tax paid to the source state, so the same income isn't taxed twice — but the mechanics vary, and the filing requirements in each state must be met. For a cross-state exchange, this means coordinating the tax treatment across the source state, residence state, and replacement state, which a CPA familiar with multistate taxation handles. The federal deferral is uniform, but the state filing and tax picture depends on the specific states involved, making multistate coordination an essential part of a cross-state exchange that an in-state exchange doesn't require.</p>
+<div class="pullquote"><p>The federal deferral is uniform, but a cross-state exchange touches the source state, your residence state, and the replacement state — each with its own filing and tax considerations.</p></div>
+<h2 id="clawback-states">Clawback &amp; reporting states</h2>
+<p>The most important state-level wrinkle in cross-state exchanges is the clawback provision that some states impose, most prominently California. A clawback provision lets a state tax previously deferred gain when you eventually sell an out-of-state replacement without doing another exchange. When you exchange a property in a clawback state into out-of-state property, the state defers the gain at the time of the exchange but tracks it — and reclaims the tax when you finally sell the out-of-state replacement in a taxable transaction.</p>
+<p>California's version requires annual reporting (FTB Form 3840) of the deferred California-source gain for as long as you hold the out-of-state replacement, and taxes that gain when the replacement is sold. Other states, including Massachusetts, Montana, and Oregon among others, have adopted clawback or special reporting provisions for out-of-state replacements, with the specifics varying — we walk through these in our guide to <a href="insights.html">state-specific 1031 rules and the California clawback</a>. The common purpose is to preserve the state's ability to tax gain from in-state property even after it's exchanged into out-of-state assets — the state defers but doesn't forgive.</p>
+<p>For a cross-state exchanger, the clawback and reporting rules mean the source state's tax isn't necessarily escaped by moving out of state — it may resurface on a later taxable sale, and annual reporting may be required in the meantime. This doesn't prevent the exchange or the federal deferral, but it's a critical planning consideration: you must comply with any required annual filings (failing to file can trigger the deferred gain), and plan for the eventual state tax when the replacement sells (unless you keep exchanging). Because clawback rules vary and not every state has them, the relevant rules depend on the source state. A CPA familiar with the source state's rules identifies any clawback or reporting obligations and helps you plan for them — an essential step in any cross-state exchange out of a clawback state.</p>
+<h2 id="sourcing-replacements">Sourcing out-of-state replacements</h2>
+<p>Beyond the tax issues, a practical challenge of cross-state exchanges is sourcing and diligencing replacement property in a state you may not know well. In your home market, you understand the neighborhoods, the values, and the dynamics; in an unfamiliar state, you lack that local knowledge, which makes finding and evaluating suitable replacement property harder — and the 45-day clock leaves little time to climb the learning curve. Sourcing out-of-state replacements is one of the main practical hurdles of a cross-state exchange.</p>
+<p>Several approaches address this. Working with a local broker or advisor in the target state provides local market knowledge and access to opportunities. Using a national advisor with reach across states can help source and vet replacements in unfamiliar markets. And DSTs are especially valuable for cross-state exchanges, because they let you exchange into professionally-managed, diversified real estate (often spanning multiple states) without needing to source and diligence a specific out-of-state property yourself — the sponsor has done the work, and you gain geographic diversification in one turnkey step.</p>
+<p>DSTs in particular turn the sourcing challenge into a non-issue for many cross-state exchangers. Rather than trying to find and evaluate a direct property in an unfamiliar state under the deadline, you can exchange into DSTs holding institutional real estate across various markets — gaining the geographic diversification you sought without the local-knowledge burden. This is part of why DSTs are popular for investors exchanging across state lines or seeking geographic diversification: they provide multistate real estate exposure, professionally sourced and managed, that an individual would struggle to assemble across unfamiliar markets within the exchange timeline. Whether through local professionals, a national advisor, or DSTs, sourcing out-of-state replacements is manageable with the right approach — and the difficulty of doing it alone is a key reason cross-state exchangers often lean on these resources.</p>
+<h2 id="coordinating-professionals">Coordinating professionals</h2>
+<p>A cross-state exchange requires coordinating professionals across the relevant states, more so than an in-state exchange. The <a href="insights.html">qualified intermediary</a> handles the federal exchange mechanics uniformly, but the state-specific aspects — conveyancing law, multistate tax filing, clawback compliance, and local replacement sourcing — benefit from professionals familiar with the states involved. Assembling a team that covers the source state, residence state, and replacement state is part of executing a cross-state exchange well.</p>
+<p>The CPA's role is especially important, because the multistate tax picture is the cross-state exchange's main added complexity. A CPA familiar with multistate taxation maps the source-state, residence-state, and replacement-state consequences, identifies any clawback or reporting obligations, ensures the required filings are made, and plans for the eventual state tax. This multistate tax coordination is essential and is the piece most likely to trip up an investor handling a cross-state exchange without proper guidance, since the state rules vary and the obligations can lag the exchange by years.</p>
+<p>Local expertise on the replacement side rounds out the team. Whether through a local broker, a national advisor with multistate reach, or DSTs that remove the sourcing burden, the investor needs a way to find and vet replacement property in the target state. Coordinating the qualified intermediary (federal mechanics), the CPA (multistate tax), local or national replacement-sourcing expertise, and an advisor to tie it together is how a cross-state exchange is executed smoothly. The overarching lesson is that while the federal qualification for a cross-state exchange is uniform and unproblematic, the state-level complexity — multistate filing, clawback, and out-of-state sourcing — requires coordinated professional guidance that an in-state exchange wouldn't. With that coordination, exchanging across state lines is straightforward; without it, the multistate issues can create unexpected complications. The planning and the team are what make a cross-state exchange work.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>You can exchange across state lines freely — U.S. real property is like-kind to other U.S. real property regardless of state (foreign property is separate).</li>
+<li>A cross-state exchange touches the source state, residence state, and replacement state, with multistate filing and double-taxation credits.</li>
+<li>Clawback states (California and others) defer but reclaim the gain on a later out-of-state sale, often with annual reporting — plan for it.</li>
+<li>Source out-of-state replacements via local professionals, a national advisor, or DSTs; coordinate a multistate team, especially the CPA.</li>
+</ul></div>
+<h2 id="why-exchange-across">Why investors exchange across states</h2>
+<p>Understanding why investors exchange across state lines clarifies when a cross-state exchange makes sense. A common reason is relocating real estate to where the investor lives or plans to retire — an investor who owns property in one state but lives in (or is moving to) another may want their real estate closer to home, for management convenience or estate-planning reasons. Exchanging across states lets them reposition their holdings geographically without triggering the tax.</p>
+<p>Market preferences and opportunities drive others. An investor who wants to exit a softening market and enter a stronger one, or who sees better opportunities in another state, can exchange across state lines to follow those preferences. Some investors deliberately move into no-income-tax states (like Texas or Florida) for their property's future income, though the source state's clawback may still apply to the relinquished gain. Geographic diversification is another motive — spreading holdings across multiple states (often via DSTs) to reduce exposure to any single market's risk.</p>
+<p>Tax considerations themselves can motivate cross-state exchanges, though they require careful planning. An investor leaving a high-tax or clawback state should understand that the clawback may reclaim the deferred gain later, and that their residence state taxes them regardless of where the property is. So while moving into a favorable state can benefit the replacement's future income, the source state's claim on the relinquished gain persists. These motivations — relocation, market preferences, diversification, and tax positioning — are why cross-state exchanges are common, and recognizing your motivation helps frame the planning. Whatever the reason, the cross-state exchange is available and valuable, with the state-level complexity being the manageable cost of the geographic flexibility the 1031 provides.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with cross-state exchanges</h2>
+<p>Baker 1031 Investments helps investors execute exchanges across state lines — coordinating with your CPA to map the multistate tax picture (source state, residence state, replacement state), identify any clawback or reporting obligations, and plan for the state tax, while helping you source and vet replacement property in unfamiliar markets. For investors wanting geographic diversification or to avoid the out-of-state sourcing challenge, we provide access to DSTs that offer professionally-managed, multistate real estate in one turnkey step.</p>
+<p>DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. The multistate tax aspects are matters for your CPA, with whom we coordinate, and we help assemble the team a cross-state exchange requires. Our role is to make exchanging across state lines — relocating, repositioning, or diversifying your real estate geographically — straightforward and fully deferred, handling the state-level complexity that an in-state exchange doesn't involve.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Can I do a 1031 exchange across state lines?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the federal rules permit it freely. U.S. real property is like-kind to other U.S. real property regardless of state, so relinquishing a property in one state and acquiring a replacement in another is a valid exchange, with the gain deferred just as in an in-state exchange. Only foreign property is separate (like-kind only to other foreign property).</p></div>
+</details>
+<details>
+<summary>Does exchanging across states affect the federal deferral?<span class="ic"></span></summary>
+<div class="ans"><p>No — the federal qualification is uniform regardless of which states the properties are in. The geographic difference doesn't affect whether the exchange qualifies or the federal gain deferral. The complexity of a cross-state exchange comes from the state-level tax issues (multistate filing, clawback), not the federal rules, which treat in-state and cross-state exchanges identically.</p></div>
+</details>
+<details>
+<summary>What multistate tax issues arise?<span class="ic"></span></summary>
+<div class="ans"><p>More than one state may tax the income: the source state (where the relinquished property is) can tax gain from property within its borders, and your residence state taxes you on income from all sources, with credits to avoid double taxation. The replacement state's rules apply to that property's future income and sale. A cross-state exchange touches multiple states' tax systems, requiring coordination.</p></div>
+</details>
+<details>
+<summary>What is a clawback state?<span class="ic"></span></summary>
+<div class="ans"><p>A state (most prominently California, also Massachusetts, Montana, Oregon, and others) that taxes previously deferred gain when you sell an out-of-state replacement without another exchange. It defers the gain at the exchange but tracks it (often with annual reporting like California's FTB 3840) and reclaims the tax on a later out-of-state sale. The state defers but doesn't forgive.</p></div>
+</details>
+<details>
+<summary>Does moving to a no-income-tax state avoid the clawback?<span class="ic"></span></summary>
+<div class="ans"><p>No — if you exchange from a clawback state into a no-income-tax state, the source clawback state still reclaims its deferred gain when the replacement sells. Moving the property out of state doesn't escape the source state's claim. The no-income-tax destination simply won't add its own income tax on the replacement, but the source state's clawback persists.</p></div>
+</details>
+<details>
+<summary>How do I find replacement property in another state?<span class="ic"></span></summary>
+<div class="ans"><p>Through a local broker or advisor in the target state (local market knowledge), a national advisor with multistate reach, or DSTs that let you exchange into professionally-managed real estate across markets without sourcing a specific out-of-state property yourself. DSTs are especially useful for cross-state exchanges, providing geographic diversification in one turnkey step and removing the local-knowledge burden.</p></div>
+</details>
+<details>
+<summary>Why are DSTs popular for cross-state exchanges?<span class="ic"></span></summary>
+<div class="ans"><p>Because they remove the challenge of sourcing and diligencing a direct property in an unfamiliar state under the 45-day deadline. You exchange into DSTs holding institutional real estate across various markets, gaining geographic diversification professionally sourced and managed — multistate exposure an individual would struggle to assemble across unfamiliar markets in time. They turn the sourcing challenge into a non-issue.</p></div>
+</details>
+<details>
+<summary>Do I have to file taxes in multiple states?<span class="ic"></span></summary>
+<div class="ans"><p>Possibly. The source state may require reporting the exchange (especially clawback states), and your residence state's return reflects your overall situation, with credits for tax paid elsewhere. As you hold and eventually sell the out-of-state replacement, the relevant states' rules apply. A CPA familiar with multistate taxation handles the filing obligations across the states involved.</p></div>
+</details>
+<details>
+<summary>Why do investors exchange across state lines?<span class="ic"></span></summary>
+<div class="ans"><p>To relocate real estate closer to where they live or plan to retire, to exit a softening market and enter a stronger one, to follow opportunities, to move into favorable tax states for future income, or to diversify geographically (often via DSTs). The 1031's geographic flexibility lets investors reposition their holdings across states tax-deferred, which is a valuable feature.</p></div>
+</details>
+<details>
+<summary>What professionals do I need for a cross-state exchange?<span class="ic"></span></summary>
+<div class="ans"><p>A qualified intermediary for the federal mechanics, a CPA familiar with multistate taxation (the main added complexity), local or national replacement-sourcing expertise (or DSTs), and an advisor to coordinate. The CPA's multistate tax coordination is especially important, since the state rules vary and obligations can lag the exchange by years. Assembling a team covering the relevant states is essential.</p></div>
+</details>
+<details>
+<summary>Can I exchange U.S. property for foreign property?<span class="ic"></span></summary>
+<div class="ans"><p>No — U.S. real property is like-kind only to other U.S. real property, and foreign real estate is like-kind only to other foreign real estate. You can't exchange a U.S. property for a foreign one (or vice versa) and qualify. But within the United States, you can exchange across any state lines freely. The geographic limitation is only the U.S./foreign divide.</p></div>
+</details>
+<details>
+<summary>Is a cross-state exchange much harder than an in-state one?<span class="ic"></span></summary>
+<div class="ans"><p>The federal qualification is identical and unproblematic, but the state-level complexity — multistate filing, clawback compliance, and out-of-state sourcing — adds work an in-state exchange doesn't. With coordinated professional guidance (especially a multistate-savvy CPA) and the right replacement approach (local pros or DSTs), a cross-state exchange is straightforward. The complexity is manageable, not prohibitive.</p></div>
+</details>
+<details>
+<summary>Do I need a qualified intermediary in each state?<span class="ic"></span></summary>
+<div class="ans"><p>No — one qualified intermediary handles the entire federal exchange regardless of how many states are involved; the QI's role is uniform nationwide. You don't need a separate QI per state. You may, however, want local professionals (attorney, broker) familiar with the conveyancing and market in each state, and a CPA versed in the multistate tax picture, but the QI is a single, national role.</p></div>
+</details>
+<details>
+<summary>Will I owe tax in the replacement state right away?<span class="ic"></span></summary>
+<div class="ans"><p>Generally not at the exchange itself — the gain is deferred federally and (for conforming states) at the state level. The replacement state's tax applies to that property's future income and its eventual sale, not the exchange. Your residence and source states have their own treatment. A CPA maps when and where tax applies across the states; the exchange itself usually defers it everywhere that conforms.</p></div>
+</details>
+<details>
+<summary>Can I diversify across several states in one exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — using the identification rules, you can exchange into replacements in multiple states, spreading your holdings geographically to reduce single-market risk. DSTs make this especially easy, since a DST portfolio can span many states and markets in one turnkey investment. Geographic diversification across states is a common motivation for cross-state exchanges, and the 1031 accommodates it.</p></div>
+</details>
+<details>
+<summary>Should I move my real estate to where I live via a 1031?<span class="ic"></span></summary>
+<div class="ans"><p>Many investors do — exchanging out-of-state property closer to home for management convenience or estate planning is a common, valid use of the cross-state exchange. It's tax-deferred, so you reposition without triggering the gain. Just account for any clawback from the source state and the multistate tax picture with your CPA, and weigh the replacement's fit in your new market.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Cross-State Exchange</dt><dd>A 1031 relinquishing property in one state and acquiring it in another; permitted federally.</dd></div>
+<div class="g"><dt>Like-Kind</dt><dd>The standard treating all U.S. investment real property as like-kind regardless of state.</dd></div>
+<div class="g"><dt>Source State</dt><dd>The state where the relinquished property is located, which may tax the gain and require reporting.</dd></div>
+<div class="g"><dt>Residence State</dt><dd>The taxpayer's home state, which taxes income from all sources with credits for source-state tax.</dd></div>
+<div class="g"><dt>Replacement State</dt><dd>The state where the replacement property is located, governing its future income and sale.</dd></div>
+<div class="g"><dt>Clawback Provision</dt><dd>A state rule taxing previously deferred gain when an out-of-state replacement is later sold.</dd></div>
+<div class="g"><dt>FTB Form 3840</dt><dd>California's annual reporting form for deferred gain on out-of-state 1031 replacements.</dd></div>
+<div class="g"><dt>Double Taxation Credit</dt><dd>A credit for tax paid to one state against another's tax on the same income.</dd></div>
+<div class="g"><dt>Multistate Filing</dt><dd>Tax filing obligations in more than one state arising from a cross-state exchange.</dd></div>
+<div class="g"><dt>Foreign Property</dt><dd>Non-U.S. real estate, like-kind only to other foreign property, not to U.S. property.</dd></div>
+<div class="g"><dt>Geographic Diversification</dt><dd>Spreading real estate across multiple states to reduce single-market risk, often via DSTs.</dd></div>
+<div class="g"><dt>No-Income-Tax State</dt><dd>A state without income tax (e.g., Texas, Florida); the source clawback still applies.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A passive, multistate real-property interest easing cross-state replacement sourcing.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The independent party handling the uniform federal exchange mechanics.</dd></div>
+<div class="g"><dt>Conveyancing Law</dt><dd>State-specific real estate transfer law, varying across the states in an exchange.</dd></div>
+<div class="g"><dt>Multistate Tax Coordination</dt><dd>A CPA's mapping of source, residence, and replacement state tax consequences.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>California Franchise Tax Board. <a href="https://www.ftb.ca.gov/forms/2024/2024-3840.pdf" rel="noopener nofollow" target="_blank">Like-Kind Exchanges (FTB 3840) — California clawback reporting</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>Federation of Tax Administrators. <a href="https://www.taxadmin.org/state-tax-agencies" rel="noopener nofollow" target="_blank">State Tax Agencies</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

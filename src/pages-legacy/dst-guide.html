@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delaware Statutory Trusts: The 2026 Definitive Guide | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Delaware Statutory Trusts: The 2026 Definitive Guide
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Delaware Statutory Trusts: The 2026 Definitive Guide</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Definitive Guide · 2026</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 32 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Everything an investor needs — from the plain-English basics through sponsor due diligence, taxes, cost segregation, and exit strategy. Built around live data on 82 sponsors and four interactive decision tools.</p></div>
+
+    <div class="legacy">
+<main id="main">
+
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A Delaware Statutory Trust lets you sell an appreciated property, defer the capital-gains tax through a 1031 exchange, and own a slice of institutional-grade real estate without ever managing it. This guide takes you from that one-sentence idea all the way to vetting a specific sponsor — with tools that turn the decisions into something you can actually work through.</p>
+<p>Use it however suits you. Newcomers can read top to bottom. Investors facing a 45-day clock can jump to <a href="#sponsor" style="color:var(--accent);border-bottom:1px solid var(--accent)">sponsor review</a> and <a href="#choosing" style="color:var(--accent);border-bottom:1px solid var(--accent)">choosing a DST</a>. Everyone should spend time with the four interactive tools — the exit-strategy quiz, the fit checklist, the sponsor explorer, and the diversification model — because that's where the general rules become your decision.</p>
+<div class="takeaways">
+<div class="tk-h">What's new for 2026</div>
+<ul>
+<li>The One Big Beautiful Bill Act (2025) reinstated <strong>100% bonus depreciation</strong> and made it permanent, reshaping the math on depreciation and the "lazy 1031."</li>
+<li><strong>Section 1031 was left fully intact</strong> — like-kind exchanges into DSTs continue exactly as before.</li>
+<li>Sponsor selection matters more than ever: our data shows the preferred cohort meaningfully out-returns the field, while most sponsors still have <strong>no full-cycle track record</strong>.</li>
+</ul>
+</div>
+<h2 id="what-is-dst">01 · What a DST Actually Is</h2>
+<p>A Delaware Statutory Trust is a legal entity — formed under Delaware's trust statute — that holds title to one or more income-producing properties and divides ownership into fractional <strong>beneficial interests</strong>. When you invest, you don't get a deed; you get a beneficial interest in the trust, and with it a proportional share of the rent the property produces and any gain when it's eventually sold.</p>
+<p>What makes DSTs useful is a tax wrinkle. Under IRS Revenue Ruling 2004-86, the IRS treats those beneficial interests as <strong>direct ownership of real estate</strong> for 1031 purposes. That single ruling is why a DST interest can serve as "like-kind" replacement property in a 1031 exchange, and it's the foundation everything else in this guide is built on. Think of it as buying a professionally managed slice of an apartment complex, medical portfolio, or industrial park, without your name on the mortgage or your phone ringing about a broken furnace.</p>
+<p>The cast you'll meet: the <strong>sponsor</strong> (sources, finances, and manages the property), the <strong>trustee</strong> (holds legal title with deliberately limited powers), the <strong>master tenant</strong> (in many structures, leases the property and runs operations), the <strong>broker-dealer or RIA</strong> (through whom you invest), and the <strong>qualified intermediary</strong> (who holds your sale proceeds so you never touch them).</p>
+<h2 id="1031">02 · The 1031 Connection</h2>
+<p>A 1031 exchange lets you defer capital-gains tax by reinvesting the proceeds of a sold investment property into "like-kind" real estate. DSTs exist largely to serve that need. They're pre-packaged, already-financed replacement property you can close into quickly, and that speed matters because the 1031 clock is unforgiving.</p>
+<ul class="bul">
+<li><strong>45 days</strong> from the sale of your property to formally identify your replacement(s).</li>
+<li><strong>180 days</strong> from the sale to close on the replacement.</li>
+<li><strong>Equal-or-up rule:</strong> to defer 100% of the tax, the DST you buy must match or exceed both the price and the debt of the property you sold. Fall short and the difference ("boot") is taxable.</li>
+</ul>
+<p>This is why DSTs are so often used as a backstop: when a conventional replacement deal falls through at day 40, a DST can frequently close inside the remaining window. It's also why investors use small DST positions to "soak up" leftover exchange dollars and hit the equal-or-up target.</p>
+<div class="pullquote">
+<p>The 45-day identification window is where most exchanges are won or lost. A DST is the relief valve when the clock is running out.</p>
+<cite>Baker 1031 Research</cite>
+</div>
+<h2 id="how">03 · How a DST Works Under the Hood</h2>
+<p>Money flows from investors into the trust; the trust owns the property and its non-recourse mortgage. Because the debt is non-recourse to you, you get the depreciation and leverage benefits of a financed asset without personal liability on the loan. The sponsor handles acquisition, financing, and management, and earns fees along the way (more on that in due diligence). Distributions — typically monthly — represent your share of the net rental income.</p>
+<p>One structural quirk drives much of the DST rulebook. To preserve its 1031 eligibility, a DST must stay <strong>passive</strong>: the trustee can't actively "do business" the way an LLC or REIT can. That passivity is the price of the tax treatment, and it's codified in what the industry calls the seven deadly sins.</p>
+<h2 id="rules">04 · The Rules — The "Seven Deadly Sins"</h2>
+<p>Revenue Ruling 2004-86 sets strict limits on what a DST trustee may do. Cross any of these lines and the trust risks being reclassified as a business entity — which would blow up its 1031 eligibility. Each restriction exists to keep the trust passive:</p>
+<ol class="bul">
+<li><strong>No new capital</strong> — once the offering closes, the trust can't accept further contributions from current or new investors.</li>
+<li><strong>No new borrowing or refinancing</strong> — the trustee can't renegotiate existing debt or take on new loans (except in a tenant-bankruptcy default).</li>
+<li><strong>No reinvesting sale proceeds</strong> — when the property sells, proceeds must be distributed, not redeployed.</li>
+<li><strong>Limited leasing</strong> — the trustee generally can't renegotiate leases or sign new ones (the master-lease structure works around this).</li>
+<li><strong>No major capital improvements</strong> — only normal repairs and maintenance, not value-add construction.</li>
+<li><strong>Cash held conservatively</strong> — reserves can only sit in short-term, safe instruments.</li>
+<li><strong>Excess cash distributed</strong> — beyond necessary reserves, cash must flow to investors.</li>
+</ol>
+<p>The escape hatch is the <strong>"springing LLC."</strong> If a property is in genuine trouble — say a tenant defaults and the loan needs to be renegotiated — the trust agreement can let the DST convert into an LLC with pre-agreed terms, freeing the manager to act. The trade-off: a converted interest is no longer a DST, so it loses the 1031 treatment going forward. It's a lifeboat, not a strategy.</p>
+<h2 id="benefits">05 · The Benefits and the Honest Risks</h2>
+<p>The appeal is real. So are the downsides, and any guide that buries them isn't doing its job.</p>
+<h3>What draws investors in</h3>
+<ul class="bul">
+<li><strong>Tax deferral</strong> today, with the potential for heirs to receive a stepped-up basis that wipes out the deferred gain entirely.</li>
+<li><strong>Truly passive</strong> — no tenants, no toilets, no trash.</li>
+<li><strong>Institutional access</strong> to assets most individuals can't buy alone, at minimums often between $25,000 and $100,000.</li>
+<li><strong>Diversification</strong> across property type, geography, and sponsor.</li>
+<li><strong>Deadline insurance</strong> for a 1031 exchange that's about to fail.</li>
+</ul>
+<h3>What you're accepting in return</h3>
+<ul class="bul">
+<li><strong>Illiquidity</strong> — no public market and a 5-to-10-year hold. This is the single most underestimated risk; plan to be locked in for the full cycle.</li>
+<li><strong>No control</strong> — you're a passive beneficiary, not a decision-maker.</li>
+<li><strong>Sponsor dependence</strong> — your outcome rides on the operator (which is why the review tool below matters).</li>
+<li><strong>Fee drag</strong> — upfront loads commonly run 7–9% of equity.</li>
+<li><strong>Market, financing, and rate risk</strong>, plus no guarantee of distributions or return of principal.</li>
+</ul>
+<h2 id="choosing">06 · Choosing a DST</h2>
+<p>Picking the right <em>deal</em> is separate from picking the right <em>sponsor</em>. For the deal itself, you're matching the property's profile to your own needs: does its leverage replace your exchange debt, is the sector one you understand, do the distributions meet your income need, and does the 5-to-10-year hold fit your life? Sanity-check the projected yield against where that property type actually trades:</p>
+<table class="dtable2">
+<thead><tr><th>Property type</th><th>Avg. current yield</th><th>Typical range</th></tr></thead>
+<tbody>
+<tr><td>Oil &amp; Gas Mineral/Royalty</td><td>9.60%</td><td>up to ~10.0%</td></tr>
+<tr><td>Marina</td><td>7.98%</td><td>up to ~9.7%</td></tr>
+<tr><td>Healthcare</td><td>6.41%</td><td>up to ~7.0%</td></tr>
+<tr><td>Industrial</td><td>5.39%</td><td>up to ~5.8%</td></tr>
+<tr><td>Net Lease</td><td>5.21%</td><td>up to ~5.5%</td></tr>
+<tr><td>Senior Living</td><td>5.12%</td><td>up to ~6.7%</td></tr>
+<tr><td>Multifamily</td><td>5.04%</td><td>up to ~6.0%</td></tr>
+<tr><td>Self-Storage</td><td>4.50%</td><td>up to ~4.8%</td></tr>
+<tr><td>Office</td><td>2.79%</td><td>up to ~3.0%</td></tr>
+</tbody>
+</table>
+<p class="tcap">Exhibit — Baker 1031 sector yield benchmarks. A projected distribution far above its sector average deserves scrutiny, not excitement.</p>
+<div class="tool" id="tool-fit">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Is this DST right for me?</span></div>
+<div class="tin">
+<p class="tsub">Check each statement that's true of the DST you're evaluating. Two items are dealbreakers — leave them unchecked and the tool will flag it regardless of your score.</p>
+<div class="check" id="fitList"></div>
+<div class="scorewrap">
+<div class="scorenum"><b id="fitScore">0</b>/8</div>
+<div class="scoreverdict"><div class="v" id="fitVerdict">Start checking boxes</div><div class="vt" id="fitVerdictSub">Your fit score updates live.</div></div>
+</div>
+<div class="flag" id="fitFlag"></div>
+</div>
+</div>
+<h2 id="diligence">07 · Due Diligence on the Offering Documents</h2>
+<p>A DST arrives as a stack of documents, each with a job. Read them in this order, and know what to ask for and what should give you pause:</p>
+<ul class="bul">
+<li><strong>Brochure / flyer</strong> — the marketing first impression. Useful for orientation; note what it conveniently leaves out.</li>
+<li><strong>Term Sheet</strong> — the deal at a glance: offering size, minimum, leverage, projected return, and load. Verify every headline number against the documents below.</li>
+<li><strong>Property Supplement</strong> — the actual real estate: location, tenants, leases, condition, and market. Ask for rent rolls, lease expirations, and recent capital history.</li>
+<li><strong>Pricing Supplement</strong> — how the offering is priced: equity vs. debt, the full fee/load breakdown, and reserves. This is where fee drag hides.</li>
+<li><strong>PPM (Private Placement Memorandum)</strong> — the binding legal document. Read the risk-factor and conflicts-of-interest sections in full; that's where the real disclosures live.</li>
+<li><strong>PPM Supplements</strong> — amendments issued after the initial PPM. A long string of supplements can signal a deal that's changed materially since launch.</li>
+</ul>
+<p>For each document, ask three questions: what is it telling me, what is it <em>not</em> telling me, and does what I'm seeing fit my situation? When something in the term sheet doesn't reconcile with the PPM, the PPM wins — and the discrepancy is itself a finding.</p>
+<h2 id="sponsor">08 · Reviewing the Investment Sponsor</h2>
+<p>In a passive structure, you're really underwriting the operator. The metrics that matter are the number of <strong>full-cycle deals</strong> (deals taken start to finish — the only proof of results), average annual return, equity multiple (MOIC), average hold, and success rate. Judge them against a benchmark, never in isolation — and watch the sponsors with no completed cycle at all.</p>
+<p>The explorer below runs on Baker 1031's proprietary data covering <strong>82 sponsors</strong>. Sort it, filter it, search it — then click any sponsor to open a full profile with its description, metrics versus the platform benchmark, and its deal-by-deal track record where we have it.</p>
+<div class="tool spx" id="tool-spx">
+<div class="tbar"><span class="tk">Live data · 82 sponsors</span><span class="tt">Sponsor explorer</span></div>
+<div class="tin">
+<div class="spstats">
+<div class="spstat"><div class="l">Sponsors tracked</div><div class="n">82</div></div>
+<div class="spstat"><div class="l">Preferred</div><div class="n acc">8</div></div>
+<div class="spstat"><div class="l">With track record</div><div class="n">21</div></div>
+<div class="spstat"><div class="l">No record yet</div><div class="n">61</div></div>
+</div>
+<div class="bmrow">
+<div class="bmcard"><div class="bt">Benchmark · all sponsors</div><div class="bg"><span>Return <b>14.9%</b></span><span>MOIC <b>1.46x</b></span><span>Hold <b>4.7 yr</b></span><span>Win <b>96.5%</b></span></div></div>
+<div class="bmcard p"><div class="bt">★ Benchmark · preferred cohort</div><div class="bg"><span>Return <b>20.8%</b></span><span>MOIC <b>1.53x</b></span><span>Hold <b>3.6 yr</b></span><span>Win <b>98.1%</b></span></div></div>
+</div>
+<div class="spctl">
+<input aria-label="Search sponsor" id="spSearch" placeholder="Search sponsor…" type="text"/>
+<button class="chip on" data-f="all">All</button>
+<button class="chip" data-f="pref">Preferred</button>
+<button class="chip" data-f="track">Has record</button>
+<button class="chip" data-f="notrack">No record</button>
+</div>
+<div class="spcount" id="spCount"></div>
+<div style="overflow-x:auto">
+<table class="sptab" id="spTab">
+<thead><tr>
+<th data-k="f">Sponsor</th>
+<th data-k="an">AUM</th>
+<th data-k="fc">Full-cycle</th>
+<th data-k="rr">Return</th>
+<th data-k="mm">MOIC</th>
+<th data-k="hh">Hold</th>
+<th data-k="ww">Win</th>
+</tr></thead>
+<tbody id="spBody"></tbody>
+</table>
+</div>
+<div aria-live="polite" class="spdetail" id="spDetail"></div>
+</div>
+</div>
+<h3>What to do when a sponsor has no track record</h3>
+<p>Filter the explorer to "No record" and you'll find 61 of the 82 names — including some of the largest asset managers in the world. Enormous AUM is not a DST track record. When a sponsor hasn't completed a full cycle, shift your underwriting to what you <em>can</em> verify: the experience of the principals and parent company, tenure and AUM, vertical integration, conservative leverage, and independent third-party validation — and size your position to the added uncertainty.</p>
+<h3>Preferred versus all sponsors</h3>
+<p>A "Preferred" designation reflects sponsors that have cleared a higher bar on track record, transparency, and terms — and as the benchmark strip shows, the preferred cohort has out-returned the broader field. But preferred is a starting filter, not a guarantee, and it isn't the only place good deals live. Use it to focus your search, then still run every deal through the documents and the fit checklist.</p>
+<h2 id="process">09 · The Investing Process, Start to Finish</h2>
+<p>The sequence is unforgiving in one specific way: you must never take possession of your sale proceeds. Engage a qualified intermediary <strong>before</strong> you close the sale, or the exchange is dead on arrival.</p>
+<ol class="bul">
+<li><strong>Sell the relinquished property</strong> — with a qualified intermediary (QI) already engaged to receive the proceeds.</li>
+<li><strong>Proceeds go to the QI</strong> — you never touch them (constructive receipt disqualifies the exchange).</li>
+<li><strong>Due diligence</strong> — apply sections 06–08 within the clock.</li>
+<li><strong>Identify within 45 days</strong> — formally name your DST(s) under the 3-property, 200%, or 95% identification rules.</li>
+<li><strong>Close within 180 days</strong> — subscription documents, accreditation verification, and funding from the QI.</li>
+<li><strong>After closing</strong> — receive statements, monthly distributions, and annual tax reporting; hold through to the sponsor's full-cycle sale.</li>
+</ol>
+<h2 id="taxes">10 · Taxes, Reporting, and Cost Segregation</h2>
+<p>Each year you'll receive tax reporting (a Grantor Letter, 1099, or K-1 depending on structure) that passes through your share of income, <strong>depreciation</strong>, and <strong>mortgage-interest deductions</strong>. Depreciation is the quiet engine here: it shelters a meaningful portion of your distribution income, so the cash you receive is often partly tax-deferred. Your share of the property's local and municipal tax treatment — abatements or incentives — flows through as well.</p>
+<p>The catch arrives at exit: <strong>depreciation recapture</strong>, plus any net investment income tax (NIIT) and state income tax. The classic endgame is to keep deferring — exchange again, or hold until death so heirs receive a stepped-up basis that can erase the deferred gain.</p>
+<h3>Cost segregation — including your own</h3>
+<p>Cost segregation accelerates depreciation by reclassifying parts of a building into shorter-life categories. Some DSTs come with a sponsor-commissioned study already applied; many don't. The point most investors miss: even when the sponsor hasn't done one, <strong>you can commission your own cost-segregation study on your fractional interest</strong> and apply the accelerated depreciation to your share. With 100% bonus depreciation restored for 2026, the near-term deductions can be substantial.</p>
+<ul class="bul">
+<li><strong>Benefits:</strong> larger up-front deductions, more sheltered income, improved after-tax yield — amplified by 2026 bonus depreciation.</li>
+<li><strong>Costs:</strong> the study itself isn't free, so at small fractional amounts the benefit may not justify it; expect heavier recapture later and added complexity. Confirm with a CPA that it pencils for your specific position.</li>
+</ul>
+<h2 id="exit">11 · Choosing Your Exit Strategy</h2>
+<p>Decide how you'll get out <em>before</em> you get in. There are three paths: take the cash at the full-cycle sale, roll into another 1031/DST to keep deferring, or convert into a REIT through a <strong>721 UPREIT exchange</strong>. The 721 route trades your future 1031 flexibility for diversification, professional management, and simpler estate handling. Some are mandatory, removing your control over timing. The quiz weighs your priorities and points you to the path that fits.</p>
+<div class="tool" id="tool-exit">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Which exit fits you?</span></div>
+<div class="tin">
+<p class="tsub">Answer five questions. The tool weighs your priorities across the three exit paths and explains the trade-off you'd be accepting.</p>
+<div id="quizBody"></div>
+<div class="trow">
+<button class="toolbtn" disabled="" id="quizGo">See my recommendation</button>
+<button class="toolbtn ghost" id="quizReset">Reset</button>
+</div>
+<div class="result" id="quizResult">
+<div class="rlabel">Recommended path</div>
+<div class="rname" id="rName"></div>
+<div class="rwhy" id="rWhy"></div>
+<div class="rbars" id="rBars"></div>
+<div class="trade" id="rTrade"></div>
+</div>
+</div>
+</div>
+<h2 id="howmany">12 · How Many DSTs Should You Own?</h2>
+<p>One DST is simple but concentrated — a single sponsor, often a single asset and market. Several DSTs spread risk across sponsors, sectors, and geographies. But there's a real trade-off hiding in the math: splitting your equity into many small interests <strong>fragments your basis</strong>, which can make a future 1031 into a single whole property harder, since each small chunk is awkward to redeploy. Spreading thin today can quietly limit tomorrow's options. Model it:</p>
+<div class="tool" id="tool-div">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Diversification model</span></div>
+<div class="tin">
+<div class="slwrap">
+<div class="slctl">
+<label for="exAmt">Exchange amount <span class="vv" id="exAmtV">$1,000,000</span></label>
+<input id="exAmt" max="5000000" min="100000" step="50000" type="range" value="1000000"/>
+</div>
+<div class="slctl">
+<label for="exN">Number of DSTs <span class="vv" id="exNV">4</span></label>
+<input id="exN" max="10" min="1" step="1" type="range" value="4"/>
+</div>
+<div class="slout">
+<div class="slcard"><div class="l">Equity per DST</div><div class="n" id="perDst">$250,000</div></div>
+<div class="slcard"><div class="l">Typical minimum</div><div class="n">$25k–$100k</div></div>
+</div>
+<div>
+<div class="meter div"><div class="lab"><span>Diversification</span><span id="divPct">—</span></div><div class="track"><div class="fill" id="divFill" style="width:0"></div></div></div>
+<div class="meter flex"><div class="lab"><span>Future single-property exchange flexibility</span><span id="flexPct">—</span></div><div class="track"><div class="fill" id="flexFill" style="width:0"></div></div></div>
+</div>
+<div class="slnote" id="divNote"></div>
+</div>
+</div>
+</div>
+<h2 id="faq">13 · Frequently Asked Questions</h2>
+<div class="faq">
+<details open=""><summary>Can I get my money out of a DST early?<span class="ic"></span></summary><div class="ans"><p>Generally no. DST interests aren't publicly traded and secondary sales are rare and often at a discount. Plan to stay invested for the full 5-to-10-year hold; treat the capital as locked up.</p></div></details>
+<details><summary>Who can invest in a DST?<span class="ic"></span></summary><div class="ans"><p>DSTs are private placements limited to accredited investors — generally a net worth above $1 million excluding your primary home, or income above $200,000 ($300,000 jointly) in each of the last two years.</p></div></details>
+<details><summary>What return should I expect?<span class="ic"></span></summary><div class="ans"><p>It varies widely by sponsor, sector, and leverage. Our platform data shows average annual returns clustering in the high single digits to low twenties for sponsors with completed deals — but past results are not a guarantee, and headline projections deserve scrutiny against sector benchmarks.</p></div></details>
+<details><summary>What happens if the sponsor runs into trouble?<span class="ic"></span></summary><div class="ans"><p>Your outcome is tied to the property and the operator. A troubled deal can cut or suspend distributions, and the springing-LLC provision exists precisely to let a manager act in a crisis — at the cost of that interest's 1031 status. This is why sponsor review and diversification matter.</p></div></details>
+<details><summary>Can I 1031 out of a DST when it sells?<span class="ic"></span></summary><div class="ans"><p>Yes. At the full-cycle sale you can take the cash (and pay deferred tax), exchange into another 1031/DST to keep deferring, or — if offered — convert into REIT units via a 721 exchange. The exit quiz above helps you decide which.</p></div></details>
+</div>
+<h2 id="glossary">14 · Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Beneficial Interest</dt><dd>Your fractional ownership stake in the trust — treated as direct real-property ownership for 1031 purposes.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Sale value or debt not replaced in an exchange. Boot is taxable and reduces the deferral.</dd></div>
+<div class="g"><dt>Equal-or-Up Rule</dt><dd>To fully defer, the replacement must match or exceed the relinquished property's price and debt.</dd></div>
+<div class="g"><dt>Full-Cycle Deal</dt><dd>A deal carried from acquisition through final sale — the only metric that proves realized results.</dd></div>
+<div class="g"><dt>MOIC / Equity Multiple</dt><dd>Total dollars returned per dollar invested; 1.5x means $1 became $1.50 over the hold.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The independent party that holds sale proceeds so the investor avoids constructive receipt.</dd></div>
+<div class="g"><dt>Revenue Ruling 2004-86</dt><dd>The IRS guidance that lets DST beneficial interests qualify as 1031 replacement property.</dd></div>
+<div class="g"><dt>Springing LLC</dt><dd>A provision letting a distressed DST convert to an LLC to act — forfeiting 1031 status on that interest.</dd></div>
+<div class="g"><dt>721 / UPREIT Exchange</dt><dd>Contributing property (often via a DST) into a REIT's operating partnership for OP units, deferring gain.</dd></div>
+</dl>
+<h2 id="explore-dst">Explore the DST strategy</h2>
+<p>This guide anchors our Delaware Statutory Trust library. Go deeper on how DSTs work, what to look for in a sponsor, the returns and fees you actually keep, and how to weigh a DST against the alternatives:</p>
+<ul class="bul">
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">How DSTs Work: Structure, Beneficial Interests &amp; Trustees</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST 1031 Exchange: Using a DST as Replacement Property</a></li>
+<li><a href="dst-pros-and-cons.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST Pros and Cons: Is a Delaware Statutory Trust Right for Your 1031?</a></li>
+<li><a href="dst-returns-and-fees.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST Returns and Fees: What You Actually Keep</a></li>
+<li><a href="dst-sponsor-due-diligence.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">How to Evaluate a DST Sponsor: A Due-Diligence Checklist</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST Risks: What Every 1031 Investor Should Know</a></li>
+<li><a href="how-to-review-a-ppm.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">How to Review a PPM: A Deep Dive for Accredited Investors</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST Liquidity: The Secondary Market Reality</a></li>
+<li><a href="dst-full-cycle.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST Full-Cycle: What Happens When the Trust Sells</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">How to Buy a DST: Step-by-Step Process</a></li>
+<li><a href="dst-vs-reit.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST vs. REIT: Key Differences for 1031 Exchange Investors</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST vs. TIC: Comparing 1031 Co-Ownership Structures</a></li>
+<li><a href="insights.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">Who Can Invest in a DST? Accredited Investor Rules</a></li>
+</ul>
+<h2 id="sources">15 · Sources &amp; References</h2>
+<div class="disclosures" style="border-top:1px solid var(--hairline)">
+<p style="font-size:14px;color:var(--text)">Performance, full-cycle, and sponsor track-record figures referenced in this guide and in the Sponsor Explorer come from <a href="insights.html" style="color:var(--ink);border-bottom:1px solid var(--accent)">Baker 1031's Data Center</a> — our proprietary dataset of realized, full-cycle DST deals and sponsor histories. Past performance is not indicative of future results.</p>
+<ol style="margin:0;padding-left:20px;font-size:13.5px;line-height:1.6;color:var(--muted)">
+<li style="margin:8px 0">IRS, <a href="https://www.irs.gov/irb/2004-33_IRB" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">Rev. Rul. 2004-86</a> — a Delaware Statutory Trust beneficial interest is treated as a direct interest in real property eligible for a §1031 like-kind exchange.</li>
+<li style="margin:8px 0">Internal Revenue Code, <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">26 U.S.C. §1031</a> — exchange of real property held for productive use or investment (incl. the 45/180-day rules at §1031(a)(3)).</li>
+<li style="margin:8px 0">Internal Revenue Code, <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">26 U.S.C. §721</a> — nonrecognition on the contribution of property to a partnership (the basis of a 721/UPREIT conversion).</li>
+<li style="margin:8px 0">SEC, <a href="https://www.law.cornell.edu/cfr/text/17/230.501" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">17 CFR §230.501 (Rule 501 of Regulation D)</a> — the accredited-investor definition that governs who may invest in a DST.</li>
+</ol>
+</div>
+<h2 id="disclosures">16 · Disclosures</h2>
+<div class="disclosures">
+<p>This material is for educational and informational purposes only and does not constitute investment, legal, tax, or financial advice, nor an offer or solicitation with respect to any security or property. DST investments are illiquid, speculative, available only to accredited investors, and may lose value, including loss of principal. There is no guarantee of distributions, returns, or the success of any strategy.</p>
+<p>Sponsor metrics shown in the explorer are drawn from Baker 1031's proprietary dataset and reflect historical, in some cases sampled, performance; past performance is not indicative of future results, and full-cycle counts and deal-level figures may differ from a sponsor's complete record. Tax outcomes — including 1031 deferral, cost segregation, depreciation recapture, and 721 conversions — depend on individual circumstances; consult a qualified CPA and attorney before acting. Figures and benchmarks are illustrative and subject to change.</p>
+</div>
+<div class="authorbio" style="display:flex;gap:20px;align-items:flex-start;margin-top:46px;padding-top:34px;border-top:1px solid var(--hairline);max-width:780px">
+<div style="width:74px;height:74px;flex:none;background:var(--ink-deep);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'QuincyCF',serif;font-size:26px">B</div>
+<div>
+<div style="font-family:'QuincyCF',serif;font-size:21px;color:var(--ink)">Baker 1031 Research</div>
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:4px">1031 &amp; Securitized Real Estate Desk</div>
+<div style="font-size:14.5px;color:var(--text);margin-top:10px;line-height:1.6">Baker 1031 Research maintains proprietary coverage of DST sponsors, offerings, and full-cycle performance to help exchangers evaluate replacement options with the same rigor applied to direct acquisitions.</div>
+</div>
+</div>
+</article>
+
+</div>
+
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    var DATA = [{"f":"1031 Crowdfunding","slug":"1031-crowdfunding","yr":"2014","aum":"$2.8B","hq":"Irvine, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"1031 Crowdfunding occupies the digital end of the securitized 1031 market, operating an online marketplace—founded in 2014 by Edward Fernandez—that aggregates Delaware Statutory Trust interests, non-traded REIT shares, Qualified Opportunity Zone funds and private-credit offerings for accredited exchangers.","deals":[]},{"f":"AEI Capital Corporation","slug":"aei-capital-corporation","yr":"1970","aum":"$1.61B","hq":"St. Paul, MN","fc":"48","arr":"6.75%","em":"1.55x","hold":"13.32 Years","win":"100.00%","pref":0,"desc":"AEI is among the longest-tenured names in the net-lease 1031 space, tracing its lineage to 1970 and to what it describes as one of the earliest securitized fractional-ownership structures.","deals":[{"name":"Applebee's","loc":"Virginia Beach, VA","ac":"Net Lease","hold":"2.55","em":"1.19x","ret":"11.22%"},{"name":"Applebee's","loc":"Crestview Hills, KY","ac":"Net Lease","hold":"9.39","em":"1.87x","ret":"9.35%"},{"name":"Applebee's","loc":"Aurora, CO","ac":"Net Lease","hold":"11.89","em":"2.20x","ret":"9.98%"},{"name":"Applebee's","loc":"Destin, FL","ac":"Net Lease","hold":"10.95","em":"1.88x","ret":"9.24%"},{"name":"Chi-Chi's","loc":"Appleton, WI","ac":"Net Lease","hold":"8.32","em":"1.45x","ret":"5.47%"},{"name":"Garden Ridge","loc":"Conroe, TX","ac":"Net Lease","hold":"2.87","em":"1.08x","ret":"6.59%"},{"name":"Taco Cabana","loc":"Waco, TX","ac":"Net Lease","hold":"13.88","em":"2.53x","ret":"9.75%"},{"name":"Rio Bravo","loc":"St. Paul, MN","ac":"Net Lease","hold":"9.81","em":"1.67x","ret":"5.49%"},{"name":"Applebee's","loc":"Temple Terrace, FL","ac":"Net Lease","hold":"14.19","em":"2.58x","ret":"10.24%"},{"name":"Taco Cabana","loc":"San Antonio, TX","ac":"Net Lease","hold":"13.17","em":"2.13x","ret":"9.96%"},{"name":"Carino's","loc":"El Paso, TX","ac":"Net Lease","hold":"5.92","em":"0.64x","ret":"2.25%"},{"name":"Timber Lodge","loc":"Rochester, MN","ac":"Net Lease","hold":"10.06","em":"1.21x","ret":"6.83%"},{"name":"Hollywood Video","loc":"Saraland, AL","ac":"Net Lease","hold":"10.39","em":"1.27x","ret":"6.76%"},{"name":"Tumbleweed","loc":"Chillicothe, OH","ac":"Net Lease","hold":"9.2","em":"1.62x","ret":"8.81%"},{"name":"Timber Lodge","loc":"St. Cloud, MN","ac":"Net Lease","hold":"13.58","em":"1.21x","ret":"5.78%"},{"name":"Applebee's","loc":"Middletown, OH","ac":"Net Lease","hold":"14.13","em":"2.39x","ret":"9.55%"},{"name":"Fuddruckers","loc":"Thornton, CO","ac":"Net Lease","hold":"10.66","em":"1.24x","ret":"8.88%"},{"name":"Marie Callender's","loc":"Gresham, OR","ac":"Net Lease","hold":"12.94","em":"1.10x","ret":"4.75%"},{"name":"Tumbleweed","loc":"Columbus, OH","ac":"Net Lease","hold":"11.24","em":"1.43x","ret":"7.42%"},{"name":"Carino's","loc":"McAllen, TX","ac":"Net Lease","hold":"10.31","em":"1.05x","ret":"5.46%"},{"name":"Champps","loc":"Utica, MI","ac":"Net Lease","hold":"9.65","em":"0.64x","ret":"4.21%"},{"name":"Carino's","loc":"Austin, TX","ac":"Net Lease","hold":"12.32","em":"1.72x","ret":"7.46%"},{"name":"Carino's","loc":"Irving, TX","ac":"Net Lease","hold":"10.29","em":"1.19x","ret":"4.85%"},{"name":"KinderCare / Children's World","loc":"De Pere, WI","ac":"Net Lease","hold":"14.81","em":"1.89x","ret":"7.58%"},{"name":"Champps","loc":"Centerville, OH","ac":"Net Lease","hold":"11.75","em":"0.82x","ret":"5.43%"},{"name":"Champps","loc":"Lyndhurst, OH","ac":"Net Lease","hold":"17.17","em":"1.02x","ret":"5.78%"},{"name":"Carino's","loc":"Lakewood, CO","ac":"Net Lease","hold":"14.12","em":"1.33x","ret":"6.26%"},{"name":"Carino's","loc":"Mansfield, TX","ac":"Net Lease","hold":"10.47","em":"0.92x","ret":"3.77%"},{"name":"HomeTown Buffet","loc":"Albuquerque, NM","ac":"Net Lease","hold":"20.22","em":"1.64x","ret":"6.15%"},{"name":"Champps","loc":"Schaumburg, IL","ac":"Net Lease","hold":"15.21","em":"1.48x","ret":"6.10%"},{"name":"Carino's","loc":"Longview, TX","ac":"Net Lease","hold":"10.21","em":"0.86x","ret":"3.98%"},{"name":"Champps","loc":"Columbus (Easton), OH","ac":"Net Lease","hold":"15.54","em":"1.85x","ret":"8.14%"},{"name":"KinderCare / Children's World","loc":"West Bridgewater, MA","ac":"Net Lease","hold":"14","em":"1.83x","ret":"7.08%"},{"name":"KinderCare / Children's World","loc":"Colorado Springs, CO","ac":"Net Lease","hold":"15.31","em":"2.05x","ret":"7.96%"},{"name":"KinderCare / Children's World","loc":"Monument, CO","ac":"Net Lease","hold":"12.47","em":"1.35x","ret":"7.33%"},{"name":"Champps","loc":"Columbus (Crosswood), OH","ac":"Net Lease","hold":"19.6","em":"1.36x","ret":"6.46%"},{"name":"Mimi's Café","loc":"Kansas City, MO","ac":"Net Lease","hold":"11.76","em":"1.04x","ret":"5.15%"},{"name":"KinderCare","loc":"Ballwin, MO","ac":"Net Lease","hold":"8.78","em":"1.45x","ret":"7.15%"},{"name":"KinderCare / Children's World","loc":"Houston, TX","ac":"Net Lease","hold":"14.57","em":"2.23x","ret":"7.71%"},{"name":"KinderCare / Children's World","loc":"Twinsburg, OH","ac":"Net Lease","hold":"14.74","em":"2.13x","ret":"7.34%"},{"name":"BJ's Restaurant & Brewhouse / Champps","loc":"Livonia, MI","ac":"Net Lease","hold":"17.28","em":"1.73x","ret":"6.57%"},{"name":"Carino's","loc":"Pharr, TX","ac":"Net Lease","hold":"15.33","em":"1.33x","ret":"4.93%"},{"name":"Carino's","loc":"Victoria, TX","ac":"Net Lease","hold":"16.4","em":"1.58x","ret":"5.93%"},{"name":"U-Like Buffet / HomeTown Buffet","loc":"Tucson, AZ","ac":"Net Lease","hold":"23.33","em":"1.74x","ret":"5.91%"},{"name":"Tractor Supply","loc":"Bristol, VA","ac":"Net Lease","hold":"22.94","em":"3.49x","ret":"9.46%"},{"name":"Carmax","loc":"Lithia Springs, GA","ac":"Net Lease","hold":"6.3","em":"1.44x","ret":"5.99%"},{"name":"Cash America","loc":"Covington, LA","ac":"Net Lease","hold":"17.57","em":"1.32x","ret":"4.30%"},{"name":"Arby's","loc":"Homewood, AL","ac":"Net Lease","hold":"17.86","em":"1.61x","ret":"6.65%"},{"name":"Winn Dixie","loc":"Panama City, FL","ac":"Net Lease","hold":"17.13","em":"1.76x","ret":"6.20%"},{"name":"Gingham's","loc":"St. Charles, MO","ac":"Net Lease","hold":"23.29","em":"2.27x","ret":"9.18%"},{"name":"Aaron's","loc":"Muscle Shoals, AL","ac":"Net Lease","hold":"17.56","em":"0.79x","ret":"2.96%"},{"name":"Chateau Elite","loc":"Mundelein, IL","ac":"Net Lease","hold":"18.16","em":"1.96x","ret":"7.05%"},{"name":"KinderCare","loc":"Ft. Worth, TX","ac":"Net Lease","hold":"20.1","em":"2.74x","ret":"7.39%"}]},{"f":"American Capital Group","slug":"american-capital-group","yr":"1986","aum":"$2.0B","hq":"Bellevue, WA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"American Capital Group is a Pacific Northwest multifamily developer and owner-operator, active since 1986, that extends into the 1031/DST channel on the strength of a vertically integrated development platform.","deals":[]},{"f":"Apollo Global Management","slug":"apollo-global-management","yr":"1990","aum":"$840.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Apollo Global Management is one of the world's largest alternative asset managers, with roughly $840 billion in assets across credit, private equity and real assets, and its scale is the headline.","deals":[]},{"f":"ARCTRUST","slug":"arctrust","yr":"1985","aum":"$5.0B","hq":"Clifton, NJ","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"ARCTRUST is a roughly 40-year, vertically integrated net-lease specialist structured as a private REIT, giving 1031 investors access to a diversified, professionally managed retail portfolio rather than a single-asset DST.","deals":[]},{"f":"Ares Management","slug":"ares-management","yr":"1997","aum":"$595.7B","hq":"Los Angeles, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Ares Management is a roughly $596 billion global alternatives manager whose real estate ambitions in the wealth channel run through Ares Wealth Management Solutions, the distribution arm that brings DST and non-traded vehicles to advisors and their clients.","deals":[]},{"f":"Arrimus Capital Advisors","slug":"arrimus-capital-advisors","yr":"2014","aum":"$75.0B","hq":"Newport Beach, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Arrimus Capital Advisors is a West Coast real estate investment manager, founded in 2014, pursuing value-add and opportunistic strategies that it occasionally structures for 1031 investors.","deals":[]},{"f":"Baker Tilly","slug":"baker-tilly","yr":"1931","aum":"$5.1B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Baker Tilly is a top-tier accounting and advisory firm, not a real estate sponsor, and appears in the 1031/DST ecosystem as a tax, cost-segregation and transaction advisor rather than as an issuer of offerings. Investors should treat its presence on a sponsor list as a service-provider relationship; it originates no property programs and carries no sponsor AUM.","deals":[]},{"f":"Beacon Real Estate Group","slug":"beacon-real-estate-group","yr":"2005","aum":"$2.36B","hq":"Miami, FL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Beacon Real Estate Group is a Miami-based multifamily-focused private investment firm, active since 2005, that pursues value-add apartment strategies concentrated in the Southeast and Florida. It presents as a regional operator leaning on demographic tailwinds in its core markets; current AUM is not publicly disclosed, and the firm's smaller disclosure footprint argues for direct diligence.","deals":[]},{"f":"Blackstone","slug":"blackstone","yr":"1985","aum":"$1.3T","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Blackstone is the world's largest alternative asset manager, with roughly $1.3 trillion in total AUM and a real estate platform commanding about $319 billion of investor capital as of year-end 2025—an order of magnitude beyond any dedicated DST sponsor.","deals":[]},{"f":"Blue Owl","slug":"blue-owl","yr":"2009","aum":"$273.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Blue Owl Capital is a roughly $273 billion alternatives manager whose net-lease pedigree—anchored by the Oak Street platform it absorbed—feeds its DST/1031 vehicle, Blue Owl Real Estate Exchange (OREX). The strategy is purpose-built around triple-net, sale-leaseback assets leased to creditworthy corporate tenants, a cash-flow-stable profile well suited to exchange investors seeking predictability.","deals":[]},{"f":"Bluerock","slug":"bluerock","yr":"2002","aum":"$19.0B","hq":"New York, NY","fc":"97","arr":"21.39%","em":"1.77x","hold":"4. Years","win":"93.81%","pref":0,"desc":"Bluerock has sponsored syndicated 1031 exchanges for more than eighteen years, and its Bluerock Value Exchange (BVEX) arm packages multifamily, industrial and other core sectors into what it markets as 'Premier Exchange Properties.","deals":[{"name":"The Ashford","loc":"Atlanta, GA","ac":"Multifamily","hold":"1.92","em":"2.05x","ret":"30.40%"},{"name":"Tech Ridge","loc":"Austin, TX","ac":"Multifamily","hold":"2.5","em":"2.18x","ret":"28.20%"},{"name":"Lynd Portfolio (Mesa Ridge / Meadows / Stratford)","loc":"San Antonio & Austin, TX","ac":"Multifamily","hold":"3","em":"1.91x","ret":"17.50%"},{"name":"Note 16","loc":"Nashville, TN","ac":"Multifamily","hold":"1.25","em":"1.77x","ret":"44.50%"},{"name":"Hillsboro","loc":"Nashville, TN","ac":"Multifamily","hold":"3","em":"2.19x","ret":"25.10%"},{"name":"Meadowmont","loc":"Chapel Hill, NC","ac":"Multifamily","hold":"3.5","em":"2.41x","ret":"24.50%"},{"name":"The Stratford","loc":"Cary, NC","ac":"Multifamily","hold":"1.42","em":"1.49x","ret":"22.90%"},{"name":"Arbor Terrace","loc":"Marietta, GA","ac":"Multifamily","hold":"2.83","em":"1.27x","ret":"7.80%"},{"name":"Creekside Village","loc":"Chattanooga, TN","ac":"Multifamily","hold":"4","em":"2.27x","ret":"14.80%"},{"name":"Estates at Perimeter","loc":"Augusta, GA","ac":"Multifamily","hold":"4.17","em":"1.25x","ret":"2.50%"},{"name":"Grove at Waterford","loc":"Hendersonville, TN","ac":"Multifamily","hold":"2.58","em":"1.34x","ret":"35.00%"},{"name":"23Hundred Berry Hill","loc":"Nashville, TN","ac":"Multifamily","hold":"2.25","em":"1.88x","ret":"43.70%"},{"name":"Villas at Oak Crest","loc":"Chattanooga, TN","ac":"Multifamily","hold":"3.42","em":"1.33x","ret":"14.00%"},{"name":"North Park Towers","loc":"Southfield, MI","ac":"Multifamily","hold":"9.83","em":"0.25x","ret":"-11.60%"},{"name":"Artisan on 18th","loc":"Nashville, TN","ac":"Multifamily","hold":"2.33","em":"2.12x","ret":"35.20%"},{"name":"Indian Springs","loc":"El Paso, TX","ac":"Multifamily","hold":"4.08","em":"0.98x","ret":"-0.50%"},{"name":"Springhouse","loc":"Newport News, VA","ac":"Multifamily","hold":"6.67","em":"2.40x","ret":"13.60%"},{"name":"Mesa Ridge","loc":"San Antonio, TX","ac":"Multifamily","hold":"5.67","em":"1.53x","ret":"9.60%"},{"name":"EOS","loc":"Orlando, FL","ac":"Multifamily","hold":"2.5","em":"1.77x","ret":"26.60%"},{"name":"Village Green","loc":"Ann Arbor, MI","ac":"Multifamily","hold":"4.42","em":"2.25x","ret":"8.00%"},{"name":"Lansbrook","loc":"Palm Harbor, FL","ac":"Multifamily","hold":"3.08","em":"1.85x","ret":"16.40%"},{"name":"Fox Hill","loc":"Austin, TX","ac":"Multifamily","hold":"2","em":"1.62x","ret":"19.20%"},{"name":"MDA City","loc":"Chicago, IL","ac":"Multifamily","hold":"4.5","em":"2.32x","ret":"19.90%"},{"name":"CoHo House","loc":"Atlanta, GA","ac":"Multifamily","hold":"3.42","em":"1.26x","ret":"-3.10%"},{"name":"Chace Lake Villas","loc":"Birmingham, AL","ac":"Multifamily","hold":"5.5","em":"1.40x","ret":"8.10%"},{"name":"Alamance Reserve","loc":"Burlington, NC","ac":"Multifamily","hold":"4.17","em":"1.03x","ret":"6.90%"},{"name":"Stonebrook","loc":"Nashville, TN","ac":"Multifamily","hold":"7.58","em":"3.62x","ret":"22.70%"},{"name":"Four Corners","loc":"Orlando, FL","ac":"Multifamily","hold":"3.42","em":"1.66x","ret":"22.40%"},{"name":"Plaza Gardens","loc":"Overland Park, KS","ac":"Multifamily","hold":"10.92","em":"1.34x","ret":"4.20%"},{"name":"Sorrel Phillips Creek / Sovereign Apartments (Portfolio)","loc":"Frisco & Fort Worth, TX","ac":"Multifamily","hold":"3.83","em":"1.39x","ret":"10.30%"},{"name":"Preston View","loc":"Morrisville, NC","ac":"Multifamily","hold":"2.58","em":"1.16x","ret":"6.80%"},{"name":"Leigh House","loc":"Raleigh, NC","ac":"Multifamily","hold":"3.67","em":"1.94x","ret":"8.70%"},{"name":"Arium Palms Gateway","loc":"Orlando, FL","ac":"Multifamily","hold":"4.08","em":"1.57x","ret":"13.70%"},{"name":"Valley Townhomes","loc":"Puyallup, WA","ac":"Multifamily","hold":"11.33","em":"1.78x","ret":"9.40%"},{"name":"Ansley Village","loc":"Macon, GA","ac":"Multifamily","hold":"5.58","em":"1.37x","ret":"8.40%"},{"name":"Helios","loc":"Atlanta, GA","ac":"Multifamily","hold":"4.67","em":"1.89x","ret":"6.40%"},{"name":"Whetstone Apartments","loc":"Durham, NC","ac":"Multifamily","hold":"4.67","em":"1.62x","ret":"7.40%"},{"name":"Ashton Reserve","loc":"Charlotte, NC","ac":"Multifamily","hold":"4.75","em":"1.71x","ret":"13.80%"},{"name":"Enders Place","loc":"Orlando, FL","ac":"Multifamily","hold":"7.67","em":"1.96x","ret":"19.40%"},{"name":"CADE Boca Raton","loc":"Boca Raton, FL","ac":"Multifamily","hold":"4.08","em":"1.32x","ret":"1.00%"},{"name":"Novel Perimeter","loc":"Atlanta, GA","ac":"Multifamily","hold":"4","em":"1.40x","ret":"10.00%"},{"name":"Arlo","loc":"Charlotte, NC","ac":"Multifamily","hold":"4.83","em":"1.47x","ret":"6.00%"},{"name":"Riverside Apartments","loc":"Austin, TX","ac":"Multifamily","hold":"2","em":"1.18x","ret":"13.10%"},{"name":"Arium Grandewood","loc":"Orlando, FL","ac":"Multifamily","hold":"5.17","em":"3.61x","ret":"24.40%"},{"name":"Big Creek","loc":"Alpharetta, GA","ac":"Multifamily","hold":"4.17","em":"1.43x","ret":"11.10%"},{"name":"James on South First","loc":"Austin, TX","ac":"Multifamily","hold":"4.25","em":"1.91x","ret":"17.40%"},{"name":"Marquis Portfolio (Stone Oak / Crown Ridge / TPC / Cascades)","loc":"San Antonio & Tyler, TX","ac":"Multifamily","hold":"2.75","em":"1.42x","ret":"12.60%"},{"name":"Alexan Southside Place","loc":"Houston, TX","ac":"Multifamily","hold":"6.17","em":"0.55x","ret":"-16.80%"},{"name":"The Conley","loc":"Leander, TX","ac":"Multifamily","hold":"2.42","em":"1.25x","ret":"13.00%"},{"name":"Plantation Park","loc":"Lake Jackson, TX","ac":"Multifamily","hold":"3","em":"0.59x","ret":"-19.40%"},{"name":"The Reserve at Palmer Ranch","loc":"Sarasota, FL","ac":"Multifamily","hold":"5.5","em":"3.46x","ret":"22.20%"},{"name":"Vicker's Historic Roswell","loc":"Roswell, GA","ac":"Multifamily","hold":"4.58","em":"1.36x","ret":"8.50%"},{"name":"Park and Kingston","loc":"Charlotte, NC","ac":"Multifamily","hold":"5.58","em":"2.37x","ret":"17.55%"},{"name":"The District at Scottsdale","loc":"Scottsdale, AZ","ac":"Multifamily","hold":"1.58","em":"1.40x","ret":"25.16%"},{"name":"Mira Vista","loc":"Austin, TX","ac":"Multifamily","hold":"1.75","em":"1.21x","ret":"10.41%"},{"name":"Beach House","loc":"Jacksonville, FL","ac":"Multifamily","hold":"5.5","em":"1.65x","ret":"11.50%"},{"name":"Riverside","loc":"Jacksonville, FL","ac":"Multifamily","hold":"5.5","em":"1.60x","ret":"11.00%"},{"name":"Belmont Crossing","loc":"Smyrna, GA","ac":"Multifamily","hold":"2","em":"1.22x","ret":"11.39%"},{"name":"Sierra Terrace","loc":"Atlanta, GA","ac":"Multifamily","hold":"2","em":"1.25x","ret":"11.39%"},{"name":"Sierra Village","loc":"Atlanta, GA","ac":"Multifamily","hold":"2","em":"1.22x","ret":"11.39%"},{"name":"Thornton Flats","loc":"Austin, TX","ac":"Multifamily","hold":"2.25","em":"1.18x","ret":"9.31%"}]},{"f":"Bonaventure","slug":"bonaventure","yr":"1999","aum":"$2.6B","hq":"Alexandria, VA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Bonaventure is a vertically integrated Mid-Atlantic and Southeast multifamily firm, founded in 1999, that has built its 1031/721 franchise around its perpetual-life Bonaventure Multifamily Income Trust (BMIT), through which it has facilitated more than $1.5 billion in tax-deferred exchanges.","deals":[]},{"f":"Bridgeview","slug":"bridgeview","yr":"2011","aum":"$440.0M","hq":"Dallas, TX","fc":"2","arr":"37.25%","em":"3.83x","hold":"3.79 Years","win":"100.00%","pref":1,"desc":"Bridgeview is a Dallas-based, veteran-owned developer-sponsor of multifamily, office and mixed-use assets that distributes its DSTs through a captive broker-dealer, BV Securities—an unusual degree of vertical control over distribution for a firm of its size.","deals":[]},{"f":"Brookfield","slug":"brookfield","yr":"1899","aum":"$1.0T","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Brookfield is a global owner-operator of real assets with well over $1 trillion in AUM and roughly $31 billion in U.S. institutional real estate, and it reaches retail and exchange investors through the Brookfield Real Estate Income Trust.","deals":[]},{"f":"CAI Investments","slug":"cai-investments","yr":"2011","aum":"$1.6B","hq":"Las Vegas, NV","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"CAI Investments is a Las Vegas vertically integrated developer-sponsor distinguished by a hospitality and Marriott development pedigree—including a 2016 Marriott best-repositioning award—that it has parlayed into a net-lease DST portfolio spanning industrial, office, QSR and multifamily assets.","deals":[]},{"f":"Cantor Fitzgerald","slug":"cantor-fitzgerald","yr":"1945","aum":"$13.0B","hq":"New York, NY","fc":"9","arr":"11.67%","em":"1.45x","hold":"3.92 Years","win":"100.00%","pref":0,"desc":"Cantor Fitzgerald reaches the 1031 market through Cantor Fitzgerald Investors, leveraging the global capital-markets and brokerage muscle of its 1945-founded parent and its Newmark affiliation to source institutional-quality DSTs and feed its non-traded Cantor Fitzgerald Income Trust.","deals":[{"name":"CF Norterra Canyon Multifamily DST","loc":"","ac":"Multifamily","hold":"3.2","em":"1.37x","ret":"12.20%"},{"name":"CF Towson Multifamily DST","loc":"","ac":"Multifamily","hold":"3.2","em":"1.31x","ret":"10.10%"}]},{"f":"Cantor Silverstein","slug":"cantor-silverstein","yr":"2019","aum":"$1.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Cantor Silverstein Opportunity Zone Trust is a joint venture between Cantor Fitzgerald and Silverstein Properties, structured as a non-traded Opportunity Zone REIT focused on ground-up development in qualified zones.","deals":[]},{"f":"Capital Square","slug":"capital-square","yr":"2012","aum":"$6.0B","hq":"Richmond, VA","fc":"19","arr":"15.20%","em":"1.83x","hold":"4.81 Years","win":"100.00%","pref":1,"desc":"Capital Square has evolved from a pure 1031/DST sponsor into one of the more vertically integrated platforms in the securitized exchange market, with over $6 billion in AUM and more than $7.5 billion in transaction volume since its 2012 founding by Louis Rogers.","deals":[{"name":"CSRA Bridgeview Apartments, DST","loc":"Tampa, FL","ac":"Multifamily","hold":"4.8","em":"1.72x","ret":"13.49%"},{"name":"CS1031 Crossroads Apartments, DST","loc":"Phoenix, AZ","ac":"Multifamily","hold":"2.3","em":"1.45x","ret":"18.35%"},{"name":"CSRA Ashford Club Apartments, DST","loc":"Tallahassee, FL","ac":"Multifamily","hold":"6","em":"1.70x","ret":"10.86%"},{"name":"CSRA Candleglow Apartments, DST","loc":"Tampa, FL","ac":"Multifamily","hold":"5.3","em":"2.53x","ret":"21.31%"},{"name":"CSRA Perry Place Apartments, DST","loc":"Richmond, VA","ac":"Multifamily","hold":"4.8","em":"1.44x","ret":"8.70%"},{"name":"CS1031 Kay Maple Springs Apartments, DST","loc":"Richmond, VA","ac":"Multifamily","hold":"4.4","em":"1.67x","ret":"13.94%"},{"name":"CSRA Galeria Del Rio, DST","loc":"Tucson, AZ","ac":"Multifamily","hold":"5.3","em":"2.22x","ret":"18.12%"},{"name":"CS1031 Kay Alexander Pointe Apartments, DST","loc":"Jacksonville, FL","ac":"Multifamily","hold":"4.5","em":"2.61x","ret":"25.84%"},{"name":"CS1031 Fairway View Apartments, DST","loc":"Atlanta, GA (suburb)","ac":"Multifamily","hold":"4.1","em":"1.92x","ret":"19.25%"}]},{"f":"Carter Exchange","slug":"carter-exchange","yr":"2017","aum":"$3.0B","hq":"Tampa, FL","fc":"3","arr":"20.07%","em":"1.75x","hold":"3.79 Years","win":"100.00%","pref":1,"desc":"Carter operates as a family of affiliated companies—Carter Multifamily, Carter Exchange Fund Management and the data-center-focused Aphorio Carter—managing roughly $3 billion and drawing leadership directly from the Carter Validus mission-critical REITs.","deals":[]},{"f":"Cliffwater","slug":"cliffwater","yr":"2004","aum":"$120.0B","hq":"Marina del Rey, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Cliffwater is an alternatives research and advisory firm and the manager of large interval funds such as the Cliffwater Corporate Lending and Enhanced Lending funds, rather than a property sponsor in the conventional DST sense. Its franchise is built on institutional-grade private-credit research and RIA-channel distribution, and it appears in the alts ecosystem as an allocator and fund manager.","deals":[]},{"f":"Core","slug":"core","yr":"2005","aum":"$600.0M","hq":"Newport Beach, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"CORE Realty Holdings Management and affiliates own and professionally manage more than 10.6 million square feet of commercial and multifamily real estate (4,500-plus units) across roughly 12 states from Newport Beach, CA.","deals":[]},{"f":"Core Pacific","slug":"core-pacific","yr":"2005","aum":"$600.0M","hq":"Newport Beach, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"CORE Pacific Advisors is the securitized-1031 sponsorship affiliate of CORE Realty Holdings Management, based in Newport Beach, CA, focused on multifamily DSTs and tenant-in-common offerings. Named offerings include CPA Barrington Apartments and the Denver-market Arbour Commons in Westminster, CO.","deals":[]},{"f":"Cove Capital","slug":"cove-capital","yr":"2012","aum":"$958.0M","hq":"Torrance, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Cove Capital Investments has built a distinctive franchise on a single contrarian premise: debt-free DSTs. Founded in 2012 by Dwight Kay and Chay Lapin, the firm structures all-cash offerings that carry no mortgage risk—eliminating the lender-driven loss scenarios that have tripped up leveraged DSTs in downturns—across net-lease, industrial and multifamily assets.","deals":[]},{"f":"Croatan Investments","slug":"croatan-investments","yr":"2004","aum":"$1.5B","hq":"Virginia Beach, VA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Croatan Investments is a Norfolk-based multifamily private equity sponsor, active since 2014, pursuing value-add apartment strategies concentrated in the Southeast and broader Sun Belt. It presents as a regional operator riding demographic and migration tailwinds; current AUM is not publicly disclosed, and the firm's limited public footprint warrants direct diligence.","deals":[]},{"f":"Cunat","slug":"cunat","yr":"1972","aum":"$800.0M","hq":"Crystal Lake, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Cunat is an Illinois-based, vertically integrated multifamily developer and manager with a track record stretching back to 1972, extending into the DST channel on the strength of in-house development and property-management capabilities. Its profile is that of a long-tenured Midwest operator trading on operational control rather than scale; current AUM is not publicly disclosed.","deals":[]},{"f":"Denholtz","slug":"denholtz","yr":"1953","aum":"$2.0B","hq":"Red Bank, NJ","fc":"14","arr":"38.05%","em":"2.55x","hold":"4.57 Years","win":"100.00%","pref":1,"desc":"Denholtz is a 70-plus-year, vertically integrated firm spanning multifamily, industrial, flex and office, with more than $2 billion in asset value and over 7 million square feet, increasingly oriented toward the Southeast and its Denholtz Opportunity Fund II.","deals":[]},{"f":"ERP","slug":"erp","yr":"2007","aum":"Not Disclosed","hq":"Midland, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"ERP (Energy Related Properties) is a DST sponsor focused on energy-related real estate rather than the multifamily and net-lease assets that dominate the 1031 market. It structures its holdings as Delaware Statutory Trusts (e.g., ERP 1031 portfolios) distributed through its managing broker-dealer, American Alternative Capital, LLC.","deals":[]},{"f":"ExchangeRight","slug":"exchangeright","yr":"2012","aum":"$7.0B","hq":"Pasadena, CA","fc":"28","arr":"7.77%","em":"1.41x","hold":"5.41 Years","win":"100.00%","pref":1,"desc":"ExchangeRight has scaled into one of the defining net-lease DST franchises, ending 2025 as the fifth-largest sponsor in the 1031 DST market with roughly $7.0 billion in AUM across more than 1,400 properties and 27 million square feet in 48 states.","deals":[{"name":"Multifamily 1 – Van Mark Creek Apartments","loc":"","ac":"Multifamily","hold":"3.94","em":"1.29x","ret":"7.27%"},{"name":"Multifamily 5 – Crystal Lake Florida Apartments","loc":"","ac":"Multifamily","hold":"2.57","em":"1.22x","ret":"8.51%"},{"name":"Net-Leased Portfolio 1","loc":"","ac":"Net-Leased Retail","hold":"7.4","em":"1.46x","ret":"9.40%"},{"name":"Multifamily 3 – Lakeside at Arbor Place Apartments","loc":"","ac":"Multifamily","hold":"3.2","em":"1.35x","ret":"11.08%"},{"name":"Net-Leased Portfolio 2","loc":"","ac":"Net-Leased Retail","hold":"7.07","em":"1.65x","ret":"9.22%"},{"name":"Net-Leased Portfolio 8","loc":"","ac":"Net-Leased Retail","hold":"4.7","em":"1.36x","ret":"7.69%"},{"name":"Multifamily 2 – Mira Bella and San Martin Apartments","loc":"","ac":"Multifamily","hold":"4.29","em":"1.29x","ret":"6.82%"},{"name":"Net-Leased Portfolio 12","loc":"","ac":"Net-Leased Retail","hold":"3.68","em":"1.25x","ret":"7.01%"},{"name":"Net-Leased Portfolio 3","loc":"","ac":"Net-Leased Retail","hold":"7.64","em":"1.69x","ret":"9.10%"},{"name":"Net-Leased Portfolio 13","loc":"","ac":"Net-Leased Retail","hold":"4.16","em":"1.31x","ret":"7.35%"},{"name":"Multifamily 4 – North Austin Apartment Portfolio","loc":"","ac":"Multifamily","hold":"4.25","em":"1.29x","ret":"6.80%"},{"name":"Net-Leased Portfolio 14","loc":"","ac":"Net-Leased Retail","hold":"4.31","em":"1.29x","ret":"6.77%"},{"name":"Net-Leased Portfolio 4","loc":"","ac":"Net-Leased Retail","hold":"7.52","em":"1.58x","ret":"7.73%"},{"name":"Net-Leased Portfolio 15","loc":"","ac":"Net-Leased Retail","hold":"4.67","em":"1.30x","ret":"6.54%"},{"name":"Multifamily 6 – El Paso Apartment Portfolio","loc":"","ac":"Multifamily","hold":"3.8","em":"1.55x","ret":"14.52%"},{"name":"Net-Leased Portfolio 5","loc":"","ac":"Net-Leased Retail","hold":"7.84","em":"1.57x","ret":"7.34%"}]},{"f":"Fortress Investment Group","slug":"fortress-investment-group","yr":"1998","aum":"$49.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Fortress Investment Group is a roughly $49 billion diversified alternatives manager spanning credit, real estate and private equity, with a heritage rooted in distressed and credit investing. Its real estate exposure runs through funds and net-lease vehicles rather than a marquee retail DST franchise, and its Mubadala ownership provides a deep, patient capital base.","deals":[]},{"f":"Four Springs Capital","slug":"four-springs-capital","yr":"2012","aum":"$1.3B","hq":"Wall, NJ","fc":"24","arr":"7.05%","em":"1.47x","hold":"3.34 Years","win":"100.00%","pref":0,"desc":"Four Springs Capital reaches the 1031 market through Four Springs TEN31 Xchange, sponsoring net-lease DSTs concentrated in single-tenant industrial and medical properties under long-term leases to credit tenants such as Ford, Eaton and Carhartt.","deals":[{"name":"Aaron's Inc. – Charleston, SC","loc":"Charleston, SC","ac":"Retail","hold":"2.56","em":"1.18x","ret":"7.01%"},{"name":"Aaron's Inc. – Newport News, VA","loc":"Newport News, VA","ac":"Retail","hold":"3.01","em":"1.22x","ret":"7.20%"},{"name":"Aaron's Inc. – Artesia, NM","loc":"Artesia, NM","ac":"Retail","hold":"2.79","em":"1.20x","ret":"7.20%"},{"name":"Aaron's Inc. – Huntsville, AL","loc":"Huntsville, AL","ac":"Retail","hold":"2.59","em":"1.19x","ret":"7.20%"},{"name":"Aaron's Inc. – Anderson, SC","loc":"Anderson, SC","ac":"Retail","hold":"2.41","em":"1.17x","ret":"7.20%"},{"name":"Dollar General – Midway, GA","loc":"Midway, GA","ac":"Retail","hold":"2.21","em":"1.17x","ret":"7.75%"},{"name":"Dollar General – Charlotte, NC","loc":"Charlotte, NC","ac":"Retail","hold":"1.99","em":"1.15x","ret":"7.75%"},{"name":"Dollar General – Winter Haven, FL","loc":"Winter Haven, FL","ac":"Retail","hold":"1.84","em":"1.14x","ret":"7.70%"},{"name":"Dollar General – Elizabeth City, NC","loc":"Elizabeth City, NC","ac":"Retail","hold":"1.68","em":"1.13x","ret":"7.50%"},{"name":"Dollar General – Eden, NC","loc":"Eden, NC","ac":"Retail","hold":"1.47","em":"1.18x","ret":"8.00%"},{"name":"Advance Auto Parts – Garner, NC","loc":"Garner, NC","ac":"Retail","hold":"1.53","em":"1.12x","ret":"7.50%"},{"name":"Dollar General – Savannah, GA","loc":"Savannah, GA","ac":"Retail","hold":"1.29","em":"1.09x","ret":"7.26%"},{"name":"Dollar General – Fort Braden, FL","loc":"Fort Braden, FL","ac":"Retail","hold":"1.05","em":"1.07x","ret":"7.00%"},{"name":"Family Dollar – Verona, PA","loc":"Verona, PA","ac":"Retail","hold":"0.89","em":"1.06x","ret":"7.25%"},{"name":"Dollar General – Pensacola, FL","loc":"Pensacola, FL","ac":"Retail","hold":"0.86","em":"1.06x","ret":"7.00%"},{"name":"O'Reilly Automotive – Atmore, AL","loc":"Atmore, AL","ac":"Retail","hold":"0.58","em":"1.04x","ret":"6.50%"},{"name":"Family Dollar – Milledgeville, GA","loc":"Milledgeville, GA","ac":"Retail","hold":"0.53","em":"1.04x","ret":"7.75%"},{"name":"Family Dollar – Memphis, TN","loc":"Memphis, TN","ac":"Retail","hold":"0.4","em":"1.03x","ret":"7.12%"}]},{"f":"FS Investments","slug":"fs-investments","yr":"2007","aum":"$85.0B","hq":"Philadelphia, PA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"FS Investments is a roughly $85 billion, credit-led alternatives manager—built on a BDC heritage and broadened by its merger with Portfolio Advisors—whose real estate activity sits alongside interval funds and private-credit strategies distributed through the RIA channel.","deals":[]},{"f":"GK Real Estate","slug":"gk-real-estate","yr":"1985","aum":"$300.0M","hq":"Barrington, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"GK Real Estate is a Chicago-area mixed-use and multifamily developer and sponsor, active since 1985, that trades on local development expertise concentrated in its home market. It presents as a regional operator rather than a national DST platform; current AUM is not publicly disclosed.","deals":[]},{"f":"Go Store It Partners","slug":"go-store-it-partners","yr":"2013","aum":"$4.0B","hq":"Charlotte, NC","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Go Store It Partners is the self-storage brand and operating platform affiliated with Madison Capital Group, packaging self-storage assets into DST offerings. Self-storage is its single, defensible specialization—an asset class with low operating intensity and resilient demand—and the Madison affiliation supplies vertically integrated operations and a roughly $4 billion platform behind it.","deals":[]},{"f":"Goldman Sachs","slug":"goldman-sachs","yr":"1869","aum":"$3.1T","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Goldman Sachs reaches real estate investors through Goldman Sachs Asset Management's alternatives platform, part of a roughly $3.1 trillion asset-and-wealth-management franchise, with net-lease and real estate credit strategies among its offerings.","deals":[]},{"f":"Greystar","slug":"greystar","yr":"1993","aum":"$320.0B","hq":"Charleston, SC","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Greystar is the world's largest apartment manager, owner and developer, with roughly $320 billion in real estate AUM and a fully vertically integrated develop-own-manage model spanning the globe. Its 2025 DST partnership with Trilogy brings that operating scale—and unrivaled multifamily data and execution—into the 1031 channel.","deals":[]},{"f":"Griffin Capital","slug":"griffin-capital","yr":"1995","aum":"$3.5B","hq":"El Segundo, CA","fc":"2","arr":"18.04%","em":"1.72x","hold":"4.42 Years","win":"100.00%","pref":1,"desc":"Griffin Capital is an El Segundo alternative asset manager that has owned or sponsored roughly $23 billion of real estate over its history and now reaches exchangers through Griffin Institutional Property Exchange (GPX), focused on Class A multifamily and net-lease DSTs. A defining feature is alignment: its executives have co-invested more than $300 million alongside investors.","deals":[]},{"f":"Hamilton Point Investments","slug":"hamilton-point-investments","yr":"2009","aum":"$3.8B","hq":"Old Lyme, CT","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Hamilton Point Investments is an Old Lyme multifamily DST and fund sponsor, founded in 2009, distinguished by a fully in-house operating model—it owns and manages every asset rather than outsourcing—and by an exceptional full-cycle record.","deals":[]},{"f":"Hines","slug":"hines","yr":"1957","aum":"$93.0B","hq":"Houston, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Hines is a global private real estate firm founded in 1957, managing roughly $93 billion across a develop-own-operate platform that few peers can match in geographic and asset-class reach. It reaches retail and exchange investors through non-traded vehicles such as Hines Global Income Trust and its DST offerings.","deals":[]},{"f":"HPA Exchange","slug":"hpa-exchange","yr":"2008","aum":"$580.0M","hq":"Dallas, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"HPA Exchange is the DST platform affiliated with Housing Partnership Acquisitions, specializing in single-family rental (SFR) portfolios—an institutionalizing asset class that brings scaled residential operations to exchange investors.","deals":[]},{"f":"Inland","slug":"inland","yr":"1968","aum":"$12.3B","hq":"Oak Brook, IL","fc":"72","arr":"8.10%","em":"1.53x","hold":"6.91 Years","win":"94.44%","pref":0,"desc":"Inland Private Capital Corporation is the leading provider of securitized 1031 exchange opportunities in the United States—a designation supported by Mountain Dell Consulting's sponsor rankings—managing more than $12.3 billion across 317 offerings in 43 states as of mid-2024.","deals":[{"name":"Waukesha 1031 DST","loc":"","ac":"Retail","hold":"7","em":"1.35x","ret":"5.58%"},{"name":"Winston-Salem Office DST","loc":"","ac":"Office","hold":"2.92","em":"1.21x","ret":"7.50%"},{"name":"Grand Chute DST","loc":"","ac":"Retail","hold":"11.5","em":"1.92x","ret":"8.64%"},{"name":"Convenience Net Lease Portfolio DST","loc":"","ac":"Retail","hold":"1.5","em":"1.26x","ret":"17.48%"},{"name":"West St. Paul 1031 Venture DST","loc":"","ac":"Retail","hold":"7.83","em":"1.11x","ret":"1.77%"},{"name":"Macon Office DST","loc":"","ac":"Office","hold":"11.83","em":"1.69x","ret":"6.90%"},{"name":"Naples Multifamily DST","loc":"","ac":"Multifamily","hold":"1.92","em":"1.44x","ret":"23.10%"},{"name":"Denver MSA Multifamily DST","loc":"","ac":"Multifamily","hold":"1.75","em":"1.39x","ret":"21.78%"},{"name":"Broadway Commons DBT","loc":"","ac":"Retail","hold":"13.25","em":"1.57x","ret":"7.27%"},{"name":"Chicagoland Grocery Venture II DST","loc":"","ac":"Retail","hold":"2.58","em":"1.57x","ret":"21.14%"},{"name":"PNS Grocery DST","loc":"","ac":"Retail","hold":"4.25","em":"1.24x","ret":"6.07%"},{"name":"Zionsville Ground Express DST","loc":"","ac":"Industrial","hold":"1.92","em":"1.23x","ret":"11.99%"},{"name":"Naperville Retail Center DST","loc":"","ac":"Retail","hold":"3.08","em":"1.49x","ret":"15.17%"},{"name":"New York Grocery DST","loc":"","ac":"Retail","hold":"3.83","em":"0.76x","ret":"-8.32%"},{"name":"Bradenton Multifamily DST","loc":"","ac":"Multifamily","hold":"4.67","em":"1.53x","ret":"10.90%"},{"name":"Deer Park 1031 DST","loc":"","ac":"Industrial","hold":"9.33","em":"0.68x","ret":"-6.79%"},{"name":"Dallas MSA Multifamily DST","loc":"","ac":"Multifamily","hold":"3.92","em":"1.26x","ret":"6.76%"},{"name":"Chicagoland Fresh Market Venture DST","loc":"","ac":"Retail","hold":"4.67","em":"1.53x","ret":"12.71%"},{"name":"Austin Lakeshore Multifamily DST","loc":"","ac":"Multifamily","hold":"3.01","em":"1.33x","ret":"10.80%"},{"name":"Modesto Retail Center DST","loc":"","ac":"Retail","hold":"4.2","em":"1.22x","ret":"5.72%"},{"name":"Hillsboro 1031 DST","loc":"","ac":"Retail","hold":"8.42","em":"1.34x","ret":"4.84%"},{"name":"Orlando Student Housing DST","loc":"","ac":"Student Housing","hold":"2.67","em":"1.28x","ret":"10.50%"},{"name":"Medical Office Portfolio DST","loc":"","ac":"Healthcare","hold":"3.75","em":"1.42x","ret":"10.94%"},{"name":"Chicagoland Grocery Venture DST","loc":"","ac":"Retail","hold":"7.25","em":"1.69x","ret":"9.25%"},{"name":"Austell 1031 DST","loc":"","ac":"Retail","hold":"9.75","em":"1.21x","ret":"2.50%"},{"name":"Pearland Multifamily DST","loc":"","ac":"Multifamily","hold":"4.83","em":"1.27x","ret":"5.64%"},{"name":"San Antonio Multifamily DST","loc":"","ac":"Multifamily","hold":"4.67","em":"0.89x","ret":"-2.86%"},{"name":"Charlotte Office 1031 DST","loc":"","ac":"Office","hold":"10.42","em":"1.24x","ret":"2.86%"},{"name":"Denver Multifamily Portfolio DST","loc":"","ac":"Multifamily","hold":"3.58","em":"1.31x","ret":"8.66%"},{"name":"Jacksonville Multifamily DST","loc":"","ac":"Multifamily","hold":"4.42","em":"1.28x","ret":"6.42%"},{"name":"Colorado Multifamily Portfolio DST","loc":"","ac":"Multifamily","hold":"4.5","em":"1.43x","ret":"9.25%"},{"name":"Louisville Multifamily DST","loc":"","ac":"Multifamily","hold":"4.95","em":"1.41x","ret":"8.42%"},{"name":"Bristol 1031 DST","loc":"","ac":"Office","hold":"10.37","em":"0.78x","ret":"-4.30%"},{"name":"Sentry Office Building DBT","loc":"","ac":"Office","hold":"17.65","em":"2.29x","ret":"9.90%"},{"name":"Chicagoland Multifamily DST","loc":"","ac":"Multifamily","hold":"7.2","em":"1.57x","ret":"7.93%"},{"name":"RR-HV Venture Holdings DST","loc":"","ac":"Office","hold":"11.13","em":"1.85x","ret":"7.53%"},{"name":"San Antonio Multifamily II DST","loc":"","ac":"Multifamily","hold":"4.58","em":"1.13x","ret":"3.06%"},{"name":"Colorado Multifamily Portfolio II DST","loc":"","ac":"Multifamily","hold":"4","em":"1.56x","ret":"12.89%"},{"name":"Omaha Headquarters Ventures DST","loc":"","ac":"Office","hold":"9.5","em":"1.10x","ret":"1.59%"},{"name":"Scarborough Medical DST","loc":"","ac":"Healthcare","hold":"9.5","em":"2.12x","ret":"10.16%"},{"name":"Indianapolis Multifamily DST","loc":"","ac":"Multifamily","hold":"6","em":"1.17x","ret":"3.09%"},{"name":"Miami Office DST","loc":"","ac":"Office","hold":"10.17","em":"1.13x","ret":"1.75%"},{"name":"Carmel Multifamily DST","loc":"","ac":"Multifamily","hold":"6.08","em":"1.56x","ret":"8.53%"},{"name":"National Retail Portfolio Venture DST","loc":"","ac":"Retail","hold":"10.3","em":"1.75x","ret":"7.31%"},{"name":"Mt. Pleasant Retail Venture DST","loc":"","ac":"Retail","hold":"8.84","em":"1.84x","ret":"9.17%"},{"name":"Ft. Collins Multifamily III DST","loc":"","ac":"Multifamily","hold":"5.12","em":"1.67x","ret":"11.81%"},{"name":"Ft. Collins Multifamily Portfolio DST","loc":"","ac":"Multifamily","hold":"5.55","em":"1.66x","ret":"10.29%"},{"name":"Dallas Multifamily DST","loc":"","ac":"Multifamily","hold":"4.75","em":"1.17x","ret":"3.72%"},{"name":"FL-NY Multifamily Portfolio DST","loc":"","ac":"Multifamily","hold":"5.75","em":"2.19x","ret":"16.26%"},{"name":"Self-Storage Portfolio II DST","loc":"","ac":"Self-Storage","hold":"4.97","em":"1.83x","ret":"14.31%"},{"name":"Self-Storage Portfolio I DST","loc":"","ac":"Self-Storage","hold":"5.55","em":"1.61x","ret":"10.07%"},{"name":"Self-Storage Portfolio IV DST","loc":"","ac":"Self-Storage","hold":"4.58","em":"1.76x","ret":"14.67%"},{"name":"Amarillo Self-Storage Portfolio DST","loc":"","ac":"Self-Storage","hold":"3.16","em":"1.59x","ret":"16.76%"},{"name":"Denver MSA Multifamily II DST","loc":"","ac":"Multifamily","hold":"4.33","em":"1.43x","ret":"9.53%"},{"name":"Park Creek Steeple Multifamily DST","loc":"","ac":"Multifamily","hold":"6.42","em":"2.92x","ret":"20.16%"},{"name":"Pharmacy Sale Leaseback II DST","loc":"","ac":"Retail","hold":"7.5","em":"1.57x","ret":"7.19%"},{"name":"East Coast Wholesale DST","loc":"","ac":"Retail","hold":"5.75","em":"1.56x","ret":"9.46%"}]},{"f":"Invesco","slug":"invesco","yr":"1935","aum":"$85.0B","hq":"Atlanta, GA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Invesco reaches the 1031 market through Invesco Real Estate Exchange (INREX), the DST arm of a global asset manager whose real estate group oversees roughly $85 billion, and it complements that with the Invesco Commercial Real Estate Finance Trust.","deals":[]},{"f":"J.P. Morgan","slug":"j-p-morgan","yr":"1871","aum":"$3.7T","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"J.P. Morgan reaches real estate investors through J.P. Morgan Asset Management, part of a roughly $3.7 trillion asset-and-wealth-management franchise, sponsoring non-traded REIT vehicles and offering global real estate and real estate-credit strategies.","deals":[]},{"f":"JLL","slug":"jll","yr":"2012","aum":"$6.5B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"JLL Exchange (JLLX) is the DST and 1031 platform of JLL Income Property Trust, an institutionally managed daily-NAV non-traded REIT carrying roughly $6.5 billion in portfolio assets.","deals":[]},{"f":"Kay Properties","slug":"kay-properties","yr":"2010","aum":"$30.0B","hq":"Torrance, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Kay Properties & Investments is the largest independent DST marketplace, founded in 2010 by Dwight Kay, aggregating offerings from 25-plus sponsors alongside custom 'Kay-only' debt-free DSTs and an unusual secondary market for DST interests.","deals":[]},{"f":"Keystone National Properties","slug":"keystone-national-properties","yr":"2016","aum":"$130.0M","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Keystone National Properties is a New York DST sponsor founded in 2016 by Michael Packman, managing roughly $130 million and distinguished by an explicit impact orientation—'doing well by doing good'—layered onto net-lease and Opportunity Zone offerings. Its DSTs lean on credit-tenant net lease such as FedEx Ground, and it complements them with QOZ programs.","deals":[]},{"f":"Kingsbarn Realty Capital","slug":"kingsbarn-realty-capital","yr":"2011","aum":"$2.7B","hq":"Las Vegas, NV","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Kingsbarn Realty Capital is a Las Vegas diversified platform managing more than $2.7 billion across DSTs, private equity and funds, with over $5 billion acquired since its 2011 founding and an in-house development arm running a $2 billion-plus pipeline.","deals":[]},{"f":"KKR","slug":"kkr","yr":"1976","aum":"$686.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"KKR is a global alternatives leader managing $686 billion as of mid-2025—up 14% year over year, with fee-paying AUM of $556 billion and perpetual capital approaching $289 billion, or roughly 42% of the firm.","deals":[]},{"f":"LaSalle Investment Management","slug":"lasalle-investment-management","yr":"1980","aum":"$89.0B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"LaSalle Investment Management is a roughly $89 billion global real estate investment manager and a JLL affiliate, operating institutional open- and closed-end funds, separate accounts and a real estate securities business. Its relevance to the 1031 channel is institutional pedigree and global sourcing rather than a retail DST specialty; investors encounter it primarily as an institutional manager.","deals":[]},{"f":"Livingston Street Capital","slug":"livingston-street-capital","yr":"2016","aum":"$400.0M","hq":"New York, NY","fc":"4","arr":"8.52%","em":"1.38x","hold":"4.21 Years","win":"100.00%","pref":0,"desc":"Livingston Street Capital is a New York thematic sponsor, founded in 2016, built around a focused demographic bet on Active Adult (55+) and Independent Living housing, which it operates through its vertically integrated Allure Lifestyle Communities platform.","deals":[{"name":"LSC-FAUR MC3, DST","loc":"","ac":"Office","hold":"2.67","em":"1.28x","ret":"9.69%"},{"name":"LSC-UKHS HC2, DST","loc":"","ac":"Healthcare","hold":"2.92","em":"1.29x","ret":"9.11%"}]},{"f":"Madison Capital","slug":"madison-capital","yr":"2009","aum":"$4.0B","hq":"Charlotte, NC","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Madison Capital Group is a Charlotte vertically integrated sponsor managing roughly $4 billion, distinctive for its multi-vertical reach across self-storage (via Go Store It), multifamily (Madison Communities), and the genuinely niche boat-and-RV-storage and marina sectors, with net lease alongside; Madison Capital Markets runs its DST and 1031 distribution.","deals":[]},{"f":"Madison Realty Companies","slug":"madison-realty-companies","yr":"1980","aum":"$24.0B","hq":"Anaheim, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Madison Realty Companies is a California-based multifamily and commercial owner-operator and DST sponsor with roots back to 1980—distinct from both Madison Capital Group and Madison Realty Capital, a distinction worth flagging given the name overlap. It presents as a long-tenured regional operator concentrated in California; current AUM is not publicly disclosed.","deals":[]},{"f":"Mirae Asset Management","slug":"mirae-asset-management","yr":"1997","aum":"$600.0B","hq":"Seoul, South Korea","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Mirae Asset Management is a Korea-based global asset manager overseeing roughly $600 billion, with U.S. real estate holdings and a substantial ETF franchise through Global X. Its appearance in the 1031/alts context reflects cross-border real estate exposure rather than a dedicated U.S.","deals":[]},{"f":"Moody National","slug":"moody-national","yr":"1996","aum":"$3.0B","hq":"Houston, TX","fc":"2","arr":"14.56%","em":"2.x","hold":"4.65 Years","win":"50.00%","pref":0,"desc":"Moody National is a Houston vertically integrated firm, founded in 1996, specializing in hospitality and multifamily DSTs through a full-service platform—roughly 500 professionals spanning acquisition, development, construction and management, with in-house title and insurance.","deals":[]},{"f":"NAS Investment Solutions","slug":"nas-investment-solutions","yr":"2008","aum":"$3.36B","hq":"Los Angeles, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"NAS Investment Solutions is a Los Angeles DST sponsor, founded in 2017, built on two alignment features: it co-invests in every property and manages each asset through its sister company, National Asset Services, which oversees roughly $3.36 billion across 187 properties in 31 states.","deals":[]},{"f":"Nelson Brothers","slug":"nelson-brothers","yr":"2007","aum":"$400.0M","hq":"Irvine, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Nelson Brothers Professional Real Estate is an Irvine sponsor, founded in 2007, specializing in student housing and assisted living, and is the predecessor entity from which Nelson Partners later split—a distinction worth preserving, as the two are now separate competing firms run by different brothers.","deals":[]},{"f":"Nelson Partners","slug":"nelson-partners","yr":"2018","aum":"$400.0M","hq":"San Clemente, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Nelson Partners Student Housing is a San Clemente DST sponsor founded in 2018 by Patrick Nelson, focused on purpose-built, university-anchored student housing through a develop-acquire-manage model, with more than $400 million in assets at its founding and 1,200-plus 1031 investors.","deals":[]},{"f":"Net Lease Capital Advisors","slug":"net-lease-capital-advisors","yr":"1996","aum":"$9.2B","hq":"Nashua, NH","fc":"3","arr":"8.72%","em":"2.74x","hold":"10.82 Years","win":"100.00%","pref":0,"desc":"Net Lease Capital Advisors is a Nashua, New Hampshire net-lease advisory and sponsorship firm, founded in 1996, with a distinctive specialization in single-tenant assets leased to the U.S. Government (GSA) and investment-grade corporates, and particular expertise in zero-cash-flow structures for 1031 exchangers.","deals":[{"name":"Sun Microsystems DST","loc":"San Jose, CA","ac":"Office","hold":"12.69","em":"3.97x","ret":"11.48%"},{"name":"GSA FBI/NARA Portfolio DST","loc":"Portland OR; Brooklyn Center MN; Sycamore OH; St. Louis MO","ac":"Government Lease","hold":"7.57","em":"1.60x","ret":"6.38%"},{"name":"GSA SSA Birmingham DST","loc":"Birmingham, AL","ac":"Government Lease","hold":"12.21","em":"2.64x","ret":"8.29%"}]},{"f":"NexPoint","slug":"nexpoint","yr":"2012","aum":"$15.0B","hq":"Dallas, TX","fc":"3","arr":"16.83%","em":"1.65x","hold":"4.64 Years","win":"100.00%","pref":1,"desc":"NexPoint is a Dallas alternative manager—an affiliate of the former Highland Capital complex—overseeing roughly $15 billion across listed and non-listed REITs, DSTs, 1031 exchanges, interval funds and a BDC.","deals":[]},{"f":"Nuveen","slug":"nuveen","yr":"1898","aum":"$137.0B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Nuveen is the investment manager of TIAA and a top-five global real estate manager, overseeing roughly $137 billion in real estate within a firm managing about $1.3 trillion, with a 90-plus-year property history and a strong net-lease franchise.","deals":[]},{"f":"Olympus Property","slug":"olympus-property","yr":"1992","aum":"$9.2B","hq":"Fort Worth, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Olympus Property is a Fort Worth family-owned Class A multifamily owner-operator, founded in 1992, with a portfolio exceeding $9.2 billion and more than 35,000 units across 17 states, reaching exchangers through its affiliate WW Olympus Investment Company.","deals":[]},{"f":"Origin Investments","slug":"origin-investments","yr":"2007","aum":"$3.0B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Origin Investments is a Chicago multifamily-focused private real estate manager, founded in 2007, distinguished by a technology-driven underwriting edge—its proprietary Multilytics rent-forecasting models—applied to Sun Belt apartments, QOZ funds and an income-plus strategy.","deals":[]},{"f":"Pacific Oak Capital","slug":"pacific-oak-capital","yr":"2018","aum":"$3.5B","hq":"Los Angeles, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Pacific Oak Capital is a Los Angeles sponsor and advisor, founded in 2018 by veterans of the KBS complex, that advises the Pacific Oak Strategic Opportunity REIT and asset-manages the Singapore-listed Keppel Pacific Oak US REIT, with a platform in the $3.1-3.5 billion range.","deals":[]},{"f":"Passco","slug":"passco","yr":"1998","aum":"$4.1B","hq":"Irvine, CA","fc":"34","arr":"12.33%","em":"1.92x","hold":"5.68 Years","win":"100.00%","pref":0,"desc":"Passco Companies is an Irvine multifamily and commercial sponsor, founded in 1998, whose founder Bill Passo helped pioneer the modern tenant-in-common 1031 structure that preceded the DST—giving the firm genuine standing in the history of securitized exchanges.","deals":[{"name":"Sundance Creek","loc":"McDonough, GA","ac":"Multifamily","hold":"6","em":"2.01x","ret":"12.33%"},{"name":"Carrington Park","loc":"Montgomery, AL","ac":"Multifamily","hold":"7","em":"1.61x","ret":"7.00%"},{"name":"Marcus Pointe","loc":"Pensacola, FL","ac":"Multifamily","hold":"6","em":"1.97x","ret":"11.92%"},{"name":"Legends at Indian Springs","loc":"Louisville, KY","ac":"Multifamily","hold":"6","em":"2.06x","ret":"12.80%"},{"name":"Stonegate","loc":"Birmingham, AL","ac":"Multifamily","hold":"6","em":"1.45x","ret":"6.44%"},{"name":"Enclave at Rivergate","loc":"Charlotte, NC","ac":"Multifamily","hold":"6","em":"2.01x","ret":"12.35%"},{"name":"Encore at the Park","loc":"Durham, NC","ac":"Multifamily","hold":"5","em":"1.61x","ret":"10.04%"},{"name":"Vue21","loc":"Colorado Springs, CO","ac":"Multifamily","hold":"5","em":"1.97x","ret":"14.49%"},{"name":"Wakefield Glen","loc":"Raleigh, NC","ac":"Multifamily","hold":"5","em":"1.28x","ret":"4.98%"},{"name":"Legends at Wolfchase","loc":"Memphis, TN","ac":"Multifamily","hold":"7","em":"1.86x","ret":"9.24%"},{"name":"Broad River Trace","loc":"Columbia, SC","ac":"Multifamily","hold":"7","em":"1.63x","ret":"7.27%"},{"name":"Glen at Alexander","loc":"Augusta, GA","ac":"Multifamily","hold":"7","em":"1.97x","ret":"10.16%"},{"name":"Carrington at Brier Creek","loc":"Raleigh, NC","ac":"Multifamily","hold":"5","em":"1.43x","ret":"7.44%"},{"name":"Cambridge at Hickory Hollow","loc":"Antioch, TN","ac":"Multifamily","hold":"5","em":"2.47x","ret":"19.83%"},{"name":"Azure","loc":"St. Petersburg, FL","ac":"Multifamily","hold":"4","em":"1.51x","ret":"10.81%"},{"name":"Luxe","loc":"Scottsdale, AZ","ac":"Multifamily","hold":"4","em":"1.35x","ret":"7.72%"},{"name":"Autumn Breeze","loc":"Noblesville, IN","ac":"Multifamily","hold":"7","em":"1.66x","ret":"7.53%"},{"name":"Columns at Wakefield","loc":"Raleigh, NC","ac":"Multifamily","hold":"6","em":"2.03x","ret":"12.54%"},{"name":"The Lexington","loc":"Nashville, TN","ac":"Multifamily","hold":"5","em":"1.52x","ret":"8.67%"},{"name":"Lone Oak","loc":"Round Rock, TX","ac":"Multifamily","hold":"5","em":"1.51x","ret":"8.65%"},{"name":"Vinings at Laurel Creek","loc":"Greenville, SC","ac":"Multifamily","hold":"7","em":"1.97x","ret":"10.15%"},{"name":"Twenty25","loc":"Kennesaw, GA","ac":"Multifamily","hold":"7","em":"3.84x","ret":"21.19%"},{"name":"Arlington at Eastern Shore","loc":"Spanish Fort, AL","ac":"Multifamily","hold":"6","em":"1.62x","ret":"8.38%"},{"name":"Estates at Crossroads","loc":"Duluth, GA","ac":"Multifamily","hold":"6","em":"3.17x","ret":"21.20%"},{"name":"The Shelby","loc":"Alexandria, VA","ac":"Multifamily","hold":"5","em":"1.26x","ret":"4.70%"},{"name":"The Overlook","loc":"Antioch, TN","ac":"Multifamily","hold":"5","em":"1.56x","ret":"9.29%"},{"name":"The Ivy","loc":"Orlando, FL","ac":"Multifamily","hold":"5","em":"1.17x","ret":"3.15%"},{"name":"Almeria at Ocotillo","loc":"Chandler, AZ","ac":"Multifamily","hold":"5","em":"2.51x","ret":"20.20%"},{"name":"Two Blocks","loc":"Dunwoody, GA","ac":"Multifamily","hold":"5","em":"2.11x","ret":"16.08%"},{"name":"1000 West","loc":"Charleston, SC","ac":"Multifamily","hold":"5","em":"2.16x","ret":"16.64%"},{"name":"Voyager at Space Center","loc":"Nassau Bay, TX","ac":"Multifamily","hold":"4","em":"1.31x","ret":"7.06%"},{"name":"Haven at West Melbourne","loc":"Brevard, FL","ac":"Multifamily","hold":"4","em":"2.00x","ret":"18.96%"}]},{"f":"Peachtree Group","slug":"peachtree-group","yr":"2007","aum":"$2.5B","hq":"Atlanta, GA","fc":"28","arr":"31.18%","em":"2.15x","hold":"5.12 Years","win":"100.00%","pref":1,"desc":"Peachtree Group is an Atlanta vertically integrated investment manager with more than $2.5 billion in equity under management and over $9 billion in asset value, anchored in deep hospitality expertise across 48-plus hotels and extended into CRE lending, CPACE financing and, since 2022, a debt-free DST platform.","deals":[{"name":"Country Inn & Suites – Montgomery, AL","loc":"Montgomery, AL","ac":"Hotel","hold":"3","em":"4.26x","ret":"65.70%"},{"name":"Residence Inn – Southern Pines, NC","loc":"Southern Pines, NC","ac":"Hotel","hold":"6.48","em":"1.91x","ret":"11.30%"},{"name":"Hampton Inn – Okeechobee, FL","loc":"Okeechobee, FL","ac":"Hotel","hold":"0.71","em":"2.18x","ret":"207.10%"},{"name":"Hampton Inn – Pell City, AL","loc":"Pell City, AL","ac":"Hotel","hold":"7.02","em":"1.58x","ret":"8.40%"},{"name":"Holiday Inn Express – Pell City, AL","loc":"Pell City, AL","ac":"Hotel","hold":"6.9","em":"1.58x","ret":"8.60%"},{"name":"Courtyard – Gulf Shores, AL","loc":"Gulf Shores, AL","ac":"Hotel","hold":"3.32","em":"3.93x","ret":"59.40%"},{"name":"Fairfield Inn & Suites – Lewisville, TX","loc":"Lewisville, TX","ac":"Hotel","hold":"1.19","em":"1.69x","ret":"55.30%"},{"name":"Hampton Inn – Corydon, IN","loc":"Corydon, IN","ac":"Hotel","hold":"7.32","em":"1.36x","ret":"4.70%"},{"name":"Hyatt Place – Jacksonville, FL","loc":"Jacksonville, FL","ac":"Hotel","hold":"3.7","em":"1.97x","ret":"20.70%"},{"name":"Fairfield Inn – Valdosta, GA","loc":"Valdosta, GA","ac":"Hotel","hold":"3.72","em":"2.11x","ret":"27.00%"},{"name":"Homewood Suites – Durham, NC","loc":"Durham, NC","ac":"Hotel","hold":"2.2","em":"1.87x","ret":"33.70%"},{"name":"Springhill Suites – San Antonio, TX","loc":"San Antonio, TX","ac":"Hotel","hold":"5.2","em":"1.81x","ret":"12.70%"},{"name":"Hampton Inn – Milledgeville, GA","loc":"Milledgeville, GA","ac":"Hotel","hold":"3.19","em":"1.85x","ret":"23.20%"},{"name":"Courtyard – Jacksonville, FL","loc":"Jacksonville, FL","ac":"Hotel","hold":"2.59","em":"2.10x","ret":"36.10%"},{"name":"Hampton Inn & Suites – East Point, GA","loc":"East Point, GA","ac":"Hotel","hold":"2.46","em":"1.89x","ret":"30.80%"},{"name":"Wingate – Kennesaw, GA","loc":"Kennesaw, GA","ac":"Hotel","hold":"3.28","em":"1.96x","ret":"22.80%"},{"name":"Hampton Inn & Suites – Orlando, FL","loc":"Orlando, FL","ac":"Hotel","hold":"2.16","em":"1.98x","ret":"38.60%"},{"name":"Hilton Garden Inn – Overland Park, KS","loc":"Overland Park, KS","ac":"Hotel","hold":"2.47","em":"1.85x","ret":"29.20%"},{"name":"Crowne Plaza – North Charleston, SC","loc":"N. Charleston, SC","ac":"Hotel","hold":"2.92","em":"1.92x","ret":"26.90%"},{"name":"Hampton Inn & Suites – Lake Mary, FL","loc":"Lake Mary, FL","ac":"Hotel","hold":"2.45","em":"2.06x","ret":"32.90%"},{"name":"Fairfield Inn & Suites – Indianapolis, IN","loc":"Indianapolis, IN","ac":"Hotel","hold":"11.68","em":"3.32x","ret":"13.50%"},{"name":"Residence Inn – Little Rock, AR","loc":"Little Rock, AR","ac":"Hotel","hold":"5.02","em":"1.79x","ret":"15.30%"},{"name":"Embassy Suites – Williamsburg, VA","loc":"Williamsburg, VA","ac":"Hotel","hold":"4.29","em":"1.41x","ret":"8.70%"},{"name":"Holiday Inn – Franklin, TN","loc":"Brentwood, TN","ac":"Hotel","hold":"4.29","em":"1.29x","ret":"8.40%"},{"name":"Sheraton – Jacksonville, FL","loc":"Jacksonville, FL","ac":"Hotel","hold":"3.41","em":"2.20x","ret":"28.20%"}]},{"f":"PGIM","slug":"pgim","yr":"1875","aum":"$208.0B","hq":"Newark, NJ","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"PGIM is Prudential's global investment manager, whose PGIM Real Estate arm oversees roughly $208 billion globally across equity and debt strategies, including the PGIM Private Real Estate Fund, within a firm managing about $1.4 trillion.","deals":[]},{"f":"Platform Ventures","slug":"platform-ventures","yr":"2016","aum":"$2.0B","hq":"Kansas City, MO","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Platform Ventures is a Kansas City diversified real estate and alternatives manager, founded in 2016, that blends traditional real estate with venture and technology exposure across a roughly $2 billion-plus platform serving both institutional and retail investors.","deals":[]},{"f":"Resource Royalty","slug":"resource-royalty","yr":"2011","aum":"$173.0M","hq":"Dallas, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Resource Royalty is a Dallas sponsor of oil-and-gas mineral and royalty DSTs, founded in 2011, occupying one of the more esoteric corners of the 1031 universe by offering direct-title, exchange-eligible mineral rights.","deals":[]},{"f":"RK Properties","slug":"rk-properties","yr":"1976","aum":"$1.0B","hq":"Long Beach, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"RK Properties is a Long Beach sponsor that has invested exclusively in multifamily since 1976 and pioneered the first tenant-in-common Regulation D offering in 1994—an authentic place in the origin story of securitized 1031 exchanges.","deals":[]},{"f":"Sealy & Company","slug":"sealy-company","yr":"1946","aum":"$3.0B","hq":"Shreveport, LA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Sealy & Company is a Shreveport- and Dallas-based industrial-only specialist, founded in 1946 and now in its fourth generation of family ownership, managing $3 billion across roughly 33 million square feet.","deals":[]},{"f":"Silverstein Properties","slug":"silverstein-properties","yr":"1957","aum":"$10.0B","hq":"New York, NY","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Silverstein Properties is one of the most recognizable names in American real estate development, founded in 1957 and synonymous with the rebuilding of the World Trade Center, with more than $10 billion in assets developed.","deals":[]},{"f":"SmartStop","slug":"smartstop","yr":"2013","aum":"$7.0B","hq":"Ladera Ranch, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"SmartStop is a self-storage REIT (NYSE: SMA) that completed an $810 million IPO in April 2025 and sponsors self-storage DSTs through its broader platform, with assets in the $7 billion-plus range post-listing.","deals":[]},{"f":"Spartan","slug":"spartan","yr":"2014","aum":"$500.0M","hq":"Golden, CO","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Spartan Investment Group, founded in 2014 in Golden, CO by Scott Lewis and Ryan Gibson, is a vertically integrated self-storage sponsor and operator (FreeUp Storage brand) that also pursues RV parks and land.","deals":[]},{"f":"Starboard Realty Advisors","slug":"starboard-realty-advisors","yr":"2014","aum":"$500.0M","hq":"Irvine, CA","fc":"4","arr":"6.34%","em":"1.35x","hold":"6.13 Years","win":"100.00%","pref":0,"desc":"Starboard Realty Advisors is an Irvine fully integrated firm, founded in 2014 and led by a CEO with prior Passco pedigree, acquiring multifamily and multi-tenant/NNN retail for 1031 clients, with more than $500 million in acquisitions and over 1,900 units.","deals":[{"name":"Starboard Metro DST","loc":"Atlanta, GA","ac":"Multifamily","hold":"3.28","em":"1.28x","ret":"7.82%"}]},{"f":"Starwood Capital","slug":"starwood-capital","yr":"1991","aum":"$115.0B","hq":"Miami Beach, FL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Starwood Capital is Barry Sternlicht's global, real estate-centric private equity firm, founded in 1991 and managing roughly $115 billion, with the Starwood Real Estate Income Trust (SREIT) as its flagship non-traded REIT.","deals":[]},{"f":"Syndicated Equities","slug":"syndicated-equities","yr":"1986","aum":"$2.0B","hq":"Chicago, IL","fc":"60","arr":"0.41%","em":"1.23x","hold":"7.43 Years","win":"65.00%","pref":0,"desc":"Syndicated Equities is a Chicago private real estate firm with a 40-year history, distinguished by strength in government/GSA-leased and credit-tenant net-lease assets and by its global 'Access Funds' fund-of-funds vehicles.","deals":[{"name":"Pointe Plaza Shopping Center","loc":"Niles, IL","ac":"","hold":"2.49","em":"1.17x","ret":"6.50%"},{"name":"Ravinia Plaza Shopping Center","loc":"Orland Park, IL","ac":"","hold":"3.12","em":"1.31x","ret":"9.05%"},{"name":"Le Meridien Hotel","loc":"Chicago, IL","ac":"","hold":"1","em":"1.69x","ret":"68.58%"},{"name":"Two Park Office Building","loc":"Milwaukee, WI","ac":"","hold":"2.57","em":"1.02x","ret":"0.77%"},{"name":"Walgreens","loc":"Hickory Hills, IL","ac":"","hold":"4.63","em":"1.68x","ret":"11.85%"},{"name":"Volkswagen Distribution Facility","loc":"Libertyville, IL","ac":"","hold":"8.32","em":"1.45x","ret":"4.57%"},{"name":"840 1st Street","loc":"Washington, DC","ac":"","hold":"1.56","em":"1.41x","ret":"24.73%"},{"name":"309 Green Street","loc":"Champaign, IL","ac":"","hold":"1.87","em":"1.30x","ret":"15.04%"},{"name":"Walgreens","loc":"Clarkston, MI","ac":"","hold":"9.87","em":"1.99x","ret":"7.22%"},{"name":"Curtis Hotel","loc":"Denver, CO","ac":"","hold":"2.75","em":"1.44x","ret":"14.16%"},{"name":"Walgreens","loc":"Pueblo, CO","ac":"","hold":"10.06","em":"1.96x","ret":"6.92%"},{"name":"Four Seasons Hotel","loc":"Austin, TX","ac":"","hold":"5.86","em":"1.94x","ret":"11.96%"},{"name":"Walgreens","loc":"Amarillo, TX","ac":"","hold":"9.77","em":"1.79x","ret":"6.14%"},{"name":"Walgreens","loc":"Chicago, IL","ac":"","hold":"11.01","em":"2.14x","ret":"7.15%"},{"name":"Metropolitan Place Retail","loc":"Chicago, IL","ac":"","hold":"9","em":"1.78x","ret":"6.62%"},{"name":"Sears Sterling","loc":"Lombard, IL","ac":"","hold":"15.23","em":"3.11x","ret":"7.74%"},{"name":"Public Square Garage","loc":"Nashville, TN","ac":"","hold":"9.26","em":"0.39x","ret":"-9.66%"},{"name":"Retail Shopping Centers","loc":"Indiana & Kentucky","ac":"","hold":"8.08","em":"0.32x","ret":"-13.15%"},{"name":"CVS","loc":"Weeki Wachee, FL","ac":"","hold":"10.04","em":"2.21x","ret":"8.22%"},{"name":"Courtland Center","loc":"Burton, MI","ac":"","hold":"10.23","em":"0.39x","ret":"-8.79%"},{"name":"Walgreens","loc":"Darien, IL","ac":"","hold":"12.12","em":"1.78x","ret":"4.87%"},{"name":"Walgreens","loc":"Chicago Heights, IL","ac":"","hold":"9.93","em":"1.72x","ret":"5.61%"},{"name":"Rite Aid","loc":"Youngstown, OH","ac":"","hold":"16.01","em":"2.60x","ret":"6.15%"},{"name":"Student Housing Development","loc":"Carbondale, IL","ac":"","hold":"1.31","em":"1.13x","ret":"9.81%"},{"name":"Severance Town Center","loc":"Cleveland Heights, OH","ac":"","hold":"11.75","em":"0.58x","ret":"-4.53%"},{"name":"Arlington Highlands Retail Center","loc":"Arlington, TX","ac":"","hold":"3.12","em":"1.50x","ret":"13.87%"},{"name":"Fashion Outlet Center","loc":"Las Vegas, NV","ac":"","hold":"3.43","em":"0.19x","ret":"-38.42%"},{"name":"National Fire & Resource","loc":"Tucson, AZ","ac":"","hold":"10.05","em":"1.56x","ret":"4.52%"},{"name":"National Archives & Records","loc":"Riverside, CA","ac":"","hold":"10.1","em":"1.41x","ret":"3.46%"},{"name":"Timber Hollow Apartments","loc":"Fairfield, OH","ac":"","hold":"4.95","em":"1.47x","ret":"8.10%"},{"name":"Riverstone Apartments","loc":"Kansas City, MO","ac":"","hold":"3.29","em":"1.50x","ret":"13.12%"},{"name":"Fashion Outlet Center","loc":"Rosemont, IL","ac":"","hold":"5.67","em":"3.97x","ret":"27.51%"},{"name":"Student Housing Development","loc":"Ottawa, Canada","ac":"","hold":"2.4","em":"1.36x","ret":"13.70%"},{"name":"Shops of Beverly","loc":"Beverly, IL","ac":"","hold":"11.61","em":"0.56x","ret":"-4.87%"},{"name":"Marriott Residence Inn","loc":"Alexandria, VA","ac":"","hold":"10.08","em":"0.87x","ret":"-1.37%"},{"name":"Walgreens","loc":"Alexandria, MN","ac":"","hold":"5.05","em":"1.44x","ret":"7.48%"},{"name":"Flatiron Athletic Club","loc":"Broomfield, CO","ac":"","hold":"13.64","em":"0.22x","ret":"-10.51%"},{"name":"400 Skokie Blvd.","loc":"Northbrook, IL","ac":"","hold":"7.36","em":"0.15x","ret":"-22.72%"},{"name":"Wells Place Apartment Development","loc":"Chicago, IL","ac":"","hold":"3.4","em":"1.33x","ret":"8.74%"},{"name":"The Vista & Willow Creek","loc":"Portage and Battle Creek, MI","ac":"","hold":"2.21","em":"1.19x","ret":"8.20%"},{"name":"Webster Place Shopping Center","loc":"Chicago, IL","ac":"","hold":"13.6","em":"1.68x","ret":"3.89%"},{"name":"United Healthcare Portfolio","loc":"Las Vegas, NV","ac":"","hold":"5.75","em":"1.48x","ret":"7.05%"},{"name":"Norwalk Office Building","loc":"Norwalk, CA","ac":"","hold":"15","em":"1.26x","ret":"1.55%"},{"name":"Customs & Border Patrol","loc":"Atlanta, GA","ac":"","hold":"6.77","em":"1.95x","ret":"10.37%"},{"name":"West Loop Multifamily Development","loc":"Chicago, IL","ac":"","hold":"6.6","em":"1.57x","ret":"7.08%"},{"name":"DoubleTree & Embassy Suites","loc":"Rosemont, IL","ac":"","hold":"1.99","em":"0.32x","ret":"-43.63%"},{"name":"Walgreens","loc":"Del City, OK","ac":"","hold":"24.33","em":"5.59x","ret":"7.33%"},{"name":"Holiday Inn","loc":"New Orleans, LA","ac":"","hold":"6.33","em":"0.30x","ret":"-17.31%"},{"name":"Marriott TownePlace Suites","loc":"Indianapolis, IN","ac":"","hold":"5.96","em":"0.45x","ret":"-12.54%"},{"name":"Staybridge Suites","loc":"Mayfield, OH","ac":"","hold":"5.43","em":"0.14x","ret":"-30.36%"},{"name":"Marriott Fairfield Inn","loc":"Milwaukee, WI","ac":"","hold":"4.67","em":"0.08x","ret":"-41.79%"},{"name":"Marriott Courtyard","loc":"West Des Moines, IA","ac":"","hold":"3.94","em":"0.12x","ret":"-41.62%"},{"name":"Marriott Courtyard","loc":"Indianapolis, IN","ac":"","hold":"3.37","em":"0.07x","ret":"-54.60%"},{"name":"Henry Ford Health – OptimEyes","loc":"Southfield, MI","ac":"","hold":"4.82","em":"1.55x","ret":"9.52%"},{"name":"Merit Medical","loc":"Pearland, TX","ac":"","hold":"4.54","em":"1.94x","ret":"15.70%"}]},{"f":"Time Equities","slug":"time-equities","yr":"1966","aum":"$5.4B","hq":"New York, NY","fc":"17","arr":"20.77%","em":"3.04x","hold":"7.13 Years","win":"94.12%","pref":0,"desc":"Time Equities is a New York diversified firm, founded in 1966 by Francis Greenburger, that pioneered cooperative and condominium conversions—more than 10,000 units over its history—and now develops large mixed-use towers such as 50 West Street and Chicago's 1000M, alongside a portfolio exceeding $5.4 billion and 36 million square feet.","deals":[{"name":"Broad Bridge Equities Group LP","loc":"Bridgeport, CT","ac":"Mortgage","hold":"2.75","em":"2.24x","ret":"37.56%"},{"name":"Laguna Park Equities Group","loc":"Stockton, CA","ac":"Multifamily","hold":"4.9","em":"2.04x","ret":"18.43%"},{"name":"Renaissance Equities LLC","loc":"Oklahoma City, OK","ac":"Multifamily","hold":"2.7","em":"0.00x","ret":""},{"name":"Canton Equities Group LP","loc":"Canton, MA","ac":"Industrial","hold":"10.28","em":"4.07x","ret":"17.57%"},{"name":"Hunt Club Equities LLC","loc":"Madison, WI","ac":"Multifamily","hold":"7.87","em":"3.03x","ret":"20.64%"},{"name":"Prospect Drive Equities LLC","loc":"Rancho Cordova, CA","ac":"Office","hold":"6.64","em":"2.24x","ret":"14.92%"},{"name":"Merivale Shopping Center","loc":"Ottawa, Canada","ac":"Retail","hold":"4.49","em":"1.76x","ret":"27.37%"},{"name":"Villager Square LLC","loc":"Littleton, CO","ac":"Retail","hold":"9.56","em":"3.19x","ret":"17.21%"},{"name":"Huffman Koos Livingston Property","loc":"Livingston, NJ","ac":"Retail","hold":"3.19","em":"1.68x","ret":"18.90%"},{"name":"Glenmore Commerce Court","loc":"Calgary, Alberta","ac":"Office","hold":"2.83","em":"2.40x","ret":"56.07%"},{"name":"Shadow Ridge Growth Fund LP","loc":"LaVista, NE","ac":"Multifamily","hold":"13.14","em":"2.70x","ret":"15.55%"},{"name":"World Equities LLC","loc":"Omaha, NE","ac":"Office","hold":"12.13","em":"1.73x","ret":"12.03%"},{"name":"Placerville Equities LLC","loc":"Rancho Cordova, CA","ac":"Office","hold":"6.95","em":"2.63x","ret":"17.75%"},{"name":"185 Oregon Equities LLC","loc":"Hillsboro, OR","ac":"Office","hold":"11.65","em":"4.65x","ret":"25.15%"},{"name":"TEI Peachtree 25th TIC","loc":"Atlanta, GA","ac":"Office","hold":"9.74","em":"1.16x","ret":"4.19%"},{"name":"Kingsbury Apartments","loc":"St. Louis, MI","ac":"Multifamily","hold":"3.09","em":"1.68x","ret":"13.89%"},{"name":"Viscoe Road TIC","loc":"Radford, VA","ac":"Industrial","hold":"9.02","em":"0.00x","ret":""},{"name":"Austell Place Equities LLC","loc":"Long Island City, NY","ac":"Industrial","hold":"14.33","em":"12.51x","ret":"25.18%"},{"name":"124 Hudson Street TIC","loc":"New York, NY","ac":"Retail","hold":"12.05","em":"2.42x","ret":"8.68%"},{"name":"Abbeville","loc":"Abbeville, SC","ac":"Retail","hold":"4.68","em":"1.43x","ret":"10.41%"}]},{"f":"Trilogy Real Estate Group","slug":"trilogy-real-estate-group","yr":"2002","aum":"$2.6B","hq":"Chicago, IL","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Trilogy Real Estate Group is a Chicago vertically integrated multifamily owner, developer and manager, founded in 2002, managing $2.6 billion as of early 2025 with more than $5.5 billion in lifetime volume and 14,000-plus units across the Midwest, East and Southwest.","deals":[]},{"f":"Urban Catalyst","slug":"urban-catalyst","yr":"2017","aum":"$250.0M","hq":"San Jose, CA","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Urban Catalyst is a San Jose Opportunity Zone fund manager and developer, founded in 2017, concentrating on ground-up development in downtown San Jose—a deliberately tight geographic thesis tied to Silicon Valley growth.","deals":[]},{"f":"Virtua Capital","slug":"virtua-capital","yr":"2014","aum":"$500.0M","hq":"Scottsdale, AZ","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"Virtua Capital is a Scottsdale global private equity firm, founded in 2014, emphasizing tax-centric and Opportunity Zone strategies and entitlement-driven value-add, with roughly $500 million and 16 million square feet managed or in development.","deals":[]},{"f":"Walton Global Holdings","slug":"walton-global-holdings","yr":"1979","aum":"$3.35B","hq":"Scottsdale, AZ","fc":"68","arr":"8.20%","em":"1.35x","hold":"7.17 Years","win":"75.00%","pref":0,"desc":"Walton Global Holdings is a land asset manager with a 45-plus-year history, managing $3.35 billion and specializing in pre-development land that it supplies to U.S. homebuilders—a genuinely distinctive 1031 asset class.","deals":[]},{"f":"WW Olympus Investment Company","slug":"ww-olympus-investment-company","yr":"1992","aum":"$9.2B","hq":"Fort Worth, TX","fc":"0","arr":"No Data","em":"No Data","hold":"No Data","win":"No Data","pref":0,"desc":"WW Olympus Investment Company is the DST and 1031 sponsorship arm of Fort Worth's Olympus Property, channeling that 1992-founded, family-owned platform's Class A multifamily expertise to exchange investors.","deals":[]}];
+    var BM={all:{rr:14.95,mm:1.46,hh:4.67,ww:96.54},pref:{rr:20.76,mm:1.53,hh:3.60,ww:98.13}};
+
+    /* progress + TOC scrollspy */
+    var prog=document.getElementById('prog');
+    var links=[].slice.call(document.querySelectorAll('.toc a'));
+    var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
+    addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+    var cl=document.getElementById('copylink');cl&&cl.addEventListener('click',function(e){e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    var pb=document.getElementById('printbtn');pb&&pb.addEventListener('click',function(e){e.preventDefault();window.print();});
+    var dp=document.getElementById('dlpdf');dp&&dp.addEventListener('click',function(e){e.preventDefault();window.print();});
+    function setFaq(o){document.querySelectorAll('.faq details').forEach(function(d){if(o){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',function(){setFaq(true);});addEventListener('afterprint',function(){setFaq(false);});
+
+    /* parse helpers */
+    function pNum(s){if(s==null)return null;var m=(''+s).match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null;}
+    function aumNum(s){if(!s||s==='Not Disclosed')return -1;var u=s.replace('$','').trim().slice(-1),n=parseFloat(s.replace('$',''));if(isNaN(n))return -1;var k=u==='T'?1e12:u==='B'?1e9:u==='M'?1e6:1;return n*k;}
+    DATA.forEach(function(d){d.an=aumNum(d.aum);d.fcn=pNum(d.fc)||0;d.rr=pNum(d.arr);d.mm=pNum(d.em);d.hh=pNum(d.hold);d.ww=pNum(d.win);});
+
+    /* ===== SPONSOR EXPLORER ===== */
+    var spBody=document.getElementById('spBody'),spCount=document.getElementById('spCount'),spDetail=document.getElementById('spDetail');
+    var sortK='fcn',sortDir=-1,filt='all',term='';
+    function passes(d){if(filt==='pref'&&!d.pref)return false;if(filt==='track'&&d.fcn<=0)return false;if(filt==='notrack'&&d.fcn>0)return false;if(term&&d.f.toLowerCase().indexOf(term)<0)return false;return true;}
+    function keyOf(d){return sortK==='f'?d.f:(sortK==='an'?d.an:(sortK==='fc'?d.fcn:(sortK==='rr'?d.rr:(sortK==='mm'?d.mm:(sortK==='hh'?d.hh:d.ww)))));}
+    function cmp(a,b){var av=keyOf(a),bv=keyOf(b);var an=(av==null),bn=(bv==null);if(an&&bn)return a.f.localeCompare(b.f);if(an)return 1;if(bn)return -1;if(typeof av==='string')return sortDir*av.localeCompare(bv);if(av===bv)return a.f.localeCompare(b.f);return sortDir*(av-bv);}
+    function fmt(v,suf,dec){return v==null?'—':(dec!=null?v.toFixed(dec):Math.round(v))+suf;}
+    function renderTab(){
+      var list=DATA.filter(passes).slice().sort(cmp);
+      spCount.textContent=list.length+' of 82 sponsors';
+      spBody.innerHTML=list.map(function(d){
+        var mut=d.fcn<=0?' mut':'';
+        var star=d.pref?'<span class="star" aria-label="Preferred">★</span>':'';
+        return '<tr class="spr'+mut+'" data-slug="'+d.slug+'">'
+          +'<td>'+star+d.f+'<span class="open">View ›</span></td>'
+          +'<td>'+d.aum+'</td>'
+          +'<td>'+(d.fcn>0?d.fcn:'—')+'</td>'
+          +'<td>'+fmt(d.rr,'%',2)+'</td>'
+          +'<td>'+fmt(d.mm,'x',2)+'</td>'
+          +'<td>'+fmt(d.hh,' yr',1)+'</td>'
+          +'<td>'+fmt(d.ww,'%',0)+'</td></tr>';
+      }).join('');
+      spBody.querySelectorAll('tr.spr').forEach(function(tr){tr.addEventListener('click',function(){openDetail(tr.getAttribute('data-slug'));});});
+    }
+    function cmpCell(label,val,bench,suf,dec,higherBetter){
+      if(val==null)return '<div class="mcell"><div class="l">'+label+'</div><div class="n">—</div><div class="cmp na">no data</div></div>';
+      var better=higherBetter?(val>=bench):(val<=bench);
+      var diff=(val-bench);
+      var arrow=diff===0?'•':(diff>0?'▲':'▼');
+      var cls=better?'up':'dn';
+      var disp=(dec!=null?val.toFixed(dec):Math.round(val))+suf;
+      var bd=(dec!=null?bench.toFixed(dec):Math.round(bench))+suf;
+      return '<div class="mcell"><div class="l">'+label+'</div><div class="n">'+disp+'</div><div class="cmp '+cls+'">'+arrow+' vs '+bd+' avg</div></div>';
+    }
+    function openDetail(slug){
+      var d=DATA.filter(function(x){return x.slug===slug;})[0];if(!d)return;
+      var badge=d.pref?'<span class="badge">★ Preferred</span>':'';
+      var metrics='';
+      if(d.fcn>0){
+        metrics='<div class="mgrid">'
+          +'<div class="mcell"><div class="l">Full-cycle deals</div><div class="n">'+d.fcn+'</div><div class="cmp na">realized</div></div>'
+          +cmpCell('Avg return',d.rr,BM.all.rr,'%',1,true)
+          +cmpCell('Equity multiple',d.mm,BM.all.mm,'x',2,true)
+          +cmpCell('Avg hold',d.hh,BM.all.hh,' yr',1,false)
+          +cmpCell('Success rate',d.ww,BM.all.ww,'%',0,true)
+          +'</div>';
+      }else{
+        metrics='<div class="nohist"><b>No full-cycle track record yet.</b> This sponsor hasn’t completed a full acquisition-to-sale cycle in our dataset. Underwrite the principals’ and parent company’s experience, tenure, AUM, leverage discipline, and third-party validation instead — and size any position to the added uncertainty.</div>';
+      }
+      var deals='';
+      if(d.deals&&d.deals.length){
+        var sorted=d.deals.slice().sort(function(a,b){return (pNum(b.ret)||0)-(pNum(a.ret)||0);});
+        var initial=12,total=sorted.length;
+        function rowsHtml(arr){return arr.map(function(x){return '<tr><td>'+x.name+'</td><td>'+x.loc+'</td><td>'+x.ac+'</td><td>'+(pNum(x.hold)!=null?pNum(x.hold).toFixed(1)+' yr':x.hold)+'</td><td>'+x.em+'</td><td>'+x.ret+'</td></tr>';}).join('');}
+        deals='<div class="dhead">Selected full-cycle deals · '+total+' on record</div>'
+          +'<div style="overflow-x:auto"><table class="dealtab"><thead><tr><th>Investment</th><th>Location</th><th>Asset</th><th>Hold</th><th>EM</th><th>Return</th></tr></thead>'
+          +'<tbody id="dealBody">'+rowsHtml(sorted.slice(0,initial))+'</tbody></table></div>';
+        if(total>initial){deals+='<div class="dealmore"><button class="toolbtn ghost" id="dealToggle" data-on="0">Show all '+total+' deals</button></div>';}
+        window.__deals={sorted:sorted,initial:initial,rowsHtml:rowsHtml};
+      }
+      spDetail.innerHTML='<div class="dh"><div><div class="nm">'+d.f+'</div><div class="sub">Founded '+d.yr+' · '+d.hq+' · '+d.aum+' AUM</div></div><div style="display:flex;gap:12px;align-items:center">'+badge+'<button class="dx" id="spClose" aria-label="Close">×</button></div></div>'
+        +'<div class="dbody"><div class="spdesc">'+d.desc+'</div>'+metrics+deals+'</div>';
+      spDetail.classList.add('show');
+      document.getElementById('spClose').addEventListener('click',function(){spDetail.classList.remove('show');});
+      var dt=document.getElementById('dealToggle');
+      if(dt){dt.addEventListener('click',function(){var on=dt.getAttribute('data-on')==='1';var W=window.__deals;document.getElementById('dealBody').innerHTML=W.rowsHtml(on?W.sorted.slice(0,W.initial):W.sorted);dt.setAttribute('data-on',on?'0':'1');dt.textContent=on?('Show all '+W.sorted.length+' deals'):'Show fewer';});}
+      spDetail.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+    document.querySelectorAll('#spTab th').forEach(function(th){th.addEventListener('click',function(){var k=th.getAttribute('data-k');if(sortK===k){sortDir=-sortDir;}else{sortK=k;sortDir=(k==='f')?1:-1;}document.querySelectorAll('#spTab th').forEach(function(x){var b=x.getAttribute('data-k');x.innerHTML=x.textContent.replace(/[ ▲▼]+$/,'')+(b===sortK?(' '+(sortDir<0?'▼':'▲')):'');});renderTab();});});
+    document.querySelectorAll('#tool-spx .chip').forEach(function(c){c.addEventListener('click',function(){filt=c.getAttribute('data-f');document.querySelectorAll('#tool-spx .chip').forEach(function(x){x.classList.toggle('on',x===c);});renderTab();});});
+    document.getElementById('spSearch').addEventListener('input',function(e){term=e.target.value.toLowerCase().trim();renderTab();});
+    renderTab();
+
+    /* ===== FIT CHECKLIST ===== */
+    var FIT=[
+      {t:'My exchange debt is fully replaced by this DST’s leverage (equal-or-up).',s:'Critical for 100% tax deferral.',crit:true},
+      {t:'I’m an accredited investor.',s:'Required to invest in a DST.',crit:true},
+      {t:'I’m comfortable with this DST’s loan-to-value and loan maturity vs. the hold.',s:''},
+      {t:'The property sector is one I understand and believe in.',s:''},
+      {t:'Projected distributions meet my income needs.',s:''},
+      {t:'The 5–10 year hold fits my horizon — I won’t need this money.',s:''},
+      {t:'The sponsor is on my approved/preferred list or passes my review.',s:''},
+      {t:'The full fee load is disclosed and justified by the deal.',s:''}
+    ];
+    var fitList=document.getElementById('fitList');
+    fitList.innerHTML=FIT.map(function(f,i){return '<div class="ci" data-i="'+i+'"><div class="box">✓</div><div class="citxt">'+f.t+(f.crit?'<span class="crit">Dealbreaker</span>':'')+(f.s?'<span class="s">'+f.s+'</span>':'')+'</div></div>';}).join('');
+    function fitUpdate(){
+      var on=fitList.querySelectorAll('.ci.on'),n=on.length;
+      document.getElementById('fitScore').textContent=n;
+      var v=document.getElementById('fitVerdict'),vs=document.getElementById('fitVerdictSub');
+      if(n>=8){v.textContent='Strong fit';vs.textContent='Every box checks out — this DST aligns with your situation.';}
+      else if(n>=6){v.textContent='Mostly a fit';vs.textContent='Close. Resolve the unchecked items before committing.';}
+      else if(n>=3){v.textContent='Proceed with caution';vs.textContent='Several gaps remain — dig deeper before moving forward.';}
+      else{v.textContent='Likely not a fit';vs.textContent='Too many open questions for this deal as it stands.';}
+      var critMiss=[];FIT.forEach(function(f,i){if(f.crit&&!fitList.querySelector('.ci[data-i="'+i+'"]').classList.contains('on'))critMiss.push(f.t);});
+      var flag=document.getElementById('fitFlag');
+      if(critMiss.length){flag.classList.add('show');flag.innerHTML='<b>Dealbreaker unresolved.</b> Regardless of score, address: '+critMiss.join(' · ');}
+      else flag.classList.remove('show');
+    }
+    fitList.querySelectorAll('.ci').forEach(function(ci){ci.addEventListener('click',function(){ci.classList.toggle('on');fitUpdate();});});
+    fitUpdate();
+
+    /* ===== EXIT QUIZ ===== */
+    var QUIZ=[
+      {q:'After this property, do you want to keep deferring capital-gains tax?',o:[['Yes — defer as long as possible',{R:2,U:2}],['I’m ready to cash out and pay the tax',{C:3}],['Not sure / depends on the numbers',{C:1,R:1,U:1}]]},
+      {q:'How important is keeping the option to do another 1031 later?',o:[['Very — I want maximum flexibility',{R:3,C:1}],['Not important — I’d trade it for simplicity',{U:3}],['Somewhat',{R:1,U:1}]]},
+      {q:'What’s your primary goal from here?',o:[['Simplify everything for my heirs',{U:3}],['Keep building and diversifying real estate',{R:2}],['Access my money / get liquidity',{C:3,U:1}]]},
+      {q:'Where are you in your investing life?',o:[['Long horizon, estate-planning focus',{U:2,R:1}],['Mid-stage, still actively investing',{R:2}],['Near-term need for the funds',{C:3}]]},
+      {q:'How do you feel about a possible forced (mandatory) REIT conversion?',o:[['Fine — if it means diversification and simplicity',{U:2}],['I want to control the timing myself',{R:2,C:1}],['Neutral',{C:1,R:1,U:1}]]}
+    ];
+    var PATHS={C:{name:'Full-cycle cash-out',why:'You prioritized access to capital and readiness to pay tax. Take the proceeds at the sponsor’s sale.',trade:'Trade-off: you end deferral and recognize the deferred gain (including depreciation recapture) now.'},
+      R:{name:'1031 again into a new DST',why:'You value flexibility and want to keep building real estate while deferring.',trade:'Trade-off: you stay illiquid and dependent on finding suitable replacement DSTs each cycle.'},
+      U:{name:'721 UPREIT into a REIT',why:'You want diversification, professional management, and simplicity for your heirs over future exchange flexibility.',trade:'Trade-off: converting to OP units permanently ends your ability to 1031 again, and the gain carries over rather than disappearing.'}};
+    var quizBody=document.getElementById('quizBody'),answers={};
+    quizBody.innerHTML=QUIZ.map(function(item,qi){return '<div class="q" data-q="'+qi+'"><div class="qt"><b>'+(qi+1)+'</b>'+item.q+'</div><div class="opts">'+item.o.map(function(o,oi){return '<div class="opt" data-q="'+qi+'" data-o="'+oi+'"><span class="dot"></span><span>'+o[0]+'</span></div>';}).join('')+'</div></div>';}).join('');
+    quizBody.querySelectorAll('.opt').forEach(function(op){op.addEventListener('click',function(){var qi=op.getAttribute('data-q');quizBody.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(function(x){x.classList.remove('sel');});op.classList.add('sel');answers[qi]=parseInt(op.getAttribute('data-o'));document.getElementById('quizGo').disabled=(Object.keys(answers).length<QUIZ.length);});});
+    document.getElementById('quizGo').addEventListener('click',function(){
+      var sc={C:0,R:0,U:0};
+      Object.keys(answers).forEach(function(qi){var w=QUIZ[qi].o[answers[qi]][1];for(var k in w)sc[k]+=w[k];});
+      var order=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a];});
+      var win=order[0],max=Math.max(sc.C,sc.R,sc.U)||1;
+      document.getElementById('rName').textContent=PATHS[win].name;
+      document.getElementById('rWhy').innerHTML='<b>Why:</b> '+PATHS[win].why;
+      document.getElementById('rTrade').textContent=PATHS[win].trade;
+      var labelMap={C:'Full-cycle cash-out',R:'1031 again (new DST)',U:'721 UPREIT (REIT)'};
+      document.getElementById('rBars').innerHTML=order.map(function(k){var pct=Math.round(sc[k]/max*100);return '<div class="rb'+(k===win?' win':'')+'"><div class="lab"><span class="nm">'+labelMap[k]+'</span><span>'+sc[k]+' pts</span></div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div></div>';}).join('');
+      document.getElementById('quizResult').classList.add('show');
+      document.getElementById('quizResult').scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+    document.getElementById('quizReset').addEventListener('click',function(){answers={};quizBody.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');});document.getElementById('quizGo').disabled=true;document.getElementById('quizResult').classList.remove('show');});
+
+    /* ===== DIVERSIFICATION MODEL ===== */
+    var exAmt=document.getElementById('exAmt'),exN=document.getElementById('exN');
+    function money(n){return '$'+Math.round(n).toLocaleString();}
+    function divUpdate(){
+      var amt=parseInt(exAmt.value),n=parseInt(exN.value),per=amt/n;
+      document.getElementById('exAmtV').textContent=money(amt);
+      document.getElementById('exNV').textContent=n;
+      document.getElementById('perDst').textContent=money(per);
+      var divP=Math.round((n-1)/9*100),flexP=Math.round((10-n)/9*100);
+      document.getElementById('divPct').textContent=(n===1?'Low':n>=7?'High':'Moderate');
+      document.getElementById('flexPct').textContent=(n===1?'High':n>=7?'Low':'Moderate');
+      document.getElementById('divFill').style.width=divP+'%';
+      document.getElementById('flexFill').style.width=flexP+'%';
+      var note='At '+money(amt)+' across '+n+' DST'+(n>1?'s':'')+', each position is about <b>'+money(per)+'</b>. ';
+      if(per<25000)note+='<b>That’s below typical minimums ($25k–$100k)</b> — you likely can’t split this finely. ';
+      if(n===1)note+='A single DST is simple but concentrated in one sponsor, asset, and market.';
+      else if(n>=7)note+='Heavy diversification, but fragmenting your basis into many small interests makes a future 1031 into one whole property much harder.';
+      else note+='A balanced spread — enough diversification without fragmenting your basis so finely that a future single-property exchange becomes impractical.';
+      document.getElementById('divNote').innerHTML=note;
+    }
+    exAmt.addEventListener('input',divUpdate);exN.addEventListener('input',divUpdate);divUpdate();
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

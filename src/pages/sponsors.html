@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sponsor Directory | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .dir-table .logo-cell img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    background: #fff;
+    margin-bottom: 6px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+    <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Sponsors
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Sponsor Directory</h1>
+  </section>
+
+  <main>
+    <p style="margin-top: 20px;">The investment sponsors behind the DST and 1031 offerings we present. Every sponsor is independently vetted — track record, tenure, financial strength, and how they treat investors — before we ever present them. Click a sponsor for their full profile, or use Preview for a quick look.</p>
+
+    <div class="mobile-sort">
+      <label for="sortSelect">Sort by</label>
+      <select id="sortSelect">
+        <option value="">Default</option>
+        <option value="name">Sponsor</option>
+        <option value="founded">Founded</option>
+        <option value="aum">AUM</option>
+        <option value="fullCycleDeals">Full-Cycle Deals</option>
+        <option value="avgAnnualReturn">Avg. Annual Return</option>
+        <option value="avgEquityMultiple">Avg. Equity Multiple</option>
+        <option value="avgHoldPeriod">Avg. Hold</option>
+        <option value="successRate">Success Rate</option>
+      </select>
+    </div>
+
+    <div class="dir-table-wrap">
+      <table class="dir-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-key="name">Sponsor<span class="arrow"></span></th>
+            <th class="sortable" data-key="founded">Founded<span class="arrow"></span></th>
+            <th class="sortable" data-key="aum">AUM<span class="arrow"></span></th>
+            <th class="sortable" data-key="fullCycleDeals">Full-Cycle Deals<span class="arrow"></span></th>
+            <th class="sortable" data-key="avgAnnualReturn">Avg. Annual Return<span class="arrow"></span></th>
+            <th class="sortable" data-key="avgEquityMultiple">Avg. Equity Multiple<span class="arrow"></span></th>
+            <th class="sortable" data-key="avgHoldPeriod">Avg. Hold<span class="arrow"></span></th>
+            <th class="sortable" data-key="successRate">Success Rate<span class="arrow"></span></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="dirBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+<!-- @@FOOTER@@ -->
+
+<!-- Preview drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer-close" onclick="closeDrawer()" aria-label="Close preview">&#10005;</button>
+  <div class="drawer-photo" id="drawerPhoto" style="background: #f5f5f5; background-repeat: no-repeat; background-size: contain; background-position: center;"></div>
+  <div class="drawer-body">
+    <h3 id="drawerName"></h3>
+    <div class="sponsor-line" id="drawerSponsor"></div>
+    <div id="drawerFacts"></div>
+    <p class="desc" id="drawerDesc"></p>
+    <a class="btn-access" id="drawerLink" href="#">View Full Profile</a>
+  </div>
+</aside>
+
+<script type="application/json" id="directory-data">
+[
+ {
+  "name": "1031 Crowdfunding",
+  "url": "sponsor-1031-crowdfunding.html",
+  "founded": "2014",
+  "aum": "2800000000",
+  "hq": "Irvine, CA",
+  "website": "1031crowdfunding.com",
+  "logo": "https://img.logo.dev/1031crowdfunding.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "1031 Crowdfunding occupies the digital end of the securitized 1031 market, operating an online marketplace—founded in 2014 by Edward Fernandez—that aggregates Delaware Statutory Trust interests, non-traded REIT shares, Qualified Opportunity Zone funds and private-credit offerings for accredited exchangers. The platform's differentiation is distribution rather than sponsorship: it lowers the friction and minimums that have historically gated 1031 replacement property, layering a proprietary techn"
+ },
+ {
+  "name": "AEI Capital Corporation",
+  "url": "sponsor-sponsor-aei-capital-corporation.html",
+  "founded": "1970",
+  "aum": "1610000000",
+  "hq": "St. Paul, MN",
+  "website": "aeifunds.com",
+  "logo": "https://img.logo.dev/aeifunds.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "48",
+  "avgAnnualReturn": "6.75%",
+  "avgEquityMultiple": "1.55x",
+  "avgHoldPeriod": "13.32 Yrs",
+  "successRate": "100.00%",
+  "description": "AEI is among the longest-tenured names in the net-lease 1031 space, tracing its lineage to 1970 and to what it describes as one of the earliest securitized fractional-ownership structures. The firm's franchise is built on debt-free, all-cash ownership of single-tenant retail, restaurant and healthcare properties leased to credit-quality operators—a conservative posture that strips refinancing and foreclosure risk out of the capital stack and has carried it through multiple real estate cycles. Wi"
+ },
+ {
+  "name": "American Capital Group",
+  "url": "sponsor-american-capital-group.html",
+  "founded": "1986",
+  "aum": "2000000000",
+  "hq": "Bellevue, WA",
+  "website": "americancapitalgroup.com",
+  "logo": "https://img.logo.dev/americancapitalgroup.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "American Capital Group is a Pacific Northwest multifamily developer and owner-operator, active since 1986, that extends into the 1031/DST channel on the strength of a vertically integrated development platform. Its edge is regional: deep entitlement, construction and operating expertise concentrated in a supply-constrained Western corridor, which it leverages to source and stabilize apartment assets it can then package for exchange investors. The flip side of that geographic concentration is lim"
+ },
+ {
+  "name": "Apollo Global Management",
+  "url": "sponsor-apollo-global-management.html",
+  "founded": "1990",
+  "aum": "840000000000",
+  "hq": "New York, NY",
+  "website": "apollo.com",
+  "logo": "https://img.logo.dev/apollo.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Apollo Global Management is one of the world's largest alternative asset managers, with roughly $840 billion in assets across credit, private equity and real assets, and its scale is the headline. Real estate is a comparatively modest sleeve of the platform, but Apollo reaches 1031 investors through Apollo Real Estate Exchange (AREX), its DST vehicle, while the broader franchise is powered by a credit-led origination engine and the permanent capital of its Athene insurance balance sheet. For exc"
+ },
+ {
+  "name": "ARCTRUST",
+  "url": "sponsor-arctrust.html",
+  "founded": "1985",
+  "aum": "5000000000",
+  "hq": "Clifton, NJ",
+  "website": "arctrust.com",
+  "logo": "https://img.logo.dev/arctrust.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "ARCTRUST is a roughly 40-year, vertically integrated net-lease specialist structured as a private REIT, giving 1031 investors access to a diversified, professionally managed retail portfolio rather than a single-asset DST. Based in Clifton, New Jersey, the firm develops build-to-suit properties for national credit tenants such as Wawa, ShopRite and Chick-fil-A and concentrates on necessity retail across the New York-to-Washington corridor, Florida and airport-metro markets. It has completed more"
+ },
+ {
+  "name": "Ares Management",
+  "url": "sponsor-ares-management.html",
+  "founded": "1997",
+  "aum": "595700000000",
+  "hq": "Los Angeles, CA",
+  "website": "aresmgmt.com",
+  "logo": "https://img.logo.dev/aresmgmt.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Ares Management is a roughly $596 billion global alternatives manager whose real estate ambitions in the wealth channel run through Ares Wealth Management Solutions, the distribution arm that brings DST and non-traded vehicles to advisors and their clients. The March 2025 acquisition of GCP International added some $45 billion in AUM and meaningfully deepened its real assets and industrial logistics footprint, complementing the Ares Industrial REIT. Credit remains the platform's dominant gravita"
+ },
+ {
+  "name": "Arrimus Capital Advisors",
+  "url": "sponsor-arrimus-capital-advisors.html",
+  "founded": "2014",
+  "aum": "75000000000",
+  "hq": "Newport Beach, CA",
+  "website": "arrimuscapital.com",
+  "logo": "https://img.logo.dev/arrimuscapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Arrimus Capital Advisors is a West Coast real estate investment manager, founded in 2014, pursuing value-add and opportunistic strategies that it occasionally structures for 1031 investors. Its profile is that of a regionally focused operator trading on acquisition acumen in its home markets rather than on scale; the firm does not publicly disclose AUM, and its limited disclosure footprint warrants PPM-level diligence before any allocation."
+ },
+ {
+  "name": "Baker Tilly",
+  "url": "sponsor-baker-tilly.html",
+  "founded": "1931",
+  "aum": "5100000000",
+  "hq": "Chicago, IL",
+  "website": "bakertilly.com",
+  "logo": "https://img.logo.dev/bakertilly.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Baker Tilly is a top-tier accounting and advisory firm, not a real estate sponsor, and appears in the 1031/DST ecosystem as a tax, cost-segregation and transaction advisor rather than as an issuer of offerings. Investors should treat its presence on a sponsor list as a service-provider relationship; it originates no property programs and carries no sponsor AUM."
+ },
+ {
+  "name": "Beacon Real Estate Group",
+  "url": "sponsor-beacon-real-estate-group.html",
+  "founded": "2005",
+  "aum": "2360000000",
+  "hq": "Miami, FL",
+  "website": "beaconreg.com",
+  "logo": "https://img.logo.dev/beaconreg.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Beacon Real Estate Group is a Miami-based multifamily-focused private investment firm, active since 2005, that pursues value-add apartment strategies concentrated in the Southeast and Florida. It presents as a regional operator leaning on demographic tailwinds in its core markets; current AUM is not publicly disclosed, and the firm's smaller disclosure footprint argues for direct diligence."
+ },
+ {
+  "name": "Blackstone",
+  "url": "sponsor-blackstone.html",
+  "founded": "1985",
+  "aum": "1300000000000",
+  "hq": "New York, NY",
+  "website": "blackstone.com",
+  "logo": "https://img.logo.dev/blackstone.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Blackstone is the world's largest alternative asset manager, with roughly $1.3 trillion in total AUM and a real estate platform commanding about $319 billion of investor capital as of year-end 2025—an order of magnitude beyond any dedicated DST sponsor. Its retail real estate flagship, the Blackstone Real Estate Income Trust (BREIT), is a perpetual-life non-traded REIT carrying roughly $53 billion in NAV and concentrated in the secular winners of data centers, logistics and rental housing. With "
+ },
+ {
+  "name": "Blue Owl",
+  "url": "sponsor-blue-owl.html",
+  "founded": "2009",
+  "aum": "273000000000",
+  "hq": "New York, NY",
+  "website": "blueowl.com",
+  "logo": "https://img.logo.dev/blueowl.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Blue Owl Capital is a roughly $273 billion alternatives manager whose net-lease pedigree—anchored by the Oak Street platform it absorbed—feeds its DST/1031 vehicle, Blue Owl Real Estate Exchange (OREX). The strategy is purpose-built around triple-net, sale-leaseback assets leased to creditworthy corporate tenants, a cash-flow-stable profile well suited to exchange investors seeking predictability. With a permanent-capital orientation and a diversified credit-and-real-assets platform behind it, O"
+ },
+ {
+  "name": "Bluerock",
+  "url": "sponsor-bluerock.html",
+  "founded": "2002",
+  "aum": "19000000000",
+  "hq": "New York, NY",
+  "website": "bluerockexchange.com",
+  "logo": "https://img.logo.dev/bluerockexchange.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "97",
+  "avgAnnualReturn": "21.39%",
+  "avgEquityMultiple": "1.77x",
+  "avgHoldPeriod": "4.00 Yrs",
+  "successRate": "93.81%",
+  "description": "Bluerock has sponsored syndicated 1031 exchanges for more than eighteen years, and its Bluerock Value Exchange (BVEX) arm packages multifamily, industrial and other core sectors into what it markets as 'Premier Exchange Properties.' Backed by a broader Bluerock platform of roughly $19 billion that also spans interval funds, the firm pairs institutional acquisition capability with a long DST track record across multiple cycles. Its national footprint and sector breadth position it as a diversifie"
+ },
+ {
+  "name": "Bonaventure",
+  "url": "sponsor-bonaventure.html",
+  "founded": "1999",
+  "aum": "2600000000",
+  "hq": "Alexandria, VA",
+  "website": "bonaventure.com",
+  "logo": "https://img.logo.dev/bonaventure.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Bonaventure is a vertically integrated Mid-Atlantic and Southeast multifamily firm, founded in 1999, that has built its 1031/721 franchise around its perpetual-life Bonaventure Multifamily Income Trust (BMIT), through which it has facilitated more than $1.5 billion in tax-deferred exchanges. The model is notable for its balance-sheet discipline—roughly 98% fixed-rate debt—and for an UPREIT structure that lets exchangers roll into a diversified, professionally managed apartment portfolio. With a "
+ },
+ {
+  "name": "Bridgeview",
+  "url": "sponsor-bridgeview.html",
+  "founded": "2011",
+  "aum": "440000000",
+  "hq": "Dallas, TX",
+  "website": "bridgeviewre.com",
+  "logo": "https://img.logo.dev/bridgeviewre.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "2",
+  "avgAnnualReturn": "37.25%",
+  "avgEquityMultiple": "3.83x",
+  "avgHoldPeriod": "3.79 Yrs",
+  "successRate": "100.00%",
+  "description": "Bridgeview is a Dallas-based, veteran-owned developer-sponsor of multifamily, office and mixed-use assets that distributes its DSTs through a captive broker-dealer, BV Securities—an unusual degree of vertical control over distribution for a firm of its size. Founded in 2011 and concentrated in Texas, it has carved out niches in student-housing DSTs near TCU and UT-Arlington and in zero-debt healthcare offerings such as its Ernest Health program. The captive distribution and Texas focus are diffe"
+ },
+ {
+  "name": "Brookfield",
+  "url": "sponsor-brookfield.html",
+  "founded": "1899",
+  "aum": "1000000000000",
+  "hq": "New York, NY",
+  "website": "brookfield.com",
+  "logo": "https://img.logo.dev/brookfield.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Brookfield is a global owner-operator of real assets with well over $1 trillion in AUM and roughly $31 billion in U.S. institutional real estate, and it reaches retail and exchange investors through the Brookfield Real Estate Income Trust. Its competitive advantage is operational rather than financial-engineering: deep in-house operating platforms across infrastructure, renewables and property allow it to drive value at the asset level. Backed by a perpetual-capital base and a 125-year instituti"
+ },
+ {
+  "name": "CAI Investments",
+  "url": "sponsor-cai-investments.html",
+  "founded": "2011",
+  "aum": "1600000000",
+  "hq": "Las Vegas, NV",
+  "website": "caicap.com",
+  "logo": "https://img.logo.dev/caicap.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "CAI Investments is a Las Vegas vertically integrated developer-sponsor distinguished by a hospitality and Marriott development pedigree—including a 2016 Marriott best-repositioning award—that it has parlayed into a net-lease DST portfolio spanning industrial, office, QSR and multifamily assets. Founded in 2011, the firm controls the development-to-management lifecycle in-house, a meaningful edge in sourcing and stabilizing the properties it packages for exchangers. Public AUM is not disclosed, t"
+ },
+ {
+  "name": "Cantor Fitzgerald",
+  "url": "sponsor-cantor-fitzgerald.html",
+  "founded": "1945",
+  "aum": "13000000000",
+  "hq": "New York, NY",
+  "website": "cantor.com",
+  "logo": "https://img.logo.dev/cantor.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "9",
+  "avgAnnualReturn": "11.67%",
+  "avgEquityMultiple": "1.45x",
+  "avgHoldPeriod": "3.92 Yrs",
+  "successRate": "100.00%",
+  "description": "Cantor Fitzgerald reaches the 1031 market through Cantor Fitzgerald Investors, leveraging the global capital-markets and brokerage muscle of its 1945-founded parent and its Newmark affiliation to source institutional-quality DSTs and feed its non-traded Cantor Fitzgerald Income Trust. With roughly $13 billion under management at Cantor Fitzgerald Asset Management as of early 2024 and a portfolio approaching 12 million square feet across multifamily and net-lease assets, the franchise blends inve"
+ },
+ {
+  "name": "Cantor Silverstein",
+  "url": "sponsor-cantor-silverstein.html",
+  "founded": "2019",
+  "aum": "1000000000",
+  "hq": "New York, NY",
+  "website": "cantorsilverstein.com",
+  "logo": "https://img.logo.dev/cantorsilverstein.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Cantor Silverstein Opportunity Zone Trust is a joint venture between Cantor Fitzgerald and Silverstein Properties, structured as a non-traded Opportunity Zone REIT focused on ground-up development in qualified zones. It pairs Silverstein's marquee development expertise with Cantor's capital-markets distribution—a combination that gives the vehicle unusual credibility for a QOZ program—though current AUM is not publicly disclosed. The structure suits investors seeking capital-gains deferral and s"
+ },
+ {
+  "name": "Capital Square",
+  "url": "sponsor-capital-square.html",
+  "founded": "2012",
+  "aum": "6000000000",
+  "hq": "Richmond, VA",
+  "website": "capitalsq.com",
+  "logo": "https://img.logo.dev/capitalsq.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "19",
+  "avgAnnualReturn": "15.20%",
+  "avgEquityMultiple": "1.83x",
+  "avgHoldPeriod": "4.81 Yrs",
+  "successRate": "100.00%",
+  "description": "Capital Square has evolved from a pure 1031/DST sponsor into one of the more vertically integrated platforms in the securitized exchange market, with over $6 billion in AUM and more than $7.5 billion in transaction volume since its 2012 founding by Louis Rogers. Beyond sponsoring DSTs across 175-plus assets for some 6,500 investors, the firm develops its own multifamily product, manages roughly 13,000 apartments through Capital Square Living, and diversifies into Qualified Opportunity Zone funds"
+ },
+ {
+  "name": "Carter Exchange",
+  "url": "sponsor-carter-exchange.html",
+  "founded": "2017",
+  "aum": "3000000000",
+  "hq": "Tampa, FL",
+  "website": "carterfunds.com",
+  "logo": "https://img.logo.dev/carterfunds.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "3",
+  "avgAnnualReturn": "20.07%",
+  "avgEquityMultiple": "1.75x",
+  "avgHoldPeriod": "3.79 Yrs",
+  "successRate": "100.00%",
+  "description": "Carter operates as a family of affiliated companies—Carter Multifamily, Carter Exchange Fund Management and the data-center-focused Aphorio Carter—managing roughly $3 billion and drawing leadership directly from the Carter Validus mission-critical REITs. That heritage gives the platform genuine depth in healthcare and critical-infrastructure real estate, including data centers, alongside a Class A multifamily DST business launched in 2019. With more than $50 billion in cumulative CRE volume acro"
+ },
+ {
+  "name": "Cliffwater",
+  "url": "sponsor-cliffwater.html",
+  "founded": "2004",
+  "aum": "120000000000",
+  "hq": "Marina del Rey, CA",
+  "website": "cliffwater.com",
+  "logo": "https://img.logo.dev/cliffwater.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Cliffwater is an alternatives research and advisory firm and the manager of large interval funds such as the Cliffwater Corporate Lending and Enhanced Lending funds, rather than a property sponsor in the conventional DST sense. Its franchise is built on institutional-grade private-credit research and RIA-channel distribution, and it appears in the alts ecosystem as an allocator and fund manager. Investors should recognize that it originates no real estate DSTs and that its roughly $120 billion o"
+ },
+ {
+  "name": "Core",
+  "url": "sponsor-core.html",
+  "founded": "2005",
+  "aum": "600000000",
+  "hq": "Newport Beach, CA",
+  "website": "crhmi.com",
+  "logo": "https://img.logo.dev/crhmi.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "CORE Realty Holdings Management and affiliates own and professionally manage more than 10.6 million square feet of commercial and multifamily real estate (4,500-plus units) across roughly 12 states from Newport Beach, CA. The firm pioneered the Co-Ownership of Real Estate (CORE) tenant-in-common model as an alternative to the DST structure, operating with an owner-operator mindset across multifamily, office, industrial and retail. It acts as both principal owner and realty advisor; current AUM i"
+ },
+ {
+  "name": "Core Pacific",
+  "url": "sponsor-core-pacific.html",
+  "founded": "2005",
+  "aum": "600000000",
+  "hq": "Newport Beach, CA",
+  "website": "corepacific.com",
+  "logo": "https://img.logo.dev/corepacific.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "CORE Pacific Advisors is the securitized-1031 sponsorship affiliate of CORE Realty Holdings Management, based in Newport Beach, CA, focused on multifamily DSTs and tenant-in-common offerings. Named offerings include CPA Barrington Apartments and the Denver-market Arbour Commons in Westminster, CO. It draws on decades of CORE-team experience buying, managing and selling commercial real estate; standalone AUM is not separately disclosed."
+ },
+ {
+  "name": "Cove Capital",
+  "url": "sponsor-cove-capital.html",
+  "founded": "2012",
+  "aum": "958000000",
+  "hq": "Torrance, CA",
+  "website": "covecapitalinvestments.com",
+  "logo": "https://img.logo.dev/covecapitalinvestments.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Cove Capital Investments has built a distinctive franchise on a single contrarian premise: debt-free DSTs. Founded in 2012 by Dwight Kay and Chay Lapin, the firm structures all-cash offerings that carry no mortgage risk—eliminating the lender-driven loss scenarios that have tripped up leveraged DSTs in downturns—across net-lease, industrial and multifamily assets. With more than $958 million in sponsored transactions across roughly 129 assets, principal co-investment in every offering, and optio"
+ },
+ {
+  "name": "Croatan Investments",
+  "url": "sponsor-croatan-investments.html",
+  "founded": "2004",
+  "aum": "1500000000",
+  "hq": "Virginia Beach, VA",
+  "website": "croataninvestments.com",
+  "logo": "https://img.logo.dev/croataninvestments.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Croatan Investments is a Norfolk-based multifamily private equity sponsor, active since 2014, pursuing value-add apartment strategies concentrated in the Southeast and broader Sun Belt. It presents as a regional operator riding demographic and migration tailwinds; current AUM is not publicly disclosed, and the firm's limited public footprint warrants direct diligence."
+ },
+ {
+  "name": "Cunat",
+  "url": "sponsor-cunat.html",
+  "founded": "1972",
+  "aum": "800000000",
+  "hq": "Crystal Lake, IL",
+  "website": "cunat.com",
+  "logo": "https://img.logo.dev/cunat.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Cunat is an Illinois-based, vertically integrated multifamily developer and manager with a track record stretching back to 1972, extending into the DST channel on the strength of in-house development and property-management capabilities. Its profile is that of a long-tenured Midwest operator trading on operational control rather than scale; current AUM is not publicly disclosed."
+ },
+ {
+  "name": "Denholtz",
+  "url": "sponsor-denholtz.html",
+  "founded": "1953",
+  "aum": "2000000000",
+  "hq": "Red Bank, NJ",
+  "website": "denholtz.com",
+  "logo": "https://img.logo.dev/denholtz.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "14",
+  "avgAnnualReturn": "38.05%",
+  "avgEquityMultiple": "2.55x",
+  "avgHoldPeriod": "4.57 Yrs",
+  "successRate": "100.00%",
+  "description": "Denholtz is a 70-plus-year, vertically integrated firm spanning multifamily, industrial, flex and office, with more than $2 billion in asset value and over 7 million square feet, increasingly oriented toward the Southeast and its Denholtz Opportunity Fund II. The firm's industrial and flex emphasis aligns with the most durable demand themes in commercial real estate, and its 'rescue capital' opportunity-fund strategy positions it to exploit dislocation. Dual headquarters in New Jersey and Orland"
+ },
+ {
+  "name": "ERP",
+  "url": "sponsor-erp.html",
+  "founded": "2007",
+  "aum": "Not Disclosed",
+  "hq": "Midland, Texas",
+  "website": "https://www.erpfunds.com/",
+  "logo": "https://img.logo.dev/erpfunds.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "ERP (Energy Related Properties) is a DST sponsor focused on energy-related real estate rather than the multifamily and net-lease assets that dominate the 1031 market. It structures its holdings as Delaware Statutory Trusts (e.g., ERP 1031 portfolios) distributed through its managing broker-dealer, American Alternative Capital, LLC. Public disclosure on founding year, AUM, and full-cycle track record is limited, so detailed terms and risk factors are set out in each program's Private Placement Me"
+ },
+ {
+  "name": "ExchangeRight",
+  "url": "sponsor-exchangeright.html",
+  "founded": "2012",
+  "aum": "7000000000",
+  "hq": "Pasadena, CA",
+  "website": "exchangeright.com",
+  "logo": "https://img.logo.dev/exchangeright.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "28",
+  "avgAnnualReturn": "7.77%",
+  "avgEquityMultiple": "1.41x",
+  "avgHoldPeriod": "5.41 Yrs",
+  "successRate": "100.00%",
+  "description": "ExchangeRight has scaled into one of the defining net-lease DST franchises, ending 2025 as the fifth-largest sponsor in the 1031 DST market with roughly $7.0 billion in AUM across more than 1,400 properties and 27 million square feet in 48 states. Founded in 2012 and vertically integrated out of Pasadena, the firm anchors its portfolios in investment-grade-tenanted necessity retail and healthcare—pharmacies, grocery, dollar stores—whose recession-resistant cash flows underpin its consistency. Th"
+ },
+ {
+  "name": "Fortress Investment Group",
+  "url": "sponsor-fortress-investment-group.html",
+  "founded": "1998",
+  "aum": "49000000000",
+  "hq": "New York, NY",
+  "website": "fortress.com",
+  "logo": "https://img.logo.dev/fortress.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Fortress Investment Group is a roughly $49 billion diversified alternatives manager spanning credit, real estate and private equity, with a heritage rooted in distressed and credit investing. Its real estate exposure runs through funds and net-lease vehicles rather than a marquee retail DST franchise, and its Mubadala ownership provides a deep, patient capital base. For exchange investors, the relevance is institutional underwriting and balance-sheet strength, set against the reality that proper"
+ },
+ {
+  "name": "Four Springs Capital",
+  "url": "sponsor-four-springs-capital.html",
+  "founded": "2012",
+  "aum": "1300000000",
+  "hq": "Wall, NJ",
+  "website": "ten31xchange.com",
+  "logo": "https://img.logo.dev/ten31xchange.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "24",
+  "avgAnnualReturn": "7.05%",
+  "avgEquityMultiple": "1.47x",
+  "avgHoldPeriod": "3.34 Yrs",
+  "successRate": "100.00%",
+  "description": "Four Springs Capital reaches the 1031 market through Four Springs TEN31 Xchange, sponsoring net-lease DSTs concentrated in single-tenant industrial and medical properties under long-term leases to credit tenants such as Ford, Eaton and Carhartt. A deliberate focus on the $5 million-to-$200 million deal range keeps it below the institutional bid and above the retail scrum, a niche it has worked across more than 1,000 completed exchanges and over $1 billion in equity raised. As a subsidiary of Fou"
+ },
+ {
+  "name": "FS Investments",
+  "url": "sponsor-fs-investments.html",
+  "founded": "2007",
+  "aum": "85000000000",
+  "hq": "Philadelphia, PA",
+  "website": "fsinvestments.com",
+  "logo": "https://img.logo.dev/fsinvestments.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "FS Investments is a roughly $85 billion, credit-led alternatives manager—built on a BDC heritage and broadened by its merger with Portfolio Advisors—whose real estate activity sits alongside interval funds and private-credit strategies distributed through the RIA channel. Real estate is a complementary rather than defining business, so for 1031 purposes the firm reads as an institutional manager with a real estate credit capability rather than a dedicated DST house."
+ },
+ {
+  "name": "GK Real Estate",
+  "url": "sponsor-gk-real-estate.html",
+  "founded": "1985",
+  "aum": "300000000",
+  "hq": "Barrington, IL",
+  "website": "gkdevelopment.com",
+  "logo": "https://img.logo.dev/gkdevelopment.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "GK Real Estate is a Chicago-area mixed-use and multifamily developer and sponsor, active since 1985, that trades on local development expertise concentrated in its home market. It presents as a regional operator rather than a national DST platform; current AUM is not publicly disclosed."
+ },
+ {
+  "name": "Go Store It Partners",
+  "url": "sponsor-go-store-it-partners.html",
+  "founded": "2013",
+  "aum": "4000000000",
+  "hq": "Charlotte, NC",
+  "website": "gostoreit.com",
+  "logo": "https://img.logo.dev/gostoreit.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Go Store It Partners is the self-storage brand and operating platform affiliated with Madison Capital Group, packaging self-storage assets into DST offerings. Self-storage is its single, defensible specialization—an asset class with low operating intensity and resilient demand—and the Madison affiliation supplies vertically integrated operations and a roughly $4 billion platform behind it. The concentration is the point: investors get a focused storage thesis rather than diversification."
+ },
+ {
+  "name": "Goldman Sachs",
+  "url": "sponsor-goldman-sachs.html",
+  "founded": "1869",
+  "aum": "3100000000000",
+  "hq": "New York, NY",
+  "website": "goldmansachs.com",
+  "logo": "https://img.logo.dev/goldmansachs.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Goldman Sachs reaches real estate investors through Goldman Sachs Asset Management's alternatives platform, part of a roughly $3.1 trillion asset-and-wealth-management franchise, with net-lease and real estate credit strategies among its offerings. Its relevance to the 1031 channel is institutional pedigree, global sourcing and distribution to institutions and ultra-high-net-worth clients; property DSTs are a minor expression of a sprawling global bank."
+ },
+ {
+  "name": "Greystar",
+  "url": "sponsor-greystar.html",
+  "founded": "1993",
+  "aum": "320000000000",
+  "hq": "Charleston, SC",
+  "website": "greystar.com",
+  "logo": "https://img.logo.dev/greystar.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Greystar is the world's largest apartment manager, owner and developer, with roughly $320 billion in real estate AUM and a fully vertically integrated develop-own-manage model spanning the globe. Its 2025 DST partnership with Trilogy brings that operating scale—and unrivaled multifamily data and execution—into the 1031 channel. For exchangers, the draw is best-in-class apartment operations at institutional scale; Greystar's edge is operational depth that no dedicated DST sponsor can approach."
+ },
+ {
+  "name": "Griffin Capital",
+  "url": "sponsor-griffin-capital.html",
+  "founded": "1995",
+  "aum": "3500000000",
+  "hq": "El Segundo, CA",
+  "website": "griffincapital.com",
+  "logo": "https://img.logo.dev/griffincapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "2",
+  "avgAnnualReturn": "18.04%",
+  "avgEquityMultiple": "1.72x",
+  "avgHoldPeriod": "4.42 Yrs",
+  "successRate": "100.00%",
+  "description": "Griffin Capital is an El Segundo alternative asset manager that has owned or sponsored roughly $23 billion of real estate over its history and now reaches exchangers through Griffin Institutional Property Exchange (GPX), focused on Class A multifamily and net-lease DSTs. A defining feature is alignment: its executives have co-invested more than $300 million alongside investors. With a heritage in non-traded REITs and interval funds and a portfolio spanning roughly 29 markets, Griffin pairs insti"
+ },
+ {
+  "name": "Hamilton Point Investments",
+  "url": "sponsor-hamilton-point-investments.html",
+  "founded": "2009",
+  "aum": "3800000000",
+  "hq": "Old Lyme, CT",
+  "website": "hamiltonptinv.com",
+  "logo": "https://img.logo.dev/hamiltonptinv.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "15",
+  "avgAnnualReturn": "15.43%",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "4.25 Yrs",
+  "successRate": "100.00%",
+  "description": "Hamilton Point Investments is an Old Lyme real estate sponsor formed in 2009. Its funds and affiliates have completed more than 150 investments, acquiring over 32,000 apartment units, hotel room keys, and manufactured-housing lots for approximately $3.5 billion. As of June 15, 2026, HPI reports 83 properties sold, all profitably, and 69 properties currently owned. The attached track record reports eight completed funds with a 17.1% weighted-average net IRR, seven completed single-asset DSTs aver"
+ },
+ {
+  "name": "Hines",
+  "url": "sponsor-hines.html",
+  "founded": "1957",
+  "aum": "93000000000",
+  "hq": "Houston, TX",
+  "website": "hines.com",
+  "logo": "https://img.logo.dev/hines.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Hines is a global private real estate firm founded in 1957, managing roughly $93 billion across a develop-own-operate platform that few peers can match in geographic and asset-class reach. It reaches retail and exchange investors through non-traded vehicles such as Hines Global Income Trust and its DST offerings. Privately held and family-controlled, Hines brings institutional development and operating depth to the 1031 channel, where its programs represent a small extension of a vast global bus"
+ },
+ {
+  "name": "HPA Exchange",
+  "url": "sponsor-hpa-exchange.html",
+  "founded": "2008",
+  "aum": "580000000",
+  "hq": "Dallas, TX",
+  "website": "hpaxchange.com",
+  "logo": "https://img.logo.dev/hpaxchange.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "HPA Exchange is the DST platform affiliated with Housing Partnership Acquisitions, specializing in single-family rental (SFR) portfolios—an institutionalizing asset class that brings scaled residential operations to exchange investors. Its differentiation is the SFR focus and the operating platform behind it; current AUM is not publicly disclosed, and the firm's limited public footprint warrants direct diligence."
+ },
+ {
+  "name": "Inland",
+  "url": "sponsor-inland.html",
+  "founded": "1968",
+  "aum": "12300000000",
+  "hq": "Oak Brook, IL",
+  "website": "inlandprivatecapital.com",
+  "logo": "https://img.logo.dev/inlandprivatecapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "72",
+  "avgAnnualReturn": "8.10%",
+  "avgEquityMultiple": "1.53x",
+  "avgHoldPeriod": "6.91 Yrs",
+  "successRate": "94.44%",
+  "description": "Inland Private Capital Corporation is the leading provider of securitized 1031 exchange opportunities in the United States—a designation supported by Mountain Dell Consulting's sponsor rankings—managing more than $12.3 billion across 317 offerings in 43 states as of mid-2024. A subsidiary of the 50-plus-year Inland Real Estate Group, IPC has sponsored 323 programs, acquired upward of $18 billion in assets, and returned more than $3.5 billion through full-cycle monetizations, with diversification"
+ },
+ {
+  "name": "Invesco",
+  "url": "sponsor-invesco.html",
+  "founded": "1935",
+  "aum": "85000000000",
+  "hq": "Atlanta, GA",
+  "website": "invesco.com",
+  "logo": "https://img.logo.dev/invesco.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Invesco reaches the 1031 market through Invesco Real Estate Exchange (INREX), the DST arm of a global asset manager whose real estate group oversees roughly $85 billion, and it complements that with the Invesco Commercial Real Estate Finance Trust. With a 40-year real estate track record and institutional sourcing across sectors including industrial and cold storage, Invesco brings disciplined, research-driven underwriting to exchangers—DSTs being one channel within a roughly $1.8 trillion globa"
+ },
+ {
+  "name": "J.P. Morgan",
+  "url": "sponsor-j-p-morgan.html",
+  "founded": "1871",
+  "aum": "3700000000000",
+  "hq": "New York, NY",
+  "website": "jpmorgan.com",
+  "logo": "https://img.logo.dev/jpmorgan.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "J.P. Morgan reaches real estate investors through J.P. Morgan Asset Management, part of a roughly $3.7 trillion asset-and-wealth-management franchise, sponsoring non-traded REIT vehicles and offering global real estate and real estate-credit strategies. Its relevance to the 1031 channel is institutional scale, sourcing and distribution to institutions and ultra-high-net-worth clients rather than a dedicated DST specialty."
+ },
+ {
+  "name": "JLL",
+  "url": "sponsor-jll.html",
+  "founded": "2012",
+  "aum": "6500000000",
+  "hq": "Chicago, IL",
+  "website": "jllipt.com",
+  "logo": "https://img.logo.dev/jllipt.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "JLL Exchange (JLLX) is the DST and 1031 platform of JLL Income Property Trust, an institutionally managed daily-NAV non-traded REIT carrying roughly $6.5 billion in portfolio assets. Its structural differentiation is meaningful: a daily-NAV REIT backbone, a low-fee institutional posture, and a defined 14-transaction, roughly $960 million full-cycle UPREIT track record that lets exchangers roll DST interests into a diversified, professionally managed REIT. Backed by JLL's global sourcing, JLLX ha"
+ },
+ {
+  "name": "Kay Properties",
+  "url": "sponsor-kay-properties.html",
+  "founded": "2010",
+  "aum": "30000000000",
+  "hq": "Torrance, CA",
+  "website": "kpi1031.com",
+  "logo": "https://img.logo.dev/kpi1031.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Kay Properties & Investments is the largest independent DST marketplace, founded in 2010 by Dwight Kay, aggregating offerings from 25-plus sponsors alongside custom 'Kay-only' debt-free DSTs and an unusual secondary market for DST interests. The platform's scale shows in its record 2021 placement of roughly $610 million in equity—up nearly 50% year over year—and in a cumulative volume that it frames as participation in more than $30 billion of DST 1031 investments. Its differentiation is curatio"
+ },
+ {
+  "name": "Keystone National Properties",
+  "url": "sponsor-keystone-national-properties.html",
+  "founded": "2016",
+  "aum": "130000000",
+  "hq": "New York, NY",
+  "website": "knpre.com",
+  "logo": "https://img.logo.dev/knpre.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Keystone National Properties is a New York DST sponsor founded in 2016 by Michael Packman, managing roughly $130 million and distinguished by an explicit impact orientation—'doing well by doing good'—layered onto net-lease and Opportunity Zone offerings. Its DSTs lean on credit-tenant net lease such as FedEx Ground, and it complements them with QOZ programs. As a newer, smaller sponsor, it offers a differentiated thesis but a shorter track record, warranting diligence commensurate with its scale"
+ },
+ {
+  "name": "Kingsbarn Realty Capital",
+  "url": "sponsor-kingsbarn-realty-capital.html",
+  "founded": "2011",
+  "aum": "2700000000",
+  "hq": "Las Vegas, NV",
+  "website": "kingsbarn.com",
+  "logo": "https://img.logo.dev/kingsbarn.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Kingsbarn Realty Capital is a Las Vegas diversified platform managing more than $2.7 billion across DSTs, private equity and funds, with over $5 billion acquired since its 2011 founding and an in-house development arm running a $2 billion-plus pipeline. Its signature is the proprietary Managed-Direct Ownership program and a DST franchise of 80-plus offerings totaling roughly $2 billion in equity, executed through its KB Exchange Trust arm. The combination of vertical development capability and a"
+ },
+ {
+  "name": "KKR",
+  "url": "sponsor-kkr.html",
+  "founded": "1976",
+  "aum": "686000000000",
+  "hq": "New York, NY",
+  "website": "kkr.com",
+  "logo": "https://img.logo.dev/kkr.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "KKR is a global alternatives leader managing $686 billion as of mid-2025—up 14% year over year, with fee-paying AUM of $556 billion and perpetual capital approaching $289 billion, or roughly 42% of the firm. It reaches real estate investors through funds and the KKR Real Estate Select Trust (KREST), a non-traded REIT, spanning both equity and credit, and it benefits from the balance-sheet heft of its Global Atlantic insurance arm. For exchangers, the appeal is institutional scale and a fast-grow"
+ },
+ {
+  "name": "LaSalle Investment Management",
+  "url": "sponsor-lasalle-investment-management.html",
+  "founded": "1980",
+  "aum": "89000000000",
+  "hq": "Chicago, IL",
+  "website": "lasalle.com",
+  "logo": "https://img.logo.dev/lasalle.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "LaSalle Investment Management is a roughly $89 billion global real estate investment manager and a JLL affiliate, operating institutional open- and closed-end funds, separate accounts and a real estate securities business. Its relevance to the 1031 channel is institutional pedigree and global sourcing rather than a retail DST specialty; investors encounter it primarily as an institutional manager."
+ },
+ {
+  "name": "Livingston Street Capital",
+  "url": "sponsor-livingston-street-capital.html",
+  "founded": "2016",
+  "aum": "400000000",
+  "hq": "New York, NY",
+  "website": "livingstonstreetcapital.com",
+  "logo": "https://img.logo.dev/livingstonstreetcapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "4",
+  "avgAnnualReturn": "8.52%",
+  "avgEquityMultiple": "1.38x",
+  "avgHoldPeriod": "4.21 Yrs",
+  "successRate": "100.00%",
+  "description": "Livingston Street Capital is a New York thematic sponsor, founded in 2016, built around a focused demographic bet on Active Adult (55+) and Independent Living housing, which it operates through its vertically integrated Allure Lifestyle Communities platform. With more than 2,300 active-adult and independent-living units plus over a million square feet of commercial assets, and a leadership team citing $20 billion-plus in career transactions, the firm pairs a clear secular thesis with operating c"
+ },
+ {
+  "name": "Madison Capital",
+  "url": "sponsor-madison-capital.html",
+  "founded": "2009",
+  "aum": "4000000000",
+  "hq": "Charlotte, NC",
+  "website": "madisoncapgroup.com",
+  "logo": "https://img.logo.dev/madisoncapgroup.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Madison Capital Group is a Charlotte vertically integrated sponsor managing roughly $4 billion, distinctive for its multi-vertical reach across self-storage (via Go Store It), multifamily (Madison Communities), and the genuinely niche boat-and-RV-storage and marina sectors, with net lease alongside; Madison Capital Markets runs its DST and 1031 distribution. The boat/RV and marina focus is an unusual, defensible specialization, and captive distribution plus more than $6 billion in lifetime trans"
+ },
+ {
+  "name": "Madison Realty Companies",
+  "url": "sponsor-madison-realty-companies.html",
+  "founded": "1980",
+  "aum": "24000000000",
+  "hq": "Anaheim, CA",
+  "website": "madisonrealty.com",
+  "logo": "https://img.logo.dev/madisonrealty.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Madison Realty Companies is a California-based multifamily and commercial owner-operator and DST sponsor with roots back to 1980—distinct from both Madison Capital Group and Madison Realty Capital, a distinction worth flagging given the name overlap. It presents as a long-tenured regional operator concentrated in California; current AUM is not publicly disclosed."
+ },
+ {
+  "name": "Mirae Asset Management",
+  "url": "sponsor-mirae-asset-management.html",
+  "founded": "1997",
+  "aum": "600000000000",
+  "hq": "Seoul, South Korea",
+  "website": "miraeasset.com",
+  "logo": "https://img.logo.dev/miraeasset.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Mirae Asset Management is a Korea-based global asset manager overseeing roughly $600 billion, with U.S. real estate holdings and a substantial ETF franchise through Global X. Its appearance in the 1031/alts context reflects cross-border real estate exposure rather than a dedicated U.S. DST business; investors should view it as an Asia-anchored global manager with property holdings rather than a domestic exchange sponsor."
+ },
+ {
+  "name": "Moody National",
+  "url": "sponsor-moody-national.html",
+  "founded": "1996",
+  "aum": "3000000000",
+  "hq": "Houston, TX",
+  "website": "moodynational.com",
+  "logo": "https://img.logo.dev/moodynational.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "2",
+  "avgAnnualReturn": "14.56%",
+  "avgEquityMultiple": "2.00x",
+  "avgHoldPeriod": "4.64 Yrs",
+  "successRate": "50.00%",
+  "description": "Moody National is a Houston vertically integrated firm, founded in 1996, specializing in hospitality and multifamily DSTs through a full-service platform—roughly 500 professionals spanning acquisition, development, construction and management, with in-house title and insurance. With $3 billion in total capitalization as of early 2025 and more than 3,000 investors served, its hospitality specialization is comparatively rare among DST sponsors and is backed by genuine operating control. The hotel "
+ },
+ {
+  "name": "NAS Investment Solutions",
+  "url": "sponsor-nas-investment-solutions.html",
+  "founded": "2008",
+  "aum": "3360000000",
+  "hq": "Los Angeles, CA",
+  "website": "nasinvestmentsolutions.com",
+  "logo": "https://img.logo.dev/nasinvestmentsolutions.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "NAS Investment Solutions is a Los Angeles DST sponsor, founded in 2017, built on two alignment features: it co-invests in every property and manages each asset through its sister company, National Asset Services, which oversees roughly $3.36 billion across 187 properties in 31 states. That full-hold accountability model—the sponsor stays in the deal and runs the asset—has supported $663 million in cash distributions to some 2,627 investors. For exchangers, the appeal is alignment and in-house ma"
+ },
+ {
+  "name": "Nelson Brothers",
+  "url": "sponsor-nelson-brothers.html",
+  "founded": "2007",
+  "aum": "400000000",
+  "hq": "Irvine, CA",
+  "website": "nelsonbrothers.com",
+  "logo": "https://img.logo.dev/nelsonbrothers.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Nelson Brothers Professional Real Estate is an Irvine sponsor, founded in 2007, specializing in student housing and assisted living, and is the predecessor entity from which Nelson Partners later split—a distinction worth preserving, as the two are now separate competing firms run by different brothers. Its strengths are sector specialization in demographically supported niches; current AUM is not publicly disclosed, and the firm warrants diligence on a standalone basis distinct from Nelson Part"
+ },
+ {
+  "name": "Nelson Partners",
+  "url": "sponsor-nelson-partners.html",
+  "founded": "2018",
+  "aum": "400000000",
+  "hq": "San Clemente, CA",
+  "website": "nelsonpartners.com",
+  "logo": "https://img.logo.dev/nelsonpartners.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Nelson Partners Student Housing is a San Clemente DST sponsor founded in 2018 by Patrick Nelson, focused on purpose-built, university-anchored student housing through a develop-acquire-manage model, with more than $400 million in assets at its founding and 1,200-plus 1031 investors. Critically, the firm carries significant legal overhang: it has faced multiple investor and lender lawsuits, including the high-profile Skyloft Austin litigation and a related settlement. The student-housing thesis i"
+ },
+ {
+  "name": "Net Lease Capital Advisors",
+  "url": "sponsor-net-lease-capital-advisors.html",
+  "founded": "1996",
+  "aum": "9200000000",
+  "hq": "Nashua, NH",
+  "website": "netleasecapital.com",
+  "logo": "https://img.logo.dev/netleasecapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "3",
+  "avgAnnualReturn": "8.72%",
+  "avgEquityMultiple": "2.74x",
+  "avgHoldPeriod": "10.82 Yrs",
+  "successRate": "100.00%",
+  "description": "Net Lease Capital Advisors is a Nashua, New Hampshire net-lease advisory and sponsorship firm, founded in 1996, with a distinctive specialization in single-tenant assets leased to the U.S. Government (GSA) and investment-grade corporates, and particular expertise in zero-cash-flow structures for 1031 exchangers. The firm cites more than $15 billion in closed net-lease transactions since inception—a lifetime volume figure rather than current AUM—and pairs property sponsorship with capital-gains t"
+ },
+ {
+  "name": "NexPoint",
+  "url": "sponsor-nexpoint.html",
+  "founded": "2012",
+  "aum": "15000000000",
+  "hq": "Dallas, TX",
+  "website": "nexpoint.com",
+  "logo": "https://img.logo.dev/nexpoint.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "3",
+  "avgAnnualReturn": "16.83%",
+  "avgEquityMultiple": "1.65x",
+  "avgHoldPeriod": "4.64 Yrs",
+  "successRate": "100.00%",
+  "description": "NexPoint is a Dallas alternative manager—an affiliate of the former Highland Capital complex—overseeing roughly $15 billion across listed and non-listed REITs, DSTs, 1031 exchanges, interval funds and a BDC. Its breadth across real estate and credit, paired with significant own-capital co-investment, gives it institutional heft in the exchange channel, and its concentrated Dallas/Uptown asset base reflects conviction in its home market. For exchangers, the platform offers a diversified menu back"
+ },
+ {
+  "name": "Nuveen",
+  "url": "sponsor-nuveen.html",
+  "founded": "1898",
+  "aum": "137000000000",
+  "hq": "Chicago, IL",
+  "website": "nuveen.com",
+  "logo": "https://img.logo.dev/nuveen.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Nuveen is the investment manager of TIAA and a top-five global real estate manager, overseeing roughly $137 billion in real estate within a firm managing about $1.3 trillion, with a 90-plus-year property history and a strong net-lease franchise. It reaches the channel through net-lease and non-traded vehicles, leaning into the 'sheds and beds'—industrial and residential—themes that dominate institutional allocations. Backed by TIAA's balance sheet, Nuveen brings institutional scale and longevity"
+ },
+ {
+  "name": "Olympus Property",
+  "url": "sponsor-olympus-property.html",
+  "founded": "1992",
+  "aum": "9200000000",
+  "hq": "Fort Worth, TX",
+  "website": "olympusproperty.com",
+  "logo": "https://img.logo.dev/olympusproperty.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "54",
+  "avgAnnualReturn": "25.75%",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "5.66 Yrs",
+  "successRate": "100.00%",
+  "description": "Olympus Property is a Fort Worth family-owned Class A multifamily owner-operator, founded in 1992, with a portfolio exceeding $9.2 billion and more than 35,000 units across 17 states, reaching exchangers through its affiliate WW Olympus Investment Company. Its markets two alignment-and-discipline features heavily: co-investment in every property and long-term fixed-rate debt, alongside a claim of never having missed an investor distribution. The Class A apartment specialization and operating con"
+ },
+ {
+  "name": "Origin Investments",
+  "url": "sponsor-origin-investments.html",
+  "founded": "2007",
+  "aum": "3000000000",
+  "hq": "Chicago, IL",
+  "website": "origininvestments.com",
+  "logo": "https://img.logo.dev/origininvestments.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Origin Investments is a Chicago multifamily-focused private real estate manager, founded in 2007, distinguished by a technology-driven underwriting edge—its proprietary Multilytics rent-forecasting models—applied to Sun Belt apartments, QOZ funds and an income-plus strategy. A tech-forward, direct-to-investor model and significant co-founder co-investment reinforce alignment, and the roughly $3 billion-plus platform reflects steady institutionalization. Its data-driven approach to multifamily fo"
+ },
+ {
+  "name": "Pacific Oak Capital",
+  "url": "sponsor-pacific-oak-capital.html",
+  "founded": "2018",
+  "aum": "3500000000",
+  "hq": "Los Angeles, CA",
+  "website": "pacificoakcapitaladvisors.com",
+  "logo": "https://img.logo.dev/pacificoakcapitaladvisors.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Pacific Oak Capital is a Los Angeles sponsor and advisor, founded in 2018 by veterans of the KBS complex, that advises the Pacific Oak Strategic Opportunity REIT and asset-manages the Singapore-listed Keppel Pacific Oak US REIT, with a platform in the $3.1-3.5 billion range. Its opportunistic and value-add orientation, paired with a leadership team citing $175 billion-plus in cumulative experience, gives it institutional sourcing across cross-border vehicles. The KBS heritage is central to its i"
+ },
+ {
+  "name": "Passco",
+  "url": "sponsor-passco.html",
+  "founded": "1998",
+  "aum": "4100000000",
+  "hq": "Irvine, CA",
+  "website": "passco.com",
+  "logo": "https://img.logo.dev/passco.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "34",
+  "avgAnnualReturn": "12.33%",
+  "avgEquityMultiple": "1.92x",
+  "avgHoldPeriod": "5.68 Yrs",
+  "successRate": "100.00%",
+  "description": "Passco Companies is an Irvine multifamily and commercial sponsor, founded in 1998, whose founder Bill Passo helped pioneer the modern tenant-in-common 1031 structure that preceded the DST—giving the firm genuine standing in the history of securitized exchanges. With $4.1 billion in AUM as of late 2025 and more than $8 billion in lifetime acquisitions across multiple cycles, Passco concentrates on Class A multifamily in Southeastern and secondary/tertiary markets, owning or managing some 30,000 u"
+ },
+ {
+  "name": "Peachtree Group",
+  "url": "sponsor-peachtree-group.html",
+  "founded": "2007",
+  "aum": "2500000000",
+  "hq": "Atlanta, GA",
+  "website": "peachtreegroup.com",
+  "logo": "https://img.logo.dev/peachtreegroup.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "28",
+  "avgAnnualReturn": "31.18%",
+  "avgEquityMultiple": "2.15x",
+  "avgHoldPeriod": "5.12 Yrs",
+  "successRate": "100.00%",
+  "description": "Peachtree Group is an Atlanta vertically integrated investment manager with more than $2.5 billion in equity under management and over $9 billion in asset value, anchored in deep hospitality expertise across 48-plus hotels and extended into CRE lending, CPACE financing and, since 2022, a debt-free DST platform. Ranked a top-15 DST sponsor in 2024 on the strength of seven all-cash DST acquisitions, and complemented by EB-5 and QOZ programs, Peachtree brings unusual capital-markets breadth—equity,"
+ },
+ {
+  "name": "PGIM",
+  "url": "sponsor-pgim.html",
+  "founded": "1875",
+  "aum": "208000000000",
+  "hq": "Newark, NJ",
+  "website": "pgim.com",
+  "logo": "https://img.logo.dev/pgim.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "PGIM is Prudential's global investment manager, whose PGIM Real Estate arm oversees roughly $208 billion globally across equity and debt strategies, including the PGIM Private Real Estate Fund, within a firm managing about $1.4 trillion. Backed by Prudential's balance-sheet heritage and active in capital-intensive themes such as data centers, PGIM brings institutional dual-platform (equity and debt) capability to real estate. Its relevance to the 1031 channel is institutional scale rather than a"
+ },
+ {
+  "name": "Platform Ventures",
+  "url": "sponsor-platform-ventures.html",
+  "founded": "2016",
+  "aum": "2000000000",
+  "hq": "Kansas City, MO",
+  "website": "platformventures.com",
+  "logo": "https://img.logo.dev/platformventures.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Platform Ventures is a Kansas City diversified real estate and alternatives manager, founded in 2016, that blends traditional real estate with venture and technology exposure across a roughly $2 billion-plus platform serving both institutional and retail investors. The real estate-and-tech crossover is its differentiation; investors should weigh that breadth against the absence of a single, deep property specialization."
+ },
+ {
+  "name": "Resource Royalty",
+  "url": "sponsor-exchangeright.html",
+  "founded": "2011",
+  "aum": "173000000",
+  "hq": "Dallas, TX",
+  "website": "resourceroyalty.com",
+  "logo": "https://img.logo.dev/resourceroyalty.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Resource Royalty is a Dallas sponsor of oil-and-gas mineral and royalty DSTs, founded in 2011, occupying one of the more esoteric corners of the 1031 universe by offering direct-title, exchange-eligible mineral rights. Having raised roughly $173 million across 24 offerings covering some 440,000 gross acres and 1,650 producing wells, primarily in the Permian and Anadarko basins, the firm leans on conservative price-deck modeling to underwrite commodity exposure. The asset class diversifies away f"
+ },
+ {
+  "name": "RK Properties",
+  "url": "sponsor-rk-properties.html",
+  "founded": "1976",
+  "aum": "1000000000",
+  "hq": "Long Beach, CA",
+  "website": "rkprop.com",
+  "logo": "https://img.logo.dev/rkprop.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "RK Properties is a Long Beach sponsor that has invested exclusively in multifamily since 1976 and pioneered the first tenant-in-common Regulation D offering in 1994—an authentic place in the origin story of securitized 1031 exchanges. With a current portfolio above $1 billion and a lifetime record of roughly $3 billion across 163 properties, 147 of which have reached full cycle, the firm pairs a near-half-century single-sector focus with conservative, low-leverage underwriting. Having served mor"
+ },
+ {
+  "name": "Sealy & Company",
+  "url": "sponsor-sealy-&-company.html",
+  "founded": "1946",
+  "aum": "3000000000",
+  "hq": "Shreveport, LA",
+  "website": "sealynet.com",
+  "logo": "https://img.logo.dev/sealynet.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Sealy & Company is a Shreveport- and Dallas-based industrial-only specialist, founded in 1946 and now in its fourth generation of family ownership, managing $3 billion across roughly 33 million square feet. The single-sector focus on industrial—the most secularly favored property type—paired with a 75-plus-year, nine-cycle track record and a vertically integrated platform across some 28 markets, makes Sealy a focused, durable operator. Its longevity and asset-class concentration are precisely th"
+ },
+ {
+  "name": "Silverstein Properties",
+  "url": "sponsor-silverstein-properties.html",
+  "founded": "1957",
+  "aum": "10000000000",
+  "hq": "New York, NY",
+  "website": "silversteinproperties.com",
+  "logo": "https://img.logo.dev/silversteinproperties.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Silverstein Properties is one of the most recognizable names in American real estate development, founded in 1957 and synonymous with the rebuilding of the World Trade Center, with more than $10 billion in assets developed. It reaches the 1031/QOZ channel primarily through its Cantor Silverstein Opportunity Zone joint venture, contributing marquee ground-up development expertise and a deep New York office and mixed-use franchise. Family-controlled and development-led, Silverstein brings developm"
+ },
+ {
+  "name": "SmartStop",
+  "url": "sponsor-smartstop.html",
+  "founded": "2013",
+  "aum": "7000000000",
+  "hq": "Ladera Ranch, CA",
+  "website": "smartstop.com",
+  "logo": "https://img.logo.dev/smartstop.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "SmartStop is a self-storage REIT (NYSE: SMA) that completed an $810 million IPO in April 2025 and sponsors self-storage DSTs through its broader platform, with assets in the $7 billion-plus range post-listing. Its pure-play self-storage focus, internal management and combined U.S.-and-Canada footprint give it a clean, single-sector thesis, and the recent public listing adds a transparency and liquidity dimension uncommon among DST sponsors. For exchangers, it offers concentrated exposure to a re"
+ },
+ {
+  "name": "Spartan",
+  "url": "sponsor-spartan.html",
+  "founded": "2014",
+  "aum": "500000000",
+  "hq": "Golden, CO",
+  "website": "spartan-investors.com",
+  "logo": "https://img.logo.dev/spartan-investors.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Spartan Investment Group, founded in 2014 in Golden, CO by Scott Lewis and Ryan Gibson, is a vertically integrated self-storage sponsor and operator (FreeUp Storage brand) that also pursues RV parks and land. Its network of 5,000-plus investors has raised more than $450 million to acquire nearly 60 facilities (30,000-plus units) totaling roughly $500 million in assets under management, and it operates more than 75 facilities nationally. An Inc. 5000 honoree."
+ },
+ {
+  "name": "Starboard Realty Advisors",
+  "url": "sponsor-starboard-realty-advisors.html",
+  "founded": "2014",
+  "aum": "500000000",
+  "hq": "Irvine, CA",
+  "website": "starboard-realty.com",
+  "logo": "https://img.logo.dev/starboard-realty.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "4",
+  "avgAnnualReturn": "6.34%",
+  "avgEquityMultiple": "1.35x",
+  "avgHoldPeriod": "6.13 Yrs",
+  "successRate": "100.00%",
+  "description": "Starboard Realty Advisors is an Irvine fully integrated firm, founded in 2014 and led by a CEO with prior Passco pedigree, acquiring multifamily and multi-tenant/NNN retail for 1031 clients, with more than $500 million in acquisitions and over 1,900 units. Its differentiation includes a DST Bridge Fund that supplies preferred equity, an ADU-driven multifamily value-add angle, and a disciplined 7-to-10-year stabilized hold model. The leadership lineage and integrated execution position it as a fo"
+ },
+ {
+  "name": "Starwood Capital",
+  "url": "sponsor-starwood-capital.html",
+  "founded": "1991",
+  "aum": "115000000000",
+  "hq": "Miami Beach, FL",
+  "website": "starwoodcapital.com",
+  "logo": "https://img.logo.dev/starwoodcapital.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Starwood Capital is Barry Sternlicht's global, real estate-centric private equity firm, founded in 1991 and managing roughly $115 billion, with the Starwood Real Estate Income Trust (SREIT) as its flagship non-traded REIT. Unlike the diversified mega-managers, Starwood's center of gravity is real estate itself—multifamily, real estate credit and opportunistic global strategies—giving its retail and exchange vehicles unusually deep property DNA. For investors, the draw is a founder-led, real esta"
+ },
+ {
+  "name": "Syndicated Equities",
+  "url": "sponsor-syndicated-equities.html",
+  "founded": "1986",
+  "aum": "2000000000",
+  "hq": "Chicago, IL",
+  "website": "syndicatedequities.com",
+  "logo": "https://img.logo.dev/syndicatedequities.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "60",
+  "avgAnnualReturn": "0.41%",
+  "avgEquityMultiple": "1.23x",
+  "avgHoldPeriod": "7.43 Yrs",
+  "successRate": "65.00%",
+  "description": "Syndicated Equities is a Chicago private real estate firm with a 40-year history, distinguished by strength in government/GSA-leased and credit-tenant net-lease assets and by its global 'Access Funds' fund-of-funds vehicles. Citing roughly $2 billion in asset value, $600 million in equity and more than $4 billion acquired over its lifetime, the firm has returned $750 million-plus to investors and built multi-decade repeat relationships. The government-credit net-lease specialization is among the"
+ },
+ {
+  "name": "Time Equities",
+  "url": "sponsor-time-equities.html",
+  "founded": "1966",
+  "aum": "5400000000",
+  "hq": "New York, NY",
+  "website": "timeequities.com",
+  "logo": "https://img.logo.dev/timeequities.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "17",
+  "avgAnnualReturn": "20.77%",
+  "avgEquityMultiple": "3.04x",
+  "avgHoldPeriod": "7.13 Yrs",
+  "successRate": "94.12%",
+  "description": "Time Equities is a New York diversified firm, founded in 1966 by Francis Greenburger, that pioneered cooperative and condominium conversions—more than 10,000 units over its history—and now develops large mixed-use towers such as 50 West Street and Chicago's 1000M, alongside a portfolio exceeding $5.4 billion and 36 million square feet. Diversified across 33 states and international markets and holding more than 5,000 multifamily units, the firm pairs a long-hold value orientation with genuine de"
+ },
+ {
+  "name": "Trilogy Real Estate Group",
+  "url": "sponsor-trilogy-real-estate-group.html",
+  "founded": "2002",
+  "aum": "2600000000",
+  "hq": "Chicago, IL",
+  "website": "trilogyreg.com",
+  "logo": "https://img.logo.dev/trilogyreg.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Trilogy Real Estate Group is a Chicago vertically integrated multifamily owner, developer and manager, founded in 2002, managing $2.6 billion as of early 2025 with more than $5.5 billion in lifetime volume and 14,000-plus units across the Midwest, East and Southwest. Its 2025 strategic partnership with Greystar—the world's largest apartment operator—materially enhances its operating and sourcing capabilities, and it sponsors both DST and QOZ offerings. The combination of vertical integration and"
+ },
+ {
+  "name": "Urban Catalyst",
+  "url": "sponsor-urban-catalyst.html",
+  "founded": "2017",
+  "aum": "250000000",
+  "hq": "San Jose, CA",
+  "website": "urbancatalyst.com",
+  "logo": "https://img.logo.dev/urbancatalyst.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Urban Catalyst is a San Jose Opportunity Zone fund manager and developer, founded in 2017, concentrating on ground-up development in downtown San Jose—a deliberately tight geographic thesis tied to Silicon Valley growth. With Fund I closed at $131 million and Fund II advancing a diversified downtown development portfolio, the firm has earned external recognition, including a top-4% Novogradac OZ ranking, Forbes OZ honors and a 2024 Silicon Valley Developer of the Year award. For QOZ investors, i"
+ },
+ {
+  "name": "Virtua Capital",
+  "url": "sponsor-virtua-capital.html",
+  "founded": "2014",
+  "aum": "500000000",
+  "hq": "Scottsdale, AZ",
+  "website": "virtuapartners.com",
+  "logo": "https://img.logo.dev/virtuapartners.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "Virtua Capital is a Scottsdale global private equity firm, founded in 2014, emphasizing tax-centric and Opportunity Zone strategies and entitlement-driven value-add, with roughly $500 million and 16 million square feet managed or in development. An early mover in Opportunity Zones, it pairs rezoning and entitlement expertise with tax-advantaged structuring and reaches exchangers through Virtua Capital Management's DST/1031 offerings. Its global investor base and tax-centric orientation define a "
+ },
+ {
+  "name": "Walton Global Holdings",
+  "url": "sponsor-walton-global-holdings.html",
+  "founded": "1979",
+  "aum": "3350000000",
+  "hq": "Scottsdale, AZ",
+  "website": "walton.com",
+  "logo": "https://img.logo.dev/walton.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "68",
+  "avgAnnualReturn": "8.20%",
+  "avgEquityMultiple": "1.35x",
+  "avgHoldPeriod": "7.17 Yrs",
+  "successRate": "75.00%",
+  "description": "Walton Global Holdings is a land asset manager with a 45-plus-year history, managing $3.35 billion and specializing in pre-development land that it supplies to U.S. homebuilders—a genuinely distinctive 1031 asset class. Controlling more than 85,000 acres across 170-plus master-planned communities and serving some 88,000 global investors across 91 countries, Walton has institutionalized land banking through its Builder Land Finance structure, recently bolstered by a 2025 GoldenTree co-investment."
+ },
+ {
+  "name": "WW Olympus Investment Company",
+  "url": "sponsor-ww-olympus-investment-company.html",
+  "founded": "1992",
+  "aum": "9200000000",
+  "hq": "Fort Worth, TX",
+  "website": "olympusproperty.com",
+  "logo": "https://img.logo.dev/olympusproperty.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "0",
+  "avgAnnualReturn": "No Data",
+  "avgEquityMultiple": "No Data",
+  "avgHoldPeriod": "No Data",
+  "successRate": "No Data",
+  "description": "WW Olympus Investment Company is the DST and 1031 sponsorship arm of Fort Worth's Olympus Property, channeling that 1992-founded, family-owned platform's Class A multifamily expertise to exchange investors. It should be assessed as part of Olympus Property's roughly $9.2 billion, 35,000-plus-unit franchise rather than as a standalone firm, inheriting the parent's alignment features—co-investment in every property and long-term fixed-rate debt. The multifamily-pure focus and operating control of "
+ },
+ {
+  "name": "NewStar Exchange",
+  "url": "sponsor-newstar-exchange.html",
+  "founded": "2021",
+  "aum": "$350M",
+  "hq": "Atlanta, GA",
+  "website": "newstar-am.com",
+  "logo": "https://img.logo.dev/newstar-am.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "—",
+  "avgAnnualReturn": "—",
+  "avgEquityMultiple": "—",
+  "avgHoldPeriod": "—",
+  "successRate": "—",
+  "description": "NewStar is a vertically integrated, full-service real estate firm based in Atlanta, Georgia, founded in 2021 by former executives of Preferred Apartment Communities (NYSE: APTS). Through its NewStar Exchange affiliate it sponsors 1031/DST offerings in income-producing residential communities across fast-growing Southeastern markets. As of February 2026 it manages 15 residential investments totaling more than 1,100 units and roughly $350 million in total cost."
+ },
+ {
+  "name": "The Wyoming Reserve",
+  "url": "sponsor-the-wyoming-reserve.html",
+  "founded": "",
+  "aum": "",
+  "hq": "Wyoming",
+  "website": "thewyomingreserve.com",
+  "logo": "https://img.logo.dev/thewyomingreserve.com?token=pk_FIVsDKgZTvCedVXXtt2rEg&size=200&retina=true",
+  "fullCycleDeals": "—",
+  "avgAnnualReturn": "—",
+  "avgEquityMultiple": "—",
+  "avgHoldPeriod": "—",
+  "successRate": "—",
+  "description": "The Wyoming Reserve operates a precious-metals enterprise (gold and silver trading, vaulting, fulfillment, and metal-availability services) in a Wyoming qualified opportunity zone, offered to investors as a Qualified Opportunity Zone Fund (Wyoming corporation)."
+ },
+ {
+  "name": "IDEAL Capital Group",
+  "url": "sponsor-ideal-capital-group.html",
+  "founded": "2017",
+  "aum": "$3.3B",
+  "hq": "Clovis, CA",
+  "website": "idealcapgroup.com",
+  "logo": "https://logo.clearbit.com/idealcapgroup.com",
+  "fullCycleDeals": "—",
+  "avgAnnualReturn": "—",
+  "avgEquityMultiple": "—",
+  "avgHoldPeriod": "—",
+  "successRate": "—",
+  "description": "IDEAL Capital Group is a Clovis, California-based private real estate investment firm focused exclusively on multifamily acquisitions and development. Built on a family real estate platform with a multi-decade operating history and established as IDEAL Capital Group in 2017, the firm and its affiliates have developed or acquired over $3 billion of multifamily housing spanning more than 100 apartment communities and 13,000-plus units across nine states. IDEAL is vertically integrated across acqui"
+ }
+]
+</script>
+
+<script>
+var DIR = [];
+(function () {
+  var el = document.getElementById('directory-data');
+  try { DIR = JSON.parse(el.textContent); } catch (e) { return; }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  var tbody = document.getElementById('dirBody');
+  var sortKey = null, sortDir = 1;
+
+  function render(rows) {
+    tbody.innerHTML = rows.map(function (o) {
+      var i = DIR.indexOf(o);
+      var logo = o.logo ? '<img src="' + esc(o.logo) + '" alt="">' : '';
+      return '<tr>' +
+        '<td class="logo-cell">' + logo + '<a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
+          '<span class="sub">' + esc(o.hq) + '</span></td>' +
+        '<td data-label="Founded">' + esc(o.founded) + '</td>' +
+        '<td data-label="AUM">' + esc(o.aum) + '</td>' +
+        '<td data-label="Full-Cycle Deals">' + esc(o.fullCycleDeals) + '</td>' +
+        '<td data-label="Avg. Annual Return">' + esc(o.avgAnnualReturn) + '</td>' +
+        '<td data-label="Avg. Equity Multiple">' + esc(o.avgEquityMultiple) + '</td>' +
+        '<td data-label="Avg. Hold">' + esc(o.avgHoldPeriod) + '</td>' +
+        '<td data-label="Success Rate">' + esc(o.successRate) + '</td>' +
+        '<td><a class="btn-access" href="#" onclick="openDrawer(' + i + '); return false;">Preview</a></td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  function numVal(s) {
+    var m = String(s).replace(/[$,%x]/gi, '').replace(/,/g, '');
+    var n = parseFloat(m);
+    if (isNaN(n)) return null;
+    if (/B/i.test(s)) n *= 1e9; else if (/M/i.test(s)) n *= 1e6;
+    return n;
+  }
+  function doSort(key) {
+    if (sortKey === key) { sortDir = -sortDir; } else { sortKey = key; sortDir = 1; }
+    var rows = DIR.slice().sort(function (a, b) {
+      var av = a[key], bv = b[key];
+      var an = numVal(av), bn = numVal(bv);
+      var r;
+      if (an !== null && bn !== null) { r = an - bn; }
+      else { r = String(av).toLowerCase().localeCompare(String(bv).toLowerCase()); }
+      return r * sortDir;
+    });
+    document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
+      th.querySelector('.arrow').textContent =
+        th.getAttribute('data-key') === sortKey ? (sortDir === 1 ? '\u25B2' : '\u25BC') : '';
+    });
+    render(rows);
+  }
+  document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
+    th.addEventListener('click', function () { doSort(th.getAttribute('data-key')); });
+  });
+  var sortSelect = document.getElementById('sortSelect');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
+      if (!this.value) { sortKey = null; sortDir = 1; render(DIR); return; }
+      sortKey = null;
+      doSort(this.value);
+    });
+  }
+
+  render(DIR);
+})();
+
+function openDrawer(i) {
+  var o = DIR[i];
+  if (!o) return;
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  document.getElementById('drawerName').textContent = o.name;
+  document.getElementById('drawerSponsor').textContent = o.hq + (o.founded ? ' \u00b7 Founded ' + o.founded : '');
+  document.getElementById('drawerPhoto').style.backgroundImage = o.logo ? 'url(' + o.logo + ')' : '';
+  document.getElementById('drawerFacts').innerHTML = [
+    ['AUM', o.aum],
+    ['Full-Cycle Deals', o.fullCycleDeals],
+    ['Avg. Annual Return', o.avgAnnualReturn],
+    ['Avg. Equity Multiple', o.avgEquityMultiple],
+    ['Avg. Hold Period', o.avgHoldPeriod],
+    ['Success Rate', o.successRate],
+    ['Website', o.website]
+  ].filter(function (x) { return x[1]; }).map(function (x) {
+    return '<div class="fact"><span class="label">' + esc(x[0]) + '</span><span class="value">' + esc(x[1]) + '</span></div>';
+  }).join('');
+  document.getElementById('drawerDesc').textContent = o.description || '';
+  var link = document.getElementById('drawerLink');
+  link.href = o.url || '#';
+  link.style.display = (o.url && o.url !== '#') ? 'inline-block' : 'none';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('drawer').setAttribute('aria-hidden', 'false');
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('drawer').setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+</script>
+
+</div>
+</body>
+</html>

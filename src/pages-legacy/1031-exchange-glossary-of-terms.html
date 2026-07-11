@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Glossary of Terms | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Glossary of Terms
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Glossary of Terms</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 14 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Every 1031 exchange comes with its own vocabulary. This glossary defines the terms you'll encounter — from boot and basis to EAT and UPREIT — grouped by theme and explained in plain English.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">The language of 1031 exchanges can be a barrier of its own. Terms like boot, basis, EAT, and constructive receipt recur throughout the process, and not knowing them makes the rules harder to follow than they need to be. This glossary defines the terms you'll meet across an exchange — grouped by theme — so the rules read clearly when you encounter them. Use it as a reference alongside the deeper guides in this series. The most-used terms are also collected in the searchable glossary section below.</p>
+<h2 id="core">Core Concepts: Boot, Basis &amp; Like-Kind</h2>
+<p>A few terms form the foundation. <strong>Boot</strong> is taxable cash or unreplaced debt received in an exchange. <strong>Basis</strong> is your tax investment in the property — original cost plus improvements minus depreciation — which carries over in an exchange. <strong>Like-kind</strong> means real property of the same nature, which for real estate is broad: almost any U.S. investment real estate is like-kind to almost any other.</p>
+<p><strong>Realized gain</strong> is your total gain (proceeds minus basis); <strong>recognized gain</strong> is the portion actually taxed (the boot). <strong>Carryover basis</strong> is how your old basis follows into the replacement property, preserving the deferred gain. These terms appear throughout every exchange.</p>
+<h2 id="parties">The Parties: QI, EAT &amp; Same Taxpayer</h2>
+<p>Several terms describe who's involved. A <strong><a href="insights.html">qualified intermediary</a> (QI)</strong> holds the proceeds so you avoid <strong>constructive receipt</strong> (access to or control over the funds, which fails the exchange). An <strong>exchange accommodation titleholder (EAT)</strong> parks property in reverse and improvement exchanges under a <strong>qualified exchange accommodation arrangement (QEAA)</strong>.</p>
+<p>The <strong>same-taxpayer rule</strong> requires the seller and buyer to be the same taxpayer. A <strong>disregarded entity</strong> (like a single-member LLC) is treated as its owner for this purpose, while a <strong>partnership</strong> is a separate taxpayer, complicating exchanges where partners want different outcomes.</p>
+<h2 id="property">Property Terms: Relinquished &amp; Replacement</h2>
+<p>The <strong>relinquished property</strong> is what you sell to start the exchange; the <strong>replacement property</strong> is what you acquire to complete it. <strong>Fee-simple</strong> is whole, direct ownership; <strong>fractional</strong> ownership is a share via a DST or TIC.</p>
+<p><strong>Dealer property</strong> is real estate held primarily for sale (flips, inventory), which doesn't qualify. A <strong>leasehold</strong> of 30+ years is treated as like-kind to a fee interest. <strong>Held for investment</strong> describes the required purpose — investment or business use, not personal use or sale.</p>
+<h2 id="deadlines-rules">Timeline and Identification Terms</h2>
+<p>The <strong>45-day identification period</strong> and <strong>180-day exchange period</strong> are the two deadlines, both counted in <strong>calendar days</strong> from closing. Identification follows the <strong>3-property rule</strong> (up to three of any value), the <strong>200% rule</strong> (more than three within 200% of value), or the <strong>95% exception</strong> (any number if you acquire 95% of value).</p>
+<p>A <strong>backup identification</strong> — often a fast-closing DST — is identified to protect the deadline. The <strong>tax-return-date trap</strong> can shorten the 180 days for late-year sales unless you file an extension.</p>
+<h2 id="structures">Structures: DST, TIC &amp; UPREIT Terms</h2>
+<p>A <strong>DST</strong> (Delaware Statutory Trust) and a <strong>TIC</strong> (tenants-in-common) are fractional ownership structures usable as replacement property; the DST is the more common modern choice. A <strong>721 exchange / UPREIT</strong> contributes property to a REIT operating partnership for <strong><a href="op-units-explained.html">OP units</a></strong>, deferring gain — a separate path often used as a DST exit.</p>
+<p><strong>Non-recourse debt</strong> (secured only by the property) is typical of DSTs, which use it to replace your leverage without you qualifying. A <strong>full-cycle</strong> sale is when a DST's property is sold at the end of its hold.</p>
+<h2 id="tax">Tax Terms: Recapture, NIIT &amp; Step-Up</h2>
+<p><strong><a href="depreciation-recapture-real-estate.html">Depreciation recapture</a></strong> (unrecaptured Section 1250 gain) is the portion of gain from prior depreciation, taxed up to 25%. The <strong><a href="net-investment-income-tax.html">net investment income tax</a> (NIIT)</strong> is a 3.8% surtax for higher earners. A <strong>step-up in basis</strong> at death resets basis to fair-market value, eliminating deferred gain for heirs.</p>
+<p><strong>Section 121</strong> is the home-sale exclusion (for a primary residence, not a 1031). <strong>Section 1033</strong> defers gain from involuntary conversions. These tax terms recur when calculating what an exchange defers and how it fits an overall plan.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What does 'boot' mean in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Boot is any non-like-kind value you receive — typically cash you keep or debt you don't replace. It's taxable up to the amount of your gain, even within a valid exchange.</p></div>
+</details>
+<details>
+<summary>What is basis in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Basis is your investment in the property for tax purposes — original cost plus improvements minus depreciation. In an exchange it carries over into the replacement property, preserving the deferred gain.</p></div>
+</details>
+<details>
+<summary>What is an EAT?<span class="ic"></span></summary>
+<div class="ans"><p>An exchange accommodation titleholder — an entity that temporarily holds (parks) title to a property in reverse and improvement exchanges, under the IRS safe harbor (Rev. Proc. 2000-37).</p></div>
+</details>
+<details>
+<summary>What is the difference between a DST and a TIC?<span class="ic"></span></summary>
+<div class="ans"><p>Both are fractional ownership used as replacement property. A DST is a trust structure with passive, sponsor-managed ownership and pre-arranged debt; a TIC is direct deeded co-ownership with voting rights and more financing complexity. DSTs are the more common modern choice.</p></div>
+</details>
+<details>
+<summary>What does 'like-kind' mean?<span class="ic"></span></summary>
+<div class="ans"><p>For real estate, like-kind refers to the nature of the property as real estate, not its type or grade. Almost any U.S. investment real property is like-kind to almost any other, so you can exchange across property types.</p></div>
+</details>
+<details>
+<summary>What is constructive receipt?<span class="ic"></span></summary>
+<div class="ans"><p>Having access to or control over the sale proceeds, even without physically taking the cash. Constructive receipt disqualifies the exchange, which is why a qualified intermediary must hold the funds.</p></div>
+</details>
+<details>
+<summary>What is carryover basis?<span class="ic"></span></summary>
+<div class="ans"><p>The relinquished property's adjusted basis carried into the replacement property rather than resetting. Because gain equals value minus basis, the old basis carries the deferred gain forward.</p></div>
+</details>
+<details>
+<summary>What is a 721 exchange or UPREIT?<span class="ic"></span></summary>
+<div class="ans"><p>Contributing property (often a DST interest at full cycle) to a REIT operating partnership for OP units under Section 721, deferring gain. It's a one-way door — you generally can't 1031 back into direct real estate afterward.</p></div>
+</details>
+<details>
+<summary>What is depreciation recapture?<span class="ic"></span></summary>
+<div class="ans"><p>The portion of gain attributable to depreciation you took, taxed up to 25% (unrecaptured Section 1250 gain) on sale. It's often the largest tax layer on a long-held rental, and a 1031 defers it.</p></div>
+</details>
+<details>
+<summary>What is the same-taxpayer rule?<span class="ic"></span></summary>
+<div class="ans"><p>The requirement that the taxpayer (or disregarded entity) selling the relinquished property is the one acquiring the replacement. Title must match, which complicates partnership and multi-member LLC situations.</p></div>
+</details>
+<details>
+<summary>What is a qualified intermediary?<span class="ic"></span></summary>
+<div class="ans"><p>An independent party that holds your exchange proceeds and documents the transaction so you never take constructive receipt. A QI is required for a deferred 1031 exchange and must be engaged before closing.</p></div>
+</details>
+<details>
+<summary>What are the identification rules?<span class="ic"></span></summary>
+<div class="ans"><p>The 3-property rule (up to three of any value), the 200% rule (more than three within 200% of value), and the 95% exception (any number if you acquire 95% of value). They govern how you identify replacement property within 45 days.</p></div>
+</details>
+<details>
+<summary>What is non-recourse debt?<span class="ic"></span></summary>
+<div class="ans"><p>Debt secured only by the property, without personal liability — typical of DSTs. A leveraged DST's non-recourse debt replaces your old leverage without you applying for or guaranteeing a new loan.</p></div>
+</details>
+<details>
+<summary>What is a step-up in basis?<span class="ic"></span></summary>
+<div class="ans"><p>The reset of an asset's basis to fair-market value at the owner's death. It can eliminate the deferred gain in a 1031 chain for heirs, the basis of the 'swap till you drop' strategy.</p></div>
+</details>
+<details>
+<summary>What is Section 121?<span class="ic"></span></summary>
+<div class="ans"><p>The home-sale exclusion that excludes up to $250,000 of gain ($500,000 for married couples) on a primary residence. It's the tax break for a home, distinct from Section 1031, which is for investment property.</p></div>
+</details>
+<details>
+<summary>What is a full-cycle DST?<span class="ic"></span></summary>
+<div class="ans"><p>A DST that has completed its life cycle — the property has been sold and capital and gain returned to investors. At full cycle, investors typically take the proceeds (a taxable event unless they do another 1031) or roll into a REIT via a 721 exchange.</p></div>
+</details>
+<details>
+<summary>What is realized vs. recognized gain?<span class="ic"></span></summary>
+<div class="ans"><p>Realized gain is your total gain on the sale (proceeds minus adjusted basis). Recognized gain is the portion actually taxed — in an exchange, that's the boot, up to your realized gain. A fully deferred exchange has realized gain but no recognized gain.</p></div>
+</details>
+<details>
+<summary>What is a sponsor in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>The firm that acquires the property, structures the DST, and manages it. The sponsor's track record, fees (the load), and alignment are key to diligence, since DST investors depend on the sponsor's management and integrity.</p></div>
+</details>
+<details>
+<summary>What is a private placement memorandum?<span class="ic"></span></summary>
+<div class="ans"><p>The PPM is the disclosure document under which a DST or other private placement is offered to accredited investors. It describes the property, structure, risks, fees, and projections, and is where serious diligence begins. Read its risk factors carefully.</p></div>
+</details>
+<details>
+<summary>What is an accredited investor?<span class="ic"></span></summary>
+<div class="ans"><p>An investor meeting SEC income or net-worth thresholds (generally over $1 million net worth excluding primary residence, or qualifying income). Accredited status is required to invest in private placements like DSTs.</p></div>
+</details>
+<details>
+<summary>What is a drop-and-swap?<span class="ic"></span></summary>
+<div class="ans"><p>Distributing tenancy-in-common interests to partners before a sale, so each partner holds direct real-property (rather than partnership) interests and can pursue a separate 1031 exchange. It carries timing and holding-period risk and must be planned with counsel.</p></div>
+</details>
+<details>
+<summary>What is the napkin test?<span class="ic"></span></summary>
+<div class="ans"><p>A simple rule of thumb for full deferral: buy equal or greater in value and reinvest equal or greater equity (replacing your debt). If both 'lines' go up or stay equal, you've generally avoided boot. It's a quick mental check, not a substitute for the actual rules.</p></div>
+</details>
+<details>
+<summary>What is unrecaptured Section 1250 gain?<span class="ic"></span></summary>
+<div class="ans"><p>The technical name for real-property depreciation recapture — the portion of gain attributable to prior depreciation, taxed at a maximum of 25%. On a long-held rental it's often the largest tax layer, and a 1031 defers it.</p></div>
+</details>
+<details>
+<summary>What is a qualified opportunity fund?<span class="ic"></span></summary>
+<div class="ans"><p>A fund that can defer (and potentially reduce) capital gains reinvested into qualified opportunity zones. It's a different deferral tool from a 1031 — it can defer gain from any source by reinvesting just the gain, and can make a decade of appreciation tax-free.</p></div>
+</details>
+<details>
+<summary>What is bridge financing in a reverse exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Short-term financing used to fund the up-front purchase of the replacement property in a reverse exchange, before your sale proceeds are available. It's repaid when the relinquished property sells and the proceeds flow through the exchange.</p></div>
+</details>
+<details>
+<summary>What is a 1031 exchange company?<span class="ic"></span></summary>
+<div class="ans"><p>A loose term that can mean a qualified intermediary (holds funds), an advisor or broker-dealer (sources replacement property), or a sponsor (creates DSTs). Knowing which role you need — and that an independent advisor differs from a sponsor — helps you choose the right firm.</p></div>
+</details>
+<details>
+<summary>What does 'same taxpayer' mean for an LLC?<span class="ic"></span></summary>
+<div class="ans"><p>A single-member LLC is disregarded for tax, so its property can be exchanged by the owner (satisfying the same-taxpayer rule). A multi-member LLC or partnership is a separate taxpayer, so the entity must do the exchange — individual members can't go separate ways inside it.</p></div>
+</details>
+<details>
+<summary>Where can I find definitions for other 1031 terms?<span class="ic"></span></summary>
+<div class="ans"><p>This glossary covers the core terms; the deeper guides in this series define terms in context, and Baker 1031's Learning Center has additional explanations. For terms specific to your situation, your qualified intermediary and CPA can clarify how they apply to you.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>1031 Exchange</dt><dd>A like-kind exchange under IRC Section 1031 deferring capital gains tax on investment real property.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Taxable cash or unreplaced debt (or non-like-kind property) received in an exchange.</dd></div>
+<div class="g"><dt>Cash Boot</dt><dd>Sale equity not reinvested into the replacement property; taxable.</dd></div>
+<div class="g"><dt>Mortgage Boot</dt><dd>Debt relief not offset by new debt or cash; taxable.</dd></div>
+<div class="g"><dt>Basis</dt><dd>Your tax investment in the property — cost plus improvements minus depreciation.</dd></div>
+<div class="g"><dt>Adjusted Basis</dt><dd>Basis after adjustments such as improvements and depreciation.</dd></div>
+<div class="g"><dt>Carryover Basis</dt><dd>The relinquished basis carried into the replacement property in an exchange.</dd></div>
+<div class="g"><dt>Realized Gain</dt><dd>Total gain on the sale — proceeds minus adjusted basis.</dd></div>
+<div class="g"><dt>Recognized Gain</dt><dd>The portion of gain actually taxed — equal to the boot, up to realized gain.</dd></div>
+<div class="g"><dt>Like-Kind</dt><dd>Property of the same nature as real estate; broad for real property.</dd></div>
+<div class="g"><dt>Relinquished Property</dt><dd>The property sold to begin the exchange.</dd></div>
+<div class="g"><dt>Replacement Property</dt><dd>The like-kind property acquired to complete the exchange.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The required party that holds exchange proceeds and documents the transaction.</dd></div>
+<div class="g"><dt>Constructive Receipt</dt><dd>Access to or control over proceeds, which disqualifies the exchange.</dd></div>
+<div class="g"><dt>Exchange Accommodation Titleholder (EAT)</dt><dd>An entity that parks property in reverse and improvement exchanges.</dd></div>
+<div class="g"><dt>Qualified Exchange Accommodation Arrangement (QEAA)</dt><dd>The agreement under which an EAT holds parked property within the safe harbor.</dd></div>
+<div class="g"><dt>Same-Taxpayer Rule</dt><dd>The seller and buyer in an exchange must be the same taxpayer.</dd></div>
+<div class="g"><dt>Disregarded Entity</dt><dd>An entity (like a single-member LLC) treated as its owner for tax purposes.</dd></div>
+<div class="g"><dt>45-Day Identification Period</dt><dd>The window from closing to identify replacement property in writing.</dd></div>
+<div class="g"><dt>180-Day Exchange Period</dt><dd>The window from closing to acquire the replacement property.</dd></div>
+<div class="g"><dt>3-Property Rule</dt><dd>Identify up to three replacement properties of any value.</dd></div>
+<div class="g"><dt>200% Rule</dt><dd>Identify more than three properties within 200% of the relinquished value.</dd></div>
+<div class="g"><dt>95% Exception</dt><dd>Identify any number of properties if you acquire 95% of the identified value.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust issuing passive fractional real-property interests usable as replacement property.</dd></div>
+<div class="g"><dt>Tenants-in-Common (TIC)</dt><dd>Direct deeded fractional co-ownership of real property by multiple investors.</dd></div>
+<div class="g"><dt>721 Exchange / UPREIT</dt><dd>Contributing property to a REIT operating partnership for OP units, deferring gain.</dd></div>
+<div class="g"><dt>OP Units</dt><dd>Operating-partnership units received in a 721 exchange, convertible to REIT shares.</dd></div>
+<div class="g"><dt>Non-Recourse Debt</dt><dd>Debt secured only by the property, without personal liability — typical of DSTs.</dd></div>
+<div class="g"><dt>Full-Cycle</dt><dd>The sale of a DST's property at the end of its hold, returning capital to investors.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Gain from prior depreciation, taxed up to 25% (unrecaptured Section 1250 gain).</dd></div>
+<div class="g"><dt>Net Investment Income Tax (NIIT)</dt><dd>A 3.8% federal surtax on investment income for higher earners.</dd></div>
+<div class="g"><dt>Step-Up in Basis</dt><dd>The reset of basis to fair-market value at death, eliminating deferred gain for heirs.</dd></div>
+<div class="g"><dt>Section 121</dt><dd>The home-sale exclusion for a primary residence (not a 1031).</dd></div>
+<div class="g"><dt>Section 1033</dt><dd>Deferral of gain from involuntary conversions (condemnation, casualty).</dd></div>
+<div class="g"><dt>Dealer Property</dt><dd>Real estate held primarily for sale; not 1031-eligible.</dd></div>
+<div class="g"><dt>Held for Investment</dt><dd>The required purpose for 1031 — investment or business use, not personal or sale.</dd></div>
+<div class="g"><dt>Reverse Exchange</dt><dd>Acquiring the replacement before selling, via a parking structure.</dd></div>
+<div class="g"><dt>Improvement Exchange</dt><dd>Using exchange funds to build or improve the replacement within 180 days.</dd></div>
+<div class="g"><dt>Form 8824</dt><dd>The IRS form reporting a like-kind exchange and carryover basis.</dd></div>
+<div class="g"><dt>Tax-Return-Date Trap</dt><dd>The risk that a late-year sale's return due date shortens the 180-day window.</dd></div>
+<div class="g"><dt>Cash Boot</dt><dd>Sale equity not reinvested into the replacement property; taxable.</dd></div>
+<div class="g"><dt>Realized vs. Recognized Gain</dt><dd>Realized gain is total gain on the sale; recognized gain is the portion taxed (the boot).</dd></div>
+<div class="g"><dt>Equal-or-Greater-Value Rule</dt><dd>To fully defer, the replacement must equal or exceed the relinquished value, with debt replaced.</dd></div>
+<div class="g"><dt>Identification Notice</dt><dd>The written, signed list of replacement properties delivered to the QI within 45 days.</dd></div>
+<div class="g"><dt>Backup Identification</dt><dd>A fast-closing option (often a DST) identified to protect the deadline.</dd></div>
+<div class="g"><dt>Loan-to-Value (LTV)</dt><dd>Debt divided by property value; the lens for matching replacement leverage.</dd></div>
+<div class="g"><dt>Sponsor</dt><dd>The firm that creates and manages a DST or TIC program.</dd></div>
+<div class="g"><dt>Sponsor Load</dt><dd>The total fees and costs in a fractional program, as a percentage of the raise.</dd></div>
+<div class="g"><dt>Private Placement Memorandum (PPM)</dt><dd>The disclosure document under which a DST or other private placement is offered.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting SEC income or net-worth thresholds, eligible for private placements like DSTs.</dd></div>
+<div class="g"><dt>Rev. Rul. 2004-86</dt><dd>The IRS ruling treating a DST interest as direct ownership of real property for 1031 purposes.</dd></div>
+<div class="g"><dt>Rev. Proc. 2000-37</dt><dd>The IRS safe harbor governing reverse and improvement (parking) exchanges.</dd></div>
+<div class="g"><dt>Rev. Proc. 2002-22</dt><dd>IRS guidance on when a co-ownership is treated as a TIC rather than a partnership.</dd></div>
+<div class="g"><dt>Drop-and-Swap</dt><dd>Distributing TIC interests to partners before a sale so they can exchange separately.</dd></div>
+<div class="g"><dt>Swap-and-Drop</dt><dd>Distributing interests to partners after an exchange; carries timing risk.</dd></div>
+<div class="g"><dt>Related Party</dt><dd>Family or controlled entities, subject to the two-year holding rule in exchanges.</dd></div>
+<div class="g"><dt>Mortgage Boot</dt><dd>Debt relief not offset by new debt or cash; taxable.</dd></div>
+<div class="g"><dt>Net-Lease (NNN)</dt><dd>A property leased to a tenant who pays taxes, insurance, and maintenance, often long-term.</dd></div>
+<div class="g"><dt>Credit Tenant</dt><dd>A tenant with strong (often investment-grade) creditworthiness, supporting reliable rent.</dd></div>
+<div class="g"><dt>Single-Tenant Concentration</dt><dd>The risk of depending on one tenant for all of a property's income.</dd></div>
+<div class="g"><dt>Cap Rate</dt><dd>Net operating income divided by value; a core real estate pricing measure.</dd></div>
+<div class="g"><dt>Depreciation</dt><dd>A deduction recovering a building's cost over 27.5 (residential) or 39 (commercial) years.</dd></div>
+<div class="g"><dt>Unrecaptured Section 1250 Gain</dt><dd>The real-property depreciation-recapture portion of gain, taxed up to 25%.</dd></div>
+<div class="g"><dt>Cost Segregation</dt><dd>A study accelerating depreciation, increasing early deductions and later recapture.</dd></div>
+<div class="g"><dt>Installment Sale</dt><dd>A sale with payments over time that can spread gain recognition; an alternative to a 1031.</dd></div>
+<div class="g"><dt>Qualified Opportunity Fund</dt><dd>A fund that can defer and reduce capital gains reinvested into opportunity zones.</dd></div>
+<div class="g"><dt>Bridge Financing</dt><dd>Short-term financing used to fund an up-front purchase in a reverse exchange.</dd></div>
+<div class="g"><dt>Build-to-Suit Exchange</dt><dd>An improvement exchange used to construct a property to the investor's specifications.</dd></div>
+<div class="g"><dt>Forward (Delayed) Exchange</dt><dd>The standard structure: sell the relinquished property first, then acquire the replacement within the deadlines.</dd></div>
+<div class="g"><dt>Simultaneous Exchange</dt><dd>An exchange where both legs close on the same day; the original form, now rare.</dd></div>
+<div class="g"><dt>Improvement / Construction Exchange</dt><dd>Using exchange funds to build or renovate the replacement within 180 days.</dd></div>
+<div class="g"><dt>Reverse Exchange</dt><dd>Acquiring the replacement before selling the relinquished property, via a parking structure.</dd></div>
+<div class="g"><dt>Parked Property</dt><dd>The property held by an EAT until a reverse or improvement exchange can complete.</dd></div>
+<div class="g"><dt>Master Lease</dt><dd>A lease structure sometimes used in fractional or DST arrangements to handle operations.</dd></div>
+<div class="g"><dt>Net Operating Income (NOI)</dt><dd>A property's income after operating expenses; the numerator in the cap rate.</dd></div>
+<div class="g"><dt>Rent Escalation</dt><dd>Scheduled rent increases in a lease that grow income over time.</dd></div>
+<div class="g"><dt>Absolute-Net Lease</dt><dd>A lease where the tenant pays virtually all costs, including structure and roof.</dd></div>
+<div class="g"><dt>Going-In Yield</dt><dd>The initial distribution rate or cap rate of an investment at acquisition.</dd></div>
+<div class="g"><dt>Suitability Determination</dt><dd>The assessment that a private placement (like a DST) is appropriate for an investor.</dd></div>
+<div class="g"><dt>Regulation D</dt><dd>The SEC framework under which private placements like DSTs are offered to accredited investors.</dd></div>
+<div class="g"><dt>Broker-Dealer</dt><dd>A firm registered to offer securities such as DSTs; Baker 1031's is Aurora Securities, member FINRA/SIPC.</dd></div>
+<div class="g"><dt>FINRA / SIPC</dt><dd>The self-regulatory organization and investor-protection corporation overseeing securities firms.</dd></div>
+<div class="g"><dt>Percentage Depletion</dt><dd>A deduction (commonly 15% for oil and gas royalty owners) sheltering part of royalty income.</dd></div>
+<div class="g"><dt>Mineral / Royalty Interest</dt><dd>Oil and gas interests that, when perpetual, are real property eligible for 1031.</dd></div>
+<div class="g"><dt>PV-10</dt><dd>The present value of future net revenues from proved reserves, discounted at 10% — a reserve valuation measure.</dd></div>
+<div class="g"><dt>Involuntary Conversion</dt><dd>Loss of property by condemnation, casualty, or theft, eligible for 1033 deferral.</dd></div>
+<div class="g"><dt>Condemnation / Eminent Domain</dt><dd>A government taking of property for public use, with compensation; a 1033 trigger.</dd></div>
+<div class="g"><dt>Net Sale Price</dt><dd>Sale price minus selling costs; the basis for the equal-or-greater-value target.</dd></div>
+<div class="g"><dt>Selling Costs</dt><dd>Commissions and closing costs that reduce net proceeds and gain.</dd></div>
+<div class="g"><dt>Reinvestable Equity</dt><dd>Proceeds available to reinvest after debt payoff and selling costs.</dd></div>
+<div class="g"><dt>Effective Tax Rate</dt><dd>Total tax divided by total gain across all applicable layers.</dd></div>
+<div class="g"><dt>Constructive Improvements</dt><dd>Improvements completed and paid for within 180 days that count toward replacement value.</dd></div>
+<div class="g"><dt>Three-Property Rule</dt><dd>An identification method allowing up to three replacement properties of any value.</dd></div>
+<div class="g"><dt>200% Rule</dt><dd>An identification method allowing any number of properties whose combined value is up to 200% of the relinquished property's value.</dd></div>
+<div class="g"><dt>95% Rule</dt><dd>An identification method allowing any number of properties of any value if you acquire at least 95% of the identified value.</dd></div>
+<div class="g"><dt>Direct Deeding</dt><dd>Modern practice where title passes directly between the true buyer and seller, with the QI holding only the exchange funds.</dd></div>
+<div class="g"><dt>Exchange Agreement</dt><dd>The contract between the taxpayer and the qualified intermediary that documents and governs the exchange.</dd></div>
+<div class="g"><dt>Assignment of Contract</dt><dd>The QI's assignment into the purchase and sale agreements, a required step that makes the exchange work mechanically.</dd></div>
+<div class="g"><dt>Qualified Escrow Account</dt><dd>A restricted account where exchange funds are held so the taxpayer has no access, preventing constructive receipt.</dd></div>
+<div class="g"><dt>Like-Kind</dt><dd>The standard requiring exchanged properties to be of the same nature or character; nearly all U.S. real property held for investment is like-kind to other such real property.</dd></div>
+<div class="g"><dt>Held for Investment</dt><dd>The required purpose for both relinquished and replacement property; rules out personal-use and dealer property.</dd></div>
+<div class="g"><dt>Dealer Property</dt><dd>Real estate held primarily for sale (inventory), which is ineligible for 1031 treatment.</dd></div>
+<div class="g"><dt>Vacation-Home Safe Harbor</dt><dd>Rev. Proc. 2008-16 conditions under which a vacation property's rental use can qualify it for exchange.</dd></div>
+<div class="g"><dt>Clawback</dt><dd>A state rule (e.g., California) taxing previously deferred gain when an out-of-state replacement is later sold without another exchange.</dd></div>
+<div class="g"><dt>Mortgage Boot</dt><dd>Taxable gain created when replacement debt is less than relinquished debt and the gap isn't offset with cash.</dd></div>
+<div class="g"><dt>Cash Boot</dt><dd>Taxable proceeds the exchanger receives rather than reinvesting.</dd></div>
+<div class="g"><dt>Fair Market Value</dt><dd>The price a willing buyer and seller would agree to; the basis for the equal-or-greater-value test.</dd></div>
+<div class="g"><dt>Replacement Period</dt><dd>The 180-day window (or tax-return due date, if earlier) to close on the replacement property.</dd></div>
+<div class="g"><dt>Identification Period</dt><dd>The first 45 days after closing, within which replacement properties must be formally identified.</dd></div>
+<div class="g"><dt>Tax-Deferred vs. Tax-Free</dt><dd>A 1031 defers gain (it carries forward in basis); only a step-up at death or the QOZ 10-year rule makes appreciation truly tax-free.</dd></div>
+<div class="g"><dt>Form 8824</dt><dd>The IRS form on which a like-kind exchange is reported for the year the relinquished property is sold.</dd></div>
+<div class="g"><dt>Errors-and-Omissions Insurance</dt><dd>Coverage a reputable qualified intermediary carries to protect against mistakes in handling an exchange.</dd></div>
+<div class="g"><dt>Fidelity Bond</dt><dd>A bond protecting exchange funds against misappropriation by the qualified intermediary.</dd></div>
+<div class="g"><dt>Carryover Basis</dt><dd>The adjusted basis of the relinquished property that transfers to the replacement, preserving the deferred gain.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/newsroom/the-treasury-department-and-irs-issue-final-regulations-regarding-like-kind-exchanges-of-real-property" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — terminology</a></li><li>IPX1031. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">1031 exchange glossary</a></li><li>Baker 1031 Investments. <a href="1031-exchange-guide.html" rel="noopener nofollow" target="_blank">Learning Center</a></li><li>JTC Group. <a href="https://www.jtcgroup.com/insights/1031-and-real-estate-answers-to-common-questions/" rel="noopener nofollow" target="_blank">1031 and Real Estate: Answers to Common Questions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

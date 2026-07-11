@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange for Hotel &amp; Hospitality Owners | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange for Hotel & Hospitality Owners
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange for Hotel & Hospitality Owners</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Hotels and hospitality property can qualify for 1031 exchanges, but the operating-business and personal-property elements add complexity not present in simpler real estate. This guide covers why hotel owners exchange, the operating-business wrinkle, trading out of hospitality into passive holdings, hospitality and DSTs, and the tax considerations.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Hotels and hospitality properties present a more complex 1031 exchange picture than simpler real estate. A hotel is real estate, but it's also an operating business — generating income through daily room sales, services, and operations, with significant personal property (furniture, fixtures, equipment) and business value layered on top of the real property. This creates wrinkles for the exchange, because since the 2017 TCJA only the real property qualifies for like-kind exchange (not the personal property or business value), and there can be questions about whether an owner-operated hotel is held for investment. Despite the complexity, hotel owners do use exchanges — to capture gains, exit the demanding hospitality business, or transition to passive real estate. This guide covers why hotel owners exchange, the operating-business wrinkle, trading out of hospitality, hospitality and DSTs, and the tax considerations, with the recurring note that hotel exchanges warrant experienced professional guidance.</p>
+<h2 id="hospitality-as-real-estate">Hospitality as investment real estate</h2>
+<p>Hotels and hospitality properties are real estate, but a distinctive kind that blends real property with an operating business. The real estate component — the land and building — is clear investment real property. But layered on it is an operating business: the hotel generates income through daily room rentals, food and beverage, and services, requiring active operation (staff, management, marketing, guest services). And the hotel contains substantial personal property — furniture, fixtures, and equipment (FF&amp;E) like beds, furnishings, kitchen equipment, and more.</p>
+<p>This blend distinguishes hospitality from simpler real estate like a net-leased building or an apartment. A net-lease property is largely passive real estate with a tenant; a hotel is an active business operated on real estate, with significant non-real-property value (the business and FF&amp;E). So while the real property qualifies for like-kind exchange, the business and personal-property elements create complexity that simpler real estate doesn't have. This is the central theme of hotel exchanges: the real estate qualifies, but the business and personal property don't, requiring careful handling.</p>
+<p>Despite this complexity, the real property in a hotel is eligible for <a href="1031-exchange-guide.html">1031 exchange</a> (it's investment or productive-use real property), so hotel owners can exchange — the complexity is in correctly handling the real-versus-non-real components, not in disqualification. Hospitality as investment real estate — a blend of qualifying real property with a non-qualifying operating business and personal property — is the framework for understanding hotel exchanges. The real estate qualifies, but the business and FF&amp;E elements add complexity that distinguishes hospitality from simpler real estate. Recognizing this blend is the starting point for navigating hotel exchanges, which require separating the exchangeable real property from the non-exchangeable business and personal property. The hotel's dual nature as real estate and business is the key to its exchange treatment.</p>
+<h2 id="why-exchange">Why hotel owners exchange</h2>
+<p>Hotel owners exchange for reasons often tied to the demanding nature of the hospitality business. Exiting the operating business is a major one — running a hotel is intensive (24/7 operations, staffing, guest services, the cyclical and event-sensitive nature of hospitality demand), and owners who tire of the business, or who want to step back, use the exchange to move from active hotel operation into passive real estate. The exchange (of the real property) lets them transition out of the demanding hospitality business while staying invested tax-deferred.</p>
+<p>Capturing gains is another driver — hotel owners with appreciated property (in strong hospitality markets or after successful operations) can capture their gains while deferring tax by exchanging, redeploying into other real estate. This lets them realize their hotel's appreciated value through repositioning rather than a taxable sale. Given the cyclical nature of hospitality, owners may want to capture gains at a favorable point and reposition into more stable real estate.</p>
+<p>Repositioning and risk management also drive hotel exchanges — hospitality is cyclical and sensitive to economic conditions, travel trends, and events (as the sector's volatility has shown), so owners may want to diversify out of the concentrated, volatile hospitality exposure into more stable or diversified real estate. The exchange enables this de-risking repositioning tax-deferred. Why hotel owners exchange — to exit the demanding operating business, to capture appreciated gains, and to reposition out of cyclical hospitality into more stable real estate — reflects hospitality's intensive operation and volatility. These motivations make the exchange valuable for hotel owners seeking to step back, capture gains, or de-risk, moving from active, cyclical hospitality into passive or more stable real estate tax-deferred. The exchange is often a path out of the demanding hotel business into a more passive, stable real estate position.</p>
+<div class="pullquote"><p>The exchange is often a hotel owner's path out of the demanding, cyclical hospitality business — moving from 24/7 operation into passive, more stable real estate, tax-deferred.</p></div>
+<h2 id="operating-business-wrinkle">The operating-business wrinkle</h2>
+<p>The defining complexity of hotel exchanges is the operating-business wrinkle — the fact that a hotel's value includes non-real-property elements (the business and personal property) that don't qualify for like-kind exchange. Since the 2017 TCJA limited 1031 to real property, only the real property portion of a hotel's value qualifies for the exchange; the personal property (FF&amp;E) and any business/goodwill value do not. So when a hotel is sold and exchanged, the value must be allocated between the qualifying real property and the non-qualifying components.</p>
+<p>This allocation is the crux of the wrinkle. The hotel's sale price covers the real estate, the FF&amp;E, and the business value (going-concern/goodwill). For the exchange, only the real-property portion can be deferred; the FF&amp;E and business value are not like-kind property and would be taxable (or handled separately). So the owner and their CPA must allocate the value, identifying the real-property portion (exchangeable) versus the personal property and business value (not exchangeable). The larger the non-real-property portion, the less of the hotel's value can be exchanged.</p>
+<p>A second aspect of the wrinkle is the held-for-investment question. The 1031 exchange requires property held for investment or productive use; an owner-operated hotel raises the question of whether it's held for investment (qualifying) versus operated as the owner's active business — though hotels held and operated as investment/productive-use real property generally can qualify for the real-property portion. This is a nuanced area where professional guidance is important. The operating-business wrinkle — the need to allocate a hotel's value between the exchangeable real property and the non-qualifying personal property and business value, plus the held-for-investment considerations — is the defining complexity of hotel exchanges. Only the real property qualifies, so correctly separating it from the FF&amp;E and business value (with a CPA and advisors) is essential. This wrinkle distinguishes hotel exchanges from simpler real estate and is why they warrant experienced professional handling. The allocation between real and non-real property is the heart of a hotel exchange.</p>
+<h2 id="trading-out">Trading out of hospitality</h2>
+<p>A common hotel-exchange strategy is trading out of hospitality into more passive or stable real estate — using the exchange (of the real-property portion) to move from active, cyclical hotels into hands-off, steadier holdings. Owners exhausted by hotel operation, or wanting to de-risk from hospitality's volatility, exchange their hotel's real property into net-lease properties, <a href="1031-exchange-for-multifamily-apartment-owners.html">multifamily apartments</a>, <a href="1031-exchange-for-industrial-property-owners.html">industrial buildings</a>, or passive DSTs — trading the demanding hospitality business for more passive, stable real estate.</p>
+<p>This trade-out addresses both the operational burden and the risk concentration of hotels. Operationally, moving from a hotel (active business) to passive real estate (net-lease, DSTs) sheds the intensive management. From a risk standpoint, moving from cyclical, volatile hospitality into more stable property types diversifies away from hospitality's specific risks. So trading out of hospitality serves owners seeking both relief from operation and reduction of hospitality-specific risk, common goals for hotel owners.</p>
+<p>The trade-out is often a transition into passive ownership (DSTs) for owners ready to fully step back — exchanging the hotel's real property for passive DST interests, ending their hospitality involvement entirely while keeping capital invested tax-deferred. So trading out of hospitality frequently means trading into passive real estate, the endpoint for many hotel owners. Trading out of hospitality — exchanging a hotel's real property into more passive, stable real estate (net-lease, multifamily, industrial, or DSTs) — is a common strategy for owners seeking relief from hotel operation and reduction of hospitality risk. This trade-out, often a transition to passive ownership, lets hotel owners exit the demanding, cyclical business into steadier holdings tax-deferred. For many hotel owners, trading out of hospitality into passive real estate is the goal the exchange helps achieve, ending the operational burden while preserving their investment.</p>
+<h2 id="hospitality-dsts">Hospitality and DSTs</h2>
+<p>DSTs play a significant role in hotel exchanges, primarily as the passive destination for owners trading out of hospitality. A hotel owner exchanging the real-property portion of their hotel can move into DSTs holding other property types (net-lease, multifamily, industrial), transitioning from active hotel operation into passive, professionally-managed real estate. This is the common path for hotel owners stepping back — exchanging into non-hospitality DSTs for passive, more stable income.</p>
+<p>Some DSTs do hold hospitality assets (hotels), offering passive hospitality exposure for investors who want to stay in the sector but passively. However, given hospitality's volatility, many hotel owners trading out prefer to diversify into more stable property types via DSTs, rather than remaining in hospitality. So while hospitality DSTs exist, the more common DST move for hotel owners is into other (more stable) sectors, using DSTs to both exit operation and de-risk from hospitality.</p>
+<p>DSTs suit hotel owners' common goals well — they're fully passive (ending the operational burden), diversified (reducing the concentration risk), and tax-deferred (preserving the gains). For a hotel owner exhausted by operation and seeking stability, exchanging into diversified, passive DSTs (typically in non-hospitality sectors) is an attractive endpoint. DSTs are securities (accredited-investor, suitability review), passive, and illiquid. Hospitality and DSTs — with DSTs serving primarily as the passive, often non-hospitality destination for owners trading out of hotels — are closely linked in hotel exchanges. DSTs let hotel owners exit operation and de-risk into passive, diversified, more stable real estate, making them a natural endpoint for the common hotel-owner goal of stepping back from the demanding business. For many hotel owners, DSTs are how they transition out of hospitality into passive real estate tax-deferred.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Hotels are real estate blended with an operating business and significant personal property (FF&amp;E) — adding complexity to exchanges.</li>
+<li>Only the real property qualifies for exchange (since the 2017 TCJA); the FF&amp;E and business value must be allocated out and don't qualify.</li>
+<li>Hotel owners exchange to exit the demanding operating business, capture gains, and de-risk from cyclical hospitality.</li>
+<li>Trading out of hospitality into passive, stable real estate (often DSTs) is a common strategy — hotel exchanges warrant experienced professional guidance.</li>
+</ul></div>
+<h2 id="tax-considerations">Tax considerations</h2>
+<p>Hotel exchanges involve significant tax considerations, more complex than simpler real estate. The central one is the allocation between real property (exchangeable) and personal property/business value (not exchangeable). The portion allocated to FF&amp;E and business value isn't deferred through the exchange and may be taxable (the personal property potentially facing recapture, the business value taxed as applicable). So the tax outcome depends heavily on the allocation, which the CPA handles carefully — a larger non-real-property allocation means more taxable value.</p>
+<p><a href="depreciation-recapture-real-estate.html">Depreciation recapture</a> is significant for hotels because the FF&amp;E (personal property) is depreciated rapidly (short recovery periods), generating substantial depreciation that faces recapture on a sale — and since the FF&amp;E doesn't qualify for exchange, that recapture isn't deferred. The real property's depreciation (39 years) and its recapture are deferred through the real-property exchange, but the personal property's recapture generally isn't. So hotels can have meaningful taxable recapture on the non-exchangeable FF&amp;E, a key consideration.</p>
+<p>The four-layer tax stack applies to the taxable portions, while the exchange defers the tax on the real-property portion. Given the allocation complexity and the personal-property recapture, hotel exchanges require careful tax planning with an experienced CPA to optimize the real-property deferral and understand the taxable components. Tax considerations — the critical real-vs-non-real allocation, the personal-property (FF&amp;E) recapture that generally isn't deferred, and the four-layer tax on the taxable portions — make hotel exchanges tax-complex, requiring experienced professional planning. The exchange defers the real-property portion's tax, but the FF&amp;E and business value create taxable elements the CPA must handle. Understanding these considerations — and engaging an experienced CPA and advisors — is essential for hotel owners, given the complexity that the operating-business and personal-property elements introduce. Hotel exchanges reward careful tax planning more than simpler real estate exchanges.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps hospitality owners</h2>
+<p>Baker 1031 Investments helps hotel and hospitality owners navigate the complexity of hotel exchanges — coordinating with your CPA and advisors on the critical allocation between exchangeable real property and non-qualifying personal property and business value, and helping you reposition the real-property portion into passive, more stable real estate (including DSTs). We help owners exit the demanding hospitality business, capture gains, and de-risk into steadier holdings tax-deferred.</p>
+<p>DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), with any recommendation following a suitability review — DSTs (typically in non-hospitality sectors) are a common passive, diversifying destination for owners trading out of hotels. Given the complexity, we emphasize coordinating with an experienced CPA and advisors on the allocation, recapture, and held-for-investment considerations. Our role is to help hospitality owners use the exchange to transition out of the demanding hotel business into passive, more stable real estate — handling the operating-business and personal-property complexity with experienced professional guidance so the real-property deferral is optimized and the transition is sound. Hotel exchanges warrant this careful, professional approach.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Can a hotel qualify for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The real property portion of a hotel can qualify (it's investment or productive-use real property), but the personal property (FF&amp;E) and business/goodwill value do not — since the 2017 TCJA, only real property qualifies for like-kind exchange. So a hotel exchange defers the tax on the real-property portion, while the FF&amp;E and business value must be allocated out and don't qualify. Hotels can be exchanged, but the complexity is in correctly separating the real property from the non-qualifying components. Experienced professional guidance is important.</p></div>
+</details>
+<details>
+<summary>Why are hotel exchanges more complex?<span class="ic"></span></summary>
+<div class="ans"><p>Because a hotel is real estate blended with an operating business and significant personal property (FF&amp;E — furniture, fixtures, equipment). Only the real property qualifies for exchange; the business value and FF&amp;E don't (since the TCJA). So the hotel's value must be allocated between the exchangeable real property and the non-qualifying components, and there can be held-for-investment questions for owner-operated hotels. This complexity — absent in simpler real estate like net-lease or apartments — is why hotel exchanges warrant experienced professional handling.</p></div>
+</details>
+<details>
+<summary>What is the operating-business wrinkle?<span class="ic"></span></summary>
+<div class="ans"><p>The fact that a hotel's value includes non-real-property elements (the operating business/goodwill and personal property/FF&amp;E) that don't qualify for like-kind exchange. The hotel's sale price covers the real estate, FF&amp;E, and business value, but only the real-property portion can be deferred through the exchange. So the value must be allocated, with the FF&amp;E and business value being non-exchangeable (and potentially taxable). This allocation, plus held-for-investment considerations, is the defining complexity of hotel exchanges.</p></div>
+</details>
+<details>
+<summary>Why do hotel owners exchange?<span class="ic"></span></summary>
+<div class="ans"><p>To exit the demanding hospitality operating business (hotels are 24/7, intensive operations), to capture appreciated gains while deferring tax, and to de-risk from cyclical, volatile hospitality into more stable real estate. The exchange (of the real-property portion) lets owners step back from active hotel operation, realize their gains through repositioning, and diversify away from hospitality's specific risks — moving into passive or more stable real estate tax-deferred. It's often a path out of the demanding hotel business.</p></div>
+</details>
+<details>
+<summary>What happens to the FF&amp;E in a hotel exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The personal property (FF&amp;E — furniture, fixtures, equipment) doesn't qualify for like-kind exchange (since the TCJA limited 1031 to real property), so its value is allocated out and isn't deferred through the exchange. The FF&amp;E may be taxable, including potential depreciation recapture (FF&amp;E is depreciated rapidly, generating recapture). So the FF&amp;E portion is handled separately from the real-property exchange and can create taxable elements. Your CPA handles the FF&amp;E allocation and its tax treatment, separate from the real-property deferral.</p></div>
+</details>
+<details>
+<summary>How is a hotel's value allocated for an exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The CPA allocates the hotel's value among the real property (land and building — exchangeable), the personal property (FF&amp;E — not exchangeable), and the business/goodwill value (not exchangeable). Only the real-property portion can be deferred through the exchange; the FF&amp;E and business value are handled separately and may be taxable. The allocation significantly affects the tax outcome — a larger real-property portion means more deferral. This allocation is a critical, complex part of a hotel exchange requiring an experienced CPA.</p></div>
+</details>
+<details>
+<summary>Can I trade my hotel into passive real estate?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — trading out of hospitality into passive real estate is a common strategy. You exchange the hotel's real-property portion into net-lease, multifamily, industrial, or passive DSTs — moving from active, cyclical hotel operation into hands-off, more stable real estate, tax-deferred. This sheds the operational burden and de-risks from hospitality's volatility. For owners ready to step back, exchanging into passive DSTs (typically non-hospitality) is a popular endpoint. The exchange (of the real property) enables this transition out of the demanding hotel business.</p></div>
+</details>
+<details>
+<summary>Is the held-for-investment requirement an issue for hotels?<span class="ic"></span></summary>
+<div class="ans"><p>It can be a consideration — the exchange requires property held for investment or productive use, and an owner-operated hotel raises the question of whether it's held for investment versus operated as the owner's active business. However, hotels held and operated as investment/productive-use real property generally can qualify for the real-property portion. This is a nuanced area where experienced professional guidance is important to confirm the property's eligibility and structure the exchange correctly. Discuss the held-for-investment considerations with your advisors.</p></div>
+</details>
+<details>
+<summary>How does depreciation recapture work for hotels?<span class="ic"></span></summary>
+<div class="ans"><p>Hotels have two depreciation streams: the real property (39 years) and the FF&amp;E (personal property, rapid recovery). The real property's recapture is deferred through the real-property exchange, but the FF&amp;E's recapture generally isn't deferred (since FF&amp;E doesn't qualify for exchange) and can be substantial (FF&amp;E is depreciated rapidly, generating significant recapture). So hotels can have meaningful taxable recapture on the non-exchangeable FF&amp;E. This is a key tax consideration — the exchange defers the real-property tax, but the FF&amp;E recapture is generally taxable. Your CPA handles this.</p></div>
+</details>
+<details>
+<summary>Are there hospitality DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, some DSTs hold hospitality assets (hotels), offering passive hospitality exposure. However, given hospitality's volatility, many hotel owners trading out prefer to diversify into more stable property types via DSTs (net-lease, multifamily, industrial) rather than remaining in hospitality. So while hospitality DSTs exist, the more common DST move for hotel owners is into other, more stable sectors — using DSTs to both exit operation and de-risk from hospitality. The choice depends on whether you want to stay in hospitality (passively) or diversify out.</p></div>
+</details>
+<details>
+<summary>Do I need special help for a hotel exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — hotel exchanges warrant experienced professional guidance given the complexity (the real-vs-non-real allocation, the FF&amp;E recapture, the held-for-investment considerations, and the business-value treatment). An experienced CPA is essential for the allocation and tax planning, and advisors familiar with hospitality exchanges help structure them correctly. The complexity — absent in simpler real estate — means hotel exchanges reward careful, professional handling more than typical exchanges. Don't approach a hotel exchange without experienced CPA and advisor support.</p></div>
+</details>
+<details>
+<summary>Should I exchange or sell my hotel?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on your goals. If you want to stay invested in real estate (especially to exit hotel operation while keeping capital working), the exchange defers the real-property portion's tax, preserving more capital than a fully taxable sale. If you want to fully cash out of real estate, a sale (paying the tax) might fit. Note that even in an exchange, the FF&amp;E and business value create taxable elements. Model both with your CPA, considering the allocation and the substantial tax the real-property deferral saves. The exchange suits owners repositioning into other real estate.</p></div>
+</details>
+<details>
+<summary>Does it matter whether my hotel is franchised or independent?<span class="ic"></span></summary>
+<div class="ans"><p>It can affect the business-value allocation and the operating considerations, though both franchised and independent hotels have the real-property/personal-property/business-value structure. A franchised hotel's value includes the franchise relationship and brand, part of the business value that doesn't qualify for exchange; an independent hotel's value may concentrate differently. Either way, only the real property qualifies, and the allocation among real property, FF&amp;E, and business value (including any franchise/brand value) is handled by your CPA. The franchise vs. independent distinction is one factor in the value allocation your advisors analyze.</p></div>
+</details>
+<details>
+<summary>Can a ground lease or leasehold hotel be exchanged?<span class="ic"></span></summary>
+<div class="ans"><p>A leasehold interest in real property with sufficient remaining term (generally 30+ years including options) can qualify as like-kind real property for an exchange, so a hotel on a ground lease may have an exchangeable leasehold real-property interest — but this adds complexity to the allocation and qualification analysis. As with any hotel exchange, the real-property interest (here, the qualifying leasehold) is what may be exchanged, separate from the FF&amp;E and business value. Leasehold hotel exchanges are particularly complex and warrant experienced professional guidance to confirm qualification and structure.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Hospitality Property</dt><dd>Hotels and similar — real estate blended with an operating business.</dd></div>
+<div class="g"><dt>Operating Business</dt><dd>The active hotel business (rooms, services), non-qualifying for exchange.</dd></div>
+<div class="g"><dt>FF&amp;E</dt><dd>Furniture, fixtures, and equipment — personal property not eligible for exchange.</dd></div>
+<div class="g"><dt>Personal Property</dt><dd>Non-real-estate assets (FF&amp;E), excluded from 1031 since the TCJA.</dd></div>
+<div class="g"><dt>Real Property Allocation</dt><dd>The exchangeable real-estate portion of a hotel's value.</dd></div>
+<div class="g"><dt>Business Value (Goodwill)</dt><dd>The going-concern value of a hotel, not exchangeable.</dd></div>
+<div class="g"><dt>Value Allocation</dt><dd>Dividing a hotel's price among real property, FF&amp;E, and business value.</dd></div>
+<div class="g"><dt>Held-for-Investment</dt><dd>The requirement raising questions for owner-operated hotels.</dd></div>
+<div class="g"><dt>Trading Out of Hospitality</dt><dd>Exchanging a hotel's real property into more stable, passive real estate.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Tax on prior depreciation; FF&amp;E recapture generally isn't deferred.</dd></div>
+<div class="g"><dt>39-Year Depreciation</dt><dd>The recovery period for the hotel's real property.</dd></div>
+<div class="g"><dt>Cyclical Sector</dt><dd>Hospitality's volatility, motivating de-risking exchanges.</dd></div>
+<div class="g"><dt>Going Concern</dt><dd>The operating-business value of a hotel, separate from real property.</dd></div>
+<div class="g"><dt>Hospitality DST</dt><dd>A DST holding hotels; many owners instead diversify into other sectors.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A passive destination for owners trading out of hotels.</dd></div>
+<div class="g"><dt>Replacement Property</dt><dd>The property acquired with the hotel's real-property portion.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-946" rel="noopener nofollow" target="_blank">Publication 946, How To Depreciate Property</a></li><li>U.S. Congress. <a href="https://www.congress.gov/bill/115th-congress/house-bill/1" rel="noopener nofollow" target="_blank">Tax Cuts and Jobs Act of 2017 (Public Law 115-97)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

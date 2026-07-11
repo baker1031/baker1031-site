@@ -1,0 +1,7 @@
+[build]
+  command = "pip3 install --quiet openpyxl && python3 ci_build.py"
+  publish = "dist"
+
+[build.environment]
+  SHEET_ID = "1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7IlyZg"
+  PYTHON_VERSION = "3.8"

@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>721 Exchange and Existing Debt on Your Property | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>721 Exchange and Existing Debt on Your Property
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">721 Exchange and Existing Debt on Your Property</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">If your property has a mortgage, a 721 exchange must address the existing debt — and the partnership-tax treatment of debt can affect your outcome, including a potential deemed-distribution risk. This guide explains how debt affects the contribution, assumption versus subject-to, partnership liability allocation, the deemed-distribution risk, and how to structure to manage it.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Many properties carry a mortgage, and when you contribute a mortgaged property in a 721 exchange, the existing debt adds important tax complexity. Under partnership tax rules, the treatment of debt in a contribution can affect your tax outcome — in particular, a reduction in your share of liabilities can be treated as a deemed distribution, which could trigger tax in some circumstances. So a 721 exchange involving a mortgaged property requires careful handling of the debt to manage these effects. Understanding how existing debt is handled — how the partnership takes the debt, how partnership liabilities are allocated, the deemed-distribution risk, and how to structure to manage it — is important for owners of mortgaged property. This guide explains 721 exchanges and existing debt, with the caveat that this is technical and warrants professional guidance.</p>
+<h2 id="how-debt-affects">How debt affects the contribution</h2>
+<p>When you contribute a mortgaged property to the operating partnership — assuming it is <a href="721-exchange-eligibility-what-property-qualifies.html">the kind of property that qualifies for a 721 exchange</a> — the existing debt must be addressed, because the partnership is taking property that has a loan against it. Typically, the operating partnership either assumes the debt (becoming responsible for it) or takes the property subject to the debt (the debt remains, secured by the property, now in the partnership). Either way, the debt becomes part of the partnership's liabilities.</p>
+<p>This affects the contribution because, under partnership tax rules, your share of the partnership's liabilities is part of your tax picture (it affects your basis and the treatment of the contribution). When you contribute mortgaged property, you transfer the debt to the partnership, which changes your liability situation — potentially reducing your share of liabilities (since the debt is now spread among the partnership's partners, including the REIT), with tax implications.</p>
+<p>So existing debt adds a layer to the contribution — the debt's transfer to the partnership and its effect on your share of liabilities. This is more complex than a contribution of unencumbered property. How debt affects the contribution — the partnership assuming or taking the property subject to the debt, making it a partnership liability, and changing your share of liabilities (with tax implications) — adds complexity to a <a href="721-exchange-guide.html">721 exchange</a> of mortgaged property. The debt's transfer affects your liability situation. Understanding how debt affects the contribution sets up the specific issues (allocation, deemed distribution). Existing debt makes the contribution more complex, requiring careful handling of the debt's transfer and its tax effects.</p>
+<h2 id="assumption-subject-to">Assumption vs. subject-to</h2>
+<p>The debt can be handled in a couple of ways — assumption or subject-to — which are similar in effect for tax purposes. In an assumption, the operating partnership formally assumes the debt, becoming the obligor (responsible for repaying it). The original mortgage may be assumed by the partnership (with the lender's consent) or refinanced. So the partnership takes on the debt obligation.</p>
+<p>In a subject-to arrangement, the partnership takes the property subject to the existing debt — the debt remains in place (secured by the property), and the partnership owns the property with the debt attached, effectively responsible for it (as the property owner) even if not formally assuming the loan. So the property comes to the partnership with the debt still on it.</p>
+<p>In both cases, the debt becomes a partnership liability (whether formally assumed or taken subject-to), affecting your share of liabilities for tax purposes. The distinction (assumption vs. subject-to) is more about the legal form than the tax effect, which is generally similar — the debt is now a partnership liability. So either way, the debt is handled by the partnership taking it on. Assumption vs. subject-to — the partnership formally assuming the debt (becoming the obligor) versus taking the property subject to the existing debt (the debt remaining attached), both making the debt a partnership liability with similar tax effects — describes the ways the debt is handled. The legal form differs, but the tax effect (partnership liability) is similar. Understanding assumption vs. subject-to clarifies how the debt is taken on. Either way, the debt becomes a partnership liability, the key tax effect, handled through assumption or a subject-to arrangement.</p>
+<div class="pullquote"><p>Whether the partnership formally assumes your mortgage or takes the property subject to it, the debt becomes a partnership liability — and how your share of that liability changes drives the tax treatment.</p></div>
+<h2 id="liability-allocation">Partnership liability allocation</h2>
+<p>A key tax concept for debt in a 721 exchange is partnership liability allocation — how the partnership's liabilities (including your contributed debt) are allocated among the partners for tax purposes. Under partnership tax rules, each partner's share of the partnership's liabilities is included in their basis (and affects the treatment of distributions). So when you contribute mortgaged property, the debt becomes a partnership liability allocated among the partners.</p>
+<p>Before the contribution, you bore 100% of your property's debt (it was your mortgage). After contributing to the partnership, you bear only your allocated share of that debt (since it's now a partnership liability shared among the partners, including the REIT). So your share of the debt typically decreases — from 100% (your mortgage) to your partnership-allocated share (a fraction). This decrease in your share of liabilities is the crux of the debt issue.</p>
+<p>The allocation rules (under the partnership tax regulations) determine your share of the partnership's liabilities, which is technical and depends on the debt type (recourse vs. nonrecourse) and the allocation methods. So the liability allocation is a key, technical aspect of the debt handling, handled by your CPA. Partnership liability allocation — how the partnership's liabilities (including your contributed debt) are allocated among the partners, typically decreasing your share of the debt from 100% (your mortgage) to your partnership-allocated share — is the key tax concept for debt in a 721 exchange. The decrease in your liability share drives the deemed-distribution issue. Understanding the liability allocation clarifies why the debt matters. The allocation of partnership liabilities, decreasing your share of the debt, is the technical heart of the debt handling, with implications for the deemed-distribution risk.</p>
+<h2 id="deemed-distribution">The deemed-distribution risk</h2>
+<p>The decrease in your share of liabilities creates the deemed-distribution risk — the main tax concern with contributing mortgaged property. Under partnership tax rules, a decrease in your share of partnership liabilities is treated as a deemed cash distribution to you (as if you received cash equal to the debt relief). This is because being relieved of debt is economically like receiving cash. So when your share of the debt decreases (from contributing the mortgaged property), you're treated as receiving a deemed distribution.</p>
+<p>This deemed distribution is generally not taxable to the extent of your basis (it reduces your basis, like an actual distribution), but if the deemed distribution exceeds your basis, the excess can be taxable as gain. So if the debt relief (the decrease in your liability share) is large relative to your basis, it could trigger taxable gain — partially undermining the deferral. This is the deemed-distribution risk.</p>
+<p>Whether the deemed distribution triggers tax depends on your basis and the amount of debt relief — for many contributions, it's within basis (no immediate tax), but for low-basis property with significant debt, it could trigger gain. So the deemed-distribution risk must be analyzed (by your CPA) for your specific situation. The deemed-distribution risk — the decrease in your share of liabilities being treated as a deemed cash distribution, which can trigger taxable gain if it exceeds your basis — is the main tax concern with contributing mortgaged property. The risk depends on your basis and the debt relief. Understanding the deemed-distribution risk clarifies the key debt issue. The deemed-distribution risk, from the decrease in your liability share, is the central tax concern with mortgaged property in a 721 exchange, requiring analysis of your basis and the debt relief.</p>
+<h2 id="structuring">Structuring to manage the debt</h2>
+<p>Because of the deemed-distribution risk, structuring the contribution to manage the debt is important for mortgaged property. One approach is ensuring you have sufficient basis to absorb the deemed distribution (so it reduces basis without triggering gain) — which depends on your basis relative to the debt relief. Your CPA analyzes whether your basis is sufficient.</p>
+<p>Another approach involves the structuring of the debt and the partnership's liabilities — for example, structuring so that you retain a sufficient share of the partnership's liabilities (e.g., through guarantees or specific allocations of debt to you) to avoid a large decrease in your liability share. By maintaining your share of liabilities (via the partnership's debt structure), the deemed distribution (and its tax) can be minimized. These structuring techniques (debt guarantees, allocations) are technical and handled by tax professionals.</p>
+<p>Other considerations include the property's loan-to-value — which depends on <a href="insights.html">how the partnership values your property</a> (higher debt relative to that value means more potential deemed distribution) — your basis, and the partnership's overall debt. So structuring to manage the debt — ensuring sufficient basis or maintaining your liability share — addresses the deemed-distribution risk. Structuring to manage the debt — ensuring sufficient basis to absorb the deemed distribution, or maintaining your share of partnership liabilities (via guarantees or allocations) to minimize the decrease, with professional structuring — addresses the deemed-distribution risk for mortgaged property. The structuring manages the tax. Understanding the structuring approaches shows how the debt risk is managed. Structuring the contribution (sufficient basis, maintained liability share) manages the deemed-distribution risk, a technical task requiring tax professionals for mortgaged-property 721 exchanges.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>When you contribute mortgaged property, the partnership assumes or takes it subject to the debt, making it a partnership liability.</li>
+<li>Your share of the debt typically decreases (from 100% to your partnership-allocated share), which is treated as a deemed cash distribution.</li>
+<li>The deemed distribution can trigger taxable gain if it exceeds your basis — the main tax risk with mortgaged property.</li>
+<li>Structuring (sufficient basis, maintaining your liability share via guarantees/allocations) manages the risk — a technical task for tax professionals.</li>
+</ul></div>
+<h2 id="paydown-vs-contribute">Paying down vs. contributing with debt</h2>
+<p>Owners with mortgaged property may consider whether to pay down the debt before contributing or contribute with the debt in place. Paying down the debt before the contribution reduces the debt the partnership takes on (and thus the decrease in your liability share), reducing the deemed-distribution risk. But it requires using cash to pay down the debt, which has its own considerations (the cash outlay, the loss of leverage). So paying down reduces the debt issue but costs cash.</p>
+<p>Contributing with the debt in place avoids the cash outlay but involves the deemed-distribution risk (managed through structuring). So you keep your cash but must manage the debt's tax effects. For many owners, contributing with the debt (managed through structuring) is preferable to paying it down (using cash), but it depends on the situation.</p>
+<p>The choice depends on your basis, the debt level, your cash position, and the structuring options. Your CPA and advisors analyze whether paying down or contributing with the debt (with structuring) is better for your situation. So owners weigh paying down (reducing the risk, costing cash) against contributing with debt (keeping cash, managing the risk via structuring). Paying down vs. contributing with debt — paying down before contributing (reducing the deemed-distribution risk but using cash) versus contributing with the debt (keeping cash but managing the risk via structuring) — is a choice for owners of mortgaged property. The choice depends on the basis, debt, cash, and structuring. Understanding this choice helps owners decide how to handle their debt. Owners weigh paying down the debt against contributing with it (managed through structuring), a decision depending on their specific situation and analyzed with their advisors.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with debt</h2>
+<p>Baker 1031 Investments helps owners of mortgaged property navigate the debt aspects of a 721 exchange — coordinating with your CPA and attorney on how the partnership takes the debt at <a href="721-exchange-closing-documents-explained.html">the contribution closing</a>, the liability allocation, the deemed-distribution risk, and the structuring to manage it (sufficient basis, maintained liability share), and helping you weigh paying down versus contributing with the debt. We help ensure the debt is handled to manage the tax effects.</p>
+<p>REIT units and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. We don't provide tax or legal advice (your CPA and attorney handle the debt's tax treatment and structuring); we help coordinate the debt handling with your professionals. Our role is to help owners of mortgaged property navigate the debt's complexity in a 721 exchange — ensuring the deemed-distribution risk is analyzed and managed through proper structuring, with your CPA and attorney. The debt adds technical complexity to a 721 exchange, and we help you address it with professional guidance, so your mortgaged property can be contributed while managing the tax effects of the debt.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Can I do a 721 exchange with a mortgaged property?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, but it adds tax complexity. When you contribute mortgaged property, the partnership assumes or takes the property subject to the debt, making it a partnership liability. Under partnership tax rules, your share of the debt typically decreases (from 100% — your mortgage — to your partnership-allocated share), which is treated as a deemed cash distribution. This can trigger taxable gain if it exceeds your basis. So mortgaged property can be contributed, but the debt's tax effects (the deemed-distribution risk) must be managed through structuring, with professional guidance. The debt is handleable but technical.</p></div>
+</details>
+<details>
+<summary>How does the partnership handle my mortgage?<span class="ic"></span></summary>
+<div class="ans"><p>Typically by assuming the debt (formally becoming responsible for it, possibly with the lender's consent or via refinancing) or taking the property subject to the debt (the debt remaining attached, with the partnership owning the property and effectively responsible for it). Either way, the debt becomes a partnership liability. The distinction (assumption vs. subject-to) is more about legal form than tax effect, which is generally similar — the debt is now a partnership liability affecting your share of liabilities. So the partnership takes on your mortgage through assumption or a subject-to arrangement, making it a partnership liability.</p></div>
+</details>
+<details>
+<summary>What is partnership liability allocation?<span class="ic"></span></summary>
+<div class="ans"><p>How the partnership's liabilities (including your contributed debt) are allocated among the partners for tax purposes. Each partner's share of the partnership's liabilities is included in their basis. When you contribute mortgaged property, the debt becomes a partnership liability allocated among the partners — so your share of the debt typically decreases from 100% (your mortgage) to your partnership-allocated share (a fraction, since the REIT and others now share it). This decrease in your liability share drives the deemed-distribution issue. The allocation rules are technical (depending on the debt type and methods), handled by your CPA.</p></div>
+</details>
+<details>
+<summary>What is the deemed-distribution risk?<span class="ic"></span></summary>
+<div class="ans"><p>The risk that the decrease in your share of partnership liabilities (from contributing mortgaged property) is treated as a deemed cash distribution, which can trigger taxable gain. Under partnership rules, a decrease in your liability share is treated as if you received cash equal to the debt relief (since being relieved of debt is like receiving cash). This deemed distribution reduces your basis, and if it exceeds your basis, the excess is taxable as gain. So contributing mortgaged property can trigger gain (partially undermining the deferral) if the debt relief exceeds your basis — the main tax risk with mortgaged property.</p></div>
+</details>
+<details>
+<summary>Will I owe tax from contributing mortgaged property?<span class="ic"></span></summary>
+<div class="ans"><p>Possibly, depending on your basis and the debt relief. The deemed distribution (from the decrease in your liability share) is generally not taxable to the extent of your basis (it reduces basis), but if it exceeds your basis, the excess is taxable as gain. So for property where the debt relief is within your basis, there's no immediate tax; for low-basis property with significant debt, it could trigger gain. So whether you owe tax depends on your specific basis and debt — your CPA analyzes this. Structuring can manage or avoid the tax. So it's situation-dependent, requiring analysis.</p></div>
+</details>
+<details>
+<summary>How can I avoid the deemed-distribution tax?<span class="ic"></span></summary>
+<div class="ans"><p>Through structuring: ensuring you have sufficient basis to absorb the deemed distribution (so it reduces basis without triggering gain), or maintaining a sufficient share of the partnership's liabilities (e.g., through debt guarantees or specific allocations of debt to you) to avoid a large decrease in your liability share. By maintaining your liability share, the deemed distribution (and its tax) is minimized. These structuring techniques are technical, handled by tax professionals. Alternatively, paying down the debt before contributing reduces the issue. So the tax can be managed or avoided through structuring or paydown, with professional guidance.</p></div>
+</details>
+<details>
+<summary>Should I pay down my mortgage before the 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>It depends. Paying down the debt before contributing reduces the debt the partnership takes on (and the decrease in your liability share), reducing the deemed-distribution risk — but it uses cash (a cash outlay, loss of leverage). Contributing with the debt avoids the cash outlay but involves the deemed-distribution risk (managed through structuring). For many owners, contributing with the debt (managed via structuring) is preferable to paying it down, but it depends on your basis, debt level, cash position, and structuring options. So your CPA and advisors analyze whether paying down or contributing with the debt is better for you.</p></div>
+</details>
+<details>
+<summary>Does the type of debt (recourse vs. nonrecourse) matter?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the debt type affects the liability allocation (how your share of the partnership's liabilities is determined). Recourse and nonrecourse debt are allocated differently under the partnership tax rules, which affects your liability share and thus the deemed-distribution analysis. So whether your mortgage is recourse or nonrecourse matters for the tax treatment. This is technical (the allocation rules differ by debt type), handled by your CPA. So the debt type is a factor in the analysis, which your CPA considers in determining your liability share and the deemed-distribution risk. The debt type affects the technical tax treatment.</p></div>
+</details>
+<details>
+<summary>Is contributing mortgaged property worth the complexity?<span class="ic"></span></summary>
+<div class="ans"><p>It can be, if the debt is managed well — the 721 exchange's benefits (deferral, diversification, passivity, estate planning) still apply to mortgaged property, and the debt's tax effects can often be managed through structuring (avoiding or minimizing the deemed-distribution tax). So the complexity is manageable, and the benefits can outweigh it. However, the debt adds technical complexity requiring professional guidance, so it's important to analyze your specific situation (basis, debt, structuring) to ensure the contribution works tax-efficiently. For many owners, contributing mortgaged property (with proper structuring) is worthwhile, but it requires careful professional handling.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help with the debt aspects?<span class="ic"></span></summary>
+<div class="ans"><p>We help owners of mortgaged property navigate the debt aspects of a 721 exchange — coordinating with your CPA and attorney on how the partnership takes the debt, the liability allocation, the deemed-distribution risk, and the structuring to manage it (sufficient basis, maintained liability share), and helping you weigh paying down versus contributing with the debt. REIT units are offered through our broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review. We don't provide tax or legal advice (your CPA and attorney handle the debt's treatment); we help coordinate the debt handling with your professionals, so your mortgaged property is contributed while managing the tax effects.</p></div>
+</details>
+<details>
+<summary>Does the REIT need to consent to assuming my debt?<span class="ic"></span></summary>
+<div class="ans"><p>Generally yes — the REIT must agree to take on (or take subject to) your property's debt as part of the contribution, since the debt becomes a partnership liability affecting the REIT's structure. The REIT evaluates the debt's amount, terms, and how it fits their capital structure in deciding whether to accept your property and on what terms. Additionally, your lender may need to consent (for a formal assumption) or the debt may need refinancing. So the debt's handling requires agreement among you, the REIT, and possibly the lender. The REIT's willingness to take the debt is part of whether and how the contribution proceeds, which your advisors help arrange.</p></div>
+</details>
+<details>
+<summary>Can high debt prevent a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Very high debt (high loan-to-value) can complicate or impede a 721 exchange — it increases the deemed-distribution risk (a larger decrease in your liability share relative to your basis), and the REIT may be less willing to take on a heavily-leveraged property. So a property with very high debt relative to its value and your basis may face challenges (a larger potential deemed-distribution tax, or REIT reluctance). Paying down some debt, or structuring carefully, can address this. So while high debt doesn't automatically prevent a 721 exchange, it adds complexity and may require paydown or structuring. Your advisors assess whether your debt level is workable for a contribution.</p></div>
+</details>
+<details>
+<summary>Is the debt issue unique to 721 exchanges?<span class="ic"></span></summary>
+<div class="ans"><p>The deemed-distribution mechanics are specific to partnership contributions (like the 721), but debt is also a consideration in 1031 exchanges (where debt relief can create boot). So both 1031 and 721 exchanges involve handling debt, but through different mechanisms — the 1031's boot rules (debt relief as boot) versus the 721's partnership-liability and deemed-distribution rules. So the debt issue exists in both, but the 721's partnership-tax treatment (liability allocation, deemed distribution) is distinct. The common theme is that debt must be addressed in tax-deferred real estate transactions. So while the specific mechanics differ, handling debt is a consideration in both 721 and 1031 exchanges, requiring professional analysis.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Existing Debt</dt><dd>The mortgage on your property, adding complexity to the 721 exchange.</dd></div>
+<div class="g"><dt>Assumption</dt><dd>The partnership formally taking on the debt obligation.</dd></div>
+<div class="g"><dt>Subject-To</dt><dd>The partnership taking the property with the debt attached.</dd></div>
+<div class="g"><dt>Partnership Liability</dt><dd>The debt as a liability of the partnership after contribution.</dd></div>
+<div class="g"><dt>Liability Allocation</dt><dd>How the partnership's liabilities are shared among partners.</dd></div>
+<div class="g"><dt>Liability Share</dt><dd>Your portion of the partnership's debt, typically decreasing on contribution.</dd></div>
+<div class="g"><dt>Deemed Distribution</dt><dd>The decrease in your liability share, treated as a cash distribution.</dd></div>
+<div class="g"><dt>Debt Relief</dt><dd>The reduction in your debt share, the deemed distribution amount.</dd></div>
+<div class="g"><dt>Basis</dt><dd>Your investment basis, which the deemed distribution reduces.</dd></div>
+<div class="g"><dt>Recourse Debt</dt><dd>Debt with personal liability, allocated by its rules.</dd></div>
+<div class="g"><dt>Nonrecourse Debt</dt><dd>Debt without personal liability, allocated differently.</dd></div>
+<div class="g"><dt>Debt Guarantee</dt><dd>A way to maintain your liability share, managing the risk.</dd></div>
+<div class="g"><dt>Loan-to-Value</dt><dd>The debt relative to value, affecting the deemed-distribution size.</dd></div>
+<div class="g"><dt>Paydown</dt><dd>Reducing the debt before contributing, to lower the risk.</dd></div>
+<div class="g"><dt>Structuring</dt><dd>Arranging the debt handling to manage the tax effects.</dd></div>
+<div class="g"><dt>Partnership Tax Rules</dt><dd>The complex rules governing the debt's treatment.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-541" rel="noopener nofollow" target="_blank">Publication 541, Partnerships</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/752" rel="noopener nofollow" target="_blank">26 U.S. Code § 752 — Treatment of certain liabilities</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/731" rel="noopener nofollow" target="_blank">26 U.S. Code § 731 — Partnership distributions</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

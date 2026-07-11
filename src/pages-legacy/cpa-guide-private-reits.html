@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The CPA's 2026 Guide to Private &amp; Non-Traded REITs | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>The CPA's 2026 Guide to Private & Non-Traded REITs
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">The CPA's 2026 Guide to Private & Non-Traded REITs</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">For Tax Advisors</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 18 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">What a CPA needs to advise on REIT investments — how the dividends are taxed, the 199A deduction, the basis effects, and the UBTI and 1031 angles clients ask about.</p></div>
+
+    <div class="legacy">
+<main id="main">
+
+<div class="wrap abody">
+<article class="article">
+<p class="lead">REITs reach a CPA's desk mostly at the reporting stage, and the distributions are more layered than the headline yield suggests. A single Form 1099-DIV can carry four or five separate tax characters, each taxed on its own schedule. The §199A deduction hands REIT investors a 20% break that survived the 2025 tax law, and a chunk of most distributions is return of capital that quietly erodes basis rather than paying real yield. This guide works through the dividend components box by box, the permanent 199A deduction, basis tracking, the NIIT and UBTI angles, and why REIT shares can never complete a 1031. It pairs with our client-facing <a href="reits-guide.html">REITs guide</a> and the deeper <a href="private-reit-dividends-tax.html">private-REIT dividend tax</a> breakdown.</p>
+<div class="takeaways">
+<div class="tk-h">Key Takeaways for Advisors</div>
+<ul>
+<li>REIT dividends are mostly ordinary income, not qualified, and they spread across several 1099-DIV boxes; reconcile the boxes rather than treating the distribution as one number.</li>
+<li>The qualified-REIT-dividend portion (Box 5) gets the 20% §199A deduction with no W-2/UBIA limit and no income threshold. The 2025 law made it permanent, so high earners keep the full 20%.</li>
+<li>Return of capital (Box 3) isn't taxed now but cuts basis; at zero basis it becomes capital gain, and the lower basis raises gain on sale. It inflates apparent yield.</li>
+<li>Capital-gain distributions (Box 2a) are long-term regardless of holding period; the unrecaptured §1250 slice (Box 2b) is taxed up to 25%.</li>
+<li>REITs block UBTI, so for IRA and tax-exempt clients a REIT is usually cleaner than a leveraged partnership that pushes out UBTI/UDFI and a Form 990-T.</li>
+<li>REIT shares are securities, not like-kind property. They are never 1031 replacement property; reaching a REIT with deferral runs through the two-step DST-then-721 path, and selling shares is taxable.</li>
+</ul>
+</div>
+<h2 id="works">REIT taxation in brief</h2>
+<p>A REIT that meets the income, asset, and distribution tests is generally not taxed at the entity level on income it pays out. The headline test most CPAs remember is the distribution requirement: a REIT must distribute at least <strong>90% of its taxable income</strong> each year to keep REIT status, and income passed through that way escapes corporate-level tax and lands on the shareholder. That single feature explains why REITs throw off large, frequent distributions, and why so much of the taxation lands on the investor.</p>
+<p>For your client, the <em>kind</em> of REIT changes the wrapper, not the dividend tax. A publicly traded REIT trades on an exchange and marks to market daily. A non-traded REIT registers with the SEC but does not list, so it values periodically and limits redemptions. A private REIT is sold under Regulation D to accredited investors only, with the least liquidity and the least public disclosure. Those distinctions drive liquidity, valuation, and suitability. They do <strong>not</strong> change the federal characterization of the dividends, which follows the same 1099-DIV rules across all three. Your work sits at reporting: characterize each component correctly and claim the deductions the client is entitled to. For the suitability and structural side, see <a href="public-vs-non-traded-reits.html">public vs. non-traded REITs</a> and <a href="are-private-reits-safe.html">whether private REITs are safe</a>.</p>
+<h2 id="1099">The 1099-DIV, box by box</h2>
+<p>A REIT distribution arrives on <strong>Form 1099-DIV</strong>, and the dollar figure your client quotes is rarely one tax character. Walk every box, because each lands in a different place on the return and carries a different rate.</p>
+<ul class="bul">
+<li><strong>Box 1a — Total ordinary dividends.</strong> The full ordinary portion. This is the largest piece for most REITs and is taxed at ordinary rates. It flows to Schedule B and the dividend line of Form 1040.</li>
+<li><strong>Box 1b — Qualified dividends.</strong> A subset of Box 1a taxed at long-term capital-gain rates. For REITs this is usually small or zero, because REIT income generally was not taxed at the corporate level and so does not meet the qualified-dividend rules. Do not assume REIT dividends are qualified.</li>
+<li><strong>Box 2a — Total capital-gain distributions.</strong> The REIT's net long-term gains from selling property, passed through. These are <strong>long-term regardless of the client's holding period</strong> in the shares, and they go to Schedule D.</li>
+<li><strong>Box 2b — Unrecaptured §1250 gain.</strong> The depreciation-driven slice of Box 2a, taxed at a maximum rate of <strong>25%</strong> rather than the regular long-term rate. It is a subset of 2a, not an add-on, and it carries through the Schedule D worksheet.</li>
+<li><strong>Box 3 — Nondividend distributions.</strong> Return of capital. Not taxed currently; it reduces basis. Covered in depth below.</li>
+<li><strong>Box 5 — Section 199A dividends.</strong> The qualified-REIT-dividend portion eligible for the 20% deduction. This is the figure that drives Form 8995 / 8995-A, and it is generally a subset of the ordinary dividends in Box 1a.</li>
+</ul>
+<p>Because of this layering, two REITs with identical 8% headline yields can produce very different after-tax results depending on how the distribution splits across boxes. Reconcile the components every year rather than treating the distribution as a single ordinary number.</p>
+<h2 id="199a">The §199A 20% deduction, in depth</h2>
+<p>This is the real edge for REIT investors. The ordinary-income portion reported in <strong>Box 5 as qualified REIT dividends</strong> qualifies for the <strong>20% deduction under §199A</strong>, claimed on <strong>Form 8995</strong> or <strong>Form 8995-A</strong>. A client in the 37% bracket who collects qualified REIT dividends is effectively taxed at roughly 29.6% on that slice once the 20% deduction applies.</p>
+<p>The detail many preparers miss is that the REIT-dividend component of 199A is treated more generously than ordinary QBI from a business. It is <strong>not subject to the W-2 wage or UBIA-of-property limitations</strong>, and it is <strong>not phased out by the taxable-income thresholds</strong> that cap the QBI deduction for specified service businesses and high earners. A client well over the threshold still gets the full 20% on the REIT-dividend portion. There is no need to compute wages or unadjusted basis for it.</p>
+<p>On timing: the 199A deduction was scheduled to sunset after 2025, and the <strong>2025 tax law (the One Big Beautiful Bill Act) made it permanent</strong>. The qualified-REIT-dividend break is therefore a durable planning feature, not a temporary one. As always, confirm the current form instructions and any threshold figures for the filing year before you finalize the return. For the client-facing version of this point, see <a href="private-reit-dividends-tax.html">how private-REIT dividends are taxed</a>.</p>
+<h2 id="roc">Return of capital and basis tracking</h2>
+<p><strong>Nondividend distributions (Box 3)</strong> are a return of capital. They are not taxed in the year received; instead they <strong>reduce the shareholder's basis</strong> in the shares. REITs generate a lot of return of capital because depreciation shelters their book earnings, so cash goes out the door faster than taxable income is recognized. A REIT can advertise an 8% distribution where a meaningful fraction is Box 3, which is part deferral and part the client being handed back their own capital.</p>
+<p>Two consequences make basis tracking non-optional. First, <strong>once basis reaches zero</strong>, any further return of capital stops being tax-free and is taxed as capital gain in that year. Second, every dollar of Box 3 lowers basis, so it <strong>increases the gain</strong> (or shrinks the loss) when the client eventually sells or redeems. Return of capital is deferral, not free yield, and it inflates the apparent cash yield relative to the taxable yield. Carry a basis schedule per position across years; the 1099-DIV reports the current-year Box 3 figure but not the running basis.</p>
+<h2 id="example">Worked example: one distribution, five characters</h2>
+<p>Numbers are illustrative only. Suppose a client holds a non-traded REIT and receives <strong>$10,000</strong> in distributions for the year. The 1099-DIV might break out like this.</p>
+<table class="dtable2">
+<thead><tr><th>1099-DIV box</th><th>Illustrative amount</th><th>How it is taxed</th></tr></thead>
+<tbody>
+<tr><td>Box 1a — Ordinary dividends</td><td>$6,000</td><td>Ordinary rates; of this, the §199A slice gets the 20% deduction</td></tr>
+<tr><td>Box 1b — Qualified (subset of 1a)</td><td>$200</td><td>Long-term capital-gain rates; usually small for REITs</td></tr>
+<tr><td>Box 2a — Capital-gain distribution</td><td>$1,500</td><td>Long-term regardless of holding period (Schedule D)</td></tr>
+<tr><td>Box 2b — Unrecaptured §1250 (subset of 2a)</td><td>$600</td><td>Up to 25% maximum rate</td></tr>
+<tr><td>Box 5 — §199A dividends (subset of 1a)</td><td>$5,400</td><td>Eligible for the 20% deduction; no W-2/UBIA or income limit</td></tr>
+<tr><td>Box 3 — Return of capital</td><td>$2,500</td><td>Not taxed now; reduces basis dollar for dollar</td></tr>
+</tbody>
+</table>
+<p class="tcap">Illustrative figures only; Box 1b, 2b, and 5 are subsets, not additions. Actual splits vary by REIT and year.</p>
+<p>Read the example carefully. The headline distribution is $10,000, but only the ordinary and capital-gain pieces are currently taxable, the §199A slice carries a 20% discount, and the $2,500 of Box 3 is not taxed today but cuts basis by $2,500. The taxable income for the year is well under the cash received, which is the deferral effect at work. Carry that $2,500 into the basis schedule so the gain is correct on a future sale.</p>
+<h2 id="niit">The 3.8% net investment income tax</h2>
+<p>REIT dividends are <strong>net investment income</strong>, so the <strong>3.8% net investment income tax (NIIT)</strong> applies once a client's modified AGI crosses <strong>$200,000 single</strong> or <strong>$250,000 married filing jointly</strong>. The ordinary, qualified, and capital-gain components are all NII; return of capital in Box 3 is not income in the current year and so is not hit by NIIT until it is recognized as gain. For high-income clients the NIIT stacks on top of the ordinary or capital-gain rate, so the all-in rate on REIT dividends runs a few points higher than the bracket alone implies. The 199A deduction reduces the income tax on the REIT-dividend slice but does not reduce the NIIT base. Confirm the threshold figures for the filing year.</p>
+<h2 id="ubti">UBTI and retirement accounts</h2>
+<p>For clients investing through an IRA, solo 401(k), or other tax-exempt account, REITs carry a structural advantage: they act as a <strong>UBTI blocker</strong>. Because a REIT is a corporation for tax purposes, its dividends are generally <em>not</em> unrelated business taxable income to a tax-exempt or IRA holder, even when the REIT itself carries substantial debt. The corporate wrapper absorbs the leverage.</p>
+<p>Contrast that with a direct interest in a leveraged operating partnership or a typical real-estate syndication. Those pass through <strong>UBTI and UDFI</strong> (unrelated debt-financed income) to the IRA, which can force a <strong>Form 990-T</strong> filing and tax paid <em>inside</em> the retirement account at trust rates. So for a retirement-account client who wants real-estate exposure, a REIT, including a private REIT, is frequently the cleaner vehicle than a partnership. This is one of the sharper planning points when a client is weighing a <a href="private-reit-vs-syndication.html">REIT against a syndication</a>.</p>
+<p>Put the two side by side for a retirement-account client. Inside the IRA, a <strong>private REIT</strong> pays dividends that are generally not UBTI, the deal's leverage is blocked at the REIT's corporate level, and there is typically no Form 990-T to file. A <strong>leveraged operating partnership or syndication</strong> passes through K-1 income that can be UBTI/UDFI, its debt-financed income flows straight to the IRA, and once UBTI exceeds $1,000 the account itself owes tax at trust rates and files a Form 990-T. Facts and specific structures vary, so confirm with the offering documents and a UBTI analysis.</p>
+<h2 id="1031">1031 ineligibility and the 721 path</h2>
+<p>Flag this early for any client tempted to roll real-estate sale proceeds straight into a REIT: <strong>REIT shares are securities, not like-kind real property, and can never be §1031 replacement property</strong>. That holds for public, non-traded, and private REITs alike. Buying REIT shares with sale proceeds does not defer anything; the underlying sale is fully taxable.</p>
+<p>The only way to reach a REIT with continued deferral is the two-step route. First, the client completes a <a href="1031-exchange-into-dst.html">1031 into a Delaware Statutory Trust</a>, which is treated as a fractional real-property interest and is 1031-eligible. Later, when the REIT's sponsor offers it, the DST property is contributed to the REIT's operating partnership in a <strong>§721 exchange</strong> for <strong>OP units</strong> on a tax-deferred basis. The mechanics and reporting shift at that point: OP units are a <strong>partnership interest reported on a K-1</strong>, not 1099-DIV. We cover the full mechanics in the <a href="cpa-guide-721-exchange.html">CPA guide to 721 exchanges</a>, the <a href="1031-to-721-exchange.html">1031-to-721 walkthrough</a>, and <a href="op-units-explained.html">OP units explained</a>.</p>
+<p>One more point for the file: a 721 contribution defers tax, but it is generally a one-way door. Once the client converts OP units to REIT shares (or the REIT redeems them), that conversion is a <strong>taxable event</strong> recognizing the deferred gain. From REIT shares onward, the position is a security, and selling it is taxable like any stock. Correcting the "I'll just 1031 into a REIT" misconception is one of the more common and more valuable things a CPA does on these files.</p>
+<h2 id="state">State tax and withholding notes</h2>
+<p>State treatment does not always track federal. Most states begin from federal taxable income, so the federal characterization carries through, but the <strong>state §199A conformity</strong> varies; some states do not allow the 20% deduction at the state level, so the REIT-dividend benefit may be federal-only for a given client. States also differ on how they treat capital-gain distributions and return of capital, and a client with REIT holdings tied to property in multiple states can pick up filing obligations or withholding in those states. Non-traded and private REIT sponsors sometimes withhold or issue state-specific reporting on the OP-unit side after a 721. Confirm the rules for the client's resident state and any state where the REIT holds property, rather than assuming federal conformity.</p>
+<h2 id="checklist">Client due-diligence checklist</h2>
+<ul class="bul">
+<li><strong>Reconcile the 1099-DIV box by box</strong> — ordinary (1a), qualified (1b), capital-gain (2a), §1250 (2b), §199A (5), and return of capital (3).</li>
+<li><strong>Claim the §199A deduction</strong> on the Box 5 figure via Form 8995 or 8995-A; remember there is no W-2/UBIA or income-threshold limit on it.</li>
+<li><strong>Maintain a per-position basis schedule</strong> and reduce it by every Box 3 distribution; flag the position before basis reaches zero.</li>
+<li><strong>Run the NIIT check</strong> for clients near or over $200k single / $250k MFJ.</li>
+<li><strong>For IRA/tax-exempt clients</strong>, confirm the REIT blocks UBTI versus a partnership alternative that would trigger Form 990-T.</li>
+<li><strong>Correct any 1031 misconception</strong> — REIT shares are not eligible; the path is <a href="dst-guide.html">DST</a> first, then 721.</li>
+<li><strong>For private and non-traded REITs</strong>, verify accredited status and review the PPM, redemption terms, valuation cadence, and fees before recommending; see <a href="how-to-invest-in-a-private-reit.html">how to invest in a private REIT</a>.</li>
+</ul>
+<h2 id="workflow">Reporting workflow: what to give the CPA at filing</h2>
+<p>To file these returns cleanly, ask the client for a short, specific package each year. The <strong>consolidated 1099-DIV</strong> from every REIT or brokerage, including any corrected versions, which REITs often issue late because they finalize the box allocations after year-end. The prior-year <strong>basis schedule</strong> for each position so return of capital reduces the right starting number. <strong>Purchase confirmations</strong> for any shares bought during the year and redemption statements for any sold. If the client has crossed into OP units, the <strong>K-1</strong> and the original <strong>721 exchange and DST closing documents</strong> establishing carryover basis. And for any private or non-traded REIT, the offering documents on file in case suitability or a redemption gate becomes relevant. Expect amended 1099s on non-traded and private REITs and budget for the possibility of a superseding or extended return.</p>
+<p>For the broader structural context behind these holdings, our <a href="cpa-guide-1031-exchange.html">CPA guide to 1031 exchanges</a> and the <a href="reits-guide.html">REITs guide</a> sit alongside this one in the advisor series.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>How are REIT dividends taxed?<span class="ic"></span></summary>
+<div class="ans"><p>Mostly as ordinary income reported on Form 1099-DIV, with a 20% §199A deduction generally available on the qualified-REIT-dividend portion (Box 5). Distributions can also include capital-gain distributions (Box 2a), unrecaptured §1250 gain (Box 2b), and return of capital (Box 3).</p></div>
+</details>
+<details>
+<summary>Does the §199A deduction apply to REIT dividends, and is it permanent?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. The qualified-REIT-dividend portion (Box 5) gets the 20% deduction on Form 8995/8995-A, with no W-2/UBIA limit and no income threshold, so high earners get the full benefit. The 2025 tax law (the One Big Beautiful Bill Act) made the deduction permanent.</p></div>
+</details>
+<details>
+<summary>How does return of capital from a REIT affect basis?<span class="ic"></span></summary>
+<div class="ans"><p>Nondividend distributions (Box 3) aren't taxed currently but reduce basis. When basis reaches zero, further return of capital is capital gain, and the lower basis increases gain on an eventual sale. It is deferral, not free yield.</p></div>
+</details>
+<details>
+<summary>Are REIT dividends subject to the 3.8% NIIT?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. REIT dividends are net investment income, so the 3.8% net investment income tax applies once modified AGI crosses $200,000 single or $250,000 married filing jointly. The 199A deduction reduces the income tax but not the NIIT base.</p></div>
+</details>
+<details>
+<summary>Are REITs good for IRA investors?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes. REITs act as a UBTI blocker, so their dividends generally aren't unrelated business taxable income to an IRA or tax-exempt investor, unlike a leveraged operating partnership, which can generate UBTI/UDFI and a Form 990-T obligation inside the account.</p></div>
+</details>
+<details>
+<summary>Can a client 1031 into a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>No. REIT shares are securities, not like-kind real property, so they can't be 1031 replacement property. To reach a REIT with deferral, the client uses a 1031 into a DST and then a 721 exchange into the REIT's operating partnership for OP units.</p></div>
+</details>
+<details>
+<summary>How is a 721 exchange into a REIT reported?<span class="ic"></span></summary>
+<div class="ans"><p>The 721 contribution itself is generally tax-deferred. After it, the client holds OP units, which are a partnership interest reported on a Schedule K-1, not on Form 1099-DIV. Converting OP units to REIT shares or having them redeemed is a taxable event that recognizes the deferred gain.</p></div>
+</details>
+<details>
+<summary>How does a DST report to the investor?<span class="ic"></span></summary>
+<div class="ans"><p>A DST is treated as a grantor trust under Rev. Rul. 2004-86, so it reports on a 1099 plus a grantor letter rather than a K-1. That keeps the beneficial interest treated as direct real-property ownership, which is what makes the later 721 into a REIT possible.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Form 1099-DIV</dt><dd>The form reporting REIT distribution components: ordinary (1a), qualified (1b), capital-gain (2a), unrecaptured §1250 (2b), §199A (5), and return of capital (3).</dd></div>
+<div class="g"><dt>§199A REIT Dividends</dt><dd>The Box 5 portion of REIT dividends eligible for the 20% deduction, with no W-2/UBIA limit and no income threshold; made permanent by the 2025 tax law.</dd></div>
+<div class="g"><dt>Return of Capital</dt><dd>A nondividend distribution (Box 3) that isn't taxed currently but reduces basis dollar for dollar; it becomes capital gain once basis hits zero.</dd></div>
+<div class="g"><dt>Unrecaptured §1250 Gain</dt><dd>The depreciation-driven slice of a capital-gain distribution (Box 2b), taxed at a maximum rate of 25%.</dd></div>
+<div class="g"><dt>Net Investment Income Tax (NIIT)</dt><dd>A 3.8% tax on net investment income, including REIT dividends, over MAGI of $200,000 single or $250,000 married filing jointly.</dd></div>
+<div class="g"><dt>UBTI Blocker</dt><dd>A REIT's ability to shield IRA and tax-exempt investors from unrelated business taxable income, because the REIT is a corporation for tax purposes.</dd></div>
+<div class="g"><dt>721 Exchange</dt><dd>A tax-deferred contribution of property to a REIT's operating partnership in exchange for OP units, the second step after a 1031 into a DST.</dd></div>
+<div class="g"><dt>Form 8995 / 8995-A</dt><dd>The forms on which the §199A deduction, including the qualified-REIT-dividend portion, is computed and claimed.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/857" rel="noopener nofollow" target="_blank">26 U.S. Code § 857 — Taxation of real estate investment trusts and their beneficiaries</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/199A" rel="noopener nofollow" target="_blank">26 U.S. Code § 199A — Qualified business income (qualified REIT dividends)</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1411" rel="noopener nofollow" target="_blank">26 U.S. Code § 1411 — Net investment income tax</a></li>
+<li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-1099-div" rel="noopener nofollow" target="_blank">About Form 1099-DIV, Dividends and Distributions</a></li>
+</ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures">
+<p>This guide is published by Baker 1031 for general informational and educational purposes for tax professionals and investors. It is a high-level summary, not tax, legal, or accounting advice, and is not a substitute for the Internal Revenue Code, Treasury Regulations, IRS guidance, or independent professional judgment. Practitioners should confirm current law and apply it to specific facts; nothing here may be relied upon to avoid penalties.</p>
+<p>References to Code sections, regulations, rulings, and forms reflect a general understanding as of mid-2026 and are subject to change, including by the 2025 One Big Beautiful Bill Act and subsequent guidance. Securities offered through Aurora Securities, Inc., member FINRA / SIPC; Baker 1031 Investments is independent of Aurora Securities, Inc. Private placements referenced are sold only to verified accredited investors and involve substantial risk including loss of principal.</p>
+</div>
+</article>
+
+</div>
+
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){ const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx)); }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink'); cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn'); pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    const dp=document.getElementById('dlpdf'); dp&&dp.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(o){document.querySelectorAll('.faq details').forEach(d=>{if(o){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true)); addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

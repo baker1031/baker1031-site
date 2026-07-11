@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Calculator: Estimate Your Deferred Tax | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Calculator: Estimate Your Deferred Tax
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Calculator: Estimate Your Deferred Tax</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 13 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">A 1031 calculator turns your sale numbers into an estimate of the tax you'd defer. This complete guide covers how it works, the inputs, the four taxes it captures, worked examples, how to read the result, and its limitations.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Before committing to the work and discipline of a 1031 exchange, most investors want a number: how much tax would I actually defer? A 1031 exchange calculator gives a quick, useful estimate from a handful of inputs — your sale price, your basis, your depreciation, your debt, and your state and income — and it's the natural starting point for the conversation with your CPA. This guide explains exactly how the calculator works, what each input means, the four taxes it captures, how to read the result, and where its limitations lie. Baker 1031 offers free 1031 and capital-gains calculators at baker1031.com/calculators.</p>
+<h2 id="how">How the Calculator Works</h2>
+<p>A 1031 exchange calculator estimates the total tax you would owe on an outright sale — which is exactly the amount a fully structured exchange defers. It computes your gain (sale price minus adjusted basis and selling costs), separates the depreciation-recapture portion, and applies the relevant federal, recapture, surtax, and state rates.</p>
+<p>The output is the combined tax you'd defer by exchanging, plus your equity available for reinvestment. In other words, it answers two questions: what does selling cost in tax, and how much capital do I keep working by exchanging instead?</p>
+<p>The calculation isn't complicated in principle — it's the four taxes applied to the right parts of your gain — but doing it by hand is error-prone, which is why a calculator is useful for a quick, reliable estimate.</p>
+<h2 id="inputs">Inputs: Sale Price, Basis &amp; Debt</h2>
+<p>Typical inputs include your sale price, original purchase price, capital improvements, accumulated depreciation, selling costs (commissions, closing costs), mortgage payoff, and your state and income bracket. The more accurate these are, the more reliable the estimate.</p>
+<p><strong>Sale price</strong> and <strong>selling costs</strong> determine your net proceeds. <strong>Original price plus improvements minus depreciation</strong> gives your adjusted basis. <strong>Accumulated depreciation</strong> drives the recapture layer. <strong>Mortgage payoff</strong> affects your reinvestable equity. <strong>State and income</strong> set your tax rates.</p>
+<p>Gather these figures from your closing statements, depreciation schedules, and tax returns. Your basis and depreciation, in particular, come from your CPA's records — and they're the inputs that most affect the result, so accuracy matters.</p>
+<h2 id="gain">How Your Gain Is Calculated</h2>
+<p>Your realized gain is the sale price minus selling costs minus your adjusted basis. Adjusted basis is your original cost plus capital improvements minus the depreciation you've taken. Because depreciation lowers basis, a long-held, heavily depreciated property has a low basis and therefore a large gain.</p>
+<p>The calculator splits this gain into two parts: the <strong>appreciation</strong> (gain above your original cost) and the <strong><a href="depreciation-recapture-real-estate.html">depreciation recapture</a></strong> (the portion attributable to depreciation taken). These are taxed at different rates, so the split matters.</p>
+<p>For example, buy for $300,000, depreciate $100,000 to a $200,000 basis, sell for $500,000 (net of costs): your gain is $300,000 — $100,000 of recapture and $200,000 of appreciation. The calculator does this split automatically from your inputs.</p>
+<h2 id="four">The Four Taxes the Calculator Captures</h2>
+<p>A good 1031 calculator captures four taxes. <strong>Federal long-term capital gains</strong> (0/15/20%) on the appreciation. <strong>Depreciation recapture</strong> (up to 25%) on the depreciated portion. The <strong>3.8% <a href="net-investment-income-tax.html">net investment income tax</a></strong> for higher earners. And <strong>state <a href="capital-gains-tax-on-real-estate.html">capital gains tax</a></strong> (0% to over 13%).</p>
+<p>Each applies to a different base: capital gains to the appreciation, recapture to the depreciation taken, and the NIIT and state tax generally to the whole gain for those subject to them. Adding them gives your total tax — and your deferred amount.</p>
+<p>Many simple calculators capture only the federal capital gains rate, understating the true deferral. A complete calculator includes all four layers, which is why the deferred amount it shows is often larger than investors expect.</p>
+<h2 id="result">Your Estimated Deferred Tax</h2>
+<p>The output is the estimated combined tax (capital gains + recapture + NIIT + state) you would defer by exchanging, often expressed both as a dollar amount and an effective rate on your gain. It also shows your reinvestable equity — the proceeds available to roll into replacement property.</p>
+<p>This result quantifies the value of the exchange: the dollar amount you keep invested instead of paying in tax now. For a long-held property in a high-tax state, it can run well into six figures — which frames whether the exchange is worth the effort and fees.</p>
+<p>Seeing the actual number usually clarifies the decision. A large deferred amount makes the case for an exchange compelling; a small one (high basis, little gain) may suggest a sale is simpler.</p>
+<h2 id="example1">Worked Example: High-Tax State</h2>
+<p>Consider a California investor: sale price $1,000,000, adjusted basis $400,000 (after $200,000 of depreciation), selling costs $60,000. Net gain is about $540,000 — $200,000 recapture and $340,000 appreciation.</p>
+<p>The calculator applies 25% to the $200,000 recapture ($50,000), 20% to the $340,000 appreciation ($68,000), 3.8% NIIT to the gain (about $20,500), and ~13% California tax (about $70,000) — roughly $208,500 of total tax, an effective rate near 39%.</p>
+<p>That $208,500 is what a 1031 exchange defers, keeping the full proceeds invested. Figures are illustrative and depend on current rates and your specifics, but the example shows how the calculator stacks the layers.</p>
+<h2 id="example2">Worked Example: No-Tax State</h2>
+<p>Now a Texas investor (no state tax): sale price $600,000, adjusted basis $350,000 (after $80,000 depreciation), selling costs $36,000. Net gain is about $214,000 — $80,000 recapture and $134,000 appreciation, with income low enough to avoid the NIIT.</p>
+<p>The calculator applies 25% to the $80,000 recapture ($20,000) and 15% to the $134,000 appreciation ($20,100) — about $40,100 of total tax, an effective rate near 19%, with no state tax or NIIT.</p>
+<p>The contrast with the California example shows how much state and income affect the deferred amount: a similar transaction defers far less in a no-tax state. The calculator captures these differences automatically from your state and income inputs.</p>
+<h2 id="means">What the Result Means</h2>
+<p>Treat the figure as a planning estimate, not tax advice. Real results depend on details a calculator simplifies — your exact basis, passive activity losses, prior depreciation methods, state nuances, and current-year rates and thresholds. The calculator gets you a reliable ballpark, not a filed-return number.</p>
+<p>Use it to gauge whether an exchange is worth pursuing. If the deferred amount is meaningful relative to the effort and fees, an exchange likely makes sense; if it's small, a straightforward sale may be simpler.</p>
+<p>Then confirm with your CPA, who can refine the estimate with your actual records and model the after-tax outcome of exchanging versus selling. The calculator starts the analysis; your CPA finishes it.</p>
+<h2 id="limitations">Limitations of the Calculator</h2>
+<p>Calculators simplify. They typically assume standard depreciation, may not account for passive activity loss carryforwards, suspended losses, cost-segregation effects, or special state rules like withholding and clawback. They also use current rates, which can change.</p>
+<p>They also don't capture the qualitative side of the decision — whether you can find suitable replacement property, whether you want to stay in real estate, or your liquidity needs. The number is one input into a broader decision.</p>
+<p>Understanding these limitations keeps you from over-relying on the figure. It's an excellent starting estimate, but the final decision should incorporate your CPA's analysis and the practical realities of executing an exchange.</p>
+<h2 id="compare">1031 Calculator vs. Other 1031 Calculators</h2>
+<p>There are several related calculators, and knowing which to use saves confusion. A <strong>1031 (deferred-tax) calculator</strong> estimates the tax you'd defer by exchanging — the focus of this guide. A <strong>capital gains calculator</strong> estimates the same tax framed as the cost of an outright sale. A <strong>replacement-value calculator</strong> shows how much you must buy (and what debt to replace) to fully defer.</p>
+<p>A <strong>deadline calculator</strong> computes your 45-day and 180-day dates from your closing, and an <strong>LTV calculator</strong> helps match the debt on your replacement to your old loan. Each answers a different question in the exchange process.</p>
+<p>Used together, they cover the key numbers: how much tax you'd defer (1031/capital gains calculator), how much you must reinvest and borrow (replacement-value and LTV calculators), and when your deadlines fall (deadline calculator). Most investors start with the deferred-tax estimate to decide whether to proceed, then use the others to structure and time the exchange. Baker 1031's suite at baker1031.com/calculators covers all of these.</p>
+<h2 id="mistakes">Common Calculator Input Mistakes</h2>
+<p>Inaccurate inputs produce misleading estimates, and a few mistakes recur. The most common is using the original purchase price as the basis without subtracting accumulated depreciation — which understates the gain and the recapture, and therefore the deferred tax. Always use adjusted basis (cost plus improvements minus depreciation).</p>
+<p>Another is forgetting capital improvements, which increase basis and reduce gain — omitting them overstates the tax. A third is omitting selling costs, which reduce net proceeds and gain. And a fourth is entering the wrong state or income, which changes the rates applied.</p>
+<p>The depreciation figure is the one investors most often get wrong or estimate, yet it drives the recapture layer that's often the biggest piece. Pull your accumulated depreciation and adjusted basis from your CPA's records rather than estimating, and the calculator's result will be far more reliable.</p>
+<h2 id="when-use">When to Run the Calculator</h2>
+<p>Run a 1031 calculator early — ideally before you list the property, while you're still deciding whether to sell or exchange. The deferred-tax estimate is a key input into that decision, and knowing it early lets you plan the exchange (or a sale) with a clear picture of the stakes.</p>
+<p>It's also worth re-running as your numbers firm up — when you have a likely sale price, confirmed basis, and current depreciation — so the estimate sharpens. The figure you get with rough inputs is a ballpark; with accurate inputs it's a reliable planning number.</p>
+<p>Finally, share the result with your CPA and advisor as you plan. The calculator's estimate frames the conversation, and your CPA can refine it while your advisor uses the reinvestable-equity figure to surface suitable replacement options. Running it early and sharing it is how the calculator best informs your exchange.</p>
+<h2 id="next">Next Steps After Calculating</h2>
+<p>If the estimated deferred tax is meaningful, the next steps are clear. Engage a <a href="insights.html">qualified intermediary</a> before you sell. Talk to your CPA to confirm the exchange makes sense and refine the numbers. And start lining up replacement options — including a fast-closing DST backup — so you're ready to identify within 45 days.</p>
+<p>The calculator answers "is it worth it?"; these steps make it happen. The investors who execute cleanly are the ones who run the numbers early and then prepare before they sell, rather than scrambling after.</p>
+<p>An independent advisor can help with both the analysis and the execution — surfacing replacement options that fit the dollar amount the calculator shows, and coordinating the exchange against the deadlines. The calculator is the first step in a process the rest of this guide series walks through.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>How does a 1031 exchange calculator work?<span class="ic"></span></summary>
+<div class="ans"><p>It estimates your gain from sale price, basis, improvements, depreciation, and selling costs, then applies federal capital gains, depreciation recapture, the 3.8% NIIT, and state rates to estimate the total tax you'd defer by exchanging. It also shows your reinvestable equity.</p></div>
+</details>
+<details>
+<summary>What information do I need for the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>Sale price, original purchase price, capital improvements, accumulated depreciation, selling costs, mortgage payoff, and your state and income bracket. Your basis and depreciation come from your CPA's records and most affect the result, so accuracy matters.</p></div>
+</details>
+<details>
+<summary>Is the calculator result tax advice?<span class="ic"></span></summary>
+<div class="ans"><p>No. It's a planning estimate that simplifies real-world details like exact basis, passive losses, cost segregation, and state nuances, and uses current rates. Use it to gauge whether an exchange is worth pursuing, then confirm the precise figures with your CPA.</p></div>
+</details>
+<details>
+<summary>What four taxes does the calculator estimate?<span class="ic"></span></summary>
+<div class="ans"><p>Federal long-term capital gains (0/15/20%) on the appreciation, depreciation recapture (up to 25%) on the depreciated portion, the 3.8% net investment income tax for higher earners, and state capital gains tax (0% to over 13%). A complete calculator captures all four; simple ones capture only the federal rate.</p></div>
+</details>
+<details>
+<summary>Why is the deferred amount larger than I expected?<span class="ic"></span></summary>
+<div class="ans"><p>Because most people think only of the federal capital gains rate, but the calculator also includes depreciation recapture (often the biggest layer on long-held property), the NIIT, and state tax. Stacking all four produces a larger figure than the headline rate alone.</p></div>
+</details>
+<details>
+<summary>How is my gain calculated?<span class="ic"></span></summary>
+<div class="ans"><p>Sale price minus selling costs minus adjusted basis (original cost plus improvements minus depreciation). The gain is split into appreciation (above original cost) and depreciation recapture (the depreciation taken), which are taxed at different rates.</p></div>
+</details>
+<details>
+<summary>Does the calculator account for my state?<span class="ic"></span></summary>
+<div class="ans"><p>A complete calculator does — state capital gains tax ranges from 0% (Texas, Florida) to over 13% (California), and it's a major factor in the deferred amount. Enter your state (and sometimes residency) so the estimate reflects your state layer.</p></div>
+</details>
+<details>
+<summary>What is reinvestable equity?<span class="ic"></span></summary>
+<div class="ans"><p>The proceeds available to roll into replacement property — generally your sale price minus selling costs minus mortgage payoff. The calculator shows this alongside the deferred tax so you can see both what you'd save in tax and how much capital you'd reinvest.</p></div>
+</details>
+<details>
+<summary>Should I do an exchange based on the calculator result?<span class="ic"></span></summary>
+<div class="ans"><p>The calculator helps you decide but shouldn't be the sole basis. If the deferred amount is meaningful and you want to stay in real estate, an exchange likely makes sense — but confirm with your CPA and consider whether you can find suitable replacement property. The number is one input into a broader decision.</p></div>
+</details>
+<details>
+<summary>How accurate is the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>It provides a reliable ballpark from accurate inputs, but it simplifies details (passive losses, cost segregation, special state rules) and uses current rates. Treat it as a planning estimate and have your CPA refine it with your actual records for a precise figure.</p></div>
+</details>
+<details>
+<summary>Where can I find a 1031 calculator?<span class="ic"></span></summary>
+<div class="ans"><p>Baker 1031 offers free 1031 and capital-gains calculators at baker1031.com/calculators that estimate your deferred tax from your sale price, basis, depreciation, state, and income. Treat the result as a planning estimate and confirm with your CPA.</p></div>
+</details>
+<details>
+<summary>Does the calculator tell me my replacement target?<span class="ic"></span></summary>
+<div class="ans"><p>A 1031 calculator focuses on the deferred tax and reinvestable equity. To find how much replacement property you must acquire to fully defer (the equal-or-greater-value target), use a replacement-value calculator, which shows the value and debt you need to reinvest to avoid boot.</p></div>
+</details>
+<details>
+<summary>What should I do after running the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>If the deferred tax is significant, engage a qualified intermediary before selling, consult your CPA to refine the numbers, and begin identifying replacement options including a DST backup. The calculator answers whether an exchange is worth it; these steps make it happen.</p></div>
+</details>
+<details>
+<summary>Does my income bracket affect the result?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Higher income pushes you into the 20% capital gains bracket and triggers the 3.8% NIIT, increasing the deferred amount. Lower income may keep you at 15% (or 0%) and below the NIIT threshold. Your bracket is a key input that the calculator uses to apply the right rates.</p></div>
+</details>
+<details>
+<summary>Can the calculator handle a property with no depreciation?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. For property with no depreciation (like raw land), there's no recapture layer, so the calculator applies capital gains, NIIT, and state tax to the appreciation. Entering zero accumulated depreciation produces the correct estimate for non-depreciated property.</p></div>
+</details>
+<details>
+<summary>What's the most common 1031 calculator input mistake?<span class="ic"></span></summary>
+<div class="ans"><p>Using the original purchase price as the basis without subtracting accumulated depreciation. This understates the gain and recapture, and therefore the deferred tax. Always use adjusted basis — cost plus improvements minus depreciation — pulled from your CPA's records for accuracy.</p></div>
+</details>
+<details>
+<summary>Should I include capital improvements in the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Capital improvements increase your adjusted basis, which reduces your gain and the estimated tax. Omitting them overstates the tax. Include documented improvements you've made over the years for an accurate estimate.</p></div>
+</details>
+<details>
+<summary>How is a 1031 calculator different from a replacement-value calculator?<span class="ic"></span></summary>
+<div class="ans"><p>A 1031 calculator estimates the tax you'd defer; a replacement-value calculator shows how much property you must acquire (and what debt to replace) to fully defer. The first helps you decide whether to exchange; the second helps you structure it to avoid boot. They're complementary.</p></div>
+</details>
+<details>
+<summary>Does the calculator assume a full (zero-boot) exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Typically yes — it estimates the tax a fully structured exchange defers, assuming you reinvest everything with no boot. If you plan a partial exchange (taking some cash), you'd pay tax on the boot portion, so your actual deferral would be less than the full estimate.</p></div>
+</details>
+<details>
+<summary>When should I run a 1031 calculator?<span class="ic"></span></summary>
+<div class="ans"><p>Early — ideally before you list, while deciding whether to sell or exchange — and again as your numbers firm up. Running it early lets you plan with a clear picture of the deferred tax, and re-running with accurate basis and depreciation sharpens the estimate.</p></div>
+</details>
+<details>
+<summary>Can I rely on the calculator instead of a CPA?<span class="ic"></span></summary>
+<div class="ans"><p>No. The calculator is a planning estimate to inform your decision and frame the conversation, but it simplifies details your CPA accounts for — exact basis, passive losses, cost segregation, special state rules, and current thresholds. Use the calculator first, then have your CPA refine it.</p></div>
+</details>
+<details>
+<summary>Does the calculator show my reinvestment requirement?<span class="ic"></span></summary>
+<div class="ans"><p>A deferred-tax calculator shows your reinvestable equity (proceeds available to reinvest) but not the full equal-or-greater-value and debt targets needed to avoid boot. For those, use a replacement-value calculator, which translates your sale into the value and debt you must acquire.</p></div>
+</details>
+<details>
+<summary>How accurate is the depreciation input?<span class="ic"></span></summary>
+<div class="ans"><p>It's critical and often mis-estimated. Accumulated depreciation drives the recapture layer, which is frequently the largest piece of the deferred tax on a long-held property. Pull the exact figure from your CPA's depreciation schedules rather than estimating, for a reliable result.</p></div>
+</details>
+<details>
+<summary>Will the calculator's rates be current?<span class="ic"></span></summary>
+<div class="ans"><p>A maintained calculator uses current rates and thresholds, but these adjust periodically. Treat the result as a current-year estimate and confirm with your CPA, especially the income thresholds for the capital gains brackets and the NIIT, which can change year to year.</p></div>
+</details>
+<details>
+<summary>What does the calculator's effective-rate output mean?<span class="ic"></span></summary>
+<div class="ans"><p>The effective rate is your total estimated tax divided by your total gain — a single percentage summarizing how much of your gain would go to tax on a sale. It ranges from the mid-teens to over 35% depending on your depreciation, income, and state, and it's exactly the percentage of gain a 1031 exchange defers.</p></div>
+</details>
+<details>
+<summary>Can I use the calculator for a property held in an LLC?<span class="ic"></span></summary>
+<div class="ans"><p>For a single-member LLC (disregarded for tax), yes — the property's figures are entered as if you owned it directly. For a multi-member LLC or partnership, the entity is the taxpayer and the situation is more complex (the partnership must do the exchange), so consult your CPA before relying on a simple calculator.</p></div>
+</details>
+<details>
+<summary>Does the calculator factor in how long I held the property?<span class="ic"></span></summary>
+<div class="ans"><p>It assumes long-term treatment (held over a year), which gives the favorable 0/15/20% capital gains rates. Holding period also affects how much depreciation has accumulated (and thus recapture). For property held a year or less, short-term ordinary rates apply and a 1031 generally isn't available.</p></div>
+</details>
+<details>
+<summary>How do I find my accumulated depreciation for the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>From your tax returns or your CPA's depreciation schedules, which track the depreciation taken each year. It's the figure that most affects the recapture layer, so use the actual number rather than estimating. Your CPA can provide it quickly.</p></div>
+</details>
+<details>
+<summary>Can the calculator show me both selling and exchanging outcomes?<span class="ic"></span></summary>
+<div class="ans"><p>Many do — they show the tax you'd owe on a sale and, by implication, the amount you'd defer (and keep invested) by exchanging. Seeing both side by side quantifies the benefit of the exchange: the tax avoided now plus the capital kept compounding.</p></div>
+</details>
+<details>
+<summary>Is the calculator useful if I'm not sure I'll exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — it's especially useful then. The deferred-tax estimate helps you decide whether to exchange at all by showing what's at stake. A large number favors exchanging; a small one may make a simple sale fine. Run it early, before you commit either way.</p></div>
+</details>
+<details>
+<summary>Does the calculator include selling costs and closing costs?<span class="ic"></span></summary>
+<div class="ans"><p>A complete one does — selling costs (commissions, closing costs) reduce your net proceeds and gain, lowering the estimated tax. Include them for accuracy; omitting them overstates both the gain and the tax.</p></div>
+</details>
+<details>
+<summary>How often should I re-run the calculator?<span class="ic"></span></summary>
+<div class="ans"><p>Run it early with rough inputs to gauge the opportunity, then re-run as your numbers firm up — a confirmed sale price, exact basis, and current depreciation. Each refinement sharpens the estimate. Share the latest figure with your CPA and advisor as you plan the exchange.</p></div>
+</details>
+<details>
+<summary>Does a higher sale price always mean more deferred tax?<span class="ic"></span></summary>
+<div class="ans"><p>Generally yes, because a higher sale price means a larger gain (assuming basis is unchanged), and more gain means more tax to defer. But your basis and depreciation also matter — a high-basis property has less gain even at a high sale price. The calculator weighs all of these together.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>1031 Exchange Calculator</dt><dd>A tool that estimates the tax a 1031 exchange would defer from your sale and basis figures.</dd></div>
+<div class="g"><dt>Deferred Tax</dt><dd>The combined tax (capital gains, recapture, NIIT, state) a fully structured exchange postpones.</dd></div>
+<div class="g"><dt>Adjusted Basis</dt><dd>Original cost plus improvements minus depreciation; subtracted from proceeds to find gain.</dd></div>
+<div class="g"><dt>Realized Gain</dt><dd>Sale price minus selling costs minus adjusted basis.</dd></div>
+<div class="g"><dt>Appreciation</dt><dd>Gain above your original cost, taxed at capital gains rates.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Gain from prior depreciation, taxed up to 25%.</dd></div>
+<div class="g"><dt>Net Investment Income Tax (NIIT)</dt><dd>A 3.8% surtax on investment income for higher earners.</dd></div>
+<div class="g"><dt>State Capital Gains Tax</dt><dd>State-level tax on gains, from 0% to over 13%.</dd></div>
+<div class="g"><dt>Effective Tax Rate</dt><dd>Total tax divided by total gain — the combined rate of all layers.</dd></div>
+<div class="g"><dt>Reinvestable Equity</dt><dd>Proceeds available to reinvest after selling costs and mortgage payoff.</dd></div>
+<div class="g"><dt>Selling Costs</dt><dd>Commissions and closing costs that reduce net proceeds and gain.</dd></div>
+<div class="g"><dt>Accumulated Depreciation</dt><dd>Total depreciation taken, which lowers basis and drives recapture.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Baker 1031 Investments. <a href="calculators.html" rel="noopener nofollow" target="_blank">1031 &amp; DST Calculators</a></li><li>IRS. <a href="https://www.irs.gov/newsroom/the-treasury-department-and-irs-issue-final-regulations-regarding-like-kind-exchanges-of-real-property" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — gain and basis</a></li><li>IPX1031. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Estimating deferred tax</a></li><li>JTC Group. <a href="https://www.jtcgroup.com/insights/1031-and-real-estate-answers-to-common-questions/" rel="noopener nofollow" target="_blank">1031 and Real Estate: Answers to Common Questions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Into a DST: How to Place Leftover Equity Passively | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Into a DST: How to Place Leftover Equity Passively
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Into a DST: How to Place Leftover Equity Passively</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trust</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 27 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">A Delaware Statutory Trust lets a 1031 investor defer tax without becoming a landlord again — and can absorb the exact leftover equity that would otherwise be taxed. This is the full picture: the mechanics, the math, the risks, and the judgment calls.</p></div>
+
+    <div class="legacy">
+<main id="main">
+
+<div class="wrap abody">
+<article class="article">
+<p class="lead">There is a moment, familiar to almost every long-time real estate owner, when the building you once fought to buy becomes the thing you most want to be rid of. The tenants, the turnover, the 11 p.m. phone calls, the capital expenditures that never seem to end — at some point the income stops feeling passive. And yet selling outright can mean handing a third or more of your gain to the government. The Delaware Statutory Trust exists in the narrow but valuable space between those two unhappy options: a way to sell, stop managing, and still defer the tax. This memo explains how it works, where it fits, and — just as important — where it does not.</p>
+<div class="takeaways">
+<div class="tk-h">Key Takeaways</div>
+<ul>
+<li>A DST is a fractional, professionally managed interest in institutional real estate that the IRS recognizes as 1031 replacement property under Revenue Ruling 2004-86.</li>
+<li>Its defining virtues are passivity, speed, diversification, and the ability to absorb an exact dollar amount of equity — which is why it so often solves the leftover-equity (boot) problem.</li>
+<li>Those virtues are bought with real costs: illiquidity, no control, layered fees, and a set of IRS rules (the 'seven prohibitions') that limit how the trust can respond to trouble.</li>
+<li>A DST is best understood not as a way to maximize return but as a way to convert active equity into passive, tax-deferred income — a trade of upside and control for simplicity and deferral.</li>
+<li>At the end of its life a DST can be cashed out, exchanged again, or rolled into a REIT through a 721 exchange; each path has different tax and liquidity consequences.</li>
+</ul>
+</div>
+<h2 id="problem">The problem a DST is built to solve</h2>
+<p>Begin with the dilemma, because the DST only makes sense once you feel it. An investor who has held a rental property for fifteen or twenty years typically sits on two things at once: a large unrealized gain and a large accumulated depreciation balance. Sell, and both come due. The federal long-term capital gains rate, the 3.8% net investment income tax, the recapture of depreciation taxed at up to 25%, and state income tax can, stacked together, claim a third or more of the gain in higher-tax states. The exact figure varies, but the shape of the problem does not: a meaningful slice of decades of appreciation evaporates the moment you sign the closing statement.</p>
+<p>The classic answer is the <a href="1031-exchange-guide.html">1031 exchange</a> — sell, and roll the proceeds into new real estate to defer the tax. But the standard 1031 carries its own burden: you have to find, finance, and manage another property, and you have to do it inside a 45-day identification window and a 180-day closing window that do not forgive. For an investor whose real goal was to <em>stop</em> being a landlord, a conventional 1031 can feel like trading one set of headaches for another.</p>
+<p>This is the gap the DST fills. It is, in effect, a way to complete a 1031 exchange into property you will never have to manage — a passive replacement that still qualifies for full tax deferral. The second-level point is worth stating directly: a DST does not solve a return problem; it solves a <em>life</em> problem and a <em>timing</em> problem. Understanding that distinction is the key to using it well.</p>
+<h2 id="what">What a Delaware Statutory Trust actually is</h2>
+<p>A Delaware Statutory Trust is a legal entity formed under Delaware's Statutory Trust Act. A sponsor — a real estate firm — acquires one or more income-producing properties, places them into the trust, arranges any financing, and then sells fractional <strong>beneficial interests</strong> in the trust to investors. When you buy in, you do not own a deed to a specific unit; you own a proportional beneficial interest in the trust that owns the real estate, along with a proportional share of its income, its tax attributes, and eventually its sale proceeds.</p>
+<p>The properties inside a DST are usually the kind an individual investor could rarely buy alone: a 300-unit apartment community, a portfolio of distribution warehouses leased to national tenants, a medical-office building, a grocery-anchored center, a self-storage portfolio. A single offering may hold one large asset or several. Day-to-day, a professional sponsor and property manager handle everything — leasing, maintenance, financing, reporting, and the eventual sale. Your involvement, after you invest, is essentially limited to depositing distributions and reading statements.</p>
+<p>The right mental model is comparison by analogy. A DST is to directly owning a building roughly what an index fund is to picking individual stocks. You give up control and the chance to add value through your own effort; in exchange you get diversification, professional management, access to assets above your individual scale, and radically less work. Whether that is a good trade depends entirely on what you actually want from the money — a theme we will return to repeatedly.</p>
+<h2 id="why-irs">Why the IRS treats a DST as real estate</h2>
+<p>For a DST interest to qualify as 1031 replacement property, the tax law has to treat it as a direct interest in real estate rather than as an interest in a business entity or a security. That treatment rests on <strong>IRS Revenue Ruling 2004-86</strong>, issued in 2004, which held that, when a Delaware Statutory Trust is structured within specific limits, each beneficial owner is treated as owning an undivided fractional interest in the underlying real property for federal tax purposes. The trust is treated, in tax terms, as a grantor or fixed investment trust — effectively a pass-through that the IRS looks through to the investors behind it.</p>
+<p>That single ruling is the legal foundation of the entire DST industry. It is also the reason DSTs operate under such tight constraints. The ruling drew a sharp line: cross it, and the trust risks being reclassified as a business entity (typically a partnership), at which point the interests would no longer be like-kind real property and the 1031 exchange would fail. To stay on the right side of that line, sponsors accept a list of operating restrictions — the so-called "seven prohibitions" — that define what a DST trustee may and may not do.</p>
+<p>It is worth pausing on what this means for you as an investor. The restrictions that make a DST feel rigid and passive are not arbitrary sponsor preferences; they are the price of admission to 1031 treatment. The passivity is the product, not a side effect.</p>
+<h2 id="prohibitions">The seven prohibitions — and why they matter to you</h2>
+<p>Practitioners sometimes call them the "seven deadly sins." Under the framework of Revenue Ruling 2004-86, a DST trustee generally cannot do the following:</p>
+<ul class="bul">
+<li><strong>Accept new capital after the offering closes.</strong> Once the trust is fully subscribed, no new money — from existing or new investors — can come in.</li>
+<li><strong>Renegotiate existing debt or borrow new funds</strong>, except in the narrow case of a tenant bankruptcy or insolvency.</li>
+<li><strong>Reinvest the proceeds from selling the real estate.</strong> When the property sells, the money must be distributed, not redeployed.</li>
+<li><strong>Make more than minor capital improvements</strong> — limited to normal repair and maintenance, minor non-structural work, and improvements required by law.</li>
+<li><strong>Hold reserves in anything but short-term, high-quality instruments</strong> between distributions.</li>
+<li><strong>Retain cash beyond reasonable reserves;</strong> available cash must be distributed currently to the beneficiaries.</li>
+<li><strong>Enter into new leases or renegotiate existing ones</strong>, again except in a tenant bankruptcy or insolvency.</li>
+</ul>
+<p>Read as a group, these rules describe an entity that is deliberately prevented from being actively managed. That is the point — active management would make it a business, not a parcel of real estate. But the implication for investors is serious and frequently underappreciated: a DST has very little ability to dig itself out of a hole. If a major tenant leaves, if rents soften, if a loan is coming due in a bad market, the trust cannot simply refinance, raise fresh capital, or re-lease on new terms the way you could with a property you own outright. It is built to hold and distribute, not to adapt.</p>
+<p>Sponsors address the leasing constraint with a <strong>master lease structure</strong>: the DST leases the entire property to a "master tenant" affiliated with the sponsor, and that master tenant — which is <em>not</em> bound by the seven prohibitions — handles the active leasing and operations. This preserves operational flexibility while keeping the DST itself passive. It is a clever and standard solution, but it adds a layer to the structure (and a party whose interests you should understand). When you evaluate an offering, the question is not whether the prohibitions exist — they always do — but how well the sponsor has structured the deal, and the financing in particular, to live within them comfortably.</p>
+<h2 id="why-roll">Why investors roll a 1031 into a DST</h2>
+<p>Set against those constraints are a set of genuine, sometimes decisive, advantages. Investors choose DSTs for several reasons, and most exchanges into DSTs are motivated by more than one of them at once.</p>
+<p><strong>It is genuinely passive.</strong> This is the headline. A sponsor handles every operational decision; you receive income without managing anyone or anything. For a retiring owner, an out-of-state heir, or simply someone who has decided their time is worth more than the marginal return from active management, this alone can justify the structure.</p>
+<p><strong>It is fast.</strong> A DST offering is pre-packaged: the property is already bought, the financing already in place, the documents already drafted. Subscribing is largely paperwork and can close in days. When you are staring down a 45-day identification deadline or a 180-day closing deadline, that speed is not a convenience — it can be the difference between a completed exchange and a failed one.</p>
+<p><strong>It diversifies.</strong> Selling one building and buying one building concentrates your risk in a single asset, tenant base, and market. With a DST, you can split your proceeds across several offerings — different property types, different geographies, different sponsors — converting a single concentrated bet into something closer to a small portfolio.</p>
+<p><strong>It provides access.</strong> Fractional ownership lets a comparatively modest amount of equity participate in institutional-quality assets that would otherwise be out of reach.</p>
+<p><strong>It can simplify the debt problem.</strong> To fully defer tax, a 1031 investor generally must replace the debt that was paid off on the sold property (more on this below). Many DSTs come with pre-arranged, non-recourse financing at a set loan-to-value ratio, and your share of that debt counts toward your replacement requirement — without you personally qualifying for or guaranteeing a loan. For an investor who would struggle to obtain new financing, this is quietly one of the most useful features of the structure.</p>
+<p><strong>It carries the usual 1031 estate-planning upside.</strong> Because the deferral continues, an investor who holds DST interests until death may pass them to heirs with a stepped-up basis, potentially eliminating the deferred gain entirely.</p>
+<h2 id="leftover">Solving the leftover-equity problem</h2>
+<p>Of all the uses of a DST, the most elegant — and the one that gives this memo its title — is the absorption of leftover equity. To see why it matters, you have to understand how easily a 1031 exchange leaks tax.</p>
+<p>To defer the entire gain, you must reinvest all of your net equity and acquire replacement property of equal or greater value, replacing the debt you paid off. Any shortfall — cash you fail to reinvest, or debt you fail to replace — is "boot," and boot is taxable up to the amount of your gain. The trouble is that real estate does not come in convenient denominations. You rarely find a replacement property priced to the exact dollar of your proceeds, and the gap becomes a tax bill.</p>
+<p>Consider an illustrative case. Suppose you sell a property for $1,000,000, pay off a $400,000 mortgage, and net $600,000 of equity after costs. To defer fully, you need to buy at least $1,000,000 of replacement real estate, reinvest the full $600,000, and replace the $400,000 of debt. Now suppose the best direct replacement you can find — the building you actually want — costs $900,000. You have $100,000 of equity you cannot place. That $100,000 becomes cash boot, and you owe tax on it, even though the rest of your exchange is flawless.</p>
+<p>A DST dissolves this problem because it can accept almost any dollar amount. You buy the $900,000 building you want and place the remaining $100,000 into a DST, deferring 100% of the gain. The DST, in this role, behaves like spackle — it fills the precise gap that direct real estate leaves behind. The same flexibility makes DSTs valuable as a <strong>backup identification</strong>: because you must name your replacement candidates within 45 days, prudent investors often identify a DST as a fallback, knowing it can absorb the proceeds reliably and close quickly if their primary deal collapses. Many completed exchanges owe their survival to that backup. (For the mechanics of boot itself, see our memo on <a href="1031-exchange-boot.html">boot in a 1031 exchange</a>.)</p>
+<h2 id="process">How the process works inside your 45 and 180 days</h2>
+<p>Mechanically, exchanging into a DST follows the same path as any 1031, with the friction removed at the back end. Before you sell, you engage a <strong>qualified intermediary</strong>, who will receive and hold your proceeds so that you never take constructive receipt of the funds — a requirement that applies to DST exchanges exactly as it does to any other. You sell the relinquished property; the proceeds flow to the intermediary.</p>
+<p>Within 45 days, you identify your replacement property in writing. A DST is identified like any other candidate, and the standard identification rules apply: you can name up to three properties of any value, or more under the value-based tests. Within 180 days, you complete the acquisition. This is where the DST's pre-packaged nature pays off: because the sponsor has already acquired and financed the asset, your purchase is essentially a subscription. You verify your accredited-investor status, sign the subscription agreement and the trust documents, and your qualified intermediary wires the funds. Settlement can happen in days rather than the weeks a financed direct purchase often requires.</p>
+<p>The deadlines themselves are unforgiving — calendar days, no weekend grace, extended only for federally declared disasters — which is precisely why the DST's speed is so valuable as the exchange clock winds down. If you want the full treatment of those windows, see our memo on the <a href="1031-exchange-timeline.html">45-day and 180-day timeline</a>.</p>
+<h2 id="returns">Understanding the return: income, sale, and what's really yours</h2>
+<p>A DST return has two parts, and conflating them is the most common analytical error investors make. The first part is <strong>current income</strong>: your pro-rata share of the property's net cash flow, paid out as periodic distributions, often monthly. The second part is the <strong>capital result at sale</strong>: your share of any appreciation — or loss — when the sponsor eventually sells the property at full-cycle.</p>
+<p>These two components do not move together, and a healthy-looking distribution tells you little about the eventual total return. A DST can pay a steady distribution for years and still return less than your capital at sale if the property's value has stagnated or the leverage worked against it; conversely, a modest distribution can accompany a strong capital result. Judge both, and judge them over the whole life of the investment, not the first year's check.</p>
+<p>Two cautions deserve emphasis. First, <strong>distributions are targets, not guarantees.</strong> They depend on the property performing, and they can be reduced or suspended. Treat any quoted distribution rate as a projection to be stress-tested, not a coupon you are owed. Second, be alert to distributions that appear to exceed the property's actual cash flow. A payout funded partly from reserves or borrowed proceeds is, in substance, a partial <strong>return of your own capital</strong> dressed up as yield — flattering in the short run and corrosive over time. A transparent sponsor will show you the cash flow behind the distribution; the absence of that transparency is itself information.</p>
+<h2 id="fees">The fee layers — and reading them honestly</h2>
+<p>DSTs are not cheap, and pretending otherwise serves no one. Fees generally come in three layers. The first is the <strong>upfront load</strong> — selling commissions, the sponsor's organization-and-offering costs, and an acquisition fee — paid out of your investment at the start. The second is <strong>ongoing fees</strong>: asset-management and property-management charges levied over the hold period. The third is a <strong>disposition fee</strong> paid to the sponsor when the property is sold.</p>
+<p>The honest way to think about the load is this: because a portion of your money is consumed by upfront costs, not every dollar you invest goes to work in the ground. That does not, by itself, make a DST a bad investment — institutional access, professional management, pre-arranged non-recourse financing, and the tax deferral all have value, and someone has to be paid to assemble them. But it does mean you should evaluate every offering on a <strong>net</strong> basis: distributions after ongoing fees, and total return after the upfront load and the disposition fee. A DST with a slightly lower headline distribution but a leaner fee structure may leave you better off than a flashier competitor. Fees are not a reason to avoid DSTs; opacity about fees is a reason to avoid a particular sponsor.</p>
+<h2 id="risks">The risks, stated plainly</h2>
+<p>An honest memo spends at least as long on what can go wrong as on what can go right. The principal risks of a DST are these:</p>
+<ul class="bul">
+<li><strong>Illiquidity.</strong> There is no public market for DST interests and no reliable secondary market. Your capital is committed until the sponsor sells, which may be five to ten years — or longer if conditions are poor. If you may need the money sooner, a DST is the wrong vehicle.</li>
+<li><strong>No control.</strong> You cannot vote on the business plan, veto a sale, or replace the manager. You are, by design, a passenger. This is acceptable only if you trust the driver.</li>
+<li><strong>Sponsor risk.</strong> Because the prohibitions limit the trust's flexibility, outcomes ride heavily on the sponsor's skill in acquiring the right asset, financing it conservatively, and timing the sale. A weak or overaggressive sponsor cannot be corrected mid-course.</li>
+<li><strong>Leverage and interest-rate risk.</strong> Many DSTs use debt. Leverage magnifies gains and losses alike, and a loan maturing in a weak market — particularly floating-rate debt — can pressure distributions or force a sale at the wrong time.</li>
+<li><strong>Market and tenant risk.</strong> Rents soften, tenants leave, sectors fall out of favor. The DST's limited ability to re-lease or refinance makes it less able to absorb these shocks than a nimble direct owner.</li>
+<li><strong>Rule and structural risk.</strong> The 1031 treatment depends on the trust staying within Revenue Ruling 2004-86. Sound sponsors and counsel manage this carefully, but it is a dependency worth knowing.</li>
+<li><strong>Fee drag.</strong> As discussed, costs reduce net returns and must be weighed honestly.</li>
+</ul>
+<p>None of these risks is a reason to reject DSTs categorically. They are the reasons a DST is suitable for some investors and unsuitable for others — and the reason the regulators limit them to accredited investors who can bear the loss of principal.</p>
+<h2 id="exit">The exit: full-cycle, another 1031, or a 721 into a REIT</h2>
+<p>A DST is a finite investment, and the most disciplined investors plan the exit before they enter. When the sponsor sells the property — going "full-cycle," typically after five to ten years — the trust dissolves and you face a choice with three branches.</p>
+<p>You can <strong>cash out</strong> and pay the tax. The capital gains and depreciation recapture you deferred all the way back at the original sale finally come due. You can <strong>1031 again</strong>, rolling your proceeds into another property or another DST and continuing the deferral, subject once more to the 45- and 180-day deadlines. Or, if the offering was structured to permit it, you can execute a <strong>721 exchange</strong> — contributing your interest into a real estate investment trust's operating partnership in exchange for operating-partnership units, continuing the deferral inside a larger, more diversified vehicle.</p>
+<p>The 721 route deserves a word of caution, because it is frequently sold as an unalloyed good. It can offer diversification and a measure of liquidity that a single DST cannot. But it is a one-way door: once you have converted into operating-partnership units, you generally cannot 1031 out of them again, and converting those units into REIT shares down the road is itself a taxable event. It is a fine destination for an investor who is ready to be done exchanging, and a trap for one who assumed the deferral game could continue indefinitely. We treat the mechanics in our memo on <a href="dst-full-cycle.html">what happens when a DST goes full-cycle</a>.</p>
+<h2 id="compare">DST, direct ownership, or REIT? Choosing the right tool</h2>
+<p>It helps to place the DST among its neighbors, because the right choice depends on which problem you are actually solving.</p>
+<p><strong>Direct ownership</strong> wins when you want control, the ability to force appreciation through your own management and capital improvements, and the option to refinance or sell on your own timetable. It is the right tool for the hands-on investor who enjoys the work and wants the full upside. Its cost is exactly that work, and the concentration of risk in a single asset.</p>
+<p>A <strong>DST</strong> wins when you want to defer tax, stop managing, diversify, or place a precise amount of equity — and when you can accept illiquidity and surrender control to do so. It is the right tool for the investor whose goal is passive, tax-deferred income rather than maximized return.</p>
+<p>A <strong>REIT</strong> wins when you want liquidity and broad diversification and do <em>not</em> need 1031 eligibility — because REIT shares, as securities, generally cannot serve as 1031 replacement property. You can reach a REIT from a DST through a 721 exchange, but you cannot 1031 directly into one. We compare these head-to-head in our memo on <a href="dst-vs-reit.html">DSTs versus REITs</a>.</p>
+<p>The meta-point is that these are not competitors so much as different instruments for different jobs. Confusion arises only when an investor reaches for one while actually wanting what another provides.</p>
+<h2 id="example">A worked example</h2>
+<p>Consider an illustrative investor — call her the retiring owner — to see the pieces fit together. (The figures are hypothetical, chosen to show the mechanics.)</p>
+<p>She owns a fourplex she bought years ago, now worth $1,200,000, with a $300,000 mortgage remaining and a low tax basis after years of depreciation. A direct sale would trigger capital gains tax, depreciation recapture, the net investment income tax, and state tax — a combined bill she finds unacceptable. She is also tired of managing the property and wants reliable income, not a second career.</p>
+<p>She sells, and her qualified intermediary holds the roughly $900,000 of net equity. Within 45 days she identifies two replacement candidates: a smaller, easier-to-manage rental priced at $700,000, and a DST as the home for the rest. She buys the $700,000 property, replacing part of her debt and equity, and places the remaining proceeds into a diversified DST — a slice of an apartment portfolio and a slice of a net-lease industrial offering. Her share of the DSTs' pre-arranged non-recourse debt, combined with her direct purchase, satisfies her replacement-value and debt-replacement requirements, so she defers 100% of the gain. She has converted a single management-intensive building into a smaller manageable property plus passive, diversified, tax-deferred income — and she has done it inside the exchange windows.</p>
+<p>The example is deliberately clean; real situations rarely are. But it shows the DST doing the three things it does best at once: absorbing an awkward equity amount, supplying passive income, and replacing debt without a new loan application.</p>
+<h2 id="mistakes">Common mistakes</h2>
+<p>The errors that recur are rarely exotic. They are usually a failure to take the trade-offs seriously.</p>
+<ul class="bul">
+<li><strong>Chasing the highest distribution.</strong> The headline rate says little about total return or sustainability. A high distribution funded by return of capital or aggressive leverage is not a gift.</li>
+<li><strong>Underweighting illiquidity.</strong> Investors who might need their capital within a few years should not be in a DST. Liquidity, once surrendered, is hard to get back.</li>
+<li><strong>Ignoring the sponsor.</strong> In a vehicle you cannot steer, the driver is everything. Skimping on sponsor due diligence is the costliest shortcut available.</li>
+<li><strong>Overlooking the debt.</strong> A near-term or floating-rate loan inside a DST is a risk the prohibitions make hard to fix. Read the financing, not just the projections.</li>
+<li><strong>Forgetting the exit.</strong> Entering without a view on the full-cycle options — pay the tax, 1031 again, or 721 — leaves the most consequential decision to chance.</li>
+<li><strong>Treating a DST as a return maximizer.</strong> It is a deferral-and-simplicity tool. Investors who want maximum upside and will do the work usually belong in direct ownership.</li>
+</ul>
+<h2 id="fit">Is a DST right for your exchange?</h2>
+<p>Strip away the detail and the suitability question is fairly simple. A DST fits an accredited investor who wants to defer capital gains tax, is ready to stop managing property, values diversification, may need to place an exact amount of leftover equity, and can comfortably leave the capital invested for years without control. It fits poorly for an investor who wants to direct the asset, expects to need liquidity in the near term, or intends to add value through active management.</p>
+<p>The deepest version of the question is not financial but personal: what do you want this money to do for the rest of your life? If the honest answer is "produce income without demanding my time, while preserving the deferral I have built up," the DST is one of the few instruments designed precisely for that. If the answer involves control, liquidity, or maximizing return, look elsewhere. As with any securities investment, read the offering documents in full and review suitability with your own financial, tax, and legal advisors before committing — and start from our <a href="dst-guide.html">complete DST guide</a> if you want the broader landscape first.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Does a DST qualify for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. IRS Revenue Ruling 2004-86 treats a properly structured DST beneficial interest as a direct interest in real estate, making it eligible replacement property in a 1031 exchange.</p></div>
+</details>
+<details>
+<summary>How much do I need to invest in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>Minimums vary by sponsor and offering but commonly range from about $25,000 to $100,000 for 1031 investors. Because a DST can accept precise amounts, it is often used to place an exact slice of proceeds.</p></div>
+</details>
+<details>
+<summary>Can a DST help me avoid boot?<span class="ic"></span></summary>
+<div class="ans"><p>Often, yes. Because a DST can accept almost any dollar amount, investors use one to absorb leftover equity from a larger purchase and defer the full gain instead of leaving taxable cash boot.</p></div>
+</details>
+<details>
+<summary>Are DST investments liquid?<span class="ic"></span></summary>
+<div class="ans"><p>No. DST interests are illiquid, with no public market and no reliable secondary market. Your capital is generally committed until the sponsor sells the property, often in five to ten years.</p></div>
+</details>
+<details>
+<summary>What are the 'seven prohibitions'?<span class="ic"></span></summary>
+<div class="ans"><p>Restrictions flowing from Revenue Ruling 2004-86: a DST generally cannot accept new capital after closing, refinance or borrow, reinvest sale proceeds, make major improvements, retain excess cash, hold reserves in risky instruments, or sign or renegotiate leases — except in tenant bankruptcy. They keep the trust passive and 1031-eligible.</p></div>
+</details>
+<details>
+<summary>How does a DST help replace my old mortgage?<span class="ic"></span></summary>
+<div class="ans"><p>To defer fully you generally must replace the debt paid off on your sale. Many DSTs include pre-arranged non-recourse financing, and your pro-rata share of that debt counts toward your replacement requirement — without you personally qualifying for a loan.</p></div>
+</details>
+<details>
+<summary>What happens when the DST sells the property?<span class="ic"></span></summary>
+<div class="ans"><p>At full-cycle you can cash out and pay the deferred tax, complete another 1031 exchange into new real estate or another DST, or — if the offering allows — use a 721 exchange to move into a REIT and keep deferring.</p></div>
+</details>
+<details>
+<summary>Who should consider a DST?<span class="ic"></span></summary>
+<div class="ans"><p>Accredited investors who want passive, diversified, tax-deferred real estate, can commit capital for years, and don't need control. Those who want control, liquidity, or maximum upside are usually better served by direct ownership.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust formed under Delaware law that holds income real estate and sells fractional beneficial interests qualifying as 1031 replacement property.</dd></div>
+<div class="g"><dt>Beneficial Interest</dt><dd>An investor's proportional ownership in the trust — and, for tax purposes, in the underlying real estate.</dd></div>
+<div class="g"><dt>Revenue Ruling 2004-86</dt><dd>The 2004 IRS ruling that allows a properly structured DST interest to be treated as direct real estate ownership for 1031 purposes.</dd></div>
+<div class="g"><dt>Seven Prohibitions</dt><dd>The operating restrictions, derived from Revenue Ruling 2004-86, that keep a DST passive and 1031-eligible.</dd></div>
+<div class="g"><dt>Master Lease</dt><dd>A structure in which a sponsor-affiliated tenant leases the whole property from the DST and handles active leasing and operations.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Non-like-kind value received in an exchange — usually leftover cash or net debt relief — taxable up to the amount of gain.</dd></div>
+<div class="g"><dt>Non-Recourse Debt</dt><dd>Financing secured only by the property, with no personal liability to the investor.</dd></div>
+<div class="g"><dt>Full-Cycle</dt><dd>The point at which a DST's property is sold and proceeds are returned to investors.</dd></div>
+<div class="g"><dt>721 Exchange</dt><dd>A contribution of property into a REIT's operating partnership for units, continuing tax deferral (also called an UPREIT).</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting SEC income or net-worth thresholds, eligible to buy private securities such as DST interests.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="disclosures" style="border-top:1px solid var(--hairline)">
+<ol style="margin:0;padding-left:20px;font-size:13.5px;line-height:1.6;color:var(--muted)">
+<li style="margin:8px 0">Internal Revenue Code, <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">26 U.S.C. §1031</a> — the like-kind exchange that lets an investor defer capital gain by rolling proceeds into replacement real property, including a DST interest.</li>
+<li style="margin:8px 0">IRS, <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">Revenue Ruling 2004-86</a> — the ruling that treats a properly structured Delaware Statutory Trust beneficial interest as a direct interest in real property and the source of the "seven prohibitions."</li>
+<li style="margin:8px 0">Treasury Regulation, <a href="https://www.law.cornell.edu/cfr/text/26/1.1031(k)-1" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">26 CFR §1.1031(k)-1</a> — the deferred-exchange rules governing the 45-day identification window, the 180-day closing deadline, and the qualified-intermediary / constructive-receipt requirements described here.</li>
+<li style="margin:8px 0">Internal Revenue Code, <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">26 U.S.C. §721</a> — the tax-free contribution of property to a partnership that underlies the 721 / UPREIT exit option discussed in "The Exit."</li>
+<li style="margin:8px 0">IRS, <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" style="color:var(--ink);border-bottom:1px solid var(--accent)" target="_blank">Form 8824, Like-Kind Exchanges</a> — the form on which a completed 1031 exchange, including one into a DST, is reported to the IRS.</li>
+</ol>
+</div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures">
+<p>This memo is published by Baker 1031 for general informational and educational purposes only. It is not investment, legal, or tax advice, and is not an offer to sell or a solicitation to buy any security. Delaware Statutory Trust interests are speculative, illiquid securities sold only to verified accredited investors via private placement memorandum under Regulation D, and involve substantial risk including the possible loss of principal.</p>
+<p>Every example in this memo is illustrative and hypothetical, chosen to show how the mechanics work; it is not a projection, a representation of any specific offering, or a promise of any outcome. There is no assurance that any distribution, return, or tax treatment (including 1031 or 721 deferral) will be achieved. Tax results depend on your individual facts and on rules that can change. Securities offered through Aurora Securities, Inc., member FINRA / SIPC; Baker 1031 Investments is independent of Aurora Securities, Inc. Consult your own CPA and attorney, and read the offering documents in full, before investing. [Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]</p>
+</div>
+</article>
+
+</div>
+
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){ const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx)); }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink'); cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn'); pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    const dp=document.getElementById('dlpdf'); dp&&dp.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(o){document.querySelectorAll('.faq details').forEach(d=>{if(o){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true)); addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

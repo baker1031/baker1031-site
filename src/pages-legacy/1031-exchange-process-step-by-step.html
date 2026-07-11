@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 1031 Exchange Process, Step by Step | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>The 1031 Exchange Process, Step by Step
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">The 1031 Exchange Process, Step by Step</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">A 1031 exchange can feel complex, but it follows a predictable sequence. This complete guide walks through the entire process step by step — from planning and assembling your team, through engaging a QI, selling, identifying, financing, and closing, to reporting and planning your next move.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A 1031 exchange involves several parties, two strict deadlines, and a handful of unforgiving rules — but it follows a predictable, repeatable sequence. Get the order right, especially engaging your qualified intermediary before you sell, and the rest is disciplined execution against the calendar. This guide walks through the entire process step by step, with the deadlines, documents, and decisions that matter at each stage, so you can move through your exchange with confidence rather than improvisation.</p>
+<h2 id="overview">Overview of the Process</h2>
+<p>At a high level, a 1031 exchange is a continuation of your real estate investment: you sell one investment property and reinvest the proceeds into another, deferring the tax. The process exists to satisfy the tax rules that make that deferral possible — chiefly that you never take receipt of the proceeds and that you meet the identification and closing deadlines.</p>
+<p>The sequence has a logic. You plan and assemble your team first, engage a <a href="insights.html">qualified intermediary</a> before selling, sell the relinquished property, identify replacement property within 45 days, complete diligence and financing, close within 180 days, and report the exchange. Each step sets up the next, and skipping or reordering steps — especially engaging the QI late — is where exchanges fail.</p>
+<p>The whole process typically spans a few months of active work, often preceded by weeks of planning. The investors who execute cleanly are the ones who start early, prepare thoroughly, and treat the deadlines as the central constraint. The steps below break the process into manageable stages.</p>
+<h2 id="plan">Step 1: Decide and Plan</h2>
+<p>Before anything else, decide whether a 1031 exchange fits your goals. It makes sense when you have meaningful embedded gain, want to stay invested in real estate, and have a clear use for the deferral — diversification, passive income, trading up, or estate planning. If your basis is high or you need the cash, it may not be worth it.</p>
+<p>Estimate your deferred tax so you understand what's at stake — the federal capital gains, <a href="depreciation-recapture-real-estate.html">depreciation recapture</a>, <a href="net-investment-income-tax.html">NIIT</a>, and state tax a successful exchange would postpone. This number, often larger than investors expect, frames the whole decision and justifies the effort and fees.</p>
+<p>Clarify what you want from the replacement property — income, growth, passivity, diversification — because that shapes everything that follows. Planning before you list, rather than after you sell, is the single biggest predictor of a smooth exchange.</p>
+<h2 id="team">Step 2: Assemble Your Team</h2>
+<p>A successful exchange is a team effort. Line up three roles early: a <strong>qualified intermediary</strong> (required, to hold funds and document the exchange), a <strong>CPA</strong> (for the tax math, the basis tracking, and Form 8824), and an experienced <strong>advisor</strong> (to source and vet replacement property and coordinate the deadlines).</p>
+<p>Getting these professionals in place before you sell prevents the deadline scrambles that sink exchanges. Your CPA can confirm the exchange makes sense and flag issues like the tax-return-date trap; your advisor can begin building a replacement shortlist; your QI can prepare to take assignment of your sale contract.</p>
+<p>An independent, sponsor-agnostic advisor is particularly valuable because they surface replacement options across the market that fit your situation rather than pushing a single sponsor's product. The team's combined fees are small next to the tax a single mistake can trigger.</p>
+<h2 id="qi">Step 3: Engage a Qualified Intermediary</h2>
+<p>Engage your qualified intermediary <strong>before</strong> your relinquished property's sale closes — ideally during contract negotiation. The QI prepares the exchange agreement, takes assignment of your sale contract, and will receive the proceeds at closing so you never take receipt of them.</p>
+<p>This is the step investors most often get wrong by leaving it too late. If you close the sale and the proceeds reach you before a QI is engaged, you've taken receipt, and no QI can retroactively fix it — the exchange fails. The QI must be in place at closing.</p>
+<p>Choose the QI carefully, prioritizing fund security (segregated qualified accounts, dual authorization, bonding) over price, since the QI will hold your entire proceeds. Engaging early also gives you time to complete that diligence rather than rushing it at the closing table.</p>
+<h2 id="sell">Step 4: Sell the Relinquished Property</h2>
+<p>Close the sale of your relinquished property with the qualified intermediary receiving the proceeds directly. This closing date is pivotal: it starts both the 45-day identification clock and the 180-day closing clock, which run concurrently from this point.</p>
+<p>Make sure the exchange documents are signed before closing and that the closing agent knows the proceeds go to the QI, not to you. The mechanics should be set so the funds flow from the buyer to the QI seamlessly.</p>
+<p>From this moment, the timeline governs everything. Note your day-45 and day-180 dates immediately, and if the sale falls late in the year, plan with your CPA to file a tax-return extension so the filing date doesn't shorten your 180-day window.</p>
+<h2 id="identify">Step 5: Identify Replacement Property (45 Days)</h2>
+<p>Within 45 calendar days of closing, identify your replacement property in a written, signed notice delivered to your qualified intermediary. Use the 3-property rule (up to three of any value), the 200% rule (more than three within 200% of value), or the rarely used 95% exception.</p>
+<p>Identify backups, not just a primary — once you're past day 45, you can't add properties, and a stalled single identification collapses the exchange. The classic structure is a primary direct property plus a fast-closing DST backup that can close in days if the primary fails.</p>
+<p>Because you ideally began your search before selling, you should be able to identify confidently and early in the window rather than scrambling at day 44. Have your QI review the identification's descriptions and counts before you deliver it.</p>
+<h2 id="diligence">Step 6: Due Diligence &amp; Financing</h2>
+<p>With your replacement property identified, complete diligence and arrange financing inside the remaining window. For direct property, order inspections, review title, and underwrite the asset; for a DST, review the <a href="how-to-review-a-ppm.html">private placement memorandum</a>, the sponsor, the leverage, and the projected distributions.</p>
+<p>If you need a new loan, the financing timeline is the most common threat to the 180-day deadline — start it early and match the loan to your debt-replacement target to avoid mortgage boot. A leveraged DST sidesteps this, since its non-recourse debt is pre-arranged and requires no application.</p>
+<p>Diligence is where you confirm the replacement property is a sound investment on its own merits, not just a tax deferral. Don't let the clock pressure you into skipping it; a fast-closing DST backup exists precisely so you don't have to rush a flawed deal.</p>
+<h2 id="close">Step 7: Close Within 180 Days</h2>
+<p>Acquire the identified replacement property within 180 days of the sale, with the qualified intermediary transferring the funds directly to the closing. To fully defer, the property must be one you identified, of equal or greater value, with all equity reinvested and any debt replaced.</p>
+<p>Coordinate the closing logistics — seller, lender, title company, and QI — well ahead of the deadline, and aim to close around day 160–165 to build buffer for last-minute slippage. The QI's funds flow to the closing; you still never touch the proceeds.</p>
+<p>If your primary deal stalls late, pivot to your identified DST backup, which can close in days. This is the safety net that turns a near-miss into a completed, fully deferred exchange.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Engage the QI before selling; the 45/180-day clocks start at the sale.</li>
+<li>Identify within 45 days with backups, finance early, and close within 180 days.</li>
+<li>Report on Form 8824 and coordinate basis tracking with your CPA.</li>
+</ul></div>
+<h2 id="report">Step 8: Report on Form 8824</h2>
+<p>Report the completed exchange to the IRS on Form 8824, filed with your tax return for the year the relinquished property was sold. The form captures the properties exchanged, the key dates, the values and any boot, and the carryover basis in your replacement property.</p>
+<p>Getting Form 8824 right matters because it establishes the deferred gain and the new basis you'll carry forward — figures your CPA relies on for years, including through any future exchanges and when a step-up at death eventually resolves the deferred gain. Keep a complete file of closing statements, QI agreements, the identification letter, and basis schedules.</p>
+<p>This is squarely your CPA's domain. Coordinate with them before and after the exchange so the reporting and basis tracking are correct, especially if you took any boot or used a more complex structure.</p>
+<h2 id="next">Step 9: Plan Your Next Move (or Hold)</h2>
+<p>An exchange isn't necessarily the end of the strategy — it's often one move in a longer plan. You can hold the replacement property indefinitely, drawing income while the gain stays deferred, or exchange again down the road to trade up, diversify, or shift to more passive ownership.</p>
+<p>The capstone strategy is to keep deferring across a lifetime and hold the final property until death, when a step-up in basis can eliminate the deferred gain for your heirs entirely. Passive, easily divisible replacement property like DSTs, or a 721 UPREIT into a REIT, can ease that eventual estate transition.</p>
+<p>Whatever your next move, the discipline that made this exchange succeed — early planning, a strong team, respect for the deadlines — carries forward. Each exchange is easier when you've built the habits and relationships the first one required.</p>
+<h2 id="pitfalls">Common Process Pitfalls</h2>
+<p>The process fails in predictable places. Engaging the QI too late (after closing) causes constructive receipt and is the most common fatal error. Missing the 45-day identification, or identifying only a single property with no backup, sinks many exchanges. Taking unplanned boot by keeping cash or not replacing debt creates avoidable tax.</p>
+<p>Other pitfalls include vague identifications, miscounting the deadlines, letting financing delays consume the 180-day window, and skipping professional guidance. Each is avoidable with the sequence above: plan early, assemble your team, engage the QI before selling, identify with backups, finance early, and close with buffer.</p>
+<p>The throughline is preparation. Exchanges rarely fail because the rules are unclear; they fail because investors start late and react to problems instead of preventing them. Following the steps in order, with the right team, is what keeps the process on track.</p>
+<h2 id="calendar">Mapping the Process to a Realistic Calendar</h2>
+<p>It helps to anchor the process to an actual calendar. In the weeks before listing — call it the pre-sale phase — you decide whether a 1031 fits, estimate your deferred tax, assemble your QI, CPA, and advisor, and begin building a replacement shortlist. None of this is bound by a deadline, which is exactly why it should be done early, while there's no clock running.</p>
+<p>Once you have a buyer and a closing date, the timeline crystallizes. Day 0 is your closing, when the QI receives the proceeds and both clocks start. Through roughly days 1–40 you confirm and finalize your replacement choices, delivering a written identification to the QI by day 45 at the latest — ideally around day 30 so you're not against the wall.</p>
+<p>From identification through roughly day 130, you complete diligence and lock down financing on your chosen replacement, whether that's underwriting a direct property or reviewing a DST's offering documents. Aim to have financing fully approved with a month to spare, because loan delays are the most common reason closings slip.</p>
+<p>You then target a closing around day 160–165, leaving buffer before the day-180 hard deadline. If your primary deal falters late, you pivot to the DST backup you identified, which closes in days. Finally, the following tax season, your CPA reports the exchange on Form 8824 for the year of the sale.</p>
+<p>Laying the process over a real calendar this way turns a vague sense of 'I have six months' into concrete milestones with buffer built in. The exchangers who map it out — ideally before they even sell — are the ones who reach day 180 with a completed, fully deferred exchange rather than a last-minute scramble or a failure.</p>
+<h2 id="streamline">How Professionals Streamline the Process</h2>
+<p>Experienced exchangers and their advisors compress and de-risk the process by front-loading the work. They begin the replacement search and assemble the team before listing the relinquished property, so the moment it sells, they're ready to identify and move.</p>
+<p>They build a DST backup into every exchange as standard practice, converting the timeline from a threat into a managed process. They coordinate the QI, CPA, lender, and closing agent from week one, surfacing problems early rather than discovering them at day 160. And they map the timeline backward from day 180, setting interim milestones that keep each phase on schedule.</p>
+<p>An independent, sponsor-agnostic advisor ties it together — sourcing and vetting replacement options that fit your dollar amount and goals, structuring for full deferral, and keeping every party aligned against the deadlines. Done well, the process feels less like a high-wire act and more like a series of confident, well-prepared steps.</p>
+<h2 id="order">Why the Order Matters</h2>
+<p>The steps must happen in order, and the ordering is the whole game. Setup before the sale is non-negotiable, because the QI has to be in place to receive the proceeds; do it after, and the exchange is dead on arrival. Selling starts the clocks, so everything downstream is timed from that moment.</p>
+<p>Identification before acquisition is enforced by the 45-day deadline — you can only acquire what you identified, so the identify step constrains the acquire step. And reporting comes last because it documents what actually happened across the earlier steps. Reorder or skip a step and the exchange typically fails. The discipline is to respect the sequence — set up, sell, identify, acquire, report — every time. The deadlines enforce the timing; the order enforces the logic.</p>
+<h2 id="wrong">The Step Investors Most Often Get Wrong</h2>
+<p>If there's one step that sinks exchanges, it's setup. Investors sometimes close the sale of their relinquished property before engaging a qualified intermediary — out of haste, or simply not knowing the rule — and the proceeds reach them. That's constructive receipt, and it disqualifies the exchange no matter how perfectly the remaining steps are executed.</p>
+<p>There is no fix after the fact. A QI cannot retroactively undo your receipt of the funds, and the IRS doesn't grant exceptions for not knowing the rule. The exchange becomes a taxable sale, and the full capital gains, recapture, <a href="net-investment-income-tax.html">NIIT</a>, and state tax come due. The lesson is simple and absolute: engage your qualified intermediary before you close the sale. Of all the things that can go wrong in an exchange, this is the most common, the most costly, and the most completely avoidable.</p>
+<h2 id="example">A Worked Example Across the Steps</h2>
+<p>Picture an investor selling a rental for $800,000 with $500,000 of equity and $300,000 of debt. <strong>Set up:</strong> two weeks before closing, they engage a qualified intermediary, sign the exchange agreement, and confirm their CPA and advisor are ready. <strong>Sell:</strong> the sale closes on May 1, the QI receives the $500,000 of equity, and the 45- and 180-day clocks start.</p>
+<p><strong>Identify:</strong> by May 25 (day 24), having searched before selling, they identify a primary $800,000 net-lease property plus a diversified DST backup, in writing to the QI under the 3-property rule. <strong>Acquire:</strong> when the net-lease seller re-trades in June, they pivot to the DST backup, which closes in early July — well inside the 180 days — investing exactly enough to meet the $800,000 value target and replacing the $300,000 of debt through the leveraged DST, so there's no boot.</p>
+<p><strong>Report:</strong> the following spring, their CPA reports the exchange on Form 8824 with the 2026 return, carrying the original basis into the DST interest. The gain is fully deferred, and the investor now holds passive, diversified replacement property. Figures are illustrative, but the sequence is exactly how a clean exchange unfolds.</p>
+<h2 id="types">The Process for Different Exchange Types</h2>
+<p>The steps above describe a delayed (forward) exchange, the most common form. The variants reorder or add to the steps. In a <strong>reverse exchange</strong>, you acquire the replacement first — an exchange accommodation titleholder parks it — then sell, so the acquire and sell steps swap order while the same deadlines and reporting apply.</p>
+<p>In an <strong>improvement (construction) exchange</strong>, the acquire step expands to include building or renovating the replacement within the 180-day window, with only completed, paid-for improvements counting toward value. A <strong>simultaneous exchange</strong> compresses the sell and acquire steps into the same day, now rare because the delayed structure is more practical. A <strong>DST exchange</strong> follows the process exactly, but the acquire step is faster and more certain because the DST can close in days — which is why DSTs are the classic backup. Whatever the type, the underlying logic of set up, sell, identify, acquire, report holds; the variants simply bend the timing and add machinery.</p>
+<h2 id="derisk">How the Steps De-Risk the Exchange</h2>
+<p>Viewed together, the steps aren't just a sequence — they're a risk-management structure. Each step closes off a way the exchange could fail. Setup, done before the sale, eliminates the constructive-receipt risk that destroys exchanges started too late. Selling through the QI ensures the proceeds never reach you, preserving the deferral from the very first moment.</p>
+<p>The identify step, with its discipline of naming backups, protects against the single biggest mid-exchange risk: a primary deal falling through after day 45 with no fallback. By identifying a fast-closing DST alongside your primary, you convert a fragile, single-point-of-failure plan into a resilient one that can absorb a failed deal and still complete on time. The acquire step is where the value-and-debt discipline prevents boot — by planning to reinvest all equity and replace all debt, often using a leveraged DST that supplies non-recourse financing, you reach the closing positioned for full, zero-boot deferral rather than an accidental tax bill hidden inside a valid exchange.</p>
+<p>The report step, finally, protects the future. Accurate Form 8824 reporting and basis tracking preserve the deferred gain correctly across years and future exchanges, so the strategy compounds cleanly and a step-up at death can eventually resolve it. Run in order, with backups and a clear value plan, the steps don't just complete an exchange — they systematically remove the ways it could go wrong.</p>
+<h2 id="lifetime">From One Exchange to a Lifetime Strategy</h2>
+<p>A single exchange is powerful, but the strategy compounds when repeated. Each exchange defers the accumulated gain, so an investor can run the process again and again over a lifetime — trading up, diversifying, and shifting toward passive ownership — without ever paying the deferred tax.</p>
+<p>The capstone is to hold the final replacement property until death, when a <a href="1031-exchange-step-up-in-basis-at-death.html">step-up in basis</a> can eliminate the deferred gain for your heirs entirely. The steps you learn on your first exchange become a repeatable engine for building and preserving real estate wealth across decades. Each repetition is easier than the last, because you've built the relationships and habits the first exchange required — a trusted QI, a CPA who tracks your basis, and an advisor who sources replacement property. Master the process once, and you've learned a strategy you can use for the rest of your investing life.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What are the steps in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Plan and decide if a 1031 fits, assemble your team (QI, CPA, advisor), engage a qualified intermediary before selling, sell the relinquished property, identify replacement property within 45 days, complete diligence and financing, close within 180 days, report on Form 8824, and plan your next move. Each step sets up the next.</p></div>
+</details>
+<details>
+<summary>When do I engage a qualified intermediary?<span class="ic"></span></summary>
+<div class="ans"><p>Before the relinquished property's sale closes, ideally during contract negotiation. The QI must be in place to take assignment of the contract and receive the proceeds; engaging one after closing causes constructive receipt and fails the exchange.</p></div>
+</details>
+<details>
+<summary>How long does the 1031 process take?<span class="ic"></span></summary>
+<div class="ans"><p>The active exchange runs within 180 days of the sale, with replacement property identified in the first 45 days. Planning typically begins weeks earlier, so the full process — from initial planning to Form 8824 — often spans several months.</p></div>
+</details>
+<details>
+<summary>What form reports a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>IRS Form 8824, filed with your tax return for the year the relinquished property was sold. It reports the exchange, the dates and values, any boot, and the carryover basis in your replacement property.</p></div>
+</details>
+<details>
+<summary>What's the most common mistake in the 1031 process?<span class="ic"></span></summary>
+<div class="ans"><p>Engaging the qualified intermediary too late — after the sale closes and the proceeds have reached you — which causes constructive receipt and disqualifies the exchange. The QI must be engaged before closing.</p></div>
+</details>
+<details>
+<summary>Do I need a CPA and an advisor, or just a QI?<span class="ic"></span></summary>
+<div class="ans"><p>A QI is required to hold funds and document the exchange, but it doesn't give tax advice or find replacement property. A CPA handles the tax math and Form 8824, and an advisor sources and vets replacement property and coordinates the deadlines. The strongest exchanges use all three.</p></div>
+</details>
+<details>
+<summary>What happens at the 45-day mark?<span class="ic"></span></summary>
+<div class="ans"><p>You must have delivered a written, signed identification of replacement property to your QI by day 45. After that, you can only acquire what you identified — no additions — so identifying backups, including a fast-closing DST, is essential.</p></div>
+</details>
+<details>
+<summary>How do I avoid boot during the process?<span class="ic"></span></summary>
+<div class="ans"><p>Acquire replacement property of equal or greater value, reinvest all your equity, and replace any debt you paid off (with new financing or a leveraged DST). Plan the value and debt math before closing so you don't keep cash or drop leverage and create taxable boot.</p></div>
+</details>
+<details>
+<summary>Can I hold the replacement property indefinitely?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. You can hold it as long as you like, drawing income while the gain stays deferred, or exchange again later. Holding until death can pass a stepped-up basis to your heirs, potentially eliminating the deferred gain.</p></div>
+</details>
+<details>
+<summary>What if my financing is delayed?<span class="ic"></span></summary>
+<div class="ans"><p>Financing delays are the most common threat to the 180-day closing. Start the loan process before you close the sale, choose a lender experienced with 1031 timelines, and keep a fast-closing DST backup identified so a slow loan can't cost you the exchange.</p></div>
+</details>
+<details>
+<summary>Do I report the exchange the year I sell or the year I close?<span class="ic"></span></summary>
+<div class="ans"><p>You report on Form 8824 with your tax return for the year the relinquished property was sold, even if the replacement closing falls in the following calendar year (which is common for late-year sales spanning into the next year).</p></div>
+</details>
+<details>
+<summary>Can professionals make the process easier?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Experienced advisors front-load the work — assembling the team and the replacement shortlist before you sell, building in a DST backup, coordinating the QI, CPA, and lender, and mapping the timeline backward from day 180 — which turns the process from a high-wire act into a series of prepared steps.</p></div>
+</details>
+<details>
+<summary>Should I start the process before I list my property?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — starting before you list is the single biggest predictor of a smooth exchange. Use the pre-listing period to decide whether a 1031 fits your goals, estimate your deferred tax, assemble your team (QI, CPA, advisor), and begin building a replacement-property shortlist including a fast-closing DST backup. By the time the sale closes and the 45-day clock starts, you want to be ready to identify confidently rather than beginning a cold search under deadline pressure.</p></div>
+</details>
+<details>
+<summary>What documents do I need throughout the process?<span class="ic"></span></summary>
+<div class="ans"><p>You'll accumulate the exchange agreement and contract assignments from your QI, the closing statements for both the relinquished sale and the replacement purchase, your written identification notice, loan and debt details, and your basis and depreciation schedules. Keep signed, dated copies of everything — they document that the transaction was an exchange from the start and support your Form 8824 reporting if the IRS ever asks.</p></div>
+</details>
+<details>
+<summary>How does the process change for a reverse or improvement exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The core steps are the same, but an exchange accommodation titleholder parks a property under the IRS safe harbor. In a reverse exchange you acquire the replacement before selling, so the acquire and sell steps swap order. In an improvement exchange, the acquire step expands to include construction completed and paid for within the 180-day window. Both add cost, complexity, and the need for a QI experienced in parking arrangements, so plan them even further ahead.</p></div>
+</details>
+<details>
+<summary>What happens to leftover cash at the end of the process?<span class="ic"></span></summary>
+<div class="ans"><p>If you don't reinvest all of your proceeds — for example because you bought a less expensive replacement — the qualified intermediary releases the remaining cash to you at the end of the exchange period, and it's taxable boot up to the amount of your gain. To avoid this, structure the acquisition to reinvest all equity and meet equal-or-greater value, or consciously accept a known amount of boot if that's your choice.</p></div>
+</details>
+<details>
+<summary>How early should I engage each team member?<span class="ic"></span></summary>
+<div class="ans"><p>Engage the qualified intermediary before the relinquished sale closes — ideally during contract negotiation — and loop in your CPA and advisor even earlier, during planning. The CPA confirms the exchange makes sense and flags issues like the tax-return-date trap; the advisor begins sourcing replacement property. Assembling the full team before you sell is what prevents the deadline scrambles that sink exchanges.</p></div>
+</details>
+<details>
+<summary>Does the 1031 process work the same in every state?<span class="ic"></span></summary>
+<div class="ans"><p>The federal process and deadlines are uniform, but state rules can add wrinkles — some states have specific qualified-intermediary requirements, withholding on sales by nonresidents, or rules like California's clawback that tax deferred gain when an investor later moves out of state property. The federal steps don't change, but coordinate with your CPA on any state-level filing, withholding, or clawback considerations relevant to your sale.</p></div>
+</details>
+<details>
+<summary>Can I back out of the process after I've started?<span class="ic"></span></summary>
+<div class="ans"><p>You can choose not to complete an exchange — if you don't acquire replacement property, the qualified intermediary returns your funds and the sale simply becomes taxable, typically with the proceeds released at the end of the exchange period or earlier under the agreement's terms. You won't be penalized beyond owing the tax you would have owed on an outright sale. But once you've taken receipt of proceeds you can't restart the exchange, so the decision to proceed should be made before closing, not after.</p></div>
+</details>
+<details>
+<summary>How does the process end if everything goes right?<span class="ic"></span></summary>
+<div class="ans"><p>A clean exchange ends with you owning replacement property of equal or greater value, your full equity reinvested and debt replaced, no boot, and the gain fully deferred — followed by accurate Form 8824 reporting that carries your basis forward. From there you can hold the property indefinitely, draw income, and either exchange again later or hold until a step-up in basis at death resolves the deferred gain for your heirs.</p></div>
+</details>
+<details>
+<summary>Why does the order of the steps matter?<span class="ic"></span></summary>
+<div class="ans"><p>Each step makes the next possible. Setup must precede the sale so the QI can receive the proceeds; selling starts the clocks; identification constrains what you can acquire; acquisition completes the exchange; and reporting documents it. Reordering or skipping a step typically fails the exchange — the deadlines enforce the timing, and the order enforces the logic.</p></div>
+</details>
+<details>
+<summary>What's the single most important step?<span class="ic"></span></summary>
+<div class="ans"><p>Setup, because engaging the qualified intermediary before you sell is what makes the whole exchange valid. Get setup wrong — by taking receipt of the proceeds — and no amount of perfect execution on the other steps can save the exchange.</p></div>
+</details>
+<details>
+<summary>Can the steps overlap?<span class="ic"></span></summary>
+<div class="ans"><p>The identify and acquire steps overlap on the timeline, since the 45-day identification window sits inside the 180-day acquisition window — both run concurrently from the sale. But the logical order still holds: you must identify before you can acquire (you can only buy what you identified), and you report only after the exchange is complete. Setup and selling are sequential and come first.</p></div>
+</details>
+<details>
+<summary>What if I complete some steps but not others?<span class="ic"></span></summary>
+<div class="ans"><p>A 1031 exchange is all-or-nothing for the deferral: if you miss setup (taking receipt of proceeds), miss the 45-day identification, or miss the 180-day acquisition, the exchange generally fails and the sale becomes taxable. There's no partial credit for completing some steps. The exception is partial deferral — if you intentionally keep some cash or debt relief (boot), that portion is taxed while the rest of a properly completed exchange stays deferred.</p></div>
+</details>
+<details>
+<summary>How long should I allow for each step?<span class="ic"></span></summary>
+<div class="ans"><p>Setup should be done before the sale, ideally a couple of weeks ahead. Selling happens on your closing date, which starts the clocks. Identification must be finished within 45 days, but aim for around day 30 to leave room. Acquisition must be completed within 180 days, with a target of day 160–165 to build buffer. Reporting happens the following tax season on Form 8824. Front-loading the planning before the sale is what makes the deadline-bound steps manageable.</p></div>
+</details>
+<details>
+<summary>What's the difference between the steps and the 1031 rules?<span class="ic"></span></summary>
+<div class="ans"><p>The steps describe the sequence of actions you take — set up, sell, identify, acquire, report. The 1031 rules describe the substantive requirements those actions must satisfy — like-kind property, the same-taxpayer rule, equal-or-greater value, debt replacement, the qualified intermediary, and the deadlines. The steps are the "how," and the rules are the "what must be true." A successful exchange follows the steps in order while satisfying every rule along the way.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>An independent party that holds exchange proceeds and documents the transaction; required for a deferred 1031.</dd></div>
+<div class="g"><dt>Relinquished Property</dt><dd>The property you sell to begin the exchange; its closing starts the clocks.</dd></div>
+<div class="g"><dt>Replacement Property</dt><dd>The like-kind property you acquire to complete the exchange.</dd></div>
+<div class="g"><dt>Identification Letter</dt><dd>The written, signed notice identifying replacement property, delivered to the QI within 45 days.</dd></div>
+<div class="g"><dt>45-Day Identification Period</dt><dd>The window from the sale to identify replacement property in writing.</dd></div>
+<div class="g"><dt>180-Day Exchange Period</dt><dd>The window from the sale to acquire the replacement property.</dd></div>
+<div class="g"><dt>Form 8824</dt><dd>The IRS form used to report a like-kind exchange and carryover basis.</dd></div>
+<div class="g"><dt>Carryover Basis</dt><dd>The relinquished property's adjusted basis carried into the replacement property.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Taxable cash or unreplaced debt received in an exchange.</dd></div>
+<div class="g"><dt>Constructive Receipt</dt><dd>Access to or control over proceeds, which disqualifies the exchange.</dd></div>
+<div class="g"><dt>Backup Identification</dt><dd>A fast-closing option (often a DST) identified to protect the deadline.</dd></div>
+<div class="g"><dt>Leveraged DST</dt><dd>A DST with pre-arranged non-recourse debt that replaces leverage without a loan application.</dd></div>
+<div class="g"><dt>Step-Up in Basis</dt><dd>The reset of basis at death that can eliminate deferred gain for heirs.</dd></div>
+<div class="g"><dt>Exchange Agreement</dt><dd>The contract with the qualified intermediary that sets up the exchange before the sale.</dd></div>
+<div class="g"><dt>Reverse Exchange</dt><dd>An exchange in which the replacement is acquired before the relinquished property is sold.</dd></div>
+<div class="g"><dt>Improvement Exchange</dt><dd>An exchange in which exchange funds build or renovate the replacement within 180 days.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/newsroom/the-treasury-department-and-irs-issue-final-regulations-regarding-like-kind-exchanges-of-real-property" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Form 8824 and process</a></li><li>Accruit. <a href="https://www.accruit.com/blog/tax-day-2026-1031-exchange-reporting-deadlines-and-the-impact-of-h-r-1/" rel="noopener nofollow" target="_blank">1031 Exchange Reporting, Deadlines, and the Impact of H.R.1</a></li><li>IPX1031. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">1031 Exchange process overview</a></li><li>Baker 1031 Investments. <a href="1031-exchange-guide.html" rel="noopener nofollow" target="_blank">What is a 1031 Exchange? (Learning Center)</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

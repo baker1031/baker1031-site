@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retirement Planning With Real Estate | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Retirement Planning With Real Estate
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Retirement Planning With Real Estate</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Definitive Guide · 2026</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 30 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Real estate can fund a retirement the way few assets can — replacing a paycheck with passive, tax-sheltered income while your equity keeps compounding. This guide shows how 1031 exchanges, DSTs, REITs, 721 UPREITs, mineral royalties, and Opportunity Zones each fit a retirement plan, and how to size them honestly.</p></div>
+
+    <div class="legacy">
+<main id="main">
+
+<div class="wrap abody">
+<article class="article">
+<p class="lead">The dream version of real estate in retirement is simple: own income-producing property, collect the checks, and never field a 2 a.m. call about a broken water heater again. The reality requires a deliberate transition — from active, management-heavy rentals to passive, durable income — and from there, a plan for liquidity, inflation, and eventually your heirs. The good news is that the same toolkit that defers tax also builds retirement income.</p>
+<p>This guide pulls together the strategies covered across our series — the <a href="1031-exchange-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">1031 exchange</a>, <a href="dst-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DSTs</a>, <a href="reits-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">REITs</a>, <a href="721-exchange-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">721 UPREITs</a>, <a href="mineral-rights-1031-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">mineral royalties</a>, and <a href="opportunity-zones-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">Opportunity Zones</a> — and asks one question of each: what does it do for your retirement?</p>
+<div class="takeaways">
+<div class="tk-h">The essentials</div>
+<ul>
+<li><strong>Passive income without the headaches:</strong> a 1031 exchange lets you trade active rentals for passive DST, REIT, or royalty income — tax-deferred — and a chunk of that income is typically sheltered by depreciation.</li>
+<li><strong>Match the vehicle to the need:</strong> DSTs and REITs for steady income, 721 UPREITs for diversification and later liquidity, minerals for high yield, Opportunity Zones for long-horizon growth.</li>
+<li><strong>Mind liquidity:</strong> most of these are illiquid for years — keep a cash buffer outside them, and remember that holding to death hands your heirs a step-up.</li>
+</ul>
+</div>
+<h2 id="engine">01 · Real Estate as a Retirement Engine</h2>
+<p>Real estate earns its place in a retirement plan for three reasons. It produces <strong>income</strong> — rent and distributions that can replace a paycheck. It tends to <strong>keep pace with inflation</strong>, since rents and property values generally rise with prices over time, protecting your purchasing power across a long retirement. And it's <strong>tax-efficient</strong>: depreciation shelters a portion of the income, the 1031 exchange defers gains as you reposition, and holding to death gives heirs a stepped-up basis. The trick in retirement is converting these advantages into <em>passive</em>, <em>durable</em> income — which usually means stepping back from hands-on ownership.</p>
+<h2 id="tired">02 · The Tired-Landlord Problem</h2>
+<p>Direct rentals are a business, not a passive investment — leasing, repairs, compliance, capital projects, and tenant drama don't retire when you do. Many owners reach a point where the income is welcome but the work is not, and where a concentrated bet on a few buildings feels riskier than it should this late in the game. Selling outright would trigger a large tax bill — capital gains plus depreciation recapture — that can erase years of appreciation. That's the bind the rest of this guide solves: how to step back from management and diversify <em>without</em> handing a third of your equity to the IRS.</p>
+<div class="pullquote">
+<p>The goal isn't to defer retirement because you're a landlord. It's to defer the tax — and retire from the landlording.</p>
+<cite>Baker 1031 Research</cite>
+</div>
+<h2 id="bridge">03 · The 1031: The Bridge From Active to Passive</h2>
+<p>The 1031 exchange is what makes a clean transition possible. Sell your actively managed property, and instead of paying tax, roll the proceeds into passive replacement real estate — deferring every dollar of gain and recapture. For a retiring owner, this is the pivot point: the same equity that was tied up in a building you managed now works in a hands-off vehicle that simply pays you. From here, the choice is which passive vehicle fits your income, liquidity, and legacy needs.</p>
+<h2 id="dst">04 · DSTs: Hands-Off Monthly Income</h2>
+<p>The Delaware Statutory Trust is the most direct answer to the tired-landlord problem. You 1031 into fractional interests in institutional real estate and receive <strong>monthly distributions</strong> — predictable income, a real upgrade over the lumpy timing of direct rents — while a professional sponsor handles everything. Because a DST is a pass-through, you keep participating in <strong>depreciation</strong>, so a meaningful portion of that monthly income is tax-sheltered, just as it was when you owned the building. Diversifying across a few DSTs (sector, geography, sponsor) further de-risks your retirement income. (See the full <a href="dst-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">DST guide</a>.)</p>
+<h2 id="reit">05 · REITs &amp; 721 UPREITs: Diversified Income With a Path to Liquidity</h2>
+<p>REITs — especially non-traded NAV REITs — offer diversified real-estate income with professional management, and REIT dividends carry a <strong>20% deduction</strong> that lowers the tax on them. For retirees, the standout feature is the <strong>721 UPREIT</strong> path: 1031 into a DST, then let the REIT acquire it for operating-partnership units. That gives you diversified income now and, as you age, a <strong>path to liquidity</strong> — you can convert units to REIT shares and sell in pieces to fund later-retirement needs — plus easy estate division. The trade-offs (it's one-way, and conversion is taxable) are covered in the <a href="721-exchange-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">721</a> and <a href="reits-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">REIT</a> guides.</p>
+<h2 id="mineral">06 · Mineral &amp; Royalty Income: High Yield, With Caveats</h2>
+<p>Producing mineral and royalty interests are among the highest-yielding real-property assets available — our sector benchmark puts them near a <strong>9.6%</strong> average — and qualifying perpetual interests can even be reached through a 1031 exchange. For an income-focused retiree that yield is attractive, but it comes with real caveats: royalty income <strong>declines as wells deplete</strong> and <strong>swings with commodity prices</strong>, so it's best treated as one income sleeve within a diversified plan, not the foundation. (See the <a href="mineral-rights-1031-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">mineral rights guide</a>.)</p>
+<h2 id="oz">07 · Opportunity Zones: The Long-Horizon Growth Bucket</h2>
+<p>Opportunity Zones are the outlier here: they're built for <strong>long-term, tax-free growth</strong>, not current income. The payoff comes after a ten-year hold, when appreciation can be excluded from tax. That makes an OZ fund a fit for the <em>growth</em> sleeve of a plan — for someone a decade or more from needing the money, or building a legacy allocation — rather than for income today. And as our <a href="estate-planning-real-estate-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">estate guide</a> notes, OZ deferred gains don't get a step-up at death, so they're a growth play, not an income or step-up play. (See the <a href="opportunity-zones-guide.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">Opportunity Zones guide</a>.)</p>
+<h2 id="income">08 · Estimate Your Passive Income</h2>
+<p>Start with the headline number: what could your real-estate equity throw off each month? Set your amount and a target yield — the chips show typical ranges by vehicle:</p>
+<div class="tool" id="tool-income">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Passive income estimator</span></div>
+<div class="tin">
+<div class="slctl"><label for="inAmt">Amount invested (e.g., 1031 proceeds) <span class="vv" id="inAmtV">$1,500,000</span></label><input id="inAmt" max="10000000" min="100000" step="50000" type="range" value="1500000"/></div>
+<div class="slctl"><label for="inYield">Target annual yield <span class="vv" id="inYieldV">5.5%</span></label><input id="inYield" max="10" min="2" step="0.1" type="range" value="5.5"/></div>
+<div class="ychips" id="inChips"></div>
+<div class="slctl" style="margin-top:14px"><label for="inShelter">Portion of income tax-sheltered (depreciation / ROC) <span class="vv" id="inShelterV">50%</span></label><input id="inShelter" max="100" min="0" step="5" type="range" value="50"/></div>
+<div class="calcgrid">
+<div class="slcard"><div class="l">Annual income</div><div class="n" id="inAnnual">—</div></div>
+<div class="slcard"><div class="l">Monthly income</div><div class="n" id="inMonthly">—</div></div>
+<div class="slcard"><div class="l">Tax-sheltered (≈)</div><div class="n" id="inShelt">—</div></div>
+</div>
+<div class="obig"><div class="l">Estimated monthly passive income</div><div class="n"><span class="acc" id="inBig">—</span></div></div>
+<p class="tcap" style="margin-top:14px">Illustrative. Yields and the sheltered portion vary by vehicle, leverage, and year; the sheltered portion is tax-deferred (via depreciation or return of capital), not tax-free. Not investment advice.</p>
+</div>
+</div>
+<h2 id="sustain">09 · Will It Cover Your Spending?</h2>
+<p>The retiree's real question isn't just "how much income?" — it's "does the income cover my spending without eating into principal?" Living off the cash flow alone preserves your capital for later needs and for heirs (with that step-up). Check it:</p>
+<div class="tool" id="tool-sustain">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Income vs. spending check</span></div>
+<div class="tin">
+<div class="slctl"><label for="ssEgg">Real-estate nest egg <span class="vv" id="ssEggV">$1,500,000</span></label><input id="ssEgg" max="10000000" min="100000" step="50000" type="range" value="1500000"/></div>
+<div class="slctl"><label for="ssYield">Expected yield <span class="vv" id="ssYieldV">5.5%</span></label><input id="ssYield" max="10" min="2" step="0.1" type="range" value="5.5"/></div>
+<div class="slctl"><label for="ssNeed">Annual income you need from it <span class="vv" id="ssNeedV">$70,000</span></label><input id="ssNeed" max="500000" min="10000" step="5000" type="range" value="70000"/></div>
+<div class="calcgrid">
+<div class="slcard"><div class="l">Income generated</div><div class="n" id="ssIncome">—</div></div>
+<div class="slcard"><div class="l">Surplus / (gap)</div><div class="n" id="ssGap">—</div></div>
+<div class="slcard"><div class="l">Nest egg needed</div><div class="n" id="ssNeeded">—</div></div>
+</div>
+<div class="vbox" id="ssBox"><div class="vh" id="ssH">—</div><div class="vp" id="ssP">—</div></div>
+<p class="tcap" style="margin-top:14px">Illustrative. "Income only" assumes you don't spend principal; ignores inflation growth, taxes, and fees. A real plan layers Social Security, other assets, and a cash buffer. Not financial advice.</p>
+</div>
+</div>
+<h2 id="which">10 · Which Path Fits You?</h2>
+<p>Income now, liquidity later, high yield, or long-term growth — your priorities point to different vehicles. Answer four questions:</p>
+<div class="tool" id="tool-which">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Which retirement path fits you?</span></div>
+<div class="tin">
+<div id="wqBody"></div>
+<div class="trow">
+<button class="toolbtn" disabled="" id="wqGo">See my recommendation</button>
+<button class="toolbtn ghost" id="wqReset">Reset</button>
+</div>
+<div class="result" id="wqResult">
+<div class="rlabel">Best-fit path</div>
+<div class="rname" id="wqName"></div>
+<div class="rwhy" id="wqWhy"></div>
+<div class="rbars" id="wqBars"></div>
+<div class="trade" id="wqTrade"></div>
+</div>
+</div>
+</div>
+<h2 id="liquidity">11 · The Liquidity Trade-off</h2>
+<p>Here's the honest caution. DSTs, non-traded REITs, private REITs, and Opportunity Zone funds are <strong>illiquid</strong> — your capital is committed for years, and non-traded REIT redemptions can be gated. In retirement, when an unexpected expense or a market shock can't wait, that illiquidity is a real risk. Three guardrails: keep a <strong>cash and liquid-investment buffer</strong> outside these vehicles (often a year or more of expenses), <strong>don't over-concentrate</strong> your net worth in any single illiquid holding, and consider <strong>laddering</strong> — staggering DSTs with different expected hold periods so capital frees up at intervals. The income is the point; the lock-up is the price, and you plan around it.</p>
+<h2 id="ira">12 · Real Estate in Retirement Accounts</h2>
+<p>You can hold these investments inside a <strong>self-directed IRA</strong> (SDIRA), but watch one tax trap. When an IRA owns <strong>debt-financed</strong> real estate — and most DSTs use a mortgage — the leveraged portion generates <strong>unrelated debt-financed income (UDFI)</strong>, which is subject to <strong>unrelated business income tax (UBIT)</strong> inside the IRA. By contrast, <strong>REIT dividends are generally exempt</strong> from this tax, which makes REITs a cleaner way to hold real estate in an IRA. A <strong>solo 401(k)</strong> is exempt from UDFI on leveraged real estate (under a special rule), unlike an SDIRA. The takeaways: REITs fit IRAs neatly; leveraged DSTs in an IRA can owe UBIT on the financed share; and a solo 401(k) avoids that. Coordinate with your custodian and CPA before holding leveraged real estate in a retirement account.</p>
+<h2 id="ready">13 · Retirement Income Readiness</h2>
+<p>Run a quick check on your real-estate retirement plan:</p>
+<div class="tool" id="tool-ready">
+<div class="tbar"><span class="tk">Interactive</span><span class="tt">Retirement income readiness check</span></div>
+<div class="tin">
+<p class="tsub">Check each statement that's true. The first two are foundational.</p>
+<div class="check" id="rdList"></div>
+<div class="scorewrap">
+<div class="scorenum"><b id="rdScore">0</b>/6</div>
+<div class="scoreverdict"><div class="v" id="rdVerd">Work through the list</div><div class="vt" id="rdSub">Your readiness updates live.</div></div>
+</div>
+<div class="flag" id="rdFlag"></div>
+</div>
+</div>
+<h2 id="faq">14 · Frequently Asked Questions</h2>
+<div class="faq">
+<details open=""><summary>How do I retire from being a landlord without a big tax bill?<span class="ic"></span></summary><div class="ans"><p>Use a 1031 exchange to roll your rental into passive replacement real estate — a DST is the common choice. You defer all the capital gains and depreciation recapture, step back from management, and start receiving distributions instead of collecting rent.</p></div></details>
+<details><summary>Is real-estate income in retirement really passive?<span class="ic"></span></summary><div class="ans"><p>Direct rentals aren't — they're a business. But DSTs, REITs, and 721 UPREIT units are genuinely passive: a professional sponsor or REIT manages everything and you simply receive distributions, commonly monthly.</p></div></details>
+<details><summary>Why is part of my DST income not taxed?<span class="ic"></span></summary><div class="ans"><p>DSTs pass through depreciation, which shelters a portion of your distributions — so part of the cash you receive is tax-deferred, not currently taxed. REITs similarly may return capital and offer a 20% deduction on ordinary dividends.</p></div></details>
+<details><summary>What if I need my money back during retirement?<span class="ic"></span></summary><div class="ans"><p>These vehicles are illiquid — plan for it. Keep a cash buffer outside them, avoid over-concentrating, and consider laddering DSTs with different hold periods. A 721 into a REIT can later provide a path to liquidity by converting and selling shares in pieces.</p></div></details>
+<details><summary>Can I hold these in my IRA?<span class="ic"></span></summary><div class="ans"><p>Yes, via a self-directed IRA — but a leveraged DST can trigger UBIT on the debt-financed portion. REIT dividends are generally exempt from that tax, and a solo 401(k) avoids the debt-financed-income rule. Check with your custodian and CPA first.</p></div></details>
+</div>
+<h2 id="glossary">15 · Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Passive Income</dt><dd>Income you receive without active management — distributions from a DST, REIT, or royalty interest.</dd></div>
+<div class="g"><dt>Tired Landlord</dt><dd>An owner ready to step back from hands-on rental management while keeping the income.</dd></div>
+<div class="g"><dt>Depreciation Shelter</dt><dd>The portion of real-estate income offset by depreciation, making it tax-deferred.</dd></div>
+<div class="g"><dt>Laddering</dt><dd>Staggering investments with different hold periods so capital becomes available at intervals.</dd></div>
+<div class="g"><dt>Self-Directed IRA (SDIRA)</dt><dd>An IRA that can hold alternative assets such as DSTs, REITs, and real estate.</dd></div>
+<div class="g"><dt>UDFI / UBIT</dt><dd>Tax on debt-financed income earned inside an IRA — relevant to leveraged DSTs.</dd></div>
+<div class="g"><dt>Return of Capital</dt><dd>A distribution that isn't current income; it reduces basis and defers tax.</dd></div>
+<div class="g"><dt>Step-Up in Basis</dt><dd>The reset of basis to fair-market value at death, erasing deferred gain for heirs.</dd></div>
+</dl>
+<h2 id="sources">16 · Sources &amp; References</h2>
+<div class="refs"><ol>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li>
+<li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">IRS — Revenue Ruling 2004-86 (Delaware Statutory Trusts)</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution to a partnership (721/UPREIT)</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1400Z-2" rel="noopener nofollow" target="_blank">26 U.S. Code § 1400Z–2 — Special rules for capital gains invested in opportunity zones</a></li>
+<li>Baker 1031. <a href="insights.html">Baker 1031 Data Center — DST sponsor, offering, and yield data</a></li>
+</ol></div>
+<h2 id="disclosures">17 · Disclosures</h2>
+<div class="disclosures">
+<p>This material is for educational and informational purposes only and does not constitute investment, legal, tax, or financial advice, nor an offer or solicitation with respect to any security or property. DSTs, REITs, 721/UPREIT interests, mineral and royalty interests, and Opportunity Zone funds are illiquid, speculative, generally limited to accredited investors, and may lose value, including loss of principal. Distributions are not guaranteed and may include return of capital.</p>
+<p>Yields, sheltered-income portions, and sustainability outcomes are illustrative estimates that ignore inflation, fees, taxes, and the interaction of income sources; they are not projections of any specific investment. Holding real estate in a retirement account can trigger UBIT/UDFI; coordinate with your custodian. Consult a qualified financial advisor, CPA, and attorney before acting.</p>
+</div>
+<div class="authorbio" style="display:flex;gap:20px;align-items:flex-start;margin-top:46px;padding-top:34px;border-top:1px solid var(--hairline);max-width:780px">
+<div style="width:74px;height:74px;flex:none;background:var(--ink-deep);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'QuincyCF',serif;font-size:26px">B</div>
+<div>
+<div style="font-family:'QuincyCF',serif;font-size:21px;color:var(--ink)">Baker 1031 Research</div>
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:4px">Retirement &amp; Tax-Advantaged Real Estate Desk</div>
+<div style="font-size:14.5px;color:var(--text);margin-top:10px;line-height:1.6">Baker 1031 Research covers the full deferral toolkit — 1031 exchanges, DSTs, 721 UPREITs, REITs, mineral interests, and Opportunity Zones — with an eye to building durable retirement income and a clean handoff to heirs.</div>
+</div>
+</div>
+</article>
+
+</div>
+
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    /* progress + TOC scrollspy */
+    var prog=document.getElementById('prog');
+    var links=[].slice.call(document.querySelectorAll('.toc a'));
+    var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
+    addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+    var cl=document.getElementById('copylink');cl&&cl.addEventListener('click',function(e){e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    var pb=document.getElementById('printbtn');pb&&pb.addEventListener('click',function(e){e.preventDefault();window.print();});
+    var dp=document.getElementById('dlpdf');dp&&dp.addEventListener('click',function(e){e.preventDefault();window.print();});
+    function setFaq(o){document.querySelectorAll('.faq details').forEach(function(d){if(o){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',function(){setFaq(true);});addEventListener('afterprint',function(){setFaq(false);});
+    function money(n){return '$'+Math.round(n).toLocaleString();}
+
+    /* ===== TOOL 1: INCOME ESTIMATOR ===== */
+    var inAmt=document.getElementById('inAmt'),inYield=document.getElementById('inYield'),inShelter=document.getElementById('inShelter');
+    var YIELDS=[['DST ~5%',5],['Net lease ~5.2%',5.2],['Non-traded REIT ~5%',5],['Healthcare DST ~6.4%',6.4],['Minerals ~9.6%',9.6],['Opportunity Zone ~1% (growth)',1]];
+    document.getElementById('inChips').innerHTML=YIELDS.map(function(y){return '<span class="ychip" data-y="'+y[1]+'">'+y[0]+'</span>';}).join('');
+    document.querySelectorAll('#inChips .ychip').forEach(function(c){c.addEventListener('click',function(){inYield.value=c.getAttribute('data-y');incomeCalc();});});
+    function incomeCalc(){
+      var amt=+inAmt.value,y=+inYield.value/100,sh=+inShelter.value/100;
+      document.getElementById('inAmtV').textContent=money(amt);
+      document.getElementById('inYieldV').textContent=(+inYield.value).toFixed(1)+'%';
+      document.getElementById('inShelterV').textContent=(+inShelter.value)+'%';
+      var annual=amt*y,monthly=annual/12,shelt=annual*sh;
+      document.getElementById('inAnnual').textContent=money(annual);
+      document.getElementById('inMonthly').textContent=money(monthly);
+      document.getElementById('inShelt').textContent=money(shelt);
+      document.getElementById('inBig').textContent=money(monthly);
+    }
+    inAmt.addEventListener('input',incomeCalc);inYield.addEventListener('input',incomeCalc);inShelter.addEventListener('input',incomeCalc);incomeCalc();
+
+    /* ===== TOOL 2: SUSTAINABILITY ===== */
+    var ssEgg=document.getElementById('ssEgg'),ssYield=document.getElementById('ssYield'),ssNeed=document.getElementById('ssNeed');
+    function ssCalc(){
+      var egg=+ssEgg.value,y=+ssYield.value/100,need=+ssNeed.value;
+      document.getElementById('ssEggV').textContent=money(egg);
+      document.getElementById('ssYieldV').textContent=(+ssYield.value).toFixed(1)+'%';
+      document.getElementById('ssNeedV').textContent=money(need);
+      var income=egg*y,gap=income-need,needed=y>0?need/y:0;
+      document.getElementById('ssIncome').textContent=money(income);
+      document.getElementById('ssGap').textContent=(gap<0?'('+money(-gap)+')':money(gap));
+      document.getElementById('ssNeeded').textContent=money(needed);
+      var box=document.getElementById('ssBox'),h=document.getElementById('ssH'),p=document.getElementById('ssP');
+      if(gap>=0){box.className='vbox yes';h.textContent='Covered by income alone';p.innerHTML='Your '+money(egg)+' generates about <b>'+money(income)+'</b> a year — enough to cover your '+money(need)+' need with <b>'+money(gap)+'</b> to spare, without touching principal. Living off the cash flow preserves your capital (and the step-up for heirs).';}
+      else{box.className='vbox no';h.textContent='Income falls short';p.innerHTML='At this yield, '+money(egg)+' generates only <b>'+money(income)+'</b> — short of your '+money(need)+' need by <b>'+money(-gap)+'</b> a year. To cover it from income alone you’d need about <b>'+money(needed)+'</b> invested at this yield, a higher-yielding mix, or to supplement with other assets.';}
+    }
+    ssEgg.addEventListener('input',ssCalc);ssYield.addEventListener('input',ssCalc);ssNeed.addEventListener('input',ssCalc);ssCalc();
+
+    /* ===== TOOL 3: WHICH PATH QUIZ ===== */
+    var WQUIZ=[
+      {q:'What do you need most from this money?',o:[['Steady income now, fully hands-off',{DST:2}],['Income plus the ability to sell pieces over time',{RT:2}],['The highest current yield I can get',{MIN:2}],['Long-term growth, not income',{OZ:2}]]},
+      {q:'Where are you relative to retirement?',o:[['Retiring now or already retired',{DST:2,MIN:1}],['A few years out',{RT:1,DST:1}],['Ten-plus years — I can let it grow',{OZ:2}]]},
+      {q:'How important is liquidity later on?',o:[['I want a path to sell over time',{RT:2}],['I can lock it up for steady income',{DST:2}],['I’ll hold long-term for growth',{OZ:2}],['I’ll take max income and accept the swings',{MIN:2}]]},
+      {q:'What are you reinvesting?',o:[['Sale of investment real estate',{DST:2,RT:1}],['Any capital gain (stock, business) for growth',{OZ:2}],['I want oil &amp; gas / royalty exposure',{MIN:2}],['Real estate, with REIT diversification in mind',{RT:2}]]}
+    ];
+    var WPATHS={
+      DST:{name:'Delaware Statutory Trust',why:'You want steady, hands-off monthly income now — the classic retire-from-landlording move via a 1031, with depreciation sheltering part of the income.',trade:'Trade-off: illiquid for the 5–10 year hold. See our DST guide.'},
+      RT:{name:'Non-traded REIT (often via 721 UPREIT)',why:'You want diversified income plus a path to liquidity as you age and an easy estate handoff.',trade:'Trade-off: a 721 is one-way (no more 1031) and redemptions can be gated. See our REIT and 721 guides.'},
+      MIN:{name:'Mineral &amp; royalty interests',why:'You want the highest current yield and are comfortable with commodity swings.',trade:'Trade-off: income depletes over time and is volatile — best as one sleeve, not the whole plan. See our minerals guide.'},
+      OZ:{name:'Opportunity Zone fund',why:'You’re a decade or more from needing the money (or building a legacy bucket) and want long-term, tax-free growth over current income.',trade:'Trade-off: little current income, long illiquidity, and no step-up on the deferred gain. See our Opportunity Zones guide.'}
+    };
+    var wqBody=document.getElementById('wqBody'),wqAns={};
+    wqBody.innerHTML=WQUIZ.map(function(item,qi){return '<div class="q" data-q="'+qi+'"><div class="qt"><b>'+(qi+1)+'</b>'+item.q+'</div><div class="opts">'+item.o.map(function(o,oi){return '<div class="opt" data-q="'+qi+'" data-o="'+oi+'"><span class="dot"></span><span>'+o[0]+'</span></div>';}).join('')+'</div></div>';}).join('');
+    wqBody.querySelectorAll('.opt').forEach(function(op){op.addEventListener('click',function(){var qi=op.getAttribute('data-q');wqBody.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(function(x){x.classList.remove('sel');});op.classList.add('sel');wqAns[qi]=parseInt(op.getAttribute('data-o'));document.getElementById('wqGo').disabled=(Object.keys(wqAns).length<WQUIZ.length);});});
+    document.getElementById('wqGo').addEventListener('click',function(){
+      var sc={DST:0,RT:0,MIN:0,OZ:0};
+      Object.keys(wqAns).forEach(function(qi){var w=WQUIZ[qi].o[wqAns[qi]][1];for(var k in w)sc[k]+=w[k];});
+      var order=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a];});
+      var win=order[0],mx=Math.max(sc.DST,sc.RT,sc.MIN,sc.OZ)||1;
+      document.getElementById('wqName').innerHTML=WPATHS[win].name;
+      document.getElementById('wqWhy').innerHTML='<b>Why:</b> '+WPATHS[win].why;
+      document.getElementById('wqTrade').textContent=WPATHS[win].trade;
+      var lm={DST:'DST',RT:'REIT / 721',MIN:'Minerals',OZ:'Opportunity Zone'};
+      document.getElementById('wqBars').innerHTML=order.map(function(k){var pct=Math.round(sc[k]/mx*100);return '<div class="rb'+(k===win?' win':'')+'"><div class="lab"><span class="nm">'+lm[k]+'</span><span>'+sc[k]+' pts</span></div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div></div>';}).join('');
+      document.getElementById('wqResult').classList.add('show');
+      document.getElementById('wqResult').scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+    document.getElementById('wqReset').addEventListener('click',function(){wqAns={};wqBody.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');});document.getElementById('wqGo').disabled=true;document.getElementById('wqResult').classList.remove('show');});
+
+    /* ===== TOOL 4: READINESS CHECKLIST ===== */
+    var RD=[
+      {t:'I keep a cash / liquid buffer outside illiquid real estate for emergencies.',s:'Often a year or more of expenses.',crit:true},
+      {t:'I understand my DST/REIT/OZ holdings are illiquid and have sized them accordingly.',s:'',crit:true},
+      {t:'My retirement income comes from more than one property or source.',s:''},
+      {t:'A meaningful part of my real-estate income is tax-sheltered (depreciation / ROC / 199A).',s:''},
+      {t:'My plan accounts for inflation over a long retirement.',s:''},
+      {t:'I’ve coordinated the income plan with a CPA/advisor and an estate plan (step-up).',s:''}
+    ];
+    var rd=document.getElementById('rdList');
+    rd.innerHTML=RD.map(function(f,i){return '<div class="ci" data-i="'+i+'"><div class="box">✓</div><div class="citxt">'+f.t+(f.crit?'<span class="crit">Foundational</span>':'')+(f.s?'<span class="s">'+f.s+'</span>':'')+'</div></div>';}).join('');
+    function rdUpdate(){
+      var n=rd.querySelectorAll('.ci.on').length;document.getElementById('rdScore').textContent=n;
+      var v=document.getElementById('rdVerd'),vs=document.getElementById('rdSub');
+      if(n>=6){v.textContent='Your plan is in good shape';vs.textContent='Revisit it periodically and as markets and laws change.';}
+      else if(n>=4){v.textContent='Most of the way there';vs.textContent='Close the remaining gaps with your advisor.';}
+      else{v.textContent='Gaps to address';vs.textContent='Start with the foundational items — a liquidity buffer and right-sizing illiquid holdings.';}
+      var miss=[];RD.forEach(function(f,i){if(f.crit&&!rd.querySelector('.ci[data-i="'+i+'"]').classList.contains('on'))miss.push(f.t);});
+      var flag=document.getElementById('rdFlag');
+      if(miss.length){flag.classList.add('show');flag.innerHTML='<b>Start here.</b> '+miss.join(' · ');}
+      else flag.classList.remove('show');
+    }
+    rd.querySelectorAll('.ci').forEach(function(ci){ci.addEventListener('click',function(){ci.classList.toggle('on');rdUpdate();});});
+    rdUpdate();
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

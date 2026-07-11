@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Equity &amp; Debt Matching Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Equity & Debt Matching Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Equity & Debt Matching Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Achieving full deferral in a 1031 exchange isn't just about reinvesting your cash — you must replace both your equity and your debt. This guide explains the two-part matching rule: the equal-or-greater-value rule, replacing your equity, replacing your debt, adding cash to avoid boot, and worked examples that make the mechanics clear.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">One of the most common ways investors accidentally fall short of full deferral in a 1031 exchange is by overlooking the debt side of the matching rules. To fully defer the gain, it's not enough to reinvest all your cash proceeds — you must also replace the debt you paid off. The full requirement has two parts: acquire replacement property of equal or greater value (which requires matching both your equity and your debt), and reinvest all your equity. An investor who reinvests their cash but takes on less debt than they paid off creates 'mortgage boot' — taxable gain — even though they reinvested all their cash. Understanding this two-part matching of equity and debt is essential to achieving full deferral. This guide explains the equal-or-greater-value rule, replacing your equity, replacing your debt, adding cash to avoid boot, and worked examples that clarify the mechanics.</p>
+<h2 id="equal-greater-value">The equal-or-greater-value rule</h2>
+<p>The foundational rule for full deferral is that you must acquire replacement property of equal or greater value than the net sale price of the relinquished property. 'Value' here means the net sale price — the gross price minus selling costs. To defer the entire gain, the replacement's value must be at least this amount; acquiring a lower-value replacement (buying down) creates <a href="insights.html">boot</a> equal to the shortfall, which is taxable up to your gain.</p>
+<p>The equal-or-greater-value rule is about total value, which comprises both equity and debt. A property's value equals the equity (the owner's cash investment) plus the debt (the financing). So to match the relinquished property's value, the replacement must have total value (equity plus debt) at least equal to the relinquished value. This is why matching value requires attention to both the equity and the debt — the value is the sum of the two, and matching it means matching the combination.</p>
+<p>The equal-or-greater-value rule is the umbrella requirement that the equity and debt matching serves. To satisfy it, you reinvest all your equity (the equity part) and replace your debt (the debt part), so the combination equals or exceeds the relinquished value. If you reinvest all your equity but don't replace the debt, the total value falls short (unless you add cash), creating boot. So the equal-or-greater-value rule, properly understood, requires both reinvesting equity and replacing debt — the two-part matching. Understanding that value equals equity plus debt, and that the equal-or-greater-value rule requires matching the total, is the key to seeing why both equity and debt must be matched for full deferral.</p>
+<h2 id="replacing-equity">Replacing your equity</h2>
+<p>The first part of matching is reinvesting all your equity — the net proceeds from the sale (the value minus the debt paid off and selling costs). To fully defer, all of this equity must go into the replacement property; any equity you keep (take as cash) is cash boot, taxable up to your gain. So the equity-matching requirement is straightforward: reinvest all your net proceeds, don't keep any cash.</p>
+<p>The <a href="insights.html">qualified intermediary</a> holds your equity (the net proceeds) and disburses it to acquire the replacement, ensuring you don't take receipt of it. To fully reinvest your equity, all of these held proceeds go into the replacement purchase. If the replacement costs more than your equity (because you're also taking on debt), all your equity plus the debt funds it; if it costs exactly your equity (no debt), all your equity funds it. Either way, the requirement is that all your equity is reinvested, with none kept as cash.</p>
+<p>Keeping some equity as cash is a common way to create boot, sometimes inadvertently. An investor who has the QI disburse some proceeds to them, or who acquires a replacement requiring less than all their equity (without the difference being boot), keeps cash that's taxable. To avoid this, all the equity must be reinvested — into a replacement of sufficient value to absorb it (along with the debt). Replacing your equity fully is the first part of the matching, and it's the more intuitive part — reinvest all your cash proceeds. The debt-replacement part (next) is the one investors more often overlook, but the equity part is essential too: keep none of your proceeds, reinvest all your equity, to satisfy this part of the matching and avoid cash boot.</p>
+<div class="pullquote"><p>Reinvesting all your cash isn't enough — you must also replace the debt you paid off. Overlooking the debt side is the most common way investors accidentally create boot.</p></div>
+<h2 id="replacing-debt">Replacing your debt</h2>
+<p>The second part of matching — and the one most often overlooked — is replacing the debt you paid off. When your relinquished property had a mortgage that gets paid off at the sale, that debt relief is treated as if you received cash (because you're relieved of the obligation). To avoid this <a href="1031-exchange-debt-replacement-mortgage-boot.html">'mortgage boot,' you must replace the debt on the replacement property</a> — by taking on new debt of at least the same amount, or by adding equivalent cash out of pocket.</p>
+<p>Here's the mechanism: if you paid off a $400,000 mortgage and acquire a replacement with only a $250,000 loan, you have $150,000 of debt relief that wasn't replaced — mortgage boot, taxable up to your gain. To avoid it, you'd either take on at least a $400,000 loan on the replacement (replacing the debt with debt), or add $150,000 of cash to make up the difference (replacing the debt with cash). Either way, the $400,000 of debt relief must be offset, by new debt or added cash, to avoid the boot.</p>
+<p>The key insight is that debt relief is treated like cash received, so it must be replaced just as you'd replace cash. Investors who focus only on reinvesting their cash equity, forgetting the debt, create mortgage boot by taking on less debt than they paid off. The debt-replacement requirement is symmetric with the equity requirement: just as you reinvest all your equity, you replace all your debt (with debt or cash). Replacing your debt fully — taking on new debt of at least the amount paid off, or adding cash to make up any shortfall — is the second part of the matching, and overlooking it is the most common cause of accidental boot. Understanding that paid-off debt must be replaced (with new debt or cash) is essential to achieving full deferral, completing the two-part matching of equity and debt.</p>
+<h2 id="adding-cash">Adding cash to avoid boot</h2>
+<p>A flexible feature of the matching rules is that you can substitute cash for debt — adding cash out of pocket to make up for debt you don't replace. If you want to take on less debt on the replacement than you paid off (deleveraging), you can avoid mortgage boot by adding cash equal to the debt shortfall. So if you paid off $400,000 of debt but only take a $250,000 loan, you can add $150,000 of cash to replace the missing debt and avoid the boot.</p>
+<p>This cash substitution lets investors deleverage in an exchange without creating boot, as long as they add cash. An investor who wants to reduce their debt on the replacement (for lower leverage and risk) can do so by contributing additional cash to offset the reduced debt. The total value is still matched (the added cash plus the new debt and reinvested equity reach the required value), and the debt relief is offset by the cash, so there's no mortgage boot. Adding cash is the tool for deleveraging while maintaining full deferral.</p>
+<p>The reverse substitution doesn't work the same way — you can't avoid boot on cash you take out by 'replacing' it with debt; cash boot from keeping proceeds is taxable regardless. But for the debt side, cash is a valid substitute: you can replace paid-off debt with new debt, with cash, or with a combination. This flexibility is useful for investors who want to change their leverage in the exchange. The rule to remember is that you must replace your debt (with debt or cash) and reinvest all your equity; adding cash is how you replace debt you don't want to re-borrow. Understanding that cash can substitute for debt — letting you deleverage while avoiding boot by adding cash — is a useful part of the matching mechanics, giving investors flexibility in structuring the debt side of their exchange while maintaining full deferral.</p>
+<h2 id="worked-examples">Worked examples</h2>
+<p>Example 1 — full deferral by matching both: An investor sells for $1,000,000 net, paying off a $400,000 mortgage, leaving $600,000 equity. They acquire a replacement for $1,000,000, taking a $400,000 mortgage and reinvesting their $600,000 equity. Value matches ($1,000,000), equity reinvested ($600,000), debt replaced ($400,000 new for $400,000 paid off). Full deferral — both equity and debt matched.</p>
+<p>Example 2 — mortgage boot from under-replacing debt: Same sale ($1,000,000, $400,000 debt, $600,000 equity). The investor acquires a replacement for $850,000, reinvesting all $600,000 equity but taking only a $250,000 mortgage. Value falls short ($850,000 &lt; $1,000,000), and debt is under-replaced ($250,000 &lt; $400,000). The $150,000 of unreplaced debt is mortgage boot, taxable — even though all the equity was reinvested. To fix this, the investor could add $150,000 cash (acquiring a $1,000,000 replacement with the added cash) to replace the debt and reach full value.</p>
+<p>Example 3 — deleveraging with added cash: Same sale. The investor wants less debt, so they acquire a $1,000,000 replacement with only a $250,000 mortgage, reinvesting their $600,000 equity plus adding $150,000 of new cash. Value matches ($1,000,000 = $600,000 equity + $150,000 added cash + $250,000 debt), all equity reinvested, and the debt shortfall ($400,000 paid off vs. $250,000 new) is offset by the $150,000 added cash. Full deferral, with lower leverage. These examples show the two-part matching in action: full deferral requires matching the value (equity plus debt), which means reinvesting all equity and replacing all debt (with debt or cash). The figures are illustrative; your CPA does the precise calculation, but the mechanics are as shown.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Full deferral requires acquiring equal-or-greater value, which means matching BOTH your equity and your debt.</li>
+<li>Reinvest all your equity (net proceeds); keeping any cash creates cash boot.</li>
+<li>Replace your debt — take on new debt at least equal to what you paid off, or add cash; under-replacing debt creates mortgage boot.</li>
+<li>You can substitute cash for debt to deleverage without boot; overlooking the debt side is the most common cause of accidental boot.</li>
+</ul></div>
+<h2 id="common-mistakes">Common matching mistakes</h2>
+<p>The most common matching mistake is forgetting the debt side — reinvesting all the cash equity but taking on less debt than was paid off, creating mortgage boot. Investors naturally focus on reinvesting their cash (the visible proceeds) and overlook that the paid-off debt also must be replaced. This is why so many accidental-boot situations involve debt: the investor matched their equity but not their debt, falling short of full value. The cure is to remember that debt relief is treated like cash and must be replaced.</p>
+<p>Another mistake is buying down in value — acquiring a replacement worth less than the relinquished property, even if all equity is reinvested. The value shortfall is boot. This often happens when an investor doesn't account for the full relinquished value (including the debt) when sizing the replacement. To match value, the replacement must equal or exceed the relinquished value, which includes the debt — so a replacement must be large enough to absorb both the equity and the replaced debt.</p>
+<p>A third mistake is mishandling the cash substitution — thinking you can take cash out and replace it with debt (you can't; cash boot is taxable), or failing to add enough cash to offset reduced debt. The rules are specific: reinvest all equity (no cash out), and replace all debt (with debt or cash). Misunderstanding these — taking cash out, under-replacing debt, or buying down — creates boot. The cure for all these mistakes is to plan the matching precisely with your CPA before the exchange, confirming that the replacement's value, your reinvested equity, and your replaced debt all match for full deferral. The matching mistakes are avoidable with careful planning, and understanding the two-part rule (match equity and debt) is what prevents them. Most accidental boot comes from these matching mistakes, which precise planning prevents.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with matching</h2>
+<p>Baker 1031 Investments helps investors achieve full deferral by getting the equity and debt matching right — coordinating with your CPA to plan the value, equity, and debt targets, ensuring the replacement matches both your equity and your debt, and structuring the debt replacement (new financing, added cash, or a leveraged DST) to avoid boot. We help you avoid the common matching mistakes, especially the overlooked debt side, that create accidental boot.</p>
+<p>DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — leveraged DSTs are especially useful for matching debt, since their pre-arranged financing can replace your debt without a new loan application. The precise matching calculation is coordinated with your CPA. Our role is to help you match both your equity and your debt for full deferral — handling the debt side that investors most often overlook — so your exchange fully defers the gain with no accidental boot.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What does it take to fully defer a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Two-part matching: acquire replacement property of equal or greater value than the relinquished net sale price (which requires matching both your equity and your debt), and reinvest all your equity. Reinvesting all your cash isn't enough — you must also replace the debt you paid off (with new debt or added cash). Overlooking the debt side is the most common cause of accidental boot.</p></div>
+</details>
+<details>
+<summary>What is the equal-or-greater-value rule?<span class="ic"></span></summary>
+<div class="ans"><p>The requirement to acquire replacement property of total value at least equal to the relinquished property's net sale price. Since value equals equity plus debt, matching value requires matching both your equity (reinvest it all) and your debt (replace it). Acquiring a lower-value replacement (buying down) creates boot equal to the shortfall. It's the umbrella rule the equity-and-debt matching serves.</p></div>
+</details>
+<details>
+<summary>What does replacing my equity mean?<span class="ic"></span></summary>
+<div class="ans"><p>Reinvesting all your net proceeds (the value minus debt paid off and selling costs) into the replacement, keeping none as cash. Any equity you keep is cash boot, taxable up to your gain. The qualified intermediary holds your equity and disburses it to acquire the replacement, so all of it goes into the purchase. Reinvest all your equity, keep no cash, to satisfy this part of the matching.</p></div>
+</details>
+<details>
+<summary>What does replacing my debt mean?<span class="ic"></span></summary>
+<div class="ans"><p>Offsetting the debt you paid off at the sale — by taking on new debt of at least the same amount on the replacement, or by adding equivalent cash. Paid-off debt relief is treated like cash received, so it must be replaced. If you take on less debt without adding cash, the shortfall is mortgage boot, taxable. Replace your debt with new debt or cash to avoid it.</p></div>
+</details>
+<details>
+<summary>What is mortgage boot?<span class="ic"></span></summary>
+<div class="ans"><p>Taxable gain that arises when you replace less debt than you paid off, without making up the difference with cash. Debt relief is treated like cash received, so under-replacing debt creates boot. If you paid off $400,000 and take only a $250,000 loan, the $150,000 unreplaced debt is mortgage boot — unless you add $150,000 cash. It's the most overlooked source of accidental boot.</p></div>
+</details>
+<details>
+<summary>Can I add cash to avoid boot?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you can substitute cash for debt, adding cash out of pocket to offset debt you don't replace. If you want less debt on the replacement (deleveraging), add cash equal to the debt shortfall to avoid mortgage boot. So you can replace paid-off debt with new debt, with cash, or a combination. Adding cash lets you deleverage in an exchange while maintaining full deferral.</p></div>
+</details>
+<details>
+<summary>Can I take cash out and replace it with debt?<span class="ic"></span></summary>
+<div class="ans"><p>No — that doesn't work. Cash boot from keeping proceeds is taxable regardless of your debt. The cash substitution only works one way: you can replace debt with cash, but you can't avoid cash boot by taking on more debt. To fully defer, reinvest all your equity (no cash out) and replace all your debt. Taking cash out always creates taxable cash boot.</p></div>
+</details>
+<details>
+<summary>Why is the debt side so often overlooked?<span class="ic"></span></summary>
+<div class="ans"><p>Because investors naturally focus on reinvesting their visible cash proceeds and forget that the paid-off debt also must be replaced. The debt relief is less visible than the cash, but it's treated like cash received and must be offset. This is why so many accidental-boot situations involve debt — the investor matched their equity but not their debt. Remembering both parts of the matching prevents it.</p></div>
+</details>
+<details>
+<summary>Do I have to take on the exact same debt amount?<span class="ic"></span></summary>
+<div class="ans"><p>At least the same amount, or make up any shortfall with cash. You can take on more debt than you paid off (no problem), or the same amount, or less if you add cash to offset the difference. The requirement is that the debt relief is fully offset — by new debt of at least the paid-off amount, or by added cash. So you need at least equal debt, or cash to fill the gap.</p></div>
+</details>
+<details>
+<summary>How do leveraged DSTs help with debt matching?<span class="ic"></span></summary>
+<div class="ans"><p>Leveraged DSTs come with pre-arranged, non-recourse financing at a known loan-to-value ratio. A DST whose LTV matches your old loan replaces your debt automatically — no loan application or personal guarantee. For investors who don't want to arrange new financing or can't easily qualify, a leveraged DST handles the debt-replacement requirement, matching your debt so you fully defer without taking out a new loan yourself.</p></div>
+</details>
+<details>
+<summary>What's the most common matching mistake?<span class="ic"></span></summary>
+<div class="ans"><p>Forgetting the debt side — reinvesting all the cash equity but taking on less debt than was paid off, creating mortgage boot. Investors focus on the visible cash and overlook the debt that must be replaced. Other mistakes: buying down in value, and mishandling the cash substitution. Planning the matching precisely with your CPA before the exchange prevents these common errors.</p></div>
+</details>
+<details>
+<summary>How do I make sure my matching is right?<span class="ic"></span></summary>
+<div class="ans"><p>Plan the value, equity, and debt targets with your CPA before the exchange — confirm the replacement's value equals or exceeds the relinquished value, all your equity is reinvested, and your debt is replaced (with new debt or cash). The CPA's precise calculation ensures both parts of the matching are satisfied for full deferral. Don't rely on rough estimates for the final matching; confirm it precisely.</p></div>
+</details>
+<details>
+<summary>Does buying a more expensive replacement satisfy the matching?<span class="ic"></span></summary>
+<div class="ans"><p>Acquiring a more valuable replacement satisfies the value part (equal-or-greater value), but you still must reinvest all your equity and replace your debt. Trading up is fine and even generates fresh depreciation on the excess basis, but it doesn't substitute for reinvesting all your equity or replacing your debt — both are still required. Buying up plus matching equity and debt achieves full deferral.</p></div>
+</details>
+<details>
+<summary>Can I increase debt instead of adding cash?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — taking on more debt on the replacement than you paid off is fine and helps satisfy the value and debt matching (you can always over-replace debt). What you can't do is under-replace debt without adding cash. So increasing debt is a valid way to reach the required value and replace your old debt; the constraint is only on under-replacing, not over-replacing.</p></div>
+</details>
+<details>
+<summary>What if I don't want any debt on the replacement?<span class="ic"></span></summary>
+<div class="ans"><p>You can acquire a debt-free replacement, but you must add cash to replace the debt you paid off, or the unreplaced debt is mortgage boot. So if you paid off $400,000 and buy debt-free, you'd need to contribute $400,000 of additional cash (beyond your equity) to reach the required value and offset the debt relief. Going debt-free requires substituting cash for all the paid-off debt.</p></div>
+</details>
+<details>
+<summary>Does the matching apply to multiple replacement properties?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — for multiple replacements, the combined value, equity, and debt of all of them must match the relinquished property. The aggregate value must equal or exceed the relinquished value, all equity reinvested across them, and the combined debt replaced. The matching applies to the total, not each replacement separately. A DST can fill any gap to reach exact aggregate matching for full deferral.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Equity and Debt Matching</dt><dd>The two-part requirement to reinvest all equity and replace all debt for full deferral.</dd></div>
+<div class="g"><dt>Equal-or-Greater-Value Rule</dt><dd>The requirement to acquire replacement value at least equal to the relinquished net sale price.</dd></div>
+<div class="g"><dt>Equity</dt><dd>Net proceeds (value minus debt and selling costs); all must be reinvested.</dd></div>
+<div class="g"><dt>Debt</dt><dd>The financing on a property; paid-off debt must be replaced with new debt or cash.</dd></div>
+<div class="g"><dt>Debt Replacement</dt><dd>Offsetting paid-off debt with new debt or added cash to avoid mortgage boot.</dd></div>
+<div class="g"><dt>Mortgage Boot</dt><dd>Taxable gain from replacing less debt than was paid off, unless offset with cash.</dd></div>
+<div class="g"><dt>Cash Boot</dt><dd>Taxable gain from keeping some proceeds rather than reinvesting all equity.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Cash or value not reinvested; taxable up to the gain, from equity or debt shortfalls.</dd></div>
+<div class="g"><dt>Cash Substitution</dt><dd>Adding cash to replace debt you don't re-borrow, allowing deleveraging without boot.</dd></div>
+<div class="g"><dt>Deleveraging</dt><dd>Reducing debt on the replacement, requiring added cash to avoid mortgage boot.</dd></div>
+<div class="g"><dt>Net Sale Price</dt><dd>The relinquished value (gross price minus selling costs) to be matched.</dd></div>
+<div class="g"><dt>Buying Down</dt><dd>Acquiring a lower-value replacement, creating value boot.</dd></div>
+<div class="g"><dt>Trading Up</dt><dd>Acquiring a higher-value replacement, which satisfies the value rule.</dd></div>
+<div class="g"><dt>Leveraged DST</dt><dd>A DST with pre-arranged debt that can replace an investor's debt automatically.</dd></div>
+<div class="g"><dt>Full Deferral</dt><dd>Deferring the entire gain, achieved when both equity and debt are matched.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The party that holds equity and disburses it to acquire the replacement.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Instructions for Form 8824 (boot and basis)</a></li><li>IRS. <a href="https://www.irs.gov/taxtopics/tc409" rel="noopener nofollow" target="_blank">Topic No. 409, Capital Gains and Losses</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

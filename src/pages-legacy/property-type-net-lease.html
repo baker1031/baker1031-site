@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Net Lease (NNN) Properties for 1031 Exchange &amp; DST Investors | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span><a href="property-types.html">Property Types</a><span class="sep">❯</span>Net Lease (NNN) Properties for 1031 Exchange & DST Investors
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Net Lease (NNN) Properties for 1031 Exchange & DST Investors</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="property-types.html">Back to All Property Types</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Property Types</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 14 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Net-lease real estate pushes the operating costs onto the tenant and pays rent on a long, signed lease. That single feature is why it anchors so many 1031 exchanges and so much of the DST market.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A <strong>net lease</strong> is a commercial lease that puts the building's running costs on the tenant rather than the owner. In its fullest form, a <strong>triple-net (NNN)</strong> lease, the business occupying the space pays the property taxes, the insurance, and the upkeep on top of base rent, so what reaches the owner is close to a clean rent check. For someone selling an investment property and racing the clock on a <a href="insights.html">1031 exchange</a>, or parking proceeds in a <a href="how-to-invest-in-a-dst.html">Delaware Statutory Trust</a>, that profile is the whole appeal: you stay invested in real estate without the tenant calls at 2 a.m. This guide walks through what net lease is, how it is priced, what it pays, where it bites, and how most accredited investors buy it.</p>
+<h2 id="what-is-net-lease">What a net lease is</h2>
+<p>Start with the opposite. In a standard gross lease, the kind most apartment tenants sign, the landlord collects one rent number and pays the taxes, the insurance, the repairs, all of it, out of that number. The owner keeps whatever is left, and "whatever is left" swings with the boiler, the roof, and the county assessor. A net lease flips that arrangement. The tenant takes on some or all of those costs directly, and the rent the owner banks looks a lot more like net income.</p>
+<p>How much the tenant absorbs is what separates one net lease from another, and we will get to the gradations in a moment. The structure shows up most often under single buildings leased to one business for a long time: a pharmacy on a corner, a dollar store off the highway exit, a quick-service restaurant with a drive-thru, an auto-parts shop, a dialysis clinic, a grocery store anchoring a strip center. Initial terms commonly run ten to twenty years, with scheduled rent increases and a string of renewal options after that.</p>
+<p>Investors are drawn to that predictability. A fifteen-year lease to an established national operator behaves less like a building and more like a corporate bond wrapped in real estate, which is exactly the trade many exchangers are looking to make when they move out of a property that demands their weekends.</p>
+<h2 id="lease-structures">The four flavors of net lease</h2>
+<p>"Net lease" is a family, not a single document. The line between members comes down to how many of the three operating-cost buckets, property taxes, insurance, and maintenance, the tenant carries.</p>
+<table class="dtable2">
+<thead><tr><th>Structure</th><th>Taxes</th><th>Insurance</th><th>Maintenance</th><th>Owner's job</th></tr></thead>
+<tbody>
+<tr><td>Single net (N)</td><td>Tenant</td><td>Owner</td><td>Owner</td><td>Hands-on</td></tr>
+<tr><td>Double net (NN)</td><td>Tenant</td><td>Tenant</td><td>Owner</td><td>Some upkeep</td></tr>
+<tr><td>Triple net (NNN)</td><td>Tenant</td><td>Tenant</td><td>Tenant</td><td>Light</td></tr>
+<tr><td>Absolute net (bond)</td><td>Tenant</td><td>Tenant</td><td>Tenant + roof and structure</td><td>None</td></tr>
+</tbody>
+</table>
+<p class="tcap">Under an absolute net or "bond" lease the tenant owns every obligation down to the roof and the foundation. It is the most hands-off arrangement a real estate owner can sign, and it is what most DST sponsors target.</p>
+<h2 id="pricing">How net-lease buildings get priced</h2>
+<p>Net lease trades on a cap rate, the annual rent divided by the price. A building throwing off $200,000 a year that sells for $4 million changes hands at a 5 percent cap. Lower cap, higher price; higher cap, cheaper building. Three things move that number more than anything else.</p>
+<p>Tenant credit comes first. A lease backed by an investment-grade company, one rated BBB- or better, prices richer than the same building leased to a regional franchisee, because the rent is more likely to show up every month for the life of the deal. Lease term is second: a tenant with sixteen years left on the clock is worth more than one with four, since the buyer inherits that runway before facing a vacancy. Location and the building's reusability round it out. A box on a busy corner that a dozen other tenants would happily take re-leases easily if the original occupant leaves; a purpose-built building on a quiet road does not.</p>
+<p>Because the price is a multiple of a fixed rent stream, net-lease values move with interest rates the way bond prices do. When the ten-year Treasury climbs, buyers demand higher caps and prices soften, even if the tenant and the lease have not changed at all. That sensitivity cuts both ways, and it is worth understanding before you assume a net-lease asset is a sleepy, no-drama holding.</p>
+<h2 id="why-net-lease">Why exchangers reach for net lease</h2>
+<p>Net-lease real estate is still real property, so it satisfies the <a href="1031-exchange-identification-rules.html">like-kind requirement</a> of a 1031 exchange. An investor can sell a management-heavy asset, an apartment complex, a rental house, a small office building, and roll the gain into a net-leased property that asks far less of them, all while deferring the capital gains tax that a straight sale would trigger.</p>
+<p>The pull is mostly about time and attention. When the tenant handles the taxes, the insurance, the parking lot, and the HVAC, the owner's job shrinks to depositing rent and reading an annual statement. For an investor in their seventies who is done turning units, or a family that inherited a building two thousand miles away, that shift is the entire point. The rent does not get larger because you worked harder; it gets larger because the lease said it would, on a date written years in advance.</p>
+<p>We tell clients the building is almost beside the point. Underwrite the company and the lease well, and the bricks mostly take care of themselves.</p>
+<div class="pullquote"><p>The building matters, but the lease is the asset. We read the tenant's balance sheet and the years left on the term long before we look at the roof.</p><cite>Gerald F. "Jerry" Baker, III</cite></div>
+<h2 id="inside-a-dst">What changes when net lease sits inside a DST</h2>
+<p>Most accredited investors do not buy a single net-leased building outright. They buy a fractional interest in a Delaware Statutory Trust that owns one or several of them. The trust holds title, a professional sponsor runs it, and each investor owns a beneficial interest sized to whatever dollar amount their exchange requires. That last detail solves a real problem: a 1031 exchange has to absorb a specific number, down to the dollar, and you cannot buy 63 percent of a freestanding pharmacy. You can buy 63 percent worth of a DST.</p>
+<p>Pooling also spreads the single biggest weakness of net lease, which we come to below. A DST that holds eighteen pharmacies across eleven states does not live or die with one store closing. One vacancy dents the distribution; it does not erase it.</p>
+<p>The trade-off is control, and the IRS draws that line on purpose. Under Revenue Procedure 2004-86, the rules that let a DST interest qualify for 1031 treatment, the trust operates inside tight guardrails sometimes called the "seven deadly sins." Once the offering closes, the sponsor cannot raise new money, cannot refinance the mortgage, cannot sign new leases or renegotiate the existing one except in narrow circumstances such as a tenant going bankrupt, and cannot do much beyond collect rent, maintain the property, and distribute the cash. Those constraints are why sponsors gravitate to long, stable, credit-backed leases in the first place: the structure leaves almost no room to actively fix a deal that drifts, so they start with the kind that should not need fixing.</p>
+<h2 id="the-numbers">Yields, returns, and what the record shows</h2>
+<p>Net lease is bought for the rent, not the home run. Most of the return arrives as current cash, with a slow upward drift from scheduled rent bumps and whatever the building is worth when it eventually sells. Across the net-lease offerings we track in the current market, going-in yields sit in the low-to-mid 5 percent range.</p>
+<p>Realized results from net-lease programs that have already run their full course tell a consistent story. The figures below come from 55 full-cycle net-lease deals in our sponsor track-record database. They reflect sponsor track records across the marketplace we monitor, not Baker 1031's own returns, and past performance never guarantees what comes next.</p>
+<table class="dtable2">
+<thead><tr><th>Metric</th><th>Net lease</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td>Avg. going-in yield</td><td class="ap nt">5.21%</td><td>Current market benchmark</td></tr>
+<tr><td>Avg. yield, high end</td><td class="ap nt">5.47%</td><td>Current market benchmark</td></tr>
+<tr><td>Avg. annual return, realized</td><td class="ap up">6.8%</td><td>55 full-cycle deals</td></tr>
+<tr><td>Avg. equity multiple, realized</td><td class="ap up">1.58x</td><td>55 full-cycle deals</td></tr>
+<tr><td>Avg. hold, realized</td><td class="ap nt">13.6 yrs</td><td>55 full-cycle deals</td></tr>
+</tbody>
+</table>
+<p class="tcap">Benchmark yields from Baker 1031 sector data; realized figures from 55 full-cycle net-lease programs in the Baker 1031 sponsor track-record database. Illustrative, not a projection or guarantee.</p>
+<div class="exhibit">
+<div class="etitle">Where a net-lease return tends to come from</div>
+<div class="chart">
+<div class="bar hl"><span class="v">~5.2%</span><span class="b" style="height:100%"></span></div>
+<div class="bar"><span class="v">~1.6%</span><span class="b" style="height:31%"></span></div>
+</div>
+<div class="xlabels"><span>Current rent</span><span>Rent escalations</span></div>
+<div class="source">Source: Baker 1031 Research. Illustrative split of a typical net-lease return; actual results vary by deal.</div>
+</div>
+<p>Notice what is missing from that picture: a big appreciation bar. Net lease can appreciate, particularly if rents reset higher or cap rates fall during the hold, but if you are underwriting it as a growth play you are buying the wrong asset. The yield is the thesis.</p>
+<h2 id="tenants">Who signs the lease</h2>
+<p>The company whose name is on the lease is what you are underwriting. The tenants that command the most investor demand operate in necessity-based corners of retail and services that hold up when the economy wobbles and that the internet has not managed to hollow out.</p>
+<p>In practice that means a recognizable roster. Pharmacies and healthcare uses such as dialysis and urgent-care clinics. Deep-discount and dollar retailers that actually do better when budgets tighten. Drive-thru quick-service restaurants on long corporate or strong-franchisee guarantees. Convenience and auto-service operators. Grocers anchoring neighborhood centers. The names you would expect, Walgreens, Dollar General, 7-Eleven, an O'Reilly or a Tractor Supply, a regional grocery chain, show up again and again precisely because their rent keeps coming.</p>
+<p>Credit quality is not a yes-or-no question, though. A lease guaranteed by a public parent company is a different animal from one signed by a single-store franchisee with a personal guarantee, even if the sign over the door is identical. Reading which one you have is half the diligence, and it is where an investor going it alone most often gets surprised.</p>
+<h2 id="lease-terms">Reading the lease before you read the building</h2>
+<p>Two net-lease deals at the same cap rate can be worlds apart once you open the lease. A few clauses do most of the work.</p>
+<p>The first is how the rent grows. Some leases stay flat for the entire term, which feels safe but quietly loses ground to inflation year after year. Others build in fixed bumps, say 10 percent every five years, or steady annual increases around 1.5 to 2 percent. A smaller set ties increases to the Consumer Price Index, which protects you in an inflationary stretch but can flatline when prices do. None is automatically better; the question is whether the escalations keep pace with what you expect from inflation over a hold that might last fifteen years.</p>
+<table class="dtable2">
+<thead><tr><th>Escalation type</th><th>What it does</th><th>The catch</th></tr></thead>
+<tbody>
+<tr><td>Flat</td><td>Same rent for the full term</td><td>Real income erodes with inflation</td></tr>
+<tr><td>Fixed bumps</td><td>Set increases on a schedule</td><td>May lag a hot inflation year</td></tr>
+<tr><td>CPI-linked</td><td>Rises with inflation</td><td>Stalls when inflation does; often capped</td></tr>
+</tbody>
+</table>
+<p class="tcap">How a net lease handles rent growth shapes your real return as much as the headline cap rate does.</p>
+<p>After escalations, look at the renewal options, which set how long the tenant can stay and on what terms, and at who guarantees the rent. A corporate guarantee from an investment-grade parent is one thing; a franchisee guarantee backed by a handful of stores is another. The roof-and-structure question matters too. Even in a deal sold as "triple net," confirm in writing that the tenant, not you, owns the expensive long-term capital items.</p>
+<h2 id="risks">Where net lease can go wrong</h2>
+<p>The calm profile hides a specific set of risks, and they are not the ones a multifamily owner worries about. The first is concentration. In a single-tenant building, occupancy is binary. The store is either leased or it is empty, and an empty special-purpose box can sit for a year while you cover the taxes, the insurance, and the carrying cost that the tenant used to pay. A diversified DST softens this, which is much of why the structure exists, but it does not erase it.</p>
+<p>Credit risk rides alongside. A long lease is only worth as much as the company honoring it, and a tenant downgrade or bankruptcy can interrupt the rent and mark down the value at the same time. Then there is the inflation drag we covered: modest fixed escalations can quietly lose to rising prices over a long term. There is interest-rate sensitivity, since these assets are priced off a cap rate and reprice when rates move. And inside a DST, there is illiquidity and the deliberate lack of investor control, which is the price of the 1031 treatment. These are private placements sold only to accredited investors, and getting out early is rarely simple.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Underwrite the tenant's credit and the years left on the lease as carefully as the real estate; that is where the return lives.</li>
+<li>Single-tenant assets carry all-or-nothing occupancy risk. Diversified DSTs spread it across tenants and markets, but concentration never fully disappears.</li>
+<li>Match the lease's rent escalations against your own inflation view, and remember the value reprices when interest rates move.</li>
+</ul></div>
+<h2 id="exit">How these investments end</h2>
+<p>Net-lease deals do not run forever, and how they wrap up matters as much as how they start. The plain version is a sale: the sponsor markets the property near the end of the hold, sells it, and returns capital and any gain to investors, who can pay the tax or roll into a fresh 1031 exchange and keep deferring.</p>
+<p>Some programs offer a second path through a 721 UPREIT exchange, in which a real estate investment trust acquires the property and investors receive operating-partnership units instead of cash. That can convert an illiquid, single-asset position into a stake in a larger, diversified REIT, with its own tax and liquidity trade-offs worth reading closely before treating it as an upgrade. The constraint to keep in mind is the one from Revenue Procedure 2004-86: because a DST generally cannot refinance, the deal's debt usually has to be retired through that sale or rollover rather than rolled over in place, which is part of why hold periods cluster where they do.</p>
+<h2 id="who-its-for">Who it suits, and who should look past it</h2>
+<p>Net lease fits an investor who wants their real estate to behave like income and is willing to give up control and easy liquidity to get there. Retirees stepping back from active management, families consolidating scattered rentals, and exchangers who simply need a reliable place to land before a 45-day deadline tend to be the natural buyers.</p>
+<p>It is a poor fit for someone chasing appreciation or wanting hands-on operational upside, or for anyone who might need their money back on short notice. If the goal is to force value through renovation and releasing, an operating asset like multifamily or self-storage will serve better. Net lease is the opposite trade: you accept a quieter return in exchange for a quieter life as an owner. Knowing which one you want is the first decision, and it is worth making before you start identifying replacement property.</p>
+<h2 id="how-to-access">Working with Baker 1031</h2>
+<p>Most investors reach diversified, institutional net-lease real estate through a <a href="how-to-invest-in-a-dst.html">Delaware Statutory Trust</a> rather than hunting for a single building, because it lowers the entry point, spreads tenant risk, and fits an exact exchange amount. We provide sponsor-agnostic diligence on net-lease DST programs from sponsors with full-cycle net-lease track records, among them ExchangeRight, AEI, and Cantor Fitzgerald, and we are paid to be skeptical on your behalf rather than to push any one sponsor's deal.</p>
+<p>The 45-day identification window moves fast, so the time to know your options is before you sell, not after. We keep a current shelf of vetted net-lease and other DST offerings open to accredited investors, and we are happy to walk through which leases and tenants back them.</p>
+<p class="nlcta" style="margin:30px 0"><a href="investments.html" style="display:inline-block;background:var(--accent);color:#fff;padding:15px 30px;font-family:'Open Sans',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px">View Available NNN Investments →</a></p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is the difference between a net lease and a triple-net (NNN) lease?<span class="ic"></span></summary>
+<div class="ans"><p>Net lease is the umbrella term for any lease where the tenant pays operating costs on top of base rent. Triple-net is the most complete version: the tenant covers all three major buckets, property taxes, insurance, and maintenance, leaving the owner with close to a clean rent check. Single-net and double-net leases pass along fewer of those costs, so the owner still carries more of the building.</p></div>
+</details>
+<details>
+<summary>Do net-lease properties qualify for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Net-lease real estate is like-kind to other U.S. investment real property, so it works as a replacement in a 1031 exchange. Many investors move into net lease specifically to trade an actively managed property for passive, credit-backed rent while deferring capital gains tax.</p></div>
+</details>
+<details>
+<summary>What yield do net-lease properties pay?<span class="ic"></span></summary>
+<div class="ans"><p>Across the net-lease offerings we currently track, going-in cash yields generally land in the low-to-mid 5 percent range, with modest annual rent increases layered on. The actual number turns on tenant credit, how many years are left on the lease, location, and leverage. These figures are illustrative and not a projection or guarantee.</p></div>
+</details>
+<details>
+<summary>What are the main risks of net-lease investing?<span class="ic"></span></summary>
+<div class="ans"><p>Concentration is the big one: in a single-tenant building, one departure means full vacancy. Beyond that, watch tenant credit, the cost and downtime of re-leasing a special-purpose building, fixed rent bumps that can lag inflation over a long term, interest-rate sensitivity in the price, and the illiquidity and lack of control that come with a DST interest.</p></div>
+</details>
+<details>
+<summary>Can I buy a net-lease property inside a DST?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, and most accredited investors do exactly that. A net-lease DST holds one or more net-leased buildings, and you buy a fractional beneficial interest that lowers the minimum, diversifies across tenants, and lets you hit your exact exchange number. A professional sponsor handles management. We offer diligence on net-lease DSTs from sponsors including ExchangeRight, AEI, and Cantor Fitzgerald.</p></div>
+</details>
+<details>
+<summary>How long are typical net-lease terms?<span class="ic"></span></summary>
+<div class="ans"><p>Single-tenant net leases commonly start at ten to twenty years, often with several renewal options stacked behind the initial term. A longer remaining term generally supports a higher price, since the buyer inherits more runway before facing a re-leasing decision.</p></div>
+</details>
+<details>
+<summary>Is a net lease the same as a ground lease?<span class="ic"></span></summary>
+<div class="ans"><p>No, though people sometimes conflate them. A ground lease leases the land while the tenant owns or builds the improvements on it. A net lease usually covers both the land and the building, with the tenant responsible for operating costs. Both can be passive for the owner, but the underlying ownership and what happens at lease end are different.</p></div>
+</details>
+<details>
+<summary>What happens when the lease expires?<span class="ic"></span></summary>
+<div class="ans"><p>Either the tenant renews, often on options written into the original lease, or the space goes dark and has to be re-leased or repositioned. That is exactly why remaining lease term and the building's reusability drive value. Inside a DST, the sponsor typically aims to sell or roll the asset before re-leasing risk becomes the investor's problem.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Net Lease</dt><dd>A lease in which the tenant pays some or all of the property's operating costs, taxes, insurance, and maintenance, in addition to base rent.</dd></div>
+<div class="g"><dt>Triple Net (NNN) Lease</dt><dd>A net lease in which the tenant carries all three operating-cost buckets: property taxes, insurance, and maintenance.</dd></div>
+<div class="g"><dt>Absolute Net (Bond) Lease</dt><dd>The most hands-off net lease, where the tenant is responsible for every cost, including the roof and structure.</dd></div>
+<div class="g"><dt>Cap Rate</dt><dd>A property's annual net operating income divided by its price; net-lease assets are bought, sold, and compared mostly on this number.</dd></div>
+<div class="g"><dt>Credit Tenant</dt><dd>A tenant whose financial strength, often an investment-grade or large national company, makes its rent payments highly reliable.</dd></div>
+<div class="g"><dt>Investment Grade</dt><dd>A credit rating of BBB- or better; leases backed by investment-grade tenants typically price at lower cap rates.</dd></div>
+<div class="g"><dt>Rent Escalation</dt><dd>A scheduled increase in rent over the lease term, structured as flat, fixed bumps, or tied to the Consumer Price Index.</dd></div>
+<div class="g"><dt>Master Tenant</dt><dd>In a DST, an entity that leases the property from the trust and operates it, passing rent through to the beneficial owners.</dd></div>
+<div class="g"><dt>Revenue Procedure 2004-86</dt><dd>The IRS guidance that lets a beneficial interest in a Delaware Statutory Trust qualify as like-kind property for a 1031 exchange, while restricting what the trust may do.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li><li>U.S. SEC — Investor.gov. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-9" rel="noopener nofollow" target="_blank">Investor Bulletin: Non-Traded REITs</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Property Types</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Gerald F. "Jerry" Baker, III</div>
+<div class="ti">Founder &amp; Principal, Baker 1031 Investments</div>
+<div class="bio">Gerald F. "Jerry" Baker, III is the founder of Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage guiding accredited investors through 1031 exchanges, Delaware Statutory Trusts, Qualified Opportunity Funds, 721 UPREIT exchanges, and mineral &amp; royalty interests. He spent his career in Wall Street real estate private equity across more than $10 billion in transactions and holds FINRA Series 22, 63, and SIE registrations. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

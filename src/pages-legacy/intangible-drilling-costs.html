@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intangible Drilling Costs (IDCs): The First-Year Deduction | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Intangible Drilling Costs (IDCs): The First-Year Deduction
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Intangible Drilling Costs (IDCs): The First-Year Deduction</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Oil & Gas</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 14 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Oil & gas offers one of the largest first-year deductions in the tax code: intangible drilling costs. Here's what IDCs are, how much is deductible up front, and the AMT trap to watch.</p></div>
+
+    <div class="legacy">
+<main id="main">
+
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Direct oil and gas is sold on its tax treatment, and intangible drilling costs are the reason. IDCs are the costs of drilling a well that leave nothing you could sell afterward: labor, fuel, drilling fluids, site prep, hauling. They typically run 60% to 80% of what it costs to drill a well, and a working-interest investor can usually deduct them in the first year instead of capitalizing them over time. That front-loaded write-off is the headline. It also comes with conditions, an alternative-minimum-tax wrinkle, and a hard truth: the deduction does nothing for you if the well underperforms. This memo explains what IDCs are, how the deduction works, who can take it, and where the catches sit. It is general information, not tax advice.</p>
+<div class="takeaways">
+<div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Intangible drilling costs are the non-salvageable costs of drilling a well: labor, fuel, drilling fluids, site prep, hauling. They carry no resale value.</li>
+<li>IDCs typically run 60% to 80% of a well's total cost and can usually be deducted in year one, producing an unusually large first-year deduction.</li>
+<li>A working interest is non-passive, so IDC losses can offset active, W-2, and business income. A royalty interest bears no costs and claims no IDCs.</li>
+<li>Tangible drilling costs, the equipment with salvage value, are a separate bucket. They are capitalized and depreciated, generally over seven years.</li>
+<li>Excess IDCs can be an AMT preference item, so the deduction can lose value, or push you toward AMT. Model it with a CPA.</li>
+<li>The tax benefit shelters income. It does not guarantee a return. These programs are speculative, illiquid, accredited-only, and can lose principal.</li>
+</ul>
+</div>
+<p>If your interest in oil and gas is the ownership side rather than the drilling write-off, see <a href="mineral-rights-1031-guide.html">our complete mineral rights and royalty 1031 guide</a>.</p>
+<h2 id="what">What intangible drilling costs are</h2>
+<p><strong>Intangible drilling costs</strong> are the expenditures of drilling and preparing a well that have no salvage value. Think of the work and the consumables, not the hardware. Labor for the rig crew. Diesel and fuel. Drilling fluids and the chemicals that go with them. Site preparation, grading, road building, and surveying. Hauling and trucking. Cementing the wellbore. The money is spent in the act of drilling and then it is gone. You cannot resell a day of rig labor or a tank of consumed drilling mud the way you could resell a pump.</p>
+<p>That last point is the entire test. An expenditure is an intangible drilling cost if it has no salvage value once the well is drilled. The tax code treats those costs differently from the physical equipment precisely because there is nothing left to sell. IDCs make up the majority of what it costs to drill a well, which is why they sit at the center of every oil and gas tax conversation.</p>
+<p>The contrast is with <strong>tangible drilling costs</strong>, the equipment that does have salvage value: casing, tubing, pumps, tanks, separators, wellhead hardware. Those are capitalized and recovered over years, not written off up front. The split between intangible and tangible is the foundation of oil and gas tax planning, and we draw it out fully in the comparison table below and in the tangible-costs section that follows.</p>
+<h2 id="why">Why the deduction is a big deal</h2>
+<p>Most business spending that creates a long-lived asset has to be capitalized and recovered slowly, a little each year. IDCs are a deliberate exception. A working-interest investor can generally elect to <strong>deduct IDCs in the year they are incurred</strong> rather than capitalizing and amortizing them. This election has been in the code for decades, written to encourage domestic drilling, and it is what produces a first-year deduction far larger than almost anything else available to an individual investor.</p>
+<p>The size is the point. Because IDCs typically run 60% to 80% of a well's cost, an investor who commits capital to a working-interest program can usually deduct most of that capital in the first year. A high-bracket investor is effectively funding the bulk of the position with pre-tax dollars. That is an unusually aggressive timing benefit, and it is the reason these programs are marketed to people with large, active incomes and a meaningful tax bill.</p>
+<p>Keep the framing honest, though. A deduction is not a credit. It reduces taxable income, not tax dollar for dollar, and its real value depends on your marginal rate and your full tax picture. The deduction also assumes the well actually gets drilled and the costs are actually incurred. It is a timing and rate benefit on real spending, not free money.</p>
+<h2 id="howmuch">The year-one deduction mechanic</h2>
+<p>The mechanic comes down to one election. Rather than capitalizing IDCs and writing them off over the life of the well, a working-interest holder elects to <strong>expense them immediately</strong>. Once that election is made, the intangible portion of the well's cost, the 60% to 80%, lands as a current-year deduction against income. The tangible portion does not. It moves into a separate bucket and is depreciated.</p>
+<p>Size the result against the investment to see why investors care. If an investor commits a dollar of capital to a drilling program and roughly three-quarters of that dollar is intangible, then roughly three-quarters of the investment is deductible the year it is spent. The deduction is large relative to the check written, which is exactly what a high earner is looking for from a tax-driven allocation. For the interaction with wage and business income, our memo on whether <a href="oil-gas-losses-w2-income.html">oil and gas losses can offset W-2 income</a> walks through the mechanics in detail.</p>
+<p>The election and its rules are specific, and they interact with the at-risk rules and the passive-activity rules. This is firmly CPA territory. The takeaway for a prospective investor is simpler: a substantial share of what you put in can offset income in the first year, and you should confirm the exact percentage and timing in the offering documents before you assume anything.</p>
+<h2 id="who">Who can take it, and against what income</h2>
+<p>IDC deductions belong to holders of a <strong>working interest</strong>, the operating interest that bears the costs and the liability of drilling and producing the well. You get the deductions because you carry the costs and the risk. The two travel together. A working interest is also treated as <strong>non-passive</strong> for tax purposes, which is the feature that gives IDCs their reach. Because the activity is non-passive, the losses it generates, including the large first-year IDC deduction, can offset <strong>active income</strong>: wages, salary, business income, the income a high earner actually has.</p>
+<p>That is unusual. Most tax shelters generate passive losses that can only offset passive income, which limits who can use them. A working interest sidesteps that limit, which is why the structure is marketed to surgeons, executives, and business owners with W-2 or active income to shelter. Our guide to <a href="working-interest-vs-royalty-interest.html">working interest versus royalty interest</a> covers the trade-off in full: you accept cost exposure and liability in exchange for the deductions and the non-passive treatment.</p>
+<p>A <strong>royalty interest</strong> sits on the other side of that trade. A royalty owner gets a share of production revenue free of drilling and operating costs. Bearing no costs is the attraction, but it is also the reason a royalty interest cannot claim IDCs. There are no drilling costs flowing to a royalty owner to deduct. You cannot have it both ways. The deductions follow the costs, and the costs follow the working interest.</p>
+<h2 id="tangible">Tangible costs and depreciation</h2>
+<p>The other bucket is <strong>tangible drilling costs</strong>, the well equipment that has salvage value: casing, tubing, the pump, tanks, separators, the wellhead. Unlike IDCs, these cannot be expensed up front. They are capitalized and <strong>depreciated, generally over about seven years</strong>, the way you would recover the cost of any long-lived piece of equipment. So a working-interest investment splits cleanly into two parts. The large intangible part is deductible in year one. The smaller tangible part is recovered gradually.</p>
+<p>The table makes the split concrete.</p>
+<table class="dtable2">
+<thead><tr><th>Factor</th><th>Intangible Drilling Costs (IDCs)</th><th>Tangible Drilling Costs (TDCs)</th></tr></thead>
+<tbody>
+<tr><td>What they are</td><td>Labor, fuel, drilling fluids, site prep, hauling, cementing</td><td>Casing, tubing, pumps, tanks, separators, wellhead hardware</td></tr>
+<tr><td>Salvage value</td><td>None; consumed in the act of drilling</td><td>Yes; equipment that retains resale value</td></tr>
+<tr><td>Share of a well's cost</td><td>Typically 60–80%</td><td>Typically 20–40%</td></tr>
+<tr><td>Tax treatment</td><td>Elect to expense immediately</td><td>Capitalize and depreciate</td></tr>
+<tr><td>Timing of the deduction</td><td>Year one, all at once</td><td>Spread over roughly seven years</td></tr>
+<tr><td>AMT exposure</td><td>Excess IDCs can be a preference item</td><td>Standard depreciation rules</td></tr>
+</tbody>
+</table>
+<p class="tcap">Illustrative ranges only. The exact intangible and tangible split is a fact of each specific well and program; confirm it in the offering documents.</p>
+<p>Together with the depletion allowance, these two buckets form the three pillars of oil and gas tax benefits: immediate IDC deductions, depreciation of the equipment, and ongoing depletion once the well produces. The first two are about the cost of getting the well drilled. The third, covered next, is about sheltering the revenue.</p>
+<h2 id="depletion">How depletion follows in later years</h2>
+<p>The IDC deduction is a first-year event. After it, the tax story shifts to the income the well produces, and that is where <strong>depletion</strong> comes in. Depletion is cost recovery for a wasting natural resource: as a well produces oil or gas, the reserve in the ground is consumed, and the owner is allowed a deduction to reflect that. There are two methods. Cost depletion recovers your basis as reserves are produced. Percentage depletion, available to many smaller and independent producers and investors, generally allows a deduction of <strong>15% of the gross income</strong> from the property, subject to limits.</p>
+<p>Percentage depletion is the one investors talk about, because it can keep generating a deduction even after the original basis has been fully recovered. So the arc of a working-interest investment runs like this. Year one delivers the large IDC deduction up front. The tangible equipment depreciates over the following years. And as the well produces, percentage depletion shelters a slice of the production income for as long as the well flows. Our memo on the <a href="oil-gas-depletion-allowance.html">oil and gas depletion allowance</a> works through the 15% figure and its limits in detail. The point here is that depletion is the back half of the tax story, picking up after the IDC deduction has done its work.</p>
+<h2 id="example">A worked example</h2>
+<p>An illustration makes the timing benefit concrete. Every figure here is general and hypothetical, not a projection, not a guarantee, and not a representation about any specific program. Suppose an investor commits capital to a working interest in a drilling program. Assume the program classifies roughly 75% of that capital as intangible drilling costs and the remaining 25% as tangible equipment. The intangible portion, three-quarters of the investment, is deductible in the first year through the election to expense. The tangible quarter moves into depreciation over about seven years.</p>
+<p>Walk the first year. The investor makes the election, and three-quarters of the committed capital becomes a current-year deduction. Because the working interest is non-passive, that deduction offsets the investor's active income, including wages and business income. At a high marginal rate, the tax saved on that deduction funds a meaningful share of the investment up front. In the years that follow, depreciation on the equipment and percentage depletion on the production continue to shelter part of the income the well generates.</p>
+<p>Now the caveats, because they are the whole point. The AMT analysis can claw back part of the year-one benefit. The deduction shelters income, but it does not make the well produce. If the well comes in dry or underperforms, the investor has a deduction and a loss of principal, not a deduction and a return. The tax benefit reduces the cost of being right. It does nothing to make the underlying program succeed. Treat the numbers above as mechanics to understand, never as an outcome to expect.</p>
+<h2 id="amt">The AMT catch</h2>
+<p>Here is the wrinkle the sales pitch tends to underplay. <strong>Excess IDCs can be a preference item for the alternative minimum tax.</strong> The AMT is a parallel tax calculation that adds back certain deductions and preferences, then taxes the result at its own rate. Because excess IDCs feed into that calculation, a large IDC deduction can either lose part of its value under AMT or, in some cases, help push a taxpayer into AMT in the first place.</p>
+<p>The effect is not uniform. For some high earners, the IDC deduction stays very valuable even after running the AMT numbers. For others, the benefit is meaningfully reduced. There is a computational exception that can soften the preference for certain taxpayers, and the interaction depends entirely on the rest of the return: your income mix, your other preferences, your state, and your filing status. None of that can be read off a brochure's headline percentage.</p>
+<p>The practical instruction is short. Do not assume the full face value of the IDC deduction. Have a CPA model your specific situation, with and without the investment, including the AMT calculation, before you commit. A deduction that is worth its full value to one investor can be worth materially less to another sitting one bracket over.</p>
+<h2 id="timing">Timing and the rules</h2>
+<p>The year-one deduction is not automatic just because you wrote a check in December. The well generally has to be <strong>spudded</strong>, meaning drilling has actually begun, or be underway by certain dates for the costs to count in that tax year. There is a limited window after year-end in some cases, but the general principle is that the IRS wants real drilling tied to the deduction, not a paper commitment. Investors chasing a current-year deduction late in the year need to confirm that the program's drilling schedule actually supports it, in writing, before they fund.</p>
+<p>Two rules sit alongside the timing. The <strong>at-risk rules</strong> limit deductions to the amount you genuinely have at risk in the venture, which constrains the use of non-recourse financing to inflate a deduction. And the deduction interacts with the broader passive-activity framework, though the non-passive nature of a working interest is what lets the losses reach active income in the first place. These are the guardrails. They reward a real working interest with real cost exposure and disallow attempts to manufacture a deduction without the underlying economics.</p>
+<p>The blunt version: a large deduction tied to a well that never produces is a bad investment with a tax footnote. The timing rules make sure the deduction follows real drilling. They do nothing to make the drilling succeed. For a fuller treatment of what can go wrong on the investment side, see our memo on <a href="oil-gas-investment-risks.html">oil and gas investment risks</a>.</p>
+<h2 id="who-benefits">Who actually benefits, and the risk caveat</h2>
+<p>Strip away the brochure and the IDC deduction fits a narrow profile. It works for a <strong>high-bracket investor with active income to shelter</strong>, who has a CPA model the AMT exposure, and who genuinely accepts the nature of the underlying program. That last clause is the one that gets skipped. Oil and gas working-interest programs are speculative and illiquid. They are sold only to verified accredited investors through a private placement memorandum. They carry commodity-price risk, geologic and dry-hole risk, operator risk, and reserve depletion. Any of those can cause a loss of principal regardless of how clean the tax treatment looks.</p>
+<p>So the deduction is a reason to look, not a reason to invest. The right order of analysis is to evaluate the program as an investment first, on the strength of the operator, the geology, the economics, and the offering terms, and only then to weigh the tax benefit on top. Our guide to <a href="oil-gas-sponsor-due-diligence.html">oil and gas sponsor due diligence</a> covers what to demand from an operator before any of the tax math matters. An investor who would not own the working interest without the deduction probably should not own it with one. The deduction lowers the cost of a sound decision. It cannot rescue a bad one.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What are intangible drilling costs?<span class="ic"></span></summary>
+<div class="ans"><p>The costs of drilling a well that have no salvage value: labor, fuel, drilling fluids, site prep, hauling, cementing. They typically run 60% to 80% of a well's total cost and can usually be deducted in the first year by a working-interest holder.</p></div>
+</details>
+<details>
+<summary>How much of a well can be deducted in year one?<span class="ic"></span></summary>
+<div class="ans"><p>Typically 60% to 80%, the intangible share, can be deducted in the first year through the election to expense IDCs. The remaining tangible portion is the equipment, which is capitalized and depreciated over about seven years. The exact split is a fact of each program.</p></div>
+</details>
+<details>
+<summary>Can IDC losses offset my W-2 or business income?<span class="ic"></span></summary>
+<div class="ans"><p>Generally yes, for a working interest. A working interest is treated as non-passive, so its losses, including the large first-year IDC deduction, can offset active income such as wages and business income. This is the feature that makes the structure attractive to high earners.</p></div>
+</details>
+<details>
+<summary>Can a royalty interest claim intangible drilling costs?<span class="ic"></span></summary>
+<div class="ans"><p>No. A royalty interest bears none of the drilling or operating costs, so there are no IDCs flowing to it to deduct. The deductions follow the costs, and the costs follow the working interest. A royalty owner gets cost-free revenue but no IDC write-off.</p></div>
+</details>
+<details>
+<summary>How do IDCs interact with the alternative minimum tax?<span class="ic"></span></summary>
+<div class="ans"><p>Excess IDCs can be an AMT preference item, so a large deduction can lose part of its value under AMT, or help push a taxpayer into AMT. The effect depends entirely on your full tax picture and should be modeled by a CPA before you invest.</p></div>
+</details>
+<details>
+<summary>What is the difference between intangible and tangible drilling costs?<span class="ic"></span></summary>
+<div class="ans"><p>Intangible costs, the labor and consumables of drilling, have no salvage value and can be expensed immediately. Tangible costs are the equipment with salvage value, such as casing, pumps, and tanks, which are capitalized and depreciated over about seven years.</p></div>
+</details>
+<details>
+<summary>Does the IDC deduction guarantee a good investment?<span class="ic"></span></summary>
+<div class="ans"><p>No. IDCs shelter income through a large first-year deduction, but the well still has to produce for the investment to succeed. If it underperforms, you have a deduction and a loss of principal. These programs are speculative, illiquid, and accredited-only. Evaluate the investment first, the tax benefit second.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Intangible Drilling Costs (IDCs)</dt><dd>The non-salvageable costs of drilling a well, including labor, fuel, drilling fluids, site prep, and hauling. Generally deductible in the first year by a working-interest holder.</dd></div>
+<div class="g"><dt>Tangible Drilling Costs (TDCs)</dt><dd>The well equipment with salvage value, such as casing, pumps, tanks, and wellhead hardware. Capitalized and depreciated, generally over about seven years.</dd></div>
+<div class="g"><dt>Working Interest</dt><dd>The operating interest in a well that bears the costs and liability of drilling and production. Treated as non-passive, so it earns the IDC and related deductions.</dd></div>
+<div class="g"><dt>Royalty Interest</dt><dd>A right to a share of production revenue free of drilling and operating costs. Bears no costs, and therefore claims no IDCs.</dd></div>
+<div class="g"><dt>Election to Expense</dt><dd>The choice a working-interest holder makes to deduct IDCs in the year incurred rather than capitalizing and amortizing them over time.</dd></div>
+<div class="g"><dt>Alternative Minimum Tax (AMT)</dt><dd>A parallel tax calculation that adds back certain deductions and preferences. Excess IDCs can be an AMT preference item that reduces the deduction's value.</dd></div>
+<div class="g"><dt>Depletion</dt><dd>Cost recovery for a wasting resource. Percentage depletion generally allows a deduction of 15% of gross income from the property, subject to limits.</dd></div>
+<div class="g"><dt>Spud Date</dt><dd>The date drilling of a well begins. The well generally must be spudded or underway by certain dates for IDCs to count in a given tax year.</dd></div>
+<div class="g"><dt>Passive Activity</dt><dd>An activity in which the taxpayer does not materially participate. A working interest is generally non-passive, which is why its losses can offset active income.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/263" rel="noopener nofollow" target="_blank">26 U.S. Code § 263(c) — Intangible drilling and development costs in the case of oil and gas wells</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/57" rel="noopener nofollow" target="_blank">26 U.S. Code § 57(a)(2) — Items of tax preference (excess intangible drilling costs)</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/469" rel="noopener nofollow" target="_blank">26 U.S. Code § 469(c)(3) — Working interest in oil and gas property (passive activity exception)</a></li>
+<li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/613" rel="noopener nofollow" target="_blank">26 U.S. Code § 613 — Percentage depletion</a></li>
+<li>IRS. <a href="https://www.irs.gov/pub/irs-pdf/p5652.pdf" rel="noopener nofollow" target="_blank">Oil and Gas Handbook (IRM 4.41.1)</a></li>
+</ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures">
+<p>This article is published by Baker 1031 for general informational and educational purposes only. It is not investment, legal, or tax advice, and is not an offer to sell or a solicitation to buy any security. The IDC rules and their limits are detailed and fact-specific; consult your own CPA before acting.</p>
+<p>Every figure and example here is general and illustrative, not a projection or a representation about any specific transaction. Oil and gas working-interest programs are speculative, illiquid securities sold only to verified accredited investors via private placement memorandum, and they are exposed to commodity-price and geologic risk, dry-hole and operator risk, and reserve depletion that can cause loss of principal. Past performance does not guarantee future results, and no deduction, return, or tax outcome is guaranteed.</p>
+</div>
+</article>
+
+</div>
+
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){ const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx)); }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink'); cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn'); pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    const dp=document.getElementById('dlpdf'); dp&&dp.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(o){document.querySelectorAll('.faq details').forEach(d=>{if(o){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true)); addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

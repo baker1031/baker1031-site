@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Replacement Property Options Compared | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Replacement Property Options Compared
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Replacement Property Options Compared</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Your replacement property doesn't have to be another building you manage. This complete guide compares the main 1031 options — fee-simple, NNN, TIC, DST, and oil & gas royalties — across control, income, diversification, debt replacement, and liquidity.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">One of the most underappreciated freedoms of a 1031 exchange is choice. Your replacement property can be a building you actively run, a hands-off net-lease asset, a fractional interest in institutional real estate, or even oil &amp; gas royalties — and each of these qualifies as like-kind real property. They differ enormously, though, in how much control and effort they require, how they pay you, how diversified they are, how they handle your debt, and how liquid they are. This guide compares the main options across all of those dimensions so you can match the right structure to your goals.</p>
+<h2 id="breadth">The Breadth of Like-Kind Choice</h2>
+<p>Because like-kind for real property is broad — almost any U.S. investment real estate is like-kind to almost any other — you are not confined to replacing what you sold with the same thing. A landlord exiting a fourplex can buy a net-lease store, a DST, raw land, or royalties.</p>
+<p>This breadth is what makes the exchange a strategic tool, not just a tax mechanic. The exchange is often the moment investors reshape their portfolios: from active to passive, from concentrated to diversified, from management-intensive to hands-off.</p>
+<p>The options below sit on a spectrum from maximum control and effort (fee-simple) to maximum passivity and diversification (DSTs). Most exchangers end up choosing based on where they want to be on that spectrum at this stage of their lives.</p>
+<h2 id="fee">Fee-Simple Whole Ownership</h2>
+<p>Fee-simple is complete, direct ownership of a property — you hold title, make every decision, keep all the upside, and bear all the responsibility, risk, and management. It's the traditional model and the right fit for hands-on investors who want to add value.</p>
+<p>The advantages are control and economics: no sponsor layer, no fees beyond your own costs, and the full benefit of any value you create. The disadvantages are concentration (your equity sits in one asset, one market, one tenant base) and effort (you're the landlord).</p>
+<p>Fee-simple also requires you to find and close a specific property within the 45/180-day deadlines and to qualify for any new financing yourself — both real constraints in a tight timeline.</p>
+<h2 id="nnn">Net-Lease (NNN) Property</h2>
+<p>A single-tenant net-lease (NNN) property is leased to one tenant who pays rent plus property taxes, insurance, and maintenance, typically on a long lease. It offers passive, predictable income with minimal landlord duties — popular with retiring owners trading active management for a mailbox check.</p>
+<p>The income's quality depends on the tenant's creditworthiness and the lease length; investment-grade tenants on long leases with rent escalations are the gold standard. The defining risk is single-tenant concentration: one property, one tenant, and income that can drop to zero if that tenant vacates or defaults.</p>
+<p>You can buy NNN directly (control, but concentration and a fast close required) or through a net-lease DST (diversified across tenants and properties, passive, fast-closing, but with fees and no control).</p>
+<h2 id="tic">Tenants-in-Common (TIC)</h2>
+<p>A tenants-in-common (TIC) arrangement is direct, deeded co-ownership of a property by up to 35 investors, each holding an undivided fractional interest with a vote on major decisions. Because it's direct real-property ownership, a TIC interest qualifies as replacement property.</p>
+<p>TICs give co-owners more control than a DST — including voting rights — and a direct deed. The trade-offs are complexity: financing requires lenders to underwrite multiple owners, and major decisions can require unanimous consent, which can create deadlock.</p>
+<p>These frictions are the main reason the DST structure largely displaced TICs for fractional 1031 exchanges. TICs persist where investors specifically want a vote or a particular financing structure.</p>
+<h2 id="dst">Delaware Statutory Trusts (DST)</h2>
+<p>A Delaware Statutory Trust holds title to one or more institutional properties and issues fractional beneficial interests treated as direct real-property ownership for 1031 purposes under Rev. Rul. 2004-86. DSTs are the dominant modern passive replacement option.</p>
+<p>Their advantages are speed (closing in days, the classic 45-day backup), passivity (no management), diversification (many DSTs hold multiple properties across sectors and markets), and debt replacement without personal qualification (leveraged DSTs carry pre-arranged, non-recourse debt). They let you invest a precise dollar amount, which makes hitting equal-or-greater value clean.</p>
+<p>The trade-offs are fees (a sponsor load), illiquidity (you hold for the trust's life, typically several years), and no control (the sponsor makes decisions). DSTs are sold only to <a href="insights.html">accredited investor</a>s via <a href="how-to-review-a-ppm.html">private placement memorandum</a> and are speculative securities.</p>
+<h2 id="minerals">Oil &amp; Gas Minerals &amp; Royalties</h2>
+<p>Qualifying oil and gas mineral and royalty interests are real property and can serve as 1031 replacement — an unusual, higher-yielding option. Perpetual royalties pay a cost-free share of production, and percentage depletion shelters part of the income.</p>
+<p>The appeal is yield: royalty interests and royalty DSTs often target higher current income than real estate, with depletion shelter on top. The risk is variability: income moves with commodity prices and the natural decline of producing wells.</p>
+<p>Most exchangers use minerals as a yield sleeve within a diversified replacement mix rather than the whole exchange — for example pairing a royalty DST with real estate DSTs to balance income and stability.</p>
+<table class="dtable2">
+<thead><tr><th>Option</th><th>Management</th><th>Diversification</th></tr></thead>
+<tbody>
+<tr><td>Fee-simple (whole)</td><td class="ap dn">Active</td><td class="ap dn">Single asset</td></tr>
+<tr><td>Net-lease (NNN) direct</td><td class="ap nt">Low</td><td class="ap dn">Single tenant</td></tr>
+<tr><td>TIC fractional</td><td class="ap nt">Shared</td><td class="ap nt">Single property</td></tr>
+<tr><td>DST fractional</td><td class="ap up">Passive</td><td class="ap up">Often diversified</td></tr>
+<tr><td>Oil &amp; gas royalties</td><td class="ap up">Passive</td><td class="ap nt">Commodity-linked</td></tr>
+</tbody>
+</table>
+<p class="tcap">Exhibit 1 — Replacement options compared on management and diversification. Each carries distinct risks; confirm suitability before investing.</p>
+<h2 id="debt">Debt Replacement Across the Options</h2>
+<p>Debt replacement is where the options differ in a way that's easy to overlook. To fully defer, you must replace the debt you paid off — and how each option handles that varies.</p>
+<p>With fee-simple or direct NNN, you must qualify for and take on new financing yourself, which can be a hurdle. With a leveraged DST, the trust's pre-arranged, non-recourse debt supplies your replacement leverage automatically, with no personal loan application. Debt-free DSTs and all-cash purchases require you to have had no debt (or to add cash) to avoid mortgage <a href="insights.html">boot</a>.</p>
+<p>For investors with changing income or who simply don't want new personal debt, the DST's built-in leverage is often the deciding factor in choosing replacement property.</p>
+<h2 id="liquidity">Liquidity and Hold Period</h2>
+<p>Liquidity is another axis of difference. Fee-simple property you can sell whenever you choose (subject to the market), giving you control over timing. Fractional interests are less liquid: DSTs in particular are designed to be held for the trust's full life cycle — typically several years — with only a limited, sometimes nonexistent secondary market.</p>
+<p>This illiquidity is a real trade-off for the convenience and diversification DSTs offer. You should be comfortable holding for the projected period before committing.</p>
+<p>Many DSTs are structured to end in a full-cycle sale or, increasingly, a 721 UPREIT roll-up into a REIT — which can extend the investment into REIT units. Understand the projected hold and exit before you invest.</p>
+<h2 id="match">Matching Options to Your Goals</h2>
+<p>The right option follows from your goals. Want control and to add value? Fee-simple. Want simple, hands-off income from a credit tenant? Net-lease. Want passive, diversified institutional real estate with easy debt replacement? A DST. Want higher, depletion-sheltered yield and can tolerate commodity risk? A mineral or royalty sleeve.</p>
+<p>Effort tolerance, income needs, risk appetite, debt situation, and estate plans all feed the decision. An owner near retirement seeking passive income and easy estate division leans toward DSTs; an active investor in their prime earning years may stay fee-simple.</p>
+<p>There's rarely a single right answer, and blends are common — a fee-simple anchor plus a DST sleeve, or several DSTs across sectors. The exchange is an opportunity to build the portfolio you want, not just to defer tax.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Like-kind is broad — you can change property type and ownership model entirely.</li>
+<li>Options trade control and upside (fee-simple) against passivity and diversification (DST).</li>
+<li>Match the choice to your effort tolerance, income needs, debt, and estate goals — blends are common.</li>
+</ul></div>
+<h2 id="income">Income Profiles Compared</h2>
+<p>The options pay you differently, and matching the income profile to your needs matters as much as the structure. Fee-simple income depends entirely on the single property and your management — it can be high if you run the asset well, but it's concentrated and hands-on. Net-lease income is steady and contractual: a credit tenant's rent, escalating modestly over a long lease, with little variability as long as the tenant performs.</p>
+<p>DST distributions come from the rents of one or more underlying properties, paid monthly, typically in a moderate range and smoothed by diversification across tenants. Royalty income is the outlier — often the highest current yield, but variable, moving with commodity prices and well decline, and partly sheltered by depletion.</p>
+<p>An investor who needs predictable monthly income leans toward net-lease and real estate DSTs; one seeking maximum current yield and able to tolerate variability might add a royalty sleeve. Many blend them to set an overall income profile that fits.</p>
+<h2 id="risk">Risk Profiles Compared</h2>
+<p>Each option carries a distinct risk signature. Fee-simple and direct net-lease concentrate risk in a single asset and, for NNN, a single tenant — if that tenant defaults or the local market turns, the whole investment is exposed. Diversification is your responsibility, achieved only by owning several properties.</p>
+<p>DSTs reduce single-asset risk through diversification but add sponsor risk (you depend on the sponsor's management and integrity), illiquidity, and fees. TICs add decision-making risk, since co-owner deadlock can stall important choices. Royalties carry commodity-price and production-decline risk that real estate doesn't.</p>
+<p>There's no risk-free option — only different risks. The discipline is to understand which risks you're taking on, size them appropriately, and diligence the specific property, tenant, sponsor, or operator behind whatever you choose.</p>
+<h2 id="reporting">Tax Reporting Differences</h2>
+<p>After the exchange, the options report differently at tax time. Fee-simple and direct NNN property generate the familiar Schedule E rental reporting, with you tracking income, expenses, depreciation, and basis directly.</p>
+<p>DST and TIC interests are treated as direct ownership of the underlying real estate for tax purposes, so you receive reporting reflecting your share of income, expenses, and depreciation — generally also flowing to Schedule E. Royalty interests add depletion to the picture, with reporting that reflects royalty income and the depletion allowance.</p>
+<p>In every case, your carryover basis from the relinquished property follows you into the replacement, and your CPA tracks it. The reporting mechanics differ, but the deferred gain rides along the same way — which is why coordinating with your CPA before and after the exchange matters.</p>
+<h2 id="samplemix">A Sample Diversified Replacement Mix</h2>
+<p>To make the trade-offs concrete, consider an illustrative $1,000,000 exchange for an investor seeking passive, diversified income with some yield. They might place a portion in a multifamily DST for stability and inflation sensitivity, a portion in a net-lease DST for steady credit-tenant income, and a smaller sleeve in a royalty DST for higher, depletion-sheltered yield.</p>
+<p>The result diversifies across sectors (residential, retail, energy), structures, sponsors, and geographies — far more resilient than rolling the entire amount into a single building. Each piece can be sized to hit the equal-or-greater-value and debt-replacement targets precisely, since DSTs accept exact dollar amounts.</p>
+<p>This is illustrative only, not a recommendation; the right mix depends on your income needs, risk tolerance, debt situation, and goals, and should be built with your advisors. The point is that an exchange lets you construct a portfolio, not just buy a property.</p>
+<h2 id="lifecycle">Matching Options to Where You Are in Life</h2>
+<p>The right replacement option often tracks where you are as an investor and as a person, not just the spreadsheet. Investors in their prime earning and active years frequently stay fee-simple or move into value-add direct property, because they have the time, expertise, and appetite to manage assets and create value — and they can absorb the concentration risk in exchange for control and upside.</p>
+<p>As investors approach or enter retirement, priorities tend to shift toward income, simplicity, and diversification. This is the classic moment for the move into net-lease property or DSTs: the goal becomes steady, hands-off cash flow without tenants, toilets, and 2 a.m. phone calls. A long-time landlord exhausted by management can exchange a portfolio of rentals into diversified DSTs and convert active work into passive income, all while deferring the gain.</p>
+<p>Late in life, estate considerations often dominate. Passive, easily divisible replacement property becomes especially attractive, because DST interests can be split among multiple heirs far more cleanly than a single building, and the deferred gain can be eliminated entirely through the <a href="1031-exchange-step-up-in-basis-at-death.html">step-up in basis</a> at death. Some investors take a further step into a 721 UPREIT, contributing DST property into a REIT for operating-partnership units that are even easier to divide and to convert to liquidity over time.</p>
+<p>None of this is prescriptive — plenty of retirees keep managing property they love, and plenty of younger investors prefer passive DSTs from the start. But mapping the options against your stage of life, your energy for management, your income needs, and your estate plan is one of the most useful ways to narrow the field. The exchange is a chance to align your real estate with the life you actually want, and the replacement option you choose is how that alignment happens.</p>
+<h2 id="decide">How to Decide</h2>
+<p>Start by writing down what you want from the next chapter of ownership: more income or more growth, more control or less work, one asset or many, new debt or none. Then map those answers to the options above.</p>
+<p>Run the numbers on each realistic path, including fees, projected income, and after-tax outcomes, and stress-test the risks — single-tenant exposure, commodity variability, illiquidity. The replacement property has to be a sound investment on its own, not just a tax deferral.</p>
+<p>Because the 45-day clock is short, do this thinking before you sell. An independent, sponsor-agnostic advisor can lay out the options that fit your dollar amount, debt, and goals — and surface the risks of each — so you can identify confidently when the clock starts.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What are my 1031 replacement property options?<span class="ic"></span></summary>
+<div class="ans"><p>Fee-simple (whole) real estate, single-tenant net-lease (NNN) property, fractional tenants-in-common (TIC) and Delaware Statutory Trust (DST) interests, and qualifying oil &amp; gas minerals and royalties. All are like-kind real property; they differ in control, income, diversification, debt replacement, and liquidity.</p></div>
+</details>
+<details>
+<summary>What's the difference between a TIC and a DST?<span class="ic"></span></summary>
+<div class="ans"><p>Both are fractional ownership of larger properties. A TIC is direct deeded co-ownership with voting rights but complex financing and possible unanimous-consent deadlock. A DST is a trust where the sponsor manages decisions and pre-arranges non-recourse debt — simpler, passive, and the more common modern choice.</p></div>
+</details>
+<details>
+<summary>Which replacement option is the most passive?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs and net-lease properties are the most hands-off. DSTs add diversification across multiple properties and pre-arranged debt, while a single NNN property concentrates in one tenant.</p></div>
+</details>
+<details>
+<summary>How does debt replacement differ across options?<span class="ic"></span></summary>
+<div class="ans"><p>Fee-simple and direct NNN require you to qualify for new financing yourself. A leveraged DST supplies replacement debt automatically through its pre-arranged, non-recourse loan, with no personal application. Debt-free options require you to have had no debt, or to add cash, to avoid mortgage boot.</p></div>
+</details>
+<details>
+<summary>Are DSTs liquid?<span class="ic"></span></summary>
+<div class="ans"><p>No. DSTs are designed to be held for the trust's full life cycle, typically several years, with only a limited and sometimes nonexistent secondary market. Be comfortable holding for the projected period before investing.</p></div>
+</details>
+<details>
+<summary>Can I use oil &amp; gas royalties as 1031 replacement property?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Qualifying perpetual mineral and royalty interests are real property and like-kind to other real estate. They offer higher, depletion-sheltered yield with commodity-price and decline risk, and are often used as a sleeve within a diversified replacement mix.</p></div>
+</details>
+<details>
+<summary>Can I combine replacement options?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Within the identification rules, many exchangers diversify across several options — for example a DST plus a net-lease asset plus a royalty sleeve — to balance income, growth, and risk. Blends are common.</p></div>
+</details>
+<details>
+<summary>Which option is best for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>There's no single best option — it depends on your goals. Fee-simple suits control and value-add; NNN suits simple income; DSTs suit passive diversification and easy debt replacement; minerals suit higher yield with commodity risk. Match the choice to your situation.</p></div>
+</details>
+<details>
+<summary>How do income profiles differ across replacement options?<span class="ic"></span></summary>
+<div class="ans"><p>Fee-simple income depends on the single property and your management — potentially high but concentrated and hands-on. Net-lease income is steady and contractual from a credit tenant. DST distributions are moderate, monthly, and smoothed by diversification. Royalty income is often the highest yield but variable, moving with commodity prices and well decline, with depletion sheltering part of it.</p></div>
+</details>
+<details>
+<summary>Which replacement option carries the most risk?<span class="ic"></span></summary>
+<div class="ans"><p>Each carries a different risk, not necessarily more. Fee-simple and direct NNN concentrate risk in one asset and tenant. DSTs add sponsor risk, illiquidity, and fees. TICs add co-owner decision risk. Royalties add commodity-price and production-decline risk. The discipline is to understand which risks you're taking, size them, and diligence the specific property, sponsor, or operator.</p></div>
+</details>
+<details>
+<summary>How are the options taxed and reported after the exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Fee-simple and direct NNN use standard Schedule E rental reporting. DST and TIC interests are treated as direct ownership of the underlying real estate, so you receive reporting of your share of income, expenses, and depreciation. Royalties add depletion reporting. In all cases your carryover basis follows you into the replacement, tracked by your CPA.</p></div>
+</details>
+<details>
+<summary>How does my stage of life affect which option fits?<span class="ic"></span></summary>
+<div class="ans"><p>Active, prime-earning investors often stay fee-simple or value-add for control and upside. Those near or in retirement tend to favor net-lease or DSTs for steady, hands-off income. Late in life, passive and easily divisible options like DSTs — or a 721 UPREIT — ease estate division and pair with the step-up in basis at death.</p></div>
+</details>
+<details>
+<summary>Can I build a diversified replacement portfolio in one exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Within the identification rules you can split proceeds across several properties or DSTs — for example a multifamily DST, a net-lease DST, and a smaller royalty sleeve — to diversify across sectors, sponsors, and geographies. DSTs accept precise dollar amounts, which makes hitting equal-or-greater value and debt replacement clean.</p></div>
+</details>
+<details>
+<summary>How does debt replacement differ between fee-simple and a DST?<span class="ic"></span></summary>
+<div class="ans"><p>With fee-simple or direct net-lease, you must qualify for and take on new financing yourself to replace the debt you paid off. A leveraged DST supplies that replacement debt automatically through its pre-arranged, non-recourse loan — no personal application or guarantee. Debt-free options require you to have had no debt, or to add cash, to avoid mortgage boot.</p></div>
+</details>
+<details>
+<summary>How liquid are the different replacement options?<span class="ic"></span></summary>
+<div class="ans"><p>Fee-simple property you can sell whenever the market allows, giving you timing control. DST and TIC interests are far less liquid — DSTs in particular are designed to be held for the trust's full cycle, typically several years, with only a limited or nonexistent secondary market. Be comfortable holding for the projected period before investing in a fractional interest.</p></div>
+</details>
+<details>
+<summary>What happens to a DST at the end of its hold?<span class="ic"></span></summary>
+<div class="ans"><p>Many DSTs are structured to end in a full-cycle sale of the property, returning capital and gain to investors, or increasingly in a 721 UPREIT roll-up that contributes the property into a REIT for operating-partnership units. Understand the projected hold period and the planned exit before investing, since both become part of your outcome.</p></div>
+</details>
+<details>
+<summary>Should I put my whole exchange into one option?<span class="ic"></span></summary>
+<div class="ans"><p>Not necessarily. Concentrating an entire exchange in a single property or option recreates single-asset risk. Many exchangers blend — for example a fee-simple anchor plus a DST sleeve, or several DSTs across sectors — to balance income, growth, and risk. The right structure depends on your goals, and an independent advisor can lay out options that fit your dollar amount and deadline.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Fee-Simple</dt><dd>Direct, whole ownership of a property with full control and responsibility.</dd></div>
+<div class="g"><dt>Net-Lease (NNN)</dt><dd>A property leased to a tenant who pays most operating expenses, often on a long term.</dd></div>
+<div class="g"><dt>Tenants-in-Common (TIC)</dt><dd>Direct fractional co-ownership of a property by multiple investors, with voting rights.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust issuing passive fractional real-property interests usable as 1031 replacement, treated as direct ownership under Rev. Rul. 2004-86.</dd></div>
+<div class="g"><dt>Royalty Interest</dt><dd>A cost-free share of oil &amp; gas production; real property when perpetual.</dd></div>
+<div class="g"><dt>Leveraged DST</dt><dd>A DST with pre-arranged non-recourse debt that supplies replacement leverage without personal qualification.</dd></div>
+<div class="g"><dt>Single-Tenant Concentration</dt><dd>The risk of depending on one tenant for all of a property's income.</dd></div>
+<div class="g"><dt>Sponsor Load</dt><dd>The total fees and costs in a DST or similar program, as a percentage of the raise.</dd></div>
+<div class="g"><dt>Secondary Market</dt><dd>A limited, often illiquid market for reselling fractional interests like DSTs before the full cycle.</dd></div>
+<div class="g"><dt>721 UPREIT Roll-Up</dt><dd>Contributing DST property into a REIT operating partnership for OP units, a common DST exit.</dd></div>
+<div class="g"><dt>Equal-or-Greater-Value Rule</dt><dd>The requirement to acquire value at least equal to the relinquished property to fully defer.</dd></div>
+<div class="g"><dt>Mortgage Boot</dt><dd>Debt relief not offset by new debt or cash; taxable.</dd></div>
+<div class="g"><dt>Schedule E</dt><dd>The federal tax schedule on which rental real estate income and expenses (including DST/TIC pass-through) are reported.</dd></div>
+<div class="g"><dt>Full-Cycle Sale</dt><dd>The eventual sale of a DST's property that returns capital and gain to investors at the end of the hold.</dd></div>
+<div class="g"><dt>Credit Tenant</dt><dd>A tenant with strong (often investment-grade) creditworthiness, supporting reliable net-lease income.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/newsroom/the-treasury-department-and-irs-issue-final-regulations-regarding-like-kind-exchanges-of-real-property" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — qualifying replacement property</a></li><li>Baker 1031 Investments. <a href="delaware-statutory-trusts.html" rel="noopener nofollow" target="_blank">Delaware Statutory Trusts strategy</a></li><li>IPX1031. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Replacement property options</a></li><li>JTC Group. <a href="https://www.jtcgroup.com/insights/1031-and-real-estate-answers-to-common-questions/" rel="noopener nofollow" target="_blank">1031 and Real Estate: Answers to Common Questions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchanges: The 2026 Definitive Guide | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+    <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span><a href="insights.html">Insights</a><span class="sep">❯</span><span data-field="title">Placeholder Article Title</span>
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima" data-field="title">Placeholder Article Title</h1>
+  </section>
+
+  <nav class="toc-banner" id="tocBanner">
+    <button class="toc-toggle" onclick="document.getElementById('tocBanner').classList.toggle('open')">On This Page</button>
+    <div class="toc-links">
+      <a href="#article">Article</a>
+      <a href="#faq">FAQs</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#author">About the Author</a>
+    </div>
+  </nav>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row">
+      <div class="article-meta" data-field="meta"></div>
+      <div class="audio-player" id="audioPlayer">
+        <span class="ap-label">&#127911; Listen to this article</span>
+        <button id="apToggle">&#9654; Play</button>
+        <button id="apStop" style="display:none;">&#9632; Stop</button>
+        <span class="ap-status" id="apStatus"></span>
+      </div>
+    </div>
+
+    <div class="article-body" id="article" data-field="body"></div>
+
+    <hr class="divider">
+
+    <div class="faq-glossary">
+      <div class="fg-col" id="faq">
+        <h2 class="optima">Frequently Asked Questions</h2>
+        <div data-field="faqs"></div>
+      </div>
+      <div class="fg-col" id="glossary">
+        <h2 class="optima">Glossary</h2>
+        <dl class="glossary-list" data-field="glossary"></dl>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2 class="optima" id="author" style="margin-top: 28px;">About the Author</h2>
+    <div data-field="authorBox"></div>
+  </main>
+
+<!-- @@FOOTER@@ -->
+
+<script type="application/json" id="article-data">
+{
+  "title": "1031 Exchanges: The 2026 Definitive Guide",
+  "category": "1031 Exchanges",
+  "date": "Updated June 2026",
+  "readTime": "34 min read",
+  "intro": [
+    "Sell an investment property, defer 100% of the capital-gains tax, and roll your equity into the next one — indefinitely. This is the complete playbook: the rules, the clock, the math, and the replacement strategies.",
+    "A 1031 exchange — named for Section 1031 of the tax code — lets you sell real property held for investment or business and defer the entire tax bill by reinvesting in \"like-kind\" real estate. Done in sequence over a lifetime, it's one of the most powerful wealth-building tools in American tax law: you keep compounding pre-tax dollars instead of handing a chunk to the IRS at every sale.",
+    "2026 status and the essentials: 1031 is fully intact in 2026 — the One Big Beautiful Bill Act left Section 1031 unchanged, and there is no enacted cap on real-estate exchanges. Real property only: since the 2017 tax law, only real property held for investment or business qualifies — and almost any U.S. real estate is like-kind to any other. And the clock is everything: 45 days to identify, 180 days to close — and a qualified intermediary must hold your proceeds the entire time."
+  ],
+  "sections": [
+    {
+      "heading": "01 · What a 1031 Exchange Is",
+      "paragraphs": [
+        "When you sell an appreciated investment property outright, you owe tax on the gain — federal capital gains, depreciation recapture, the net investment income tax, and state tax can combine to take a quarter to a third of your profit. A 1031 exchange defers all of it. Instead of selling and buying, you exchange: a qualified intermediary holds the proceeds, and you reinvest them into replacement real estate. The deferred gain rolls into the new property's basis. Repeat it across a career, hold until death, and your heirs receive a stepped-up basis that can erase the deferred tax entirely — the strategy nicknamed \"swap till you drop.\""
+      ]
+    },
+    {
+      "heading": "02 · What Qualifies",
+      "paragraphs": [
+        "Four conditions define an eligible exchange:",
+        "– Real property. Since 2018, only real property qualifies — not equipment, vehicles, or other personal property.",
+        "– Held for investment or business. Your primary residence doesn't qualify (that's the Section 121 exclusion), nor does property held as dealer inventory for resale.",
+        "– Like-kind. For real estate this is broad — a rental house is like-kind to an office building, raw land, a net-lease store, a DST interest, or qualifying mineral rights. Quality and type don't matter; character (investment real property) does.",
+        "– U.S. property. Domestic real estate is not like-kind to foreign real estate."
+      ]
+    },
+    {
+      "heading": "03 · The Core Rules: Equal-or-Up & Boot",
+      "paragraphs": [
+        "To defer all the tax, follow the equal-or-up rule: your replacement property must cost at least as much as the net sale price of what you sold, you must reinvest all of your equity, and you must replace the debt you paid off (with new debt or your own cash). Fall short on any of these and you receive boot — and boot is taxable.",
+        "– Cash boot: sale proceeds you keep instead of reinvesting.",
+        "– Mortgage boot: debt relief — when your new loan is smaller than your old one and you don't make up the difference with cash.",
+        "You don't lose the whole exchange when you take boot; you just pay tax on the boot (up to the amount of your gain) and defer the rest.",
+        "Go equal-or-up in value, reinvest all your equity, and replace your debt. Miss any of the three, and the shortfall is taxable boot."
+      ]
+    },
+    {
+      "heading": "04 · The Deadlines: 45 & 180 Days",
+      "paragraphs": [
+        "Two hard clocks start the day you close the sale of your relinquished property, and neither can be extended — not even if the deadline lands on a weekend or holiday. You have 45 days to formally identify your replacement property and 180 days to close on it.",
+        "One trap most guides skip: the exchange period actually ends on the earlier of 180 days or your tax-return due date for the sale year. Sell late in the year and you may need to file an extension to get your full 180 days."
+      ]
+    },
+    {
+      "heading": "05 · Identification Rules: 3-Property, 200% & 95%",
+      "paragraphs": [
+        "Within those 45 days you must identify replacement candidates in writing, and you must follow one of three rules. Most exchangers use the 3-property rule; the others exist for when you want to identify more options.",
+        "– 3-Property Rule: identify up to three properties of any total value. Simplest and most common.",
+        "– 200% Rule: identify any number of properties, as long as their combined value doesn't exceed 200% of what you sold.",
+        "– 95% Rule: identify any number at any value — but you must actually acquire at least 95% of the total value you identified."
+      ]
+    },
+    {
+      "heading": "06 · The Qualified Intermediary & Process",
+      "paragraphs": [
+        "The cardinal rule of execution: you may never take possession of the sale proceeds. If the money touches your hands or bank account, the IRS deems \"constructive receipt\" and the exchange fails. A qualified intermediary (QI) — an independent third party engaged before your sale closes — holds the funds, then uses them to acquire your replacement. The sequence:",
+        "– Engage a QI before closing the sale; the exchange agreement is signed up front.",
+        "– Sell the relinquished property; proceeds go directly to the QI.",
+        "– Identify replacement(s) within 45 days, in writing, under one of the three rules.",
+        "– Close within 180 days (or your tax-return due date, if earlier), with the QI funding the purchase.",
+        "– Report the exchange on Form 8824 with your tax return for the sale year."
+      ]
+    },
+    {
+      "heading": "07 · Types of Exchanges",
+      "paragraphs": [
+        "– Delayed (forward) exchange: the standard — sell first, then buy within the deadlines. The vast majority of exchanges.",
+        "– Reverse exchange: buy the replacement first (parked with an exchange accommodation titleholder), then sell — useful in competitive markets, but more complex and costly.",
+        "– Improvement (construction) exchange: use exchange funds to build on or improve the replacement within the 180 days.",
+        "– Simultaneous exchange: both legs close the same day — rare today."
+      ]
+    },
+    {
+      "heading": "08 · Choosing Your Replacement Strategy",
+      "paragraphs": [
+        "The hardest part of many exchanges isn't the rules — it's finding the right replacement before the clock runs out. Your main routes:",
+        "– Delaware Statutory Trust: passive, fractional, institutional real estate — and pre-packaged to close fast against a deadline.",
+        "– Mineral & Royalty: high-yield, real-property interests in oil & gas — qualifying perpetual interests are like-kind.",
+        "– Opportunity Zones: not a 1031, but a related alternative — defer a gain and earn tax-free growth over ten years.",
+        "Direct ownership and tenants-in-common (TIC) interests are options too."
+      ]
+    },
+    {
+      "heading": "09 · Taxes: Recapture, Basis & \"Swap Till You Drop\"",
+      "paragraphs": [
+        "A 1031 defers more than the capital gain — it also defers depreciation recapture, the often-overlooked tax on the depreciation you've claimed (taxed at up to 25% federally if you simply sell). Your deferred gain carries into the replacement property as a reduced basis, which is why the tax is deferred, not erased. The endgame for many investors is to never sell for cash: keep exchanging, and at death your heirs receive a stepped-up basis to fair-market value, wiping out the deferred gain. That's the quiet power of stacking exchanges over decades."
+      ]
+    },
+    {
+      "heading": "10 · Common Mistakes & Pitfalls",
+      "paragraphs": [
+        "– Touching the money. Taking the proceeds — even briefly — is constructive receipt and kills the exchange. Always use a QI.",
+        "– Missing the 45-day identification. The most common failure; the deadline is absolute.",
+        "– Buying down. Replacing with a cheaper property or less debt creates taxable boot.",
+        "– Same-taxpayer problems. The entity that sells must be the one that buys; partnership \"drop-and-swap\" issues need planning.",
+        "– Related-party rules. Exchanges with related parties generally require a two-year holding period.",
+        "– Wrong property type. Primary residences, fix-and-flips (dealer inventory), and partnership interests don't qualify."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How much tax does a 1031 exchange defer?",
+      "a": "Potentially all of it — federal capital gains, depreciation recapture, the net investment income tax, and state tax on the gain — provided you go equal-or-up and reinvest all equity. Shortfalls (boot) are taxed; the rest is deferred."
+    },
+    {
+      "q": "Can I do a 1031 exchange on my primary home?",
+      "a": "No. A primary residence isn't held for investment or business, so it doesn't qualify for 1031. It may instead qualify for the Section 121 home-sale exclusion. Mixed-use properties can have a portion eligible."
+    },
+    {
+      "q": "What's the difference between the 45-day and 180-day deadlines?",
+      "a": "The 45-day deadline is when you must identify your replacement property in writing. The 180-day deadline is when you must close on it — or your tax-return due date for the sale year, if that comes first. Both run from the sale closing and cannot be extended."
+    },
+    {
+      "q": "Do I have to reinvest 100% of the proceeds?",
+      "a": "To defer 100% of the tax, yes — reinvest all equity and replace your debt, with the replacement costing at least as much as the net sale price. You can reinvest less, but the difference becomes taxable boot."
+    },
+    {
+      "q": "Is the 1031 exchange going away?",
+      "a": "Not as of 2026. Proposals to cap it have surfaced over the years, but none has been enacted, and the 2025 tax law left Section 1031 fully intact for real property. It remains a current, viable strategy."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Like-Kind Property",
+      "definition": "Real property held for investment or business; broadly interchangeable with other U.S. investment real estate."
+    },
+    {
+      "term": "Boot",
+      "definition": "Cash or non-like-kind value received in an exchange; taxable up to the amount of gain."
+    },
+    {
+      "term": "Equal-or-Up Rule",
+      "definition": "Replace value and debt at least equal to what you gave up, reinvesting all equity, to fully defer."
+    },
+    {
+      "term": "Qualified Intermediary (QI)",
+      "definition": "The independent party that holds proceeds so you avoid constructive receipt."
+    },
+    {
+      "term": "Constructive Receipt",
+      "definition": "Having access to the sale proceeds — which disqualifies the exchange."
+    },
+    {
+      "term": "Identification Period",
+      "definition": "The 45 days to name replacement property in writing."
+    },
+    {
+      "term": "Exchange Period",
+      "definition": "The 180 days (or earlier tax-return due date) to close on the replacement."
+    },
+    {
+      "term": "Reverse Exchange",
+      "definition": "Acquiring the replacement before selling the relinquished property."
+    },
+    {
+      "term": "Depreciation Recapture",
+      "definition": "Tax on previously deducted depreciation, also deferred by a 1031."
+    }
+  ],
+  "author": {
+    "name": "Jerry Baker",
+    "title": "Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE",
+    "bio": "Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors.",
+    "photo": "",
+    "email": "jerry@baker1031.com"
+  }
+}
+</script>
+
+<script>
+// ---- Article data binder ----
+(function () {
+  var el = document.getElementById('article-data');
+  if (!el) return;
+  var d;
+  try { d = JSON.parse(el.textContent); } catch (e) { return; }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function paras(v) {
+    var arr = Array.isArray(v) ? v : [v];
+    return arr.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+  }
+  function setAll(field, html) {
+    document.querySelectorAll('[data-field="' + field + '"]').forEach(function (n) { n.innerHTML = html; });
+  }
+
+  if (d.title) { setAll('title', esc(d.title)); document.title = d.title + ' | Baker 1031 Investments'; }
+
+  // meta line: category chip + date + read time with dot separators
+  var metaParts = [];
+  if (d.category) metaParts.push('<span class="cat">' + esc(d.category) + '</span>');
+  var rest = [d.date, d.readTime].filter(Boolean).map(esc);
+  if (rest.length) metaParts.push(rest.join(' <span class="dot">&middot;</span> '));
+  setAll('meta', metaParts.join(' '));
+
+  var body = '';
+  if (d.intro) body += '<div class="article-intro">' + paras(d.intro) + '</div>';
+  (d.sections || []).forEach(function (s, i) {
+    body += '<h2 class="optima" id="sec-' + (i + 1) + '">' + esc(s.heading) + '</h2>' + paras(s.paragraphs);
+  });
+  setAll('body', body);
+
+  // inject section titles into the TOC after the Article link
+  var tocLinks = document.querySelector('#tocBanner .toc-links');
+  if (tocLinks && d.sections) {
+    var articleLink = tocLinks.querySelector('a[href="#article"]');
+    d.sections.forEach(function (s, i) {
+      var a = document.createElement('a');
+      a.href = '#sec-' + (i + 1);
+      a.textContent = s.heading;
+      articleLink = articleLink ? articleLink.nextSibling : null;
+      tocLinks.insertBefore(a, tocLinks.querySelector('a[href="#faq"]'));
+    });
+  }
+
+  if (d.faqs) {
+    setAll('faqs', d.faqs.map(function (f) {
+      return '<details class="faq-item"><summary>' + esc(f.q) + '</summary><div class="answer">' + esc(f.a) + '</div></details>';
+    }).join(''));
+  }
+
+  if (d.glossary) {
+    setAll('glossary', d.glossary.map(function (g) {
+      return '<div class="glossary-term"><dt>' + esc(g.term) + '</dt><dd>' + esc(g.definition) + '</dd></div>';
+    }).join(''));
+  }
+
+  if (d.author) {
+    var a = d.author;
+    var photo = a.photo
+      ? '<img class="author-photo" src="' + esc(a.photo) + '" alt="' + esc(a.name) + '">'
+      : '<div class="author-photo" aria-hidden="true"></div>';
+    setAll('authorBox',
+      '<div class="author-box">' + photo + '<div>' +
+      '<div class="a-name">' + esc(a.name) + '</div>' +
+      '<div class="a-title">' + esc(a.title) + '</div>' +
+      paras(a.bio) +
+      (a.email ? '<a href="mailto:' + esc(a.email) + '">' + esc(a.email) + '</a>' : '') +
+      '</div></div>');
+  }
+})();
+</script>
+
+<script>
+// ---- Audio player: reads the article aloud with the Web Speech API ----
+(function () {
+  var toggle = document.getElementById('apToggle');
+  var stopBtn = document.getElementById('apStop');
+  var status = document.getElementById('apStatus');
+  if (!toggle) return;
+  if (!('speechSynthesis' in window)) {
+    document.getElementById('audioPlayer').style.display = 'none';
+    return;
+  }
+
+  var synth = window.speechSynthesis;
+  var chunks = [], idx = 0, playing = false, started = false;
+
+  function buildChunks() {
+    chunks = [];
+    var title = document.querySelector('.offering-hero h1');
+    if (title) chunks.push(title.textContent);
+    document.querySelectorAll('.article-body p, .article-body h2').forEach(function (n) {
+      var t = n.textContent.trim();
+      if (t) chunks.push(t);
+    });
+  }
+  function speakNext() {
+    if (idx >= chunks.length) { reset(); status.textContent = 'Finished.'; return; }
+    var u = new SpeechSynthesisUtterance(chunks[idx]);
+    u.rate = 1;
+    u.onend = function () { if (playing) { idx++; speakNext(); } };
+    synth.speak(u);
+    status.textContent = 'Reading ' + (idx + 1) + ' of ' + chunks.length + '\u2026';
+  }
+  function reset() {
+    synth.cancel();
+    playing = false; started = false; idx = 0;
+    toggle.innerHTML = '&#9654; Play';
+    stopBtn.style.display = 'none';
+  }
+  toggle.addEventListener('click', function () {
+    if (!started) {
+      buildChunks();
+      started = true; playing = true;
+      toggle.innerHTML = '&#10074;&#10074; Pause';
+      stopBtn.style.display = 'inline-block';
+      speakNext();
+    } else if (playing) {
+      synth.pause();
+      playing = false;
+      toggle.innerHTML = '&#9654; Resume';
+      status.textContent = 'Paused.';
+    } else {
+      synth.resume();
+      playing = true;
+      toggle.innerHTML = '&#10074;&#10074; Pause';
+      status.textContent = 'Reading ' + (idx + 1) + ' of ' + chunks.length + '\u2026';
+    }
+  });
+  stopBtn.addEventListener('click', function () { reset(); status.textContent = ''; });
+  window.addEventListener('beforeunload', function () { synth.cancel(); });
+})();
+</script>
+
+<script>
+// ---- TOC collapse (same as other pages) ----
+(function () {
+  var banner = document.getElementById('tocBanner');
+  var links = banner.querySelector('.toc-links');
+  function neededWidth() {
+    var clone = links.cloneNode(true);
+    clone.style.cssText = 'display:flex;flex-wrap:nowrap;gap:32px;position:absolute;visibility:hidden;width:auto;left:-9999px;';
+    document.body.appendChild(clone);
+    var w = clone.scrollWidth;
+    document.body.removeChild(clone);
+    return w;
+  }
+  function check() {
+    var avail = banner.clientWidth - 32;
+    if (neededWidth() > avail) { banner.classList.add('collapsed'); }
+    else { banner.classList.remove('collapsed', 'open'); }
+  }
+  window.addEventListener('resize', check);
+  check();
+  links.addEventListener('click', function () { banner.classList.remove('open'); });
+})();
+</script>
+
+</div>
+</body>
+</html>

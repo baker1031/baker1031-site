@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>721 Exchange Closing Documents Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>721 Exchange Closing Documents Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">721 Exchange Closing Documents Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">A 721 exchange involves several key closing documents that establish your OP units, your rights as a partner, your tax protection, and your conversion rights. This guide explains the main documents — the contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement — what each does, why it matters, and how to review them.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A 721 exchange is documented through several important legal agreements that establish the terms of your transition into REIT ownership. Understanding these closing documents is essential, because they define what you receive (the OP units), your rights as a partner, the protections for your deferred gain (the tax protection agreement), and your ability to convert units to shares (the registration rights). Because the 721 exchange is a significant, generally irreversible transaction, the documents matter — they govern your ownership for the long term, so reviewing them carefully (with your attorney) is important. This guide explains the main 721 exchange closing documents — the contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement — what each does, why each matters, and how to review them.</p>
+<h2 id="overview">The key documents overview</h2>
+<p>A <a href="721-exchange-guide.html">721 exchange</a> involves several key documents, each governing a different aspect of the transaction and your resulting ownership. The main documents are the contribution agreement (effecting the contribution of your property for <a href="op-units-explained.html">OP units</a>), the tax protection agreement (protecting your deferred gain), the partnership agreement (governing your rights as a partner), and often a registration rights agreement (governing your ability to convert units to shares and have them registered for sale).</p>
+<p>Together, these documents establish the complete framework of your 721 exchange — what you contribute and receive (contribution agreement), your tax protection (tax protection agreement), your rights as a unit holder (partnership agreement), and your conversion/liquidity rights (registration rights). So understanding each document's role gives you a complete picture of the transaction's terms.</p>
+<p>Because these documents define your ownership and rights for the long term (the 721 exchange is generally permanent), they're important to understand and review. The documents aren't mere formalities; they govern your investment. The key documents overview — the contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement, together establishing the framework of your 721 exchange — provides the map of the closing documents. Each governs a different aspect. Understanding the overview sets up the details of each document. The 721 exchange's key documents together define your ownership, rights, and protections, making them important to understand.</p>
+<h2 id="contribution-agreement">The contribution agreement</h2>
+<p>The contribution agreement is the foundational document that effects the 721 exchange — the contribution of your property to the operating partnership in exchange for OP units. It sets out the core terms: the property you're contributing — which must be <a href="721-exchange-eligibility-what-property-qualifies.html">property that qualifies for the contribution</a> — its agreed value, the number of OP units you'll receive, and the mechanics of the transfer (the Section 721 contribution).</p>
+<p>The contribution agreement establishes the economic terms of your exchange — what you give (your property) and what you get (the units) — so it's central. It also typically includes representations and warranties (about the property and the parties), the closing conditions, and other transactional terms. So the contribution agreement is the primary transactional document, defining the exchange itself.</p>
+<p>Reviewing the contribution agreement is important to confirm the terms (especially the property value and units received, which determine your economic outcome) are as agreed and to understand the representations and conditions. So the contribution agreement is the key document for the transaction's core terms. The contribution agreement — the foundational document effecting the contribution (your property for OP units), setting the property value, units received, and transfer mechanics, plus representations and conditions — is the primary transactional document of the 721 exchange. It defines the exchange's core economic terms. Understanding the contribution agreement clarifies the transaction's terms. The contribution agreement establishes what you contribute and receive, the central document to review for your economic terms.</p>
+<div class="pullquote"><p>The contribution agreement is the heart of the deal — it sets your property's value, the OP units you receive, and the transfer mechanics, defining your economic outcome from the exchange.</p></div>
+<h2 id="tax-protection-agreement">The tax protection agreement</h2>
+<p>The tax protection agreement is a crucial document that protects your deferred gain from being triggered prematurely. As discussed in our Section 721 guide, if the operating partnership sells your contributed property in a taxable way, your deferred (built-in) gain could be triggered. The tax protection agreement addresses this by having the REIT/partnership agree to protect you — typically by not selling the contributed property in a taxable way for a period, or compensating you if a triggering sale occurs.</p>
+<p>The tax protection agreement's terms — the protected period (how long the protection lasts), the form of protection (a covenant not to sell, a make-whole payment, debt maintenance, etc.), and the specifics — determine how well your deferred gain is protected. So this document is important for the security of your deferral. A strong tax protection agreement (longer period, robust protection) better safeguards your deferral; a weak one leaves you more exposed.</p>
+<p>Reviewing and negotiating the tax protection agreement (with your attorney) is important, since it directly affects your deferral's security. So the tax protection agreement is a key document to understand and negotiate. The tax protection agreement — protecting your deferred gain from being triggered by a partnership sale (via a covenant not to sell, make-whole payments, or other protection for a period) — is a crucial document for the security of your deferral. Its terms determine the protection's strength. Understanding and negotiating the tax protection agreement safeguards your deferral. The tax protection agreement is a key document protecting your deferred gain, important to review and negotiate for the security of your tax deferral.</p>
+<h2 id="partnership-agreement">The partnership agreement</h2>
+<p>The partnership agreement (the operating partnership's governing document) defines your rights and obligations as a partner (OP unit holder). It governs the operating partnership — how it's managed (typically by the REIT as general partner), the rights of the limited partners (you), the distributions, the conversion rights (units to shares), and other terms of being a partner.</p>
+<p>As an OP unit holder, you become subject to the partnership agreement, so it defines your ownership interest's terms — your distribution rights, your conversion rights, your (limited) governance rights, and the partnership's operation. So understanding the partnership agreement clarifies what your OP units entitle you to and how the partnership works. It's the document governing your ongoing ownership.</p>
+<p>Key things to understand in the partnership agreement include the distribution provisions (how distributions are determined and paid), the conversion provisions (how and when you can convert units to shares, including the lock-up), and your rights and protections as a limited partner. So the partnership agreement is the document governing your ongoing role as a unit holder. The partnership agreement — the operating partnership's governing document defining your rights as a unit holder (distributions, conversion rights, governance, the partnership's operation) — is the document governing your ongoing ownership. It defines what your units entitle you to. Understanding the partnership agreement clarifies your ownership terms. The partnership agreement governs your rights and the partnership's operation, the key document for your ongoing role as an OP unit holder.</p>
+<h2 id="registration-rights">The registration rights agreement</h2>
+<p>A registration rights agreement (common for exchanges involving publicly-traded REITs) governs your ability to have your converted shares registered for sale. When you convert OP units to REIT shares (in a public REIT), the shares may need to be registered with the SEC for you to sell them freely on the market. The registration rights agreement gives you the right to have your shares registered, enabling their sale.</p>
+<p>This document matters for your liquidity — it affects your ability to sell the REIT shares you convert into. Without registration rights, your converted shares might be restricted (harder to sell); with them, you have a path to having the shares registered for free sale. So the registration rights agreement supports the liquidity aspect of your OP units (the ability to ultimately sell the converted shares).</p>
+<p>The terms of the registration rights (when and how you can demand or participate in registration) affect your liquidity path. So understanding the registration rights (for a traded-REIT exchange) is part of understanding your liquidity. (For non-traded REITs, liquidity works through redemption programs rather than registered share sales, so registration rights may be less central.) The registration rights agreement — governing your ability to have converted REIT shares registered for sale (supporting your liquidity), common for traded-REIT exchanges — is a document affecting your ultimate liquidity. It enables selling your converted shares. Understanding the registration rights clarifies your liquidity path. The registration rights agreement supports your ability to sell converted shares, an important document for your liquidity in a traded-REIT 721 exchange.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>A 721 exchange involves key documents: the contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement.</li>
+<li>The contribution agreement effects the exchange (property for units), setting the value, units, and transfer terms.</li>
+<li>The tax protection agreement protects your deferred gain from a premature triggering — a crucial document to negotiate.</li>
+<li>The partnership agreement governs your rights as a unit holder; the registration rights agreement supports selling converted shares.</li>
+</ul></div>
+<h2 id="reviewing">Reviewing the documents</h2>
+<p>Given the documents' importance, reviewing them carefully (with your attorney) is essential before reaching <a href="insights.html">the closing stage of the 721 exchange</a>. The documents define your ownership, rights, protections, and liquidity for the long term, so understanding them — and ensuring they reflect the agreed terms and protect your interests — is important. Your attorney reviews the documents, explains them, and advises on any concerns or negotiations.</p>
+<p>Key things to focus on in the review include the economic terms (the contribution agreement's value and units), the tax protection (the agreement's period and strength), your rights as a partner (the partnership agreement's distribution, conversion, and governance provisions), and your liquidity path (the registration rights or redemption terms). So the review covers the economic, tax, ownership, and liquidity aspects.</p>
+<p>Because the 721 exchange is <a href="insights.html">generally a one-way door</a>, getting the documents right before closing is important — issues are hard to fix afterward. So a thorough review with your attorney, addressing any concerns through negotiation before closing, protects your interests. Reviewing the documents — carefully examining the contribution agreement (economic terms), tax protection agreement (deferral security), partnership agreement (your rights), and registration rights (liquidity), with your attorney, before closing — is essential given the documents' importance and the exchange's irreversibility. The review protects your interests. Understanding the importance of reviewing the documents underscores the need for legal counsel. Carefully reviewing the closing documents with your attorney before closing ensures the 721 exchange's terms protect your interests, essential given the transaction's permanence.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with the documents</h2>
+<p>Baker 1031 Investments helps property owners understand the 721 exchange's closing documents — explaining the contribution agreement, tax protection agreement, partnership agreement, and registration rights, what each does and why it matters, and coordinating with your attorney on the review and negotiation. We help you understand the documents that govern your ownership, rights, protections, and liquidity.</p>
+<p>REIT units and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. We don't provide legal advice (your attorney reviews and negotiates the documents); we help you understand the documents' roles and coordinate the review with your attorney. Our role is to help you understand the 721 exchange's closing documents — so you know what each establishes (your units, protection, rights, and liquidity) and can review them effectively with your attorney before closing. Because the documents govern your long-term ownership and the exchange is generally irreversible, understanding and carefully reviewing them is essential, and we help you navigate them alongside your attorney, ensuring the terms protect your interests.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What documents are involved in a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The main ones are the contribution agreement (effecting the contribution of your property for OP units, setting the value and units), the tax protection agreement (protecting your deferred gain from a premature triggering), the partnership agreement (governing your rights as a unit holder — distributions, conversion, governance), and often a registration rights agreement (governing your ability to have converted shares registered for sale). Together, these establish the framework of your 721 exchange — your units, protection, rights, and liquidity. Reviewing them with your attorney before closing is important, given the exchange's permanence.</p></div>
+</details>
+<details>
+<summary>What is the contribution agreement?<span class="ic"></span></summary>
+<div class="ans"><p>The foundational document that effects the 721 exchange — the contribution of your property to the operating partnership for OP units. It sets the core terms: the property you're contributing, its agreed value, the number of units you'll receive, and the transfer mechanics, plus representations, warranties, and closing conditions. So it's the primary transactional document, defining the exchange's core economic terms (what you give and get). Reviewing it confirms the terms (especially the value and units, which determine your economic outcome) and the conditions. The contribution agreement is central to your 721 exchange.</p></div>
+</details>
+<details>
+<summary>What is the tax protection agreement?<span class="ic"></span></summary>
+<div class="ans"><p>A crucial document protecting your deferred gain from being triggered prematurely. If the operating partnership sells your contributed property in a taxable way, your deferred gain could be triggered — the tax protection agreement has the REIT/partnership agree to protect you (typically by not selling the property taxably for a period, or compensating you if a triggering sale occurs). Its terms (the protected period, the form of protection) determine how well your deferral is safeguarded. So it's important to review and negotiate, since it directly affects the security of your tax deferral. A strong agreement better protects you.</p></div>
+</details>
+<details>
+<summary>What does the partnership agreement govern?<span class="ic"></span></summary>
+<div class="ans"><p>The operating partnership and your rights as a unit holder (limited partner) — how the partnership is managed (typically by the REIT as general partner), the distribution provisions (how distributions are determined and paid), the conversion provisions (how and when you can convert units to shares, including the lock-up), your governance rights, and the partnership's operation. So it defines what your OP units entitle you to and how the partnership works. As a unit holder, you're subject to it, so understanding the partnership agreement clarifies your ongoing ownership terms — your distributions, conversion rights, and role as a partner.</p></div>
+</details>
+<details>
+<summary>What is a registration rights agreement?<span class="ic"></span></summary>
+<div class="ans"><p>A document (common for traded-REIT exchanges) governing your ability to have your converted REIT shares registered for sale. When you convert OP units to shares in a public REIT, the shares may need SEC registration for you to sell them freely — the registration rights agreement gives you the right to have your shares registered, enabling their sale. So it supports your liquidity (the ability to ultimately sell the converted shares). Its terms affect when and how you can have shares registered. For non-traded REITs (where liquidity is via redemption programs), registration rights may be less central. It's important for traded-REIT liquidity.</p></div>
+</details>
+<details>
+<summary>Why are the closing documents important?<span class="ic"></span></summary>
+<div class="ans"><p>Because they define your ownership, rights, protections, and liquidity for the long term — the 721 exchange is generally irreversible, so the documents govern your investment going forward. The contribution agreement sets your economic terms, the tax protection agreement secures your deferral, the partnership agreement defines your rights, and the registration rights support your liquidity. So the documents aren't formalities; they govern your investment. Understanding and carefully reviewing them (with your attorney) before closing is essential, since issues are hard to fix after the generally-permanent exchange. The documents matter for your long-term ownership.</p></div>
+</details>
+<details>
+<summary>Should I have an attorney review the documents?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — given the documents' importance and the exchange's irreversibility, you should have your attorney review them before closing. The documents define your ownership, rights, protections, and liquidity, so your attorney's review ensures they reflect the agreed terms and protect your interests, and advises on any concerns or negotiations. The documents are complex (legal and tax provisions), warranting legal expertise. So don't close a 721 exchange without your attorney reviewing the documents — their review protects your interests, especially on the tax protection agreement and the partnership terms. Legal review is essential for these significant documents.</p></div>
+</details>
+<details>
+<summary>What should I focus on in reviewing the documents?<span class="ic"></span></summary>
+<div class="ans"><p>The economic terms (the contribution agreement's property value and units received, which determine your outcome), the tax protection (the agreement's period and strength, securing your deferral), your rights as a partner (the partnership agreement's distribution, conversion, and governance provisions), and your liquidity path (the registration rights or redemption terms). So the review covers the economic, tax, ownership, and liquidity aspects. Your attorney helps you focus on the provisions that matter most for your interests. Reviewing these key aspects ensures the documents protect your economic outcome, deferral, rights, and liquidity.</p></div>
+</details>
+<details>
+<summary>Can I negotiate the documents?<span class="ic"></span></summary>
+<div class="ans"><p>Some terms, yes — particularly the property value (in the contribution agreement) and the tax protection agreement (its period and protections) are often negotiated, since they significantly affect your outcome and deferral security. The partnership agreement and registration rights may be more standardized (especially for established REITs), but you should still understand them and raise any concerns. So negotiation focuses mainly on the value and tax protection, with your attorney advocating for favorable terms. Understanding which terms are negotiable (and important) helps you negotiate effectively. Negotiate the key terms (value, tax protection) with your attorney's help before closing.</p></div>
+</details>
+<details>
+<summary>What happens if there's an issue with the documents after closing?<span class="ic"></span></summary>
+<div class="ans"><p>Issues are hard to fix after closing, because the 721 exchange is generally irreversible — you've contributed your property and received units under the documents' terms. So problems (unfavorable terms, inadequate protection) are difficult to remedy afterward. This is why reviewing and negotiating the documents carefully before closing is essential — to catch and address issues while you still can. So prevention (a thorough pre-closing review with your attorney) is key, since post-closing fixes are limited. Don't rely on fixing document issues later; address them before closing through careful review and negotiation.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help with the documents?<span class="ic"></span></summary>
+<div class="ans"><p>We help you understand the 721 exchange's closing documents — explaining the contribution agreement, tax protection agreement, partnership agreement, and registration rights, what each does and why it matters, and coordinating with your attorney on the review and negotiation. REIT units are offered through our broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review. We don't provide legal advice (your attorney reviews and negotiates the documents); we help you understand the documents' roles so you can review them effectively with your attorney before closing. We ensure you understand what each document establishes for your ownership, protection, rights, and liquidity.</p></div>
+</details>
+<details>
+<summary>Are there other documents beyond the main four?<span class="ic"></span></summary>
+<div class="ans"><p>Possibly — beyond the contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement, a 721 exchange may involve additional documents: the property transfer/deed documents (effecting the title transfer), the subscription documents (for receiving the units), any consents (e.g., lender consent if debt is assumed), disclosure documents (the REIT's offering materials), and closing certificates. So the four main documents are the core, but the full closing package includes additional transactional and disclosure documents. Your attorney and advisors handle the complete document set. So expect a full package, with the four main agreements being the key ones to focus on, plus supporting transactional and disclosure documents.</p></div>
+</details>
+<details>
+<summary>Should I keep copies of the closing documents?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — keep complete copies of all your 721 exchange closing documents (the contribution agreement, tax protection agreement, partnership agreement, registration rights, and supporting documents) for the long term. These documents establish your ownership, rights, protections, and the tax basis, which remain relevant for years (for your tax reporting, your rights as a unit holder, and your eventual conversion or estate transfer). So retain the documents (with digital backups) indefinitely, as they govern your investment and may be needed for tax, legal, or estate purposes. Keeping the documents accessible is important given the long-term nature of your OP unit ownership.</p></div>
+</details>
+<details>
+<summary>How long does the document process take?<span class="ic"></span></summary>
+<div class="ans"><p>It varies — the documentation and negotiation phase (drafting, reviewing, and negotiating the agreements, especially the contribution and tax protection agreements) can take weeks, depending on the complexity, the negotiation, and the parties' pace. For a complex transaction (significant negotiation, debt, or structuring), it takes longer; for a simpler one, less. The documents follow the due-diligence and valuation phases and lead to closing. So the document process is a meaningful part of the 721 exchange timeline, with the duration depending on the transaction's complexity and the negotiation. Your attorney manages the document drafting and review, and the timeline reflects the deal's specifics.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Contribution Agreement</dt><dd>The document effecting the contribution of property for OP units.</dd></div>
+<div class="g"><dt>Tax Protection Agreement</dt><dd>The document protecting your deferred gain from a premature triggering.</dd></div>
+<div class="g"><dt>Partnership Agreement</dt><dd>The document governing your rights as a unit holder.</dd></div>
+<div class="g"><dt>Registration Rights Agreement</dt><dd>The document supporting registration of converted shares for sale.</dd></div>
+<div class="g"><dt>Property Value</dt><dd>The agreed value in the contribution agreement, setting your units.</dd></div>
+<div class="g"><dt>Built-In Gain</dt><dd>The deferred gain protected by the tax protection agreement.</dd></div>
+<div class="g"><dt>Protected Period</dt><dd>How long the tax protection lasts.</dd></div>
+<div class="g"><dt>Make-Whole Payment</dt><dd>A form of tax protection compensating for a triggered gain.</dd></div>
+<div class="g"><dt>Distribution Provisions</dt><dd>The partnership agreement's terms on distributions.</dd></div>
+<div class="g"><dt>Conversion Provisions</dt><dd>The partnership agreement's terms on converting units to shares.</dd></div>
+<div class="g"><dt>Limited Partner</dt><dd>Your role as a unit holder under the partnership agreement.</dd></div>
+<div class="g"><dt>General Partner</dt><dd>The REIT, managing the partnership.</dd></div>
+<div class="g"><dt>Representations and Warranties</dt><dd>The assurances in the contribution agreement.</dd></div>
+<div class="g"><dt>Closing Conditions</dt><dd>The conditions to be met for the exchange to close.</dd></div>
+<div class="g"><dt>SEC Registration</dt><dd>Registering converted shares for free sale, via registration rights.</dd></div>
+<div class="g"><dt>Legal Review</dt><dd>Your attorney's examination of the documents before closing.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-541" rel="noopener nofollow" target="_blank">Publication 541, Partnerships</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/704" rel="noopener nofollow" target="_blank">26 U.S. Code § 704(c) — Built-in gain allocations</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

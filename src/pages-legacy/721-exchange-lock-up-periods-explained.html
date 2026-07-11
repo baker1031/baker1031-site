@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>721 Exchange Lock-Up Periods Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>721 Exchange Lock-Up Periods Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">721 Exchange Lock-Up Periods Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">After a 721 exchange, your OP units typically have a lock-up (holding) period before you can convert them to REIT shares — affecting when you can access liquidity. This guide explains what a lock-up period is, why it exists, typical durations, what you can and can't do during it, and how to plan around it.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">When you do a 721 exchange and receive OP units, you generally can't immediately convert them to REIT shares for liquidity — there's typically a lock-up (or holding) period first. This lock-up period is a defined time (often around a year, though it varies) during which you hold the units but can't yet convert them to shares. Understanding the lock-up period is important for planning your liquidity, because it delays when you can access the conversion-to-shares liquidity after the exchange. During the lock-up, you hold the units (earning distributions, deferring the gain) but must wait to convert. This guide explains what a lock-up period is, why it exists, typical durations, what you can and can't do during it, and how to plan around it.</p>
+<h2 id="what-is">What a lock-up period is</h2>
+<p>A lock-up period (also called a holding period) is the time after you receive your <a href="op-units-explained.html">OP units</a> during which you can't yet convert them to REIT shares. When you do a <a href="721-exchange-guide.html">721 exchange</a>, you receive OP units, but the operating partnership agreement (and the REIT's terms) typically require you to hold the units for a defined period before the conversion-to-shares right becomes available. So immediately after the exchange, you hold the units but are 'locked up' from converting them.</p>
+<p>During the lock-up, you hold the OP units — earning distributions (income) and with the deferred gain still deferred — but you can't exercise the conversion right (to exchange units for REIT shares). So the lock-up affects your liquidity: the conversion-to-shares liquidity isn't available during the lock-up; it becomes available after.</p>
+<p>The lock-up is a standard feature of OP units, set by the partnership agreement. So you should expect a lock-up period after a 721 exchange before you can convert. What a lock-up period is — the time after receiving OP units during which you can't convert them to REIT shares (you hold them, earning distributions, but can't yet convert) — is a standard feature affecting your post-exchange liquidity. The lock-up delays the conversion-to-shares right. Understanding what a lock-up period is sets up why it exists and how to plan around it. The lock-up period is the initial holding requirement before you can convert OP units to shares, a standard feature of 721 exchanges to understand for liquidity planning.</p>
+<h2 id="why-exist">Why lock-up periods exist</h2>
+<p>Lock-up periods exist for several reasons related to the structure and the parties' interests. One reason relates to the tax structure — a holding period can help support the tax treatment of the contribution and conversion, ensuring the transaction is respected as a genuine partnership contribution (rather than a disguised sale). So the lock-up has a tax-structuring rationale, supporting the deferral.</p>
+<p>Another reason relates to the REIT's and partnership's interests — the lock-up provides stability (the contributing partners don't immediately convert and exit), which benefits the REIT's capital structure and the orderly functioning of the operating partnership. So the lock-up serves the REIT's interest in retaining the contributed capital for a period.</p>
+<p>The lock-up also reflects the nature of the OP units as a longer-term holding — the 721 exchange is generally a commitment to REIT ownership, and the lock-up reinforces that the units are a longer-term investment (not an immediate flip to liquidity). So the lock-up aligns with the strategy's long-term nature. Why lock-up periods exist — for tax-structuring reasons (supporting the contribution's treatment), the REIT's and partnership's interest in stability, and the units' longer-term nature — explains the rationale for the holding requirement. The lock-up serves tax, structural, and investment-horizon purposes. Understanding why lock-up periods exist clarifies their rationale. The lock-up period exists for tax-structuring, stability, and long-term-investment reasons, which is why OP units come with this initial holding requirement.</p>
+<div class="pullquote"><p>Lock-up periods exist for tax-structuring reasons (supporting the contribution's treatment), the REIT's interest in stability, and the units' longer-term investment nature — reinforcing that OP units aren't an immediate flip to cash.</p></div>
+<h2 id="typical-durations">Typical lock-up durations</h2>
+<p>Lock-up durations vary by REIT and offering, but typical durations are often around one year, though they can be longer (or occasionally structured differently). The specific lock-up period is set by the operating partnership agreement and the REIT's terms, so it varies — commonly one year, but some may be longer (e.g., two years or more) depending on the structure.</p>
+<p>So you should check the specific lock-up period for the REIT/offering you're considering — it determines when you can first convert your units to shares. A one-year lock-up means you can convert after a year; a longer lock-up means a longer wait. Knowing the specific duration is important for your liquidity planning.</p>
+<p>Beyond the initial lock-up, there may be other terms governing conversions (e.g., how often or how much you can convert), which also vary by REIT. So the lock-up is the initial holding requirement, with the specific duration (often ~1 year) and any other conversion terms set by the offering. Typical lock-up durations — often around one year, but varying by REIT/offering (sometimes longer), set by the partnership agreement — determine when you can first convert your units. The specific duration matters for liquidity planning. Understanding the typical durations (and to check the specific one) helps you plan. The lock-up duration is often around a year but varies, so check the specific period for your offering to plan your liquidity timing.</p>
+<h2 id="during-lock-up">What you can and can't do during lock-up</h2>
+<p>During the lock-up period, understanding what you can and can't do clarifies your situation. What you can do: hold the units and earn distributions (you receive your income during the lock-up, just as after — taxed as <a href="insights.html">OP unit distributions</a>), benefit from the continued deferral (the gain stays deferred), and retain the real estate exposure (your units reflect the REIT's portfolio). So during the lock-up, you enjoy the income, deferral, and investment — you're a full unit holder, just not yet able to convert.</p>
+<p>What you can't do: convert the units to REIT shares (the conversion right isn't available during the lock-up), so you can't access the conversion-to-shares liquidity yet. So the main limitation is the inability to convert (and thus access the share liquidity) during the lock-up. You hold the units but wait to convert.</p>
+<p>So during the lock-up, you have the income, deferral, and investment, but not the conversion liquidity. This is generally fine for investors holding for the long term (income, deferral, the step-up), and a limitation mainly for those wanting early liquidity. What you can and can't do during lock-up — you can hold, earn distributions, and benefit from the deferral and investment; you can't convert to shares (no conversion liquidity yet) — clarifies your situation during the holding period. You have the income and investment but not the conversion liquidity. Understanding this helps you plan. During the lock-up, you enjoy the units' income and deferral but can't convert for liquidity, a limitation mainly for those wanting early access to cash.</p>
+<h2 id="planning">Planning around the lock-up</h2>
+<p>Planning around the lock-up period ensures it doesn't disrupt your liquidity needs. The key is to recognize that you can't access the conversion-to-shares liquidity during the lock-up, so don't plan to need that liquidity during the lock-up period. If you anticipate needing liquidity soon after the exchange, the lock-up means you can't get it via conversion until after — so plan your cash needs accordingly.</p>
+<p>For investors with no near-term liquidity needs (holding for income, deferral, the step-up), the lock-up is generally not an issue — they're holding long-term anyway, so the inability to convert during the lock-up doesn't matter. So the lock-up mainly affects investors who might want early liquidity, who should ensure they have other liquidity sources during the lock-up.</p>
+<p>Knowing the specific lock-up duration (from the offering) lets you plan when the conversion liquidity becomes available, and arrange other liquidity for the lock-up period if needed. So planning around the lock-up involves not relying on conversion liquidity during it and knowing when it becomes available. Planning around the lock-up — not relying on conversion liquidity during the lock-up, ensuring other liquidity sources for that period if needed, and knowing the specific duration — ensures the lock-up doesn't disrupt your liquidity. Planning prevents the lock-up from being a problem. Understanding how to plan around the lock-up helps you manage your liquidity. Planning around the lock-up (not needing conversion liquidity during it, knowing its duration) ensures it doesn't disrupt your liquidity needs, important for those who might want early access to cash.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>A lock-up (holding) period is the time after receiving OP units during which you can't yet convert them to REIT shares.</li>
+<li>Lock-ups exist for tax-structuring reasons, the REIT's interest in stability, and the units' longer-term nature.</li>
+<li>Typical durations are often around one year but vary by REIT/offering (sometimes longer) — check the specific period.</li>
+<li>During the lock-up you can hold, earn distributions, and benefit from the deferral, but can't convert for liquidity — plan accordingly.</li>
+</ul></div>
+<h2 id="after-lock-up">After the lock-up</h2>
+<p>After the lock-up period ends, the conversion-to-shares right becomes available, opening your <a href="721-exchange-liquidity-windows-and-redemption-programs.html">liquidity options through conversion and redemption windows</a>. Once the lock-up expires, you can convert your OP units to REIT shares (subject to any other conversion terms), giving you the path to liquidity — convert to shares (triggering the deferred gain) and sell them for cash (for a public REIT, or through the redemption program of a <a href="insights.html">non-traded REIT</a>). So after the lock-up, the conversion liquidity is available.</p>
+<p>After the lock-up, you have the full range of options: hold the units (continuing income, deferral, toward the step-up), convert some units (for liquidity, managing the tax via tax-smart timing), or convert more as needed. So the end of the lock-up opens the conversion flexibility — you can now convert when and how much you want (subject to the terms), managing the tax.</p>
+<p>Importantly, the end of the lock-up doesn't require you to convert — it just enables it. You can continue holding the units indefinitely (toward the step-up) if you don't need liquidity, or convert as needed. So after the lock-up, you have the choice. After the lock-up — the conversion-to-shares right becoming available, opening your liquidity options (hold, convert some, or convert more, managing the tax), without requiring conversion — gives you full flexibility once the lock-up ends. The end of the lock-up enables, but doesn't require, conversion. Understanding what happens after the lock-up shows your post-lock-up flexibility. After the lock-up, you can convert for liquidity (tax-smartly) or continue holding toward the step-up, with full flexibility over your units.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with lock-up planning</h2>
+<p>Baker 1031 Investments helps investors understand and plan around the lock-up period — explaining the lock-up for the specific REIT/offering, when the conversion liquidity becomes available, what you can do during the lock-up, and how to plan your liquidity (not relying on conversion during the lock-up, arranging other sources if needed). We help you set realistic liquidity expectations given the lock-up.</p>
+<p>REIT units and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — the lock-up is part of the offering's terms, disclosed and considered in the suitability assessment (ensuring you don't need liquidity the lock-up would prevent). We help you understand the specific lock-up duration and plan accordingly. Our role is to help you understand and plan around the lock-up period — knowing when you can convert, what you can do during the lock-up, and how to manage your liquidity — so the lock-up doesn't disrupt your plans. The lock-up is a standard feature to plan for, and we help you navigate it, ensuring your liquidity expectations are realistic given the holding requirement.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a lock-up period in a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>A lock-up (or holding) period is the time after you receive your OP units during which you can't yet convert them to REIT shares. The operating partnership agreement typically requires you to hold the units for a defined period (often around a year) before the conversion-to-shares right becomes available. So immediately after the exchange, you hold the units (earning distributions, deferring the gain) but are 'locked up' from converting them. The lock-up affects your liquidity — the conversion-to-shares liquidity isn't available during it; it becomes available after. It's a standard feature of OP units.</p></div>
+</details>
+<details>
+<summary>Why do OP units have a lock-up period?<span class="ic"></span></summary>
+<div class="ans"><p>For several reasons: tax-structuring (a holding period helps support the contribution's tax treatment, ensuring it's respected as a genuine partnership contribution rather than a disguised sale), the REIT's and partnership's interest in stability (contributing partners don't immediately convert and exit, benefiting the capital structure), and the units' longer-term nature (the 721 exchange is a commitment to REIT ownership, and the lock-up reinforces the units are a longer-term investment, not an immediate flip). So the lock-up serves tax, structural, and investment-horizon purposes.</p></div>
+</details>
+<details>
+<summary>How long is the lock-up period?<span class="ic"></span></summary>
+<div class="ans"><p>It varies by REIT and offering, but typical durations are often around one year, though some may be longer (e.g., two years or more) depending on the structure. The specific lock-up is set by the operating partnership agreement and the REIT's terms, so check the specific period for the offering you're considering — it determines when you can first convert your units to shares. Beyond the initial lock-up, there may be other conversion terms (how often or how much you can convert). So the duration is often around a year but varies; confirm the specific period for your offering.</p></div>
+</details>
+<details>
+<summary>What can I do during the lock-up period?<span class="ic"></span></summary>
+<div class="ans"><p>You can hold the units and earn distributions (your income continues during the lock-up), benefit from the continued deferral (the gain stays deferred), and retain the real estate exposure (your units reflect the REIT's portfolio). So during the lock-up, you're a full unit holder enjoying the income, deferral, and investment — you just can't yet convert to shares. What you can't do is convert the units to REIT shares (the conversion right isn't available during the lock-up), so you can't access the conversion-to-shares liquidity yet. So you have the income and investment but not the conversion liquidity during the lock-up.</p></div>
+</details>
+<details>
+<summary>Can I access any liquidity during the lock-up?<span class="ic"></span></summary>
+<div class="ans"><p>Through the units' distributions (income), yes — you earn distributions during the lock-up. But you can't access the conversion-to-shares liquidity (converting units to shares to sell for cash) during the lock-up, since the conversion right isn't yet available. So your liquidity during the lock-up is limited to the distributions (income), not the conversion of principal. If you need principal liquidity during the lock-up, you'd have to rely on other sources (the units can't be converted yet). So plan to not need conversion liquidity during the lock-up — only the distributions are available then.</p></div>
+</details>
+<details>
+<summary>What happens after the lock-up period ends?<span class="ic"></span></summary>
+<div class="ans"><p>The conversion-to-shares right becomes available, opening your liquidity options. You can convert your OP units to REIT shares (subject to any other conversion terms), giving you the path to liquidity (convert to shares, triggering the gain, and sell for cash). After the lock-up, you have full flexibility — hold the units (toward the step-up), convert some (for liquidity, managing the tax), or convert more as needed. The end of the lock-up enables (but doesn't require) conversion. So after the lock-up, you can access liquidity via conversion or continue holding, with full flexibility over your units.</p></div>
+</details>
+<details>
+<summary>Does the lock-up period matter if I'm holding long-term?<span class="ic"></span></summary>
+<div class="ans"><p>Generally not — if you're holding the units long-term (for income, deferral, the step-up), the lock-up doesn't matter, because you're not planning to convert during it anyway. The lock-up mainly affects investors who might want early liquidity (within the lock-up period), who can't convert then. So for long-term holders (the common 721 profile), the lock-up is a non-issue. For investors who might want early access to cash, the lock-up is a limitation to plan around (ensuring other liquidity sources during it). So the lock-up's relevance depends on your liquidity timeline.</p></div>
+</details>
+<details>
+<summary>How do I plan around the lock-up period?<span class="ic"></span></summary>
+<div class="ans"><p>Recognize that you can't access conversion liquidity during the lock-up, so don't plan to need that liquidity during the lock-up period — if you anticipate needing cash soon after the exchange, arrange other liquidity sources for the lock-up period. Know the specific lock-up duration (from the offering) so you know when the conversion liquidity becomes available. For investors with no near-term liquidity needs, the lock-up isn't an issue. So plan your cash needs around the lock-up — not relying on conversion during it, and knowing when it ends — to ensure the lock-up doesn't disrupt your liquidity.</p></div>
+</details>
+<details>
+<summary>Is the lock-up period a reason not to do a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Usually not by itself — the lock-up is a standard, temporary feature (often around a year), and for the typical long-term 721 holder, it's not a significant issue. It's a consideration mainly if you'd need conversion liquidity very soon after the exchange (which the lock-up would prevent). So the lock-up is a factor to plan around, not usually a dealbreaker. If you need near-term liquidity, the lock-up (and the 721's general illiquidity) matters; if you're holding long-term, it doesn't. So weigh the lock-up in light of your liquidity timeline, but it's typically a manageable, temporary feature.</p></div>
+</details>
+<details>
+<summary>Are there terms governing conversions after the lock-up?<span class="ic"></span></summary>
+<div class="ans"><p>Possibly — beyond the initial lock-up, the REIT's terms may govern how conversions work after the lock-up (e.g., how often you can convert, minimum or maximum amounts, any notice requirements). These vary by REIT and offering. So after the lock-up, the conversion right is available, but there may be additional terms on the mechanics. Check the specific offering's terms to understand both the lock-up and any ongoing conversion terms. Your advisor explains the conversion terms for the specific REIT, so you understand both when you can convert (after the lock-up) and how (per the terms).</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help with lock-up planning?<span class="ic"></span></summary>
+<div class="ans"><p>We help you understand and plan around the lock-up period — explaining the lock-up for the specific REIT/offering, when the conversion liquidity becomes available, what you can do during the lock-up, and how to plan your liquidity (not relying on conversion during the lock-up, arranging other sources if needed). REIT units are offered through our broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review, with the lock-up part of the offering's terms (considered in the suitability assessment). We help you understand the specific lock-up duration and plan accordingly, so the lock-up doesn't disrupt your plans and your liquidity expectations are realistic.</p></div>
+</details>
+<details>
+<summary>Do I still earn income during the lock-up period?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you earn distributions on your OP units during the lock-up period, just as after it. The lock-up only restricts converting the units to shares; it doesn't restrict the distributions (income). So during the lock-up, you receive your regular distributions (your share of the REIT's portfolio income), continuing to earn income while you wait to be able to convert. So the lock-up doesn't deprive you of income — it only delays the conversion-to-shares liquidity. You're a full income-earning unit holder during the lock-up, which is why the lock-up is generally not burdensome for income-focused holders.</p></div>
+</details>
+<details>
+<summary>Can the lock-up period be waived or shortened?<span class="ic"></span></summary>
+<div class="ans"><p>Generally not at the investor's option — the lock-up is set by the operating partnership agreement and the REIT's terms, so it's typically a fixed feature, not waivable or shortenable by the individual investor. In some structures, there may be limited exceptions (e.g., in case of death or hardship, depending on the terms), but generally you should expect to observe the full lock-up. So plan on the lock-up being fixed for its stated duration. If you might need early liquidity, understand that the lock-up generally can't be waived, so arrange other liquidity sources. Check the specific terms for any exceptions, but assume the lock-up applies as stated.</p></div>
+</details>
+<details>
+<summary>Does the lock-up affect the deferral or the step-up?<span class="ic"></span></summary>
+<div class="ans"><p>No — the lock-up only restricts when you can convert the units to shares; it doesn't affect the tax deferral (which continues as long as you hold the units, during and after the lock-up) or the step-up (which applies if you hold until death, regardless of the lock-up). So the lock-up is purely a liquidity-timing feature; the tax benefits (deferral, step-up) are unaffected. During the lock-up, your gain stays deferred, and the path to the step-up is intact. So the lock-up doesn't diminish the 721 exchange's tax benefits — it only delays the conversion liquidity, while the deferral and step-up continue normally.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Lock-Up Period</dt><dd>The time after receiving OP units before you can convert them to shares.</dd></div>
+<div class="g"><dt>Holding Period</dt><dd>Another term for the lock-up period.</dd></div>
+<div class="g"><dt>Conversion Right</dt><dd>The right to convert units to shares, available after the lock-up.</dd></div>
+<div class="g"><dt>Operating Partnership Agreement</dt><dd>The document setting the lock-up and conversion terms.</dd></div>
+<div class="g"><dt>Distributions</dt><dd>The income you earn during (and after) the lock-up.</dd></div>
+<div class="g"><dt>Deferral</dt><dd>The gain deferral continuing during the lock-up.</dd></div>
+<div class="g"><dt>Conversion Liquidity</dt><dd>The liquidity from converting units to shares, unavailable during the lock-up.</dd></div>
+<div class="g"><dt>Disguised Sale</dt><dd>A transaction the lock-up helps avoid being characterized as.</dd></div>
+<div class="g"><dt>Stability</dt><dd>The REIT's interest in retaining contributed capital, served by the lock-up.</dd></div>
+<div class="g"><dt>Typical Duration</dt><dd>Often around a year, but varying by offering.</dd></div>
+<div class="g"><dt>Post-Lock-Up Flexibility</dt><dd>The options (hold, convert) after the lock-up ends.</dd></div>
+<div class="g"><dt>Conversion Terms</dt><dd>Additional terms governing conversions after the lock-up.</dd></div>
+<div class="g"><dt>Liquidity Timeline</dt><dd>Your timing of liquidity needs, relative to the lock-up.</dd></div>
+<div class="g"><dt>Long-Term Holder</dt><dd>An investor for whom the lock-up is a non-issue.</dd></div>
+<div class="g"><dt>Early Liquidity</dt><dd>Cash needed soon after the exchange, limited by the lock-up.</dd></div>
+<div class="g"><dt>Other Liquidity Sources</dt><dd>Cash sources to use during the lock-up if needed.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/707" rel="noopener nofollow" target="_blank">26 U.S. Code § 707 — Disguised sales and partner transactions</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-541" rel="noopener nofollow" target="_blank">Publication 541, Partnerships</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

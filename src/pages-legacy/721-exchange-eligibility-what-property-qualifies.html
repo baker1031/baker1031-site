@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>721 Exchange Eligibility: What Property Qualifies | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>721 Exchange Eligibility: What Property Qualifies
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">721 Exchange Eligibility: What Property Qualifies</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Eligibility for a 721 exchange has two dimensions: the property must qualify under the tax rules (investment or productive-use property contributed for a partnership interest) and the REIT must be willing to accept it (fitting its portfolio criteria). This guide explains what property qualifies, the REIT's acceptance criteria, property types REITs want, debt considerations, and what doesn't qualify or fit.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A natural question for owners considering a 721 exchange is: does my property qualify? Eligibility for a 721 exchange has two dimensions that both must be satisfied. First, the tax-law dimension: the property must be the kind that can be contributed to a partnership for an interest under Section 721 — generally investment or productive-use property. Second, the practical dimension: the REIT must be willing to accept your specific property, which depends on whether it fits the REIT's portfolio strategy, quality standards, and acquisition criteria. So 'qualifying' means both meeting the tax rules and being a property the REIT wants. This second dimension is often the binding constraint — many properties could qualify under the tax rules but aren't ones a given REIT wants. This guide explains 721 exchange eligibility: what property qualifies, the REIT's acceptance criteria, property types REITs want, debt considerations, and what doesn't qualify or fit.</p>
+<h2 id="what-can-contribute">What property can be contributed</h2>
+<p>On the tax-law dimension, the property contributed in a <a href="721-exchange-guide.html">721 exchange</a> must be the kind eligible for Section 721 nonrecognition — generally, property contributed to a partnership in exchange for a partnership interest. Real estate held for investment or productive use (the typical 721 exchange property) qualifies under Section 721 when contributed to the operating partnership for <a href="op-units-explained.html">OP units</a>. So investment or productive-use real estate is the core eligible property.</p>
+<p>Section 721 itself is fairly broad about what property can be contributed to a partnership without recognition (it applies to contributions of property generally). But in the UPREIT/721 exchange context, the relevant property is real estate (since the operating partnership holds real estate, and the REIT wants real estate). So practically, 721 exchange eligibility centers on real estate held for investment or productive use — the kind of property an UPREIT's operating partnership would accept.</p>
+<p>The property should be held for investment or productive use (not, for example, a personal residence or dealer property held primarily for sale), consistent with the investment nature of the transition into REIT ownership. So the tax-law eligibility is generally satisfied by investment or productive-use real estate contributed to the operating partnership. What property can be contributed — investment or productive-use real estate, contributed to the operating partnership for OP units under Section 721 — establishes the tax-law dimension of eligibility. Investment real estate is the core eligible property. Understanding the tax-law eligibility (investment/productive-use real estate) is the first dimension; the second (the REIT's acceptance) is often the binding one. The tax rules are generally met by investment real estate, setting up the REIT's acceptance criteria.</p>
+<h2 id="reit-criteria">The REIT's acceptance criteria</h2>
+<p>The often-binding dimension of eligibility is the REIT's acceptance criteria — whether the REIT actually wants your property. Even if your property qualifies under the tax rules, the REIT must be willing to accept it in a 721 contribution, which depends on the REIT's own strategy and standards. A REIT acquires property (via 721 contributions) only if the property fits its portfolio and meets its criteria, so your property must be one the REIT wants.</p>
+<p>The REIT's criteria typically include the property type (does it fit the REIT's focus — e.g., a multifamily REIT wants apartments, an industrial REIT wants warehouses), the quality (institutional-quality, well-located, well-maintained properties), the size and value (often the REIT wants properties above a certain size/value to be worth the transaction), the location (in markets the REIT targets), and the property's financials and condition (strong income, sound condition). So the REIT evaluates your property against these criteria.</p>
+<p>This means that whether your property 'qualifies' for a 721 exchange depends heavily on whether a REIT wants it — a property might meet the tax rules but not fit any REIT's criteria (e.g., a small, older property in a non-target market). So the REIT's acceptance is often the real test of eligibility. The REIT's acceptance criteria — the property type, quality, size/value, location, and financials the REIT requires — are often the binding dimension of 721 exchange eligibility, determining whether the REIT will actually accept your property. Even tax-eligible property must fit a REIT's criteria to be 721'd. Understanding the REIT's criteria clarifies that eligibility isn't just about the tax rules but about being a property a REIT wants. The REIT's acceptance is frequently the real constraint on whether you can do a 721 exchange with your property.</p>
+<div class="pullquote"><p>Eligibility has two dimensions: the tax rules (investment real estate qualifies) and the REIT's acceptance (does it want your property?). The REIT's criteria are often the binding constraint.</p></div>
+<h2 id="investment-use">Investment/productive-use property</h2>
+<p>The investment or productive-use requirement is worth understanding, as it shapes tax-law eligibility. The property should be held for investment or for productive use in a trade or business — meaning it's an investment property (held to produce income or appreciation) or used productively (in a business), not a personal-use property or one held primarily for sale to customers (dealer property). This is similar to the holding requirement for <a href="1031-exchange-guide.html">1031 exchange</a>s.</p>
+<p>Investment real estate — rental properties, commercial buildings, and similar income-producing or appreciation-oriented holdings — clearly meets this standard. Productive-use property (used in a business) can also qualify. What doesn't meet the standard is personal-use property (like your home) or dealer property (held primarily for sale, like a developer's inventory). So the property's character (investment/productive-use vs. personal/dealer) matters for eligibility.</p>
+<p>For most owners considering a 721 exchange (who hold investment real estate they want to transition into REIT ownership), the investment/productive-use requirement is readily met — their rental or commercial property qualifies. The requirement mainly excludes personal residences and dealer inventory, which aren't the typical 721 exchange property anyway. Investment/productive-use property — real estate held for investment or productive business use (not personal use or dealer inventory) — is the character requirement for 721 exchange eligibility, similar to the 1031 holding standard. Investment real estate readily meets it. Understanding this requirement clarifies the character of property eligible for a 721 exchange. The investment/productive-use standard is generally satisfied by the income-producing real estate owners typically want to 721, with personal and dealer property excluded.</p>
+<h2 id="property-types">Property types REITs want</h2>
+<p>Because the REIT's acceptance is often the binding constraint, understanding what property types REITs want helps assess eligibility. REITs typically focus on specific property types (their specialty), so the property types they want depend on the REIT — a multifamily REIT wants apartments, an industrial REIT wants warehouses and logistics facilities, a net-lease REIT wants net-leased retail, an office REIT wants office buildings, etc. So your property's type must match a REIT's focus.</p>
+<p>Generally, REITs want institutional-quality properties in their target sectors — well-located, well-maintained, income-producing properties of sufficient size and value to be worth acquiring. Common property types that REITs acquire via 721 exchanges include multifamily/apartments, net-lease retail, industrial/logistics, and similar institutional-quality commercial real estate. So owners of these property types (of sufficient quality) are more likely to find a willing REIT.</p>
+<p>Owners of property types that fewer REITs focus on, or of lower-quality or smaller properties, may find fewer (or no) REITs wanting their property. So the property type (and quality) significantly affects whether a REIT will accept it. Property types REITs want — institutional-quality properties in their target sectors (multifamily, net-lease retail, industrial, etc.), of sufficient size and quality — determine which properties are likely to find a willing REIT for a 721 exchange. Matching your property type and quality to a REIT's focus is key to eligibility. Understanding what property types REITs want helps you assess whether your property is likely to be accepted. The property type and quality are major factors in whether a REIT will accept your property in a 721 exchange, often determining practical eligibility.</p>
+<h2 id="debt-encumbrances">Debt and encumbrances</h2>
+<p>Debt and other encumbrances on your property affect 721 exchange eligibility and structuring. If your property has a mortgage, the 721 contribution must address the debt — typically the operating partnership assumes or takes the property subject to the debt, and the treatment of that debt under partnership tax rules can affect your tax outcome and basis (and, in some cases, a reduction in your share of liabilities can have tax consequences). So existing debt adds complexity to the contribution.</p>
+<p>The REIT also considers the debt in deciding whether to accept the property — the amount and terms of the debt, and how it fits the REIT's capital structure, factor into the REIT's willingness. A property with excessive or problematic debt may be less acceptable to the REIT. So the debt affects both the tax structuring and the REIT's acceptance. The debt level and terms are part of the eligibility and structuring picture.</p>
+<p>Other encumbrances (liens, easements, title issues) can also affect acceptance and structuring, as the REIT will conduct due diligence on the property's title and condition. So a clean, well-documented property is more readily accepted. Debt and encumbrances — the mortgage and other liens on your property, which add tax-structuring complexity (partnership liability rules) and affect the REIT's acceptance (the debt's amount and terms, the title condition) — are important considerations for 721 exchange eligibility. Existing debt and encumbrances must be addressed in the structuring and factor into the REIT's willingness. Understanding the debt and encumbrance considerations clarifies how your property's financing and title affect eligibility. The debt and encumbrances are part of both the tax structuring and the REIT's acceptance decision, so they should be addressed with your advisors.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>721 eligibility has two dimensions: the tax rules (investment/productive-use real estate qualifies) and the REIT's acceptance (does it want your property?).</li>
+<li>The REIT's acceptance criteria — property type, quality, size/value, location, financials — are often the binding constraint.</li>
+<li>REITs want institutional-quality properties in their target sectors (multifamily, net-lease, industrial, etc.).</li>
+<li>Debt and encumbrances add tax-structuring complexity and affect the REIT's acceptance — address them with your advisors.</li>
+</ul></div>
+<h2 id="what-doesnt-qualify">What doesn't qualify or fit</h2>
+<p>Understanding what doesn't qualify or fit clarifies the boundaries of 721 exchange eligibility. On the tax-law side, personal-use property (like your home) and dealer property (held primarily for sale, like developer inventory) don't meet the investment/productive-use standard, so they're not eligible for a 721 exchange (just as they wouldn't be for a 1031). So personal residences and dealer inventory are excluded.</p>
+<p>On the practical (REIT-acceptance) side, property that no REIT wants doesn't fit — even if it meets the tax rules. This includes property types outside REITs' focus, lower-quality or poorly-located properties, properties too small or low-value to be worth a REIT's acquisition, and properties with problematic debt, title, or condition issues. So a tax-eligible property can still fail to fit if no REIT wants it. The REIT-acceptance constraint excludes many properties that meet the tax rules.</p>
+<p>So 'what doesn't qualify or fit' includes both tax-ineligible property (personal, dealer) and tax-eligible-but-REIT-unwanted property (wrong type, lower quality, too small, problematic). For owners of such property, a 721 exchange may not be feasible, and alternatives (like a 1031 into a DST, or selling) may be more appropriate. What doesn't qualify or fit — tax-ineligible property (personal-use, dealer) and tax-eligible-but-REIT-unwanted property (wrong type, lower quality, too small, problematic debt/title) — defines the boundaries of 721 exchange eligibility. Many properties that meet the tax rules still don't fit any REIT's criteria. Understanding what doesn't qualify or fit helps you realistically assess whether your property is a candidate. If your property doesn't qualify or fit, alternatives like a DST 1031 may better serve your goals. Knowing the boundaries helps set realistic expectations about 721 eligibility.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps assess eligibility</h2>
+<p>Baker 1031 Investments helps property owners assess 721 exchange eligibility — evaluating both the tax-law dimension (is your property investment/productive-use real estate?) and the practical dimension (would a REIT want your property?). We help you understand whether your property is a candidate for a 721 exchange, and if not, the alternatives (like a 1031 into a DST, which can later 721 into a REIT) that may achieve your goals.</p>
+<p>DST interests, REIT units, and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. We help you assess whether your property fits a REIT's criteria (type, quality, size, location, financials, debt) and identify suitable opportunities — or, if a direct 721 isn't feasible, the DST bridge path. We coordinate with your CPA on the tax-eligibility and structuring aspects (including debt). Our role is to help you realistically assess whether a 721 exchange is feasible for your property, given both the tax rules and the REIT's acceptance criteria — and to identify the best path to your goals, whether a direct 721, the DST bridge, or an alternative. We help you understand your property's 721 eligibility clearly.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What property qualifies for a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Eligibility has two dimensions: the tax rules (the property must be investment or productive-use real estate, contributed to the operating partnership for OP units under Section 721) and the REIT's acceptance (the REIT must want your specific property, fitting its portfolio criteria). So qualifying means both meeting the tax rules (investment real estate) and being a property a REIT wants. The REIT's acceptance is often the binding constraint — many properties meet the tax rules but aren't ones a given REIT wants.</p></div>
+</details>
+<details>
+<summary>Does my property need to be investment property?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — for the tax-law dimension, the property should be held for investment or productive use in a trade or business (not personal-use property like your home, or dealer property held primarily for sale). This is similar to the 1031 holding standard. Investment real estate (rentals, commercial buildings, income-producing or appreciation-oriented holdings) readily meets this. The requirement excludes personal residences and dealer inventory. So your property generally needs to be investment or productive-use real estate to be eligible for a 721 exchange on the tax side.</p></div>
+</details>
+<details>
+<summary>What are the REIT's acceptance criteria?<span class="ic"></span></summary>
+<div class="ans"><p>The property type (fitting the REIT's focus — e.g., a multifamily REIT wants apartments), the quality (institutional-quality, well-located, well-maintained), the size and value (often above a threshold to be worth acquiring), the location (in the REIT's target markets), and the property's financials and condition (strong income, sound condition). The REIT evaluates your property against these criteria. Even tax-eligible property must fit the REIT's criteria to be accepted in a 721 exchange. The REIT's acceptance is often the real test of practical eligibility.</p></div>
+</details>
+<details>
+<summary>What property types do REITs want?<span class="ic"></span></summary>
+<div class="ans"><p>REITs typically focus on specific sectors, so the types they want depend on the REIT — multifamily REITs want apartments, industrial REITs want warehouses/logistics, net-lease REITs want net-leased retail, office REITs want office buildings, etc. Generally, REITs want institutional-quality properties in their target sectors — well-located, well-maintained, income-producing, of sufficient size and value. Owners of these property types (of sufficient quality) are more likely to find a willing REIT. Your property's type must match a REIT's focus to be accepted.</p></div>
+</details>
+<details>
+<summary>Can I do a 721 exchange with a mortgaged property?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes, but it adds complexity — the operating partnership typically assumes or takes the property subject to the debt, and the treatment of that debt under partnership tax rules can affect your tax outcome and basis (a reduction in your share of liabilities can sometimes have tax consequences). The REIT also considers the debt (amount, terms, fit with its capital structure) in deciding whether to accept the property. So existing debt affects both the tax structuring and the REIT's acceptance. Discuss any mortgage with your advisors, as it's an important structuring consideration.</p></div>
+</details>
+<details>
+<summary>What property doesn't qualify for a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>On the tax side, personal-use property (your home) and dealer property (held primarily for sale, like developer inventory) don't meet the investment/productive-use standard. On the practical side, property no REIT wants doesn't fit — property types outside REITs' focus, lower-quality or poorly-located properties, properties too small or low-value, or properties with problematic debt, title, or condition issues. So both tax-ineligible property and tax-eligible-but-REIT-unwanted property don't qualify or fit. Many properties that meet the tax rules still don't fit any REIT's criteria.</p></div>
+</details>
+<details>
+<summary>What if no REIT wants my property?<span class="ic"></span></summary>
+<div class="ans"><p>Then a direct 721 exchange may not be feasible — but alternatives may achieve your goals. You could do a 1031 exchange into a DST (which is more accessible than a direct REIT contribution), and if the DST is structured for a 721 exit, eventually reach REIT ownership via the DST bridge. Or you could do a 1031 into other real estate, or sell. So if no REIT wants your specific property directly, the DST bridge (1031 into a DST, then 721 into a REIT) or other alternatives may serve your goals. We can help you identify the best path.</p></div>
+</details>
+<details>
+<summary>Is my property's size important for eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, for the REIT's acceptance — REITs often want properties above a certain size/value to make the acquisition worth the transaction costs and to fit their portfolio. So a very small property may not be worth a REIT's acquisition, even if it meets the tax rules. Larger, institutional-quality properties are more readily accepted. If your property is small, a direct 721 may be less feasible, and the DST bridge (where your investment is pooled in a DST) may be more accessible. The property's size affects the REIT's willingness to accept it directly.</p></div>
+</details>
+<details>
+<summary>Does the property's location matter?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — REITs target specific markets, so your property's location affects whether a REIT wants it. A property in a market the REIT targets (and considers attractive) is more likely to be accepted than one in a market the REIT doesn't focus on or considers weak. Location is part of the REIT's acceptance criteria, alongside type, quality, and size. So a well-located property in a REIT's target market is more readily accepted. The location's fit with the REIT's strategy is a factor in practical eligibility.</p></div>
+</details>
+<details>
+<summary>How do I know if my property is eligible?<span class="ic"></span></summary>
+<div class="ans"><p>Assess both dimensions: the tax rules (is it investment/productive-use real estate? — usually yes for rental/commercial property) and the REIT's acceptance (would a REIT want it? — depends on type, quality, size, location, financials, debt). The tax dimension is usually met by investment real estate; the REIT-acceptance dimension is the often-binding test. Work with a professional to evaluate whether your property fits a REIT's criteria, or whether the DST bridge or another path is more feasible. We can help you assess your property's 721 eligibility realistically.</p></div>
+</details>
+<details>
+<summary>Is 721 eligibility the same as 1031 eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>Partly — both require investment or productive-use property (excluding personal and dealer property), so the holding standard is similar. But they differ in the other dimension: a 1031 requires like-kind real property as the replacement (broadly, most investment real estate), while a 721 requires the property to be one a REIT will accept (a narrower, REIT-specific criterion). So 721 eligibility is generally more constrained than 1031 eligibility — many properties eligible for a 1031 won't fit a REIT's 721 criteria. The REIT-acceptance dimension makes 721 eligibility more restrictive than 1031.</p></div>
+</details>
+<details>
+<summary>Can Baker 1031 help me assess my property's eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — we help you assess both dimensions of 721 eligibility: the tax rules (is your property investment/productive-use real estate?) and the practical dimension (would a REIT want it, given its type, quality, size, location, financials, and debt?). We help you understand whether your property is a candidate for a direct 721 exchange, and if not, the alternatives (like the DST bridge — 1031 into a DST that later 721s into a REIT). We coordinate with your CPA on the tax-eligibility and debt-structuring aspects. We help you realistically assess your property's 721 eligibility and identify the best path to your goals.</p></div>
+</details>
+<details>
+<summary>Does partial ownership (like a TIC interest) qualify?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the specifics. An undivided interest in real property (such as a tenant-in-common interest) may be contributable, but the REIT would need to want the whole property or accommodate the fractional interest, which adds complexity. Co-owned property often requires all co-owners to agree (or be addressed individually), similar to the partnership complications in 1031 exchanges. So partial or co-ownership interests can complicate 721 eligibility and structuring, and whether they work depends on the REIT's willingness and the ownership structure. Discuss any co-ownership or fractional interest with your advisors, as it affects both eligibility and structuring.</p></div>
+</details>
+<details>
+<summary>Can raw land or development property qualify?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the REIT — most REITs focus on income-producing, stabilized properties rather than raw land or development projects, so vacant land or development-stage property is less likely to fit a typical REIT's criteria (even if it meets the investment-property tax standard). Some specialized REITs might consider land, but generally REITs want income-producing real estate. So raw land or development property is less likely to be accepted in a direct 721 exchange, and alternatives (a 1031 into income-producing property or a DST) may be more feasible. The property's income-producing nature affects the REIT's interest.</p></div>
+</details>
+<details>
+<summary>Does my property's condition affect eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the REIT conducts due diligence on the property's physical condition, title, and financials before accepting it, so a well-maintained property with clean title and strong financials is more readily accepted than one with deferred maintenance, title issues, or weak income. Significant condition or title problems can make a property less acceptable (or require remediation). So the property's condition is part of the REIT's acceptance evaluation, alongside type, quality, size, and location. Presenting a sound, well-documented property improves the likelihood of acceptance in a 721 exchange. Condition matters for the REIT's due diligence.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>721 Exchange Eligibility</dt><dd>Whether property qualifies — both tax rules and REIT acceptance.</dd></div>
+<div class="g"><dt>Investment Property</dt><dd>Real estate held for income or appreciation, tax-eligible for a 721.</dd></div>
+<div class="g"><dt>Productive-Use Property</dt><dd>Property used in a business, also tax-eligible.</dd></div>
+<div class="g"><dt>Personal-Use Property</dt><dd>Property like a home, not eligible for a 721 exchange.</dd></div>
+<div class="g"><dt>Dealer Property</dt><dd>Property held primarily for sale, not eligible.</dd></div>
+<div class="g"><dt>REIT Acceptance Criteria</dt><dd>The type, quality, size, location, and financials the REIT requires.</dd></div>
+<div class="g"><dt>Property Type</dt><dd>The sector (multifamily, industrial, etc.) the REIT must focus on.</dd></div>
+<div class="g"><dt>Institutional Quality</dt><dd>The well-located, well-maintained standard REITs want.</dd></div>
+<div class="g"><dt>Size and Value</dt><dd>The scale REITs require to be worth acquiring.</dd></div>
+<div class="g"><dt>Target Market</dt><dd>The locations a REIT focuses on for acquisitions.</dd></div>
+<div class="g"><dt>Debt and Encumbrances</dt><dd>Mortgages and liens affecting structuring and acceptance.</dd></div>
+<div class="g"><dt>Partnership Liability Rules</dt><dd>The tax rules governing assumed debt in the contribution.</dd></div>
+<div class="g"><dt>Binding Constraint</dt><dd>The REIT's acceptance, often the real test of eligibility.</dd></div>
+<div class="g"><dt>DST Bridge</dt><dd>An alternative path when a direct 721 isn't feasible.</dd></div>
+<div class="g"><dt>Section 721</dt><dd>The code section under which qualifying property is contributed.</dd></div>
+<div class="g"><dt>Holding Standard</dt><dd>The investment/productive-use requirement, similar to the 1031's.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-541" rel="noopener nofollow" target="_blank">Publication 541, Partnerships</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

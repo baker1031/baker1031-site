@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Available 1031 Investments | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+    <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Investments
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Available 1031 Investments</h1>
+  </section>
+
+  <main>
+    <p style="margin-top: 20px;">Current Delaware Statutory Trust and 1031-eligible offerings tracked by Baker 1031 Investments. Click an investment name for full details and analysis, or use Preview for a quick look. Offerings are private placements available to accredited investors only.</p>
+
+    <div class="mobile-sort">
+      <label for="sortSelect">Sort by</label>
+      <select id="sortSelect">
+        <option value="">Default</option>
+        <option value="name">Investment</option>
+        <option value="propertyType">Property Type</option>
+        <option value="location">Location</option>
+        <option value="ltv">LTV</option>
+        <option value="minimum">Minimum</option>
+        <option value="y1Yield">Y1 Yield</option>
+        <option value="avgYield">Avg. Yield</option>
+        <option value="status">Status</option>
+      </select>
+    </div>
+
+    <div class="dir-table-wrap">
+      <table class="dir-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
+            <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
+            <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
+            <th class="sortable" data-key="ltv">LTV<span class="arrow"></span></th>
+            <th class="sortable" data-key="minimum">Minimum<span class="arrow"></span></th>
+            <th class="sortable" data-key="y1Yield">Y1 Yield<span class="arrow"></span></th>
+            <th class="sortable" data-key="avgYield">Avg. Yield<span class="arrow"></span></th>
+            <th class="sortable" data-key="status">Status<span class="arrow"></span></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="dirBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+<!-- @@FOOTER@@ -->
+
+<!-- Preview drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer-close" onclick="closeDrawer()" aria-label="Close preview">&#10005;</button>
+  <div class="drawer-photo" id="drawerPhoto"></div>
+  <div class="drawer-body">
+    <h3 id="drawerName"></h3>
+    <div class="sponsor-line" id="drawerSponsor"></div>
+    <div id="drawerFacts"></div>
+    <p class="desc" id="drawerDesc"></p>
+    <a class="btn-access" id="drawerLink" href="#">View Full Details</a>
+  </div>
+</aside>
+
+<script type="application/json" id="directory-data">
+[
+ {
+  "name": "AEI Healthcare Portfolio VII DST",
+  "url": "aei-healthcare-portfolio-vii-dst.html",
+  "sponsor": "AEI Capital Corporation",
+  "propertyType": "Healthcare",
+  "location": "AZ, CT, TX",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.00%",
+  "avgYield": "5.54%",
+  "status": "Available",
+  "availablePct": "50.85%",
+  "photo": "https://lh3.googleusercontent.com/d/1UpckdXDq8HJjnUzTg9n_WOvsJA0k1qGf",
+  "description": "Investment: AEI Healthcare Portfolio VII DST | Sponsor: AEI Capital Corporation | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.508531821782178 | Location: AZ, CT, TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.076 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Blue Door Property II, DST",
+  "url": "blue-door-property-ii-dst.html",
+  "sponsor": "SmartStop",
+  "propertyType": "Self-Storage",
+  "location": "FL, TX",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.41%",
+  "avgYield": "4.71%",
+  "status": "Available",
+  "availablePct": "64.54%",
+  "photo": "https://lh3.googleusercontent.com/d/1-val7swkH1VPNam90f34CrzczJjcQaHO",
+  "description": "Investment: Blue Door Property II, DST | Sponsor: SmartStop | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.645361920736106 | Location: FL, TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.069982 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Blue Door Property III, DST",
+  "url": "blue-door-property-iii-dst.html",
+  "sponsor": "SmartStop",
+  "propertyType": "Self-Storage",
+  "location": "AZ, FL, TX",
+  "ltv": "45.96%",
+  "minimum": "$100,000",
+  "y1Yield": "4.00%",
+  "avgYield": "4.28%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1GCvzEMexmpTgjlyyGJUhAnO2MFsnLqaV",
+  "description": "Investment: Blue Door Property III, DST | Sponsor: SmartStop | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 45.96% LTV | Availability: 1 | Location: AZ, FL, TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0807918912165384 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Blue Owl Real Estate Exchange V DST",
+  "url": "blue-owl-real-estate-exchange-v-dst.html",
+  "sponsor": "Blue Owl",
+  "propertyType": "Industrial",
+  "location": "KY, MI, OH",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.77%",
+  "avgYield": "4.96%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1SYLj4lsZa73K392bDZMcdABsto2FWap9",
+  "description": "Investment: Blue Owl Real Estate Exchange V DST | Sponsor: Blue Owl | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 0.00% LTV | Availability: 1 | Location: KY, MI, OH | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.073654 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BR Churchill Downs, DST",
+  "url": "br-churchill-downs-dst.html",
+  "sponsor": "Bluerock",
+  "propertyType": "Multifamily",
+  "location": "NC",
+  "ltv": "44.86%",
+  "minimum": "$100,000",
+  "y1Yield": "4.28%",
+  "avgYield": "5.23%",
+  "status": "Closed",
+  "availablePct": "0.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1DlAEjC2ku2pfRp6bY4ULgY41HtnLzfVb",
+  "description": "Investment: BR Churchill Downs, DST | Sponsor: Bluerock | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 44.86% LTV | Availability: 0 | Location: NC | Strategy: Value-Add | 721 Exchange Exit: Mandatory | Estimated Hold: 7-10 years | Cap Rate Equivalent: 0.0820329974580921 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BR Diversified Industrial Portfolio 7, DST",
+  "url": "br-diversified-industrial-portfolio-7-dst.html",
+  "sponsor": "Bluerock",
+  "propertyType": "Industrial",
+  "location": "AL, FL, MO, VA",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.97%",
+  "avgYield": "5.51%",
+  "status": "Limited Availability",
+  "availablePct": "13.16%",
+  "photo": "https://lh3.googleusercontent.com/d/1c1Pdo3bRQdhIdMVlnFyaF36rQSG-IO1k",
+  "description": "Investment: BR Diversified Industrial Portfolio 7, DST | Sponsor: Bluerock | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 0.00% LTV | Availability: 0.131554661028267 | Location: AL, FL, MO, VA | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 7-10 years | Cap Rate Equivalent: 0.075694 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BREX Net Lease Industrial I DST",
+  "url": "brex-net-lease-industrial-i-dst.html",
+  "sponsor": "Brookfield",
+  "propertyType": "Industrial",
+  "location": "MA",
+  "ltv": "51.20%",
+  "minimum": "$100,000",
+  "y1Yield": "6.10%",
+  "avgYield": "7.01%",
+  "status": "Limited Availability",
+  "availablePct": "0.31%",
+  "photo": "https://lh3.googleusercontent.com/d/1AgkmSZx56AVVBdJWPqlDqfYNMqSiQ0sq",
+  "description": "Investment: BREX Net Lease Industrial I DST | Sponsor: Brookfield | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 51.20% LTV | Availability: 0.00312283880037272 | Location: MA | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0931691494840462 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BR Parkview Multifamily, DST",
+  "url": "br-parkview-multifamily-dst.html",
+  "sponsor": "Bluerock",
+  "propertyType": "Multifamily",
+  "location": "GA",
+  "ltv": "49.45%",
+  "minimum": "$100,000",
+  "y1Yield": "4.40%",
+  "avgYield": "5.04%",
+  "status": "Available",
+  "availablePct": "48.12%",
+  "photo": "https://lh3.googleusercontent.com/d/1xO96McQnNjSgKdvqpX8IjOJbNwbyVxL1",
+  "description": "Investment: BR Parkview Multifamily, DST | Sponsor: Bluerock | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 49.45% LTV | Availability: 0.481177135536304 | Location: GA | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 7-10 years | Cap Rate Equivalent: 0.0840323094137907 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Colorado Growth 1 - Holly Ridge DST",
+  "url": "colorado-growth-1-holly-ridge-dst.html",
+  "sponsor": "Walton Global Holdings",
+  "propertyType": "Land",
+  "location": "CO",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "0.00%",
+  "avgYield": "N/A (no income)",
+  "status": "Limited Availability",
+  "availablePct": "27.82%",
+  "photo": "https://lh3.googleusercontent.com/d/1m482JRkcE8IzqWa604lKtvUl4fTBH45F",
+  "description": "Investment: Colorado Growth 1 - Holly Ridge DST | Sponsor: Walton Global Holdings | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 0.00% LTV | Availability: 0.278208313729951 | Location: CO | Strategy: Opportunistic | 721 Exchange Exit: None | Estimated Hold: 4-5 years | Cap Rate Equivalent: 0.025 | Minimum Investment: 100000"
+ },
+ {
+  "name": "ExchangeRight Net-Leased All-Cash 19 DST",
+  "url": "exchangeright-netleased-allcash-19-dst.html",
+  "sponsor": "ExchangeRight",
+  "propertyType": "Net Lease",
+  "location": "AL, IL, WA",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.15%",
+  "avgYield": "5.26%",
+  "status": "Closed",
+  "availablePct": "0.25%",
+  "photo": "https://lh3.googleusercontent.com/d/1yzlNMlrLLF0QvOpMI1WRQfL2c1xUiGG2",
+  "description": "Investment: ExchangeRight Net-Leased All-Cash 19 DST | Sponsor: ExchangeRight | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 0.00% LTV | Availability: 0.00253068645640074 | Location: AL, IL, WA | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.07753 | Minimum Investment: 100000"
+ },
+ {
+  "name": "ExchangeRight Net-Leased All-Cash 20 DST",
+  "url": "exchangeright-netleased-allcash-20-dst.html",
+  "sponsor": "ExchangeRight",
+  "propertyType": "Net Lease",
+  "location": "AL, SC, TX",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.20%",
+  "avgYield": "5.40%",
+  "status": "Closed",
+  "availablePct": "0.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1d1-4SuX32UpB2w3VvGO2kwoCis6n2sj9",
+  "description": "Investment: ExchangeRight Net-Leased All-Cash 20 DST | Sponsor: ExchangeRight | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 0.00% LTV | Availability: 0 | Location: AL, SC, TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.07804 | Minimum Investment: 100000"
+ },
+ {
+  "name": "ExchangeRight Net-Leased Portfolio 75 DST",
+  "url": "exchangeright-netleased-portfolio-75-dst.html",
+  "sponsor": "ExchangeRight",
+  "propertyType": "Net Lease",
+  "location": "AR, GA, MI, NJ, OH, TX",
+  "ltv": "43.97%",
+  "minimum": "$100,000",
+  "y1Yield": "5.00%",
+  "avgYield": "5.30%",
+  "status": "Available",
+  "availablePct": "23.44%",
+  "photo": "https://lh3.googleusercontent.com/d/1D2M3mHX5vm_5EdGcho3-i9Py-KqBqmvv",
+  "description": "Investment: ExchangeRight Net-Leased Portfolio 75 DST | Sponsor: ExchangeRight | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 43.97% LTV | Availability: 0.234393399201177 | Location: AR, GA, MI, NJ, OH, TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 5 years | Cap Rate Equivalent: 0.0859457645080764 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Florida Growth 2 - Jubilee 1 DST",
+  "url": "florida-growth-2-jubilee-1-dst.html",
+  "sponsor": "Walton Global Holdings",
+  "propertyType": "Land",
+  "location": "FL",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "0.00%",
+  "avgYield": "N/A (no income)",
+  "status": "Available",
+  "availablePct": "14.83%",
+  "photo": "https://lh3.googleusercontent.com/d/1i91BiYn7XZtKB0-u7yKPmdaWTp0c0rDr",
+  "description": "Investment: Florida Growth 2 - Jubilee 1 DST | Sponsor: Walton Global Holdings | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.148301037378935 | Location: FL | Strategy: Opportunistic | 721 Exchange Exit: None | Estimated Hold: 3-5 years | Cap Rate Equivalent: 0.025 | Minimum Investment: 100000"
+ },
+ {
+  "name": "FSX Industrial 34, DST",
+  "url": "fsx-industrial-34-dst.html",
+  "sponsor": "Four Springs Capital",
+  "propertyType": "Industrial",
+  "location": "KY, SC",
+  "ltv": "48.63%",
+  "minimum": "$100,000",
+  "y1Yield": "5.05%",
+  "avgYield": "5.11%",
+  "status": "Limited Availability",
+  "availablePct": "9.96%",
+  "photo": "https://lh3.googleusercontent.com/d/1KLhX3b8jJT97sJ5o2TvUb0ahiiV-ugjX",
+  "description": "Investment: FSX Industrial 34, DST | Sponsor: Four Springs Capital | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 48.63% LTV | Availability: 0.099601593625498 | Location: KY, SC | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0872666800665853 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Government Lease Holdings 2 DST (GLH 2 DST)",
+  "url": "government-lease-holdings-2-dst-glh-2-dst.html",
+  "sponsor": "Net Lease Capital Advisors",
+  "propertyType": "GSA",
+  "location": "MD, NC",
+  "ltv": "56.60%",
+  "minimum": "$100,000",
+  "y1Yield": "4.70%",
+  "avgYield": "4.70%",
+  "status": "Available",
+  "availablePct": "8.59%",
+  "photo": "https://lh3.googleusercontent.com/d/10HERuChCxkCJSzpyZ5N0PxDwRQvCas7F",
+  "description": "Investment: Government Lease Holdings 2 DST (GLH 2 DST) | Sponsor: Net Lease Capital Advisors | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 56.60% LTV | Availability: 0.085884879586765 | Location: MD, NC | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 11 years | Cap Rate Equivalent: 0.0874405988436917 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Griffin Capital Tulsa BTR DST",
+  "url": "griffin-capital-tulsa-btr-dst.html",
+  "sponsor": "Griffin Capital",
+  "propertyType": "Multifamily",
+  "location": "OK",
+  "ltv": "46.51%",
+  "minimum": "$100,000",
+  "y1Yield": "4.42%",
+  "avgYield": "4.82%",
+  "status": "Available",
+  "availablePct": "78.91%",
+  "photo": "https://lh3.googleusercontent.com/d/1qaAAF4uCmeZCSGAExcm3tFIsZmOLcUpC",
+  "description": "Investment: Griffin Capital Tulsa BTR DST | Sponsor: Griffin Capital | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 46.51% LTV | Availability: 0.789073448329021 | Location: OK | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0833018780957615 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Griffin Capital (Union – Kansas City, MO) DST",
+  "url": "griffin-capital-union-kansas-city-mo-dst.html",
+  "sponsor": "Griffin Capital",
+  "propertyType": "Multifamily",
+  "location": "MO",
+  "ltv": "54.09%",
+  "minimum": "$100,000",
+  "y1Yield": "4.30%",
+  "avgYield": "5.24%",
+  "status": "Available",
+  "availablePct": "36.35%",
+  "photo": "https://lh3.googleusercontent.com/d/1omOzSnEon3I7S2NdG3ip_OtT2xqBuTPk",
+  "description": "Investment: Griffin Capital (Union – Kansas City, MO) DST | Sponsor: Griffin Capital | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 54.09% LTV | Availability: 0.363460152492711 | Location: MO | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0848811510857824 | Minimum Investment: 100000"
+ },
+ {
+  "name": "LSC-Latham NY, DST",
+  "url": "lsclatham-ny-dst.html",
+  "sponsor": "Livingston Street Capital",
+  "propertyType": "Senior Living",
+  "location": "NY",
+  "ltv": "52.97%",
+  "minimum": "$100,000",
+  "y1Yield": "4.70%",
+  "avgYield": "5.63%",
+  "status": "Limited Availability",
+  "availablePct": "1.14%",
+  "photo": "https://lh3.googleusercontent.com/d/1Nx4bKTXSCLsQW_UJjAC_tb8ONN47gYgq",
+  "description": "Investment: LSC-Latham NY, DST | Sponsor: Livingston Street Capital | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 52.97% LTV | Availability: 0.0114378971692663 | Location: NY | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0865106134408189 | Minimum Investment: 100000"
+ },
+ {
+  "name": "LSC-Salt Lake UT, DST",
+  "url": "lscsalt-lake-ut-dst.html",
+  "sponsor": "Livingston Street Capital",
+  "propertyType": "Senior Living",
+  "location": "UT",
+  "ltv": "51.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.70%",
+  "avgYield": "5.30%",
+  "status": "Limited Availability",
+  "availablePct": "1.16%",
+  "photo": "https://lh3.googleusercontent.com/d/14TW5JX5X4JShfMJ5Q9ZNuYF-unKL0gGR",
+  "description": "Investment: LSC-Salt Lake UT, DST | Sponsor: Livingston Street Capital | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 51.00% LTV | Availability: 0.0115651503469545 | Location: UT | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0860059106188742 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Moody Med Center 2 DST",
+  "url": "moody-med-center-2-dst.html",
+  "sponsor": "Moody National",
+  "propertyType": "Hospitality",
+  "location": "TX",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "6.00%",
+  "avgYield": "6.40%",
+  "status": "Available",
+  "availablePct": "35.83%",
+  "photo": "https://lh3.googleusercontent.com/d/10N4GHnAWC8KnlbWvIyZUmBqbglrQsW8y",
+  "description": "Investment: Moody Med Center 2 DST | Sponsor: Moody National | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.358301419878296 | Location: TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0862 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Moody Village Towers DST",
+  "url": "moody-village-towers-dst.html",
+  "sponsor": "Moody National",
+  "propertyType": "Office",
+  "location": "TX",
+  "ltv": "35.35%",
+  "minimum": "$100,000",
+  "y1Yield": "4.88%",
+  "avgYield": "5.58%",
+  "status": "Available",
+  "availablePct": "49.17%",
+  "photo": "https://lh3.googleusercontent.com/d/19iBj6JXIDNgL45jv7TXpEtIPLIzMZmYX",
+  "description": "Investment: Moody Village Towers DST | Sponsor: Moody National | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 35.35% LTV | Availability: 0.491657100917431 | Location: TX | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0831961694191608 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Life Sciences III DST",
+  "url": "nexpoint-life-sciences-iii-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Life Sciences",
+  "location": "MN",
+  "ltv": "50.52%",
+  "minimum": "$100,000",
+  "y1Yield": "4.18%",
+  "avgYield": "4.07%",
+  "status": "Limited Availability",
+  "availablePct": "12.47%",
+  "photo": "https://lh3.googleusercontent.com/d/1pEkFZGQjyKuwlM6n2jKw94ctum63_F7J",
+  "description": "Investment: NexPoint Life Sciences III DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 50.52% LTV | Availability: 0.124746630543768 | Location: MN | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 9 years | Cap Rate Equivalent: 0.0832059773424612 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Oasis DST",
+  "url": "nexpoint-oasis-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Multifamily",
+  "location": "FL",
+  "ltv": "53.05%",
+  "minimum": "$100,000",
+  "y1Yield": "4.36%",
+  "avgYield": "4.92%",
+  "status": "Available",
+  "availablePct": "54.11%",
+  "photo": "https://lh3.googleusercontent.com/d/1i6vBRgzsfRKYr2wFruo6NfXc4vE7Jpvo",
+  "description": "Investment: NexPoint Oasis DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 53.05% LTV | Availability: 0.541064007383849 | Location: FL | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0848668089868877 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Small Bay III DST",
+  "url": "nexpoint-small-bay-iii-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Small Bay Industrial",
+  "location": "FL, TX",
+  "ltv": "44.87%",
+  "minimum": "$100,000",
+  "y1Yield": "4.62%",
+  "avgYield": "5.36%",
+  "status": "Available",
+  "availablePct": "55.57%",
+  "photo": "https://lh3.googleusercontent.com/d/1qqDLDEfk7CZipiD3L_dpqZlctO2fuco0",
+  "description": "Investment: NexPoint Small Bay III DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 44.87% LTV | Availability: 0.5557486010071 | Location: FL, TX | Strategy: Value-Add | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0839783994013507 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Waterford DST",
+  "url": "nexpoint-waterford-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Multifamily",
+  "location": "NC",
+  "ltv": "48.64%",
+  "minimum": "$100,000",
+  "y1Yield": "4.51%",
+  "avgYield": "6.04%",
+  "status": "Available",
+  "availablePct": "95.66%",
+  "photo": "https://lh3.googleusercontent.com/d/1nJEcVKy6pe-PQwabSzXydcOpYDYrvAPr",
+  "description": "Investment: NexPoint Waterford DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 48.64% LTV | Availability: 0.956607731233533 | Location: NC | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0843874520098439 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NLC Financial Service HQ DST",
+  "url": "nlc-financial-service-hq-dst.html",
+  "sponsor": "Net Lease Capital Advisors",
+  "propertyType": "Office",
+  "location": "MI",
+  "ltv": "82.75%",
+  "minimum": "$100,000",
+  "y1Yield": "0.00%",
+  "avgYield": "0.00%",
+  "status": "Closed",
+  "availablePct": "0.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1rdurO1qY6vAjQAHA6mSQqD7VCN0VgYob",
+  "description": "Investment: NLC Financial Service HQ DST | Sponsor: Net Lease Capital Advisors | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 82.75% LTV | Availability: 0 | Location: MI | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 18 years | Cap Rate Equivalent: 0.085092580464938 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Passco Preston Ridge DST",
+  "url": "passco-preston-ridge-dst.html",
+  "sponsor": "Passco",
+  "propertyType": "Multifamily",
+  "location": "NC",
+  "ltv": "46.93%",
+  "minimum": "$100,000",
+  "y1Yield": "4.45%",
+  "avgYield": "4.81%",
+  "status": "Available",
+  "availablePct": "45.10%",
+  "photo": "https://lh3.googleusercontent.com/d/1JkqhF99raEFNfMXb_nl2AaP7PG0Lmh19",
+  "description": "Investment: Passco Preston Ridge DST | Sponsor: Passco | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 46.93% LTV | Availability: 0.450958286358512 | Location: NC | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0835864497126228 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Passco Riverside DST",
+  "url": "passco-riverside-dst.html",
+  "sponsor": "Passco",
+  "propertyType": "Multifamily",
+  "location": "KY",
+  "ltv": "45.49%",
+  "minimum": "$100,000",
+  "y1Yield": "4.35%",
+  "avgYield": "4.55%",
+  "status": "Limited Availability",
+  "availablePct": "10.22%",
+  "photo": "https://lh3.googleusercontent.com/d/1TdvSzDrJzQMgl-Pz1Qx4geNikr2Lud4L",
+  "description": "Investment: Passco Riverside DST | Sponsor: Passco | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 45.49% LTV | Availability: 0.102249488752556 | Location: KY | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.082616429883384 | Minimum Investment: 100000"
+ },
+ {
+  "name": "PG Savannah Industrial DST",
+  "url": "pg-savannah-industrial-dst.html",
+  "sponsor": "Peachtree Group",
+  "propertyType": "Industrial",
+  "location": "GA",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.00%",
+  "avgYield": "5.35%",
+  "status": "Available",
+  "availablePct": "21.86%",
+  "photo": "https://lh3.googleusercontent.com/d/1VRR4CuSy4Ugk4MD0g8dZsdmPGMot8Dcw",
+  "description": "Investment: PG Savannah Industrial DST | Sponsor: Peachtree Group | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.21855753925542 | Location: GA | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.076 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Sealy Industrial I, DST",
+  "url": "sealy-industrial-i-dst.html",
+  "sponsor": "Sealy & Company",
+  "propertyType": "Industrial",
+  "location": "IN",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.81%",
+  "avgYield": "5.05%",
+  "status": "Available",
+  "availablePct": "29.65%",
+  "photo": "https://lh3.googleusercontent.com/d/1hVy0pJGp1NBQ7plv-HE83aCQna55A9OR",
+  "description": "Investment: Sealy Industrial I, DST | Sponsor: Sealy & Company | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.296527749017332 | Location: IN | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.074062 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Starboard Bradley DST",
+  "url": "starboard-bradley-dst.html",
+  "sponsor": "Starboard Realty Advisors",
+  "propertyType": "Multifamily",
+  "location": "WA",
+  "ltv": "46.09%",
+  "minimum": "$100,000",
+  "y1Yield": "4.43%",
+  "avgYield": "4.92%",
+  "status": "Available",
+  "availablePct": "96.63%",
+  "photo": "https://lh3.googleusercontent.com/d/1WBZ_e81HmNfZ67lsbHDmQY-7RoDfgTBA",
+  "description": "Investment: Starboard Bradley DST | Sponsor: Starboard Realty Advisors | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 46.09% LTV | Availability: 0.966327204253434 | Location: WA | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0832384264789002 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Starboard Makley DST",
+  "url": "starboard-makley-dst.html",
+  "sponsor": "Starboard Realty Advisors",
+  "propertyType": "Multifamily",
+  "location": "OH",
+  "ltv": "52.64%",
+  "minimum": "$100,000",
+  "y1Yield": "4.52%",
+  "avgYield": "4.93%",
+  "status": "Available",
+  "availablePct": "55.11%",
+  "photo": "https://lh3.googleusercontent.com/d/1ksYyUHr3LEBLUD4z68M4E-9x4tScjRNQ",
+  "description": "Investment: Starboard Makley DST | Sponsor: Starboard Realty Advisors | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 52.64% LTV | Availability: 0.551127639605819 | Location: OH | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.085537589313285 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Fortress FREX DB Series I DST",
+  "url": "fortress-frex-db-series-i-dst.html",
+  "sponsor": "Fortress Investment Group",
+  "propertyType": "Student Housing",
+  "location": "WV",
+  "ltv": "47.12%",
+  "minimum": "$100,000",
+  "y1Yield": "5.00%",
+  "avgYield": "6.24%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "78.23%",
+  "photo": "https://lh3.googleusercontent.com/d/1B59bXHp6z_7rNJGyHz2lNu_XKF9yhRpn=s0",
+  "description": "Investment: Fortress FREX DB Series I DST | Sponsor: Fortress Investment Group | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 47.12% LTV | Availability: 0.782348732503862 | Location: WV | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0866582766345363 | Minimum Investment: 100000"
+ },
+ {
+  "name": "AX Essential Retail Portfolio DST",
+  "url": "ax-essential-retail-portfolio-dst.html",
+  "sponsor": "Apollo Global Management",
+  "propertyType": "Net Lease",
+  "location": "WA",
+  "ltv": "0.00%",
+  "minimum": "$250,000",
+  "y1Yield": "4.30%",
+  "avgYield": "4.75%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1y5lCVcwSGDfdfPH-URuHfCwlJkBVovJ7=s0",
+  "description": "Investment: AX Essential Retail Portfolio DST | Sponsor: Apollo Global Management | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: WA | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 2 years | Cap Rate Equivalent: 0.06886 | Minimum Investment: 250000"
+ },
+ {
+  "name": "CF Westshore Multifamily DST",
+  "url": "cf-westshore-multifamily-dst.html",
+  "sponsor": "Cantor Fitzgerald",
+  "propertyType": "Multifamily",
+  "location": "FL",
+  "ltv": "55.16%",
+  "minimum": "$100,000",
+  "y1Yield": "4.25%",
+  "avgYield": "4.53%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1xcJQo5yqAG5Bx-_ZLkZwe64ruQaIzSq5=s0",
+  "description": "Investment: CF Westshore Multifamily DST | Sponsor: Cantor Fitzgerald | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 55.16% LTV | Availability: 1 | Location: FL | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 5-7 years | Cap Rate Equivalent: 0.0849638790144529 | Minimum Investment: 100000"
+ },
+ {
+  "name": "CS1031 Texas Active Living Portfolio I DST",
+  "url": "cs1031-texas-active-living-portfolio-i-dst.html",
+  "sponsor": "Capital Square",
+  "propertyType": "Senior Living",
+  "location": "TX",
+  "ltv": "0.00%",
+  "minimum": "$50,000",
+  "y1Yield": "4.50%",
+  "avgYield": "4.93%",
+  "status": "Available",
+  "availablePct": "15.28%",
+  "photo": "https://lh3.googleusercontent.com/d/1sZh6aZNrWY6_Y3TH8p8E8mt65ZNdLj2A=s0",
+  "description": "Investment: CS1031 Texas Active Living Portfolio I DST | Sponsor: Capital Square | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.152787404580153 | Location: TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0709 | Minimum Investment: 50000"
+ },
+ {
+  "name": "IREX IV Industrial Portfolio DST",
+  "url": "irex-iv-industrial-portfolio-dst.html",
+  "sponsor": "Invesco",
+  "propertyType": "Industrial",
+  "location": "FL, NC",
+  "ltv": "0.00%",
+  "minimum": "$250,000",
+  "y1Yield": "4.33%",
+  "avgYield": "4.33%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1fyWOqubdt6wUydKZ6R_P95sW0uEU1UY5=s0",
+  "description": "Investment: IREX IV Industrial Portfolio DST | Sponsor: Invesco | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: FL, NC | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.069166 | Minimum Investment: 250000"
+ },
+ {
+  "name": "JWCM Vivian DST",
+  "url": "jwcm-vivian-dst.html",
+  "sponsor": "JWCM",
+  "propertyType": "Multifamily",
+  "location": "GA",
+  "ltv": "50.55%",
+  "minimum": "$100,000",
+  "y1Yield": "5.31%",
+  "avgYield": "5.25%",
+  "status": "Available",
+  "availablePct": "35.67%",
+  "photo": "https://lh3.googleusercontent.com/d/1EL7A8S0seMAymN73emiKqk7wQJKSHHwa=s0",
+  "description": "Investment: JWCM Vivian DST | Sponsor: JWCM | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 50.55% LTV | Availability: 0.356728393858469 | Location: GA | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0890290731722371 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Marina DST",
+  "url": "nexpoint-marina-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Marina",
+  "location": "IL, OK",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "7.01%",
+  "avgYield": "7.98%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1wIFzSKE502eyrrgocMUc69TLO-hu9BAN=s0",
+  "description": "Investment: NexPoint Marina DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: IL, OK | Strategy: Value-Add | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.096502 | Minimum Investment: 100000"
+ },
+ {
+  "name": "NexPoint Outlook DST",
+  "url": "nexpoint-outlook-dst.html",
+  "sponsor": "NexPoint",
+  "propertyType": "Multifamily",
+  "location": "AL",
+  "ltv": "49.85%",
+  "minimum": "$100,000",
+  "y1Yield": "4.44%",
+  "avgYield": "5.25%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1atuBoA7MzJbPGg7GjRbc-2RlWG2viNFO=s0",
+  "description": "Investment: NexPoint Outlook DST | Sponsor: NexPoint | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 49.85% LTV | Availability: 1 | Location: AL | Strategy: Value-Add | 721 Exchange Exit: Mandatory | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0843553871441349 | Minimum Investment: 100000"
+ },
+ {
+  "name": "PG Manchester Industrial DST",
+  "url": "pg-manchester-industrial-dst.html",
+  "sponsor": "Peachtree Group",
+  "propertyType": "Industrial",
+  "location": "NH",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.03%",
+  "avgYield": "5.33%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1gjt9sYqnBK30kafE_NvtEYfA0ru0itwa=s0",
+  "description": "Investment: PG Manchester Industrial DST | Sponsor: Peachtree Group | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: NH | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.076306 | Minimum Investment: 100000"
+ },
+ {
+  "name": "CS1031 Zero-Coupon DFW Hospitality DST",
+  "url": "cs1031-zerocoupon-dfw-hospitality-dst.html",
+  "sponsor": "Capital Square",
+  "propertyType": "Hospitality",
+  "location": "TX",
+  "ltv": "77.78%",
+  "minimum": "$50,000",
+  "y1Yield": "0.00%",
+  "avgYield": "0.00%",
+  "status": "Limited Availability",
+  "availablePct": "46.34%",
+  "photo": "https://lh3.googleusercontent.com/d/1ksjBO_AbIAWFfNx3S_i59KGxwqfUMMAg=s0",
+  "description": "Investment: CS1031 Zero-Coupon DFW Hospitality DST | Sponsor: Capital Square | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 77.78% LTV | Availability: 0.463356879739978 | Location: TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 15 years | Cap Rate Equivalent: 0.0814833946654124 | Minimum Investment: 50000"
+ },
+ {
+  "name": "Johnson Controls R&D DST",
+  "url": "johnson-controls-r-and-d-dst.html",
+  "sponsor": "Syndicated Equities",
+  "propertyType": "Industrial",
+  "location": "WI",
+  "ltv": "55.08%",
+  "minimum": "$100,000",
+  "y1Yield": "6.03%",
+  "avgYield": "5.90%",
+  "status": "Closed",
+  "availablePct": "0.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1FHvMy9UvkQNnVJJAB3S9D06syO_Tnhhk=s0",
+  "description": "Investment: Johnson Controls R&D DST | Sponsor: Syndicated Equities | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 55.08% LTV | Availability: 0 | Location: WI | Strategy: Core | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0932915434683841 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Vital Capital Medical - Temple TX DST",
+  "url": "vital-capital-medical-temple-tx-dst.html",
+  "sponsor": "HPA Exchange",
+  "propertyType": "Healthcare",
+  "location": "TX",
+  "ltv": "53.81%",
+  "minimum": "$50,000",
+  "y1Yield": "7.32%",
+  "avgYield": "7.28%",
+  "status": "Limited Availability",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1H6yv3uRWH0tvnjoC9GQCiB2a5eZ4XbcP=s0",
+  "description": "Investment: Vital Capital Medical - Temple TX DST | Sponsor: HPA Exchange | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 53.81% LTV | Availability: 1 | Location: TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0993515966745416 | Minimum Investment: 50000"
+ },
+ {
+  "name": "CS1031 Richmond Active Living Apartments, DST",
+  "url": "cs1031-richmond-active-living-apartments-dst.html",
+  "sponsor": "Capital Square",
+  "propertyType": "Senior Living",
+  "location": "VA",
+  "ltv": "53.99%",
+  "minimum": "$50,000",
+  "y1Yield": "4.50%",
+  "avgYield": "4.73%",
+  "status": "Closed",
+  "availablePct": "0.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1QUMo-ojJ7J7Y4l1w4JY-Pw6nf0Jy6byj=s0",
+  "description": "Investment: CS1031 Richmond Active Living Apartments, DST | Sponsor: Capital Square | Structure: Delaware Statutory Trust (DST) | Status: Closed | LTV: 53.99% LTV | Availability: 0 | Location: VA | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0858117316531964 | Minimum Investment: 50000"
+ },
+ {
+  "name": "ExchangeRight Essential Income 9 DST",
+  "url": "exchangeright-essential-income-9-dst.html",
+  "sponsor": "ExchangeRight",
+  "propertyType": "Net Lease",
+  "location": "GA, SC, VA",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.35%",
+  "avgYield": "5.35%",
+  "status": "Limited Availability",
+  "availablePct": "0.18%",
+  "photo": "https://lh3.googleusercontent.com/d/1Sa4h6yRiMxOyIJnqBl10VSA3LRa52Htk=s0",
+  "description": "Investment: ExchangeRight Essential Income 9 DST | Sponsor: ExchangeRight | Structure: Delaware Statutory Trust (DST) | Status: Limited Availability | LTV: 0.00% LTV | Availability: 0.00179432355723746 | Location: GA, SC, VA | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.07957 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Resource Royalty 27, LLC",
+  "url": "resource-royalty-fund-27.html",
+  "sponsor": "Resource Royalty",
+  "propertyType": "Oil & Gas Mineral/Royalty Interests",
+  "location": "TX, OK",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "8.00%",
+  "avgYield": "9.60%",
+  "status": "Limited Availability",
+  "availablePct": "16.33%",
+  "photo": "https://lh3.googleusercontent.com/d/130m6Um_1Bqj3CUHKW9A-eDiNHtXRus3Z",
+  "description": "Investment: Resource Royalty 27, LLC | Sponsor: Resource Royalty | Structure: Direct-Title Mineral & Royalty Interests | Status: Limited Availability | LTV: 0.00% LTV | Availability: 0.163266638911338 | Location: TX, OK | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 5 years | Cap Rate Equivalent: 0.1066 | Minimum Investment: 100000"
+ },
+ {
+  "name": "CS1031 Texas Active Living Portfolio II, DST",
+  "url": "cs1031-texas-active-living-portfolio-ii-dst.html",
+  "sponsor": "Capital Square",
+  "propertyType": "Senior Living",
+  "location": "TX",
+  "ltv": "0.00%",
+  "minimum": "$50,000",
+  "y1Yield": "4.50%",
+  "avgYield": "5.00%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/170i7qkdzNt5nMjqA3xuswfF2BKEm6Fx-",
+  "description": "Investment: CS1031 Texas Active Living Portfolio II, DST | Sponsor: Capital Square | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: TX | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Minimum Investment: 50000"
+ },
+ {
+  "name": "ExchangeRight Essential Income 12 DST",
+  "url": "exchangeright-essential-income-12-dst.html",
+  "sponsor": "ExchangeRight",
+  "propertyType": "Net Lease",
+  "location": "MO",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "5.20%",
+  "avgYield": "5.25%",
+  "status": "Available",
+  "availablePct": "25.48%",
+  "photo": "https://lh3.googleusercontent.com/d/1h6xRzEJj6WrKWcYaVK8ZPob2PS14Tx9w",
+  "description": "Investment: ExchangeRight Essential Income 12 DST | Sponsor: ExchangeRight | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 0.254838686958634 | Location: MO | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.07804 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Olympus Tradewinds DST",
+  "url": "olympus-tradewinds-dst.html",
+  "sponsor": "Olympus Property",
+  "propertyType": "Multifamily",
+  "location": "TX",
+  "ltv": "47.40%",
+  "minimum": "$25,000",
+  "y1Yield": "6.00%",
+  "avgYield": "6.24%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1BR1drbEjYZc1WEGMyPXpQXfmHowCj9IV",
+  "description": "Investment: Olympus Tradewinds DST | Sponsor: Olympus Property | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 47.40% LTV | Availability: 1 | Location: TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0921816110457772 | Minimum Investment: 25000"
+ },
+ {
+  "name": "Olympus Coronado DST",
+  "url": "olympus-coronado-dst.html",
+  "sponsor": "Olympus Property",
+  "propertyType": "Multifamily",
+  "location": "TX",
+  "ltv": "50.55%",
+  "minimum": "$25,000",
+  "y1Yield": "6.23%",
+  "avgYield": "7.12%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1ZacX6uBpIdUQ-EaO6OBjB5tRKFkHTYGv",
+  "description": "Investment: Olympus Coronado DST | Sponsor: Olympus Property | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 50.55% LTV | Availability: 1 | Location: TX | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0937624731722371 | Minimum Investment: 25000"
+ },
+ {
+  "name": "BR Diversified Industrial Portfolio 8, DST",
+  "url": "br-diversified-industrial-portfolio-8-dst.html",
+  "sponsor": "Bluerock",
+  "propertyType": "Industrial",
+  "location": "FL, IL, MO",
+  "ltv": "0.00%",
+  "minimum": "$100,000",
+  "y1Yield": "4.86%",
+  "avgYield": "5.32%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1Z0F6nQ1jT-K7wCiqXGkL_SolWCyHApRw",
+  "description": "Investment: BR Diversified Industrial Portfolio 8, DST | Sponsor: Bluerock | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 0.00% LTV | Availability: 1 | Location: FL, IL, MO | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7-10 years | Cap Rate Equivalent: 0.074572 | Minimum Investment: 100000"
+ },
+ {
+  "name": "Passco Allure DST",
+  "url": "passco-allure-dst.html",
+  "sponsor": "Passco",
+  "propertyType": "Multifamily",
+  "location": "VA",
+  "ltv": "45.22%",
+  "minimum": "$25,000",
+  "y1Yield": "4.35%",
+  "avgYield": "4.40%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1S41XEQMoIj914NT7dgWiHe7K9AzFTOb1",
+  "description": "Investment: Passco Allure DST | Sponsor: Passco | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 45.22% LTV | Availability: 1 | Location: VA | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0825378074154018 | Minimum Investment: 25000"
+ },
+ {
+  "name": "Trilogy Multifamily Opportunity Zone Fund",
+  "url": "trilogy-multifamily-oz-fund.html",
+  "sponsor": "Trilogy Real Estate Group",
+  "propertyType": "Multifamily",
+  "location": "FL",
+  "ltv": "50-70% (target)",
+  "minimum": "$100,000",
+  "y1Yield": "",
+  "avgYield": "",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1e-UDVp0Fx6J11zUBJxqzw93FORxoTmOk",
+  "description": "Investment: Trilogy Multifamily Opportunity Zone Fund | Sponsor: Trilogy Real Estate Group | Structure: Qualified Opportunity Zone Fund (LP) | Status: Available | LTV: 50-70% (target) | Availability: 1 | Location: FL | Strategy: Opportunistic | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: N/A | Minimum Investment: 100000"
+ },
+ {
+  "name": "BT Athens Student Housing DST",
+  "url": "bt-athens-student-housing-dst.html",
+  "sponsor": "Baker Tilly",
+  "propertyType": "Student Housing",
+  "location": "OH",
+  "ltv": "47.68%",
+  "minimum": "$100,000",
+  "y1Yield": "4.70%",
+  "avgYield": "4.96%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1SgHJtAGl9-PPRpPjPxHpKxUcXxWnXdZP",
+  "description": "Investment: BT Athens Student Housing DST | Sponsor: Baker Tilly | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 47.68% LTV | Availability: 1 | Location: OH | Strategy: Core-Plus | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.085155345457018 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BXREX Portfolio I DST",
+  "url": "bxrex-portfolio-i-dst.html",
+  "sponsor": "Blackstone",
+  "propertyType": "Multifamily",
+  "location": "NV, TX",
+  "ltv": "0.00%",
+  "minimum": "$1,000,000",
+  "y1Yield": "3.20%",
+  "avgYield": "3.41%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1g9GfXdmKGzdVtY43HOxezAlDYwVxyij0",
+  "description": "Investment: BXREX Portfolio I DST | Sponsor: Blackstone | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 0.00% LTV | Availability: 1 | Location: NV, TX | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.05764 | Minimum Investment: 1000000"
+ },
+ {
+  "name": "CF Biscayne Multifamily DST",
+  "url": "cf-biscayne-multifamily-dst.html",
+  "sponsor": "Cantor Fitzgerald",
+  "propertyType": "Multifamily",
+  "location": "FL",
+  "ltv": "52.26%",
+  "minimum": "$250,000",
+  "y1Yield": "4.30%",
+  "avgYield": "4.14%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1bgeCXzrd6qp98alpeh1TrJxQVWqGWSsZ",
+  "description": "Investment: CF Biscayne Multifamily DST | Sponsor: Cantor Fitzgerald | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 52.26% LTV | Availability: 1 | Location: FL | Strategy: Core-Plus | 721 Exchange Exit: Optional | Estimated Hold: 7 years | Cap Rate Equivalent: 0.0843391154694581 | Minimum Investment: 250000"
+ },
+ {
+  "name": "IREX V Diversified Portfolio DST",
+  "url": "irex-v-diversified-portfolio-dst.html",
+  "sponsor": "Invesco",
+  "propertyType": "Diversified",
+  "location": "NC, SC",
+  "ltv": "0.00%",
+  "minimum": "$250,000",
+  "y1Yield": "4.50%",
+  "avgYield": "4.82%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1a3GsNR8OxpcCyqvUkVQdSrtbDj9inowi",
+  "description": "Investment: IREX V Diversified Portfolio DST | Sponsor: Invesco | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 0.00% LTV | Availability: 1 | Location: NC, SC | Strategy: Core | 721 Exchange Exit: Mandatory | Estimated Hold: 2 years | Cap Rate Equivalent: 0.0709 | Minimum Investment: 250000"
+ },
+ {
+  "name": "NewStar 17 Sweetwater Springs DST",
+  "url": "newstar-17-sweetwater-springs-dst.html",
+  "sponsor": "NewStar Exchange",
+  "propertyType": "Multifamily",
+  "location": "GA",
+  "ltv": "44.66%",
+  "minimum": "$100,000",
+  "y1Yield": "4.40%",
+  "avgYield": "4.73%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/10tM5R1wEtKi9JwL6x5Y0NSkd2S0wML-v",
+  "description": "Investment: NewStar 17 Sweetwater Springs DST | Sponsor: NewStar Exchange | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 44.66% LTV | Availability: 1 | Location: GA | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.08266143859292 | Minimum Investment: 100000"
+ },
+ {
+  "name": "The Wyoming Reserve OZ Fund - Offering II",
+  "url": "the-wyoming-reserve-oz-fund-offering-ii.html",
+  "sponsor": "The Wyoming Reserve",
+  "propertyType": "Precious Metals",
+  "location": "WY",
+  "ltv": "N/A",
+  "minimum": "$50,000",
+  "y1Yield": "",
+  "avgYield": "",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/19ToebjpfJVbSuBj-jap6_JRAhSRf8LTH",
+  "description": "Investment: The Wyoming Reserve OZ Fund - Offering II | Sponsor: The Wyoming Reserve | Structure: Qualified Opportunity Zone Fund (Corporation) | Status: Available | LTV: N/A | Availability: 1 | Location: WY | Strategy: Opportunistic | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: N/A | Minimum Investment: 50000"
+ },
+ {
+  "name": "CSRA Opportunity Zone Fund IX, LLC",
+  "url": "csra-opportunity-zone-fund-ix.html",
+  "sponsor": "Capital Square",
+  "propertyType": "Multifamily",
+  "location": "VA",
+  "ltv": "50-70% (target)",
+  "minimum": "$100,000",
+  "y1Yield": "",
+  "avgYield": "",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1vZqeNQWgZQ511nnKFmJLMcbPe4HepiAi",
+  "description": "Investment: CSRA Opportunity Zone Fund IX, LLC | Sponsor: Capital Square | Structure: Qualified Opportunity Zone Fund (LLC) | Status: Available | LTV: 50-70% (target) | Availability: 1 | Location: VA | Strategy: Opportunistic | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: N/A | Minimum Investment: 100000"
+ },
+ {
+  "name": "IDEAL Ecco Park DST",
+  "url": "ideal-ecco-park-dst.html",
+  "sponsor": "IDEAL Capital Group",
+  "propertyType": "Multifamily",
+  "location": "OH",
+  "ltv": "51.68%",
+  "minimum": "$100,000",
+  "y1Yield": "4.96%",
+  "avgYield": "5.10%",
+  "status": "Coming Soon / Under Review",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1-bmZOvUfrugWnT-qb7UQapLdhCEh9Pt9",
+  "description": "Investment: IDEAL Ecco Park DST | Sponsor: IDEAL Capital Group | Structure: Delaware Statutory Trust (DST) | Status: Coming Soon / Under Review | LTV: 51.68% LTV | Availability: 1 | Location: OH | Strategy: Core-Plus | 721 Exchange Exit: None | Estimated Hold: 10 years | Cap Rate Equivalent: 0.0874884427604592 | Minimum Investment: 100000"
+ },
+ {
+  "name": "BREX Net Lease Data Center I DST",
+  "url": "brex-net-lease-data-center-i-dst.html",
+  "sponsor": "Brookfield",
+  "propertyType": "Net Lease",
+  "location": "CA",
+  "ltv": "39.80%",
+  "minimum": "$100,000",
+  "y1Yield": "4.37%",
+  "avgYield": "4.98%",
+  "status": "Available",
+  "availablePct": "100.00%",
+  "photo": "https://lh3.googleusercontent.com/d/1rJdzAcWfhw8mdJymZ3vyX-OTgnhU9rMr",
+  "description": "Investment: BREX Net Lease Data Center I DST | Sponsor: Brookfield | Structure: Delaware Statutory Trust (DST) | Status: Available | LTV: 39.80% LTV | Availability: 1 | Location: CA | Strategy: Core | 721 Exchange Exit: Optional | Estimated Hold: 5 years | Cap Rate Equivalent: 0.0810839341692391 | Minimum Investment: 100000"
+ }
+]
+</script>
+
+<script>
+var DIR = [];
+(function () {
+  var el = document.getElementById('directory-data');
+  try { DIR = JSON.parse(el.textContent); } catch (e) { return; }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  var tbody = document.getElementById('dirBody');
+  var sortKey = null, sortDir = 1;
+
+  function render(rows) {
+    tbody.innerHTML = rows.map(function (o) {
+      var i = DIR.indexOf(o);
+      var statusCls = o.status === 'Available' ? 'status-available' : '';
+      return '<tr>' +
+        '<td><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
+          '<span class="sub">' + esc(o.sponsor) + '</span></td>' +
+        '<td data-label="Property Type">' + esc(o.propertyType) + '</td>' +
+        '<td data-label="Location">' + esc(o.location) + '</td>' +
+        '<td data-label="LTV">' + esc(o.ltv) + '</td>' +
+        '<td data-label="Minimum">' + esc(o.minimum) + '</td>' +
+        '<td data-label="Y1 Yield">' + esc(o.y1Yield) + '</td>' +
+        '<td data-label="Avg. Yield">' + esc(o.avgYield) + '</td>' +
+        '<td data-label="Status" class="' + statusCls + '">' + esc(o.status) + '</td>' +
+        '<td><a class="btn-access" href="#" onclick="openDrawer(' + i + '); return false;">Preview</a></td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  function numVal(s) {
+    var n = parseFloat(String(s).replace(/[$,%]/g, '').replace(/,/g, ''));
+    return isNaN(n) ? null : n;
+  }
+  function doSort(key) {
+    if (sortKey === key) { sortDir = -sortDir; } else { sortKey = key; sortDir = 1; }
+    var rows = DIR.slice().sort(function (a, b) {
+      var av = a[key], bv = b[key];
+      var an = numVal(av), bn = numVal(bv);
+      var r;
+      if (an !== null && bn !== null) { r = an - bn; }
+      else { r = String(av).toLowerCase().localeCompare(String(bv).toLowerCase()); }
+      return r * sortDir;
+    });
+    document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
+      th.querySelector('.arrow').textContent =
+        th.getAttribute('data-key') === sortKey ? (sortDir === 1 ? '\u25B2' : '\u25BC') : '';
+    });
+    render(rows);
+  }
+  document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
+    th.addEventListener('click', function () { doSort(th.getAttribute('data-key')); });
+  });
+
+  var sortSelect = document.getElementById('sortSelect');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
+      if (!this.value) { sortKey = null; sortDir = 1; render(DIR); return; }
+      sortKey = null; // force ascending on fresh pick
+      doSort(this.value);
+    });
+  }
+
+  render(DIR);
+})();
+
+function openDrawer(i) {
+  var o = DIR[i];
+  if (!o) return;
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  document.getElementById('drawerName').textContent = o.name;
+  document.getElementById('drawerSponsor').textContent = o.sponsor;
+  document.getElementById('drawerPhoto').style.backgroundImage = o.photo ? 'url(' + o.photo + ')' : '';
+  document.getElementById('drawerFacts').innerHTML = [
+    ['Property Type', o.propertyType],
+    ['Location', o.location],
+    ['LTV', o.ltv],
+    ['Minimum Investment', o.minimum],
+    ['Year 1 Yield', o.y1Yield],
+    ['Average Yield', o.avgYield],
+    ['Status', o.status],
+    ['Equity Remaining', o.availablePct]
+  ].filter(function (x) { return x[1]; }).map(function (x) {
+    return '<div class="fact"><span class="label">' + esc(x[0]) + '</span><span class="value">' + esc(x[1]) + '</span></div>';
+  }).join('');
+  document.getElementById('drawerDesc').textContent = o.description || '';
+  var link = document.getElementById('drawerLink');
+  link.href = o.url || '#';
+  link.style.display = (o.url && o.url !== '#') ? 'inline-block' : 'none';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('drawer').setAttribute('aria-hidden', 'false');
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('drawer').setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+</script>
+
+</div>
+</body>
+</html>

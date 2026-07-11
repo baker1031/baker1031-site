@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange Into Oil &amp; Gas, Minerals &amp; Royalties | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange Into Oil & Gas, Minerals & Royalties
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange Into Oil & Gas, Minerals & Royalties</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Real estate investors looking to diversify can exchange into oil & gas — because perpetual mineral and royalty interests are like-kind real property. This guide explains why minerals and royalties qualify, why perpetual royalties qualify so cleanly, how royalty DSTs offer a turnkey option, the diversification beyond real estate they provide, and how to explore the options.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Most real estate investors think of 1031 replacement property as more real estate — another building, land, or a DST holding property. But the like-kind universe is broader than that: perpetual oil and gas mineral and royalty interests are real property too, which means a real estate investor can exchange into minerals and royalties, deferring the gain while diversifying into an entirely different asset class. For an investor concentrated in real estate, this opens a way to add energy exposure and tax-advantaged income — income partly sheltered by depletion — without leaving the 1031 framework. The interests can be acquired directly or, more practically for most investors, through royalty-pool DSTs that package them as turnkey replacement property. This guide explains why minerals and royalties qualify as like-kind, why perpetual royalties qualify especially cleanly, how royalty DSTs work, the diversification they offer, and how to explore these options as part of your exchange.</p>
+<h2 id="minerals-like-kind">Minerals &amp; royalties as like-kind</h2>
+<p>The foundation of exchanging real estate into oil and gas is that perpetual mineral and royalty interests are real property for tax purposes. Under the law of most producing states, minerals in the ground and the rights to them are real property, and the IRS generally follows that characterization. Because the like-kind standard for real estate looks at the character of the property as investment real estate rather than its type, a perpetual mineral or royalty interest is like-kind to an apartment building, an office tower, or any other investment real property. They're all real property held for investment.</p>
+<p>This means a real estate investor isn't limited to exchanging into more real estate — the qualifying universe includes oil and gas interests. An investor selling a rental property or commercial building can reinvest the proceeds into perpetual royalty interests (or a vehicle holding them) and defer the gain, just as if they'd bought another building. The cross-asset bridge between real estate and minerals runs in both directions: mineral owners can exchange into real estate, and real estate owners can exchange into minerals, because the two are like-kind.</p>
+<p>The 2017 Tax Cuts and Jobs Act, which limited 1031 to real property only, didn't disturb this — perpetual mineral and royalty interests were real property before and remain so after. What the law eliminated was personal-property exchanges (and, for working interests, the equipment component). So for a real estate investor considering oil and gas as replacement property, the key facts are that perpetual mineral and royalty interests qualify as like-kind real property, opening a different asset class within the 1031 framework. This guide focuses on royalties in particular, because they're the cleanest and most accessible oil and gas replacement for a real estate investor.</p>
+<h2 id="why-royalties-clean">Why royalties qualify cleanly</h2>
+<p>Among oil and gas interests, perpetual royalties are the cleanest fit for a 1031, which is why they're the natural choice for a real estate investor exchanging into the sector. A royalty interest is a cost-free right to a share of production — the holder receives a percentage off the top, bearing none of the drilling, operating, or environmental costs that a working interest entails. This makes a perpetual royalty a passive, cost-free, real-property interest with no equipment to carve out (unlike a working interest, whose equipment is non-qualifying personal property) and no operating liabilities.</p>
+<p>The 'perpetual' qualifier is what makes a royalty qualify cleanly. A perpetual royalty continues for the productive life of the minerals, with no fixed term or cap, giving it the open-ended duration the tax law associates with a real-property interest. Decades of IRS authority (such as Revenue Rulings 68-226 and 73-428) support treating perpetual royalties as real property eligible for like-kind exchange. So a perpetual royalty sits squarely on the qualifying side of the eligibility analysis, with well-settled authority behind it.</p>
+<p>This cleanliness matters for a real estate investor who isn't an oil and gas expert. Rather than navigating the eligibility complexities of working interests (equipment carve-outs), overrides (lease-dependent duration), or production payments (treated as debt, ineligible), an investor exchanging into perpetual royalties is choosing the oil and gas asset with the clearest qualification and the least complication. For a real estate investor adding minerals to their portfolio via a 1031, perpetual royalties — especially through a vetted vehicle — are the straightforward, well-supported choice, avoiding the gray areas that other mineral interests can present.</p>
+<div class="pullquote"><p>Perpetual royalties are the cleanest oil &amp; gas asset for a 1031 — passive, cost-free real property with well-settled authority and none of the complications of working interests.</p></div>
+<h2 id="royalty-dsts">Royalty DSTs as a turnkey option</h2>
+<p>For most real estate investors, the practical way to exchange into oil and gas royalties is through a royalty-pool DST rather than sourcing individual interests. The mineral market is fragmented and opaque — there's no MLS for royalties — so finding, valuing, and vetting individual interests within the 45-day window is genuinely difficult, especially for someone without oil and gas expertise. A royalty-pool DST solves this by packaging a diversified portfolio of royalty interests into a turnkey, securitized investment.</p>
+<p>A royalty-pool DST works like a real estate DST but holds mineral royalty interests instead of buildings. A sponsor assembles a diversified pool of perpetual royalty interests across many wells, operators, and basins, and sells fractional beneficial interests to <a href="insights.html">accredited investor</a>s. The IRS treats a DST interest as direct ownership of the underlying real property (Revenue Ruling 2004-86), and since the underlying royalties are real property, the royalty-pool DST qualifies as like-kind 1031 replacement property. So a real estate investor can exchange into a royalty-pool DST and defer the gain, gaining diversified mineral exposure in one turnkey step.</p>
+<p>The royalty-pool DST offers the same advantages that make real estate DSTs popular, applied to minerals: it's turnkey (the sponsor has done the sourcing and diligence), diversified (across many royalty interests, reducing single-well risk), fast-closing (helpful under the deadline and as a backup), and passive (no management role). It also generally passes through depletion, preserving the tax-advantaged character of royalty income. For a real estate investor who wants the diversification and income of oil and gas royalties without becoming a mineral expert or sourcing individual interests, the royalty-pool DST is the natural vehicle — and it's how most real estate-to-minerals exchanges are actually executed.</p>
+<h2 id="diversifying-beyond">Diversifying beyond real estate</h2>
+<p>The strategic appeal of exchanging into oil and gas is diversification beyond real estate. A real estate investor's wealth is concentrated in one asset class, exposed to property-market cycles, interest rates, and local economics. Adding oil and gas royalties introduces exposure to a different set of drivers — energy prices and production — that don't move in lockstep with real estate. Blending the two can reduce the volatility of an investor's total income and net worth, since a weak period for one asset class may be offset by the other.</p>
+<p>Oil and gas royalties also offer distinctive features that complement real estate. Royalty income is partly sheltered by depletion (often percentage depletion at 15% of gross income for qualifying owners), a tax advantage analogous to but distinct from real estate's depreciation. Royalties are cost-free and passive, like a well-chosen DST. And energy exposure can act differently than real estate in various economic environments. For an investor seeking to diversify their sources of income and risk, a measured allocation to oil and gas royalties — via a 1031, deferring the gain — adds a genuinely different dimension to a real-estate-heavy portfolio.</p>
+<p>The diversification can be partial, which suits most investors. Rather than moving entirely from real estate into minerals, an investor might exchange a portion of their proceeds into a royalty-pool DST while reinvesting the rest into real estate or real estate DSTs — adding energy exposure as a slice of a diversified replacement, not the whole. This is easily done through the <a href="1031-exchange-into-multiple-replacement-properties.html">identification rules, which allow multiple replacement properties</a>. The result is a portfolio that retains its real estate core while gaining the diversification, income, and tax features of oil and gas royalties — all tax-deferred. For a real estate investor, this measured, tax-deferred diversification into a different asset class is the core appeal of exchanging into oil and gas.</p>
+<h2 id="explore-options">Explore oil &amp; gas replacement options</h2>
+<p>For a real estate investor intrigued by exchanging into oil and gas, the path to exploring the options runs through the same advised, deadline-aware process as any replacement decision. The starting point is understanding what's available — primarily royalty-pool DSTs for most investors, given the difficulty of sourcing direct interests — and how they fit your goals (income, diversification, the role minerals would play in your portfolio) and your exchange requirements (value and debt targets, the 45-day clock).</p>
+<p>Because these are securities and a specialized asset class, working with an advisor who understands both <a href="1031-exchange-guide.html">1031 exchange</a>s and oil and gas is valuable. Such an advisor can present vetted royalty-pool DST offerings, help you compare them on the dimensions that matter (sponsor track record, diversification of the pool, fees, distribution rate, depletion treatment), and conduct the suitability review securities require. The combination of access to vetted offerings and informed guidance is what makes exploring oil and gas replacement options practical within the exchange timeline.</p>
+<p>The deeper oil and gas pillar of resources covers the eligibility, valuation, and <a href="1031-exchange-into-oil-and-gas-step-by-step.html">step-by-step structuring details for investors who want to go further</a> — the perpetual-interest rule, the differences among mineral interest types, the depletion mechanics, and the specifics of royalty-pool DSTs. A real estate investor seriously considering minerals as replacement property can explore these to understand the asset class more fully. But the practical entry point is straightforward: perpetual royalties (typically via a royalty-pool DST) are qualifying, turnkey, diversifying replacement property, and an advisor experienced in both 1031s and oil and gas can help you explore whether and how they fit your exchange. The option to diversify beyond real estate, tax-deferred, is available — and worth exploring for a real estate investor seeking a different dimension in their portfolio.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Perpetual mineral and royalty interests are like-kind real property, so real estate investors can exchange into oil &amp; gas.</li>
+<li>Perpetual royalties qualify especially cleanly — passive, cost-free, with well-settled authority and no equipment carve-out.</li>
+<li>Royalty-pool DSTs package diversified royalties as turnkey, qualifying replacement property — the practical route for most investors.</li>
+<li>Exchanging into royalties diversifies beyond real estate (energy exposure, depletion-sheltered income), and can be a partial allocation.</li>
+</ul></div>
+<h2 id="considerations">Considerations before exchanging into minerals</h2>
+<p>Before exchanging into oil and gas, a real estate investor should weigh the considerations that come with a different asset class. The most important is commodity-price exposure: royalty income rises and falls with oil and gas prices, which are more volatile than real estate rents. This volatility is the flip side of the diversification benefit — energy behaves differently than real estate, which helps a portfolio, but it also means the mineral income is less predictable than stabilized rent. An investor should size the allocation with this in mind.</p>
+<p>Decline is another consideration specific to minerals. Producing royalty interests deplete over time — the wells decline, and absent new drilling, the income falls. A royalty-pool DST mitigates this by diversifying across many wells at different stages, but the underlying physics of depletion remains. This makes oil and gas royalties different from real estate, whose income can be stable or growing. An investor adding royalties should understand that the income profile differs from real estate's and plan accordingly.</p>
+<p>Finally, these are securities (when accessed via a DST) with the usual considerations — illiquidity, sponsor dependence, fees, and the risks of the underlying minerals — plus the specialized nature of oil and gas. The suitability review and a clear-eyed assessment of how minerals fit your goals and risk tolerance are essential, as with any securitized replacement. None of these considerations argues against exchanging into oil and gas — for the right investor seeking diversification, it's an attractive option — but they're the factors to weigh, ideally with an advisor experienced in both 1031s and minerals, so the decision to add oil and gas to a real estate portfolio is made deliberately and well-informed.</p>
+<h2 id="income-comparison">How royalty income compares to real estate income</h2>
+<p>For a real estate investor used to rental income, it helps to understand how royalty income from oil and gas differs. Real estate rent from a stabilized property is relatively steady and can grow with inflation, while royalty income varies with both production and commodity prices and tends to decline over time as wells deplete. So a royalty-pool DST's income is generally lumpier and on a different trajectory than the rental income an investor is accustomed to — higher-yielding in good periods, but less predictable and declining absent new drilling.</p>
+<p>The tax treatment also differs in instructive ways. Real estate income is sheltered by depreciation; royalty income is sheltered by depletion. Both reduce the taxable portion of the income, but they attach to different assets and work somewhat differently — depletion (often a flat percentage of gross income for qualifying owners) can continue even after basis is recovered, which is a distinctive feature. A real estate investor adding royalties via a DST generally gains the depletion shelter on that portion, complementing the depreciation shelter on their real estate.</p>
+<p>These differences are why a measured allocation, rather than a wholesale move, suits most real estate investors adding oil and gas. Keeping a real estate core (with its steadier, inflation-sensitive income) while adding a royalty slice (with its higher yield, depletion shelter, and different risk drivers) blends the two income profiles — smoothing the whole while gaining diversification. Understanding how royalty income behaves relative to real estate income helps an investor size the allocation appropriately and set realistic expectations for the mineral portion, which is part of making the diversification into oil and gas a deliberate, well-understood decision rather than a leap into an unfamiliar income stream.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you exchange into oil &amp; gas</h2>
+<p>Baker 1031 Investments helps real estate investors explore and execute exchanges into oil and gas — confirming that perpetual royalty interests qualify as like-kind replacement, presenting vetted royalty-pool DST offerings, and helping you compare them on sponsor quality, diversification, fees, distribution rate, and depletion treatment. We help you decide whether and how much to allocate to minerals as part of a diversified replacement, and how it fits your goals and the exchange's value-and-debt targets.</p>
+<p>Royalty-pool DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors, and any recommendation follows a suitability review. With deep experience in both 1031 exchanges and oil and gas, our role is to make exchanging into minerals — a different asset class that diversifies a real-estate-heavy portfolio, tax-deferred — an accessible, well-advised option, so you can add energy exposure and depletion-sheltered income confidently if it fits your goals.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Can I 1031 exchange real estate into oil and gas?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Perpetual mineral and royalty interests are real property, so they're like-kind to your real estate. A real estate investor can exchange the proceeds from selling a property into perpetual royalty interests (typically via a royalty-pool DST) and defer the gain, gaining diversified energy exposure and depletion-sheltered income within the 1031 framework.</p></div>
+</details>
+<details>
+<summary>Why do minerals and royalties qualify as like-kind?<span class="ic"></span></summary>
+<div class="ans"><p>Because under the law of most producing states, minerals and the rights to them are real property, and the IRS follows that characterization. Since the like-kind standard looks at character as investment real estate, a perpetual mineral or royalty interest is like-kind to any investment real property — a building, land, or a DST. They're all real property held for investment.</p></div>
+</details>
+<details>
+<summary>Why do perpetual royalties qualify so cleanly?<span class="ic"></span></summary>
+<div class="ans"><p>Because a perpetual royalty is a passive, cost-free, real-property interest with no equipment to carve out and no operating liabilities, and its open-ended duration gives it the character the tax law associates with real property. Decades of IRS authority (Rev. Rul. 68-226, 73-428) support it. This makes perpetual royalties the cleanest oil and gas asset for a 1031, avoiding the complications of other interests.</p></div>
+</details>
+<details>
+<summary>What is a royalty-pool DST?<span class="ic"></span></summary>
+<div class="ans"><p>A Delaware Statutory Trust holding a diversified portfolio of perpetual oil and gas royalty interests, sold as fractional interests to accredited investors. It's turnkey, qualifying 1031 replacement property (under Rev. Rul. 2004-86), diversified across many wells and basins, fast-closing, and passive — the practical way for a real estate investor to exchange into minerals without sourcing individual interests.</p></div>
+</details>
+<details>
+<summary>Why use a royalty DST instead of buying minerals directly?<span class="ic"></span></summary>
+<div class="ans"><p>Because the mineral market is fragmented and opaque, making it hard to find, value, and vet individual interests within the 45-day window — especially without oil and gas expertise. A royalty-pool DST packages diversified, vetted royalties as a turnkey investment, solving the sourcing problem and providing diversification. It's how most real estate-to-minerals exchanges are actually executed.</p></div>
+</details>
+<details>
+<summary>How does exchanging into minerals diversify my portfolio?<span class="ic"></span></summary>
+<div class="ans"><p>It adds exposure to a different asset class — energy prices and production — that doesn't move in lockstep with real estate, reducing the volatility of your total income and net worth. Royalty income is also partly sheltered by depletion (a tax advantage like real estate's depreciation). For a real-estate-heavy investor, a measured mineral allocation adds a genuinely different dimension, tax-deferred.</p></div>
+</details>
+<details>
+<summary>Do I have to move all my proceeds into minerals?<span class="ic"></span></summary>
+<div class="ans"><p>No — you can exchange a portion into a royalty-pool DST while reinvesting the rest into real estate or real estate DSTs, adding energy exposure as a slice of a diversified replacement. The identification rules allow multiple replacements, so a partial allocation is easy. Most investors add minerals as a measured diversifier, keeping a real estate core.</p></div>
+</details>
+<details>
+<summary>Is royalty income sheltered from tax?<span class="ic"></span></summary>
+<div class="ans"><p>Partly — royalty owners can generally claim depletion (often percentage depletion at 15% of gross income for qualifying owners), which shelters part of the income, a tax advantage analogous to real estate's depreciation. A royalty-pool DST generally passes this through to investors, preserving the tax-advantaged character of the income — one of the appeals of adding royalties to a portfolio.</p></div>
+</details>
+<details>
+<summary>What are the risks of exchanging into oil and gas?<span class="ic"></span></summary>
+<div class="ans"><p>Commodity-price volatility (royalty income swings more than rent), depletion-driven decline (producing royalties' income falls over time absent new drilling), and the usual securities risks of a DST (illiquidity, sponsor dependence, fees). Diversified royalty-pool DSTs mitigate single-well risk but not the asset class's nature. Size the allocation and assess the fit with an advisor experienced in both 1031s and minerals.</p></div>
+</details>
+<details>
+<summary>Do working interests qualify like royalties?<span class="ic"></span></summary>
+<div class="ans"><p>Partially and less cleanly. A working interest's real-property component qualifies, but its tangible equipment is non-qualifying personal property that must be carved out and taxed, and working interests carry operating costs and liabilities. For a real estate investor exchanging into oil and gas, perpetual royalties (typically via a royalty-pool DST) are far simpler and cleaner than working interests.</p></div>
+</details>
+<details>
+<summary>How do I explore exchanging into minerals?<span class="ic"></span></summary>
+<div class="ans"><p>Work with an advisor experienced in both 1031 exchanges and oil and gas, who can present vetted royalty-pool DST offerings, help you compare them (sponsor, diversification, fees, distribution rate, depletion treatment), and conduct the suitability review. They help you decide whether and how much to allocate to minerals as part of a diversified replacement that fits your goals and exchange requirements.</p></div>
+</details>
+<details>
+<summary>Is exchanging into oil and gas right for every investor?<span class="ic"></span></summary>
+<div class="ans"><p>No — it suits investors seeking diversification beyond real estate who are comfortable with commodity-price volatility, depletion-driven decline, and the securities nature of a royalty-pool DST. For those it fits, it adds energy exposure and depletion-sheltered income tax-deferred. For investors who want stability and only real estate, it may not fit. Assess the fit with an advisor before committing.</p></div>
+</details>
+<details>
+<summary>How does royalty income compare to rental income?<span class="ic"></span></summary>
+<div class="ans"><p>Rental income from a stabilized property is relatively steady and can grow with inflation, while royalty income varies with production and commodity prices and tends to decline over time as wells deplete. So a royalty-pool DST's income is generally lumpier and on a different trajectory — higher-yielding in good periods, but less predictable and declining absent new drilling than the rent a real estate investor is used to.</p></div>
+</details>
+<details>
+<summary>Is royalty income taxed like rental income?<span class="ic"></span></summary>
+<div class="ans"><p>Both are sheltered, but differently — real estate income by depreciation, royalty income by depletion. Both reduce the taxable portion, but they attach to different assets and work somewhat differently (depletion can continue even after basis is recovered). A real estate investor adding royalties via a DST generally gains the depletion shelter on that portion, complementing the depreciation shelter on their real estate.</p></div>
+</details>
+<details>
+<summary>Why add only a measured allocation to minerals?<span class="ic"></span></summary>
+<div class="ans"><p>Because keeping a real estate core (steadier, inflation-sensitive income) while adding a royalty slice (higher yield, depletion shelter, different risk drivers) blends the two income profiles, smoothing the whole while gaining diversification. A measured allocation lets you capture the diversification and income benefits of minerals without over-exposing the portfolio to commodity volatility and depletion-driven decline.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Mineral Interest</dt><dd>Ownership of minerals beneath a tract; generally real property eligible for 1031.</dd></div>
+<div class="g"><dt>Royalty Interest</dt><dd>A cost-free right to a share of production; perpetual royalties qualify as real property.</dd></div>
+<div class="g"><dt>Perpetual Royalty</dt><dd>A royalty continuing for the life of production; the cleanest oil and gas asset for 1031.</dd></div>
+<div class="g"><dt>Like-Kind</dt><dd>The standard requiring exchanged property to share the character of real property held for investment.</dd></div>
+<div class="g"><dt>Royalty-Pool DST</dt><dd>A DST holding diversified mineral royalty interests as turnkey 1031 replacement property.</dd></div>
+<div class="g"><dt>Revenue Ruling 2004-86</dt><dd>The IRS ruling treating a DST interest as direct ownership of the underlying real property.</dd></div>
+<div class="g"><dt>Revenue Ruling 68-226</dt><dd>IRS authority treating a perpetual oil and gas royalty as real property.</dd></div>
+<div class="g"><dt>Depletion</dt><dd>A deduction sheltering part of royalty income; often 15% of gross income for qualifying owners.</dd></div>
+<div class="g"><dt>Working Interest</dt><dd>An operating interest with costs and taxable equipment; less clean for 1031 than a royalty.</dd></div>
+<div class="g"><dt>Commodity-Price Exposure</dt><dd>Sensitivity of royalty income to oil and gas prices, a diversification benefit and a risk.</dd></div>
+<div class="g"><dt>Decline Curve</dt><dd>The projected decline in a well's production, causing royalty income to fall over time.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>Spreading capital across asset classes (real estate and energy) to reduce concentration.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting SEC thresholds, eligible for royalty-pool DST offerings.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>The assessment that a securities product like a royalty-pool DST fits an investor.</dd></div>
+<div class="g"><dt>Cross-Asset Exchange</dt><dd>A 1031 between different real-property asset classes, such as real estate and minerals.</dd></div>
+<div class="g"><dt>Broker-Dealer</dt><dd>The firm through which royalty-pool DSTs are offered; Baker 1031's is Aurora Securities.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. Revenue Ruling 68-226 (oil and gas royalty as real property)</li><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86 (Delaware Statutory Trusts)</a></li><li>IRS. <a href="https://www.irs.gov/pub/irs-pdf/p5652.pdf" rel="noopener nofollow" target="_blank">Oil and Gas Handbook — Depletion (IRM 4.41.1)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a><a href="insights.html">Mineral &amp; Royalty</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

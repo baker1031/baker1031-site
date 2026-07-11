@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange for Farmers &amp; Ranchers | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange for Farmers & Ranchers
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange for Farmers & Ranchers</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Farmland, ranchland, and agricultural property qualify for 1031 exchanges, letting farmers and ranchers defer the substantial tax on appreciated land and reposition — into other agricultural land, other real estate, or passive income. This guide covers what qualifies (land, water and mineral rights, improvements), the farm-home wrinkle, trading into passive income, and tax considerations.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Farmland and ranchland have appreciated substantially in many regions, leaving agricultural landowners with significant gains — and significant tax exposure if they sell. The 1031 exchange is a powerful tool for farmers and ranchers, letting them defer that tax and reposition: trading into other agricultural land (consolidating, relocating, or upgrading their operation), exchanging into other real estate entirely (for diversification or income), or transitioning into passive income (via DSTs) when they're ready to retire from active farming. Agricultural exchanges have some special considerations — what qualifies (land, certain water and mineral rights, improvements), the treatment of the farm home, and the personal-property elements (crops, livestock, equipment) that don't qualify. This guide covers why agricultural owners exchange, what qualifies, the farm-home wrinkle, trading into passive income, and tax considerations.</p>
+<h2 id="why-exchange">Why farmland and ranchland owners exchange</h2>
+<p>Farmers and ranchers exchange for reasons tied to their land's appreciation and their evolving operations and lives. Capturing appreciated land value while deferring tax is primary — agricultural land has appreciated significantly in many areas, so owners sitting on valuable land face substantial tax if they sell. The exchange lets them realize that value through repositioning without the tax hit, preserving their full capital. For multi-generational landowners with very low basis (land held or inherited long ago), the gain — and the tax — can be enormous, making the deferral especially valuable.</p>
+<p>Repositioning the operation is another driver — a farmer might trade scattered parcels into a consolidated, more efficient operation, relocate to better land or a different region, or upgrade to more productive ground. Ranchers similarly reposition for better grazing, water, or operational fit. The exchange enables these operational moves tax-deferred, letting agricultural owners optimize their land base. So the exchange serves the working farmer or rancher repositioning their operation.</p>
+<p>Retiring from active farming is a major driver — many agricultural owners reach a point where they want to retire from the demanding work of farming or ranching but keep their capital invested. The exchange (especially into passive holdings like DSTs) lets them transition from active agricultural operation into passive real estate income, tax-deferred — a way to retire from farming while preserving their land wealth and generating income. Why farmland and ranchland owners exchange — to capture appreciated land value tax-deferred, to reposition their operation, and to retire from active farming into passive income — reflects agricultural land's appreciation and the arc of a farming life. These motivations make the exchange valuable for agricultural owners, whether optimizing a working operation or transitioning toward retirement. The exchange serves farmers and ranchers across their careers, from operational repositioning to eventual retirement.</p>
+<h2 id="what-qualifies">What qualifies: land, water rights, improvements</h2>
+<p>Understanding what qualifies for a <a href="1031-exchange-guide.html">1031 exchange</a> is important for agricultural owners, because farms and ranches include various assets, not all of which are like-kind real property. The land itself clearly qualifies — farmland, ranchland, and agricultural real property held for investment or productive use are eligible real property. So the core of an agricultural exchange — the land — is squarely exchangeable, and can be exchanged for other agricultural land or other investment real estate.</p>
+<p>Improvements and certain rights associated with the land may also qualify as real property. Permanent improvements (barns, silos, irrigation infrastructure, fencing, and other fixtures) are generally part of the real property and qualify. Water rights, depending on state law, are often treated as real property and can qualify as like-kind (water rights are real property in many western states, important for ranching and irrigated farming). Mineral rights and other land-associated real property interests may also qualify (perpetual mineral and royalty interests are often treated as real property). So beyond the bare land, the improvements and many land-associated rights qualify.</p>
+<p>However, some assets on a farm or ranch are personal property and don't qualify (since the TCJA limited 1031 to real property). Growing crops, harvested crops, livestock, farm equipment and machinery, and stored commodities are personal property, not like-kind real property, so they're not exchangeable through 1031. In a sale of a working farm or ranch, the value must be allocated between the qualifying real property (land, improvements, qualifying rights) and the non-qualifying personal property (crops, livestock, equipment). What qualifies — the land, improvements, and many land-associated rights (water, mineral) as real property, but not crops, livestock, or equipment (personal property) — defines the scope of an agricultural exchange. The real property qualifies, but the personal-property elements of a working operation don't, requiring allocation (with a CPA). Understanding what qualifies helps agricultural owners structure their exchanges correctly, deferring the real-property portion while handling the personal property separately.</p>
+<div class="pullquote"><p>The land, improvements, and many associated rights (water, mineral) qualify as real property — but crops, livestock, and equipment are personal property that doesn't qualify post-TCJA, requiring careful allocation.</p></div>
+<h2 id="easements-mineral">Conservation easements and mineral rights</h2>
+<p>Agricultural land often involves conservation easements and mineral rights, which have specific exchange considerations. Conservation easements — restrictions on developing or using land for conservation purposes — can interact with exchanges in a few ways. A landowner might exchange land subject to an easement, or the granting/value of easements can have tax implications separate from the exchange. Perpetual conservation easements are interests in real property, and transactions involving them can have like-kind exchange and other tax dimensions that warrant professional guidance.</p>
+<p>Mineral rights are commonly significant for agricultural land, especially in resource-rich regions. Mineral and royalty interests are often treated as real property for like-kind exchange purposes (consistent with longstanding IRS guidance treating perpetual mineral royalty interests as real property). So an agricultural owner with mineral rights may be able to exchange them as like-kind real property — for example, exchanging mineral interests for other real estate, or exchanging surface real estate for mineral interests. This opens repositioning options involving the mineral component of agricultural land.</p>
+<p>These interests — conservation easements and mineral rights — add dimensions to agricultural exchanges that require careful, professional handling, because their treatment depends on the specific interests, state law, and the transaction structure. An agricultural owner with significant easement or mineral considerations should work with experienced advisors to navigate how these interact with the exchange. Conservation easements and mineral rights — real property interests with specific exchange considerations — are important dimensions of agricultural exchanges for owners with these interests. Mineral rights are often exchangeable as real property, opening repositioning options, while conservation easements add considerations that warrant professional guidance. For agricultural owners with easements or minerals, understanding these dimensions (with experienced advisors) is part of structuring their exchanges, given the special nature of these land-associated real property interests. These elements distinguish many agricultural exchanges and reward professional handling.</p>
+<h2 id="passive-income">Trading farmland into passive income</h2>
+<p>A major exchange strategy for agricultural owners is trading farmland or ranchland into passive income — exchanging their land for passive real estate holdings (like DSTs) that generate income without the work of farming. This is especially valuable for owners retiring from active agriculture: rather than continuing to farm, or selling and paying the tax, they exchange their land into passive, income-producing real estate, preserving their land wealth and generating retirement income tax-deferred.</p>
+<p>The farmland-to-DST exchange is the classic version of this. A farmer or rancher exchanges their appreciated land for fractional interests in DSTs — which may hold commercial real estate (apartments, net-lease, industrial) professionally managed by the sponsor — converting their active agricultural asset into passive, diversified real estate income. The owner sheds the demanding work of farming while keeping their capital invested and earning income, all tax-deferred. For retiring farmers, this transforms illiquid, work-intensive land into passive income.</p>
+<p>This strategy addresses a common agricultural-owner situation: substantial wealth tied up in appreciated land that requires active work to generate income, with the owner ready to step back. Trading into passive income lets them unlock the land's value (deferring the tax), generate income without the work, and diversify out of concentrated land into varied real estate. DSTs are securities (accredited-investor, suitability review), passive, and illiquid. Trading farmland into passive income — exchanging agricultural land for passive real estate (like DSTs) that generates income without farming — is a key strategy for agricultural owners, especially those retiring from active operation. It converts work-intensive, appreciated land into passive, diversified income tax-deferred, preserving the owner's wealth while ending the farming work. For retiring farmers and ranchers, this transition into passive income is often the goal the exchange achieves, turning a lifetime's land into retirement income.</p>
+<h2 id="farm-home">The personal-residence and farm-home wrinkle</h2>
+<p>Many farms and ranches include the owner's home, which creates a wrinkle because the personal residence is treated differently from the agricultural land. The farm or ranch real property (land, agricultural improvements) qualifies for 1031 exchange as investment/productive-use property, but the personal residence (the owner's home) doesn't qualify for 1031 — it's a personal-use property, not held for investment or productive use. So when a farm including the owner's home is sold, the residence portion is treated separately.</p>
+<p>The favorable news is that the residence may qualify for a different tax benefit — the Section 121 home-sale exclusion, which excludes gain on a primary residence (up to $250,000 for single filers, $500,000 for married couples) if the ownership and use tests are met. So a farm sale can combine two tax treatments: Section 1031 deferral on the agricultural real property and Section 121 exclusion on the residence portion. The value is allocated between the farm (1031) and the home (121), with each getting its respective treatment.</p>
+<p>This split treatment requires allocating the property's value between the residence (and its surrounding land used as a home) and the agricultural property, with the CPA handling the allocation and applying Section 121 to the home and Section 1031 to the farm. The allocation affects how much gain is excluded (home) versus deferred (farm). The personal-residence and farm-home wrinkle — the residence portion qualifying for the Section 121 exclusion rather than the Section 1031 exchange, requiring allocation between the home and the agricultural property — is an important consideration for farm and ranch owners whose property includes their home. The combination of Section 121 (home) and Section 1031 (farm) can be advantageous, but it requires careful allocation with a CPA. Understanding this wrinkle helps agricultural owners handle the home portion of their property correctly, capturing the home-sale exclusion while deferring the farm gain through the exchange.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Farmers and ranchers exchange to capture appreciated land value tax-deferred, reposition their operation, and retire from farming into passive income.</li>
+<li>The land, improvements, and many associated rights (water, mineral) qualify as real property; crops, livestock, and equipment (personal property) don't.</li>
+<li>The farmland-to-DST exchange converts work-intensive land into passive, diversified income — popular for retiring farmers.</li>
+<li>The farm home is handled under Section 121 (home-sale exclusion), not Section 1031 — requiring allocation between home and farm.</li>
+</ul></div>
+<h2 id="tax-considerations">Tax considerations for agricultural land</h2>
+<p>Agricultural exchanges involve significant tax considerations, often amplified by the low basis and long holding periods common in farming. The four-layer tax stack (capital gains, <a href="depreciation-recapture-real-estate.html">depreciation recapture</a>, <a href="net-investment-income-tax.html">NIIT</a>, state tax) applies to agricultural land sales — and for low-basis land (held or inherited long ago, or fully depreciated improvements), the gain can be very large, making the tax substantial and the exchange's deferral correspondingly valuable. Multi-generational farm families with very low basis face especially large gains.</p>
+<p>Depreciation recapture applies to depreciable agricultural improvements (barns, irrigation systems, certain land improvements), which the exchange defers along with the capital gains. The allocation between non-depreciable land (capital gain) and depreciable improvements (recapture), and the personal property (crops, livestock, equipment — handled separately), requires the CPA's attention. The carryover basis in the replacement property carries the deferral forward.</p>
+<p>The combination of low basis, depreciation, the real-vs-personal-property allocation, and the home/farm split (Section 121/1031) makes agricultural exchanges tax-complex, rewarding careful planning with an experienced CPA. The substantial tax at stake (especially for low-basis land) makes the deferral valuable, while the various allocations require professional handling. Tax considerations for agricultural land — the substantial four-layer tax on often-low-basis land (deferred by the exchange), depreciation recapture on improvements, and the various allocations (real-vs-personal property, home-vs-farm) — make agricultural exchanges valuable but complex. The large gains common in farming make the deferral especially worthwhile, while the allocations require an experienced CPA. Understanding these considerations helps farmers and ranchers appreciate the exchange's value and structure it correctly, capturing the substantial deferral their appreciated land warrants while handling the agricultural-specific allocations properly.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps farmers and ranchers</h2>
+<p>Baker 1031 Investments helps farmers and ranchers use exchanges to capture their land's value and reposition tax-deferred — whether trading into other agricultural land, exchanging into other real estate, or transitioning into passive income for retirement. We help with the real-property exchange (sourcing replacements, including passive DST options), and we coordinate with your CPA on the agricultural-specific allocations (real-vs-personal property, home-vs-farm, water and mineral rights).</p>
+<p>DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), with any recommendation following a suitability review — the farmland-to-DST exchange is a popular way for retiring farmers and ranchers to convert work-intensive land into passive, diversified income while deferring the substantial tax on appreciated land. We emphasize coordinating with an experienced CPA given the allocations and the home/farm (121/1031) treatment. Our role is to help agricultural owners use the exchange across their careers — repositioning their operation or transitioning to passive retirement income — handling the agricultural-specific considerations with professional guidance so they preserve their land wealth tax-deferred. For farmers and ranchers, the exchange is a powerful tool for managing a lifetime's land.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Does farmland qualify for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — farmland, ranchland, and agricultural real property held for investment or productive use qualify as like-kind real property. You can exchange agricultural land for other agricultural land or for other investment real estate (apartments, net-lease, industrial, etc.). The land, permanent improvements, and many associated rights (water, mineral) qualify, while crops, livestock, and equipment (personal property) don't. So the core agricultural real property is squarely exchangeable, letting farmers and ranchers defer tax and reposition.</p></div>
+</details>
+<details>
+<summary>Can I exchange farmland for other types of real estate?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — like-kind for real estate is broad, so you can exchange farmland for any investment real estate (apartments, net-lease retail, industrial, etc.), not just other farmland. Many agricultural owners exchange land into income-producing commercial real estate or passive DSTs, especially when retiring from farming. So you're not limited to farm-for-farm; you can reposition agricultural land into other real estate sectors tax-deferred. This flexibility lets farmers and ranchers diversify out of land or move into passive income via the exchange.</p></div>
+</details>
+<details>
+<summary>Do water rights qualify for exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes — water rights are treated as real property in many states (especially western states), and where they're real property, they can qualify as like-kind for an exchange. This is important for ranching and irrigated farming, where water rights are valuable. The treatment depends on state law (how the state characterizes water rights), so professional guidance is important. Where water rights are real property, they can be exchanged as like-kind, an important consideration for agricultural owners with significant water rights.</p></div>
+</details>
+<details>
+<summary>Are mineral rights exchangeable?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes — mineral and royalty interests are frequently treated as real property for like-kind exchange purposes (consistent with longstanding IRS guidance treating perpetual mineral royalty interests as real property). So an agricultural owner with mineral rights may exchange them as like-kind real property — for example, exchanging mineral interests for other real estate, or vice versa. This opens repositioning options involving the mineral component of agricultural land. The specific treatment depends on the nature of the interest, warranting professional guidance for mineral-rights exchanges.</p></div>
+</details>
+<details>
+<summary>What about my farm equipment and livestock?<span class="ic"></span></summary>
+<div class="ans"><p>Those are personal property and don't qualify for 1031 exchange (since the 2017 TCJA limited 1031 to real property). Crops, livestock, farm equipment, machinery, and stored commodities are personal property, not like-kind real property. So in a sale of a working farm, the value must be allocated between the qualifying real property (land, improvements, qualifying rights) and the non-qualifying personal property (crops, livestock, equipment), which is handled separately. Your CPA handles this allocation and the personal property's tax treatment.</p></div>
+</details>
+<details>
+<summary>How is my farmhouse treated in an exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The farmhouse (your personal residence) doesn't qualify for 1031 (it's personal-use, not investment property) but may qualify for the Section 121 home-sale exclusion (up to $250,000 of gain for singles, $500,000 for married couples, if the ownership and use tests are met). So a farm sale can combine Section 1031 deferral on the agricultural property and Section 121 exclusion on the home, with the value allocated between them. This split treatment (home under 121, farm under 1031) is handled by your CPA and can be advantageous.</p></div>
+</details>
+<details>
+<summary>What is a farmland-to-DST exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Exchanging your farmland or ranchland for fractional interests in DSTs — passive, professionally-managed real estate (apartments, net-lease, industrial) — converting your active agricultural land into passive, diversified income. It's popular among farmers and ranchers retiring from active operation: they unlock their land's value (deferring the tax), generate income without farming, and diversify out of concentrated land. The owner sheds the demanding farm work while keeping capital invested and earning income tax-deferred. It's the classic transition for retiring agricultural owners.</p></div>
+</details>
+<details>
+<summary>Why is the exchange valuable for low-basis farmland?<span class="ic"></span></summary>
+<div class="ans"><p>Because low-basis land (held or inherited long ago, or with fully-depreciated improvements) has a very large gain when sold, generating substantial four-layer tax. The exchange defers that large tax, preserving the full value for reinvestment. For multi-generational farm families with very low basis, the gain — and the tax saved by deferring — can be enormous. So the exchange is especially valuable for low-basis agricultural land, where the tax on a sale would be very large. The lower the basis, the more valuable the deferral.</p></div>
+</details>
+<details>
+<summary>Can I consolidate scattered parcels through an exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you can exchange scattered or multiple parcels into a consolidated, more efficient operation (or vice versa, diversify one parcel into several), repositioning your land base tax-deferred. Farmers use exchanges to consolidate for efficiency, relocate to better land, or upgrade to more productive ground. So the exchange enables operational repositioning of your land — consolidating, relocating, or upgrading — without the tax cost of selling and rebuying. This serves working farmers and ranchers optimizing their operation.</p></div>
+</details>
+<details>
+<summary>Do conservation easements affect my exchange?<span class="ic"></span></summary>
+<div class="ans"><p>They can — conservation easements (development restrictions for conservation) are real property interests that can interact with exchanges in various ways (exchanging eased land, or the tax implications of granting easements). Perpetual conservation easements are interests in real property with like-kind and other tax dimensions. The treatment depends on the specific easement and transaction, so professional guidance is important for agricultural owners with significant easement considerations. Easements add a dimension to agricultural exchanges that warrants experienced advisors.</p></div>
+</details>
+<details>
+<summary>Should I exchange or sell my farm?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on your goals. If you want to stay invested in real estate (including transitioning to passive income for retirement), the exchange defers the substantial tax on appreciated, often-low-basis land, preserving far more capital than a taxable sale. If you want to fully cash out, a sale (paying the tax) might fit — though the home portion may still get the Section 121 exclusion. For most agricultural owners repositioning or retiring while staying invested, the exchange preserves substantial capital. Model both with your CPA, considering the large gains common in farming.</p></div>
+</details>
+<details>
+<summary>Do agricultural exchanges need special expertise?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — agricultural exchanges have special considerations (the real-vs-personal-property allocation for crops/livestock/equipment, water and mineral rights, conservation easements, and the home/farm 121/1031 split) that warrant experienced professional guidance. An experienced CPA is essential for the allocations and tax planning, and advisors familiar with agricultural exchanges help structure them correctly. The agricultural-specific elements make these exchanges more complex than simple real estate, rewarding careful, professional handling. Engage advisors experienced with farm and ranch exchanges.</p></div>
+</details>
+<details>
+<summary>Can I keep farming while my heirs benefit from the exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — many agricultural owners use exchanges as part of estate and succession planning. You can exchange and continue farming the replacement (or lease it out), and if you hold the replacement until death, your heirs generally receive a stepped-up basis that can erase the accumulated deferred gain — so the family can sell with little or no income tax on the prior appreciation. This combination of 1031 deferral during life and step-up at death is a powerful estate-planning tool for farm families with low-basis land. Coordinate with your CPA and estate attorney.</p></div>
+</details>
+<details>
+<summary>Can I do a partial exchange and keep some cash from my land sale?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a partial exchange lets you take some cash (taxable boot) while deferring the rest, useful if you want some liquidity from your land sale (for retirement, debt payoff, or other needs) while still deferring most of the gain. The cash you take is taxed to the extent of the gain, but the reinvested portion is deferred. Many agricultural owners use partial exchanges to balance liquidity needs with deferral. Your CPA models the tax on the boot so you can decide how much cash to take versus defer.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Agricultural Real Property</dt><dd>Farmland and ranchland qualifying for exchange as investment/productive-use property.</dd></div>
+<div class="g"><dt>1031 Exchange for Land</dt><dd>Using the exchange to defer tax on appreciated agricultural land.</dd></div>
+<div class="g"><dt>Water Rights</dt><dd>Rights to use water, often real property (exchangeable) in western states.</dd></div>
+<div class="g"><dt>Mineral Rights</dt><dd>Rights to subsurface minerals, often treated as exchangeable real property.</dd></div>
+<div class="g"><dt>Conservation Easement</dt><dd>A development restriction for conservation, a real property interest.</dd></div>
+<div class="g"><dt>Improvements</dt><dd>Barns, irrigation, fencing — generally real property that qualifies.</dd></div>
+<div class="g"><dt>Personal Property</dt><dd>Crops, livestock, equipment — not eligible for exchange since the TCJA.</dd></div>
+<div class="g"><dt>Real-vs-Personal Allocation</dt><dd>Dividing a farm's value into exchangeable real and non-exchangeable personal property.</dd></div>
+<div class="g"><dt>Section 121 Exclusion</dt><dd>The home-sale exclusion ($250K/$500K) applying to the farmhouse.</dd></div>
+<div class="g"><dt>Home/Farm Split</dt><dd>Allocating value between the residence (121) and the agricultural property (1031).</dd></div>
+<div class="g"><dt>Low Basis</dt><dd>A small tax basis (common in long-held farms) creating large gains.</dd></div>
+<div class="g"><dt>Farmland-to-DST Exchange</dt><dd>Converting land into passive DST income, popular for retiring farmers.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Tax on prior depreciation of improvements, deferred by the exchange.</dd></div>
+<div class="g"><dt>Carryover Basis</dt><dd>The basis carried from the farm to the replacement property.</dd></div>
+<div class="g"><dt>Productive Use</dt><dd>The standard (alongside investment) by which agricultural land qualifies.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A passive income destination for retiring agricultural owners.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-225" rel="noopener nofollow" target="_blank">Publication 225, Farmer's Tax Guide</a></li><li>IRS. <a href="https://www.irs.gov/taxtopics/tc701" rel="noopener nofollow" target="_blank">Topic No. 701, Sale of Your Home (Section 121)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

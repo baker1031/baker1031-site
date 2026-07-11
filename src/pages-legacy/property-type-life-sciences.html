@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Science Properties for 1031 Exchange &amp; DST Investors | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span><a href="property-types.html">Property Types</a><span class="sep">❯</span>Life Science Properties for 1031 Exchange & DST Investors
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Life Science Properties for 1031 Exchange & DST Investors</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="property-types.html">Back to All Property Types</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Property Types</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 13 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Life science buildings are laboratories first and offices second. The specialized build-out makes tenants sticky and re-tenanting slow, and right now a supply wave has pushed vacancy up in several clusters.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A <strong>life science property</strong> is purpose-built laboratory and research space, the wet labs, GMP manufacturing suites, and R&amp;D buildings where pharmaceutical and biotechnology companies do their work. It is not office space with a few benches added. It is engineered for science: heavy power, dense HVAC and air exchange, fume hoods, venting, vibration control, and floor loads ordinary buildings never carry. The sector clusters tightly in a few markets, Boston-Cambridge, South San Francisco, and San Diego above all, where universities, talent, and venture capital have pooled for decades. For an investor eyeing a <a href="insights.html">1031 exchange</a> or a <a href="how-to-invest-in-a-dst.html">Delaware Statutory Trust</a>, life science is a premium, specialized, and frankly still-emerging corner of the market. This guide explains the asset, the clusters, the supply problem nobody should ignore right now, the tenant-credit spectrum, and how the few accredited-investor vehicles work.</p>
+<h2 id="what-it-is">What a life science building is, exactly</h2>
+<p>The defining feature is the build-out. A lab building has to deliver far more power per square foot than an office, move and exchange air constantly to handle chemicals and biological material, support fume hoods and vacuum and gas lines, and carry equipment and vibration loads that would not work on a normal floor plate. Wet labs handle liquids and biological samples. GMP space, short for good manufacturing practice, is the regulated, validated environment where a therapy is physically produced. Each is a different and expensive thing to build.</p>
+<p>Because the infrastructure is so heavy, converting plain office into real lab space is costly and slow, and not every building can take it at all. That scarcity of true, modern lab supply is part of what made the sector attractive in the first place. Tenants could not simply move into the warehouse down the street.</p>
+<p>We tell clients to treat the building's specifications as part of the underwriting, not a footnote. The power capacity, the air changes per hour, the floor loads, and the generation of the lab, these determine whether a tenant can use the space at all, and whether the next tenant can use it if the first one leaves.</p>
+<h2 id="clusters">Why it lives in three or four cities</h2>
+<p>Life science is one of the most geographically concentrated property types there is. The demand sits where the science sits, and the science sits near research universities, teaching hospitals, deep pools of specialized talent, and the venture capital that funds biotech. That has produced a short list of dominant clusters: Boston-Cambridge, anchored by MIT, Harvard, and a dense biotech ecosystem; South San Francisco and the broader Bay Area, with Stanford, UCSF, and Berkeley nearby; and San Diego, with its own research base. Smaller hubs have grown in places like Research Triangle in North Carolina, Seattle, and parts of Maryland.</p>
+<p>Concentration is a double-edged trait. On one side, a tenant in Cambridge sits inside an ecosystem that is hard to replicate, which deepens demand and makes the best buildings genuinely scarce. On the other, it means the sector's fortunes ride on a handful of submarkets. When one cluster overbuilds or its funding cools, there is no broad national market to absorb the slack the way there is for, say, apartments or net-lease retail.</p>
+<p>For an investor, the cluster a building sits in is as important as the building itself. A modern lab in the heart of a top cluster is a different asset than the same specs in a fringe market, and the gap between the two has widened as the sector has matured.</p>
+<div class="pullquote"><p>In life science the cluster is half the asset. A great lab in a fringe market and a great lab in Cambridge are not the same investment, and the recent supply wave has made that gap wider, not smaller.</p><cite>Gerald F. "Jerry" Baker, III</cite></div>
+<h2 id="sticky-tenants">Sticky tenants, slow re-tenanting</h2>
+<p>The same specialization that makes lab space expensive to build makes tenants reluctant to leave. A company that spent heavily fitting out a wet lab or validating GMP suites has sunk real capital and time into that exact space. Moving means rebuilding the whole environment somewhere else and revalidating it, which is disruptive and slow. So once a tenant is in and operating, it tends to stay, and tenant-improvement investment runs high enough that the relationship has a gravity ordinary office leases lack.</p>
+<p>The catch is that the same trait works against the owner when a tenant does leave. Re-tenanting lab space is not like backfilling an office floor. The next occupant needs the right power, the right air handling, the right generation of infrastructure, and may want a different configuration entirely. Downtime between tenants can stretch long, and the cost to ready the space for the next user can be large. A vacant lab is not a building a wide pool of tenants can quickly take.</p>
+<p>That asymmetry, sticky on the way in, slow and costly on the way out, is central to underwriting the sector. The strength of a sitting tenant says a lot, but the realistic re-tenanting picture if that tenant leaves says just as much, and it deserves a sober look rather than an optimistic one.</p>
+<h2 id="tenant-credit">The tenant-credit spectrum</h2>
+<p>Who signs a lab lease varies enormously, and credit is the heart of the diligence. At one end sit large, established pharmaceutical and life science companies with real revenue and balance sheets, the kind of tenant whose rent is highly dependable. Recognizable names across big pharma and large biotech anchor many of the best buildings, and their leases behave a lot like other strong corporate leases.</p>
+<p>At the other end sit early-stage, venture-funded biotech companies, and this is where the risk concentrates. A pre-revenue biotech pays its rent out of investor capital, and its survival can hinge on a single clinical-trial result or the next funding round. The risk is binary in a way it rarely is in other sectors: a drug candidate either works in a trial or it does not, and a company that runs out of runway can stop paying rent abruptly, regardless of how strong it looked a year earlier. When venture funding tightens across the sector, that risk shows up in several tenants at once.</p>
+<p>So the question is never just whether a building is leased. It is who the tenant is, how much cash runway it has, whether its rent is funded by product revenue or by venture rounds, and what happens to the space if an early-stage tenant fails. A lab fully leased to a cluster of pre-revenue startups is a very different risk than the same building leased to a profitable pharmaceutical company, even at the same headline occupancy.</p>
+<h2 id="supply-glut">The supply glut you cannot ignore</h2>
+<p>Here is the part an honest page has to lead with. After years of strong demand, developers poured a large amount of new lab supply into the major clusters, and a lot of it delivered into a softer market than was assumed when construction started. The result has been elevated lab vacancy in several markets, with newly built, unleased space competing for a thinner pool of tenants than the development pipeline counted on. This is a recent, real condition, not a hypothetical risk.</p>
+<p>A few forces collided. Construction kicked off during a boom in biotech funding and demand. By the time buildings delivered, venture funding had cooled, some tenants had pulled back on expansion plans, and the new supply landed all at once. In the clusters that overbuilt, that has pressured rents and lengthened lease-up times, and it has hit speculative buildings without signed tenants hardest.</p>
+<p>We do not think this erases the long-term case for life science, which rests on durable demand for drug development and the genuine scarcity of high-quality lab infrastructure. But it does mean an investor looking at the sector today is buying into a market working through a supply overhang, and the specific building, its cluster, its tenancy, and its lease-up status matter more than any sector-level optimism. Anyone who tells you the sector is uniformly tight right now is not describing the current market.</p>
+<table class="dtable2">
+<thead><tr><th>Driver</th><th>Effect on the sector</th><th>What to watch</th></tr></thead>
+<tbody>
+<tr><td>New construction wave</td><td>Added large new lab supply at once</td><td>How much speculative space is still unleased</td></tr>
+<tr><td>Cooler venture funding</td><td>Thinned the early-stage tenant pool</td><td>Tenants' cash runway and funding sources</td></tr>
+<tr><td>Elevated vacancy</td><td>Pressured rents, longer lease-up</td><td>Vacancy in the specific cluster, not the nation</td></tr>
+</tbody>
+</table>
+<p class="tcap">General market conditions in the life science sector, not Baker 1031 figures. The recent supply wave and softer funding have raised vacancy in several clusters; conditions vary widely by market and building.</p>
+<p>The practical takeaway is to underwrite the building you are buying, not the sector's reputation from a few years ago. A well-leased lab in a deep cluster with a strong tenant is a different proposition than a half-empty new building in an overbuilt submarket.</p>
+<h2 id="yields">Why going-in yields are low</h2>
+<p>Life science assets price like premium real estate, which means low going-in yields. Across the life science offerings we track in the current market, the going-in yield sits around 4.07 percent, with a high end near 4.18 percent. Those are low numbers next to many other 1031-eligible property types, and the gap is the point. The benchmark figures here describe the current market, not a Baker 1031 return, and they are illustrative rather than a projection.</p>
+<p>Two things explain the low yield. First, buyers have historically paid up for the sector's growth story and the scarcity of quality lab space, accepting less current income in exchange for the expected upside. Second, the best buildings sit in supply-constrained clusters where competition for institutional-grade assets has long kept pricing rich. A low cap rate is what you pay for a premium, scarce, in-demand asset.</p>
+<p>Growth is the harder question, and we will not over-quote it. A benchmark rent-growth figure for the sector right now is not meaningful enough to lean on, and with vacancy elevated in several clusters, near-term rent growth in those markets is unproven at best. We would treat growth as roughly flat and uncertain rather than as a number you can underwrite. If the thesis depends on rents climbing from here, that is an assumption the current market has not validated, and it should be stress-tested, not assumed.</p>
+<table class="dtable2">
+<thead><tr><th>Metric</th><th>Life science</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td>Going-in yield</td><td class="ap nt">4.07%</td><td>Current market benchmark</td></tr>
+<tr><td>Yield, high end</td><td class="ap nt">4.18%</td><td>Current market benchmark</td></tr>
+<tr><td>Built-in rent growth</td><td class="ap nt">Not meaningful</td><td>Treat as flat / unproven</td></tr>
+</tbody>
+</table>
+<p class="tcap">Benchmark yields from Baker 1031 sector data. A growth benchmark is not meaningful enough to quote and should be treated as flat and unproven given elevated vacancy. Illustrative, not a projection or guarantee.</p>
+<div class="exhibit">
+<div class="etitle">What you are paying for in a life science yield</div>
+<div class="chart">
+<div class="bar hl"><span class="v">~4.1%</span><span class="b" style="height:100%"></span></div>
+<div class="bar"><span class="v">Unproven</span><span class="b" style="height:8%"></span></div>
+</div>
+<div class="xlabels"><span>Current rent</span><span>Reliable growth</span></div>
+<div class="source">Source: Baker 1031 Research. Illustrative. The low current yield reflects premium pricing; the near-empty growth bar reflects that sector rent growth is currently unproven. Actual results vary by deal.</div>
+</div>
+<p>Put plainly: you are paying a premium price, accepting a low current yield, and you should not count on growth bailing out the math while the supply overhang works through. That is a demanding starting point, and it is why building and tenant selection do almost all the work in this sector.</p>
+<h2 id="no-track-record">An emerging, illiquid DST niche</h2>
+<p>We want to be direct about the state of this sector as a DST option: it is emerging, thin, and unproven. We do not have a full-cycle track record for life science DSTs to show you, and we are not going to imply one exists. Where net-lease retail has decades of completed programs to study, life science as an accredited-investor structure is early. There are few offerings, and few have run a full cycle.</p>
+<p>That changes how an investor should approach it. With no track record to lean on, the case for the sector has to rest on context: the durability of drug-development demand, the genuine scarcity of high-quality lab space, the specific cluster and tenant in front of you, and the current supply conditions, rather than on historical returns from past deals. Lead with the sector logic and the individual building, because the usual fallback, what comparable programs have returned, is not available here.</p>
+<p>Layer on the structural illiquidity every DST carries, and a specialized, hard-to-re-tenant asset class, and you have an investment that asks for more conviction and more diligence than a mature sector does. That is not a reason to avoid it. It is a reason to go in clear-eyed, with realistic assumptions, and with the understanding that you are early.</p>
+<h2 id="inside-a-dst">Life science inside a DST</h2>
+<p>An accredited investor who wants exposure to lab real estate without buying a building outright can reach it, where offerings exist, through a <a href="how-to-invest-in-a-dst.html">Delaware Statutory Trust</a>. The trust holds title to one or more life science properties, a professional sponsor runs it, and each investor owns a beneficial interest sized to the exact dollar amount an exchange has to absorb. As with any DST, that solves the precision problem of a 1031 exchange, which has to hit a specific number down to the dollar.</p>
+<p>Diversification matters even more here than usual, because the sector's risks, binary tenant credit and slow re-tenanting, are concentrated. A DST holding a single lab fully leased to one early-stage biotech is a very different risk than one holding several buildings with a mix of stronger tenants. The trouble is that life science DST offerings are scarce, so the diversification an investor would want is not always available, and the choice can come down to a single asset.</p>
+<p>The usual DST trade-off applies. Under Revenue Procedure 2004-86, the rules that let a DST interest qualify for 1031 treatment, the trust operates inside tight limits, the seven deadly sins: after closing the sponsor cannot raise new money, cannot refinance, and cannot freely re-lease. In a sector where a tenant can fail abruptly and re-tenanting is slow, those constraints deserve real weight. The structure leaves little room to actively manage a problem, which raises the bar on getting the initial selection right.</p>
+<h2 id="risks">Where life science can go wrong</h2>
+<p>The risks here are specific and, right now, live. Start with tenant credit. An early-stage biotech can stop paying rent abruptly if a trial fails or a funding round does not close, and that risk is binary rather than gradual. A building leaning on pre-revenue tenants carries real fragility behind a clean-looking occupancy figure. Re-tenanting risk follows directly: a vacated lab is specialized, expensive to ready for the next user, and slow to lease, so a single departure can mean a long, costly gap.</p>
+<p>Then there is the market condition itself. Elevated vacancy and the recent supply wave in several clusters mean rents and lease-up are under pressure, and a building in an overbuilt submarket faces a thinner tenant pool than the pipeline assumed. Add the low going-in yield, which leaves little cushion if anything disappoints, and unproven growth that cannot be counted on to rescue the math. Finish with the illiquidity and lack of control of any DST interest, magnified by the absence of a full-cycle track record to benchmark against. These are private placements sold only to accredited investors, and exiting early is rarely simple.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Tenant credit is the whole game: an early-stage biotech can stop paying rent overnight if a trial or a funding round fails, so underwrite cash runway, not occupancy alone.</li>
+<li>A vacated lab is specialized and slow to re-tenant, and several clusters are working through elevated vacancy from a recent supply wave. Buy the building and the cluster, not the sector's reputation.</li>
+<li>This is an emerging, illiquid DST niche with no full-cycle track record. Lead with sector context and the specific asset, keep growth assumptions conservative, and go in clear-eyed.</li>
+</ul></div>
+<h2 id="who-its-for">Who it suits, and who should look past it</h2>
+<p>Life science fits a sophisticated accredited investor who understands the sector, wants targeted exposure to lab real estate, and can accept a low current yield, real tenant-credit risk, and the absence of a track record. An investor who follows biotech, grasps the difference between a profitable pharma tenant and a pre-revenue startup, and is comfortable being early in an emerging structure is the natural buyer. It rewards diligence and punishes assumptions.</p>
+<p>It is a poor fit for an investor who needs reliable current income, who wants the comfort of a long completed track record, or who cannot tolerate the binary tenant risk and slow re-tenanting that come with specialized lab space. Anyone counting on the sector's old growth story to carry a thin yield should think hard while several clusters work off excess supply. If dependable, boring income is the goal, a mature net-lease or government-lease asset will serve better. Life science is a conviction position, not a default one.</p>
+<h2 id="how-to-access">Working with Baker 1031</h2>
+<p>Where life science DST offerings exist, most accredited investors reach the sector through a <a href="how-to-invest-in-a-dst.html">Delaware Statutory Trust</a> rather than buying a lab building outright, because it lowers the entry point and can spread risk across tenants and buildings. We provide sponsor-agnostic diligence, and we are paid to be skeptical on your behalf. In this sector that means pressing on the cluster, the tenants' credit and cash runway, the realistic re-tenanting picture, and whether the building sits in an overbuilt submarket, rather than accepting a growth story the current market has not earned.</p>
+<p>Because this is an emerging niche, offerings are scarce and come and go, so availability shifts. The 45-day identification window moves fast, so the time to understand the sector and your alternatives is before you sell. We are happy to walk through what life science exposure, if any, is open to accredited investors at a given time, and to be candid when the better fit for your goals is a more proven asset type.</p>
+<p class="nlcta" style="margin:30px 0"><a href="investments.html" style="display:inline-block;background:var(--accent);color:#fff;padding:15px 30px;font-family:'Open Sans',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px">View Available Life Science DSTs →</a></p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a life science property?<span class="ic"></span></summary>
+<div class="ans"><p>It is purpose-built laboratory and research real estate, including wet labs, GMP manufacturing suites, and R&amp;D buildings used by pharmaceutical and biotechnology companies. These buildings carry heavy power, dense air handling, fume hoods, venting, and floor loads that ordinary offices cannot support, which is what separates true lab space from office space with a few benches.</p></div>
+</details>
+<details>
+<summary>Where is life science real estate concentrated?<span class="ic"></span></summary>
+<div class="ans"><p>The sector clusters tightly around research universities, hospitals, talent, and venture capital. Boston-Cambridge, South San Francisco and the broader Bay Area, and San Diego dominate, with smaller hubs in places like Research Triangle, Seattle, and Maryland. The cluster a building sits in matters as much as the building itself.</p></div>
+</details>
+<details>
+<summary>Why are life science going-in yields so low?<span class="ic"></span></summary>
+<div class="ans"><p>Buyers have historically paid a premium for the sector's growth story and the scarcity of quality lab space, accepting less current income for expected upside, and the best buildings sit in supply-constrained clusters with rich pricing. The offerings we track currently show a going-in yield around 4.07 percent, with a high end near 4.18 percent. These figures are illustrative, not a projection.</p></div>
+</details>
+<details>
+<summary>Is there a supply glut in lab space right now?<span class="ic"></span></summary>
+<div class="ans"><p>In several clusters, yes. A wave of new construction delivered as biotech funding cooled, raising vacancy and pressuring rents and lease-up times, especially for speculative buildings without signed tenants. Conditions vary widely by market, so an investor should look at the specific cluster and building rather than at the sector as a whole.</p></div>
+</details>
+<details>
+<summary>What is the biggest risk with life science tenants?<span class="ic"></span></summary>
+<div class="ans"><p>Tenant credit, and it can be binary. Large pharmaceutical companies are dependable, but early-stage, venture-funded biotech tenants pay rent out of investor capital, and their survival can hinge on a single trial result or funding round. Such a tenant can stop paying abruptly, and re-tenanting specialized lab space is slow and costly.</p></div>
+</details>
+<details>
+<summary>Is there a track record for life science DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>Not a full-cycle one we would point to. Life science as an accredited-investor DST structure is emerging, with few offerings and few completed programs. Because there is no meaningful track record to lean on, the case has to rest on sector context and the specific building and tenant, rather than on historical returns from past deals.</p></div>
+</details>
+<details>
+<summary>Do life science properties qualify for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. Lab and R&amp;D buildings are U.S. investment real property, so they are like-kind for a 1031 exchange. Where offerings exist, accredited investors can access the sector through a life science <a href="how-to-invest-in-a-dst.html">DST</a> and defer capital gains, though the niche is small and the usual DST illiquidity applies.</p></div>
+</details>
+<details>
+<summary>Who should consider life science real estate?<span class="ic"></span></summary>
+<div class="ans"><p>A sophisticated accredited investor who understands biotech, can accept a low current yield and real tenant-credit risk, and is comfortable being early in an emerging structure without a track record. Investors who need dependable current income or the comfort of a long completed history are usually better served by a more mature property type.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Life Science Real Estate</dt><dd>Purpose-built laboratory and research property used by pharmaceutical and biotechnology tenants, engineered for heavy power, air handling, and lab infrastructure.</dd></div>
+<div class="g"><dt>Wet Lab</dt><dd>Laboratory space configured to handle liquids, chemicals, and biological samples, requiring fume hoods, venting, and specialized plumbing and air systems.</dd></div>
+<div class="g"><dt>GMP Space</dt><dd>Good manufacturing practice space: the regulated, validated environment in which a therapy or drug product is manufactured.</dd></div>
+<div class="g"><dt>Tenant Improvement (TI)</dt><dd>The cost of building out specialized space to a tenant's needs; in life science this is high, which makes tenants sticky but re-tenanting expensive.</dd></div>
+<div class="g"><dt>Life Science Cluster</dt><dd>A geographic concentration of lab demand near universities, hospitals, talent, and venture capital, such as Boston-Cambridge, South San Francisco, and San Diego.</dd></div>
+<div class="g"><dt>Binary Tenant Risk</dt><dd>The risk, common with early-stage biotech tenants, that a single trial result or funding round determines whether the tenant can keep paying rent.</dd></div>
+<div class="g"><dt>Lease-Up</dt><dd>The process and time required to lease a vacant building; in life science it can be long and costly because the space is specialized.</dd></div>
+<div class="g"><dt>Cap Rate</dt><dd>A property's annual net operating income divided by its price; life science assets typically trade at low cap rates reflecting premium pricing.</dd></div>
+<div class="g"><dt>Revenue Procedure 2004-86</dt><dd>The IRS guidance that lets a beneficial interest in a Delaware Statutory Trust qualify as like-kind property for a 1031 exchange, while restricting what the trust may do.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li><li>U.S. SEC — Investor.gov. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-9" rel="noopener nofollow" target="_blank">Investor Bulletin: Non-Traded REITs</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Property Types</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Gerald F. "Jerry" Baker, III</div>
+<div class="ti">Founder &amp; Principal, Baker 1031 Investments</div>
+<div class="bio">Gerald F. "Jerry" Baker, III is the founder of Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage guiding accredited investors through 1031 exchanges, Delaware Statutory Trusts, Qualified Opportunity Funds, 721 UPREIT exchanges, and mineral &amp; royalty interests. He spent his career in Wall Street real estate private equity across more than $10 billion in transactions and holds FINRA Series 22, 63, and SIE registrations. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Exchange for Multifamily &amp; Apartment Owners | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>1031 Exchange for Multifamily & Apartment Owners
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">1031 Exchange for Multifamily & Apartment Owners</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Multifamily and apartment owners are among the most active users of the 1031 exchange — trading up into larger properties, repositioning into new markets, or moving from active management into passive ownership, all tax-deferred. This guide covers why multifamily owners exchange, common moves, multifamily-to-DST exchanges, and the tax considerations specific to apartment owners.</p></div>
+
+    <div class="legacy">
+<main id="main">
+<!-- ===== IMMERSIVE HERO ===== -->
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Multifamily real estate — apartment buildings and complexes — is one of the most popular asset classes for 1031 exchanges, and for good reason. Apartment owners build substantial equity through appreciation and amortization, face significant depreciation recapture if they sell, and often want to reposition their holdings as their goals evolve. The 1031 exchange lets them do all of this tax-deferred: trading up from a smaller building to a larger one, moving from a slowing market into a growing one, consolidating or diversifying their holdings, or transitioning from hands-on management into passive ownership through DSTs. Whether you're a small apartment owner looking to scale or a long-time owner ready to step back from management, the exchange is a powerful tool. This guide covers why multifamily owners exchange, common exchange moves, multifamily-to-DST exchanges, tax considerations, and timing.</p>
+<h2 id="why-exchange">Why multifamily owners exchange</h2>
+<p>Multifamily owners exchange for several compelling reasons rooted in the nature of apartment investing. First, apartments build substantial equity over time — through appreciation, rent growth, and mortgage amortization — so owners accumulate gains that would face significant tax if they sold outright. The 1031 exchange lets them redeploy that equity into new property without the tax hit, preserving their full capital for reinvestment. This is the core appeal: deferring the tax to keep the full value working.</p>
+<p>Second, multifamily owners often want to reposition as their circumstances and goals change. A small owner may want to trade up into a larger building to scale; an owner in a softening market may want to move into a growing one; an owner with scattered holdings may want to consolidate or diversify. The exchange enables all these repositioning moves tax-deferred, letting owners optimize their portfolios without tax friction. The flexibility to reposition is a major reason apartment owners use exchanges.</p>
+<p>Third, many multifamily owners eventually want to step back from active management — apartments are management-intensive (tenants, maintenance, turnover), and owners who tire of the work, or who are aging or relocating, want to transition to passive ownership. The exchange (especially into DSTs) lets them move from hands-on apartment management into passive real estate, tax-deferred, while keeping their capital invested. Why multifamily owners exchange — to redeploy substantial equity tax-deferred, to reposition their holdings, and to transition from active to passive ownership — reflects the asset class's characteristics (substantial equity, evolving goals, management intensity). These motivations make apartment owners among the most active exchangers, using the exchange to scale, reposition, or step back as their needs evolve. The exchange serves the full arc of an apartment owner's investment journey.</p>
+<h2 id="trading-up">Trading up in multifamily</h2>
+<p>Trading up — exchanging a smaller multifamily property for a larger one — is one of the most common and powerful multifamily exchange moves. An owner of a small apartment building can exchange into a larger complex, using the deferred tax as additional buying power. Because the exchange defers the tax that a sale would trigger, the owner deploys their full equity (plus the deferred tax) into the larger property, enabling a bigger acquisition than a taxable sale would allow.</p>
+<p>The trade-up strategy leverages the exchange's deferral to build scale over time. An owner might start with a small building, exchange into a larger one, then later exchange again into an even larger property — compounding their real estate holdings tax-deferred at each step. This serial trading-up is how many apartment investors build substantial portfolios, using the exchange repeatedly to scale without the tax drag of selling and rebuying. The deferral at each step preserves the capital that fuels the next acquisition.</p>
+<p>Trading up can also mean moving up in quality or class — from an older, management-intensive building to a newer, better-located, or higher-class property. This 'trading up in quality' lets owners improve their holdings (better tenants, less maintenance, stronger appreciation potential) tax-deferred. So trading up encompasses both scale (larger) and quality (better), both enabled by the exchange's deferral. Trading up in multifamily — exchanging into larger or better properties using the deferred tax as buying power — is a cornerstone strategy for apartment owners, enabling them to build scale and quality over time tax-deferred. The serial trade-up, compounding holdings at each step, is how many apartment investors grow their portfolios. Trading up is the growth engine that the exchange powers for multifamily owners, letting them scale and upgrade without tax friction.</p>
+<div class="pullquote"><p>Trading up — exchanging a smaller building for a larger one using the deferred tax as buying power — is the growth engine that lets apartment owners scale tax-deferred, often building portfolios through serial exchanges.</p></div>
+<h2 id="common-moves">Common multifamily exchange moves</h2>
+<p>Beyond trading up, multifamily owners make several other common exchange moves to optimize their holdings. Changing markets is one — an owner in a slowing or declining apartment market can exchange into a growing market with better fundamentals (population growth, job growth, rent growth), repositioning their capital into stronger territory tax-deferred. This geographic repositioning lets owners follow the best multifamily markets without the tax cost of selling and rebuying.</p>
+<p>Diversifying is another common move — an owner with a single large building (concentrated risk) can exchange into multiple smaller properties (or fractional DST interests) across markets and property types, spreading their risk. Conversely, consolidating — exchanging multiple scattered small properties into one larger, easier-to-manage building — is a move for owners seeking simplification. So owners use exchanges to both diversify (spread risk) and consolidate (simplify), depending on their goals.</p>
+<p>Changing strategy is a third common move — an owner might exchange from value-add apartments (requiring renovation and active management) into stabilized, lower-management properties, or from apartments into other property types (though staying in real estate). And transitioning to passive (via DSTs, discussed next) is a major move for owners stepping back from management. Common multifamily exchange moves — changing markets, diversifying or consolidating, changing strategy, and transitioning to passive — give apartment owners a versatile toolkit for optimizing their holdings tax-deferred. These moves let owners reposition geographically, adjust their risk, simplify or scale, and change their management involvement, all without triggering the tax. The variety of moves reflects the exchange's flexibility for multifamily owners pursuing different goals at different stages.</p>
+<h2 id="multifamily-dst">Multifamily-to-DST exchanges</h2>
+<p>One of the most significant exchange moves for apartment owners is the multifamily-to-DST exchange — trading actively-managed apartments for passive DST interests. Many apartment owners reach a point where they want the benefits of real estate (income, appreciation, tax deferral) without the burden of active management (tenants, maintenance, turnover, the proverbial '3 a.m. phone calls'). A DST exchange lets them move from hands-on apartment ownership into passive, professionally-managed real estate, tax-deferred.</p>
+<p>The multifamily-to-DST exchange is especially common for owners who are aging, relocating, tired of management, or simply ready to step back. They exchange their apartments for fractional interests in DSTs — which may themselves hold institutional-quality multifamily or other commercial real estate, professionally managed by the sponsor. The owner keeps their capital invested in real estate (preserving the deferral and earning income) but sheds the management responsibility entirely. This transition from active to passive is a natural late-stage move for many apartment owners.</p>
+<p>DSTs also offer apartment owners diversification and access — a single apartment building can be exchanged into multiple DSTs across property types and markets, diversifying the formerly-concentrated holding, and DSTs provide access to institutional-quality properties an individual owner couldn't acquire alone. DSTs are securities (requiring accredited-investor status and a suitability review) and are passive (no control) and illiquid, so they suit owners ready for those trade-offs. Multifamily-to-DST exchanges — trading active apartment management for passive, professionally-managed DST interests — are a major move for apartment owners ready to step back from management while keeping their capital invested tax-deferred. This transition, popular among owners who are aging, relocating, or simply tired of management, lets them enjoy real estate's benefits without the work. The multifamily-to-DST exchange is the classic 'tired landlord' solution, freeing apartment owners from management while preserving their investment and deferral.</p>
+<h2 id="tax-considerations">Tax considerations for apartment owners</h2>
+<p>Apartment owners face specific tax considerations that make the exchange especially valuable. <a href="depreciation-recapture-real-estate.html">Depreciation recapture</a> is a major one — apartments are depreciated over 27.5 years (residential rental property), and owners who've held buildings for years have taken substantial depreciation, which would face recapture tax (up to 25%) on a sale. The exchange defers this recapture along with the capital gains, which is significant for long-held apartments with large accumulated depreciation.</p>
+<p><a href="cost-segregation.html">Cost segregation</a> adds a wrinkle — many apartment owners use cost segregation studies to accelerate depreciation (reclassifying components into shorter recovery periods for faster write-offs). This boosts the depreciation taken (and the tax benefit during ownership) but increases the recapture exposure on a sale. The exchange defers this enhanced recapture, making it valuable for owners who've used cost segregation. The interplay of accelerated depreciation and recapture deferral is an important consideration for apartment owners.</p>
+<p>The four-layer tax stack (capital gains, recapture, <a href="net-investment-income-tax.html">NIIT</a>, state tax) applies to apartment sales, often totaling a third or more of the gain — which the exchange defers. For apartment owners with substantial gains and depreciation, the tax at stake is large, making the deferral correspondingly valuable. The carryover basis and depreciation in the replacement property (which the CPA calculates) carry the deferral forward. Tax considerations for apartment owners — depreciation recapture (especially with cost segregation), the four-layer tax stack, and the carryover basis — make the exchange's deferral particularly valuable for multifamily, where accumulated depreciation and substantial gains create significant tax exposure. Understanding these considerations (with a CPA) helps apartment owners appreciate the exchange's value and structure it correctly. The tax stakes in multifamily make the exchange an especially powerful tool for apartment owners.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Multifamily owners exchange to redeploy substantial equity tax-deferred, reposition their holdings, and transition from active to passive ownership.</li>
+<li>Trading up — into larger or better properties — is the growth engine, often compounded through serial exchanges.</li>
+<li>Multifamily-to-DST exchanges let owners shed active management while keeping capital invested — the 'tired landlord' solution.</li>
+<li>Depreciation recapture (especially with cost segregation) makes the exchange's deferral particularly valuable for apartment owners.</li>
+</ul></div>
+<h2 id="timing">Timing the multifamily exchange</h2>
+<p>Timing considerations matter for multifamily exchanges, both market timing and deadline timing. On market timing, apartment owners often exchange when their current market or property has peaked (to capture the appreciation) and redeploy into a market or property with better growth prospects. Reading the multifamily market cycle — knowing when to trade up, change markets, or move to passive — helps owners time their exchanges to optimize their repositioning. While timing markets perfectly is impossible, thoughtful timing relative to market conditions and personal goals improves outcomes.</p>
+<p>On deadline timing, the multifamily exchange follows the standard <a href="1031-exchange-identification-rules.html">45-day identification</a> and 180-day completion deadlines, which require preparation. Apartment owners should start sourcing replacements before selling (given the tight 45-day window), and given the competitive market for quality multifamily, having replacements lined up (including a DST backup) is prudent. The deadline pressure is real, so preparation — starting early, lining up channels, identifying a DST backup — is essential for a smooth multifamily exchange.</p>
+<p>Personal timing also factors in — owners often time exchanges around life events (retirement, relocation, estate planning) that prompt repositioning or a move to passive. An owner approaching retirement might time a multifamily-to-DST exchange to coincide with stepping back from management. So timing encompasses market conditions, deadline management, and personal circumstances. Timing the multifamily exchange — considering market conditions, managing the deadlines through preparation, and aligning with personal circumstances — helps apartment owners optimize their exchanges. Thoughtful timing relative to the market cycle and personal goals, combined with disciplined deadline management, produces the best outcomes. For multifamily owners, good timing turns the exchange into a well-executed repositioning rather than a rushed scramble, maximizing the strategy's value.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps multifamily owners</h2>
+<p>Baker 1031 Investments helps multifamily and apartment owners use exchanges to achieve their goals — whether trading up into larger properties, repositioning into new markets, diversifying or consolidating, or transitioning from active management into passive DST ownership. We help source replacement properties (direct and DST), manage the deadlines, and structure the exchange to defer the substantial tax (including depreciation recapture) that apartment sales trigger.</p>
+<p>DST interests are securities offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), with any recommendation following a suitability review — multifamily-to-DST exchanges are a popular solution for apartment owners ready to step back from management while keeping their capital invested tax-deferred. We coordinate with your CPA on the tax aspects (recapture, cost segregation, basis) and your QI on the mechanics. Our role is to help apartment owners use the exchange across their investment journey — scaling, repositioning, or transitioning to passive — so they optimize their multifamily holdings tax-deferred, from the growth phase through the eventual move to passive ownership.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why do multifamily owners use 1031 exchanges?<span class="ic"></span></summary>
+<div class="ans"><p>To redeploy their substantial equity tax-deferred (apartments build significant equity and face large tax on a sale), to reposition their holdings (trade up, change markets, diversify, or consolidate), and to transition from active management into passive ownership (via DSTs). Apartments are management-intensive and build substantial gains and depreciation, so the exchange's ability to defer the tax while repositioning or stepping back is especially valuable. These motivations make apartment owners among the most active exchangers.</p></div>
+</details>
+<details>
+<summary>How does trading up work for apartment owners?<span class="ic"></span></summary>
+<div class="ans"><p>You exchange a smaller multifamily property for a larger one, using the deferred tax as additional buying power — because the exchange defers the tax a sale would trigger, you deploy your full equity (plus deferred tax) into the larger property. Many owners trade up serially (small building → larger → even larger), compounding their holdings tax-deferred at each step. Trading up can mean larger (scale) or better (quality), both enabled by the deferral. It's the growth engine for multifamily investors.</p></div>
+</details>
+<details>
+<summary>What is a multifamily-to-DST exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Trading your actively-managed apartments for passive DST interests — fractional ownership in professionally-managed real estate. It lets apartment owners shed active management (tenants, maintenance, turnover) while keeping their capital invested in real estate, tax-deferred. It's popular among owners who are aging, relocating, tired of management, or ready to step back. The owner enjoys real estate's benefits (income, appreciation, deferral) without the work — the classic 'tired landlord' solution.</p></div>
+</details>
+<details>
+<summary>Can I exchange my apartment building into multiple properties?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you can exchange one apartment building into multiple replacement properties (direct or DST interests), diversifying your formerly-concentrated holding across markets and property types. This is a common move for owners seeking diversification — spreading the risk of a single large building across several holdings. DSTs make this especially easy, letting you split your exchange proceeds across multiple DSTs. Diversifying a concentrated apartment holding into multiple properties is a popular exchange strategy.</p></div>
+</details>
+<details>
+<summary>How does depreciation recapture affect apartment owners?<span class="ic"></span></summary>
+<div class="ans"><p>Apartments are depreciated over 27.5 years, so long-term owners take substantial depreciation, which would face recapture tax (up to 25%) on a sale. The exchange defers this recapture along with the capital gains. For long-held apartments with large accumulated depreciation — especially if cost segregation was used to accelerate it — the recapture exposure is significant, making the exchange's deferral of it particularly valuable. Depreciation recapture is a major reason apartment owners use exchanges.</p></div>
+</details>
+<details>
+<summary>Does cost segregation affect my exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Cost segregation accelerates depreciation (reclassifying components into shorter recovery periods), boosting your depreciation during ownership but increasing the recapture exposure on a sale. The exchange defers this enhanced recapture, making it valuable for owners who've used cost segregation. The interplay of accelerated depreciation and recapture deferral is a tax consideration to discuss with your CPA, as it affects the tax at stake and the replacement property's depreciation. The exchange helps manage the recapture from cost segregation.</p></div>
+</details>
+<details>
+<summary>Can I trade up from a small building to a large complex?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — that's the trade-up strategy. You exchange your small building for a larger complex, using the deferred tax as buying power to afford the bigger acquisition. The deferral preserves your full equity for the larger purchase. Many owners do this serially over time, building from small buildings to large complexes tax-deferred. Trading up from small to large is how many apartment investors scale their holdings — the exchange makes the larger acquisition possible by deferring the tax.</p></div>
+</details>
+<details>
+<summary>Is multifamily a good asset class for exchanges?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — multifamily is one of the most popular and well-suited asset classes for exchanges. Apartments build substantial equity and depreciation (creating significant tax to defer), have evolving ownership goals (favoring repositioning), and are management-intensive (motivating the move to passive). The exchange serves the full arc of apartment investing — scaling, repositioning, and transitioning to passive. The active market for multifamily (direct and DST) also provides ample replacement options. Multifamily and exchanges are a natural fit.</p></div>
+</details>
+<details>
+<summary>How do I transition from active apartments to passive income?<span class="ic"></span></summary>
+<div class="ans"><p>Through a multifamily-to-DST exchange — trading your actively-managed apartments for passive DST interests, which provide income and appreciation without management. This lets you keep your capital invested in real estate, tax-deferred, while shedding the management burden. It's the standard path for apartment owners ready to step back. You exchange your apartments for fractional interests in professionally-managed DSTs, transitioning from active landlord to passive investor while preserving your deferral and earning income.</p></div>
+</details>
+<details>
+<summary>What deadlines apply to a multifamily exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The standard 1031 deadlines: 45 days from the sale to identify replacement property, and 180 days total to close. Given the competitive market for quality multifamily, apartment owners should start sourcing replacements before selling and consider identifying a DST backup (certain to close) to ensure they meet the deadlines. The deadline pressure is real, so preparation — starting early, lining up channels, identifying a backup — is essential for a smooth multifamily exchange.</p></div>
+</details>
+<details>
+<summary>Can I exchange apartments for a different property type?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — like-kind for real estate is broad, so you can exchange apartments for other investment real estate types (retail, industrial, net-lease, etc.) held for investment or productive use. Many owners diversify out of (or into) multifamily by exchanging across property types. So you're not limited to apartment-for-apartment; you can reposition into other real estate sectors tax-deferred. This flexibility lets apartment owners diversify their real estate or pursue better opportunities in other sectors via the exchange.</p></div>
+</details>
+<details>
+<summary>Should I exchange or just sell my apartments?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on your goals, but if you want to stay invested in real estate, the exchange usually beats a taxable sale — selling triggers the four-layer tax (often a third or more of the gain, including substantial recapture for apartments), permanently reducing your capital. The exchange defers that tax, keeping your full capital working. If you want to exit real estate entirely, a sale (paying the tax) might fit; but to reposition or move to passive while staying invested, the exchange preserves far more capital. Model both with your CPA.</p></div>
+</details>
+<details>
+<summary>Can I exchange into a larger building with more debt?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you can exchange into a larger property by taking on more debt on the replacement, as long as you meet the equal-or-greater-value and equal-or-greater-debt requirements to avoid boot. Trading up often involves more debt (a larger building costs more), which is fine for the exchange — you replace your equity and at least match your prior debt (or add cash). The added leverage increases both your potential return and risk. Your CPA confirms the debt and value requirements are met to preserve full deferral.</p></div>
+</details>
+<details>
+<summary>What if I co-own apartments with partners?<span class="ic"></span></summary>
+<div class="ans"><p>Partnership-owned apartments add complexity, because the partnership (not the individual partners) is the taxpayer, so partners with differing goals (some wanting to exchange, others to cash out) may need a drop-and-swap or similar structuring — which requires an attorney and CPA. If all partners want to exchange together, the partnership can exchange as a whole more simply. Co-owned apartments are exchangeable, but the ownership structure and the partners' goals determine the approach. Engage an attorney early if partners have differing objectives.</p></div>
+</details>
+<details>
+<summary>Are apartment DSTs available as replacements?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — many DSTs hold multifamily/apartment properties, so apartment owners transitioning to passive can exchange into multifamily DSTs, staying in the asset class they know while shedding management. You can also diversify into DSTs holding other property types. So apartment owners moving to passive can choose multifamily DSTs (familiar asset class, passive) or diversify across sectors. Apartment DSTs are a common, comfortable destination for apartment owners stepping back from active management while staying in multifamily.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Multifamily</dt><dd>Apartment buildings and complexes — a popular asset class for exchanges.</dd></div>
+<div class="g"><dt>Trading Up</dt><dd>Exchanging into a larger or better property using the deferred tax as buying power.</dd></div>
+<div class="g"><dt>Serial Exchange</dt><dd>Exchanging repeatedly to compound holdings tax-deferred over time.</dd></div>
+<div class="g"><dt>Multifamily-to-DST Exchange</dt><dd>Trading active apartments for passive DST interests.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Tax (up to 25%) on prior depreciation, deferred by the exchange.</dd></div>
+<div class="g"><dt>27.5-Year Depreciation</dt><dd>The recovery period for residential rental (apartment) property.</dd></div>
+<div class="g"><dt>Cost Segregation</dt><dd>A study accelerating depreciation, increasing recapture exposure deferred by the exchange.</dd></div>
+<div class="g"><dt>Value-Add</dt><dd>Apartments requiring renovation and active management, often exchanged for stabilized ones.</dd></div>
+<div class="g"><dt>Stabilized Property</dt><dd>A fully-leased, lower-management property, a common trade-up target.</dd></div>
+<div class="g"><dt>Diversifying</dt><dd>Exchanging one building into multiple properties to spread risk.</dd></div>
+<div class="g"><dt>Consolidating</dt><dd>Exchanging multiple small properties into one larger one to simplify.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A passive replacement for apartment owners stepping back from management.</dd></div>
+<div class="g"><dt>Four-Layer Tax Stack</dt><dd>Capital gains, recapture, NIIT, and state tax — deferred by the exchange.</dd></div>
+<div class="g"><dt>Carryover Basis</dt><dd>The basis carried from the apartments to the replacement property.</dd></div>
+<div class="g"><dt>Tired Landlord</dt><dd>An owner ready to shed apartment management, a candidate for a DST exchange.</dd></div>
+<div class="g"><dt>Replacement Property</dt><dd>The property acquired in the exchange, sourced within the deadlines.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-527" rel="noopener nofollow" target="_blank">Publication 527, Residential Rental Property</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-publication-946" rel="noopener nofollow" target="_blank">Publication 946, How To Depreciate Property</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a><a href="insights.html">DSTs</a></div>
+<div class="authorbio">
+<div class="ph"></div>
+<div>
+<div class="nm">Baker 1031 Research</div>
+<div class="ti">The research desk at Baker 1031 Investments</div>
+<div class="bio">Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.</div>
+</div>
+</div>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+</main>
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>
