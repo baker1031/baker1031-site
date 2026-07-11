@@ -1,0 +1,193 @@
+# Baker 1031 — DST & 1031 Exchange Advisors
+
+> Baker 1031 is a Delaware Statutory Trust (DST) and 1031 exchange brokerage that helps accredited investors defer capital gains and own institutional real estate passively — through DSTs, 1031 and 721 (UPREIT) exchanges, Opportunity Zone funds, mineral & royalty interests, and REITs.
+
+Baker 1031 operates an independent DST offerings marketplace, a directory of 82 tracked sponsors with realized full-cycle track records, a market-data center, and an educational insights library. Securities offered through Aurora Securities, Inc. (member FINRA/SIPC). Content is informational only and is not an offer to sell or a solicitation to buy any security, or tax or legal advice.
+
+Full text of all strategies and the complete insights library (concatenated for AI ingestion) is available at {{BASE}}/llms-full.txt
+
+## Strategies
+- [Delaware Statutory Trusts]({{BASE}}/delaware-statutory-trusts.html): Delaware Statutory Trusts (DSTs) explained: how DST 1031 replacement property works, benefits and risks, minimums, and current sector yields. Baker 1031 places DSTs for accredited investors.
+- [1031 Exchanges]({{BASE}}/1031-exchanges.html): 1031 exchange rules explained: the 45- and 180-day deadlines, like-kind requirement, qualified intermediary, debt replacement, and how DSTs serve as replacement property.
+- [721 Exchanges (UPREIT)]({{BASE}}/721-exchange-upreit.html): 721 exchange (UPREIT) explained: how contributing property or DST interests for REIT operating-partnership units works, the tax deferral, benefits, and trade-offs vs a 1031 exchange.
+- [Opportunity Zone Funds]({{BASE}}/opportunity-zone-funds.html): Opportunity Zone funds explained: how reinvesting capital gains in a Qualified Opportunity Fund defers tax and makes 10-year appreciation tax-free, with timelines, benefits, and risks.
+- [Mineral & Royalty Interests]({{BASE}}/mineral-royalty-interests.html): Mineral and royalty interest DSTs explained: how oil-and-gas mineral rights qualify for 1031 exchanges, income and depletion tax treatment, benefits, and risks for accredited investors.
+- [REITs]({{BASE}}/reits.html): REITs explained: how Real Estate Investment Trusts work, public vs non-traded REITs, the 90% distribution rule, liquidity spectrum, and how REITs connect to DST and 721 UPREIT strategies.
+
+## Marketplace & Data
+- [DST Offerings Marketplace]({{BASE}}/): Current DST and 1031 replacement-property offerings.
+- [DST Market Data Center]({{BASE}}/data-center.html): Full-cycle DST returns and current sector yield benchmarks.
+- [Sponsor Directory]({{BASE}}/sponsors.html): 82 DST/1031 sponsors with AUM, Preferred status, and realized track records.
+
+## Current Offerings
+- [Blue Door Property III, DST]({{BASE}}/blue-door-property-iii-dst.html)
+- [AEI Healthcare Portfolio VII DST]({{BASE}}/aei-healthcare-portfolio-vii-dst.html)
+- [Colorado Growth 1 - Holly Ridge DST]({{BASE}}/colorado-growth-1-holly-ridge-dst.html)
+- [Resource Royalty 27, LLC]({{BASE}}/resource-royalty-fund-27.html)
+- [CS1031 Richmond Active Living Apartments, DST]({{BASE}}/cs1031-richmond-active-living-apartments-dst.html)
+- [ExchangeRight Essential Income 9 DST]({{BASE}}/exchangeright-essential-income-9-dst.html)
+
+## 1031 Exchange by State
+- [1031 Exchange & DSTs by State]({{BASE}}/1031-exchange.html): State-by-state capital-gains tax, 1031 conformity/clawback rules, and DST replacement-property guidance.
+- [1031 Exchange & DSTs in Alabama]({{BASE}}/1031-exchange-alabama.html): Top rate 5%; ~28.8% combined with federal.
+- [1031 Exchange & DSTs in Alaska]({{BASE}}/1031-exchange-alaska.html): No state income tax; 23.8% combined with federal.
+- [1031 Exchange & DSTs in Arizona]({{BASE}}/1031-exchange-arizona.html): Top rate 2.5%; ~26.3% combined with federal.
+  - [Phoenix 1031 Exchange & DSTs]({{BASE}}/1031-exchange-arizona-phoenix.html): Typical home value $411,000 (-2.4% YoY).
+- [1031 Exchange & DSTs in Arkansas]({{BASE}}/1031-exchange-arkansas.html): Top rate 3.9%; ~27.7% combined with federal.
+- [1031 Exchange & DSTs in California]({{BASE}}/1031-exchange-california.html): Top rate 13.3%; ~37.1% combined with federal.
+  - [Los Angeles 1031 Exchange & DSTs]({{BASE}}/1031-exchange-california-los-angeles.html): Typical home value $951,000 (-0.9% YoY).
+  - [San Francisco 1031 Exchange & DSTs]({{BASE}}/1031-exchange-california-san-francisco.html): Typical home value $1.39M (+7.6% YoY).
+  - [San Diego 1031 Exchange & DSTs]({{BASE}}/1031-exchange-california-san-diego.html): Typical home value $950,000 (-1.7% YoY).
+- [1031 Exchange & DSTs in Colorado]({{BASE}}/1031-exchange-colorado.html): Top rate 4.4%; ~28.2% combined with federal.
+  - [Denver 1031 Exchange & DSTs]({{BASE}}/1031-exchange-colorado-denver.html): Typical home value $559,000 (-3.6% YoY).
+- [1031 Exchange & DSTs in Connecticut]({{BASE}}/1031-exchange-connecticut.html): Top rate 6.99%; ~30.8% combined with federal.
+- [1031 Exchange & DSTs in Delaware]({{BASE}}/1031-exchange-delaware.html): Top rate 6.6%; ~30.4% combined with federal.
+- [1031 Exchange & DSTs in District of Columbia]({{BASE}}/1031-exchange-district-of-columbia.html): Top rate 10.75%; ~34.5% combined with federal.
+- [1031 Exchange & DSTs in Florida]({{BASE}}/1031-exchange-florida.html): No state income tax; 23.8% combined with federal.
+  - [Miami 1031 Exchange & DSTs]({{BASE}}/1031-exchange-florida-miami.html): Typical home value $581,000 (-1.6% YoY).
+  - [Tampa 1031 Exchange & DSTs]({{BASE}}/1031-exchange-florida-tampa.html): Typical home value $376,000 (-4.2% YoY).
+- [1031 Exchange & DSTs in Georgia]({{BASE}}/1031-exchange-georgia.html): Top rate 5.19%; ~29.0% combined with federal.
+- [1031 Exchange & DSTs in Hawaii]({{BASE}}/1031-exchange-hawaii.html): Top rate 7.25%; ~31.1% combined with federal.
+- [1031 Exchange & DSTs in Idaho]({{BASE}}/1031-exchange-idaho.html): Top rate 5.3%; ~29.1% combined with federal.
+- [1031 Exchange & DSTs in Illinois]({{BASE}}/1031-exchange-illinois.html): Top rate 4.95%; ~28.8% combined with federal.
+- [1031 Exchange & DSTs in Indiana]({{BASE}}/1031-exchange-indiana.html): Top rate 2.95%; ~26.8% combined with federal.
+- [1031 Exchange & DSTs in Iowa]({{BASE}}/1031-exchange-iowa.html): Top rate 3.8%; ~27.6% combined with federal.
+- [1031 Exchange & DSTs in Kansas]({{BASE}}/1031-exchange-kansas.html): Top rate 5.58%; ~29.4% combined with federal.
+- [1031 Exchange & DSTs in Kentucky]({{BASE}}/1031-exchange-kentucky.html): Top rate 3.5%; ~27.3% combined with federal.
+- [1031 Exchange & DSTs in Louisiana]({{BASE}}/1031-exchange-louisiana.html): Top rate 3%; ~26.8% combined with federal.
+- [1031 Exchange & DSTs in Maine]({{BASE}}/1031-exchange-maine.html): Top rate 7.15%; ~31.0% combined with federal.
+- [1031 Exchange & DSTs in Maryland]({{BASE}}/1031-exchange-maryland.html): Top rate 8.5%; ~32.3% combined with federal.
+- [1031 Exchange & DSTs in Massachusetts]({{BASE}}/1031-exchange-massachusetts.html): Top rate 9%; ~32.8% combined with federal.
+- [1031 Exchange & DSTs in Michigan]({{BASE}}/1031-exchange-michigan.html): Top rate 4.25%; ~28.1% combined with federal.
+- [1031 Exchange & DSTs in Minnesota]({{BASE}}/1031-exchange-minnesota.html): Top rate 9.85%; ~33.6% combined with federal.
+- [1031 Exchange & DSTs in Mississippi]({{BASE}}/1031-exchange-mississippi.html): Top rate 4%; ~27.8% combined with federal.
+- [1031 Exchange & DSTs in Missouri]({{BASE}}/1031-exchange-missouri.html): Top rate 4.7%; ~28.5% combined with federal.
+- [1031 Exchange & DSTs in Montana]({{BASE}}/1031-exchange-montana.html): Top rate 5.65%; ~29.5% combined with federal.
+- [1031 Exchange & DSTs in Nebraska]({{BASE}}/1031-exchange-nebraska.html): Top rate 4.55%; ~28.4% combined with federal.
+- [1031 Exchange & DSTs in Nevada]({{BASE}}/1031-exchange-nevada.html): No state income tax; 23.8% combined with federal.
+  - [Las Vegas 1031 Exchange & DSTs]({{BASE}}/1031-exchange-nevada-las-vegas.html): Typical home value $436,000 (+2.7% YoY).
+- [1031 Exchange & DSTs in New Hampshire]({{BASE}}/1031-exchange-new-hampshire.html): No state income tax; 23.8% combined with federal.
+- [1031 Exchange & DSTs in New Jersey]({{BASE}}/1031-exchange-new-jersey.html): Top rate 10.75%; ~34.5% combined with federal.
+- [1031 Exchange & DSTs in New Mexico]({{BASE}}/1031-exchange-new-mexico.html): Top rate 5.9%; ~29.7% combined with federal.
+- [1031 Exchange & DSTs in New York]({{BASE}}/1031-exchange-new-york.html): Top rate 10.9%; ~34.7% (higher for NYC residents) combined with federal.
+- [1031 Exchange & DSTs in North Carolina]({{BASE}}/1031-exchange-north-carolina.html): Top rate 3.99%; ~27.8% combined with federal.
+- [1031 Exchange & DSTs in North Dakota]({{BASE}}/1031-exchange-north-dakota.html): Top rate 2.5%; ~26.3% combined with federal.
+- [1031 Exchange & DSTs in Ohio]({{BASE}}/1031-exchange-ohio.html): Top rate 2.75%; ~26.6% combined with federal.
+- [1031 Exchange & DSTs in Oklahoma]({{BASE}}/1031-exchange-oklahoma.html): Top rate 4.5%; ~28.3% combined with federal.
+- [1031 Exchange & DSTs in Oregon]({{BASE}}/1031-exchange-oregon.html): Top rate 9.9%; ~33.7% combined with federal.
+- [1031 Exchange & DSTs in Pennsylvania]({{BASE}}/1031-exchange-pennsylvania.html): Top rate 3.07%; ~26.9% combined with federal.
+- [1031 Exchange & DSTs in Rhode Island]({{BASE}}/1031-exchange-rhode-island.html): Top rate 5.99%; ~29.8% combined with federal.
+- [1031 Exchange & DSTs in South Carolina]({{BASE}}/1031-exchange-south-carolina.html): Top rate 6%; ~29.8% combined with federal.
+- [1031 Exchange & DSTs in South Dakota]({{BASE}}/1031-exchange-south-dakota.html): No state income tax; 23.8% combined with federal.
+- [1031 Exchange & DSTs in Tennessee]({{BASE}}/1031-exchange-tennessee.html): No state income tax; 23.8% combined with federal.
+- [1031 Exchange & DSTs in Texas]({{BASE}}/1031-exchange-texas.html): No state income tax; 23.8% combined with federal.
+  - [Dallas 1031 Exchange & DSTs]({{BASE}}/1031-exchange-texas-dallas.html): Typical home value $310,000 (-2.0% YoY).
+  - [Houston 1031 Exchange & DSTs]({{BASE}}/1031-exchange-texas-houston.html): Typical home value $265,000 (-0.4% YoY).
+  - [Austin 1031 Exchange & DSTs]({{BASE}}/1031-exchange-texas-austin.html): Typical home value $513,000 (-6.8% YoY).
+- [1031 Exchange & DSTs in Utah]({{BASE}}/1031-exchange-utah.html): Top rate 4.5%; ~28.3% combined with federal.
+- [1031 Exchange & DSTs in Vermont]({{BASE}}/1031-exchange-vermont.html): Top rate 8.75%; ~32.5% combined with federal.
+- [1031 Exchange & DSTs in Virginia]({{BASE}}/1031-exchange-virginia.html): Top rate 5.75%; ~29.6% combined with federal.
+- [1031 Exchange & DSTs in Washington]({{BASE}}/1031-exchange-washington.html): No state income tax; 23.8% combined with federal.
+  - [Seattle 1031 Exchange & DSTs]({{BASE}}/1031-exchange-washington-seattle.html): Typical home value $865,000 (-2.5% YoY).
+- [1031 Exchange & DSTs in West Virginia]({{BASE}}/1031-exchange-west-virginia.html): Top rate 4.82%; ~28.6% combined with federal.
+- [1031 Exchange & DSTs in Wisconsin]({{BASE}}/1031-exchange-wisconsin.html): Top rate 7.65%; ~31.5% combined with federal.
+- [1031 Exchange & DSTs in Wyoming]({{BASE}}/1031-exchange-wyoming.html): No state income tax; 23.8% combined with federal.
+
+## Insights
+- [Jerry Baker Named to GlobeSt.'s 2026 CRE Aspiring Leaders List]({{BASE}}/jerry-baker-globest-aspiring-leaders-2026.html): GlobeSt. has named Baker 1031 founder Jerry Baker to its 2026 list of rising leaders in commercial real estate.
+- [Inside the 721 UPREIT Exchange: Trading Control for Liquidity]({{BASE}}/721-upreit-trading-control-for-liquidity.html): Contributing a DST interest into a REIT can unlock diversification and a path to liquidity — at the cost of a one-way door.
+- [From DST to REIT: How a 721 Roll-Up Actually Works]({{BASE}}/from-dst-to-reit-721-rollup.html): Many DSTs are designed to end in a REIT. Understanding the roll-up changes how you pick the DST.
+- [Opportunity Zones at the 10-Year Mark: What Investors Should Know]({{BASE}}/opportunity-zones-at-the-ten-year-mark.html): The signature benefit of an Opportunity Zone fund arrives only after a decade. Patience is the strategy.
+- [The 45-Day Trap: Avoiding a Failed 1031 Exchange]({{BASE}}/the-45-day-trap.html): Most failed exchanges die at day 45, not day 180. Identification discipline is everything.
+- [Boot, Debt Replacement, and Full Deferral, Explained]({{BASE}}/boot-debt-replacement-full-deferral.html): To defer 100% of your gain, you must replace both equity and debt. Here's where investors slip.
+- [Adding Mineral Royalties to a 1031 Replacement Mix]({{BASE}}/adding-mineral-royalties-to-a-replacement-mix.html): A small royalty sleeve can lift the income of a 1031 replacement portfolio — if sized with care.
+- [Why Mineral Royalties Yield More — and What You're Taking On]({{BASE}}/why-mineral-royalties-yield-more.html): Royalty DSTs can pay nearly double a typical real-estate DST. The yield is compensation for a different risk.
+- [How to Read a DST Offering: Fees, Debt, and Distributions]({{BASE}}/how-to-read-a-dst-offering.html): Three numbers separate a strong DST from a weak one. Here's how to find and weigh them in the PPM.
+- [Sector Watch: Where DST Yields Stand in 2026]({{BASE}}/sector-watch-dst-yields-2026.html): Healthcare and net lease lead current distributions; office trails. A snapshot from the Data Center.
+- [Opportunity Zone Funds vs. 1031: Choosing Your Deferral]({{BASE}}/opportunity-zones-vs-1031.html): Both defer tax, but they fit different gains and different investors. A side-by-side.
+- [2026 1031 Exchange Outlook: Timelines, DSTs, and Backup Strategies]({{BASE}}/2026-1031-exchange-outlook.html): Tight identification windows and a deeper DST shelf are reshaping how investors plan exchanges this year.
+- [Public vs. Non-Traded REITs: A Liquidity Trade-Off]({{BASE}}/public-vs-non-traded-reits.html): Both own real estate and pay out most of their income. The difference is how — and when — you can get out.
+
+## Sponsors
+- [1031 Crowdfunding]({{BASE}}/sponsor-1031-crowdfunding.html)
+- [AEI Capital Corporation]({{BASE}}/sponsor-aei-capital-corporation.html)
+- [American Capital Group]({{BASE}}/sponsor-american-capital-group.html)
+- [Apollo Global Management]({{BASE}}/sponsor-apollo-global-management.html)
+- [ARCTRUST]({{BASE}}/sponsor-arctrust.html)
+- [Ares Management]({{BASE}}/sponsor-ares-management.html)
+- [Arrimus Capital Advisors]({{BASE}}/sponsor-arrimus-capital-advisors.html)
+- [Baker Tilly]({{BASE}}/sponsor-baker-tilly.html)
+- [Beacon Real Estate Group]({{BASE}}/sponsor-beacon-real-estate-group.html)
+- [Blackstone]({{BASE}}/sponsor-blackstone.html)
+- [Blue Owl]({{BASE}}/sponsor-blue-owl.html)
+- [Bluerock]({{BASE}}/sponsor-bluerock.html)
+- [Bonaventure]({{BASE}}/sponsor-bonaventure.html)
+- [Bridgeview]({{BASE}}/sponsor-bridgeview.html)
+- [Brookfield]({{BASE}}/sponsor-brookfield.html)
+- [CAI Investments]({{BASE}}/sponsor-cai-investments.html)
+- [Cantor Fitzgerald]({{BASE}}/sponsor-cantor-fitzgerald.html)
+- [Cantor Silverstein]({{BASE}}/sponsor-cantor-silverstein.html)
+- [Capital Square]({{BASE}}/sponsor-capital-square.html)
+- [Carter Exchange]({{BASE}}/sponsor-carter-exchange.html)
+- [Cliffwater]({{BASE}}/sponsor-cliffwater.html)
+- [Core]({{BASE}}/sponsor-core.html)
+- [Core Pacific]({{BASE}}/sponsor-core-pacific.html)
+- [Cove Capital]({{BASE}}/sponsor-cove-capital.html)
+- [Croatan Investments]({{BASE}}/sponsor-croatan-investments.html)
+- [Cunat]({{BASE}}/sponsor-cunat.html)
+- [Denholtz]({{BASE}}/sponsor-denholtz.html)
+- [ERP]({{BASE}}/sponsor-erp.html)
+- [ExchangeRight]({{BASE}}/sponsor-exchangeright.html)
+- [Fortress Investment Group]({{BASE}}/sponsor-fortress-investment-group.html)
+- [Four Springs Capital]({{BASE}}/sponsor-four-springs-capital.html)
+- [FS Investments]({{BASE}}/sponsor-fs-investments.html)
+- [GK Real Estate]({{BASE}}/sponsor-gk-real-estate.html)
+- [Go Store It Partners]({{BASE}}/sponsor-go-store-it-partners.html)
+- [Goldman Sachs]({{BASE}}/sponsor-goldman-sachs.html)
+- [Greystar]({{BASE}}/sponsor-greystar.html)
+- [Griffin Capital]({{BASE}}/sponsor-griffin-capital.html)
+- [Hamilton Point Investments]({{BASE}}/sponsor-hamilton-point-investments.html)
+- [Hines]({{BASE}}/sponsor-hines.html)
+- [HPA Exchange]({{BASE}}/sponsor-hpa-exchange.html)
+- [Inland]({{BASE}}/sponsor-inland.html)
+- [Invesco]({{BASE}}/sponsor-invesco.html)
+- [J.P. Morgan]({{BASE}}/sponsor-j-p-morgan.html)
+- [JLL]({{BASE}}/sponsor-jll.html)
+- [Kay Properties]({{BASE}}/sponsor-kay-properties.html)
+- [Keystone National Properties]({{BASE}}/sponsor-keystone-national-properties.html)
+- [Kingsbarn Realty Capital]({{BASE}}/sponsor-kingsbarn-realty-capital.html)
+- [KKR]({{BASE}}/sponsor-kkr.html)
+- [LaSalle Investment Management]({{BASE}}/sponsor-lasalle-investment-management.html)
+- [Livingston Street Capital]({{BASE}}/sponsor-livingston-street-capital.html)
+- [Madison Capital]({{BASE}}/sponsor-madison-capital.html)
+- [Madison Realty Companies]({{BASE}}/sponsor-madison-realty-companies.html)
+- [Mirae Asset Management]({{BASE}}/sponsor-mirae-asset-management.html)
+- [Moody National]({{BASE}}/sponsor-moody-national.html)
+- [NAS Investment Solutions]({{BASE}}/sponsor-nas-investment-solutions.html)
+- [Nelson Brothers]({{BASE}}/sponsor-nelson-brothers.html)
+- [Nelson Partners]({{BASE}}/sponsor-nelson-partners.html)
+- [Net Lease Capital Advisors]({{BASE}}/sponsor-net-lease-capital-advisors.html)
+- [NexPoint]({{BASE}}/sponsor-nexpoint.html)
+- [Nuveen]({{BASE}}/sponsor-nuveen.html)
+- [Olympus Property]({{BASE}}/sponsor-olympus-property.html)
+- [Origin Investments]({{BASE}}/sponsor-origin-investments.html)
+- [Pacific Oak Capital]({{BASE}}/sponsor-pacific-oak-capital.html)
+- [Passco]({{BASE}}/sponsor-passco.html)
+- [Peachtree Group]({{BASE}}/sponsor-peachtree-group.html)
+- [PGIM]({{BASE}}/sponsor-pgim.html)
+- [Platform Ventures]({{BASE}}/sponsor-platform-ventures.html)
+- [Resource Royalty]({{BASE}}/sponsor-resource-royalty.html)
+- [RK Properties]({{BASE}}/sponsor-rk-properties.html)
+- [Sealy & Company]({{BASE}}/sponsor-sealy-and-company.html)
+- [Silverstein Properties]({{BASE}}/sponsor-silverstein-properties.html)
+- [SmartStop]({{BASE}}/sponsor-smartstop.html)
+- [Spartan]({{BASE}}/sponsor-spartan.html)
+- [Starboard Realty Advisors]({{BASE}}/sponsor-starboard-realty-advisors.html)
+- [Starwood Capital]({{BASE}}/sponsor-starwood-capital.html)
+- [Syndicated Equities]({{BASE}}/sponsor-syndicated-equities.html)
+- [Time Equities]({{BASE}}/sponsor-time-equities.html)
+- [Trilogy Real Estate Group]({{BASE}}/sponsor-trilogy-real-estate-group.html)
+- [Urban Catalyst]({{BASE}}/sponsor-urban-catalyst.html)
+- [Virtua Capital]({{BASE}}/sponsor-virtua-capital.html)
+- [Walton Global Holdings]({{BASE}}/sponsor-walton-global-holdings.html)
+- [WW Olympus Investment Company]({{BASE}}/sponsor-ww-olympus-investment-company.html)

@@ -345,3 +345,48 @@ open(os.path.join(DIST, 'sitemap.xml'), 'w').write(
 open(os.path.join(DIST, 'robots.txt'), 'w').write(
     'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % BASE_URL)
 print('sitemap.xml: %d urls' % len(_urls))
+
+# ---------------------------------------------------------------- llms.txt / llms-full.txt / favicon / manifest
+# llms.txt: curated index (template), with the Current Offerings section refreshed from the sheet
+_tpl = open(os.path.join(ROOT, 'data', 'llms-template.txt')).read()
+_off_lines = []
+for _row in LIST:
+    if s(_row.get('Status')).lower() in ('closed', 'sold out', 'inactive'):
+        continue
+    _nm = s(_row['Investment Name'])
+    _off_lines.append('- [%s](%s/%s)' % (_nm, '{{BASE}}', off_slug[_nm]))
+_tpl = re.sub(r'## Current Offerings\n(?:- \[[^\n]*\n)*',
+              '## Current Offerings\n' + '\n'.join(_off_lines) + '\n', _tpl, count=1)
+open(os.path.join(DIST, 'llms.txt'), 'w').write(_tpl.replace('{{BASE}}', BASE_URL))
+
+# llms-full.txt: concatenated plain text of every page for AI ingestion
+def _strip_html(raw):
+    raw = re.sub(r'<(style|script)[^>]*>.*?</\1>', ' ', raw, flags=re.S)
+    raw = re.sub(r'<[^>]+>', ' ', raw)
+    raw = raw.replace('&amp;', '&').replace('&nbsp;', ' ').replace('&middot;', '·').replace('&copy;', '(c)')
+    return re.sub(r'[ \t]+', ' ', re.sub(r'\s*\n\s*', '\n', raw)).strip()
+
+with open(os.path.join(DIST, 'llms-full.txt'), 'w') as _fh:
+    _fh.write('# Baker 1031 Investments — full site text for AI ingestion\n# Index: %s/llms.txt\n\n' % BASE_URL)
+    for _p in sorted(os.listdir(DIST)):
+        if not _p.endswith('.html') or _p in ('404.html', 'article-template.html', 'baker1031.html'):
+            continue
+        _raw = open(os.path.join(DIST, _p), encoding='utf-8', errors='replace').read()
+        _title = re.search(r'<title>(.*?)</title>', _raw, re.S)
+        _body = _strip_html(_raw)
+        # drop repeated nav/footer noise: cut everything before the breadcrumb "Home ❯" and after "Continue Exploring"
+        _i = _body.find('Home ❯')
+        _j = _body.find('Continue Exploring Baker 1031')
+        if 0 <= _i < (_j if _j > 0 else len(_body)):
+            _body = _body[_i:(_j if _j > 0 else len(_body))]
+        _fh.write('\n===== PAGE: %s/%s =====\n%s\n%s\n' % (
+            BASE_URL, _p, (_title.group(1).strip() if _title else _p), _body))
+
+# favicon + web manifest
+shutil.copy(os.path.join(ROOT, 'data', 'favicon.ico'), os.path.join(DIST, 'favicon.ico'))
+open(os.path.join(DIST, 'site.webmanifest'), 'w').write(json.dumps({
+    'name': 'Baker 1031 Investments', 'short_name': 'Baker 1031',
+    'icons': [{'src': '/assets/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
+              {'src': '/assets/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'}],
+    'theme_color': '#243856', 'background_color': '#243856', 'display': 'standalone', 'start_url': '/'}))
+print('llms.txt + llms-full.txt + favicon + manifest written')
