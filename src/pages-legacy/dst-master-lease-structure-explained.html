@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DST Master Lease Structure Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>DST Master Lease Structure Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">DST Master Lease Structure Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Why do so many Delaware Statutory Trusts use a master lease? Because the trustee can't actively manage or re-lease the property, a master tenant leases the whole property and runs it. This guide explains why DSTs use a master lease, the master tenant versus trustee roles, how it preserves 1031 status, its impact on income, and what investors should know.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">If you read a Delaware Statutory Trust (DST) offering closely, you'll often find a 'master lease' at the heart of its structure — and for good reason. The IRS rules that make a DST work as 1031-eligible real estate (often called the 'seven deadly sins') sharply restrict what the trust and its trustee can do: the trustee generally can't actively manage the property, negotiate new leases, or take on the operational decisions a normal landlord makes. To keep the trust passive while still running a real, operating property, many DSTs use a master lease structure. A master tenant — typically an affiliate of the sponsor — leases the entire property from the trust and handles day-to-day operations, leasing, and management, paying the trust rent under the master lease. This keeps the trustee passive (preserving the 1031 and grantor-trust treatment) while ensuring the property is actively operated. This guide explains why DSTs use a master lease, the master tenant versus trustee roles, how it preserves 1031 status, its impact on income, and what investors should know. Baker 1031 does not provide tax or legal advice — verify the current rules and your specific situation with your advisors; this is educational information, not investment advice.</p>
+<h2 id="why-master-lease">Why DSTs Use a Master Lease</h2>
+<p>DSTs use a master lease to solve a structural problem created by the very rules that make them 1031-eligible. To qualify as like-kind real property under IRS Revenue Ruling 2004-86, a DST must remain passive — the trustee is restricted by the so-called <a href="the-seven-deadly-sins-dst-trustee-restrictions.html">'seven deadly sins' that limit what a DST trustee can do</a>, including negotiating new leases, renegotiating debt, raising new capital, or making more than minor improvements. But real estate has to be actively operated: tenants come and go, leases need to be signed, maintenance must be arranged, and properties must be managed day to day. A purely passive trustee can't do those things.</p>
+<p>The master lease resolves this tension. The trust leases the entire property to a master tenant — typically a sponsor affiliate — under a single, long-term master lease. The master tenant then takes on all the active responsibilities the trustee can't: it manages the property, signs and renegotiates leases with the actual occupants (the 'space tenants'), arranges maintenance, and runs operations. The trust simply collects rent from the master tenant. In this way, the property is fully and actively operated while the trustee stays within the passive restrictions the IRS requires.</p>
+<p>So the master lease lets a DST hold and operate real estate actively while keeping the trustee passive, reconciling the IRS restrictions with the realities of running a property. So it solves the core structural problem. Why DSTs use a master lease — the trust being restricted by the 'seven deadly sins' from active management (no new leases, no debt renegotiation, only minor improvements), yet needing the property actively operated, resolved by leasing the whole property to a master tenant (usually a sponsor affiliate) that handles management, leasing, and operations while the trust collects rent — reconciles the IRS passivity rules with real-world operation. The trust stays passive; the property gets run. Understanding this explains the structure's purpose. DSTs use a master lease so the trust can stay passive (as the IRS requires) while a master tenant actively operates, leases, and manages the property and pays the trust rent.</p>
+<h2 id="master-tenant-vs-trustee">Master Tenant vs. Trustee Roles</h2>
+<p>Understanding the master lease means distinguishing two roles that are deliberately kept separate. The trustee holds legal title to the property on behalf of the DST's beneficial owners (the investors) and administers the trust, but its powers are intentionally limited to passive activities — collecting and distributing rent, maintaining the trust, and acting within the narrow scope the IRS rules allow. The trustee does not actively manage the property, does not negotiate new leases with occupants, and does not make the operational decisions a landlord normally makes. Its passivity is the point.</p>
+<p>The master tenant plays the active role. As the lessee of the entire property under the master lease, the master tenant — usually an entity affiliated with the sponsor — is responsible for day-to-day operations: property management, signing and renewing leases with the space tenants, handling maintenance and capital projects within its scope, and managing the property's income and expenses. The master tenant pays rent to the trust under the master lease and keeps (or absorbs) the difference between what it collects from space tenants and what it owes the trust. This division — passive trust and trustee, active master tenant — is the engine of the structure.</p>
+<p>So the trustee holds title and stays passive while the master tenant leases the whole property and runs it actively, keeping the two functions cleanly separated. So the role split is the heart of the design. Master tenant versus trustee roles — the trustee holding title and administering the trust passively (collecting and distributing rent, acting only within the IRS-permitted scope, not managing or re-leasing), versus the master tenant leasing the entire property and handling all active operations (management, leasing to space tenants, maintenance) while paying the trust rent — are deliberately separated to keep the trust passive. Passive trust, active master tenant. Understanding the split is essential. The trustee holds title and stays passive; the master tenant leases the whole property and actively operates it, paying rent to the trust — a clean division that keeps the DST compliant.</p>
+<div class="pullquote"><p>The genius of the master lease is the division of labor: the trustee stays passive and holds title, while the master tenant does all the active work a landlord must do — keeping the trust within the IRS rules.</p></div>
+<h2 id="preserves-1031-status">How It Preserves 1031 Status</h2>
+<p>The master lease is fundamentally a compliance device: it's how a DST can operate a real property while keeping the trust within the passivity restrictions that Revenue Ruling 2004-86 requires for 1031 eligibility. The 'seven deadly sins' prohibit the trustee from, among other things, negotiating new leases, renegotiating existing debt (except in tenant bankruptcy), accepting new capital contributions, reinvesting sale proceeds, and making more than minor, non-structural improvements. If the trustee did any of these actively, the DST could be reclassified as a partnership — and partnership interests are not 1031-eligible like-kind property, which would defeat the entire purpose of using a DST.</p>
+<p>By leasing the whole property to a master tenant, the trust pushes all the active, prohibited functions out to the master tenant, who is free to perform them as the operating lessee. The trustee's only real job becomes collecting the master lease rent and distributing it to investors — a passive function squarely within the rules. This preserves both the DST's 1031 eligibility (the beneficial interests remain like-kind real property) and the trust's status as a grantor trust for tax purposes, so investors continue to be treated as owning a direct interest in real estate.</p>
+<p>So the master lease preserves 1031 status by moving all active management out to the master tenant, keeping the trustee passive and the DST within the Rev. Rul. 2004-86 restrictions. So it's a compliance backbone, not just an operating convenience. How it preserves 1031 status — by leasing the whole property to a master tenant who performs the active functions the 'seven deadly sins' forbid the trustee from doing (new leases, debt renegotiation, more than minor improvements), leaving the trustee only the passive role of collecting and distributing rent — keeps the DST within Rev. Rul. 2004-86 and preserves both 1031 eligibility and grantor-trust treatment. Active work goes to the master tenant; the trust stays passive. Understanding this shows why the structure exists. The master lease preserves 1031 status by shifting active management to the master tenant, keeping the trustee passive and the DST compliant with Rev. Rul. 2004-86 — protecting like-kind and grantor-trust treatment.</p>
+<h2 id="impact-on-income">Impact on Income</h2>
+<p>The master lease shapes how investors' income flows and what it depends on. Under a typical structure, the master tenant pays the trust a base rent — often with a built-in mechanism for the trust to share in upside, such as a percentage of revenue above certain thresholds. The trust distributes this rent to investors as their current cash flow. So investors' income comes to them through the master lease: the master tenant collects rent from the actual space tenants, pays the trust under the master lease, and the trust passes that on to investors.</p>
+<p>This has two implications. First, the base rent under the master lease provides a degree of structure to investor distributions, since the master tenant owes the trust the agreed rent regardless of short-term fluctuations in space-tenant occupancy — though this is only as reliable as the master tenant's ability to pay. Second, the upside-sharing provisions mean investors may participate in improving property performance, but the master tenant typically retains some of the spread. None of this is guaranteed: if the property underperforms badly enough, the master tenant may be unable to pay the full base rent, and distributions can fall. Distributions are projections, not promises.</p>
+<p>So investor income flows through the master lease — a base rent plus possible upside sharing — and depends on both the property's performance and the master tenant's ability to pay. So the master lease is the conduit for your income. Impact on income — the master tenant paying the trust a base rent (often with upside-sharing above thresholds) that the trust distributes to investors, so income flows through the master lease and depends on the property's performance and the master tenant's ability to pay, with distributions being projections rather than guarantees — shows how the structure channels returns. Base rent plus possible upside, never guaranteed. Understanding this clarifies where your income comes from. Investor income flows through the master lease as base rent plus possible upside sharing, depending on property performance and the master tenant's ability to pay — and distributions are projections, not promises.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>DSTs use a master lease because the trustee can't actively manage or re-lease the property under the IRS 'seven deadly sins' restrictions.</li>
+<li>A master tenant — typically a sponsor affiliate — leases the entire property and handles operations, leasing, and management, while the trustee stays passive.</li>
+<li>The master lease preserves 1031 eligibility and grantor-trust status by moving all active functions out to the master tenant, keeping the trust within Rev. Rul. 2004-86.</li>
+<li>Investor income flows through the master lease (base rent plus possible upside) and depends on the master tenant's performance and credit — distributions are not guaranteed.</li>
+</ul></div>
+<h2 id="what-investors-should-know">What Investors Should Know</h2>
+<p>For investors, the most important practical point is that the master tenant's performance and credit matter. Because investor income flows through the master lease, the master tenant's ability to operate the property well and pay the agreed rent is central to the investment. A master tenant that manages the property poorly, lets occupancy slip, or runs into financial trouble can directly affect the trust's income and, in turn, investor distributions. Since the master tenant is usually a sponsor affiliate, the strength, track record, and alignment of the sponsor are key things to evaluate.</p>
+<p>There are a few related considerations. The master lease terms — base rent, any upside-sharing, the lease length relative to the DST's hold, and what happens if the master tenant defaults — are worth understanding from the offering documents. So is the relationship between the master tenant and the sponsor, including any conflicts of interest, since the affiliate structure means the same group controls both the operation and the offering. And because the master tenant absorbs the difference between space-tenant rents and the base rent it owes the trust, investors should understand how that spread is set and what cushions or guarantees, if any, support the base rent. These are technical points best reviewed with your advisors.</p>
+<p>So investors should focus on the master tenant's quality and credit, the master lease terms, and the sponsor relationship, since their income flows through this structure. So due diligence on the master tenant is essential. What investors should know — that the master tenant's performance and credit are central (since income flows through the master lease), that the master lease terms (base rent, upside-sharing, lease length, default provisions) and the sponsor-affiliate relationship and its conflicts matter, and that the spread the master tenant absorbs and any base-rent support should be understood — focuses due diligence on the right things. The master tenant is the linchpin. Understanding this guides your evaluation. Investors should evaluate the master tenant's quality and credit, the master lease terms, and the sponsor relationship, because income flows through the master lease and depends on the master tenant's performance.</p>
+<div class="pullquote"><p>Because your income flows through the master lease, the master tenant is the linchpin: evaluate its quality, credit, and the sponsor behind it as carefully as you'd evaluate the property itself.</p></div>
+<h2 id="master-lease-vs-property-management">Master Lease vs. a Property Manager</h2>
+<p>It helps to contrast the master lease with the more familiar arrangement of simply hiring a property manager. In ordinary real estate, an owner hires a property-management company to run the property for a fee, but the owner retains the active decision-making — approving leases, setting rents, authorizing capital projects. That arrangement wouldn't work for a DST, because the trustee (acting for the owners) would still be the active decision-maker, violating the passivity rules. The DST needs the active functions to belong to someone else entirely, not just to be delegated.</p>
+<p>The master lease achieves this by making the master tenant a true lessee, not merely an agent. As the lessee of the whole property, the master tenant operates on its own behalf within the master lease — it isn't taking instructions from a passive trustee the way a property manager takes instructions from an owner. This legal distinction is what keeps the trust passive: the trust has leased away the active rights, rather than retaining them and hiring help. The master tenant may, in turn, hire property managers to do the on-the-ground work, but the active legal responsibility sits with the master tenant, not the trust.</p>
+<p>So a master lease differs from hiring a property manager: it transfers the active operating rights to a lessee rather than delegating tasks while the owner stays in charge. So this distinction is what makes it compliant. Master lease versus a property manager — an ordinary owner hiring a manager but retaining active decision-making (which would violate DST passivity), versus the DST leasing the whole property to a master tenant who operates as a true lessee on its own behalf (keeping the trust passive because it has leased away the active rights, not merely delegated tasks) — shows why the master lease, not a management contract, is required. The rights are transferred, not delegated. Understanding this clarifies the legal mechanism. A master lease transfers active operating rights to a master tenant as a true lessee, unlike a property manager who merely takes instructions — which is what keeps the DST trust passive and compliant.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Understand DST Master Leases</h2>
+<p>Baker 1031 Investments helps investors understand the master lease structure in a <a href="dst-guide.html">Delaware Statutory Trust</a> — why DSTs use a master lease, the master tenant versus trustee roles, how it preserves 1031 and grantor-trust status, its impact on income, and what to evaluate about the master tenant — so you can read a DST offering with a clear understanding of how the property is operated and how your income flows.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to <a href="accredited-investor-requirements.html">accredited investor</a>s after a suitability review. Baker 1031 does not provide tax or legal advice — how the master lease preserves 1031 eligibility and grantor-trust treatment, and how it affects your specific tax situation, are technical questions for your CPA and attorney. We help you understand the structure, review the master lease terms and the master tenant's role and credit within an offering, and access suitable DST offerings when appropriate, coordinating with your tax professionals. We're candid that investor income flows through the master lease and depends on the master tenant's performance and the property's results — distributions and returns are not guaranteed, projections are not promises, and DST interests are illiquid and carry fees and risk. Our role is to help you understand the master lease clearly and invest only when suitable for your goals and risk tolerance, after verifying the current rules with your professionals.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a master lease in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>A master lease in a Delaware Statutory Trust (DST) is an arrangement in which a single tenant — the 'master tenant,' typically an affiliate of the sponsor — leases the entire property from the trust under one long-term lease and takes on the active operation of the property. The master tenant manages the property, signs and renegotiates leases with the actual occupants (the space tenants), handles maintenance, and runs day-to-day operations, paying the trust rent under the master lease. The trust, in turn, distributes that rent to investors. The reason DSTs use this structure is that the IRS rules making a DST 1031-eligible (the 'seven deadly sins') prohibit the trustee from actively managing or re-leasing the property. The master lease moves those active functions out to the master tenant, keeping the trustee passive and the DST compliant. So a master lease is the mechanism that lets a DST operate a real property while staying within the passivity rules the IRS requires for like-kind treatment.</p></div>
+</details>
+<details>
+<summary>Why do DSTs use a master lease?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs use a master lease to reconcile two conflicting needs: the IRS requirement that the trust stay passive, and the practical necessity of actively operating a real property. To qualify as 1031-eligible like-kind real estate under Revenue Ruling 2004-86, a DST must remain passive — the trustee is restricted by the 'seven deadly sins' from negotiating new leases, renegotiating debt, raising new capital, reinvesting sale proceeds, or making more than minor improvements. But real estate must be actively managed: tenants change, leases must be signed, and maintenance must be arranged. A purely passive trustee can't do these things. The master lease solves this by leasing the whole property to a master tenant who performs all the active functions, while the trust simply collects and distributes the master lease rent. This keeps the trustee passive and within the rules. So DSTs use a master lease to operate a property actively while preserving the 1031 eligibility and grantor-trust treatment that depend on the trust remaining passive.</p></div>
+</details>
+<details>
+<summary>Who is the master tenant in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>The master tenant in a DST is the entity that leases the entire property from the trust and operates it — typically an affiliate of the DST's sponsor. As the lessee under the master lease, the master tenant takes on all the active landlord functions the trustee can't perform: property management, signing and renewing leases with the actual occupants (the space tenants), handling maintenance and capital projects within its scope, and managing the property's income and expenses. It pays the trust rent under the master lease and absorbs the difference between what it collects from space tenants and what it owes the trust. Because the master tenant is usually a sponsor affiliate, the sponsor's strength, track record, and alignment matter a great deal — the master tenant's ability to operate the property well and pay the agreed rent is central to investor income. So the master tenant is the active operator of the property, distinct from the passive trustee. Evaluating its quality and credit is an important part of DST due diligence.</p></div>
+</details>
+<details>
+<summary>What does the trustee do in a DST with a master lease?<span class="ic"></span></summary>
+<div class="ans"><p>In a DST with a master lease, the trustee's role is deliberately passive. The trustee holds legal title to the property on behalf of the DST's beneficial owners (the investors) and administers the trust, but its powers are limited to passive activities — primarily collecting the rent the master tenant pays under the master lease and distributing it to investors, along with maintaining the trust within the narrow scope the IRS rules allow. The trustee does not actively manage the property, does not negotiate new leases with occupants, does not renegotiate debt (except in limited circumstances like tenant bankruptcy), and does not make more than minor improvements. This passivity is required by Revenue Ruling 2004-86 to preserve the DST's 1031 eligibility — if the trustee acted actively, the DST could be reclassified as a partnership, which isn't 1031-eligible. So the trustee holds title and acts as a passive administrator, while the master tenant handles all active operation. The clean separation of these roles is what keeps the structure compliant.</p></div>
+</details>
+<details>
+<summary>How does a master lease preserve 1031 status?<span class="ic"></span></summary>
+<div class="ans"><p>A master lease preserves 1031 status by moving all the active management functions out of the trust and onto the master tenant, keeping the trustee passive and the DST within the IRS restrictions. Revenue Ruling 2004-86's 'seven deadly sins' prohibit the trustee from negotiating new leases, renegotiating debt (except in tenant bankruptcy), accepting new capital, reinvesting sale proceeds, and making more than minor improvements. If the trustee did these things actively, the DST could be reclassified as a partnership — and partnership interests aren't 1031-eligible like-kind property, which would defeat the purpose of the DST. By leasing the whole property to a master tenant who performs those active functions as the operating lessee, the trust reduces the trustee's job to passively collecting and distributing rent. This preserves both the DST's 1031 eligibility (the beneficial interests remain like-kind real property) and its grantor-trust status. So the master lease is essentially a compliance device that keeps the trust passive, protecting the like-kind treatment investors are relying on for their exchange.</p></div>
+</details>
+<details>
+<summary>Does the master lease affect my income as a DST investor?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the master lease is the conduit for your income as a DST investor. Under a typical structure, the master tenant pays the trust a base rent, often with a mechanism for the trust to share in upside (such as a percentage of revenue above certain thresholds). The trust distributes this rent to investors as their current cash flow. So your income flows through the master lease: the master tenant collects rent from the space tenants, pays the trust under the master lease, and the trust passes it on to you. The base rent provides some structure to distributions, since the master tenant owes it regardless of short-term occupancy swings — but only as reliably as the master tenant can pay. Upside-sharing lets you participate in improving performance, though the master tenant typically keeps part of the spread. None of this is guaranteed: if the property underperforms badly, the master tenant may be unable to pay full rent, and distributions can fall. Distributions are projections, not promises.</p></div>
+</details>
+<details>
+<summary>What happens if the master tenant can't pay rent?<span class="ic"></span></summary>
+<div class="ans"><p>If the master tenant can't pay the rent it owes the trust under the master lease, investor distributions can be reduced or interrupted, because investor income flows through that rent. This is one of the central risks of the master lease structure: the master tenant's ability to pay depends on its operation of the property and its financial strength, so a master tenant that runs into trouble — through poor management, declining occupancy, or financial distress — can directly affect the trust's income. Offering documents typically describe what happens in a default scenario, which may involve the trust's remedies under the master lease, replacement of the master tenant, or other steps, but these processes take time and may not fully protect distributions. Because the master tenant is usually a sponsor affiliate, the sponsor's strength and the structure's safeguards matter. So a master-tenant payment failure is a real risk that can reduce or pause your income. This is why evaluating the master tenant's credit and the sponsor's track record is an important part of DST due diligence. Review the specifics with your advisors.</p></div>
+</details>
+<details>
+<summary>Is the master tenant the same as a property manager?<span class="ic"></span></summary>
+<div class="ans"><p>No — a master tenant is not the same as a property manager, and the distinction is legally important for a DST. A property manager is hired by an owner to run a property for a fee while the owner retains active decision-making — approving leases, setting rents, authorizing capital projects. That wouldn't work for a DST, because the trustee (acting for the owners) would remain the active decision-maker, violating the passivity rules. A master tenant, by contrast, is a true lessee: it leases the entire property and operates it on its own behalf within the master lease, not as an agent taking instructions from a passive trustee. This legal difference is what keeps the trust passive — it has leased away the active rights rather than retaining them and hiring help. The master tenant may itself hire property managers to do on-the-ground work, but the active legal responsibility sits with the master tenant. So a master lease transfers operating rights to a lessee, while a property manager merely performs delegated tasks for an owner who stays in charge.</p></div>
+</details>
+<details>
+<summary>Why is the master tenant usually a sponsor affiliate?<span class="ic"></span></summary>
+<div class="ans"><p>The master tenant is usually an affiliate of the DST sponsor because the sponsor structures the offering, knows the property and its business plan intimately, and is positioned to operate it through an entity it controls. Using an affiliate aligns the operation with the sponsor's overall plan for the property and the DST's hold period. It also means the sponsor's reputation, track record, and ongoing involvement are tied to how well the property performs. There's a flip side, though: because the same group controls both the offering and the master tenant, there can be conflicts of interest — for example, in how the base rent and any upside-sharing are set, or how the spread the master tenant keeps is determined. This is one reason investors should understand the master lease terms and the sponsor relationship from the offering documents. So the affiliate structure is common and can align interests, but it also creates potential conflicts that are worth evaluating. Reviewing the sponsor's track record and the master lease terms with your advisors helps you weigh this.</p></div>
+</details>
+<details>
+<summary>What should I evaluate about a DST's master lease?<span class="ic"></span></summary>
+<div class="ans"><p>When evaluating a DST's master lease, focus on the master tenant and the lease terms, since your income flows through both. First, assess the master tenant's quality and credit: its ability to operate the property well and pay the agreed rent is central, and because it's usually a sponsor affiliate, the sponsor's strength, track record, and alignment matter. Second, understand the master lease terms — the base rent, any upside-sharing provisions, the lease length relative to the DST's expected hold, and what happens if the master tenant defaults. Third, consider the sponsor-affiliate relationship and any conflicts of interest, since the same group controls both the operation and the offering. Fourth, understand the spread the master tenant absorbs (the difference between space-tenant rents and the base rent) and what support, if any, backs the base rent. These are technical points found in the offering documents and best reviewed with your advisors. So thorough due diligence on the master tenant and master lease terms is key to understanding a DST investment's income and risk.</p></div>
+</details>
+<details>
+<summary>Does the master lease guarantee my distributions?<span class="ic"></span></summary>
+<div class="ans"><p>No — the master lease does not guarantee your distributions. While the master lease typically sets a base rent that the master tenant owes the trust, which provides some structure to investor distributions, that base rent is only as reliable as the master tenant's ability to pay it. If the underlying property underperforms — through declining occupancy, falling rents, rising expenses, or other problems — the master tenant may be unable to pay the full base rent, and investor distributions can be reduced or interrupted. The base rent is a contractual obligation, not a guarantee backed by unlimited resources; it depends on the property's performance and the master tenant's financial strength. Any upside-sharing is likewise dependent on the property doing well. So distributions in a DST with a master lease are projections, not promises — they can vary with performance and are not guaranteed. This is true of DST investments generally. Understanding that the master lease structures but does not guarantee your income is important for setting realistic expectations and evaluating the master tenant's credit.</p></div>
+</details>
+<details>
+<summary>How long does a master lease last?<span class="ic"></span></summary>
+<div class="ans"><p>A master lease in a DST is typically a long-term lease structured to align with the DST's expected hold period, which is commonly around five to seven years, though it varies by offering. The master lease is designed to cover the life of the DST investment so that the master tenant operates the property throughout the hold, and it usually includes provisions for what happens at the end of the term or upon a sale of the property. Because the lease term and the DST's hold are meant to work together, the specific length and any renewal or termination provisions are details worth understanding from the offering documents. What matters for investors is that the master lease provides a consistent operating structure for the duration of the investment, and that the master tenant's obligations extend across that period. So a master lease generally runs for the expected hold of the DST, aligning the operator's role with the investment's timeline. Review the exact term, renewal provisions, and default and termination terms in the specific offering with your advisors, since these vary.</p></div>
+</details>
+<details>
+<summary>Is a master lease structure standard in all DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>A master lease is very common in DSTs, but not every DST uses one — the structure depends on the property type and the sponsor's approach. Master leases are especially common for properties that require active management and frequent leasing, such as multifamily apartments, where occupancy turns over regularly and operations are intensive; the master lease lets the trust stay passive while the master tenant handles the constant activity. For properties on long-term net leases to a single creditworthy tenant — where there's little active management needed during the hold — a DST may not require a master lease, because the trustee's passive collection of a single net-lease rent can fit within the rules without one. So whether a DST uses a master lease depends on how much active operation the property requires. When you review a DST offering, the structure will be described in the documents, and understanding whether and how a master lease is used helps you understand how the property is operated. So check each offering's structure rather than assuming, and review it with your advisors.</p></div>
+</details>
+<details>
+<summary>Does the master lease affect my 1031 eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>The master lease is actually part of what preserves your 1031 eligibility, rather than threatening it. The reason DSTs use a master lease is precisely to keep the trust within the passivity restrictions of Revenue Ruling 2004-86, which is what makes the DST's beneficial interests qualify as like-kind real property for a 1031 exchange. By moving the active management functions out to the master tenant, the master lease keeps the trustee passive, avoiding the risk that the DST could be reclassified as a partnership (which isn't 1031-eligible). So a properly structured master lease supports — not undermines — the 1031 eligibility of your DST interest, and it also helps preserve the grantor-trust treatment that lets you be treated as owning a direct interest in real estate. That said, the precise tax treatment of your exchange depends on your specific situation, and Baker 1031 doesn't provide tax or legal advice. So the master lease helps protect your 1031 eligibility, but you should verify how the exchange works in your case with your CPA and attorney.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me understand DST master leases?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand the master lease structure in a Delaware Statutory Trust — why DSTs use a master lease, the master tenant versus trustee roles, how it preserves 1031 and grantor-trust status, its impact on income, and what to evaluate about the master tenant — so you can read a DST offering with a clear understanding of how the property is operated and how your income flows. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Baker 1031 does not provide tax or legal advice — how the master lease preserves 1031 eligibility and grantor-trust treatment in your situation is a question for your CPA and attorney. We help you understand the structure, review the master lease terms and the master tenant's role and credit within an offering, and access suitable DST offerings when appropriate. We're candid that income flows through the master lease and depends on the master tenant's performance; distributions and returns are not guaranteed, and DST interests are illiquid and carry fees and risk. Our role is to help you understand the structure clearly and invest only when suitable.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust holding income-producing real estate as 1031-eligible fractional interests.</dd></div>
+<div class="g"><dt>Master Lease</dt><dd>A single long-term lease of the whole property to a master tenant.</dd></div>
+<div class="g"><dt>Master Tenant</dt><dd>The lessee that leases and actively operates the entire property.</dd></div>
+<div class="g"><dt>Trustee</dt><dd>The party that holds title and administers the DST passively.</dd></div>
+<div class="g"><dt>Space Tenant</dt><dd>An actual occupant who leases space from the master tenant.</dd></div>
+<div class="g"><dt>Beneficial Interest</dt><dd>An investor's fractional ownership stake in the DST.</dd></div>
+<div class="g"><dt>Seven Deadly Sins</dt><dd>The Rev. Rul. 2004-86 restrictions keeping a DST passive.</dd></div>
+<div class="g"><dt>Rev. Rul. 2004-86</dt><dd>The IRS ruling making DST interests 1031-eligible like-kind property.</dd></div>
+<div class="g"><dt>Grantor Trust</dt><dd>A trust whose assets are treated as the grantor's for tax.</dd></div>
+<div class="g"><dt>Base Rent</dt><dd>The rent the master tenant owes the trust under the master lease.</dd></div>
+<div class="g"><dt>Upside Sharing</dt><dd>The trust's participation in revenue above set thresholds.</dd></div>
+<div class="g"><dt>Sponsor</dt><dd>The firm that structures and offers the DST investment.</dd></div>
+<div class="g"><dt>Sponsor Affiliate</dt><dd>An entity controlled by the sponsor, often the master tenant.</dd></div>
+<div class="g"><dt>Passive Investment</dt><dd>An investment requiring no active management by the owner.</dd></div>
+<div class="g"><dt>1031 Exchange</dt><dd>A like-kind exchange deferring capital-gains tax on real property.</dd></div>
+<div class="g"><dt>Conflict of Interest</dt><dd>A divergence of interests when one group controls both sides.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86</a></li><li>State of Delaware. <a href="https://delcode.delaware.gov/title12/c038/" rel="noopener nofollow" target="_blank">Delaware Statutory Trust Act (Title 12, Chapter 38)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

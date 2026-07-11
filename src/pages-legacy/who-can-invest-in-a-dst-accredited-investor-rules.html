@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Can Invest in a DST? Accredited Investor Rules | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Who Can Invest in a DST? Accredited Investor Rules
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Who Can Invest in a DST? Accredited Investor Rules</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Who can actually invest in a DST? This guide explains the accredited investor rules that govern DST eligibility — the income and net-worth tests, how accredited entities qualify, how accreditation is verified, why DSTs require it, and how to confirm your own eligibility.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Delaware Statutory Trusts are powerful 1031 tools — passive, fractional, institutional real estate that can serve as replacement property and satisfy debt replacement — but not everyone can invest in them. Because DST interests are securities sold as Regulation D private placements, they're generally limited to accredited investors: individuals and entities that meet specific income, net-worth, or other thresholds the SEC uses to identify investors presumed able to evaluate and bear the risks of less-regulated private offerings. Understanding these rules matters, because accreditation is effectively the gateway to DST investing — if you're planning a 1031 exchange and considering a DST, you'll want to confirm your eligibility before you're racing the clock. This guide explains the accredited investor income and net-worth tests, how accredited entities qualify, how accreditation is verified, why DSTs require it, and how to confirm your own eligibility. Note that these rules can change and apply differently to different situations, so verify the current rules and your specific status with your advisor; DST interests are offered through a broker-dealer after a suitability review, and Baker 1031 does not provide tax or legal advice.</p>
+<p>Accreditation is the gateway to the investments described in <a href="dst-guide.html">our comprehensive Delaware Statutory Trust primer</a>.</p>
+<h2 id="accredited-income-networth-tests">Accredited Investor Income &amp; Net-Worth Tests</h2>
+<p>For individuals, accredited-investor status usually comes down to one of two financial tests: an income test or a net-worth test. Under the income test, you qualify if you had income over $200,000 (if single) or $300,000 (jointly with a spouse or spousal equivalent) in each of the last two years, and you reasonably expect the same income level in the current year. The key is consistency — you generally need to have cleared the threshold in both of the prior two years, not just one, and to expect to clear it again this year.</p>
+<p>Under the net-worth test, you qualify if your net worth — individually or together with a spouse — exceeds $1 million, excluding the value of your primary residence. The primary-residence exclusion is important: you don't count the equity in your home toward the $1 million, and in most cases you also don't count the mortgage on it as a liability (with some exceptions if you've borrowed against it shortly before investing). So the net-worth test looks at your investable and other assets net of liabilities, leaving your home out of the calculation. Meeting either test — income or net worth — is enough; you don't need both.</p>
+<p>So the two core individual tests are income (over $200,000 single or $300,000 joint in each of the last two years, with the same expected this year) and net worth (over $1 million excluding your primary residence), and satisfying either one makes you accredited. <a href="accredited-investor-requirements.html">Accredited investor</a> income and net-worth tests — qualifying either through income (over $200,000 individually or $300,000 jointly in each of the prior two years, with the same expected this year) or net worth (exceeding $1 million excluding your primary residence) — are the two primary ways an individual becomes eligible to invest in a DST. You need only meet one. Understanding these thresholds is the starting point for determining whether you can invest in a DST, since these are securities limited to accredited investors. Confirm your status with your advisor, as the details can be nuanced.</p>
+<h2 id="accredited-entities">Accredited Entities</h2>
+<p>Accreditation isn't limited to individuals — many investors hold real estate and invest in DSTs through entities like LLCs, partnerships, trusts, and corporations, and those entities can qualify as accredited in their own right. One common path is the asset test: an entity such as a corporation, partnership, LLC, or certain trusts generally qualifies as accredited if it has more than $5 million in assets and wasn't formed for the specific purpose of acquiring the offered securities. Certain institutional entities — banks, insurance companies, registered investment companies, and others — qualify automatically.</p>
+<p>Another important path is the look-through test: an entity can qualify as accredited if all of its equity owners are themselves accredited investors. This matters for the many 1031 investors who hold property through a single-member LLC or a small family entity — if every owner is individually accredited, the entity is accredited too, even if it doesn't have $5 million in assets. Trusts have their own rules: a trust with more than $5 million in assets (not formed specifically to buy the offering and directed by a sophisticated person) can qualify, and certain revocable trusts may qualify based on the grantors' accredited status. Because many DST investors take title through an entity to match how they held the relinquished property, knowing how your entity qualifies is often as important as your personal status.</p>
+<p>So entities can be accredited through the asset test (generally over $5 million in assets), the look-through test (all equity owners accredited), automatic institutional status, or specific trust rules — which matters because many 1031 investors invest through an LLC or trust. Accredited entities — qualifying through the asset test (more than $5 million in assets and not formed to buy the offering), the look-through test (all equity owners are accredited), automatic status for certain institutions, or specific trust rules — let LLCs, partnerships, trusts, and corporations invest in DSTs in their own right. This matters because many 1031 investors hold and invest through entities to mirror how they held the relinquished property. Understanding how your particular entity qualifies is essential to confirming DST eligibility. Coordinate with your advisor and attorney on your entity's structure and status.</p>
+<h2 id="how-accreditation-verified">How Accreditation Is Verified</h2>
+<p>How your accredited status is confirmed depends on the type of Reg D offering. Under Rule 506(b), investors can generally self-certify — you represent, typically by completing a subscription questionnaire, that you meet the accreditation thresholds, and the issuer can reasonably rely on that representation absent reason to doubt it. This is the lighter-touch approach, and it's why 506(b) offerings don't require you to hand over financial documents.</p>
+<p>Under Rule 506(c) — which many DSTs use because it allows public advertising — verification is stricter: the issuer must take 'reasonable steps to verify' that you're genuinely accredited, going beyond self-certification. In practice, that means either providing documentation (recent tax returns or W-2s for the income test; bank, brokerage, and other statements for the net-worth test) or, more commonly and conveniently, supplying a written letter from a third-party professional — a CPA, attorney, registered investment adviser, or registered broker-dealer — confirming they've reviewed your finances and that you qualify. Some sponsors use dedicated third-party verification platforms. Because many DSTs are 506(c) offerings, you should generally expect to verify your status with documentation or a professional's letter rather than just attesting to it.</p>
+<p>So accreditation is verified either by self-certification (under 506(b)) or by documented, third-party verification (under 506(c)) — and because many DSTs use 506(c), you should generally expect the stricter, documented verification. How accreditation is verified — through self-certification on a subscription questionnaire (under Rule 506(b)) or through documented, reasonable-steps verification via financial records or a professional's letter from a CPA, attorney, RIA, or broker-dealer (under Rule 506(c), which many DSTs use) — determines what you'll need to provide before investing. Self-certification is lighter; 506(c) verification is documented. Knowing which applies to a given DST helps you prepare the right materials and avoid delays in a time-sensitive <a href="1031-exchange-guide.html">1031 exchange</a>. Gather your documentation or line up your professional's letter in advance.</p>
+<h2 id="why-dsts-require-accreditation">Why DSTs Require Accreditation</h2>
+<p>DSTs require accreditation because of what they are legally: Regulation D private-placement securities. Even though a DST beneficial interest is treated as direct real property for 1031 purposes (under Revenue Ruling 2004-86), the interest is sold as a security, and DST offerings rely on Reg D exemptions from full SEC registration. Those exemptions — chiefly Rules 506(b) and 506(c) — are conditioned on selling to accredited (and, in limited 506(b) cases, a few sophisticated non-accredited) investors. So accreditation isn't an arbitrary hurdle; it's a condition of the securities exemption the DST relies on.</p>
+<p>The policy rationale is investor protection. Private placements are exempt from the extensive, SEC-reviewed disclosures required in a registered public offering, so investors get less standardized information and fewer regulatory protections. The accredited-investor standard limits these less-disclosed, often illiquid and complex offerings to investors presumed — based on high income, substantial net worth, or professional licensing — to have the sophistication and financial resources to evaluate them and absorb potential losses. DSTs in particular are illiquid, long-term, and structurally complex, so the accreditation requirement aligns the audience with the risk profile. It's a gate designed to match the offering to investors who can bear it.</p>
+<p>So DSTs require accreditation because they're Reg D private-placement securities whose registration exemptions are conditioned on selling to accredited investors, and because the standard serves to limit these less-disclosed, illiquid, complex offerings to investors presumed able to bear the risk. Why DSTs require accreditation — because they're Regulation D private-placement securities (notwithstanding their real-property treatment under Rev. Rul. 2004-86) whose exemptions from SEC registration are conditioned on accredited investors, and because the standard protects investors by matching less-disclosed, illiquid, complex offerings to those presumed able to evaluate and absorb the risk — explains the requirement. It's both a legal condition and an investor-protection measure. Understanding why it exists clarifies that accreditation is fundamental to DST investing, not optional. This is educational background, not legal advice.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Individuals qualify as accredited via the income test (over $200k single / $300k joint in each of the last two years) or the net-worth test (over $1 million excluding primary residence).</li>
+<li>Entities can qualify too — through more than $5 million in assets, the look-through test (all owners accredited), or specific trust and institutional rules.</li>
+<li>Accreditation is verified by self-certification under 506(b) or by documented, third-party verification under 506(c), which many DSTs use.</li>
+<li>DSTs require accreditation because they're Reg D private-placement securities, and the standard limits these illiquid, complex offerings to investors presumed able to bear the risk.</li>
+</ul></div>
+<h2 id="licensed-individuals-and-other-paths">Licensed Individuals &amp; Other Paths</h2>
+<p>Beyond the income and net-worth tests, there are additional paths to accredited status that are easy to overlook. The SEC has expanded the definition to include certain licensed individuals: people who hold specific financial professional credentials — currently the Series 7 (general securities representative), Series 65 (investment adviser representative), or Series 82 (private securities offerings representative) licenses in good standing — qualify as accredited regardless of their income or net worth. This recognizes professional knowledge as a basis for accreditation, not just wealth.</p>
+<p>There are also paths tied to relationships and roles. 'Knowledgeable employees' of a private fund can qualify with respect to that fund, and certain family offices and family clients meeting size and sophistication standards qualify. Spousal-equivalent rules let unmarried couples pool income and assets for the joint thresholds. For entities, the routes discussed earlier — the $5 million asset test, the look-through test where all owners are accredited, automatic institutional status, and trust-specific rules — provide flexibility. The practical takeaway is that accreditation can be reached in several ways, so if you don't obviously meet the income or net-worth test as an individual, it's worth checking whether a license, an entity structure, or another path applies to you.</p>
+<p>So beyond income and net worth, you can also qualify through professional licenses (Series 7, 65, or 82), knowledgeable-employee or family-office status, spousal-equivalent pooling, or the various entity routes — several of which a prospective DST investor might overlook. Licensed individuals and other paths — qualifying through professional credentials (Series 7, 65, or 82 in good standing), knowledgeable-employee or family-office status, spousal-equivalent pooling of income and assets, or the entity routes (the $5 million asset test, the look-through test, institutional status, and trust rules) — broaden who can be accredited beyond the basic wealth tests. Several of these are easy to miss. Checking whether one of these alternative paths applies to you (or your entity) is worthwhile if the income and net-worth tests aren't a clear fit. Confirm any path with your advisor.</p>
+<div class="pullquote"><p>Accreditation isn't only about wealth: a Series 7, 65, or 82 license — or the right entity structure — can qualify you even if the income and net-worth tests don't obviously apply.</p></div>
+<h2 id="confirming-your-eligibility">Confirming Your Eligibility</h2>
+<p>The practical step for any prospective DST investor is to confirm your eligibility early — ideally before you're in the middle of a time-pressured 1031 exchange. Start by identifying which test you meet: the income test, the net-worth test, a professional license, or an entity route. Then determine how you'll invest — individually, jointly with a spouse, or through an LLC or trust — because the entity through which you take title affects which accreditation test applies and what documentation you'll need. Because many 1031 investors invest through the same entity that held the relinquished property, this is worth sorting out with your attorney in advance.</p>
+<p>Next, prepare for verification. If the DST is a 506(c) offering (as many are), you'll need documented proof — so gather recent tax returns or W-2s (income test) or asset and liability statements (net-worth test), or, more conveniently, arrange a letter from your CPA, attorney, RIA, or broker-dealer confirming your accredited status. Doing this ahead of time keeps verification from becoming a bottleneck near your 45-day or 180-day deadline. Finally, remember that accreditation is necessary but not sufficient: even once you're confirmed accredited, a DST still involves a suitability review through the broker-dealer, which considers whether the specific investment fits your goals, liquidity needs, and risk tolerance.</p>
+<p>So confirming your eligibility means identifying which accreditation test you meet, deciding how you'll hold title (individually or through an entity), preparing your verification documentation in advance, and understanding that accreditation is the gate but a suitability review still follows. Confirming your eligibility — identifying which test or path you meet, deciding whether you'll invest individually or through an entity (which affects the applicable test and documentation), preparing verification materials in advance for a likely 506(c) offering, and recognizing that a suitability review still follows accreditation — turns the rules into an action plan. Sorting this out early prevents delays in a time-sensitive exchange. Working with your advisor and broker-dealer to confirm your status before you identify a DST is the smoothest way to be ready when an offering you want comes available.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Confirm DST Eligibility</h2>
+<p>Baker 1031 Investments helps investors understand who can invest in a DST — the accredited investor income and net-worth tests, how accredited entities qualify, the licensed-individual and other paths, how accreditation is verified, why DSTs require it, and how to confirm your own eligibility — so you can determine your status early and be ready when a suitable DST becomes available.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. We help you understand which accreditation test or path applies to you (individually or through your LLC or trust), prepare for the verification a 506(c) offering requires (coordinating with your CPA, attorney, or RIA on a verification letter when needed), and then evaluate whether a specific DST is suitable for your goals, liquidity needs, and risk tolerance. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax and legal situation, including how your entity is structured and how the DST fits your 1031 exchange — and the accredited-investor and securities rules here are technical, so this is educational information, not advice. Accreditation is necessary but not sufficient: even when you qualify, we recommend a DST only when it's suitable for you. Nothing here is a promise of income or returns — DST interests are illiquid and carry real risk, and past performance does not guarantee future results.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What does it mean to be an accredited investor?<span class="ic"></span></summary>
+<div class="ans"><p>An accredited investor is someone the SEC permits to invest in certain private securities offerings — like DSTs — that aren't available to the general public because they're exempt from full registration and disclosure. For individuals, you generally qualify by meeting an income test (income over $200,000 if single, or $300,000 jointly, in each of the last two years, with the same expected this year) or a net-worth test (net worth over $1 million, excluding your primary residence). You can also qualify by holding certain professional licenses — the Series 7, 65, or 82 — in good standing. Entities can qualify too, for example by having more than $5 million in assets or by having all equity owners be accredited. The idea behind the standard is that accredited investors are presumed to have the financial sophistication and resources to evaluate and bear the risks of less-regulated private offerings. So being accredited is effectively the gateway to investing in DSTs. Confirm your specific status with your advisor, since the rules have nuances.</p></div>
+</details>
+<details>
+<summary>What is the income test for accreditation?<span class="ic"></span></summary>
+<div class="ans"><p>The income test is one of the two primary ways an individual becomes an accredited investor. To meet it, you need income over $200,000 if you're single, or over $300,000 jointly with a spouse or spousal equivalent, in each of the last two years — and you must reasonably expect to reach the same income level in the current year. The emphasis on 'each of the last two years' matters: a single high-income year generally isn't enough; you need to have cleared the threshold in both prior years and expect to again this year. If you qualify jointly using the $300,000 figure, you generally must use the joint figure consistently rather than mixing individual and joint income across years. Meeting the income test alone makes you accredited — you don't also need to meet the net-worth test. So if your income has consistently exceeded these thresholds, you likely qualify on income. For a 506(c) DST, you'd verify this with recent tax returns or W-2s, or a professional's letter. Confirm the specifics with your advisor.</p></div>
+</details>
+<details>
+<summary>What is the net-worth test for accreditation?<span class="ic"></span></summary>
+<div class="ans"><p>The net-worth test is the second primary way an individual qualifies as an accredited investor. You meet it if your net worth — individually or jointly with your spouse — exceeds $1 million, excluding the value of your primary residence. The primary-residence exclusion is important in two ways: you don't count your home's equity toward the $1 million, and you generally don't count the mortgage on it as a liability either (with an exception if you've recently increased that mortgage, such as borrowing against the home shortly before investing, which may be counted as a liability). So the test looks at your other assets — investments, cash, real estate beyond your home, and so on — net of your liabilities, leaving your residence out. Meeting the net-worth test alone makes you accredited; you don't also need to satisfy the income test. So if your investable net worth comfortably exceeds $1 million apart from your home, you likely qualify. For a 506(c) DST, you'd document this with asset and liability statements or a professional's letter. Confirm the details with your advisor.</p></div>
+</details>
+<details>
+<summary>Can I invest in a DST through an LLC or trust?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — many DST investors invest through an LLC, trust, or other entity, often to mirror how they held the relinquished property in their 1031 exchange. The entity itself must qualify as accredited, and there are several ways it can. Under the asset test, an entity (corporation, partnership, LLC, or certain trusts) with more than $5 million in assets, not formed specifically to buy the offering, generally qualifies. Under the look-through test, an entity qualifies if all of its equity owners are themselves accredited investors — which is how many single-member LLCs and small family entities qualify even without $5 million in assets. Trusts have their own rules: a trust with over $5 million in assets directed by a sophisticated person can qualify, and certain revocable trusts may qualify based on the grantors' accredited status. So holding through an entity is common and workable, but you need to confirm how your specific entity qualifies. Coordinate with your attorney and advisor on your entity's structure and accreditation, since this affects how you'll invest and verify.</p></div>
+</details>
+<details>
+<summary>How do I verify my accredited status?<span class="ic"></span></summary>
+<div class="ans"><p>How you verify depends on the type of offering. Under Rule 506(b), you can generally self-certify — you represent on a subscription questionnaire that you meet the accreditation thresholds, and the issuer can rely on that absent reason to doubt it; no financial documents are required. Under Rule 506(c) — which many DSTs use because it permits public advertising — verification is stricter: the issuer must take reasonable steps to confirm you're accredited, so you'll either provide documentation (recent tax returns or W-2s for the income test; bank, brokerage, and other statements for the net-worth test) or, more conveniently, supply a written letter from a third-party professional — your CPA, attorney, registered investment adviser, or broker-dealer — confirming you qualify. Some sponsors use third-party verification platforms to streamline this. Because many DSTs are 506(c) offerings, expect to verify with documentation or a professional's letter rather than just attesting. So gather your materials in advance, especially given a 1031 exchange's tight deadlines. Confirm the specific requirements with the offering and your advisor.</p></div>
+</details>
+<details>
+<summary>Why do DSTs require investors to be accredited?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs require accreditation because they're Regulation D private-placement securities. Even though a DST beneficial interest is treated as direct real property for 1031 purposes under Revenue Ruling 2004-86, the interest is sold as a security, and DST offerings rely on Reg D exemptions (chiefly Rules 506(b) and 506(c)) from full SEC registration. Those exemptions are conditioned on selling primarily to accredited investors, so accreditation is a legal condition of the offering. The policy reason is investor protection: private placements skip the extensive, SEC-reviewed disclosures of a registered public offering, so investors receive less standardized information and fewer protections. The accredited standard limits these less-disclosed, illiquid, complex offerings to investors presumed — by income, net worth, or professional licensing — to be able to evaluate them and bear potential losses. DSTs are illiquid, long-term, and structurally complex, so the requirement aligns the audience with the risk. So accreditation is both a securities-law condition and an investor-protection measure. This is educational background, not legal advice — confirm specifics with your advisor.</p></div>
+</details>
+<details>
+<summary>Do professional licenses make me accredited?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — certain professional licenses can make you an accredited investor regardless of your income or net worth. The SEC expanded the definition to include individuals holding specific credentials in good standing: currently the Series 7 (general securities representative), the Series 65 (investment adviser representative), or the Series 82 (private securities offerings representative) license. If you hold one of these active and in good standing, you qualify as accredited based on your professional knowledge, even if you don't meet the income or net-worth thresholds. This recognizes that financial expertise — not just wealth — can be a basis for accreditation. It's a path that's easy to overlook, so if you work in the securities industry or hold one of these licenses, it's worth knowing you likely qualify on that basis. Note that the list of qualifying licenses is defined by the SEC and could change, so confirm current eligibility. So a Series 7, 65, or 82 in good standing is a valid route to accredited status for DST investing. Verify your specific situation with your advisor.</p></div>
+</details>
+<details>
+<summary>Can my spouse and I combine income or assets to qualify?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — you can combine income or assets with your spouse (or spousal equivalent) to meet the accreditation thresholds, using the joint figures. For the income test, that means qualifying with joint income over $300,000 in each of the last two years (rather than $200,000 individually), with the same expected this year. For the net-worth test, you can combine your and your spouse's net worth toward the $1 million threshold (still excluding your primary residence). The SEC's rules also recognize 'spousal equivalents' — a cohabitant in a relationship generally equivalent to a spouse — so unmarried couples can pool income and assets the same way. When qualifying jointly on income, you generally need to use the joint figure consistently rather than mixing individual and joint figures across years. So combining with a spouse or spousal equivalent is a common and legitimate way to reach the thresholds. Just be consistent in how you apply the joint figures, and confirm the approach with your advisor, since the documentation for a 506(c) verification may need to reflect both parties.</p></div>
+</details>
+<details>
+<summary>Is accreditation enough to invest in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>No — accreditation is necessary but not sufficient. Being an accredited investor makes you eligible to be offered a DST, but it doesn't mean a particular DST is right for you. Because DST interests are securities offered through a broker-dealer, a suitability review still applies: before recommending a specific DST, the broker-dealer evaluates whether that investment fits your financial situation, investment goals, liquidity needs, time horizon, and risk tolerance. A DST is illiquid, long-term, and carries real estate and structural risk, so even a fully accredited investor shouldn't necessarily invest in any given offering — or in a DST at all if it doesn't fit their circumstances. So think of accreditation as the gate that gets you in the door and the suitability review as the check that the specific investment is appropriate for you. Both matter. So confirm your accredited status, but also expect and value the suitability process — it's there to protect you. Work with your advisor and broker-dealer to ensure any DST you consider genuinely fits your goals.</p></div>
+</details>
+<details>
+<summary>What documentation do I need to prove I'm accredited?<span class="ic"></span></summary>
+<div class="ans"><p>The documentation depends on which test you're using and whether the offering requires verification (as 506(c) offerings do). For the income test, you'd typically provide recent tax returns or W-2s showing income over the threshold in each of the last two years. For the net-worth test, you'd provide statements demonstrating your assets — bank, brokerage, and other account statements — along with information on your liabilities, sometimes including a credit report, to show net worth over $1 million excluding your primary residence. As an alternative to handing over detailed financials, you can often provide a written letter from a third-party professional — your CPA, attorney, registered investment adviser, or broker-dealer — confirming they've reviewed your finances and that you qualify; many investors prefer this for privacy and convenience. If you're investing through an entity, you may also need documents establishing the entity's qualification. So gather either your financial documentation or a professional's letter in advance. Because 1031 exchanges run on tight deadlines, preparing this early prevents delays. Confirm the exact requirements with the specific offering.</p></div>
+</details>
+<details>
+<summary>Can a non-accredited investor ever invest in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>In practice, almost never. Nearly all DSTs are Regulation D private placements limited to accredited investors. A 506(c) DST is strictly accredited-only with no exceptions. A 506(b) DST could technically include up to 35 sophisticated non-accredited investors, but most sponsors choose to limit their offerings to accredited investors anyway, because including non-accredited investors triggers extra disclosure obligations and complexity. As a result, the practical reality is that you generally need to be accredited to invest in a DST. This flows from the fact that DSTs are Reg D securities, and the accredited standard is meant to limit these illiquid, complex, less-disclosed offerings to investors presumed able to bear the risk. So if you're not accredited, DST investing is generally not open to you, and you'd need to look at other ways to participate in real estate or complete a 1031 exchange. It's worth checking all the paths to accreditation — income, net worth, professional license, or an entity route — before concluding you don't qualify. Confirm your status with your advisor.</p></div>
+</details>
+<details>
+<summary>Does my primary residence count toward the net-worth test?<span class="ic"></span></summary>
+<div class="ans"><p>No — your primary residence is specifically excluded from the net-worth test. To qualify under that test, your net worth (individually or with your spouse) must exceed $1 million excluding the value of your primary residence. This means you don't add your home's equity to your net worth for accreditation purposes. Correspondingly, you generally don't count the mortgage on your primary residence as a liability either — so a typical home and its mortgage roughly wash out of the calculation. There's an important exception: if you've recently increased the debt on your home — for instance, taking out or increasing a mortgage or home-equity loan shortly before investing — the amount of that recent increase may be counted as a liability, to prevent people from borrowing against their home to manufacture qualifying assets. So the net-worth test focuses on your assets apart from your home, net of your other liabilities. If your investable net worth exceeds $1 million without counting your residence, you likely qualify. Confirm the details with your advisor, especially if you've recently borrowed against your home.</p></div>
+</details>
+<details>
+<summary>How early should I confirm my accreditation before a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>As early as possible — ideally before you've even identified a specific DST, and certainly before you're up against the exchange deadlines. A 1031 exchange runs on tight timelines: you have 45 days from selling your relinquished property to identify replacement property, and 180 days to close. If a DST you want is a 506(c) offering, you'll need to verify your accredited status with documentation or a professional's letter before your investment can be accepted, and you don't want that verification to become a bottleneck near a deadline. So sort out which accreditation test you meet, decide whether you'll invest individually or through an entity (and confirm the entity qualifies), and gather your documentation or line up your CPA's, attorney's, or RIA's verification letter in advance. Doing this early means that when a suitable DST becomes available, you can move quickly. So treat accreditation confirmation as a preparatory step you handle up front, not something to scramble for mid-exchange. Coordinate with your advisor and broker-dealer well before your clock is running.</p></div>
+</details>
+<details>
+<summary>Do the accreditation rules ever change?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the accredited-investor definition has evolved over time and can change again. The core financial thresholds (over $200,000 single or $300,000 joint income, and over $1 million net worth excluding primary residence) have been in place for years, but the SEC has expanded the definition to add categories — for example, including individuals who hold certain professional licenses (Series 7, 65, or 82), knowledgeable employees of private funds, and certain family offices and entities. There has also been ongoing policy discussion about whether and how to adjust the thresholds (for instance, for inflation) or broaden the qualifying criteria further. Because the rules can change, it's important to verify the current definition and your eligibility at the time you invest rather than relying on older information. So treat the thresholds and categories described here as a current snapshot, and confirm them — and your own status — with your advisor when you're actually pursuing a DST. This is educational information about the rules, not legal advice, and the details can shift, so current verification matters.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me confirm DST eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand who can invest in a DST — the income and net-worth tests, how accredited entities qualify, the licensed-individual and other paths, how accreditation is verified, why DSTs require it, and how to confirm your own eligibility — so you can determine your status early and be ready when a suitable DST becomes available. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. We help you understand which accreditation test or path applies to you (individually or through your LLC or trust), prepare for the verification a 506(c) offering requires (coordinating with your CPA, attorney, or RIA on a verification letter when needed), and evaluate whether a specific DST is suitable for your goals, liquidity needs, and risk tolerance. Baker 1031 does not provide tax or legal advice — your CPA and attorney handle your specific situation, and these rules are technical, so this is educational information, not advice. Accreditation is necessary but not sufficient; we recommend a DST only when suitable. Nothing here promises income or returns — DST interests are illiquid and carry real risk, and past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income, net-worth, licensing, or entity thresholds.</dd></div>
+<div class="g"><dt>Income Test</dt><dd>Over $200k single / $300k joint in each of the last two years.</dd></div>
+<div class="g"><dt>Net-Worth Test</dt><dd>Net worth over $1 million excluding your primary residence.</dd></div>
+<div class="g"><dt>Primary Residence Exclusion</dt><dd>Your home is left out of the net-worth calculation.</dd></div>
+<div class="g"><dt>Accredited Entity</dt><dd>An LLC, trust, or company qualifying as accredited in its own right.</dd></div>
+<div class="g"><dt>Asset Test</dt><dd>An entity with more than $5 million in assets qualifies.</dd></div>
+<div class="g"><dt>Look-Through Test</dt><dd>An entity qualifies if all its equity owners are accredited.</dd></div>
+<div class="g"><dt>Spousal Equivalent</dt><dd>A cohabitant treated like a spouse for pooling income or assets.</dd></div>
+<div class="g"><dt>Series 7 / 65 / 82</dt><dd>Professional licenses that can qualify an individual as accredited.</dd></div>
+<div class="g"><dt>Knowledgeable Employee</dt><dd>A private-fund employee who can qualify for that fund.</dd></div>
+<div class="g"><dt>Self-Certification</dt><dd>Attesting to accredited status, allowed under Rule 506(b).</dd></div>
+<div class="g"><dt>Verification</dt><dd>Documented confirmation of accredited status, required under 506(c).</dd></div>
+<div class="g"><dt>Regulation D</dt><dd>SEC rules exempting certain private offerings from registration.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether a DST fits an investor after accreditation.</dd></div>
+<div class="g"><dt>Rev. Rul. 2004-86</dt><dd>The IRS ruling making DST interests 1031-eligible real property.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust owning real estate, sold as a Reg D private placement.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-3" rel="noopener nofollow" target="_blank">Investor.gov — Updated Investor Bulletin: Accredited Investors</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/resources-small-businesses/exempt-offerings/private-placements-rule-506b" rel="noopener nofollow" target="_blank">Rule 506 of Regulation D</a></li><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86 (Delaware Statutory Trusts and 1031)</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

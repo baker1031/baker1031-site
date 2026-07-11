@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrial &amp; Logistics REITs Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Industrial & Logistics REITs Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Industrial & Logistics REITs Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Industrial and logistics REITs own the warehouses, distribution centers, and fulfillment facilities that move goods. This guide explains what they own, how e-commerce and supply-chain demand drive the sector, their lease structures and tenants, the sector's risks, and outlook considerations.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Industrial REITs own the unglamorous but essential backbone of modern commerce: warehouses, distribution centers, fulfillment facilities, and logistics properties where goods are stored, sorted, and shipped. As online shopping has grown, so has demand for this space — e-commerce requires far more warehouse space per dollar of sales than traditional retail, because products must be stocked, picked, packed, and shipped to customers rather than displayed in a store. That demand, along with companies reconfiguring supply chains and holding more inventory, has made industrial one of the most closely watched REIT sectors; it has historically outperformed many others, though past performance does not guarantee future results. Industrial REITs typically lease space to logistics and industrial tenants under longer leases, often with built-in rent escalators. This guide explains what industrial REITs own, how e-commerce and supply-chain demand drive the sector, their lease structures and tenants, the sector's risks (including oversupply and tenant concentration), and outlook considerations — framed cautiously, since no sector's performance is assured. This is educational information, not investment advice, and REIT suitability depends on your situation.</p>
+<p>To place industrial within the wider landscape, our <a href="reits-guide.html">in-depth guide to REITs</a> walks through how each major property sector earns its income.</p>
+<h2 id="what-industrial-reits-own">What Industrial REITs Own</h2>
+<p>Industrial REITs own the properties where goods are stored, handled, and distributed. The core holdings are warehouses and distribution centers — large buildings where companies store inventory and route shipments — and fulfillment centers, the facilities that pick, pack, and ship individual online orders to consumers. The sector also includes logistics facilities near transportation hubs, light-industrial and flex space, and increasingly 'last-mile' facilities located close to population centers to speed final delivery. These are the physical nodes of the supply chain, and industrial REITs are the landlords that own them.</p>
+<p>What unites these property types is function: they exist to move and store goods efficiently, not to display them to shoppers. That gives industrial real estate distinctive features — large floor plates, high ceilings (clear height) for stacking inventory, loading docks, truck courts, and proximity to highways, ports, rail, and airports. Location matters enormously: a warehouse's value depends heavily on how quickly it can reach customers and connect to transportation networks. Industrial REITs assemble portfolios of these properties and lease them to companies that need to store and distribute products — retailers, e-commerce companies, manufacturers, and third-party logistics providers. So industrial REITs own the warehouses, distribution, and fulfillment infrastructure that keeps goods moving.</p>
+<p>So industrial REITs own warehouses, distribution centers, fulfillment centers, and logistics facilities — the physical nodes of the supply chain where goods are stored, sorted, and shipped. What industrial REITs own — warehouses and distribution centers, e-commerce fulfillment centers, last-mile delivery facilities, and logistics and light-industrial space, distinguished by large floor plates, high clear heights, loading docks, and proximity to transportation networks — is the physical infrastructure of moving and storing goods. Location is central to value. Understanding what they own frames the demand drivers. Industrial REITs own warehouses, distribution centers, fulfillment centers, and logistics facilities — the supply-chain infrastructure where goods are stored, sorted, and shipped, with location and transportation access central to their value.</p>
+<h2 id="ecommerce-supply-chain-demand">E-Commerce &amp; Supply-Chain Demand</h2>
+<p>The dominant demand driver for industrial REITs is e-commerce. Online shopping requires far more warehouse and distribution space per dollar of sales than brick-and-mortar retail — by various estimates, multiples more — because goods must be stored, picked, packed, and shipped to individual customers rather than simply displayed on store shelves. As e-commerce has grown as a share of total retail, that structural shift has driven sustained demand for warehouse and fulfillment space, making industrial one of the most-watched REIT sectors of the past decade.</p>
+<p>Supply-chain reconfiguration is a second, reinforcing driver. After disruptions exposed the fragility of lean, just-in-time supply chains, many companies moved toward holding more inventory ('just-in-case' stocking) and diversifying or reshoring suppliers — both of which require additional warehouse space. The rise of last-mile logistics, where companies position smaller facilities close to population centers to speed final delivery, adds another layer of demand for well-located industrial space. So two forces — the structural growth of e-commerce and the reconfiguration of supply chains toward more inventory and faster delivery — underpin demand for industrial real estate. These drivers are why the sector has attracted so much investor attention.</p>
+<p>So industrial demand is driven by e-commerce (which needs far more warehouse space per dollar of sales) and supply-chain reconfiguration (more inventory, reshoring, and last-mile delivery), both requiring additional space. E-commerce and supply-chain demand — online shopping requiring multiples more warehouse and fulfillment space per dollar of sales than physical retail, plus supply-chain reconfiguration toward more inventory ('just-in-case' stocking), supplier diversification, and last-mile delivery facilities — are the structural forces driving industrial REIT demand. They have made the sector a focal point. Understanding the demand drivers frames lease structures and tenants. Industrial REIT demand is driven by e-commerce, which needs far more warehouse space per dollar of online sales, and by supply-chain reconfiguration toward more inventory and last-mile delivery — both structural sources of demand for warehouse space.</p>
+<div class="pullquote"><p>E-commerce needs multiples more warehouse space per dollar of sales than a store does — products must be stored, picked, packed, and shipped to your door rather than displayed on a shelf, and that structural shift drives industrial demand.</p></div>
+<h2 id="lease-structures-tenants">Lease Structures &amp; Tenants</h2>
+<p>Industrial leases tend to be longer than residential leases, often running several years to a decade or more, which gives industrial REITs the kind of <a href="income-reits-explained-investing-for-cash-flow.html">relatively predictable, durable income</a> compared with the frequent rent resets of apartments. Many industrial leases include built-in rent escalators — contractual annual rent increases (often a fixed percentage) — that grow income over the lease term, and many are structured as <a href="net-lease-reits-explained.html">net leases where the tenant covers property expenses</a> like taxes, insurance, and maintenance. This combination of long terms, escalators, and net-lease structures makes industrial income comparatively steady and contractually growing.</p>
+<p>The tenants are companies that need to store and distribute goods: large retailers and e-commerce companies, third-party logistics providers (3PLs) that handle warehousing and shipping for others, manufacturers, and distributors. Tenant quality matters — a creditworthy, long-term tenant supports stable rent — but so does tenant concentration: a REIT heavily dependent on one or a few large tenants faces risk if a major tenant downsizes, relocates, or struggles. Because leases roll over time, industrial REITs in strong markets have at times been able to re-lease space at significantly higher market rents than the expiring leases, a source of income growth (though this depends on market conditions). So industrial leases are long, often escalating and net, with logistics and industrial tenants.</p>
+<p>So industrial lease structures are typically long-term, often with rent escalators and net-lease terms, leased to retailers, e-commerce firms, 3PLs, manufacturers, and distributors. Lease structures and tenants — industrial leases typically running longer than residential (several years to a decade-plus), frequently including contractual rent escalators and net-lease terms that shift expenses to tenants, leased to retailers, e-commerce companies, third-party logistics providers, manufacturers, and distributors — give the sector comparatively durable, contractually growing income, with tenant credit and concentration as key considerations. Re-leasing at higher market rents can add growth. Understanding leases and tenants frames the risks. Industrial leases are typically long-term, often with rent escalators and net-lease terms, leased to retailers, e-commerce firms, logistics providers, and manufacturers — giving durable, contractually growing income, with tenant credit and concentration as key considerations.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Industrial REITs own warehouses, distribution centers, fulfillment centers, and logistics facilities — the physical infrastructure of moving and storing goods.</li>
+<li>Demand is driven by e-commerce (far more warehouse space per dollar of online sales) and supply-chain reconfiguration (more inventory, last-mile delivery).</li>
+<li>Leases are typically long-term, often with rent escalators and net-lease terms, leased to retailers, e-commerce firms, logistics providers, and manufacturers.</li>
+<li>The sector has historically outperformed many others, but past performance does not guarantee future results, and risks include oversupply and tenant concentration.</li>
+</ul></div>
+<h2 id="sector-risks">Sector Risks</h2>
+<p>Industrial REITs, for all their tailwinds, carry real risks. The most prominent is oversupply: strong demand and high rents have spurred extensive new warehouse construction, and if developers deliver more space than the market needs — especially if demand cools — vacancy can rise and rent growth can slow. A sector that has been a standout can soften quickly if construction outpaces absorption. A second risk is an e-commerce slowdown: because online retail is the sector's central demand engine, a deceleration in e-commerce growth (or a pullback by major occupiers) would reduce the need for new space and pressure the sector.</p>
+<p>Tenant concentration is a third risk: industrial REITs that depend heavily on one or a few large tenants — including dominant e-commerce companies — face exposure if those tenants reduce their footprints, renegotiate, or build their own facilities. A fourth is location obsolescence: a warehouse poorly located relative to transportation networks or population centers can become less competitive as logistics needs evolve, leaving older or badly sited properties behind. On top of these, the general REIT risks apply — interest-rate sensitivity and leverage. So oversupply, an e-commerce slowdown, tenant concentration, and location obsolescence are the principal sector-specific risks investors weigh.</p>
+<p>So the principal industrial REIT risks are oversupply from heavy construction, an e-commerce slowdown, tenant concentration, and location obsolescence, alongside general REIT rate-sensitivity and leverage. Sector risks — oversupply from extensive new warehouse construction outpacing demand, an e-commerce slowdown reducing the sector's core demand engine, tenant concentration in one or a few large occupiers, and location obsolescence for poorly sited properties, plus general REIT rate-sensitivity and leverage — define the industrial sector's downside despite its tailwinds. A standout can soften if supply outruns demand. Understanding the risks frames the outlook. The principal industrial REIT risks are oversupply, an e-commerce slowdown, tenant concentration, and location obsolescence, alongside general REIT rate-sensitivity and leverage — risks that can pressure a sector that has otherwise enjoyed strong demand.</p>
+<div class="pullquote"><p>Industrial has been a standout sector — but a standout can soften quickly if construction outpaces demand or e-commerce growth cools, so strong past performance is a tailwind, not a guarantee.</p></div>
+<h2 id="outlook-considerations">Outlook Considerations</h2>
+<p>Any discussion of the industrial outlook should be framed cautiously and non-promissory. On the supportive side, the structural drivers — e-commerce growth, supply-chain reconfiguration toward more inventory, and the need for last-mile delivery near population centers — remain meaningful, and well-located industrial space tied to these trends has been in demand. Long leases with escalators and the potential to re-lease expiring space at higher market rents can support income growth in favorable markets. These are reasons the sector has drawn investor interest, though none of them guarantees future results.</p>
+<p>On the cautionary side, the very strength that attracted capital has spurred construction, raising the risk that supply catches up with (or outruns) demand in some markets, which would pressure rents and occupancy. The sector's reliance on e-commerce means its fortunes are tied to online retail's trajectory, and rising interest rates can pressure valuations regardless of operating performance. So a balanced outlook holds both ideas at once: real structural demand drivers and durable lease income on one side, and oversupply, e-commerce dependence, and rate-sensitivity on the other. The sector's historical outperformance is a fact about the past, not a forecast — past performance does not guarantee future results, and any outlook should be treated as a set of considerations, not a prediction.</p>
+<p>So the industrial outlook combines supportive structural drivers (e-commerce, supply-chain reconfiguration, durable leases) with genuine cautions (oversupply, e-commerce dependence, rate-sensitivity) — and historical outperformance is not a forecast. Outlook considerations — supportive structural demand from e-commerce, supply-chain reconfiguration, and last-mile delivery, plus durable long leases with escalators, balanced against the risk that heavy construction creates oversupply, the sector's dependence on e-commerce, and interest-rate sensitivity — frame the industrial sector cautiously and without promises. Past performance is not a forecast. Understanding the outlook completes the sector picture. The industrial outlook balances supportive structural drivers (e-commerce, supply-chain shifts, durable leases) against real cautions (oversupply, e-commerce dependence, rate-sensitivity); historical outperformance does not guarantee future results, and any outlook is a set of considerations, not a prediction.</p>
+<h2 id="evaluating-industrial-reits">How Investors Evaluate Industrial REITs</h2>
+<p>Investors evaluating an industrial REIT look at operating, lease, and financial metrics. On the operating side, occupancy and same-store net operating income (NOI) growth show whether the core portfolio is performing, while <a href="reit-glossary-of-terms.html">leasing spreads</a> — the difference between new lease rents and expiring lease rents — indicate the REIT's pricing power as leases roll. A strongly positive leasing spread means the REIT is re-leasing space at higher market rents, a meaningful source of income growth in the sector. The new-supply pipeline in the REIT's key markets signals whether oversupply might pressure future rents.</p>
+<p>On the lease and tenant side, investors assess the weighted-average lease term (longer terms mean more durable income), the presence and size of rent escalators, and tenant credit and concentration (how dependent the REIT is on a few large tenants). On the financial side, the standard REIT metrics apply: funds from operations (FFO) and adjusted funds from operations (AFFO) for cash earnings, the payout ratio for distribution sustainability, leverage for rate sensitivity, and net asset value (NAV) as a value reference. Because industrial demand is e-commerce-linked, investors also watch broader e-commerce and supply-chain trends. So evaluating an industrial REIT blends property-market analysis with lease quality and REIT financials.</p>
+<p>So investors evaluate industrial REITs by combining operating metrics (occupancy, same-store NOI growth, leasing spreads, supply pipeline), lease and tenant quality (lease term, escalators, tenant concentration), and standard REIT financials (FFO/AFFO, payout ratio, leverage, NAV). How investors evaluate industrial REITs — weighing operating measures (occupancy, same-store NOI growth, leasing spreads, the new-supply pipeline), lease and tenant quality (weighted-average lease term, rent escalators, tenant credit and concentration), and standard REIT financials (FFO/AFFO, payout ratio, leverage, NAV), while tracking e-commerce and supply-chain trends — blends property-market analysis with lease and financial fundamentals. No single metric suffices. Understanding evaluation rounds out the sector. Investors evaluate industrial REITs by combining operating metrics (occupancy, same-store NOI growth, leasing spreads, supply pipeline), lease and tenant quality, and standard REIT financials (FFO/AFFO, payout ratio, leverage, NAV).</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Evaluate Industrial REITs</h2>
+<p>Baker 1031 Investments helps investors understand industrial and logistics REITs — what they own, how e-commerce and supply-chain demand drive the sector, their lease structures and tenants, the sector's risks, the outlook considerations, and how investors evaluate them — so you can decide whether industrial REIT exposure fits your goals and, if so, access suitable offerings.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax situation, including how industrial REIT dividends are taxed. We help you understand the sector's demand drivers, lease structures, and risks, weigh industrial REITs against alternatives, and access suitable offerings when appropriate, coordinating with your tax professionals. The sector has historically outperformed many others, but past performance does not guarantee future results — industrial income depends on demand and leasing that can soften with oversupply, an e-commerce slowdown, or tenant losses, and yields and returns are never promised. Our role is to help you evaluate industrial REITs clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What do industrial REITs own?<span class="ic"></span></summary>
+<div class="ans"><p>Industrial REITs own the properties where goods are stored, handled, and distributed. The core holdings are warehouses and distribution centers — large buildings where companies store inventory and route shipments — and fulfillment centers, the facilities that pick, pack, and ship individual online orders to consumers. The sector also includes logistics facilities near transportation hubs, light-industrial and flex space, and increasingly last-mile facilities located close to population centers to speed final delivery. These properties have distinctive features: large floor plates, high ceilings (clear height) for stacking inventory, loading docks, truck courts, and proximity to highways, ports, rail, and airports. Location matters enormously, since a warehouse's value depends on how quickly it can reach customers and connect to transportation networks. Industrial REITs assemble portfolios of these properties and lease them to companies that need to store and distribute products. So industrial REITs own warehouses, distribution and fulfillment centers, and logistics facilities — the physical infrastructure that keeps goods moving through the supply chain.</p></div>
+</details>
+<details>
+<summary>Why is e-commerce good for industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>E-commerce drives industrial REIT demand because online shopping requires far more warehouse and distribution space per dollar of sales than traditional brick-and-mortar retail — by various estimates, multiples more. The reason is structural: in a store, goods are displayed on shelves and customers carry them out, but in e-commerce, products must be stored in warehouses, picked from inventory, packed individually, and shipped to each customer's door, all of which requires substantial space and handling infrastructure. As e-commerce has grown as a share of total retail sales, this has translated into sustained demand for warehouse, distribution, and fulfillment space. The growth of fast delivery has added demand for last-mile facilities near population centers. So as online shopping expands, so does the need for the industrial real estate that makes it possible — which is why e-commerce has been the central tailwind for industrial REITs. That said, the relationship cuts both ways: a slowdown in e-commerce growth would reduce demand, so the sector's fortunes are tied to online retail's trajectory.</p></div>
+</details>
+<details>
+<summary>How long are industrial REIT leases?<span class="ic"></span></summary>
+<div class="ans"><p>Industrial leases tend to be longer than residential leases, often running several years to a decade or more, which gives industrial REITs relatively predictable, durable income compared with the frequent rent resets of apartments. Many industrial leases also include built-in rent escalators — contractual annual rent increases, often a fixed percentage — that grow income over the lease term, and many are structured as net leases where the tenant covers property expenses like taxes, insurance, and maintenance. This combination of long terms, escalators, and net-lease structures makes industrial income comparatively steady and contractually growing. The trade-off is that long leases can lag the market: if market rents rise sharply, a REIT locked into older leases may not capture the full increase until those leases expire and roll over — though in strong markets, re-leasing expiring space at higher rents (positive leasing spreads) has been a source of income growth. So industrial leases are typically long-term with escalators and net-lease terms, giving durable income but with re-leasing as the main path to capturing rising market rents.</p></div>
+</details>
+<details>
+<summary>Who are the tenants of industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The tenants of industrial REITs are companies that need to store and distribute goods. They include large retailers and e-commerce companies (which need warehouse and fulfillment space to stock and ship products), third-party logistics providers (3PLs) that handle warehousing and shipping on behalf of other companies, manufacturers, and distributors. Tenant quality matters: a creditworthy, long-term tenant supports stable, reliable rent, while a weaker tenant carries more risk of default or downsizing. Tenant concentration is also important — a REIT that depends heavily on one or a few large tenants (including dominant e-commerce companies) faces risk if a major tenant reduces its footprint, relocates, renegotiates, or builds its own facilities. Investors therefore look at both the credit quality of a REIT's tenants and how diversified its tenant base is. So industrial REIT tenants are retailers, e-commerce firms, logistics providers, manufacturers, and distributors, and both their creditworthiness and the REIT's concentration in any single tenant are key considerations when evaluating the durability of its income.</p></div>
+</details>
+<details>
+<summary>Have industrial REITs outperformed other sectors?<span class="ic"></span></summary>
+<div class="ans"><p>Industrial REITs have historically outperformed many other REIT sectors over portions of the past decade, driven by the structural growth of e-commerce and supply-chain demand for warehouse space. Strong demand, rising rents, and the ability to re-lease space at higher market rents supported the sector's results during that period, making it one of the most closely watched and well-regarded REIT sectors. However — and this is essential — past performance does not guarantee future results. The same strength that fueled outperformance has spurred extensive new construction, raising the risk of oversupply in some markets, and the sector's heavy reliance on e-commerce means a slowdown in online retail could pressure it. Rising interest rates can also weigh on valuations regardless of operating performance. So while industrial REITs have a track record of strong historical performance, that history is a fact about the past, not a forecast. Treat the sector's past outperformance as context, not as a prediction of what it will do going forward, and weigh the real risks alongside the tailwinds.</p></div>
+</details>
+<details>
+<summary>What is last-mile logistics?<span class="ic"></span></summary>
+<div class="ans"><p>Last-mile logistics refers to the final leg of getting a product to the customer — from a local distribution point to the buyer's door — and it has become an important demand driver for industrial REITs. Because consumers increasingly expect fast (sometimes same-day or next-day) delivery, companies have sought smaller distribution and fulfillment facilities located close to population centers, so goods can reach customers quickly. These last-mile facilities are often in or near dense urban and suburban areas, where well-located industrial space can be scarce and valuable. For industrial REITs, last-mile demand adds a layer of need for strategically located properties beyond the large regional distribution centers that handle bulk storage. So last-mile logistics is the push to position inventory near customers for rapid final delivery, and it has increased demand for well-located, often smaller industrial facilities near population centers. It's part of why location is so central to industrial real estate value — a warehouse's worth depends heavily on how quickly and cheaply it can serve nearby customers, which last-mile demand makes even more important.</p></div>
+</details>
+<details>
+<summary>What are the main risks of industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Industrial REITs carry several sector-specific risks despite their tailwinds. The most prominent is oversupply: strong demand and high rents have spurred extensive new warehouse construction, and if developers deliver more space than the market needs — especially if demand cools — vacancy can rise and rent growth can slow. A second risk is an e-commerce slowdown: because online retail is the sector's central demand engine, a deceleration in e-commerce growth or a pullback by major occupiers would reduce the need for space. A third is tenant concentration: REITs heavily dependent on one or a few large tenants face exposure if those tenants reduce footprints, renegotiate, or build their own facilities. A fourth is location obsolescence: a warehouse poorly located relative to transportation or population can become less competitive as logistics needs evolve. On top of these, general REIT risks apply — interest-rate sensitivity and leverage. So the main industrial REIT risks are oversupply, an e-commerce slowdown, tenant concentration, and location obsolescence, plus rate-sensitivity and leverage. Diversification helps but doesn't eliminate them.</p></div>
+</details>
+<details>
+<summary>What is a rent escalator in an industrial lease?<span class="ic"></span></summary>
+<div class="ans"><p>A rent escalator is a contractual provision in a lease that increases the rent by a set amount or percentage at defined intervals, usually annually, over the lease term. In industrial leases, escalators are common — for example, a lease might specify that rent rises by a fixed percentage each year. Escalators matter because they give the REIT built-in, contractual income growth without needing to renegotiate the lease: even while a long lease is in force, the rent climbs on a predictable schedule. This is one reason industrial (and net-lease) REITs can offer comparatively steady, growing income — the escalators provide a baseline of organic growth. The trade-off is that a fixed escalator may lag market rent growth in a hot market, so the REIT captures the full market increase only when the lease expires and rolls to a new rate (the leasing spread). So a rent escalator is a contractual rent increase built into a lease, providing predictable income growth over the term, and it's a key feature of how industrial REITs grow income between lease rollovers.</p></div>
+</details>
+<details>
+<summary>How do industrial REIT dividends get taxed?<span class="ic"></span></summary>
+<div class="ans"><p>Industrial REIT dividends are taxed like other REIT dividends. Most of a REIT's ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT itself paid no corporate tax. The offset is a 20% deduction under Section 199A on qualified REIT dividends, which lowers the effective top federal rate on those dividends and was made permanent by the 2025 OBBBA legislation. Some distributions may be classified as return of capital (which reduces your cost basis rather than being taxed currently) or as capital-gain distributions (taxed at capital-gains rates). The REIT reports the breakdown on Form 1099-DIV. Because of the ordinary-income character, many investors hold REITs in tax-advantaged accounts like IRAs. So industrial REIT dividends are mostly ordinary income with a 20% deduction, plus possible return-of-capital and capital-gain components — the same treatment as REIT dividends generally. The exact treatment depends on your situation. Baker 1031 doesn't provide tax advice; verify the current rules and your specific treatment with your tax advisor, as the details can be technical.</p></div>
+</details>
+<details>
+<summary>How does oversupply affect industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Oversupply is the leading sector-specific risk for industrial REITs. When demand is strong and rents are high, developers respond by building new warehouses and distribution centers — but construction takes time, and if a wave of new space is delivered just as demand cools, the market can end up with more supply than tenants need. The result is rising vacancy and slowing (or falling) rent growth, since landlords compete for tenants and lose pricing power. A sector that has been a standout can soften relatively quickly if construction outpaces absorption in key markets. This is why investors watch the new-supply pipeline closely: a heavy pipeline in a REIT's core markets signals potential pressure on future rents and occupancy. Oversupply doesn't affect all markets equally — some submarkets remain tight while others get overbuilt — so geographic analysis matters. So oversupply can erode the very rent growth and occupancy that make industrial attractive, turning a tailwind into a headwind. Monitoring construction relative to demand is an essential part of evaluating the sector's near-term prospects.</p></div>
+</details>
+<details>
+<summary>What's the outlook for industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Any outlook should be framed cautiously and without promises. On the supportive side, the structural drivers — e-commerce growth, supply-chain reconfiguration toward more inventory, and the need for last-mile delivery near population centers — remain meaningful, and well-located industrial space tied to these trends has been in demand. Long leases with escalators and the potential to re-lease expiring space at higher rents can support income growth in favorable markets. On the cautionary side, the strength that attracted capital has spurred construction, raising the risk that supply catches up with or outruns demand in some markets, which would pressure rents and occupancy; the sector's reliance on e-commerce ties its fortunes to online retail; and rising interest rates can pressure valuations regardless of operations. So a balanced outlook holds both: real structural demand and durable lease income on one side, and oversupply, e-commerce dependence, and rate-sensitivity on the other. The sector's historical outperformance is a fact about the past, not a forecast — past performance doesn't guarantee future results, so treat any outlook as a set of considerations, not a prediction.</p></div>
+</details>
+<details>
+<summary>What metrics should I look at for an industrial REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Look at operating, lease, and financial metrics together. On the operating side, occupancy and same-store net operating income (NOI) growth show whether the core portfolio is performing, while leasing spreads — the difference between new lease rents and expiring lease rents — indicate pricing power as leases roll; a strongly positive spread means the REIT is re-leasing at higher market rents. The new-supply pipeline in key markets signals whether oversupply might pressure future rents. On the lease and tenant side, assess the weighted-average lease term (longer means more durable income), the rent escalators, and tenant credit and concentration. On the financial side, the standard REIT metrics apply: funds from operations (FFO) and adjusted funds from operations (AFFO) for cash earnings, the payout ratio for distribution sustainability, leverage for rate sensitivity, and net asset value (NAV) as a value reference. Since demand is e-commerce-linked, watch broader e-commerce trends too. So for an industrial REIT, combine property-market metrics, lease and tenant quality, and REIT financials — no single number tells the whole story, and past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>How can I invest in industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>How you invest depends on the type of REIT. Publicly traded industrial and logistics REITs are bought and sold like stocks through an ordinary brokerage account; you can buy individual REIT shares or invest through REIT mutual funds and ETFs that hold baskets of industrial and other REITs for instant diversification. Non-traded and private industrial REITs aren't bought on an exchange; they're offered through a broker-dealer, typically require accredited or otherwise suitable investors, and involve a suitability review before you invest. So for liquid, low-minimum exposure to warehouses and logistics real estate, publicly traded industrial REITs and REIT funds are the simplest route, while non-traded options are a longer-term, advisor-assisted commitment. Either way, it's worth understanding the REIT's specific focus (bulk distribution, last-mile, light-industrial), its key markets, its tenant base and concentration, lease terms, occupancy and leasing spreads, fee structure, and liquidity terms before investing. So choose the access route that matches your goals, time horizon, and need for liquidity, and review the specifics — including the sector's demand drivers and risks — before committing capital.</p></div>
+</details>
+<details>
+<summary>Are industrial REITs interest-rate sensitive?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — like REITs generally, industrial REITs are sensitive to interest rates, though the relationship has several moving parts. Rising rates can pressure REIT share prices because higher yields available elsewhere make REIT dividends relatively less attractive, and higher rates raise the cost of the debt many REITs use, which can squeeze cash flow and complicate refinancing. So a rate increase can weigh on an industrial REIT's valuation and financing costs even when its warehouses are full and rents are growing. That said, industrial REITs also have a strong operating story — e-commerce and supply-chain demand, long leases with escalators — that can support fundamentals through rate cycles, so operating strength and rate pressure can pull in different directions. The net effect depends on how leveraged the REIT is, how much of its debt is fixed versus floating, and how strong demand remains in its markets. So industrial REITs are interest-rate-sensitive, and rates are one important factor among several. Don't assume any single rate relationship will hold in every cycle; weigh rate sensitivity alongside the sector's demand drivers and the specific REIT's balance sheet.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me evaluate industrial REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand industrial and logistics REITs — what they own, how e-commerce and supply-chain demand drive the sector, their lease structures and tenants, the sector's risks, the outlook considerations, and how investors evaluate them — so you can decide whether industrial REIT exposure fits your goals and, if so, access suitable offerings. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. Baker 1031 does not provide tax or legal advice — your CPA and attorney handle your specific tax situation, including how industrial REIT dividends are taxed. We help you understand the sector's demand drivers, lease structures, and risks, weigh industrial REITs against alternatives, and access suitable offerings when appropriate. The sector has historically outperformed many others, but past performance doesn't guarantee future results — industrial income can soften with oversupply, an e-commerce slowdown, or tenant losses, and yields and returns are never promised.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Industrial REIT</dt><dd>A REIT owning warehouses, distribution, and logistics property.</dd></div>
+<div class="g"><dt>Logistics REIT</dt><dd>An industrial REIT focused on supply-chain and distribution space.</dd></div>
+<div class="g"><dt>Warehouse</dt><dd>A facility for storing inventory and routing shipments.</dd></div>
+<div class="g"><dt>Distribution Center</dt><dd>A hub for storing and distributing goods to stores or customers.</dd></div>
+<div class="g"><dt>Fulfillment Center</dt><dd>A facility that picks, packs, and ships online orders.</dd></div>
+<div class="g"><dt>Last-Mile Facility</dt><dd>A site near customers for rapid final delivery.</dd></div>
+<div class="g"><dt>Clear Height</dt><dd>Interior ceiling height for stacking warehouse inventory.</dd></div>
+<div class="g"><dt>Net Lease</dt><dd>A lease where the tenant covers most property expenses.</dd></div>
+<div class="g"><dt>Rent Escalator</dt><dd>A contractual periodic rent increase built into a lease.</dd></div>
+<div class="g"><dt>Leasing Spread</dt><dd>The gap between new-lease and expiring-lease rents.</dd></div>
+<div class="g"><dt>Third-Party Logistics (3PL)</dt><dd>A company handling warehousing and shipping for others.</dd></div>
+<div class="g"><dt>Tenant Concentration</dt><dd>Reliance on one or a few large tenants for income.</dd></div>
+<div class="g"><dt>Same-Store NOI</dt><dd>Net operating income growth at consistently owned properties.</dd></div>
+<div class="g"><dt>FFO / AFFO</dt><dd>REIT cash-earnings measures used to assess income.</dd></div>
+<div class="g"><dt>E-Commerce</dt><dd>Online retail, the central demand driver for the sector.</dd></div>
+<div class="g"><dt>Oversupply</dt><dd>New construction exceeding demand, pressuring rents.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

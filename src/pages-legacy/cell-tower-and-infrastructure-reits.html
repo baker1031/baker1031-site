@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cell Tower &amp; Infrastructure REITs | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Cell Tower & Infrastructure REITs
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Cell Tower & Infrastructure REITs</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Cell tower and infrastructure REITs own the communications towers that carry mobile data, generating bond-like, growing income. This guide explains what tower REITs own, their carrier leases and escalators, 5G and data growth, concentration and regulatory risk, and how to evaluate a tower REIT.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Cell tower and infrastructure REITs own some of the most prized real estate in the digital economy: the communications towers that carry wireless signals. A tower REIT owns the physical towers (and sometimes fiber and small cells) and leases space on them to wireless carriers, who attach their antennas and equipment under long-term contracts. The economics are distinctive — carrier leases run for many years with built-in escalators, and adding a second or third carrier to an existing tower is extremely high-margin, which together produce bond-like, steadily growing income. Demand is driven by the relentless growth of mobile data and successive network upgrades like 5G. The main risks are concentration (a few carrier tenants) and the regulatory and consolidation forces that shape the wireless industry. This guide explains what tower REITs own, their carrier leases and escalators, the role of 5G and data growth, concentration and regulatory risk, and how to evaluate a tower REIT. These are general, educational observations — demand, returns, and outlook are non-promissory, past performance doesn't guarantee future results, and you should verify current market conditions with your advisor.</p>
+<p>Tower and infrastructure REITs are one corner of a much larger market, which we map out in our <a href="reits-guide.html">private REIT pillar guide</a>.</p>
+<h2 id="what-tower-reits-own">What Tower REITs Own</h2>
+<p>A cell tower (or infrastructure) REIT owns communications towers — the tall structures on which wireless carriers mount antennas and radio equipment to provide mobile coverage. Crucially, the REIT typically owns the tower and the ground rights, while the carriers own the equipment they attach to it. The REIT leases space on each tower to one or more carriers and, like any equity REIT, distributes most of its taxable income to shareholders, since REITs must pay out at least 90% of taxable income. Some tower REITs also own fiber networks and 'small cells' — smaller nodes that densify coverage in busy areas — but the macro tower is the classic asset.</p>
+<p>The defining feature of a tower is that it can host multiple tenants. A single tower can carry antennas for several carriers at once, each paying its own lease. Because the tower's main costs (land, structure, maintenance) are largely fixed regardless of how many tenants are on it, each additional carrier adds revenue with very little added cost. This 'co-location' is the heart of tower economics. The REIT may own the land under its towers or lease it; owning or controlling the ground long-term reduces a key risk and cost.</p>
+<p>So a tower REIT owns communications towers (and sometimes fiber and small cells) and leases space on them to wireless carriers, distributing most of its income to shareholders. What tower REITs own — communications towers (plus, for some, fiber and small cells) on which carriers mount their own equipment under leases, with the defining ability to host multiple carriers per tower at largely fixed cost — frames the sector's distinctive economics. The macro tower is the classic asset, and co-location (multiple tenants per tower) is the key to its profitability. Understanding what these REITs own sets up the lease, demand, and risk discussion. A tower REIT owns communications towers leased to wireless carriers, with the ability to host multiple carriers per tower driving its high-margin economics.</p>
+<h2 id="carrier-leases-escalators">Carrier Leases &amp; Escalators</h2>
+<p>The economics of tower REITs rest on the structure of their carrier leases. When a wireless carrier puts equipment on a tower, it signs a long-term lease — often with an initial term of many years plus renewal options that can extend the relationship for decades. These leases typically include built-in annual escalators, so the rent rises automatically each year by a fixed percentage. Because carriers need their network sites to stay operational and moving equipment is costly and disruptive, these leases are sticky and renewal rates are high. The result is a long, contractually growing income stream that investors describe as bond-like.</p>
+<p>On top of that base, co-location drives growth and margin. Adding a second or third carrier to an existing tower brings new rent with almost no additional cost, so incremental tenants flow through to profit at very high margins. A tower that starts with one tenant and gains another becomes dramatically more profitable. Combined with escalators and high renewal rates, this gives tower REITs a distinctive profile: bond-like predictability with an embedded growth engine from adding tenants and raising rents. So the lease structure is the core of why investors prize the sector.</p>
+<p>So tower REIT income is bond-like and growing — long carrier leases with escalators provide predictable rent, and adding tenants to existing towers drives high-margin growth. Carrier leases and escalators — long-term leases (often many years plus renewals) with built-in annual escalators, high renewal rates because moving equipment is costly, and very high-margin co-location as additional carriers are added to a tower at little extra cost — give tower REITs predictable, contractually growing income. The result is a bond-like profile with an embedded growth engine. Understanding the lease structure explains the sector's appeal. Tower REIT income is bond-like and growing, thanks to long carrier leases with escalators and high-margin co-location as more tenants are added to each tower.</p>
+<div class="pullquote"><p>Long carrier leases with built-in escalators make tower income bond-like; adding a second or third carrier to an existing tower — at almost no extra cost — makes it grow.</p></div>
+<h2 id="5g-data-growth">5G and Data Growth</h2>
+<p>Demand for tower space is driven by the relentless growth of mobile data. Every new smartphone, streaming video, connected device, and data-hungry application increases the traffic carriers must handle, and carrying more data requires more equipment on more sites. Each successive generation of wireless technology — and the move to 5G in particular — has pushed carriers to upgrade and densify their networks, adding antennas, deploying new spectrum, and, in busy areas, supplementing macro towers with small cells. This need to build out and upgrade networks translates into demand for the towers and infrastructure that REITs own.</p>
+<p>5G specifically tends to require more equipment and, in dense areas, more sites, because higher-frequency spectrum covers shorter distances. That can mean more amendments to existing leases (as carriers add or upgrade equipment, often increasing rent) and more new co-locations and small cells. The broad trend — ever-rising mobile data consumption and periodic network upgrades — is a structural, secular driver of tower demand. As always, a favorable backdrop doesn't guarantee any one REIT's results: carrier spending can be lumpy, and the pace of network investment varies year to year.</p>
+<p>So 5G and the long-term growth of mobile data drive demand for towers — more traffic and network upgrades mean more equipment, amendments, and co-locations. 5G and data growth — the relentless rise in mobile data consumption and successive network upgrades (especially 5G) that push carriers to add antennas, deploy new spectrum, densify with small cells, and amend leases — are the secular demand drivers for tower REITs. The trend is structural rather than purely cyclical, though carrier spending can be lumpy and doesn't guarantee any one REIT's outcome. Understanding the demand drivers explains the sector's growth profile. Demand for towers is driven by 5G and the long-term growth of mobile data, which push carriers to add equipment, densify networks, and amend leases.</p>
+<h2 id="concentration-regulatory-risk">Concentration &amp; Regulatory Risk</h2>
+<p>The defining risk of tower REITs is concentration. In many markets, there are only a few major wireless carriers, so a tower REIT's tenant base — and a large share of its revenue — can be tied to a handful of customers. This concentration is partly offset by the carriers' importance and the stickiness of the leases (carriers rarely abandon network sites), but it remains a genuine risk: if a major carrier reduces spending, decommissions sites, or builds its own infrastructure, the REIT's growth and revenue can be affected. The smaller the number of carriers in a market, the more concentrated the risk.</p>
+<p>Carrier consolidation sharpens this. When two carriers merge, the combined company often has overlapping network sites and may decommission redundant leases ('churn'), reducing tower revenue. Mergers can also shrink the number of independent customers a REIT can sell to. Regulatory forces matter too: spectrum policy, zoning and permitting for new towers and small cells, and telecom regulation all shape the pace of network investment and the ease of building. So tower REITs face concentration risk (few carrier tenants), consolidation risk (mergers causing churn), and regulatory risk (policy affecting demand and development).</p>
+<p>So tower REITs face concentration, consolidation, and regulatory risk — a few carrier tenants whose decisions, mergers, and the regulatory environment shape revenue. Concentration and regulatory risk — reliance on a small number of major carrier tenants, the churn that carrier mergers can cause, and regulatory forces (spectrum policy, zoning and permitting, telecom regulation) that shape network investment and tower development — are the key offsetting risks of the sector. Concentration is partly buffered by sticky leases but remains real. Understanding these risks balances the sector's bond-like appeal. Tower REITs face concentration risk from few carrier tenants, consolidation risk from mergers causing churn, and regulatory risk from policy affecting demand and building.</p>
+<p>Assessing concentration means looking at how revenue is split among carriers, the financial health of those carriers, and how much exposure a REIT has to any pending or potential mergers. A REIT with diversified, healthy carrier tenants and limited overlap exposure is in a stronger position than one heavily tied to a single carrier or a market consolidating around fewer players. <a href="international-and-global-reits.html">International tower REITs</a> add emerging-market carrier and currency considerations to the mix.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Tower income is bond-like and growing: long carrier leases with escalators provide predictable rent, and co-location adds high-margin growth.</li>
+<li>Adding a second or third carrier to an existing tower brings new rent at almost no added cost, which is the heart of tower economics.</li>
+<li>Demand is driven by 5G and the long-term growth of mobile data, which push carriers to add equipment and densify networks.</li>
+<li>Concentration is the key risk: a few carrier tenants, plus consolidation (merger churn) and regulatory forces, shape revenue.</li>
+</ul></div>
+<h2 id="co-location-tenancy">Co-Location and Tower Economics</h2>
+<p>The single most important driver of tower REIT profitability is co-location — the number of tenants on each tower. Because a tower's main costs are largely fixed, the difference between a tower with one carrier and the same tower with three is enormous. The first tenant covers the costs; each additional tenant adds rent that flows almost entirely to profit. This is why the 'tenancy ratio' (average tenants per tower) is a central metric: a higher ratio means more revenue and far better margins from the same physical assets. Improving tenancy on an existing portfolio is one of the most powerful ways a tower REIT can grow.</p>
+<p>Lease amendments reinforce this. When a carrier adds or upgrades equipment on a tower it already occupies — common during network upgrades like 5G — it often pays more, increasing revenue without the REIT adding a tower. So a tower REIT grows both by adding new tenants (co-location) and by amending existing leases, on top of contractual escalators. Building or acquiring new towers adds capacity, but the highest-return growth often comes from densifying tenancy on towers already owned. So the economics reward portfolios with room to add tenants in markets where carriers are investing.</p>
+<p>So co-location and lease amendments are the engine of tower economics — adding tenants and equipment to existing towers drives high-margin growth on top of escalators. Co-location and tower economics — the way fixed-cost towers become far more profitable as tenants are added (making the tenancy ratio a central metric), plus revenue from lease amendments as carriers upgrade equipment — explain how tower REITs generate high-margin growth. The best growth often comes from densifying tenancy on towers already owned. Understanding this clarifies what drives tower returns. Co-location (more tenants per tower) and lease amendments drive high-margin growth, making the tenancy ratio a central metric in tower economics.</p>
+<div class="pullquote"><p>On a tower, the second tenant is far more profitable than the first — fixed costs are already covered, so each new carrier flows almost straight to the bottom line.</p></div>
+<h2 id="evaluating-tower-reits">Evaluating Tower REITs</h2>
+<p>Evaluating a tower REIT starts with its portfolio and tenancy. Look at the tower portfolio — its size, locations, and quality — and at the tenancy or co-location ratio, since adding tenants to existing towers drives high-margin growth. Examine the carrier tenant base: how revenue is split among carriers, the financial health of those carriers, and the exposure to any pending mergers or potential churn. Review the lease structure — terms, escalators, and renewal rates — which underpin the bond-like income. A REIT with strong escalators, high renewal rates, and room to add tenants has more durable, growing cash flow.</p>
+<p>From there, apply the usual REIT lenses. Review FFO and AFFO (the cash-flow measures REIT investors use instead of net income), the balance sheet and debt, and how distributions are covered. Consider ground-lease exposure (whether the REIT owns or leases the land under its towers), international exposure (which adds carrier and currency considerations), and management's track record on adding tenants, amending leases, and allocating capital. Remember these are general evaluation factors, not predictions — tower REIT share prices and distributions can fluctuate, and a favorable demand backdrop doesn't guarantee any one REIT's results.</p>
+<p>So evaluating a tower REIT means weighing the tower portfolio, the tenancy ratio, carrier health and concentration, lease escalators and renewals, FFO/AFFO and the balance sheet, ground-lease and international exposure, and management's execution. Evaluating tower REITs — assessing portfolio size and quality, the tenancy/co-location ratio, carrier tenant health and concentration, lease terms and escalators, FFO/AFFO and balance-sheet strength, ground-lease and international exposure, and management's track record — focuses on the drivers of bond-like, growing cash flow. Past performance doesn't guarantee future results, and current conditions should be verified. Understanding these factors helps you assess a tower REIT objectively. Evaluate a tower REIT by its portfolio, tenancy ratio, carrier health and concentration, lease escalators and renewals, FFO/AFFO and balance sheet, and management execution.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Evaluate Tower REITs</h2>
+<p>Baker 1031 Investments helps investors understand the cell tower and infrastructure REIT sector — what these REITs own, their long carrier leases and escalators, the co-location economics, the role of 5G and mobile data growth, the concentration and regulatory risk, and how to evaluate a tower REIT — so you can decide whether the sector fits your goals and, if so, access suitable offerings.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax situation, including how REIT dividends are taxed. We help you understand the sector's lease structure, demand drivers, and concentration risk, <a href="best-reit-sectors-residential-industrial-healthcare-and-more.html">weigh it against other REIT sectors</a>, and access suitable offerings when appropriate. Our observations about the sector are general and non-promissory — we make no specific buy recommendations and name no individual companies, and we note that past performance doesn't guarantee future results and that you should verify current market conditions. Our role is to help you understand tower REITs clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a cell tower REIT?<span class="ic"></span></summary>
+<div class="ans"><p>A cell tower (or infrastructure) REIT is an equity Real Estate Investment Trust that owns communications towers — the tall structures on which wireless carriers mount antennas and radio equipment to provide mobile coverage. The REIT typically owns the tower and the ground rights, while the carriers own the equipment they attach. The REIT leases space on each tower to one or more carriers and, like any REIT, distributes most of its taxable income to shareholders, since REITs must pay out at least 90% of taxable income. Some tower REITs also own fiber networks and 'small cells' that densify coverage in busy areas, but the macro tower is the classic asset. The defining feature is that a single tower can host multiple carriers at once, each paying its own lease, while the tower's main costs stay largely fixed — so each additional tenant is highly profitable. So a cell tower REIT is a way to invest in the physical infrastructure that carries wireless signals and the long-term, high-margin rental income it generates.</p></div>
+</details>
+<details>
+<summary>Why is tower REIT income described as bond-like?<span class="ic"></span></summary>
+<div class="ans"><p>Tower REIT income is called bond-like because it's predictable, long-term, and contractually growing. When a wireless carrier puts equipment on a tower, it signs a long-term lease — often an initial term of many years plus renewal options that can extend the relationship for decades — with built-in annual escalators that raise the rent automatically each year by a fixed percentage. Because carriers need their network sites to stay operational and moving equipment is costly and disruptive, these leases are sticky and renewal rates are high. The result is a long, steady, contractually rising income stream that resembles the predictable cash flows of a bond, but with embedded growth from the escalators. On top of that, co-location — adding more carriers to a tower — and lease amendments add high-margin growth. So 'bond-like' captures the predictability and the steady escalation, while the growth from adding tenants distinguishes towers from an actual bond. Of course, it's still an equity investment with real risks, so the bond-like label describes the income pattern, not a guarantee of safety.</p></div>
+</details>
+<details>
+<summary>What is co-location and why does it matter?<span class="ic"></span></summary>
+<div class="ans"><p>Co-location refers to having multiple carrier tenants on a single tower. It matters because it's the heart of tower economics. A tower's main costs — the land, the structure, and maintenance — are largely fixed regardless of how many carriers are on it. So when a REIT adds a second or third carrier to an existing tower, the new rent flows through to profit at very high margins, because almost no additional cost is incurred. A tower that starts with one tenant and gains another becomes dramatically more profitable. This is why the 'tenancy ratio' (average tenants per tower) is a central metric for the sector: a higher ratio means more revenue and far better margins from the same physical assets. Improving tenancy on an existing portfolio is one of the most powerful and highest-return ways a tower REIT can grow, alongside escalators and lease amendments. So co-location explains both the high margins and the embedded growth that make the sector attractive — and it's a key thing to evaluate when assessing a tower REIT's potential.</p></div>
+</details>
+<details>
+<summary>How does 5G affect tower REITs?<span class="ic"></span></summary>
+<div class="ans"><p>5G affects tower REITs by driving carriers to upgrade and densify their networks, which increases demand for tower space and equipment. Each generation of wireless technology requires carriers to add and upgrade equipment, and 5G in particular tends to require more equipment and, in dense areas, more sites, because higher-frequency spectrum covers shorter distances. For tower REITs, this can mean more lease amendments (as carriers add or upgrade equipment on towers they already occupy, often increasing rent), more new co-locations, and more demand for small cells in busy areas. So 5G reinforces the broader, structural driver of tower demand: the relentless growth of mobile data and the periodic need to build out and upgrade networks. That said, a favorable backdrop doesn't guarantee any one REIT's results — carrier spending on network upgrades can be lumpy, and the pace varies year to year. So 5G is a genuine demand tailwind for towers, but its benefit to any specific REIT depends on carrier investment, the REIT's footprint, and execution. Verify current carrier spending trends rather than assuming.</p></div>
+</details>
+<details>
+<summary>What is the biggest risk for tower REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The biggest sector-specific risk for tower REITs is tenant concentration. In many markets there are only a few major wireless carriers, so a tower REIT's tenant base — and a large share of its revenue — can be tied to a handful of customers. This is partly offset by how important and sticky the leases are (carriers rarely abandon network sites), but it remains a genuine risk: if a major carrier reduces spending, decommissions sites, or builds its own infrastructure, the REIT's growth and revenue can be affected. Carrier consolidation sharpens the risk — when two carriers merge, the combined company often has overlapping sites and may decommission redundant leases ('churn'), reducing tower revenue and shrinking the pool of independent customers. Regulatory forces (spectrum policy, zoning and permitting, telecom regulation) also shape demand and development. So concentration, amplified by consolidation and regulation, is the main threat to tower returns. Assess how revenue is split among carriers, the carriers' health, and exposure to potential mergers before investing, and verify current conditions.</p></div>
+</details>
+<details>
+<summary>What is a tenancy ratio?<span class="ic"></span></summary>
+<div class="ans"><p>The tenancy ratio is the average number of tenants per tower across a REIT's portfolio — a central metric in the sector. Because a tower's main costs are largely fixed, the difference between a tower with one tenant and the same tower with three is enormous in terms of revenue and margin: the first tenant covers the costs, and each additional tenant adds rent that flows almost entirely to profit. So a higher tenancy ratio means more revenue and far better margins from the same physical assets. A portfolio with a low tenancy ratio has room to add tenants (a growth opportunity), while one with a high ratio is already generating strong margins. Improving tenancy on existing towers — through co-location — is one of the most powerful and highest-return ways a tower REIT can grow, because it requires little new capital. So when evaluating a tower REIT, the tenancy ratio helps you understand both its current profitability and its embedded growth potential. Watch how the ratio trends over time as carriers add equipment and the REIT adds tenants.</p></div>
+</details>
+<details>
+<summary>How does carrier consolidation affect tower REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Carrier consolidation — when two wireless carriers merge — can hurt tower REITs in a few ways. The combined company often has overlapping network sites, and it may decommission redundant leases to save money, a process called 'churn' that reduces a tower REIT's revenue as those leases roll off. Consolidation also shrinks the number of independent carrier customers a REIT can lease to, sharpening the sector's tenant-concentration risk. And it can shift negotiating power toward the larger combined carrier. These effects are usually gradual, because lease terms and the cost of moving equipment slow the pace of decommissioning, and merging carriers may sign master agreements that mitigate some churn. But over time, consolidation is one of the more important risks the sector faces, and periods following major mergers can weigh on tower revenue growth. So when evaluating a tower REIT, consider its exposure to carriers that might merge, how much overlap and potential churn a merger could create, and how diversified its tenant base is. Verify the current carrier landscape rather than assuming.</p></div>
+</details>
+<details>
+<summary>How do tower REITs make money?<span class="ic"></span></summary>
+<div class="ans"><p>Tower REITs make money primarily by leasing space on their communications towers to wireless carriers, who mount their antennas and equipment and pay long-term rent with built-in escalators. The REIT owns the tower and the ground rights; the carrier owns its equipment. Because a single tower can host multiple carriers at largely fixed cost, adding tenants (co-location) is highly profitable, and carriers also pay more when they amend leases to add or upgrade equipment. After covering costs, the REIT distributes most of its taxable income to shareholders as dividends, since REITs must pay out at least 90% of taxable income. Some tower REITs also earn revenue from fiber networks and small cells. Growth comes from adding tenants to existing towers, lease amendments, contractual escalators, and building or acquiring new towers. So the core engine is long-term, escalating rent from carriers, made high-margin by co-location, with most income passed through to shareholders. The combination of predictable base rent and high-margin incremental tenants is what gives the sector its distinctive bond-like-but-growing profile.</p></div>
+</details>
+<details>
+<summary>What should I look at when evaluating a tower REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Start with the portfolio and tenancy. Look at the tower portfolio — its size, locations, and quality — and at the tenancy or co-location ratio, since adding tenants to existing towers drives high-margin growth. Examine the carrier tenant base: how revenue is split among carriers, the financial health of those carriers, and exposure to any pending mergers or potential churn. Review the lease structure — terms, escalators, and renewal rates — which underpin the bond-like income; strong escalators, high renewals, and room to add tenants mean more durable, growing cash flow. Then apply the usual REIT lenses: FFO and AFFO (the cash-flow measures REIT investors use instead of net income), the balance sheet and debt, and distribution coverage. Consider ground-lease exposure (whether the REIT owns or leases the land under its towers), international exposure (which adds carrier and currency considerations), and management's track record on adding tenants and allocating capital. Remember these are general evaluation factors, not predictions — share prices and distributions can fluctuate, the demand backdrop doesn't guarantee any outcome, and current conditions should be verified.</p></div>
+</details>
+<details>
+<summary>Can I do a 1031 exchange into a tower REIT?<span class="ic"></span></summary>
+<div class="ans"><p>No — REIT shares, including cell tower REIT shares, are not eligible for a 1031 exchange. A 1031 exchange requires the exchange of like-kind real property held for investment or business use, and REIT shares are securities, not real property, so they don't qualify. This means you can't sell investment real estate and 1031 directly into tower REIT shares to defer capital-gains tax. There is an indirect path that can ultimately lead to REIT exposure: you can 1031 into a Delaware Statutory Trust (DST), which is 1031-eligible like-kind real property, and the DST's property may later be acquired by a REIT through a 721 (UPREIT) exchange, converting your interest into operating-partnership units (and eventually REIT shares) while preserving deferral. But a direct 1031 into a tower REIT isn't possible. Baker 1031 does not provide tax or legal advice, so confirm the specifics and your eligibility with your tax advisor before relying on any of this. The mechanics can be technical and depend on your particular situation, so professional guidance is important.</p></div>
+</details>
+<details>
+<summary>How are tower REIT dividends taxed?<span class="ic"></span></summary>
+<div class="ans"><p>Tower REIT dividends are taxed the same way as other REIT dividends. Most of a REIT's ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT itself paid no corporate tax. However, a 20% deduction under Section 199A applies to qualified REIT dividends, which lowers the effective top federal rate on those dividends. Some distributions may be classified as return of capital (which reduces your cost basis rather than being currently taxed) or as capital-gain distributions (taxed at capital-gains rates). The REIT reports the breakdown to you on Form 1099-DIV each year. So the tax treatment depends on the character of the distributions, not on the fact that the REIT owns towers. Baker 1031 does not provide tax advice, and the rules can be technical and change over time, so verify the current treatment and how it applies to your situation with your tax advisor. The exact mix of ordinary income, return of capital, and capital gains varies year to year, so review your 1099-DIV each tax season.</p></div>
+</details>
+<details>
+<summary>Are tower REITs a growth or income investment?<span class="ic"></span></summary>
+<div class="ans"><p>Tower REITs are somewhat unusual in offering both income and growth characteristics. Like all REITs, they pay dividends, since they must distribute most of their taxable income, and their long carrier leases with escalators give the income a predictable, bond-like quality. At the same time, the sector has an embedded growth engine: co-location (adding carriers to existing towers) and lease amendments add high-margin revenue, and the secular growth of mobile data supports ongoing demand. So investors often view towers as a 'growth-and-income' sector — steady, contractually rising base income plus growth from densifying tenancy and network upgrades. That profile carries real risk, though: concentration among a few carriers, consolidation-driven churn, regulatory forces, and interest-rate sensitivity (since bond-like income can be rate-sensitive). So tower REITs can suit investors who want growing real estate income and understand these risks, but neither the income nor the growth is guaranteed. These are general observations, not specific recommendations — past performance doesn't guarantee future results, and current conditions should be verified before investing in the sector.</p></div>
+</details>
+<details>
+<summary>What are small cells and fiber in infrastructure REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Small cells and fiber are additional types of communications infrastructure that some tower REITs own alongside macro towers. Small cells are smaller, lower-powered nodes that carriers deploy in busy or hard-to-cover areas — on streetlights, utility poles, or buildings — to add capacity and densify coverage where a single macro tower isn't enough. Fiber is the cabling that connects cell sites (including small cells) back into the network and carries data between them. As mobile data grows and 5G densifies networks, demand for small cells and fiber has increased, since dense urban coverage often requires many small nodes connected by fiber rather than just tall towers. For an infrastructure REIT, owning fiber and small cells can extend its role from leasing tower space to providing the broader connectivity infrastructure carriers need. The economics differ from macro towers — small cells and fiber can be more capital-intensive and competitive — so they carry a different risk-and-return profile. So when evaluating an infrastructure REIT, consider how much of its business is macro towers versus small cells and fiber, since the mix affects its margins, growth, and risk.</p></div>
+</details>
+<details>
+<summary>What are the main risks of tower REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Tower REITs carry several sector-specific risks on top of general REIT risks. Tenant concentration risk: a few major carriers make up much of the revenue, so a carrier's decisions can move a REIT's results. Consolidation risk: carrier mergers can cause 'churn' as overlapping sites are decommissioned, reducing revenue and shrinking the customer pool. Regulatory risk: spectrum policy, zoning and permitting, and telecom regulation shape both demand and the ability to build. Interest-rate risk: bond-like income can be sensitive to rising rates, which can pressure share prices and valuations. Ground-lease risk: if a REIT leases (rather than owns) the land under its towers, rising ground rents or lost leases can hurt economics. International risk: international towers add emerging-market carrier and currency exposure. And the usual REIT risks — market volatility and the chance distributions are cut. So while tower REITs offer attractive, bond-like-but-growing income, they are real investments that can lose value. Diversification, strong escalators, healthy carriers, and disciplined management help manage these risks but don't eliminate them. Past performance doesn't guarantee future results, and current conditions should be verified.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me evaluate tower REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand the cell tower and infrastructure REIT sector — what these REITs own, their long carrier leases and escalators, the co-location economics, the role of 5G and mobile data growth, the concentration and regulatory risk, and how to evaluate a tower REIT — so you can decide whether the sector fits your goals and, if so, access suitable offerings. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. Baker 1031 does not provide tax or legal advice — your CPA and attorney handle your specific situation, including how REIT dividends are taxed. Our observations about the sector are general and non-promissory; we make no specific buy recommendations and name no individual companies, and we note that past performance doesn't guarantee future results and that current conditions should be verified. Our role is to help you understand tower REITs clearly and invest only when suitable for your goals and risk tolerance.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Cell Tower REIT</dt><dd>An equity REIT that owns communications towers leased to carriers.</dd></div>
+<div class="g"><dt>Infrastructure REIT</dt><dd>A REIT owning towers and sometimes fiber and small cells.</dd></div>
+<div class="g"><dt>Macro Tower</dt><dd>A tall communications tower hosting carrier antennas.</dd></div>
+<div class="g"><dt>Carrier</dt><dd>A wireless network operator that leases tower space.</dd></div>
+<div class="g"><dt>Co-Location</dt><dd>Hosting multiple carriers on a single tower.</dd></div>
+<div class="g"><dt>Tenancy Ratio</dt><dd>The average number of tenants per tower.</dd></div>
+<div class="g"><dt>Escalator</dt><dd>A built-in annual rent increase in a lease.</dd></div>
+<div class="g"><dt>Lease Amendment</dt><dd>Added rent when a carrier upgrades equipment on a tower.</dd></div>
+<div class="g"><dt>Small Cell</dt><dd>A small node that densifies coverage in busy areas.</dd></div>
+<div class="g"><dt>Fiber</dt><dd>Cabling that connects cell sites into the network.</dd></div>
+<div class="g"><dt>5G</dt><dd>The wireless generation driving network densification.</dd></div>
+<div class="g"><dt>Ground Lease</dt><dd>A lease for the land under a tower the REIT doesn't own.</dd></div>
+<div class="g"><dt>Churn</dt><dd>Lost leases when merged carriers decommission overlapping sites.</dd></div>
+<div class="g"><dt>FFO</dt><dd>Funds from operations — a REIT's core cash-flow measure.</dd></div>
+<div class="g"><dt>AFFO</dt><dd>Adjusted FFO, net of recurring capital expenditures.</dd></div>
+<div class="g"><dt>90% Distribution Rule</dt><dd>The requirement to pay out at least 90% of taxable income.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

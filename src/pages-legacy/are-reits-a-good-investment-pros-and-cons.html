@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Are REITs a Good Investment? Pros and Cons | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Are REITs a Good Investment? Pros and Cons
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Are REITs a Good Investment? Pros and Cons</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Are REITs a good investment? This balanced guide weighs the genuine pros — income, liquidity, diversification, and professional management — against the real cons, including interest-rate sensitivity, price volatility, and mostly-ordinary-income taxation, so you can decide whether a REIT is right for you.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">REITs — Real Estate Investment Trusts — are one of the most popular ways to add real estate to a portfolio, but whether they're a good investment depends entirely on your goals, risk tolerance, and time horizon. There's no universal answer. On the plus side, REITs offer above-average income (a result of the rule requiring them to distribute at least 90% of taxable income), liquidity for publicly traded REITs, diversification as a distinct real estate asset class, professional management, and accessibility at low minimums. On the other side, REITs are interest-rate-sensitive and can be volatile, their dividends are mostly taxed as ordinary income (which makes them less tax-efficient in taxable accounts), they carry sector and market risk, and non-traded REITs add illiquidity and fees. This guide lays out the pros and cons in a balanced way and walks through how to decide whether a REIT fits you. Note that this is educational information, not a recommendation; past performance does not guarantee future results, and Baker 1031 does not provide tax or legal advice.</p>
+<p>Weighing these trade-offs is easier with a working knowledge of how the vehicles operate, which is exactly what our <a href="reits-guide.html">complete REIT investor guide</a> provides across every structure.</p>
+<h2 id="pros-income-liquidity-diversification">Pros: Income, Liquidity &amp; Diversification</h2>
+<p>The first set of advantages that draws investors to REITs centers on income, liquidity, and diversification. The income case is structural: because a REIT must distribute at least 90% of its taxable income to shareholders to keep its tax-advantaged status, REIT yields tend to run higher than the broad stock market. That makes REITs a natural fit for investors who want a real estate-based income stream without buying property directly, collecting rents, or managing tenants — a major reason they are popular as a source of <a href="reits-for-retirement-income.html">retirement income</a>.</p>
+<p>Liquidity is a second advantage — for publicly traded REITs. Because their shares are listed on stock exchanges, you can buy or sell throughout the trading day at a market price, which is a sharp contrast to the illiquidity of owning a building outright. Diversification is a third: real estate is a distinct asset class that has historically had only moderate correlation with stocks, so <a href="reits-in-a-diversified-portfolio.html">adding REITs to a portfolio of equities and bonds</a> can spread risk, and a single REIT typically owns many properties across markets, giving you instant diversification within real estate as well.</p>
+<p>So the income-liquidity-diversification trio is the heart of the bull case for REITs. So these advantages frame why investors consider them. The pros of income, liquidity, and diversification — REITs paying above-average yields because of the 90% distribution rule, publicly traded REITs offering daily exchange liquidity, and real estate serving as a distinct asset class with moderate stock correlation plus instant diversification within a single multi-property REIT — make a strong case for many portfolios. They deliver real estate income without direct ownership. Understanding these benefits frames the rest of the analysis. REITs offer above-average income from the 90% distribution rule, daily liquidity for traded REITs, and diversification both within real estate and across asset classes — the core of their appeal.</p>
+<h2 id="pros-professional-management">Pros: Professional Management &amp; Access</h2>
+<p>A second cluster of advantages is professional management and accessibility. When you invest in a REIT, a professional management team handles acquiring, financing, leasing, operating, and selling the underlying properties — sourcing deals, negotiating leases, managing tenants and maintenance, and making capital-allocation decisions. For an investor who wants real estate exposure without becoming a landlord, this passivity is a major draw: you own a share of an institutionally managed portfolio rather than a property you must run yourself.</p>
+<p>Accessibility is the companion advantage. Publicly traded REITs can be bought one share at a time through an ordinary brokerage account, often commission-free, so you can start with a small amount of capital — a dramatic contrast to the large down payment, financing, and closing costs that direct property ownership requires. <a href="reit-index-funds-vs-individual-reits.html">REIT mutual funds and ETFs</a> extend this further, letting you own a basket of REITs for instant diversification at a low minimum. There can also be an inflation consideration: real estate rents and values have at times moved with inflation over long periods, though this relationship is not guaranteed and varies by sector and cycle.</p>
+<p>So professional management, low-minimum access, and a potential inflation consideration round out the pro side. So these benefits make REITs broadly usable. The pros of professional management and access — a professional team handling acquisition, financing, leasing, and operations so you invest passively, low-minimum accessibility through ordinary brokerage accounts and REIT funds, and a long-run inflation consideration (not guaranteed) — make REITs usable for a wide range of investors. They deliver institutional real estate without the work or the large capital outlay. Understanding these advantages completes the pro case. REITs give you professionally managed, institutional-quality real estate at low minimums through ordinary brokerage accounts, with a possible (not guaranteed) inflation consideration over long horizons.</p>
+<div class="pullquote"><p>A REIT lets you own a slice of an institutionally managed real estate portfolio for the price of a single share — passive, accessible exposure that direct property ownership simply can't match.</p></div>
+<h2 id="cons-rate-sensitivity-volatility">Cons: Rate Sensitivity &amp; Volatility</h2>
+<p>The advantages come with real drawbacks, and the first is interest-rate sensitivity and price volatility. REITs are rate-sensitive for several reasons: higher interest rates raise their borrowing costs, can pressure property values, and make REITs' yields look less attractive relative to safer bonds — so REIT share prices have often fallen when rates rise. Mortgage REITs are especially exposed, since their profit depends on the spread between borrowing costs and the interest they earn. This rate sensitivity is one of the defining risks of the asset class.</p>
+<p>Price volatility is the related drawback for publicly traded REITs. Because their shares trade continuously on exchanges, their prices swing with the broader market and with investor sentiment, not just with the underlying real estate. A traded REIT can drop sharply during a market sell-off even when its properties and rents are stable — meaning short-term volatility can be significant. That same liquidity that's a pro also exposes you to daily price movements that direct property ownership doesn't show. So the very features that make traded REITs convenient also make them subject to market and rate-driven swings.</p>
+<p>So rate sensitivity and volatility are the leading cons, especially for traded REITs. So they temper the income and liquidity advantages. The cons of rate sensitivity and volatility — REIT prices often falling when rates rise (higher borrowing costs, pressured property values, and less attractive relative yields, with mortgage REITs most exposed) and publicly traded REITs swinging with the market and sentiment rather than only with the underlying real estate — are central risks of the asset class. They can produce real short-term losses. Understanding these risks balances the income case. REITs are interest-rate-sensitive and, when traded, price-volatile, so their share prices can fall when rates rise or markets sell off, even when the underlying properties are stable.</p>
+<h2 id="cons-tax-treatment">Cons: Tax Treatment &amp; Other Risks</h2>
+<p>A second drawback is tax treatment. Most of a REIT's ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT itself pays no corporate tax. That makes REITs relatively tax-inefficient in taxable accounts compared with investments that generate qualified dividends or long-term capital gains. The 20% Section 199A deduction on qualified REIT dividends softens this — lowering the effective top federal rate on those dividends to roughly 29.6% — but REIT income is still generally taxed at ordinary rates, which is why many investors hold REITs in tax-advantaged accounts like IRAs.</p>
+<p>Beyond taxation, REITs carry sector and market risk: individual property sectors (office, retail, hotels) can underperform, and broad market conditions can pressure all REITs at once. Distributions aren't guaranteed and can be cut if income falls. And non-traded REITs add their own cons — illiquidity (capped, suspendable redemptions) and historically higher upfront fees and loads that reduce the capital initially deployed. So the cons span taxation, sector and market risk, distribution risk, and the illiquidity and fees specific to non-traded structures.</p>
+<p>So tax inefficiency, sector and market risk, and non-traded illiquidity and fees complete the con side. So a full picture requires weighing these against the pros. The cons of tax treatment and other risks — REIT dividends being mostly ordinary income (tax-inefficient in taxable accounts, though Section 199A's 20% deduction helps), sector and market risk that can pressure individual sectors or all REITs at once, distributions that can be cut, and the illiquidity and historically higher fees of non-traded REITs — round out the drawbacks. They temper the income and diversification appeal. Understanding the full con set enables a balanced decision. REIT dividends are mostly ordinary income (less tax-efficient, though Section 199A helps), and REITs carry sector, market, and distribution risk, plus illiquidity and fees for non-traded structures.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Pros: above-average income (90% distribution rule), liquidity for traded REITs, diversification, professional management, and low-minimum accessibility.</li>
+<li>Cons: interest-rate sensitivity and price volatility, mostly-ordinary-income taxation, sector and market risk, and illiquidity and fees for non-traded REITs.</li>
+<li>REIT dividends are taxed mainly as ordinary income, though the 20% Section 199A deduction lowers the effective top federal rate to roughly 29.6%.</li>
+<li>Whether a REIT is right for you depends on your goals, risk tolerance, and time horizon — this is a balanced trade-off, not a recommendation.</li>
+</ul></div>
+<h2 id="rate-volatility-in-context">Putting the Trade-Offs in Context</h2>
+<p>It helps to put the pros and cons side by side rather than treating any single factor as decisive. The income advantage is real, but it comes packaged with ordinary-income taxation and rate sensitivity — so the high yield isn't free. The liquidity of traded REITs is genuinely useful, but it's the same mechanism that exposes you to daily price volatility. Professional management removes the burden of being a landlord, but it also means you don't control the properties or the timing of buys and sells. Each advantage has a corresponding cost.</p>
+<p>Context also matters across account types and time horizons. REITs' ordinary-income taxation is a meaningful drag in a taxable account but largely irrelevant inside an IRA or other tax-advantaged account, where many investors prefer to hold them. Volatility that feels alarming over a few months may matter far less to an investor with a multi-year horizon who is reinvesting distributions. And the diversification benefit shows up most clearly when REITs are sized as one component of a broader portfolio rather than as a concentrated bet. So the same trade-offs land differently depending on how and where you hold REITs.</p>
+<p>So no single pro or con settles the question — the balance depends on account type, horizon, and portfolio role. So context is what turns a list of trade-offs into a decision. Putting the trade-offs in context — recognizing that each advantage (income, liquidity, management) carries a paired cost (taxation, volatility, lack of control), and that account type and time horizon change how those costs land (ordinary-income taxation matters in taxable accounts but not in IRAs; short-term volatility matters less over a long horizon) — is what makes the pros-and-cons list usable. The balance is personal, not universal. Understanding context bridges to deciding whether a REIT fits you. The pros and cons of REITs are paired trade-offs whose weight depends on your account type, time horizon, and how large a portfolio role you give them — context, not any single factor, drives the decision.</p>
+<div class="pullquote"><p>Every REIT advantage has a matching cost: the high yield comes with ordinary-income taxes, the liquidity comes with volatility, and the passivity comes with a lack of control.</p></div>
+<h2 id="is-a-reit-right-for-you">Is a REIT Right for You?</h2>
+<p>Whether a REIT is right for you comes down to three questions: your goals, your risk tolerance, and your time horizon. If your goal is real estate-based income and diversification without the work of direct ownership, REITs are a natural candidate — the income and diversification advantages line up with that objective. If you specifically need to defer capital-gains tax on a property sale, REIT shares won't do it (they aren't 1031-eligible), and a different vehicle may fit better. So start by clarifying what you actually want the investment to accomplish.</p>
+<p>Risk tolerance and time horizon shape the answer further. If you can tolerate short-term price volatility and rate-driven swings, and you have a multi-year horizon, the volatility con is more manageable. If you need stable, predictable value or might need the capital soon, traded-REIT volatility (and non-traded-REIT illiquidity) deserve serious weight. Account type matters too — holding REITs in a tax-advantaged account neutralizes much of the ordinary-income tax con. So the same investment can be appropriate for one investor and ill-suited for another, depending on these factors. The right conclusion is a balanced 'it depends,' not a blanket yes or no.</p>
+<p>So whether REITs are a good investment for you is a personal question answered by your goals, risk tolerance, and horizon — not a one-size-fits-all verdict. So a thoughtful, balanced assessment is the right approach. Deciding whether a REIT is right for you — weighing your goals (income and diversification favor REITs; needing 1031 deferral does not), your risk tolerance and time horizon (volatility and illiquidity matter more for short horizons or capital you'll need soon), and your account type (tax-advantaged accounts neutralize the ordinary-income tax drawback) — leads to a balanced, individualized answer rather than a universal recommendation. The pros and cons must be weighed for your situation. Understanding this frames a sound decision. Whether REITs suit you depends on your goals, risk tolerance, and time horizon — a balanced, personal assessment, not a blanket recommendation.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Weigh REITs</h2>
+<p>Baker 1031 Investments helps investors weigh the pros and cons of REITs — the income, liquidity, diversification, and professional-management advantages against the rate sensitivity, volatility, ordinary-income taxation, and (for non-traded structures) illiquidity and fees — so you can decide whether REITs fit your goals, risk tolerance, and time horizon. We aim to give you a balanced picture rather than a sales pitch, because whether a REIT is a good investment genuinely depends on your situation.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific situation, including how REIT dividends are taxed and whether holding REITs in a tax-advantaged account makes sense for you. We help you understand the trade-offs honestly, evaluate whether a REIT suits your goals, and access suitable offerings when appropriate. Yields and returns are never promised — past performance does not guarantee future results, and REIT prices and distributions can fluctuate. Our role is to help you make a balanced, well-informed decision and invest only when suitable for you.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Are REITs a good investment?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on your goals, risk tolerance, and time horizon — there's no universal answer. REITs offer genuine advantages: above-average income (because they must distribute at least 90% of taxable income), liquidity for publicly traded REITs, diversification as a distinct real estate asset class, professional management, and low-minimum accessibility. They also carry real drawbacks: interest-rate sensitivity, price volatility for traded REITs, mostly-ordinary-income taxation that's less efficient in taxable accounts, sector and market risk, and illiquidity and fees for non-traded structures. So REITs can be a sound investment for someone seeking real estate income and diversification who can tolerate volatility over a multi-year horizon, and a poor fit for someone who needs stable value, near-term liquidity, or capital-gains deferral. So the honest answer is that REITs are a good investment for some investors and not for others — weigh the pros and cons against your own situation rather than treating them as universally good or bad.</p></div>
+</details>
+<details>
+<summary>What are the main pros of investing in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The main pros are income, liquidity, diversification, professional management, and accessibility. Income comes from the rule requiring REITs to distribute at least 90% of taxable income, which pushes REIT yields above the broad stock market. Liquidity applies to publicly traded REITs, whose shares trade on exchanges throughout the day. Diversification works on two levels — a single REIT owns many properties, and real estate as an asset class has had only moderate correlation with stocks, so REITs can spread portfolio risk. Professional management means a team handles acquiring, financing, leasing, and operating the properties, so you invest passively. Accessibility means you can buy a publicly traded REIT one share at a time through a brokerage account, often commission-free, with no large down payment. There can also be an inflation consideration over long horizons, though it's not guaranteed. So REITs deliver real estate income and diversification without the work or capital outlay of direct ownership.</p></div>
+</details>
+<details>
+<summary>What are the main cons of investing in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The main cons are interest-rate sensitivity, price volatility, tax treatment, sector and market risk, and (for non-traded REITs) illiquidity and fees. Rate sensitivity means REIT prices often fall when interest rates rise, because higher rates raise borrowing costs, pressure property values, and make REIT yields look less attractive versus bonds. Volatility affects publicly traded REITs, whose prices swing with the market and sentiment, not just the underlying real estate. Tax treatment is a drawback because most REIT dividends are taxed as ordinary income rather than at lower qualified-dividend rates, making REITs less tax-efficient in taxable accounts (though the 20% Section 199A deduction helps). Sector and market risk means individual sectors can underperform and broad conditions can pressure all REITs. Non-traded REITs add illiquidity (capped, suspendable redemptions) and historically higher fees. So REITs carry meaningful risks that should be weighed against their income and diversification advantages.</p></div>
+</details>
+<details>
+<summary>Why are REITs sensitive to interest rates?<span class="ic"></span></summary>
+<div class="ans"><p>REITs are sensitive to interest rates for several connected reasons. First, REITs typically use debt to acquire and develop properties, so when rates rise, their borrowing costs go up, which can squeeze profitability — and mortgage REITs are especially exposed because their profit depends on the spread between borrowing costs and the interest they earn. Second, higher rates can pressure property values, since real estate is often valued relative to prevailing interest rates. Third, REITs compete with bonds for income-focused investors, so when rates rise and bond yields become more attractive, REIT shares can look relatively less appealing and their prices may fall. As a result, REIT share prices have often declined during periods of rising rates, even when the underlying properties and rents are stable. So rate sensitivity is one of the defining risks of REIT investing — it's a key reason REIT prices can be volatile, and it's worth factoring into any decision to invest. Past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>How are REIT dividends taxed?<span class="ic"></span></summary>
+<div class="ans"><p>Most of a REIT's ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT itself pays no corporate tax — so the income is taxed mainly at the shareholder level. This makes REITs relatively tax-inefficient in taxable accounts compared with investments that generate qualified dividends or long-term capital gains. However, a 20% deduction under Section 199A applies to qualified REIT dividends, lowering the effective top federal rate on those dividends to roughly 29.6%; the 199A deduction was made permanent by the 2025 OBBBA legislation. Some REIT distributions are also classified as return of capital (which reduces your cost basis rather than being currently taxed) or as capital-gain distributions (taxed at capital-gains rates). REITs report the breakdown on Form 1099-DIV. Because of the ordinary-income treatment, many investors hold REITs in tax-advantaged accounts like IRAs. Baker 1031 doesn't provide tax advice, so verify the current rules and your specific situation with your tax advisor.</p></div>
+</details>
+<details>
+<summary>Are REITs good for income?<span class="ic"></span></summary>
+<div class="ans"><p>REITs are often used for income because the 90% distribution rule requires them to pay out most of their taxable income, so REIT yields tend to run higher than the broad stock market. Equity REITs in stable, income-oriented sectors (net-lease, healthcare, certain residential) can offer relatively steady distributions, while mortgage REITs often offer higher yields but with more interest-rate risk. That said, REIT income isn't guaranteed — distributions can be cut if property income declines, and share prices fluctuate, so REITs carry real investment risk and tend to be more volatile and rate-sensitive than bonds. The income is also mostly taxed at ordinary rates, which matters in taxable accounts. So REITs can be a meaningful income source for investors who understand the risks and want real estate exposure, but they shouldn't be treated as guaranteed or bond-like. So if income is your goal, REITs are a reasonable candidate — just size and diversify the allocation appropriately and don't assume current yields will persist.</p></div>
+</details>
+<details>
+<summary>Are REITs a good way to diversify a portfolio?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — REITs can offer meaningful diversification in two senses. First, a single REIT typically owns many properties across multiple markets, so buying one REIT share gives you exposure to a diversified pool of real estate rather than a single building, and a REIT fund or ETF adds another layer by holding many REITs. Second, real estate as an asset class has historically behaved somewhat differently from stocks and bonds, so adding REITs to a portfolio of equities and fixed income can improve diversification and provide an income stream tied to real estate. That said, publicly traded REITs do trade as equities and can move with the stock market, especially in the short term, so the diversification benefit is partial rather than complete. So REITs offer real diversification — within real estate and across asset classes — making them a common building block in a diversified portfolio. As with any allocation, size REIT exposure to fit your overall goals and risk tolerance rather than concentrating heavily in one sector or REIT.</p></div>
+</details>
+<details>
+<summary>Are publicly traded REITs volatile?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — publicly traded REITs can be volatile in the short term. Because their shares are listed on stock exchanges and priced continuously, their prices reflect not just the value of the underlying real estate but also investor sentiment, interest-rate expectations, and broad market swings. As a result, a traded REIT can fall sharply during a market sell-off even when its properties and rents are stable, and it can react quickly to changes in interest-rate expectations. This volatility is the flip side of the liquidity that makes traded REITs convenient — the same continuous market that lets you buy and sell any trading day also marks your shares to market in real time. Non-traded REITs, by contrast, are valued periodically at NAV and appear smoother, but that smoothness reflects infrequent valuation rather than lower underlying risk. So if short-term price swings would concern you, traded REIT volatility is a genuine consideration — though it tends to matter less for investors with a long time horizon who aren't forced to sell during downturns.</p></div>
+</details>
+<details>
+<summary>Should I hold REITs in a taxable account or an IRA?<span class="ic"></span></summary>
+<div class="ans"><p>Many investors prefer to hold REITs in a tax-advantaged account like an IRA precisely because most REIT dividends are taxed as ordinary income rather than at lower qualified-dividend rates. In a taxable account, that ordinary-income treatment can make REITs relatively tax-inefficient, though the 20% Section 199A deduction on qualified REIT dividends softens the impact (lowering the effective top federal rate to roughly 29.6%). In an IRA or other tax-advantaged account, the income isn't taxed currently, so the ordinary-income drawback largely disappears — which is why REITs are a common holding inside retirement accounts. That said, the right choice depends on your overall tax situation, the rest of your portfolio, and your goals, and there can be reasons to hold REITs in a taxable account too. So as a general matter, the tax inefficiency of REIT dividends makes tax-advantaged accounts an attractive home for them — but Baker 1031 doesn't provide tax advice, so confirm the best placement for your situation with your tax advisor.</p></div>
+</details>
+<details>
+<summary>Can I use a REIT in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>No — REIT shares are not eligible for a 1031 exchange. A 1031 exchange requires the exchange of like-kind real property held for investment or business use, and REIT shares are securities, not real property, so they don't qualify. This means you can't sell investment real estate and 1031 directly into REIT shares to defer your capital-gains tax. There is, however, an indirect path: you can 1031 into a Delaware Statutory Trust (DST), which is 1031-eligible like-kind real property, and the DST's property may later be acquired by a REIT through a 721 (UPREIT) exchange, converting your interest into operating-partnership units (which can eventually convert to REIT shares) while maintaining your tax deferral. So a direct 1031 into a REIT isn't possible, but a 1031-into-DST-then-721-into-REIT structure can ultimately give you REIT exposure with deferral preserved. If capital-gains deferral on a property sale is your goal, REIT shares alone won't accomplish it, so confirm the specifics with your tax advisor before making any move.</p></div>
+</details>
+<details>
+<summary>Do non-traded REITs have higher fees?<span class="ic"></span></summary>
+<div class="ans"><p>Historically, yes — non-traded REITs have generally carried higher fees than publicly traded REITs. Non-traded REITs have typically involved higher upfront costs, including selling commissions, dealer-manager fees, and organizational and offering expenses, which can meaningfully reduce the portion of your investment that's initially deployed into real estate. Ongoing fees, such as asset-management fees, may also apply. By comparison, publicly traded REITs are generally low-cost to own — you buy shares through a brokerage account (often commission-free), and REIT funds or ETFs charge only a modest expense ratio, with no large upfront loads. While some newer non-traded REIT structures have worked to reduce certain costs, the overall fee load on non-traded REITs has generally remained higher. Because fees reduce your net returns, this is an important factor in deciding whether a non-traded REIT is a good investment for you. So review the fee structure of any non-traded REIT carefully and compare it to a lower-cost traded alternative before committing capital.</p></div>
+</details>
+<details>
+<summary>Are REITs a hedge against inflation?<span class="ic"></span></summary>
+<div class="ans"><p>REITs are sometimes discussed as a potential inflation consideration, but it's important not to overstate the case. The reasoning is that real estate rents and property values have at times moved with inflation over long periods, and some leases include rent escalators, so REIT income and asset values can, in some environments, rise alongside the general price level. However, this relationship is not guaranteed and varies by sector, lease structure, and economic cycle — and in the short run, rising inflation often comes with rising interest rates, which can pressure REIT prices despite any inflation linkage. So REITs may offer some inflation consideration over long horizons, but they are not a reliable, automatic inflation hedge, and they can underperform during the rate increases that often accompany inflation. So if inflation protection is part of your thinking, treat REITs as one imperfect tool among several rather than a guaranteed hedge, and weigh their rate sensitivity alongside any inflation linkage. Past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>How much of my portfolio should be in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>There's no single right percentage — the appropriate REIT allocation depends on your goals, risk tolerance, time horizon, and the rest of your portfolio. Many investors treat REITs as one component of a diversified portfolio rather than a concentrated position, sizing the allocation so that real estate exposure complements their stocks and bonds without dominating. Because REITs carry rate sensitivity, volatility, and sector risk, an allocation large enough to swing your whole portfolio sharply may be more risk than you intend. The right size also depends on whether you're using REITs primarily for income, diversification, or growth, and on whether you hold them in a taxable or tax-advantaged account. So rather than chasing a specific number, think about what role you want real estate to play and size the allocation to that role and your risk tolerance. So a modest, deliberately sized allocation is a common approach, but the right figure is personal. Consider discussing it with a financial professional who can account for your full picture.</p></div>
+</details>
+<details>
+<summary>Are REITs safer than buying property directly?<span class="ic"></span></summary>
+<div class="ans"><p>Neither is universally safer — they carry different risks. REITs are passive, diversified, and (if traded) liquid, so they avoid the concentration of owning a single building, the burden of managing tenants and maintenance, and the illiquidity of direct ownership. But REITs add risks of their own: publicly traded REITs show daily price volatility tied to the market and interest rates, distributions can be cut, and you don't control the properties or the timing of buys and sells. Direct ownership gives you control, potential leverage, and direct tax benefits like depreciation, but it's concentrated, illiquid, management-intensive, and exposed to the risks of a single property and tenant base. So REITs trade the concentrated, hands-on risks of direct ownership for the market-driven, passive risks of a security. Which is 'safer' depends on what risks concern you most and on your goals and situation. So rather than ranking one as safer, weigh the different risk profiles against what you're trying to achieve and how much control and liquidity you want.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me decide whether REITs are a good investment for me?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors weigh the pros and cons of REITs — the income, liquidity, diversification, and professional-management advantages against the rate sensitivity, volatility, ordinary-income taxation, and (for non-traded structures) illiquidity and fees — so you can decide whether REITs fit your goals, risk tolerance, and time horizon. Our aim is a balanced picture, not a sales pitch, because whether a REIT is a good investment genuinely depends on your situation. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. Baker 1031 doesn't provide tax or legal advice — your CPA and attorney handle your specific situation, including REIT dividend taxation and account placement. We help you understand the trade-offs, evaluate whether a REIT suits your goals, and access suitable offerings when appropriate. Yields and returns are never promised, and past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>REIT</dt><dd>A company that owns, operates, or finances income-producing real estate.</dd></div>
+<div class="g"><dt>90% Distribution Rule</dt><dd>The requirement to pay out at least 90% of taxable income.</dd></div>
+<div class="g"><dt>Dividend Yield</dt><dd>Annual dividends divided by share price, often higher for REITs.</dd></div>
+<div class="g"><dt>Liquidity</dt><dd>The ability to sell and access your capital readily.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>Spreading risk across assets, sectors, or property types.</dd></div>
+<div class="g"><dt>Professional Management</dt><dd>A team handling acquisition, leasing, and operations for you.</dd></div>
+<div class="g"><dt>Interest-Rate Sensitivity</dt><dd>REIT prices tending to fall when interest rates rise.</dd></div>
+<div class="g"><dt>Market Volatility</dt><dd>Daily price swings affecting publicly traded REITs.</dd></div>
+<div class="g"><dt>Ordinary Income</dt><dd>Income taxed at standard rates, as most REIT dividends are.</dd></div>
+<div class="g"><dt>Section 199A Deduction</dt><dd>The 20% deduction on qualified REIT dividends.</dd></div>
+<div class="g"><dt>Equity REIT</dt><dd>A REIT that owns property and earns income from rents.</dd></div>
+<div class="g"><dt>Mortgage REIT (mREIT)</dt><dd>A REIT that finances real estate and is highly rate-sensitive.</dd></div>
+<div class="g"><dt>Non-Traded REIT</dt><dd>An SEC-registered, unlisted REIT with limited liquidity and higher fees.</dd></div>
+<div class="g"><dt>Sector Risk</dt><dd>The risk that an individual property sector underperforms.</dd></div>
+<div class="g"><dt>Tax-Advantaged Account</dt><dd>An IRA or similar account where REIT income isn't taxed currently.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether an investment fits the investor's situation.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-1099-div" rel="noopener nofollow" target="_blank">About Form 1099-DIV, Dividends and Distributions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

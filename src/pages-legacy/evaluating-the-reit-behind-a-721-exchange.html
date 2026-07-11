@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluating the REIT Behind a 721 Exchange | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Evaluating the REIT Behind a 721 Exchange
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Evaluating the REIT Behind a 721 Exchange</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">In a 721 exchange, you're transitioning into a specific REIT and tying your financial outcome to it — so evaluating the REIT thoroughly is critical. This guide explains how to evaluate the REIT behind a 721 exchange: its portfolio quality and diversification, management and sponsor, financial health, track record, and the traded-vs-non-traded considerations.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">When you do a 721 exchange, you're not just <a href="how-a-721-exchange-works-step-by-step-process.html">executing the step-by-step tax mechanics of the transaction</a> — you're investing in a specific REIT, and your financial outcome (your returns, your holding's value) will depend on that REIT's performance. Because the 721 exchange is generally a one-way, largely irreversible move, you're committing to this REIT, so evaluating it thoroughly before proceeding is critical. A strong, well-managed REIT supports a good outcome; a weak one can lead to disappointment you can't easily escape. Evaluating the REIT means assessing its portfolio quality and diversification, its management and sponsor, its financial health, its track record, and (for liquidity) whether it's traded or non-traded. This guide explains how to evaluate the REIT behind a 721 exchange across these dimensions, so you transition into a REIT worthy of your commitment.</p>
+<h2 id="why-matters">Why evaluating the REIT matters</h2>
+<p>Evaluating the REIT matters because, in a <a href="721-exchange-guide.html">721 exchange</a>, you're tying your financial outcome to that REIT. Your returns (distributions), your holding's value, and your liquidity all depend on the REIT's performance, management, and financial health. So the REIT's quality directly determines your outcome — a strong REIT supports good returns and value; a weak one can hurt them.</p>
+<p>This matters especially because the 721 exchange is generally a one-way, largely irreversible move — you're committing to this REIT, and you can't easily (tax-free) exit if it disappoints. So a poor REIT choice is hard to undo. This makes evaluating the REIT before committing critical — you want to be confident in the REIT you're transitioning into, since you'll be tied to it.</p>
+<p>So evaluating the REIT isn't optional diligence; it's essential to a good 721 exchange outcome. The strategy's benefits (the <a href="upreit-conversion-and-capital-gains-deferral.html">capital-gains deferral an UPREIT conversion provides</a>, diversification, and the like) only materialize well if the REIT performs well. Why evaluating the REIT matters — because you're tying your outcome to the REIT (your returns, value, and liquidity depend on it) in a generally irreversible move, making a poor choice hard to undo — establishes the critical importance of REIT evaluation. The REIT's quality determines your outcome. Understanding why it matters motivates thorough evaluation. Evaluating the REIT is critical because you're committing your outcome to it in a largely irreversible move, making the REIT's quality essential to your 721 exchange's success.</p>
+<h2 id="portfolio-quality">Portfolio quality and diversification</h2>
+<p>A primary evaluation dimension is the REIT's portfolio quality and diversification. Portfolio quality means the caliber of the REIT's properties — are they well-located, well-maintained, institutional-quality, income-producing properties? A REIT with high-quality properties (strong locations, good tenants, sound condition) is more likely to perform well than one with weaker properties. So assess the quality of the REIT's holdings.</p>
+<p>Diversification means how spread the portfolio is — across how many properties, geographies, property types, and tenants. A well-diversified portfolio (many properties across markets and types, with no single property or tenant dominating) provides more stability and risk reduction than a concentrated one. So assess the REIT's diversification — the breadth that provides the risk reduction you're seeking.</p>
+<p>Together, portfolio quality (caliber of properties) and diversification (breadth of the portfolio) are key indicators of the REIT's likely performance and the risk reduction it offers. A high-quality, well-diversified portfolio is a strong sign. Portfolio quality and diversification — the caliber of the REIT's properties (well-located, institutional-quality) and the breadth of the portfolio (across properties, markets, types, tenants) — are primary evaluation dimensions indicating the REIT's likely performance and risk reduction. Quality and diversification are key indicators. Understanding these dimensions shows what to assess in the portfolio. Evaluate the REIT's portfolio quality (caliber of properties) and diversification (breadth), key indicators of its performance and the risk reduction it provides.</p>
+<div class="pullquote"><p>Assess the REIT's portfolio on two axes: quality (well-located, institutional-grade, income-producing properties) and diversification (breadth across properties, markets, types, and tenants) — both key indicators of performance and risk reduction.</p></div>
+<h2 id="management-sponsor">Management and sponsor</h2>
+<p>The REIT's management and sponsor are crucial to evaluate, since they drive the REIT's performance. The management team makes the decisions — acquiring, managing, financing, and disposing of properties, and setting the strategy — so their competence, experience, and track record directly affect your returns. A skilled, experienced management team is more likely to perform well; a weak one is a risk.</p>
+<p>The sponsor (the firm behind the REIT) is also important — its reputation, integrity, financial strength, and history. A reputable, financially strong sponsor with a good track record provides confidence; a problematic sponsor (poor history, conflicts, financial issues) is a warning sign. So assess the sponsor's reputation and strength, since you're relying on them.</p>
+<p>Evaluating the management and sponsor involves examining their experience, track record (across market cycles), reputation, alignment of interests, and any history of problems. So the people behind the REIT are a key evaluation focus, since they determine the REIT's performance. Management and sponsor — the competence, experience, and track record of the management team (driving the REIT's performance) and the reputation, integrity, and strength of the sponsor (the firm behind the REIT) — are crucial to evaluate, since they determine your outcome. The people drive the performance. Understanding these dimensions shows the importance of the people. Evaluate the REIT's management and sponsor (their competence, track record, reputation, and strength), since they drive the REIT's performance and your outcome.</p>
+<h2 id="financial-health">Financial health</h2>
+<p>The REIT's financial health is an important evaluation dimension, affecting its stability and performance. Key financial factors include the REIT's leverage (debt level — excessive debt increases risk, especially if rates rise or income softens), its debt coverage (whether its income comfortably covers its debt service), its liquidity (whether it has adequate cash/resources), and its overall balance-sheet strength. A financially sound REIT (reasonable leverage, strong coverage, adequate liquidity) is more stable; a financially stressed one is riskier.</p>
+<p>Another financial factor is the distribution coverage — whether the REIT's distributions are covered by its actual operating income (a sign of sustainability) or funded partly from other sources (like borrowings or offering proceeds, which isn't sustainable, a concern especially noted for some non-traded REITs). So assess whether the distributions are sustainably covered.</p>
+<p>So evaluating the REIT's financial health (leverage, coverage, liquidity, distribution sustainability) indicates its stability and the sustainability of its returns. A financially healthy REIT is a positive sign. Financial health — the REIT's leverage, debt coverage, liquidity, balance-sheet strength, and distribution sustainability (whether distributions are covered by operating income) — is an important evaluation dimension indicating the REIT's stability and the sustainability of its returns. Financial soundness is key. Understanding the financial dimensions shows what to assess. Evaluate the REIT's financial health (leverage, coverage, distribution sustainability), key to its stability and the sustainability of your returns.</p>
+<h2 id="track-record">Track record and performance</h2>
+<p>The REIT's track record and performance history provide evidence of its quality, though past performance doesn't guarantee future results. A REIT with a solid track record — consistent performance, sound management decisions, weathering market cycles, delivering reasonable returns and distributions over time — provides more confidence than one with a poor or short history. So examine the REIT's performance history.</p>
+<p>The track record to assess includes the REIT's historical returns and distributions (consistency and level), how it performed in different market conditions (especially downturns), the management's decisions and their outcomes, and any problems or red flags in its history. So the track record gives a picture of how the REIT has performed.</p>
+<p>While past performance isn't a guarantee (and should be considered alongside the other factors), a strong track record is a positive indicator, and a poor one is a warning. So evaluate the track record as evidence (not a guarantee) of the REIT's quality. Track record and performance — the REIT's history of returns, distributions, and management decisions across market conditions, as evidence (not a guarantee) of its quality — is an evaluation dimension providing confidence (or warning). The track record indicates quality. Understanding the track record's role shows it as evidence to weigh. Evaluate the REIT's track record and performance history as evidence of its quality, while recognizing past performance doesn't guarantee future results.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>In a 721 exchange you tie your outcome to the REIT (in a largely irreversible move), so evaluating it thoroughly is critical.</li>
+<li>Assess the portfolio quality (caliber of properties) and diversification (breadth), key indicators of performance and risk reduction.</li>
+<li>Evaluate the management and sponsor (competence, track record, reputation, strength) — they drive the REIT's performance.</li>
+<li>Examine the financial health (leverage, coverage, distribution sustainability) and track record; consider the traded-vs-non-traded distinction for liquidity and transparency.</li>
+</ul></div>
+<h2 id="traded-non-traded">Traded vs. non-traded considerations</h2>
+<p>The traded-vs-non-traded distinction is an important evaluation consideration, affecting liquidity, transparency, and the evaluation itself. For a publicly-traded REIT, much information is publicly available (financial reports, the market price, analyst coverage), making evaluation easier and the liquidity (after conversion) robust. So a traded REIT offers transparency and liquidity that aid evaluation and your future flexibility.</p>
+<p>For a non-traded REIT, less information may be publicly available, the valuation is by periodic NAV (less transparent), the liquidity is limited (redemption programs), and the fees may be higher — all of which warrant extra scrutiny in evaluation (as FINRA emphasizes for non-traded REITs). So evaluating a non-traded REIT requires more careful diligence (on the NAV, fees, liquidity, and disclosures).</p>
+<p>So the REIT type affects both the evaluation (traded REITs are more transparent) and your considerations (liquidity, fees, transparency). If liquidity and transparency matter to you, a traded REIT may be preferable; a non-traded REIT warrants extra scrutiny. Traded vs. non-traded considerations — traded REITs offering more transparency and liquidity (aiding evaluation and flexibility), non-traded REITs requiring extra scrutiny (less transparent NAV, limited liquidity, higher fees) — are an important evaluation dimension. The REIT type affects the evaluation and your considerations. Understanding this distinction shapes your evaluation approach. Consider the traded-vs-non-traded distinction in evaluating the REIT — traded REITs offer transparency and liquidity, while non-traded REITs warrant extra scrutiny on NAV, fees, and liquidity.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you evaluate the REIT</h2>
+<p>Baker 1031 Investments helps owners evaluate the REIT behind a 721 exchange — assessing its portfolio quality and diversification, its management and sponsor, its financial health (leverage, coverage, distribution sustainability), its track record, and the traded-vs-non-traded considerations. We help you perform thorough due diligence on the REIT you'd transition into, since your outcome depends on it.</p>
+<p>REIT units, DST interests, and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — the REIT's quality is central to the suitability assessment. We help you examine the REIT's portfolio, management, financials, track record, and structure, so you understand what you're transitioning into. Our role is to help you evaluate the REIT thoroughly before committing — assessing the dimensions that determine its performance and your outcome — so you transition into a REIT worthy of your commitment. Because the 721 exchange ties your outcome to the REIT in a largely irreversible move, careful REIT evaluation is essential, and we help you do it across all the key dimensions, so you choose a strong REIT for your 721 exchange.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why is evaluating the REIT so important in a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Because you're tying your financial outcome to the REIT — your returns (distributions), your holding's value, and your liquidity all depend on its performance, management, and financial health. And the 721 exchange is generally a one-way, largely irreversible move, so you're committing to this REIT and can't easily (tax-free) exit if it disappoints. So a poor REIT choice is hard to undo. This makes thorough evaluation before committing critical — you want to be confident in the REIT, since your outcome depends on it. Evaluating the REIT is essential to a good 721 exchange outcome, not optional diligence.</p></div>
+</details>
+<details>
+<summary>What should I look at in the REIT's portfolio?<span class="ic"></span></summary>
+<div class="ans"><p>Two main things: portfolio quality (the caliber of the properties — are they well-located, well-maintained, institutional-quality, income-producing?) and diversification (how spread the portfolio is — across how many properties, geographies, property types, and tenants). A high-quality portfolio (strong properties) and good diversification (many properties across markets and types, no single property or tenant dominating) indicate likely performance and the risk reduction you're seeking. So assess both the quality (caliber) and diversification (breadth) of the REIT's holdings — key indicators of its performance and the risk reduction it provides.</p></div>
+</details>
+<details>
+<summary>How do I evaluate the REIT's management and sponsor?<span class="ic"></span></summary>
+<div class="ans"><p>Examine the management team's competence, experience, and track record (across market cycles), since they make the decisions driving the REIT's performance. And assess the sponsor (the firm behind the REIT) — its reputation, integrity, financial strength, and history. A skilled, experienced management team and a reputable, strong sponsor provide confidence; a weak management or problematic sponsor is a warning. Look at their experience, track record, reputation, alignment of interests, and any history of problems. So the people behind the REIT are a key evaluation focus, since they determine the REIT's performance and your outcome.</p></div>
+</details>
+<details>
+<summary>What financial factors should I check?<span class="ic"></span></summary>
+<div class="ans"><p>The REIT's leverage (debt level — excessive debt increases risk), debt coverage (whether income comfortably covers debt service), liquidity (adequate cash/resources), and balance-sheet strength. Also check distribution coverage — whether the distributions are covered by the REIT's actual operating income (sustainable) or funded partly from other sources like borrowings or offering proceeds (not sustainable, a concern especially for some non-traded REITs). So assess the REIT's financial health (leverage, coverage, liquidity, distribution sustainability), indicating its stability and the sustainability of your returns. A financially sound REIT with sustainable distributions is a positive sign.</p></div>
+</details>
+<details>
+<summary>Does the REIT's track record matter?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the REIT's track record (its history of returns, distributions, and management decisions across market conditions) provides evidence of its quality, though past performance doesn't guarantee future results. A solid track record (consistent performance, sound decisions, weathering downturns, reasonable returns) provides confidence; a poor or short history is a warning. So examine the REIT's performance history as evidence (not a guarantee) of its quality, alongside the other factors. A strong track record is a positive indicator. So weigh the track record as part of your evaluation, recognizing it's evidence rather than a guarantee of future performance.</p></div>
+</details>
+<details>
+<summary>How does the traded-vs-non-traded distinction affect evaluation?<span class="ic"></span></summary>
+<div class="ans"><p>For a publicly-traded REIT, much information is publicly available (financial reports, the market price, analyst coverage), making evaluation easier and the liquidity (after conversion) robust. For a non-traded REIT, less information may be available, the valuation is by periodic NAV (less transparent), liquidity is limited, and fees may be higher — warranting extra scrutiny (as FINRA emphasizes for non-traded REITs). So the REIT type affects both the evaluation (traded REITs are more transparent) and your considerations (liquidity, fees, transparency). If liquidity and transparency matter, a traded REIT may be preferable; a non-traded REIT requires more careful diligence.</p></div>
+</details>
+<details>
+<summary>What are red flags in evaluating a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Warning signs include weak or poorly-located properties (low portfolio quality), excessive concentration (poor diversification), inexperienced or troubled management, a problematic sponsor (poor history, conflicts, financial issues), high leverage or weak debt coverage (financial stress), distributions not covered by operating income (unsustainable, funded from other sources), a poor track record, and (for non-traded REITs) high fees, limited liquidity, or opaque valuation. So red flags span the portfolio, management, financials, and structure. If you see these warning signs, scrutinize further or consider a different REIT. Recognizing red flags helps you avoid a weak REIT you'd be committed to.</p></div>
+</details>
+<details>
+<summary>Can I evaluate a non-traded REIT thoroughly?<span class="ic"></span></summary>
+<div class="ans"><p>It's harder than a traded REIT (less public information, periodic NAV rather than market price), but you can and should evaluate it carefully — examining its offering documents (the PPM, financials), its portfolio, management, sponsor, fees, distribution coverage, and liquidity terms. Non-traded REITs warrant extra scrutiny (FINRA emphasizes careful review). So while a non-traded REIT is less transparent, thorough due diligence (with your advisor) on its disclosures and structure is essential before transitioning into it. The extra effort is important given the lower transparency. So evaluate a non-traded REIT thoroughly, scrutinizing its disclosures, fees, and liquidity given its lower transparency.</p></div>
+</details>
+<details>
+<summary>Should I evaluate the REIT myself or with help?<span class="ic"></span></summary>
+<div class="ans"><p>With professional help — evaluating a REIT (its portfolio, management, financials, track record, structure) is complex, so you should work with a knowledgeable financial professional who can assess the REIT and help you understand it. The evaluation involves financial analysis, industry knowledge, and judgment that a professional provides. So don't evaluate the REIT alone; use professional guidance to perform thorough due diligence. We help you evaluate the REIT across the key dimensions, since your outcome depends on it. The professional guidance ensures a thorough, informed evaluation, especially important given the 721 exchange's irreversibility.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me evaluate the REIT?<span class="ic"></span></summary>
+<div class="ans"><p>We help you evaluate the REIT — assessing its portfolio quality and diversification, management and sponsor, financial health (leverage, coverage, distribution sustainability), track record, and the traded-vs-non-traded considerations. We help you perform thorough due diligence on the REIT you'd transition into. REIT units are offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review, with the REIT's quality central to the assessment. We help you examine the REIT's portfolio, management, financials, track record, and structure, so you understand what you're transitioning into and can choose a strong REIT worthy of your commitment, given the 721 exchange's irreversibility.</p></div>
+</details>
+<details>
+<summary>What information sources should I use to evaluate a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>For a publicly-traded REIT, use its public filings (annual and quarterly reports, with financials and disclosures), the market price and analyst coverage, and ratings or research. For a non-traded REIT, use its offering documents (the private placement memorandum or prospectus, with the portfolio, financials, fees, and risk disclosures) and any periodic reports. Also consider the sponsor's overall reputation and track record. Your advisor can help gather and interpret these sources. So use the REIT's official disclosures, market information (for traded REITs), and sponsor information, with professional help interpreting them. Thorough evaluation draws on these sources to assess the REIT comprehensively.</p></div>
+</details>
+<details>
+<summary>How important is the REIT's fee structure in the evaluation?<span class="ic"></span></summary>
+<div class="ans"><p>Quite important — fees reduce your net returns over time, so a REIT with high fees (especially some non-traded REITs with significant upfront and ongoing fees) will deliver lower net returns than a comparable lower-fee REIT. So examine the fee structure (upfront fees, ongoing management and advisory fees, and other expenses) as part of the evaluation, since it directly affects your returns. A reasonable fee structure is a positive; excessive fees are a concern. FINRA has emphasized understanding non-traded REIT fees. So weigh the fees in your evaluation — they're a key factor in the REIT's net returns to you, alongside the portfolio, management, and financials.</p></div>
+</details>
+<details>
+<summary>Can a REIT look good but still be a poor choice for me?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a REIT can be high-quality (strong portfolio, management, financials) but still not fit your specific goals. For example, a sound non-traded REIT might be a poor fit if you need liquidity (which it limits), or a REIT in a sector you don't want might not fit your diversification goals. So beyond the REIT's objective quality, consider its fit with your goals (liquidity needs, sector preferences, risk tolerance). A good REIT for one investor may not suit another. So evaluate both the REIT's quality (objectively strong?) and its fit (right for your goals?). We help you assess both, ensuring the REIT is not just good but right for you.</p></div>
+</details>
+<details>
+<summary>How much time should I spend evaluating the REIT?<span class="ic"></span></summary>
+<div class="ans"><p>As much as the importance warrants — because the 721 exchange is generally irreversible and ties your outcome to the REIT, thorough evaluation is worth significant time and care, not a rushed decision. Take the time to examine the portfolio, management, financials, track record, fees, and structure (with your advisor), and to understand what you're committing to. There's no need to rush (a standalone 721 has no statutory deadlines), so use the time to evaluate carefully. Given the stakes (your committed outcome), thorough evaluation is time well spent. Don't shortcut the evaluation; the irreversibility and your dependence on the REIT make careful diligence essential, however long it takes.</p></div>
+</details>
+<details>
+<summary>Should I compare multiple REITs before choosing?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, when possible — comparing multiple REIT (or DST-to-REIT) options helps you choose the strongest, best-fitting one for your goals, rather than accepting the first available. Comparing the portfolio quality, diversification, management, financials, track record, fees, liquidity, and fit across options gives you a basis for selecting the best. Of course, your options may be limited by which REITs/DSTs are available for your property and situation, but where there are choices, comparing them is valuable. So compare the available options (with your advisor) to choose a strong, well-fitting REIT. We help you compare suitable options so you select the best one for your 721 exchange, rather than settling for an inferior choice.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>REIT Evaluation</dt><dd>Assessing the REIT you'd transition into, critical to your outcome.</dd></div>
+<div class="g"><dt>Portfolio Quality</dt><dd>The caliber of the REIT's properties.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>The breadth of the REIT's portfolio.</dd></div>
+<div class="g"><dt>Management Team</dt><dd>Those running the REIT, driving its performance.</dd></div>
+<div class="g"><dt>Sponsor</dt><dd>The firm behind the REIT, whose strength matters.</dd></div>
+<div class="g"><dt>Leverage</dt><dd>The REIT's debt level, a financial-health factor.</dd></div>
+<div class="g"><dt>Debt Coverage</dt><dd>Whether income covers debt service, a financial factor.</dd></div>
+<div class="g"><dt>Distribution Coverage</dt><dd>Whether operating income covers the distributions.</dd></div>
+<div class="g"><dt>Track Record</dt><dd>The REIT's performance history, evidence of quality.</dd></div>
+<div class="g"><dt>Financial Health</dt><dd>The REIT's overall financial soundness.</dd></div>
+<div class="g"><dt>Traded REIT</dt><dd>A REIT with public information and market liquidity.</dd></div>
+<div class="g"><dt>Non-Traded REIT</dt><dd>A REIT requiring extra scrutiny (less transparent).</dd></div>
+<div class="g"><dt>Institutional Quality</dt><dd>The high-caliber property standard to seek.</dd></div>
+<div class="g"><dt>Red Flag</dt><dd>A warning sign in the REIT evaluation.</dd></div>
+<div class="g"><dt>Due Diligence</dt><dd>The thorough evaluation of the REIT.</dd></div>
+<div class="g"><dt>Distribution Sustainability</dt><dd>Whether the distributions are covered and lasting.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Public Non-Traded REITs—Perform a Careful Review Before Investing</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. <a href="721-exchange-upreit.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View 721 Exchange (UPREIT) →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

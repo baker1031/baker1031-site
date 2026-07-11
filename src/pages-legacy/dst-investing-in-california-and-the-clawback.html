@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DST Investing in California and the Clawback | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>DST Investing in California and the Clawback
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">DST Investing in California and the Clawback</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 17 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">California has one of the highest state income taxes in the country, and a 'clawback' rule that follows deferred gains out of state. This guide explains California's tax burden, the clawback provision, exchanging into out-of-state DSTs, the FTB Form 3840 reporting requirement, and how to plan a California exchange with your CPA.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">California real estate investors face a tax situation unlike almost anywhere else. California has one of the highest state income taxes in the nation — a top marginal rate of about 13.3% — and it taxes capital gains as ordinary income, so a property sale can generate a substantial state tax bill on top of the federal one. A 1031 exchange is therefore especially valuable in California, because it defers both the federal and the California capital-gains tax. Delaware Statutory Trusts (DSTs) are a popular replacement-property option for California investors who want to defer that combined tax while moving from active rentals into passive, diversified real estate. But California adds two important wrinkles when an investor exchanges into out-of-state property: the 'clawback' provision, which preserves California's claim on the deferred California-source gain, and an annual reporting requirement on FTB Form 3840. This guide explains California's tax burden, the clawback, out-of-state DSTs, the Form 3840 reporting requirement, and how to plan a California exchange. This is educational information, not tax or legal advice — verify the current rules with your CPA.</p>
+<p>California investors weighing a DST exchange should first review <a href="dst-guide.html">our comprehensive Delaware Statutory Trust primer</a> to understand how these vehicles work before layering on state-specific rules.</p>
+<h2 id="californias-high-tax-burden">California's High Tax Burden</h2>
+<p>California imposes one of the highest state income taxes in the country, and that fact is central to how California real estate investors approach a property sale. California taxes capital gains as ordinary income, and its top marginal rate is around 13.3% — so a California investor selling appreciated investment real estate can owe a substantial state tax on the gain, in addition to federal capital-gains tax, the 3.8% <a href="net-investment-income-tax.html">net investment income tax</a>, and <a href="depreciation-recapture-real-estate.html">depreciation recapture</a>. For a long-held, highly appreciated property, the combined federal-plus-California tax on an outright sale can claim a very large share of the proceeds.</p>
+<p>This is exactly why a 1031 exchange is so valuable for California investors: it defers both the federal and the California capital-gains tax, keeping far more capital working in the replacement property. The higher the state tax, the more a 1031 saves — so the deferral is worth proportionally more in California than in a no-income-tax state like Texas or Florida. A DST is one way to capture that deferral while moving from an active rental into passive, professionally managed real estate. But because California's tax stake in the deferred gain is so large, the state has rules — the clawback and annual reporting — to make sure it eventually collects, which is what makes California exchanges require careful planning.</p>
+<p>So California's high tax burden makes a 1031 especially valuable — and is the reason the state has special rules to track deferred gains. California's high tax burden — a top marginal income-tax rate of about 13.3%, with capital gains taxed as ordinary income, stacking on top of federal capital-gains tax, the 3.8% net investment income tax, and depreciation recapture — makes a 1031 exchange (and a DST as replacement property) especially valuable for deferring a large combined bill, while also being the reason California enforces a clawback and annual reporting. The deferral is worth more here. Understanding the burden frames the rest. California taxes capital gains as ordinary income at rates up to about 13.3%, so a 1031 defers a large combined federal-plus-state bill — making deferral especially valuable, and prompting California's special tracking rules.</p>
+<div class="pullquote"><p>The higher the state tax, the more a 1031 saves — and at a top California rate near 13.3% on top of the federal bill, the deferral is worth proportionally more here than almost anywhere else.</p></div>
+<h2 id="clawback-provision-explained">The Clawback Provision Explained</h2>
+<p>California's 'clawback' is a rule designed to make sure the state eventually collects tax on gains that originated in California, even when an investor exchanges into out-of-state property. Here's the situation it addresses: a California investor 1031-exchanges out of California real estate into replacement property located in another state (for example, a DST holding property in Texas or Florida). The 1031 defers both the federal and the California gain. If California did nothing, the investor could later sell the out-of-state replacement property and California would have no obvious way to tax the original California-source gain that was deferred.</p>
+<p>The clawback prevents that. Under California's rules, the deferred California-source gain remains subject to California tax. When the investor eventually sells the out-of-state replacement property in a taxable transaction (without doing a further 1031), California claws back — that is, it taxes — the original California-source gain that was deferred in the earlier exchange, even though the property sold at that point is located outside California. So leaving California with the property doesn't escape the California tax on the California-source appreciation; it only defers it. Continuing to do further 1031 exchanges keeps the deferral going, but a future taxable sale triggers the California clawback on that original gain.</p>
+<p>So the clawback means California's claim on the original California-source gain survives an exchange out of state — it's deferred, not eliminated. The clawback provision — California's rule that a California-source gain deferred in a 1031 exchange into out-of-state replacement property remains subject to California tax, so that when the investor later sells the out-of-state property in a taxable transaction without a further 1031, California taxes (claws back) that original California gain even though the property is now out of state — ensures the state eventually collects. The deferral is preserved, not the escape. Understanding the clawback is essential to California exchange planning. California's clawback keeps the original California-source gain subject to California tax even after a 1031 into out-of-state property — when you eventually sell the replacement without a further exchange, California taxes that original gain.</p>
+<div class="pullquote"><p>Exchanging out of California doesn't make the California tax disappear — it follows the gain. When you finally cash out of the out-of-state replacement, California claws back the tax on that original California-source gain.</p></div>
+<h2 id="exchanging-into-out-of-state-dsts">Exchanging Into Out-of-State DSTs</h2>
+<p>Despite the clawback, many California investors do exchange into out-of-state DSTs — and for good reasons. California real estate is expensive and often low-yielding relative to its price, while DSTs holding property in <a href="sunbelt-vs-coastal-dst-markets.html">growing Sunbelt markets</a> (<a href="dst-investing-in-texas.html">Texas</a>, <a href="dst-investing-in-florida.html">Florida</a>, Arizona, the Carolinas) can offer higher current income and growth potential. The 1031 rules permit it: U.S. investment real estate is broadly like-kind, so a California investor can exchange a California rental into a DST holding property in any state while deferring both the federal and the California gain. The deferral is real — the clawback only means California's claim on the original gain is preserved for a future taxable sale, not that the exchange itself is taxed.</p>
+<p>So exchanging into an out-of-state DST lets a California investor defer the combined federal-and-California tax now, move into passive and potentially higher-yielding real estate, and diversify across markets — while accepting that the deferred California-source gain remains on California's books. Many investors are comfortable with this because they intend to keep deferring (through further 1031s or by holding until death, when heirs may receive a <a href="1031-exchange-step-up-in-basis-at-death.html">step-up in basis</a> that can eliminate the deferred gain entirely). The key is to understand that the clawback and the annual reporting (discussed next) are the conditions attached to taking the deferral out of state, not reasons to avoid it. Each investor's situation differs, so this should be planned with a CPA.</p>
+<p>So California investors can and do exchange into out-of-state DSTs, deferring the combined tax while accepting the clawback on the original gain. Exchanging into out-of-state DSTs — California investors using the broad like-kind rule to exchange California real estate into DSTs holding property in growing out-of-state markets, deferring both the federal and the California gain, moving into passive and potentially higher-yielding real estate, and diversifying, while accepting that the clawback preserves California's claim on the original gain for a future taxable sale (often managed by continuing to defer or holding until a step-up at death) — is common and permissible. The deferral is genuine. Planning with a CPA is essential. California investors commonly exchange into out-of-state DSTs to defer the combined federal-and-California tax and access higher-yielding markets, accepting the clawback on the original California gain and planning the strategy with a CPA.</p>
+<h2 id="ongoing-reporting-requirements">Ongoing Reporting Requirements</h2>
+<p>California backs up the clawback with an ongoing reporting requirement so it can track deferred California-source gains that have moved out of state. When a California investor (or any taxpayer with a California filing obligation) completes a 1031 exchange of California property into out-of-state replacement property, California requires the taxpayer to file FTB Form 3840, the California Like-Kind Exchanges form. The form reports the exchange and the deferred California-source gain, and it must be filed for the year of the exchange and then each subsequent year that the out-of-state replacement property is held — an annual obligation that continues until the gain is recognized (a taxable sale) or otherwise resolved.</p>
+<p>This annual Form 3840 filing is how California keeps the deferred gain on its radar across the years. It's an information return — filing it doesn't trigger tax — but failing to file it can have consequences: California may estimate and assess the deferred gain, treating it as if it had become taxable. So compliance matters. The reporting continues even though the investor has left California-based property behind, because the California-source gain hasn't been recognized yet. For a DST investor, this means that after exchanging California property into an out-of-state DST, there's an ongoing annual California filing to maintain, which a CPA typically handles as part of the investor's California return. Rules can change, so verify the current requirements with your CPA.</p>
+<p>So California requires an annual FTB Form 3840 filing to track deferred out-of-state gains, continuing until the gain is recognized. Ongoing reporting requirements — California's mandate to file FTB Form 3840 (the California Like-Kind Exchanges form) reporting a 1031 of California property into out-of-state replacement property and the deferred California-source gain, filed for the exchange year and every subsequent year the replacement is held until the gain is recognized, as an information return whose omission can lead California to assess the deferred gain — let California track gains that have left the state. Compliance is important. A CPA typically handles the annual filing. After exchanging California property out of state, you must file FTB Form 3840 annually to report the deferred California gain until it's recognized — an information return your CPA usually handles; failing to file can prompt California to assess the gain.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>California taxes capital gains as ordinary income up to about 13.3%, so a 1031 defers a large combined federal-and-California bill — making deferral especially valuable.</li>
+<li>The clawback keeps the original California-source gain subject to California tax even after a 1031 into out-of-state property; it's deferred, not eliminated.</li>
+<li>California requires an annual FTB Form 3840 filing to track the deferred gain each year the out-of-state replacement is held, until the gain is recognized.</li>
+<li>This is educational, not advice — plan a California exchange carefully with your CPA and verify the current rules, since state requirements can change.</li>
+</ul></div>
+<h2 id="managing-the-deferred-gain-over-time">Managing the Deferred Gain Over Time</h2>
+<p>Because the California clawback preserves the state's claim on the original gain, California investors often think carefully about how to manage that deferred gain over time. One common approach is to keep deferring: each time a DST reaches the end of its hold and the property is sold, the investor completes another 1031 exchange into a new replacement property (another DST or otherwise), continuing the deferral of both the federal and the California gain. As long as the chain of exchanges continues, no taxable sale occurs, and the clawback isn't triggered. The annual Form 3840 filing continues throughout, tracking the still-deferred gain.</p>
+<p>A second, powerful approach is the 'swap till you drop' strategy combined with estate planning. If an investor holds the (continually exchanged) interests until death, heirs generally receive a step-up in basis to fair market value — which can eliminate the deferred capital-gains tax, including, in many cases, the deferred California-source gain. This is why many California investors view the clawback as a deferral and estate-planning challenge rather than a barrier: with careful planning, the gain may never be taxed in their lifetime. Some investors also model the eventual clawback explicitly, deciding when (if ever) a taxable sale makes sense. Because estate and state-tax rules are complex and can change, this planning must be done with a CPA and estate attorney.</p>
+<p>So managing the deferred gain means choosing among continued deferral, an eventual taxable sale, or holding until a step-up — decisions made with professional advice. Managing the deferred gain over time — California investors choosing among continuing to 1031 into new replacement property (deferring indefinitely while filing Form 3840 annually), holding until death so heirs receive a basis step-up that can eliminate the deferred gain ('swap till you drop'), or planning a deliberate eventual taxable sale that triggers the clawback — turns the clawback into a planning question rather than a barrier. Estate and state rules are complex. This requires a CPA and attorney. California investors manage the clawback by continuing to defer, holding until a step-up at death, or planning a deliberate taxable sale — decisions that require a CPA and estate attorney given complex, changeable rules.</p>
+<h2 id="planning-a-california-exchange">Planning a California Exchange</h2>
+<p>Planning a California 1031 into a DST involves more moving parts than an exchange in a no-income-tax state, so it pays to assemble the right team early. The core players are a <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> (to hold the proceeds and preserve deferral), a CPA (to handle the federal and California tax, including the clawback implications and the annual Form 3840 filing), and a DST advisor at a broker-dealer (to source and screen suitable offerings and meet the 45-day and 180-day deadlines). For a California investor, the CPA's role is especially important, because the clawback and ongoing reporting are California-specific and need to be understood before the exchange, not discovered afterward.</p>
+<p>Good planning also means setting realistic objectives. A California investor should decide what they want from the exchange — higher current income, diversification, passivity, debt replacement, estate planning — and weigh the clawback and reporting obligations as part of the picture rather than as deal-breakers. Many California investors conclude that deferring a large combined federal-and-California tax now, moving into passive and better-yielding out-of-state real estate, and planning to keep deferring (or hold until a step-up) is well worth the annual filing and the preserved California claim. Others may prefer to stay in California property. The right answer is individual. Because DST interests are securities limited to accredited investors, and because California's rules are technical and can change, this planning should be done with a CPA, attorney, and DST advisor.</p>
+<p>So planning a California exchange means assembling a team, understanding the clawback and reporting up front, and matching the strategy to your goals. Planning a California exchange — assembling a qualified intermediary, CPA, and DST advisor early; understanding the clawback and annual Form 3840 reporting before exchanging; setting clear objectives (income, diversification, passivity, debt replacement, estate planning); and weighing the preserved California claim as part of the decision rather than a deal-breaker — is how California investors execute a DST exchange well. The CPA's role is central given California-specific rules. This is educational, not advice. Plan a California 1031 into a DST with a qualified intermediary, CPA, and DST advisor, understanding the clawback and Form 3840 reporting up front and matching the strategy to your goals — verifying current rules with your CPA.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps California Investors</h2>
+<p>Baker 1031 Investments helps California investors use DSTs in a 1031 exchange — understanding California's high tax burden, the clawback provision on out-of-state replacement property, the FTB Form 3840 reporting requirement, how to manage the deferred gain over time, and how to plan a California exchange — so they can defer a large combined federal-and-California tax while moving into passive, diversified real estate suited to their goals.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Baker 1031 does not provide tax or legal advice; the California clawback, the FTB Form 3840 reporting, and the broader tax and estate consequences are handled by your CPA and attorney — state rules are technical and can change, so verify the current rules with your CPA, as this is educational information, not advice. We help you understand the DST structure, review offerings and sponsors generically (we describe sample property types, not specific securities, until a suitable match is identified), coordinate with your qualified intermediary, CPA, and attorney, and source out-of-state or in-state DST replacement property that fits your income, growth, diversification, and estate-planning goals while accommodating the California-specific clawback and reporting. We're candid that DSTs are illiquid, carry fees and sponsor risk, and offer no guaranteed returns; distributions and appreciation are projections only. Our role is to help you plan a California exchange carefully with your tax professionals and invest only when a DST is suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why is a 1031 exchange especially valuable in California?<span class="ic"></span></summary>
+<div class="ans"><p>A 1031 exchange is especially valuable in California because California has one of the highest state income taxes in the country and taxes capital gains as ordinary income, with a top marginal rate around 13.3%. So when a California investor sells appreciated investment real estate, the state tax on the gain stacks on top of federal capital-gains tax, the 3.8% net investment income tax, and depreciation recapture — a very large combined bill for a long-held, highly appreciated property. A 1031 exchange defers both the federal and the California capital-gains tax, keeping far more capital working in the replacement property. Because the state tax is so high, the deferral is worth proportionally more in California than in a no-income-tax state like Texas or Florida. A DST is one way to capture that deferral while moving from an active rental into passive, professionally managed real estate. So the higher the state tax, the more a 1031 saves — which is why California investors place particular value on the strategy. Plan the details with your CPA.</p></div>
+</details>
+<details>
+<summary>What is the California clawback?<span class="ic"></span></summary>
+<div class="ans"><p>The California clawback is a rule that keeps a California-source gain subject to California tax even after the investor exchanges into out-of-state replacement property. Here's how it works: a California investor 1031-exchanges out of California real estate into property in another state (for example, a DST holding property in Texas or Florida), deferring both the federal and the California gain. The clawback provides that the deferred California-source gain remains California's to tax. When the investor eventually sells the out-of-state replacement property in a taxable transaction — without doing a further 1031 — California claws back, or taxes, that original California-source gain, even though the property sold is now located outside California. So leaving California with your property doesn't escape the California tax on the California appreciation; it only defers it. Continuing to do further 1031 exchanges keeps the deferral going, while a future taxable sale triggers the clawback. So the clawback means California's claim on the original gain survives an out-of-state exchange. Plan for it with your CPA.</p></div>
+</details>
+<details>
+<summary>Does the clawback mean I shouldn't exchange out of California?<span class="ic"></span></summary>
+<div class="ans"><p>Not necessarily — many California investors exchange into out-of-state property despite the clawback, and for good reasons. California real estate is expensive and often low-yielding relative to its price, while DSTs holding property in growing Sunbelt markets can offer higher current income and growth potential, plus diversification. The 1031 rules permit it: U.S. investment real estate is broadly like-kind, so you can exchange a California rental into a DST in any state while deferring both the federal and the California gain. The clawback doesn't tax the exchange itself — it only preserves California's claim on the original gain for a future taxable sale. Many investors are comfortable with that because they plan to keep deferring (through further 1031s) or to hold until death, when heirs may receive a step-up in basis that can eliminate the deferred gain. So the clawback is a deferral and planning consideration, not necessarily a reason to avoid an out-of-state exchange. The right answer depends on your situation — decide it with your CPA.</p></div>
+</details>
+<details>
+<summary>What is FTB Form 3840?<span class="ic"></span></summary>
+<div class="ans"><p>FTB Form 3840 is the California Like-Kind Exchanges form that California requires when a taxpayer exchanges California real estate into out-of-state replacement property in a 1031 exchange. It reports the exchange and the deferred California-source gain, and it allows the Franchise Tax Board (FTB) to track that deferred gain over time. Critically, it's not a one-time filing: you must file Form 3840 for the year of the exchange and then each subsequent year that you continue to hold the out-of-state replacement property, until the gain is recognized (through a taxable sale) or otherwise resolved. It's an information return, so filing it doesn't itself trigger tax, but it is mandatory — and failing to file can lead California to estimate and assess the deferred gain as if it had become taxable. For a DST investor who has exchanged California property out of state, this means an ongoing annual California filing, which a CPA typically handles as part of the California return. So Form 3840 is how California keeps the deferred out-of-state gain on its radar each year. Confirm current requirements with your CPA.</p></div>
+</details>
+<details>
+<summary>How long do I have to file Form 3840?<span class="ic"></span></summary>
+<div class="ans"><p>You must file FTB Form 3840 for the year you complete the 1031 exchange of California property into out-of-state replacement property, and then for every subsequent year that you continue to hold that out-of-state replacement property. The obligation continues until the deferred California-source gain is recognized — typically when you sell the replacement property in a taxable transaction without doing a further 1031 — or until the gain is otherwise resolved. In other words, it's an ongoing annual filing that can last for many years if you hold the replacement property (or keep exchanging into new out-of-state property) for a long time. If you complete another 1031 into new out-of-state property, you generally continue reporting. The filing is an information return tied to your California tax return, so a CPA usually handles it as part of your annual California filing. Because the requirement persists year after year and the rules can change, it's important to keep up with it — missing filings can prompt California to assess the deferred gain. So plan to file Form 3840 annually for as long as you hold deferred California gain out of state, and confirm the specifics with your CPA.</p></div>
+</details>
+<details>
+<summary>Can I exchange California property into a DST in another state?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. The like-kind standard for real estate is broad — U.S. investment real estate is generally like-kind to other U.S. investment real estate, regardless of state — so 1031 replacement property does not have to be in California. A California investor can exchange a California rental into a DST holding property in Texas, Florida, Arizona, the Carolinas, or anywhere in the country, deferring both the federal and the California capital-gains tax. Many California investors do exactly this to access higher current income, growth potential, and diversification that California's expensive, lower-yielding market may not offer. The trade-off is that the deferred California-source gain remains subject to the California clawback — California's claim follows the gain and is collected when you eventually sell the out-of-state replacement in a taxable transaction without a further 1031. You'll also need to file FTB Form 3840 annually to report the deferred gain. So yes, you can exchange California property into an out-of-state DST; just plan for the clawback and the ongoing reporting with your CPA. This is educational information, not tax advice.</p></div>
+</details>
+<details>
+<summary>Does the clawback apply if I keep doing 1031 exchanges?<span class="ic"></span></summary>
+<div class="ans"><p>No — as long as you keep deferring through successive 1031 exchanges, the clawback isn't triggered, because the clawback applies when the deferred California-source gain is finally recognized in a taxable sale. Each time a DST reaches the end of its hold and the property is sold, you can complete another 1031 exchange into new replacement property, continuing the deferral of both the federal and the California gain. The chain of exchanges keeps the gain deferred and the clawback at bay. Throughout, you continue filing FTB Form 3840 each year to report the still-deferred California-source gain. The clawback only comes into play if and when you eventually break the chain with a taxable sale — at that point California taxes the original California gain even if the property is out of state. Many California investors use this to defer indefinitely, sometimes combining it with the plan to hold until death, when heirs may receive a basis step-up that can eliminate the deferred gain. So continued 1031 exchanges keep the clawback deferred. Plan the strategy with your CPA, since rules can change.</p></div>
+</details>
+<details>
+<summary>How does a step-up in basis interact with the clawback?<span class="ic"></span></summary>
+<div class="ans"><p>A step-up in basis at death can be a powerful way to address the California clawback. The 'swap till you drop' strategy works like this: an investor keeps deferring capital-gains tax through successive 1031 exchanges (each deferring both the federal and the California gain) and holds the interests until death. At death, heirs generally receive a step-up in basis to fair market value, which can eliminate the deferred capital-gains tax — and, in many cases, the deferred California-source gain that the clawback would otherwise have captured. This is why many California investors view the clawback as a deferral and estate-planning challenge rather than a permanent tax: with careful planning, the gain may never be taxed during their lifetime, and heirs inherit at stepped-up basis. The interaction between the federal step-up, California's rules, and the clawback is technical, and estate and tax laws can change, so this strategy must be planned with a CPA and estate attorney. So a step-up at death can potentially neutralize the deferred gain, including the California clawback — but only with proper planning. Confirm the current rules with your professionals.</p></div>
+</details>
+<details>
+<summary>Are DSTs a good fit for California investors?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs can be a strong fit for many California investors, though suitability is always individual. California real estate is expensive and often low-yielding relative to its price, and many California investors own active rentals that have appreciated heavily, leaving them with a large embedded gain and ongoing management burdens. A DST lets them sell the active rental, defer both the federal and the California capital-gains tax through a 1031, and move into passive, professionally managed real estate — often in higher-yielding out-of-state markets — with diversification and relatively low minimums. For California investors approaching retirement or wanting to simplify, the passivity and income can be especially appealing. The trade-offs are the California-specific clawback and Form 3840 reporting (which apply to out-of-state replacement property), plus the universal DST risks of illiquidity, fees, sponsor execution, and unguaranteed distributions. DSTs are limited to accredited investors and offered through a broker-dealer after a suitability review. So DSTs are often a good fit for California investors who want passive, tax-deferred income and understand the clawback and reporting. Confirm suitability with your advisor and CPA.</p></div>
+</details>
+<details>
+<summary>Will I owe California tax when the out-of-state DST sells?<span class="ic"></span></summary>
+<div class="ans"><p>When the out-of-state DST sells its property, what happens for California tax depends on what you do next. If you complete another 1031 exchange into new replacement property, you continue deferring both the federal and the California gain — including the original deferred California-source gain — and the clawback isn't triggered; you keep filing Form 3840 annually. If instead you take the proceeds as cash (a taxable sale), the deferred gain is recognized, and California's clawback applies: California taxes the original California-source gain that was deferred in your earlier exchange, even though the property that just sold is out of state. So the sale of the out-of-state DST is a decision point, not an automatic California tax event — the clawback triggers only when you stop deferring. Many California investors plan to keep exchanging at each DST's full cycle, or to hold until death for a step-up, precisely to manage this. The mechanics are technical and depend on your situation, so plan the timing and tax with your CPA before the DST reaches the end of its hold. This is educational, not advice.</p></div>
+</details>
+<details>
+<summary>Do I need a qualified intermediary for a California DST exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — like any 1031 exchange, a California DST exchange requires a qualified intermediary (QI). The QI is an independent third party who holds the proceeds from the sale of your relinquished California property and uses them to acquire the replacement DST interest on your behalf, so that you never take constructive receipt of the funds — which is essential to preserving both the federal and the California tax deferral. You must engage the QI before closing the sale of your relinquished property; you can't take the cash first. The QI also helps you meet the strict 1031 deadlines: identifying replacement property within 45 days and completing the exchange within 180 days. For a California exchange, your DST advisor typically coordinates with the QI and your CPA, who also handles the California-specific items like the clawback implications and the Form 3840 filing. So a QI is a required part of the process, and lining one up before your sale closes is essential. Your advisor and CPA can help you select and coordinate with a qualified intermediary for a California exchange.</p></div>
+</details>
+<details>
+<summary>Does the clawback apply to other states besides California?<span class="ic"></span></summary>
+<div class="ans"><p>California's clawback is the most well-known, but it isn't entirely unique — several states have rules to track and eventually tax deferred gains that originated in-state when an investor exchanges into out-of-state property, and some have their own reporting forms similar to California's Form 3840. The specifics vary by state: rates, mechanics, reporting requirements, and enforcement differ, and some states have no such rule at all. California's version is notable because of the state's very high tax rate (around 13.3%) and its explicit annual reporting requirement. If you're a California investor, the California clawback and Form 3840 are the rules that apply to your California-source gain. If you own property in multiple states, or are exchanging between states, the interaction of different states' rules can get complicated. Because state tax rules are technical, vary, and can change, you should confirm how your specific states treat deferred gains with your CPA. So while California's clawback is the prominent example, the broader lesson is that state-level deferral rules vary — verify the current rules for your situation with your CPA. This is educational, not advice.</p></div>
+</details>
+<details>
+<summary>What should I plan before a California 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Before a California 1031 into a DST, assemble the right team and understand the California-specific rules up front. The core players are a qualified intermediary (to hold proceeds and preserve deferral), a CPA (to handle the federal and California tax, including the clawback implications and the annual Form 3840 filing), and a DST advisor at a broker-dealer (to source and screen suitable offerings and meet the 45-day and 180-day deadlines). Understand the clawback and reporting before you exchange, not after — they're California-specific and shouldn't be a surprise. Set clear objectives: higher current income, diversification, passivity, debt replacement, or estate planning. Decide how you'll manage the deferred gain over time (continued deferral, eventual taxable sale, or holding until a step-up at death). Confirm you meet accredited-investor requirements, since DST interests are securities limited to accredited investors. Because California's rules are technical and can change, do this planning with your CPA and attorney alongside your DST advisor. So plan the team, the rules, the objectives, and the long-term gain strategy before you start. This is educational, not advice — verify the current rules with your CPA.</p></div>
+</details>
+<details>
+<summary>Are DSTs illiquid, and what does that mean for a California investor?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — DSTs are illiquid, and this matters for California investors just as it does for anyone. Once you exchange into a DST, you generally can't sell your fractional interest on demand; there's limited or no secondary market, so you remain invested until the sponsor sells the underlying property, typically after a five-to-seven-year hold. For a California investor, this illiquidity interacts with the state's clawback and reporting in a practical way: you'll be holding the out-of-state DST (and filing FTB Form 3840 annually) for the duration of the hold, and you should be prepared to keep deferring — through further 1031 exchanges or by holding until a step-up at death — rather than counting on cashing out early. If you did need to exit and take cash, that taxable sale would trigger the California clawback on the original gain. So the illiquidity means a DST should be funded only with capital you can leave invested for the multi-year hold, and your gain-management strategy should account for it. Distributions during the hold are projected, not guaranteed. Discuss the hold period and your liquidity needs with your advisor and CPA before investing.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help California investors with DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>We help California investors use DSTs in a 1031 exchange — understanding California's high tax burden, the clawback provision on out-of-state replacement property, the FTB Form 3840 reporting requirement, how to manage the deferred gain over time, and how to plan a California exchange — so they can defer a large combined federal-and-California tax while moving into passive, diversified real estate. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Baker 1031 does not provide tax or legal advice; the clawback, Form 3840 reporting, and broader tax and estate consequences are handled by your CPA and attorney — state rules are technical and can change, so verify the current rules with your CPA. We help you understand the DST structure, review offerings and sponsors generically (sample property types, not specific securities, until a suitable match is identified), coordinate with your qualified intermediary, CPA, and attorney, and source in-state or out-of-state DST replacement property that fits your goals while accommodating the California clawback and reporting. We're candid that DSTs are illiquid, carry fees and sponsor risk, and offer no guaranteed returns — distributions are projections only. Our role is to help you plan carefully and invest only when suitable.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust holding income-producing real estate in which investors own fractional beneficial interests.</dd></div>
+<div class="g"><dt>1031 Exchange</dt><dd>A swap of like-kind investment real estate that defers capital-gains tax.</dd></div>
+<div class="g"><dt>California Clawback</dt><dd>California's rule preserving its tax claim on a California-source gain exchanged out of state.</dd></div>
+<div class="g"><dt>FTB Form 3840</dt><dd>California's annual Like-Kind Exchanges form reporting deferred out-of-state gains.</dd></div>
+<div class="g"><dt>Franchise Tax Board (FTB)</dt><dd>California's state tax agency that administers the clawback and Form 3840.</dd></div>
+<div class="g"><dt>California-Source Gain</dt><dd>Gain originating from California property, which California continues to claim.</dd></div>
+<div class="g"><dt>Top Marginal Rate</dt><dd>California's highest income-tax rate, around 13.3%, applied to capital gains as ordinary income.</dd></div>
+<div class="g"><dt>Like-Kind Property</dt><dd>U.S. investment real estate, broadly interchangeable across states.</dd></div>
+<div class="g"><dt>Step-Up in Basis</dt><dd>The reset of basis to fair market value at death, which can erase deferred gain.</dd></div>
+<div class="g"><dt>Swap Till You Drop</dt><dd>Deferring via successive 1031s and holding until death for a step-up.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The independent party that holds exchange proceeds to preserve deferral.</dd></div>
+<div class="g"><dt>45-Day / 180-Day Rules</dt><dd>The 1031 deadlines to identify and complete an exchange.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income or net-worth thresholds for DST offerings.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Tax on previously claimed depreciation, also deferred by a 1031.</dd></div>
+<div class="g"><dt>Taxable Sale</dt><dd>A sale without a further 1031 that triggers recognition and the clawback.</dd></div>
+<div class="g"><dt>Broker-Dealer</dt><dd>The firm through which DST securities are offered after suitability review.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>California Franchise Tax Board. <a href="https://www.ftb.ca.gov/forms/2023/2023-3840-instructions.html" rel="noopener nofollow" target="_blank">2023 Instructions for Form FTB 3840 — California Like-Kind Exchanges</a></li><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a><a href="insights.html">Market</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

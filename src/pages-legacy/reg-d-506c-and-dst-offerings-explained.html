@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reg D 506(c) and DST Offerings Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Reg D 506(c) and DST Offerings Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Reg D 506(c) and DST Offerings Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Most DSTs are sold as private placements under Regulation D — and many use Rule 506(c). This guide explains what Reg D Rule 506(c) is, the general-solicitation allowance, the accreditation-verification requirements, how 506(c) compares to 506(b), and what it all means for DST investors.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">When you invest in a Delaware Statutory Trust, you're almost always buying a security sold as a private placement under Regulation D — an SEC framework that lets issuers raise capital without the full cost and disclosure of a registered public offering. Within Reg D, two exemptions dominate: Rule 506(b) and Rule 506(c). The newer 506(c) exemption, created by the JOBS Act, lets issuers openly advertise and generally solicit an offering — something private placements historically couldn't do — but in exchange requires the issuer to take reasonable steps to verify that every investor is accredited, typically through third-party documentation. Many DST sponsors use 506(c), which is why you may see DST offerings advertised and why you'll likely go through a verification process to confirm your accredited status. This guide explains what 506(c) is, the general-solicitation allowance, the verification requirements, how 506(c) compares to 506(b), and what it means for DST investors. This is educational information about the offering rules; it is not investment, tax, or legal advice — verify the current rules with your advisor.</p>
+<p>The securities framework here connects to the bigger picture in <a href="dst-guide.html">our in-depth DST pillar guide</a>.</p>
+<h2 id="what-is-reg-d-506c">What Is Reg D Rule 506(c)?</h2>
+<p>Regulation D is a set of SEC rules that exempt certain private securities offerings from the full registration requirements that apply to public offerings. Rather than going through a costly, disclosure-heavy IPO-style registration, an issuer can raise capital privately under Reg D by meeting the conditions of an exemption. This is the framework under which most DSTs — and most private real estate offerings generally — are sold, because it lets sponsors raise capital efficiently from suitable investors while still operating within SEC rules.</p>
+<p>Rule 506(c) is one of the two main exemptions within Reg D (the other being 506(b)). Created under the 2012 JOBS Act and effective in 2013, 506(c) made a significant change: it allows issuers to engage in general solicitation and advertising — openly marketing the offering to the public — which traditional private placements were prohibited from doing. The trade-off is that a 506(c) issuer must take reasonable steps to verify that every purchaser is an <a href="accredited-investor-requirements.html">accredited investor</a>; self-certification isn't enough. So 506(c) trades the old prohibition on advertising for a stricter accreditation-verification requirement.</p>
+<p>So Reg D Rule 506(c) is the private-placement exemption that lets an issuer publicly advertise an offering in exchange for verifying that all investors are accredited — and it's a common framework for DST offerings. What Reg D Rule 506(c) is — an exemption within Regulation D (the SEC framework that lets issuers raise capital privately without full public registration) that, since the 2012 JOBS Act, permits general solicitation and advertising provided the issuer takes reasonable steps to verify each investor's accredited status — defines how many DSTs are sold. It swaps the old advertising ban for mandatory verification. Understanding 506(c) frames everything else about how DST offerings are marketed and who can buy them, and why you'll likely verify your accreditation when investing in one.</p>
+<h2 id="general-solicitation-allowed">General Solicitation Allowed</h2>
+<p>The headline feature of Rule 506(c) is that general solicitation and advertising are allowed. Before 506(c), private placements under Reg D generally couldn't be publicly advertised at all — issuers could only approach investors with whom they had a pre-existing relationship, and any public marketing risked blowing the exemption. The JOBS Act changed this for 506(c): an issuer can now openly advertise the offering — through websites, email campaigns, webinars, social media, conferences, or other public channels — and still preserve the private-placement exemption.</p>
+<p>For DSTs, this means you may legitimately encounter DST offerings being marketed publicly: a sponsor's or broker-dealer's website describing available properties, educational webinars about DST investing, or advertisements aimed at 1031 investors. This visibility is one reason DST investing has become more accessible and better understood — investors can learn about offerings before engaging. But general solicitation under 506(c) comes paired with its quid pro quo: because the offering can be advertised to the public, the issuer must rigorously confirm that everyone who actually invests is accredited. The advertising is open; the buying is gated.</p>
+<p>So under 506(c), general solicitation is permitted — DST offerings can be publicly advertised — which is why you may see them marketed openly, but that openness is balanced by a strict requirement to verify each buyer's accredited status. General solicitation allowed — Rule 506(c)'s defining permission to advertise an offering publicly (via websites, webinars, email, social media, and other channels), reversing the historical private-placement ban on public marketing — is why DST offerings can be openly promoted to 1031 investors. The advertising is public, but the actual purchase is limited to verified accredited investors. Understanding this explains why you might first learn about a DST through an advertisement or webinar, and why a verification step inevitably follows before you can invest.</p>
+<div class="pullquote"><p>Rule 506(c) lets a DST sponsor advertise an offering to the whole world — but only verified accredited investors can actually buy in. The marketing is open; the door is gated.</p></div>
+<h2 id="accreditation-verification">Accreditation Verification Requirements</h2>
+<p>The price of general solicitation under 506(c) is a heightened accreditation-verification requirement. Under 506(b), an investor can typically self-certify accredited status by checking a box and representing that they meet the thresholds. Under 506(c), that's not enough: the issuer must take 'reasonable steps to verify' that <a href="dst-minimum-investment-and-accreditation-requirements.html">each purchaser is genuinely accredited</a>, usually through third-party documentation rather than the investor's own say-so. This is a meaningful, substantive step, not a formality.</p>
+<p>In practice, verification can take several forms. The issuer (or a verification service it uses) may review documents — recent tax returns, W-2s, or bank and brokerage statements — to confirm you meet the income or net-worth tests. More commonly, you can provide a written letter from a third-party professional — a CPA, attorney, registered investment adviser, or registered broker-dealer — confirming that they've reviewed your finances and that you qualify as accredited. Some sponsors use dedicated third-party verification platforms to streamline this. However it's done, the point is that a 506(c) offering must obtain reasonable, documented confirmation of your accredited status before you can invest.</p>
+<p>So the verification requirement is the substantive trade-off for advertising: a 506(c) DST must take reasonable steps — document review or a third-party professional's letter — to confirm each investor is truly accredited, going beyond the self-certification allowed under 506(b). Accreditation verification requirements — Rule 506(c)'s mandate that the issuer take reasonable, documented steps to confirm each purchaser is accredited (through review of tax returns, W-2s, or financial statements, or via a letter from a CPA, attorney, RIA, or broker-dealer), rather than accepting self-certification — are the substantive obligation that balances the general-solicitation allowance. Verification is documented, not assumed. For DST investors, this means expecting to provide documentation or a professional's letter to confirm your status before your investment can be accepted into a 506(c) offering.</p>
+<h2 id="506c-vs-506b">506(c) vs. 506(b) Offerings</h2>
+<p>Rule 506(c) and Rule 506(b) are the two main Reg D exemptions, and they differ in three key ways. First, advertising: 506(c) permits general solicitation and public advertising, while 506(b) prohibits it — a 506(b) offering can only be sold to investors with whom the issuer has a substantive, pre-existing relationship. Second, who can invest: 506(c) is limited strictly to accredited investors, while 506(b) allows up to 35 non-accredited but sophisticated investors alongside an unlimited number of accredited ones (though most real estate sponsors limit 506(b) offerings to accredited investors anyway).</p>
+<p>Third, verification: under 506(c), the issuer must take reasonable steps to verify each investor's accredited status with documentation, while under 506(b), investors can generally self-certify their accredited status. So 506(b) is the older, quieter model — no advertising, a pre-existing relationship required, self-certified accreditation, room for a few sophisticated non-accredited investors — and 506(c) is the newer, more open model — public advertising allowed, accredited-only, with mandatory verification. Many DST sponsors choose 506(c) precisely because the ability to advertise lets them reach more 1031 investors, accepting the verification burden as the cost of that reach.</p>
+<p>So 506(c) and 506(b) differ on advertising (allowed vs. prohibited), investor eligibility (accredited-only vs. accredited plus up to 35 sophisticated non-accredited), and accreditation proof (verified vs. self-certified) — and many DSTs use 506(c) for its advertising reach. 506(c) versus 506(b) offerings — 506(c) permitting public advertising but requiring accredited-only investors with documented verification, versus 506(b) prohibiting advertising and requiring a pre-existing relationship but allowing self-certified accreditation plus up to 35 sophisticated non-accredited investors — captures the two paths a DST sponsor can take under Reg D. The choice shapes how the offering is marketed and how your status is confirmed. Understanding the distinction explains why a given DST may be advertised openly and require you to verify, or be offered quietly through an existing relationship.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Reg D Rule 506(c) is a private-placement exemption that lets issuers publicly advertise an offering — a common framework for DST offerings.</li>
+<li>In exchange for advertising, a 506(c) issuer must take reasonable steps to verify each investor's accredited status, typically with documentation or a professional's letter.</li>
+<li>506(b) prohibits advertising and allows self-certified accreditation (plus up to 35 sophisticated non-accredited investors); 506(c) advertises but is accredited-only and verified.</li>
+<li>For DST investors, 506(c) means you may see offerings advertised openly and should expect to verify your accredited status before investing.</li>
+</ul></div>
+<h2 id="why-dsts-use-506c">Why Many DSTs Use 506(c)</h2>
+<p>Many DST sponsors choose Rule 506(c) over 506(b) for a practical reason: reach. Because 506(c) permits general solicitation, a sponsor can openly market a DST offering to the broad universe of 1031 investors — through websites, educational content, webinars, and advertising — rather than being limited to investors with whom it already has a pre-existing relationship. For a 1031 investor racing against the <a href="1031-exchange-identification-rules.html">45-day identification</a> deadline, the ability to discover and learn about available DST offerings publicly is genuinely useful, and it has helped make DST investing more transparent and accessible.</p>
+<p>The trade-off the sponsor accepts is the verification burden. By choosing 506(c), the sponsor commits to verifying every investor's accredited status with documentation rather than accepting self-certification — more administrative work, but a worthwhile exchange for the marketing freedom. Some sponsors still use 506(b) for offerings they place quietly through existing relationships, or where they want to include a limited number of sophisticated non-accredited investors. But for broadly marketed DST programs aimed at the general pool of <a href="1031-exchange-guide.html">1031 exchange</a>rs, 506(c) is common because advertising reach matters more than avoiding the verification step.</p>
+<p>So many DSTs use 506(c) because the freedom to advertise to the full 1031 market outweighs the added verification burden — a sensible trade for sponsors seeking to reach time-pressured exchangers. Why many DSTs use 506(c) — the general-solicitation allowance lets sponsors openly market offerings to the broad pool of 1031 investors (valuable given tight exchange deadlines and the need to find replacement property), with the verification requirement accepted as the cost of that reach — explains the prevalence of 506(c) in DST programs. Advertising freedom drives the choice. For investors, it means the DST you discover through an ad or webinar is likely a 506(c) offering, which is why a verification step will follow before you can invest.</p>
+<div class="pullquote"><p>Sponsors choose 506(c) because reach matters: a time-pressured 1031 investor needs to find replacement property fast, and an openly advertised offering is easier to discover than a private one.</p></div>
+<h2 id="what-it-means-for-dst-investors">What It Means for DST Investors</h2>
+<p>For DST investors, Rule 506(c) has two practical implications. First, you may encounter DST offerings through public advertising — a sponsor's or broker-dealer's website, a webinar, an email, or a conference. That's legitimate under 506(c), and it's part of why DST investing has become more accessible: you can research available offerings, property types, and sponsors before engaging. Just remember that the ability to advertise doesn't lower the bar for who can invest — 506(c) offerings remain accredited-only.</p>
+<p>Second, you should expect a verification step. Because most DSTs you'll see advertised are 506(c) offerings, you'll likely need to verify your accredited status before investing — by providing documentation (tax returns, W-2s, or financial statements) or, more commonly, a letter from your CPA, attorney, RIA, or broker-dealer confirming you qualify. Build a little time into your exchange timeline for this, since the verification has to be completed before your investment can be accepted. Beyond verification, the usual DST realities still apply: these are illiquid, longer-term, securities offered after a <a href="dst-suitability-and-finra-reg-bi.html">suitability review</a>, and you should review the offering documents (the <a href="how-to-review-a-ppm.html">private placement memorandum</a>) carefully.</p>
+<p>So for you as a DST investor, 506(c) means you'll likely discover offerings through advertising and will need to verify your accredited status (often via a professional's letter) before investing — alongside the normal suitability review and document review any DST entails. What 506(c) means for DST investors — you may find offerings through public advertising (making DSTs more discoverable), but you'll need to verify your accredited status with documentation or a professional's letter before investing, on top of the standard suitability review and PPM review — turns the offering rules into a practical checklist. Expect advertising and expect verification. Understanding this helps you plan your exchange timeline and gather the documentation you'll need so the verification step doesn't slow down a time-sensitive 1031 closing.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Navigate 506(c) DST Offerings</h2>
+<p>Baker 1031 Investments helps investors understand and navigate Regulation D Rule 506(c) DST offerings — what 506(c) is, the general-solicitation allowance, the accreditation-verification requirements, how 506(c) compares to 506(b), and what it all means for you — so you can move through the offering process smoothly and meet your exchange deadlines.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Whether a given DST is offered under 506(c) or 506(b), we help you understand the process, confirm and document your accredited status (coordinating with your CPA, attorney, or RIA on the verification letter when an offering requires it), and review the offering documents so you understand the property, the structure, the fees, and the risks before investing. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax and legal situation, including how the DST fits your 1031 exchange — and the securities-law details here are technical, so this is educational information, not advice. Nothing in a 506(c) advertisement or this article is a promise of income or returns — DST interests are illiquid and carry real estate and structural risk, and past performance does not guarantee future results. Our role is to help you navigate the offering rules clearly and invest only when suitable for your goals.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is Regulation D Rule 506(c)?<span class="ic"></span></summary>
+<div class="ans"><p>Regulation D Rule 506(c) is an SEC exemption that lets an issuer raise capital through a private placement — without the full registration required for a public offering — while openly advertising the offering to the public. It was created under the 2012 JOBS Act and became effective in 2013. The defining feature of 506(c) is that general solicitation and advertising are permitted, which traditional private placements couldn't do. The trade-off is that the issuer must take reasonable steps to verify that every investor is accredited, using documentation rather than accepting self-certification. Most DSTs and many private real estate offerings are sold under Reg D, and 506(c) is a common choice because it lets sponsors market openly to the broad pool of 1031 investors. So 506(c) is the 'advertise publicly but verify accreditation' exemption. For investors, it means you may see DST offerings advertised and should expect to verify your accredited status before investing. This is educational information about the rules, not legal advice — confirm specifics with your advisor.</p></div>
+</details>
+<details>
+<summary>What does general solicitation mean?<span class="ic"></span></summary>
+<div class="ans"><p>General solicitation means publicly advertising or marketing a securities offering — reaching potential investors through channels like websites, email campaigns, webinars, social media, conferences, advertisements, or other public communications, rather than only approaching people with whom the issuer already has a relationship. Historically, private placements under Regulation D prohibited general solicitation: an issuer could only offer securities to investors it had a substantive, pre-existing relationship with, and public marketing risked losing the exemption. Rule 506(c), created by the JOBS Act, changed this by allowing general solicitation for the first time in a private placement — provided the issuer verifies that all investors are accredited. For DSTs, this is why you might legitimately encounter offerings advertised on a sponsor's or broker-dealer's website, in an educational webinar, or in marketing aimed at 1031 investors. So general solicitation is simply public marketing of the offering, now permitted under 506(c). It makes DST offerings more discoverable, but the actual purchase remains limited to verified accredited investors.</p></div>
+</details>
+<details>
+<summary>How does accreditation verification work under 506(c)?<span class="ic"></span></summary>
+<div class="ans"><p>Under Rule 506(c), the issuer must take reasonable steps to verify that each investor is genuinely accredited — it can't simply rely on the investor checking a box (as 506(b) allows). Verification typically takes one of a few forms. The issuer or a verification service may review documents that demonstrate you meet the thresholds — for the income test, recent tax returns or W-2s; for the net-worth test, bank, brokerage, and other statements (plus a credit check for liabilities). Alternatively, and more commonly, you can provide a written letter from a third-party professional — a CPA, attorney, registered investment adviser, or registered broker-dealer — confirming they've reviewed your finances and that you qualify as accredited. Some sponsors use dedicated third-party verification platforms to streamline the process. Whichever method is used, the result must be reasonable, documented confirmation of your status before you invest. So plan to provide documentation or a professional's letter, and build a little time into your exchange timeline for it. Confirm the specific requirements with the offering and your advisor.</p></div>
+</details>
+<details>
+<summary>What is the difference between 506(b) and 506(c)?<span class="ic"></span></summary>
+<div class="ans"><p>Rules 506(b) and 506(c) are the two main Reg D exemptions, and they differ in three ways. Advertising: 506(c) permits general solicitation and public advertising, while 506(b) prohibits it — a 506(b) offering can only be sold to investors with whom the issuer has a substantive, pre-existing relationship. Who can invest: 506(c) is accredited-only, while 506(b) allows up to 35 sophisticated non-accredited investors alongside unlimited accredited ones (though many sponsors limit 506(b) to accredited investors anyway). Verification: under 506(c), the issuer must take reasonable steps to verify accredited status with documentation, while under 506(b), investors can generally self-certify. So 506(b) is the quieter model (no advertising, pre-existing relationship, self-certification), and 506(c) is the open model (public advertising, accredited-only, mandatory verification). Many DSTs use 506(c) for its advertising reach. So the choice between them shapes how the offering is marketed and how your status is confirmed. Understanding it explains why a DST may be advertised openly or offered privately.</p></div>
+</details>
+<details>
+<summary>Why do many DSTs use Rule 506(c)?<span class="ic"></span></summary>
+<div class="ans"><p>Many DST sponsors choose 506(c) primarily for reach. Because 506(c) permits general solicitation, a sponsor can openly market a DST offering to the broad universe of 1031 investors — through websites, educational content, webinars, and advertising — rather than being limited to investors it already has a pre-existing relationship with (as 506(b) requires). For a 1031 investor racing against the 45-day identification deadline, being able to discover and research available DST offerings publicly is genuinely valuable, and it has helped make DST investing more transparent and accessible. The trade-off the sponsor accepts is the verification burden: under 506(c), it must verify every investor's accredited status with documentation rather than accepting self-certification. For broadly marketed DST programs aimed at the general pool of exchangers, advertising reach usually outweighs the added verification work, so 506(c) is common. Some sponsors still use 506(b) for offerings placed quietly through existing relationships. So 506(c) is popular with DSTs because reaching time-pressured 1031 investors matters, and verification is an acceptable cost.</p></div>
+</details>
+<details>
+<summary>Can a DST offering be advertised to the public?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — if the DST is offered under Rule 506(c), it can legitimately be advertised to the public through general solicitation. This means you may encounter DST offerings on a sponsor's or broker-dealer's website, in educational webinars, in email campaigns, at conferences, or in advertising aimed at 1031 investors. Before 506(c) existed, this kind of public marketing of a private placement was prohibited, but the JOBS Act changed that for 506(c) offerings. It's worth understanding, though, that the ability to advertise doesn't change who can actually invest: a 506(c) offering remains limited strictly to accredited investors, and the issuer must verify each investor's status with documentation. So public advertising under 506(c) makes offerings more discoverable and helps investors research options, but the purchase itself is gated to verified accredited investors. If a DST is offered under 506(b) instead, it can't be advertised publicly and is offered only through pre-existing relationships. So whether you'll see a DST advertised depends on which exemption it uses.</p></div>
+</details>
+<details>
+<summary>Do I have to be accredited to invest in a 506(c) DST?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a Rule 506(c) offering is limited strictly to accredited investors, and you must be accredited (and verified) to invest in one. Unlike 506(b), which can include up to 35 sophisticated non-accredited investors, 506(c) has no room for non-accredited investors at all. To qualify as accredited, you generally need income over $200,000 (single) or $300,000 (joint) in each of the last two years with the same expected this year, or a net worth over $1 million excluding your primary residence; certain entities and licensed individuals (holding Series 7, 65, or 82) can also qualify. Under 506(c), you'll also need to verify that status with documentation or a professional's letter, not just self-certify. Because nearly all DSTs are Reg D private placements — and many are 506(c) — accreditation is effectively a requirement to invest in DSTs. So confirm your accredited status with your advisor before pursuing a DST, and be prepared to document it. Baker 1031 offers DST interests to accredited investors after a suitability review.</p></div>
+</details>
+<details>
+<summary>What documents do I need for accreditation verification?<span class="ic"></span></summary>
+<div class="ans"><p>The documents you'll need depend on which accreditation test you're meeting and how the offering chooses to verify. If you're qualifying under the income test (over $200,000 single or $300,000 joint in each of the last two years), you'd typically provide recent tax returns or W-2s showing that income. If you're qualifying under the net-worth test (over $1 million excluding your primary residence), you'd provide statements showing your assets — bank, brokerage, and other account statements — and information on your liabilities, sometimes including a credit report. Alternatively, and often more conveniently, you can provide a written letter from a third-party professional — your CPA, attorney, registered investment adviser, or broker-dealer — confirming that they've reviewed your finances and that you qualify as accredited, which can spare you from handing over detailed financial documents directly. Some sponsors use third-party verification platforms that guide you through the process. So gather either your financial documentation or a professional's letter ahead of time. Confirm the specific requirements with the offering, since they can vary.</p></div>
+</details>
+<details>
+<summary>Is a 506(c) DST riskier than a 506(b) DST?<span class="ic"></span></summary>
+<div class="ans"><p>Not inherently — the exemption a DST uses (506(c) versus 506(b)) is about how the offering is marketed and how accreditation is confirmed, not about the riskiness of the underlying real estate. The risk of a DST comes from the property and structure: the quality and location of the real estate, the tenants and leases, the debt, the sponsor's track record, the fees, and the illiquid, longer-term nature of the interest. Those factors are the same regardless of whether the offering is 506(c) (advertised, accredited-only, verified) or 506(b) (not advertised, pre-existing relationship, self-certified). So you shouldn't assume a 506(c) DST is riskier just because it was advertised, or that a 506(b) DST is safer because it wasn't. Evaluate any DST on its underlying merits — the property, the sponsor, the structure, the fees, and the risks disclosed in the private placement memorandum — and rely on a suitability review. So the exemption type is a procedural distinction; the real risk analysis is about the investment itself, which you should review carefully with your advisors.</p></div>
+</details>
+<details>
+<summary>Can non-accredited investors ever invest in a DST?<span class="ic"></span></summary>
+<div class="ans"><p>In practice, almost never. Nearly all DSTs are sold as Regulation D private placements, and the vast majority are limited to accredited investors. A 506(c) DST is strictly accredited-only with no exceptions. A 506(b) DST technically could include up to 35 sophisticated non-accredited investors, but most real estate sponsors choose to limit 506(b) offerings to accredited investors anyway, because including non-accredited investors triggers additional disclosure obligations and complexity. As a result, the practical reality is that DSTs require accreditation. This is because DSTs are Reg D private-placement securities sold through broker-dealers, and the accredited-investor standard is meant to limit these offerings to investors presumed able to bear the risk and illiquidity. So if you're not accredited, DST investing is generally not available to you, and you'd need to consider other ways to participate in real estate. Confirm your accreditation status with your advisor, and remember that accreditation is necessary but not sufficient — a suitability review still applies. So accreditation is effectively a gateway requirement for DSTs.</p></div>
+</details>
+<details>
+<summary>How long does accreditation verification take?<span class="ic"></span></summary>
+<div class="ans"><p>Verification timing varies, but it's usually a matter of days rather than weeks, especially if you prepare in advance. The fastest path is often a letter from a third-party professional — your CPA, attorney, registered investment adviser, or broker-dealer — confirming you're accredited; if your professional already knows your finances, they can often produce this quickly. Document-review verification (submitting tax returns, W-2s, or financial statements) can take a bit longer, depending on how quickly you gather the documents and how the offering or its verification service processes them. Third-party verification platforms can also streamline the process. Because a 1031 exchange runs on tight 45-day identification and 180-day closing deadlines, it's wise to start the verification process early — ideally before you've identified a specific DST — so it doesn't become a bottleneck near your closing. So gather your documentation or line up your professional's letter ahead of time. The verification itself is usually not lengthy, but it must be completed before your investment can be accepted, so build a buffer into your timeline.</p></div>
+</details>
+<details>
+<summary>Does 506(c) require a private placement memorandum?<span class="ic"></span></summary>
+<div class="ans"><p>While Regulation D doesn't always mandate a formal private placement memorandum (PPM) for purely accredited offerings, in practice nearly all DST offerings — whether 506(c) or 506(b) — are accompanied by a detailed PPM, and you should expect and rely on one. The PPM is the central disclosure document: it describes the property, the sponsor and trustee, the structure of the trust, the financing and debt terms, the fee structure, the projected and historical financials, the tax treatment, and — importantly — the risk factors. Reviewing the PPM carefully is one of the most important steps in evaluating any DST, because it's where the offering's terms and risks are spelled out. Don't rely on advertising or summaries; the PPM governs. Your broker-dealer can help you work through it, and your CPA and attorney can review the tax and legal sections relevant to your situation. So expect a PPM with any DST, read it thoroughly, and make sure you understand the property, structure, fees, and risks before investing. The advertising you may have seen under 506(c) is marketing; the PPM is the substance.</p></div>
+</details>
+<details>
+<summary>Why does the SEC require accreditation for these offerings?<span class="ic"></span></summary>
+<div class="ans"><p>The SEC requires accreditation for Regulation D private placements because these offerings are exempt from the full registration and disclosure requirements that protect public investors. In a registered public offering, the issuer must provide extensive, SEC-reviewed disclosures; in a private placement, those protections are reduced. The accredited-investor standard is the SEC's way of limiting these less-disclosed, often riskier and less-liquid offerings to investors presumed to have the financial sophistication and resources to evaluate them and to bear potential losses. The thresholds — high income or substantial net worth, or certain professional licenses — are proxies for that ability. Under 506(c), because the offering can be publicly advertised to anyone, the SEC requires verification (not just self-certification) to ensure that only genuinely accredited investors actually buy in. For DSTs, this is why accreditation is effectively required: they're Reg D private placements. So accreditation is an investor-protection mechanism tied to the reduced disclosure of private offerings. This is educational background on the rules, not legal advice — confirm specifics with your advisor.</p></div>
+</details>
+<details>
+<summary>Does being advertised make a DST less exclusive or lower quality?<span class="ic"></span></summary>
+<div class="ans"><p>No — the fact that a DST is advertised under 506(c) says nothing about its exclusivity or quality. Advertising is simply a marketing method that the 506(c) exemption permits; it doesn't lower the standards for who can invest (still accredited-only, and verified) or change the nature of the underlying real estate. Many high-quality, institutional DST offerings from reputable sponsors are marketed under 506(c) precisely because the ability to reach the broad pool of 1031 investors is efficient and helps time-pressured exchangers find suitable replacement property. Conversely, the fact that a 506(b) DST isn't advertised doesn't make it better — it just means it's offered through pre-existing relationships. So judge a DST by its substance — the property, the sponsor's track record, the structure, the financing, the fees, and the risk factors in the PPM — not by whether or how it was advertised. The marketing method is a procedural feature of the exemption, not a quality signal. So don't let advertising (or its absence) drive your assessment; focus on the investment's merits and your suitability.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me navigate 506(c) DST offerings?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand and navigate Regulation D Rule 506(c) DST offerings — what 506(c) is, the general-solicitation allowance, the accreditation-verification requirements, how 506(c) compares to 506(b), and what it all means for you — so you can move through the offering process smoothly and meet your exchange deadlines. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Whether a DST is offered under 506(c) or 506(b), we help you understand the process, confirm and document your accredited status (coordinating with your CPA, attorney, or RIA on the verification letter when needed), and review the offering documents so you understand the property, structure, fees, and risks before investing. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific situation, and the securities-law details are technical, so this is educational information, not advice. Nothing here promises income or returns — DST interests are illiquid and carry real risk, and past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Regulation D</dt><dd>SEC rules exempting certain private offerings from full registration.</dd></div>
+<div class="g"><dt>Rule 506(c)</dt><dd>A Reg D exemption allowing advertising but requiring verified accreditation.</dd></div>
+<div class="g"><dt>Rule 506(b)</dt><dd>A Reg D exemption barring advertising but allowing self-certified accreditation.</dd></div>
+<div class="g"><dt>Private Placement</dt><dd>A securities offering sold privately rather than registered publicly.</dd></div>
+<div class="g"><dt>General Solicitation</dt><dd>Public advertising or marketing of a securities offering.</dd></div>
+<div class="g"><dt>JOBS Act</dt><dd>The 2012 law that created Rule 506(c) and its advertising allowance.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income, net-worth, or licensing thresholds.</dd></div>
+<div class="g"><dt>Accreditation Verification</dt><dd>The 506(c) requirement to confirm accredited status with documentation.</dd></div>
+<div class="g"><dt>Self-Certification</dt><dd>An investor attesting to accredited status, allowed under 506(b).</dd></div>
+<div class="g"><dt>Income Test</dt><dd>Over $200k single / $300k joint in each of the last two years.</dd></div>
+<div class="g"><dt>Net-Worth Test</dt><dd>Over $1 million excluding your primary residence.</dd></div>
+<div class="g"><dt>Third-Party Verification</dt><dd>A CPA, attorney, RIA, or broker-dealer confirming accredited status.</dd></div>
+<div class="g"><dt>Private Placement Memorandum (PPM)</dt><dd>The disclosure document describing a DST offering and its risks.</dd></div>
+<div class="g"><dt>Broker-Dealer</dt><dd>The licensed firm through which DST securities are offered.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether a DST fits an investor before recommending it.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust owning real estate, sold as a Reg D private placement.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/resources-small-businesses/exempt-offerings/private-placements-rule-506b" rel="noopener nofollow" target="_blank">Rule 506 of Regulation D</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-3" rel="noopener nofollow" target="_blank">Investor.gov — Updated Investor Bulletin: Accredited Investors</a></li><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

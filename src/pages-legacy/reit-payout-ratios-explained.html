@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REIT Payout Ratios Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>REIT Payout Ratios Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">REIT Payout Ratios Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">How do you tell whether a REIT's dividend is well-covered or stretched? This guide explains what a payout ratio measures, why the AFFO payout ratio is more meaningful than the FFO version, how to distinguish a healthy ratio from a stretched one, how to spot dividend risk, and how to compare ratios across REITs.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">For an income investor, a REIT's dividend is the main event — and the payout ratio is one of the clearest ways to judge whether that dividend is sustainable. A payout ratio measures how much of a REIT's cash flow it pays out as dividends: dividends divided by funds from operations (FFO), or, more usefully, dividends divided by adjusted funds from operations (AFFO). The lower the ratio, the more cushion the REIT keeps; the closer it runs to 100% — or above it — the more stretched the dividend becomes, and the higher the <a href="why-reits-cut-dividends.html">risk of a cut</a>. But payout ratios aren't read in a vacuum: sector norms vary, AFFO is more meaningful than FFO, and a rising payout ratio or distributions funded by debt or <a href="return-of-capital-in-reit-distributions.html">return of capital</a> can warn of trouble before a cut happens. This guide explains what a payout ratio measures, the FFO-versus-AFFO distinction, healthy versus stretched levels, how to spot dividend risk, and how to compare across REITs. Verify current figures with the REIT's own reporting — this is educational information, not investment advice.</p>
+<p>Payout ratios behave differently depending on whether a REIT is publicly traded or privately held, a distinction our <a href="reits-guide.html">complete guide to private and non-traded REITs</a> covers.</p>
+<h2 id="what-payout-ratio-measures">What a Payout Ratio Measures</h2>
+<p>A REIT's payout ratio measures the share of its cash flow that it distributes to shareholders as dividends. In its simplest form, the payout ratio is dividends divided by a measure of cash flow — most commonly funds from operations (FFO) or adjusted funds from operations (AFFO). If a REIT pays out 80 cents in dividends for every dollar of cash flow, its payout ratio is 80%. The ratio tells you, at a glance, how much room the REIT has between what it earns and what it pays.</p>
+<p>Why not just use net income, as you would for an ordinary stock? Because REIT net income is distorted by large non-cash depreciation charges on real estate, which make earnings look far lower than the actual cash the REIT generates. A REIT can easily pay dividends well in excess of net income while still covering them comfortably from cash flow. That's exactly why REIT-specific cash-flow measures — FFO and especially AFFO — are used in the denominator instead of net income, so the payout ratio reflects real distributable cash rather than an accounting figure depressed by depreciation.</p>
+<p>So a payout ratio measures dividends as a share of a REIT's cash flow (FFO or AFFO), revealing how much cushion sits between earnings and the dividend. What a payout ratio measures — dividends divided by a cash-flow measure (FFO or, more meaningfully, AFFO), expressed as a percentage that shows how much of the REIT's distributable cash is being paid out — is the foundation of judging dividend sustainability. It uses cash-flow measures rather than net income because depreciation distorts REIT earnings. A lower ratio means more cushion. Understanding what the payout ratio measures frames everything that follows about dividend safety. A payout ratio is dividends ÷ cash flow (FFO or AFFO) — it shows how much of a REIT's distributable cash goes out as dividends, and how much cushion remains.</p>
+<h2 id="ffo-vs-affo-payout">FFO vs. AFFO Payout Ratios</h2>
+<p>There are two common versions of the payout ratio, and the difference between them matters. The FFO payout ratio divides dividends by funds from operations — net income with real estate depreciation and amortization added back and gains on property sales removed. FFO is a big improvement over net income for REITs, but it still doesn't account for the recurring capital a REIT must spend to keep its properties competitive, nor for non-cash rent timing.</p>
+<p>The AFFO payout ratio divides dividends by adjusted funds from operations — FFO further reduced by recurring maintenance capital expenditures (the money spent to maintain existing properties) and adjusted for items like straight-line rent. Because AFFO subtracts the real, recurring cash a REIT must reinvest just to sustain its portfolio, it more closely approximates the cash actually available to pay dividends. As a result, the AFFO payout ratio is the more meaningful and conservative measure: it's typically higher than the FFO payout ratio for the same REIT (because the denominator is smaller), and it gives a truer picture of dividend coverage.</p>
+<p>So while both ratios are used, the AFFO payout ratio is the more meaningful gauge of dividend safety because AFFO best approximates distributable cash. FFO vs. AFFO payout ratios — the FFO version dividing dividends by funds from operations (net income plus real estate depreciation, minus property gains) and the AFFO version dividing dividends by adjusted FFO (FFO minus recurring maintenance capex and straight-line-rent adjustments) — differ because AFFO subtracts the recurring cash needed to sustain the portfolio. AFFO better approximates distributable cash, so its payout ratio is more meaningful (and usually higher). Understanding the FFO/AFFO distinction tells you which ratio to trust. The AFFO payout ratio is more meaningful than the FFO version because AFFO subtracts recurring capex and approximates the cash truly available for dividends.</p>
+<div class="pullquote"><p>Net income misleads on REITs and even FFO flatters them — only AFFO subtracts the recurring capital a REIT must spend just to keep its buildings competitive, which is why the AFFO payout ratio is the honest one.</p></div>
+<h2 id="healthy-vs-stretched">Healthy vs. Stretched Ratios</h2>
+<p>What counts as a healthy payout ratio? There's no single magic number, but the logic is straightforward: a moderate AFFO payout ratio leaves a cushion — retained cash the REIT can use for capital expenditures, debt paydown, acquisitions, or simply to absorb a downturn without cutting the dividend. A payout ratio comfortably below 100% of AFFO signals that the dividend is covered by distributable cash with room to spare, which is generally the sign of a sustainable distribution.</p>
+<p>A stretched ratio is one that runs near or above 100% of AFFO. At that level, the REIT is paying out essentially all (or more than all) of its distributable cash, leaving little or no margin for error. If AFFO dips — because of rising costs, falling occupancy, higher interest expense, or a weak market — a payout already at or above 100% can't be sustained from cash flow, which raises the prospect of a dividend cut or of funding the gap with debt or asset sales. So the gap between the payout ratio and 100% is, in effect, the dividend's margin of safety: the smaller that gap, the more stretched and vulnerable the dividend.</p>
+<p>So a healthy payout ratio sits comfortably below 100% of AFFO (leaving cushion), while a stretched one runs near or above 100% (leaving little margin and raising cut risk). Healthy vs. stretched ratios — a moderate AFFO payout leaving a cushion for capex, debt, acquisitions, and downturns versus a payout near or above 100% of AFFO that leaves no margin and signals risk — turn the payout ratio into a read on dividend durability. The distance below 100% is the margin of safety. A stretched ratio can't absorb a dip in AFFO. Understanding healthy versus stretched levels lets you judge whether a yield is built on solid ground. A healthy payout sits well below 100% of AFFO with cushion; a stretched one runs near or above 100%, leaving little margin and raising the risk of a cut.</p>
+<h2 id="spotting-dividend-risk">Spotting Dividend Risk</h2>
+<p>The payout ratio is a powerful early-warning tool for dividend risk, but the most telling signals come from watching it over time and looking at how the dividend is funded. The clearest red flag is a payout ratio above 100% of AFFO — the REIT is paying out more than its distributable cash, which can't continue indefinitely. Almost as important is the trend: a payout ratio that's steadily rising (declining coverage) suggests the dividend is growing faster than cash flow, or that cash flow is eroding, even if the ratio isn't yet above 100%.</p>
+<p>Another warning sign is how the distribution is being funded. If a REIT is covering its dividend by classifying much of it as return of capital, by selling assets, or by borrowing, rather than from operating cash flow, the dividend may be unsustainable even if the headline ratio looks acceptable. Persistent return-of-capital-heavy distributions, in particular, can mean the REIT is effectively returning your own money rather than paying you out of earnings. So the combination of a high or rising AFFO payout ratio, deteriorating coverage, and distributions funded by debt or return of capital is the classic profile of a dividend at risk of being cut.</p>
+<p>So dividend risk shows up as a payout ratio above 100% of AFFO, declining coverage over time, and distributions funded by debt or return of capital rather than operating cash. Spotting dividend risk — watching for an AFFO payout above 100%, a rising payout ratio (declining coverage), and distributions funded by return of capital, asset sales, or borrowing rather than operating cash flow — lets you anticipate a dividend cut before it happens. The trend matters as much as the level. Funding source reveals sustainability. Understanding these warning signs helps you avoid yields that are about to be reduced. Dividend risk appears as an AFFO payout over 100%, deteriorating coverage, and distributions funded by debt or return of capital — warning signs a cut may be coming.</p>
+<div class="pullquote"><p>A dividend cut rarely arrives without warning: a payout ratio creeping past 100% of AFFO, coverage that's slipping year over year, and distributions quietly funded by debt or return of capital usually flag it first.</p></div>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>A payout ratio is dividends divided by cash flow (FFO or AFFO) — it shows how much of a REIT's distributable cash goes out as dividends.</li>
+<li>The AFFO payout ratio is more meaningful than the FFO version, because AFFO subtracts recurring capex and best approximates distributable cash.</li>
+<li>A healthy payout sits comfortably below 100% of AFFO (cushion for capex and downturns); near or above 100% is stretched and risky.</li>
+<li>Spot dividend risk through an AFFO payout over 100%, declining coverage, and distributions funded by return of capital or debt — and compare within a sector.</li>
+</ul></div>
+<h2 id="comparing-across-reits">Comparing Across REITs</h2>
+<p>Payout ratios are most informative when compared the right way — within a sector, against peers and history, not across the entire REIT universe. That's because sector norms differ. Net-lease REITs, with long leases and minimal operating responsibilities, often run higher payout ratios because their cash flows are stable and predictable, so a 'normal' net-lease payout might look stretched for another sector. Growth-oriented sectors, by contrast, tend to retain more cash to fund expansion and so carry lower payout ratios. Comparing a net-lease REIT's payout to a high-growth REIT's would be misleading.</p>
+<p>The right comparison is therefore relative: how does a REIT's AFFO payout ratio compare to similar REITs in the same sector, and to its own history? A REIT whose payout ratio is markedly higher than its sector peers, or that has been climbing relative to its own past, deserves a closer look — it may simply operate a more stable model, or it may have a dividend that's growing ahead of its cash flow. Pairing the payout ratio with the dividend yield is also useful: a high yield is reassuring only if the payout ratio shows the dividend is well-covered, and worrying if the payout ratio is stretched.</p>
+<p>So compare payout ratios within a sector and against a REIT's own history, using AFFO and pairing the ratio with yield — not by comparing unlike REITs. Comparing across REITs — judging a REIT's AFFO payout ratio against peers in the same sector (net-lease running higher, growth sectors lower) and against its own history, and pairing it with the dividend yield to confirm coverage — turns the payout ratio into a relative measure of dividend safety. Sector norms vary, so context is essential. A payout far above peers warrants scrutiny. Understanding how to compare across REITs prevents false alarms and catches real outliers. Compare AFFO payout ratios within a sector and against a REIT's own history, and pair them with yield — sector norms differ, so context determines what's stretched.</p>
+<h2 id="payout-and-dividend-growth">Payout Ratios and Dividend Growth</h2>
+<p>The payout ratio doesn't just tell you whether a dividend is safe today — it also says a lot about a REIT's capacity to grow that dividend tomorrow. A REIT with a moderate AFFO payout ratio retains a meaningful share of its distributable cash, and that retained cash, combined with growth in funds from operations, gives the REIT room to raise the dividend over time without stretching its coverage. So a lower payout ratio is often the fuel behind a reliable dividend-growth track record.</p>
+<p>A REIT that already pays out nearly all of its AFFO has little such room: with no cushion, it can only grow the dividend as fast as AFFO itself grows, and any stumble in cash flow puts the existing payout at risk before growth is even on the table. This is why income investors who care about a rising income stream — not just a high current yield — pay attention to the payout ratio as a forward-looking indicator. A well-covered payout supports both stability and future increases; a stretched one constrains both. The interplay between the payout ratio and AFFO growth is, in effect, the engine of sustainable dividend growth.</p>
+<p>So the payout ratio is a forward-looking signal too: a moderate, well-covered ratio leaves room to grow the dividend, while a stretched one constrains future increases. Payout ratios and dividend growth — a moderate AFFO payout retaining cash that, alongside FFO/AFFO growth, gives a REIT room to raise its dividend sustainably, versus a near-100% payout that leaves no cushion and caps growth at the pace of AFFO itself — show the payout ratio as a forward-looking indicator, not just a snapshot of current safety. Retained cash fuels future raises. A stretched payout constrains them. Understanding the link between payout and growth completes the picture of dividend quality. A moderate, well-covered payout ratio leaves room for sustainable dividend growth, while a stretched ratio constrains future increases — so the ratio signals both current safety and growth capacity.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Read REIT Payout Ratios</h2>
+<p>Baker 1031 Investments helps investors read REIT payout ratios correctly — understanding what the ratio measures, why the AFFO payout ratio is more meaningful than the FFO version, how to tell a healthy ratio from a stretched one, how to spot the warning signs of dividend risk, and how to compare payout ratios within a sector — so you can judge whether a REIT's dividend is built to last.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax situation, including how REIT dividends and any return-of-capital components are taxed. We help you focus on the AFFO payout ratio, watch the trend in coverage, scrutinize how distributions are funded, and compare REITs within their sectors and against their own history. We never promise that a dividend will be maintained — distributions can be cut, and past performance does not guarantee future results. Verifying current figures from a REIT's own reporting is essential, since the inputs to AFFO involve judgment. Our role is to help you analyze REIT dividends clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a REIT payout ratio?<span class="ic"></span></summary>
+<div class="ans"><p>A REIT payout ratio measures how much of the REIT's cash flow it distributes to shareholders as dividends. In its simplest form, it's dividends divided by a cash-flow measure — most commonly funds from operations (FFO) or, more usefully, adjusted funds from operations (AFFO). If a REIT pays 80 cents in dividends for every dollar of cash flow, its payout ratio is 80%. The ratio shows, at a glance, how much room sits between what the REIT generates and what it pays out. REITs use FFO or AFFO in the denominator rather than net income because large non-cash real estate depreciation charges distort REIT earnings, making net income a poor measure of distributable cash. So the payout ratio expresses dividends as a percentage of a REIT's cash flow, and the lower it is, the more cushion the REIT retains. It's one of the clearest tools for judging whether a REIT's dividend is sustainable — the foundation of dividend-safety analysis for income-oriented REIT investors.</p></div>
+</details>
+<details>
+<summary>Why use FFO or AFFO instead of net income for a REIT payout ratio?<span class="ic"></span></summary>
+<div class="ans"><p>You use FFO or AFFO instead of net income because net income badly understates a REIT's true cash generation. Real estate accounting requires large non-cash depreciation charges, which steadily reduce reported earnings even though the buildings often hold or gain value and the REIT keeps collecting rent. As a result, a REIT can pay dividends far in excess of net income while still covering them comfortably from actual cash flow — so a net-income-based payout ratio for a REIT would often look alarming (well over 100%) even for a perfectly healthy company. Funds from operations (FFO) corrects this by adding depreciation back and removing one-time property gains; adjusted FFO (AFFO) goes further by subtracting recurring capital expenditures, giving an even better picture of distributable cash. So FFO and AFFO reflect the real cash a REIT can pay out, while net income is distorted by depreciation. That's why REIT payout ratios are built on FFO or AFFO — they measure dividend coverage against cash, not accounting earnings.</p></div>
+</details>
+<details>
+<summary>What's the difference between the FFO and AFFO payout ratios?<span class="ic"></span></summary>
+<div class="ans"><p>The two ratios differ in their denominator, and the difference matters. The FFO payout ratio divides dividends by funds from operations — net income with real estate depreciation and amortization added back and property-sale gains removed. The AFFO payout ratio divides dividends by adjusted funds from operations — FFO further reduced by recurring maintenance capital expenditures (money spent to keep existing properties competitive) and adjusted for items like straight-line rent. Because AFFO subtracts the real, recurring cash a REIT must reinvest just to sustain its portfolio, it more closely approximates the cash actually available for dividends. So the AFFO payout ratio is the more conservative and meaningful measure — and, because its denominator is smaller, it's usually higher than the FFO payout ratio for the same REIT. So if FFO payout looks comfortable but AFFO payout is near 100%, the dividend is more stretched than the FFO figure suggests. For dividend-safety analysis, the AFFO payout ratio is the one to trust.</p></div>
+</details>
+<details>
+<summary>Why is the AFFO payout ratio more meaningful?<span class="ic"></span></summary>
+<div class="ans"><p>The AFFO payout ratio is more meaningful because AFFO best approximates the cash a REIT can actually distribute. Funds from operations (FFO) improves on net income by removing distorting depreciation and property-sale gains, but it still ignores a real, recurring cost: the maintenance capital expenditures a REIT must spend to keep its buildings leasable and competitive (roofs, HVAC, tenant improvements, leasing costs). AFFO subtracts those recurring capital costs (and adjusts for non-cash items like straight-line rent), so it reflects the cash genuinely left over for dividends. Because the dividend is paid from real cash — not from FFO that hasn't yet accounted for required reinvestment — measuring the payout against AFFO gives a truer read on whether the dividend is covered. So the AFFO payout ratio captures dividend safety more honestly than the FFO version, which can make coverage look better than it is. So when assessing whether a REIT's dividend is sustainable, weight the AFFO payout ratio most heavily, while recognizing AFFO involves some estimation.</p></div>
+</details>
+<details>
+<summary>What is a healthy REIT payout ratio?<span class="ic"></span></summary>
+<div class="ans"><p>There's no single magic number, but the logic is clear: a healthy payout ratio sits comfortably below 100% of AFFO, leaving a cushion of retained cash. That cushion can fund capital expenditures, debt paydown, or acquisitions, and — crucially — lets the REIT absorb a downturn (rising costs, falling occupancy, higher interest expense) without cutting the dividend. A payout ratio well under 100% of AFFO generally signals a dividend covered by distributable cash with room to spare. What counts as 'comfortably below' varies by sector: stable net-lease REITs can sustain higher payouts than growth-oriented REITs, which retain more cash to fund expansion. So rather than fixating on a universal threshold, judge the payout ratio against the REIT's sector norms and its own history, and look for a meaningful gap below 100% of AFFO. So a healthy payout ratio is one that leaves a clear margin of safety — enough cushion that a normal dip in cash flow won't put the dividend at risk. The bigger the gap below 100% of AFFO, the safer the dividend.</p></div>
+</details>
+<details>
+<summary>What does a payout ratio over 100% mean?<span class="ic"></span></summary>
+<div class="ans"><p>A payout ratio over 100% means a REIT is paying out more in dividends than its cash flow supports — and that's a warning sign, especially when measured against AFFO. If the AFFO payout ratio exceeds 100%, the REIT is distributing more than its adjusted funds from operations, so the dividend isn't fully covered by distributable cash. That gap has to be filled somehow: by drawing down cash, selling assets, borrowing, or classifying part of the distribution as return of capital (returning investors' own money). None of those can continue indefinitely, so a payout sustainably above 100% of AFFO raises a real risk that the dividend will eventually be cut. There are nuances — a temporary spike above 100% due to a one-off (an acquisition timing issue, a short-term capex surge) may be manageable — but a persistent or rising payout above 100% is a classic red flag. So treat a payout ratio over 100% of AFFO as a signal to investigate why, how the gap is being funded, and whether the dividend is likely to hold. It often precedes a cut.</p></div>
+</details>
+<details>
+<summary>How can a payout ratio help me spot dividend risk?<span class="ic"></span></summary>
+<div class="ans"><p>The payout ratio is one of the best early-warning tools for dividend risk, especially when you watch it over time and check how distributions are funded. The clearest red flag is an AFFO payout ratio above 100% — the REIT is paying out more than its distributable cash. Nearly as important is the trend: a payout ratio that's steadily climbing signals declining coverage, meaning the dividend is outgrowing cash flow (or cash flow is eroding) even if the ratio isn't yet above 100%. A third warning sign is the funding source: if a REIT covers its dividend largely through return of capital, asset sales, or borrowing rather than operating cash flow, the distribution may be unsustainable even when the headline ratio looks acceptable. So the combination of a high or rising AFFO payout, deteriorating coverage, and debt- or return-of-capital-funded distributions is the classic profile of a dividend at risk. So use the payout ratio's level, its trend, and the way the dividend is funded together to anticipate a cut before it's announced.</p></div>
+</details>
+<details>
+<summary>Do payout ratios vary by REIT sector?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — payout ratios vary meaningfully by sector, which is why they should be compared within a sector rather than across the whole REIT market. Net-lease REITs, which sign long leases and push most operating responsibilities (taxes, insurance, maintenance) onto tenants, tend to have very stable, predictable cash flows and lower recurring capital needs, so they often sustain higher payout ratios — a level that might look stretched elsewhere can be normal for net-lease. Growth-oriented sectors (like certain industrial, data center, or development-heavy REITs) typically retain more cash to fund expansion, so they carry lower payout ratios by design. Sectors with heavier recurring capital needs (some office and retail) may also run lower AFFO payouts to fund reinvestment. So a 'high' or 'low' payout ratio only has meaning relative to the sector's norms. So when you evaluate a payout ratio, compare it to similar REITs in the same sector and to the REIT's own history — a ratio that's normal for one sector can be a warning sign in another.</p></div>
+</details>
+<details>
+<summary>What is return of capital in a REIT distribution?<span class="ic"></span></summary>
+<div class="ans"><p>Return of capital (ROC) is the portion of a REIT distribution that isn't paid out of current earnings or profits but instead represents a return of your own invested capital. For tax purposes, ROC generally isn't currently taxed; instead, it reduces your cost basis in the shares, deferring tax until you sell. A degree of ROC is common and often benign for REITs — it can result from the gap between cash flow and taxable income created by depreciation. But ROC matters for dividend-safety analysis: if a large and growing share of a REIT's distribution is classified as return of capital, it can be a sign that the REIT isn't fully covering its dividend from operating cash flow and is effectively returning investors' own money to sustain the payout. So a little ROC is normal; a lot, especially when rising, can be a warning sign worth pairing with the AFFO payout ratio. So watch the ROC component alongside coverage. Baker 1031 doesn't provide tax advice — confirm how ROC affects your basis and taxes with your tax advisor, since the treatment can be technical.</p></div>
+</details>
+<details>
+<summary>Can a high-yielding REIT still have a safe dividend?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a high yield and a safe dividend aren't mutually exclusive, but you have to verify safety through the payout ratio rather than assume it. A high dividend yield can reflect a genuinely generous, well-covered distribution (common in stable, higher-payout sectors like net-lease or among mortgage REITs), or it can be a warning that the market has marked the price down because it expects a cut. The payout ratio — ideally the AFFO payout ratio — is how you tell the difference. If a high-yielding REIT shows an AFFO payout comfortably below 100%, stable or improving coverage, and distributions funded from operating cash flow, the high yield may well be sustainable. If the same yield comes with an AFFO payout near or above 100%, declining coverage, or heavy return-of-capital funding, the dividend is at risk despite (or because of) the high yield. So judge a high-yielding REIT's dividend by its payout ratio and coverage, not by the yield alone. A high yield is safe only when the underlying coverage confirms it.</p></div>
+</details>
+<details>
+<summary>How do I find a REIT's payout ratio?<span class="ic"></span></summary>
+<div class="ans"><p>You can find or calculate a REIT's payout ratio from its financial reporting. REITs report funds from operations (FFO) and, increasingly, adjusted funds from operations (AFFO) in their quarterly and annual results, supplemental packages, and earnings materials, and they report the dividends they pay. The payout ratio is simply dividends divided by FFO (for the FFO payout ratio) or by AFFO (for the more meaningful AFFO payout ratio), usually expressed per share or in aggregate. Many financial data providers and REIT research services also publish these ratios. One caution: AFFO isn't standardized — different REITs (and analysts) may define recurring capital expenditures and adjustments slightly differently — so when comparing REITs, try to use a consistent definition and check the REIT's stated methodology. So look to the REIT's own supplemental reporting for FFO, AFFO, and dividends, then compute the ratio, or use a research source while noting its definitions. So always verify the figures and how AFFO was calculated, since the inputs involve some judgment and can affect the ratio.</p></div>
+</details>
+<details>
+<summary>What does a rising payout ratio signal?<span class="ic"></span></summary>
+<div class="ans"><p>A rising payout ratio signals declining dividend coverage — and it's one of the most useful trends to watch. When a REIT's payout ratio climbs over time, it means the dividend is consuming a larger share of cash flow, which can happen for two reasons: the dividend is growing faster than cash flow, or cash flow (FFO/AFFO) is eroding while the dividend holds steady. Either way, the cushion between the distribution and the REIT's distributable cash is shrinking. A payout ratio that's been steadily rising toward 100% of AFFO is a warning even before it crosses that line, because it shows the margin of safety thinning. The trend can flag trouble — weakening occupancy, rising interest expense, higher capital needs — that a single snapshot of the ratio might miss. So a rising payout ratio is an early signal that a dividend may become unsustainable if the trend continues. So don't just look at the current payout ratio; look at its direction over several periods. A clearly rising trajectory deserves investigation into what's driving it and whether the dividend can hold.</p></div>
+</details>
+<details>
+<summary>How should I compare payout ratios across REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Compare payout ratios within a sector and against each REIT's own history — not across unlike REITs. Sector norms differ: net-lease REITs, with stable cash flows and low recurring capital needs, often run higher payout ratios that would look stretched for a growth-oriented REIT, while growth sectors retain more cash and carry lower ratios by design. So comparing a net-lease REIT's payout to a high-growth REIT's is misleading. The useful question is relative: how does a REIT's AFFO payout ratio compare to similar REITs in the same sector, and to its own past? A REIT whose payout is markedly higher than its sector peers, or that's been climbing relative to its history, warrants a closer look — it may simply run a more stable model, or it may have a dividend outgrowing its cash flow. Pairing the payout ratio with the dividend yield helps too: a high yield is reassuring only if the payout ratio confirms coverage. So use sector-relative and historical comparison, with AFFO, to make payout ratios a reliable measure of dividend safety rather than a source of false alarms.</p></div>
+</details>
+<details>
+<summary>Does a low payout ratio mean a REIT is a better investment?<span class="ic"></span></summary>
+<div class="ans"><p>Not by itself — a low payout ratio is generally a positive for dividend safety, but it isn't the whole story. A low AFFO payout ratio means the REIT retains more cash, giving it a strong cushion to maintain (and potentially grow) the dividend, fund capital expenditures, pay down debt, or make acquisitions without raising outside capital. That retained cash can support future growth. But a low payout ratio can also mean the REIT is simply paying a smaller dividend relative to its cash flow — which may suit a growth investor but offer less current income than a higher-payout peer. And a low payout ratio doesn't guarantee a good investment if the underlying real estate, balance sheet, or growth prospects are weak. So a low payout ratio is reassuring for dividend sustainability and growth potential, but you still have to weigh yield, growth, leverage, sector, and valuation. So treat a low payout ratio as one favorable input — a sign of a well-covered, potentially growing dividend — within a broader analysis, not as a standalone verdict on whether a REIT is the better investment.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me read REIT payout ratios?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors read REIT payout ratios correctly — understanding what the ratio measures, why the AFFO payout ratio is more meaningful than the FFO version, how to tell a healthy ratio from a stretched one, how to spot the warning signs of dividend risk, and how to compare payout ratios within a sector. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We help you focus on the AFFO payout ratio, watch the trend in coverage, scrutinize how distributions are funded (including return of capital), and compare REITs within their sectors and against their own history. Baker 1031 does not provide tax or legal advice — your CPA handles your specific situation, including how REIT dividends and return of capital are taxed. We never promise a dividend will be maintained; distributions can be cut, and past performance doesn't guarantee future results. Our role is to help you analyze REIT dividends clearly and invest only when suitable for your goals.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Payout Ratio</dt><dd>Dividends divided by a cash-flow measure (FFO or AFFO).</dd></div>
+<div class="g"><dt>Funds From Operations (FFO)</dt><dd>Net income plus real estate depreciation, minus gains on sales.</dd></div>
+<div class="g"><dt>Adjusted FFO (AFFO)</dt><dd>FFO less recurring capex and straight-line-rent adjustments.</dd></div>
+<div class="g"><dt>AFFO Payout Ratio</dt><dd>Dividends divided by AFFO — the most meaningful coverage gauge.</dd></div>
+<div class="g"><dt>FFO Payout Ratio</dt><dd>Dividends divided by FFO; less conservative than the AFFO version.</dd></div>
+<div class="g"><dt>Dividend Coverage</dt><dd>The cushion between distributable cash and the dividend paid.</dd></div>
+<div class="g"><dt>Maintenance Capex</dt><dd>Recurring spending to keep properties competitive; subtracted in AFFO.</dd></div>
+<div class="g"><dt>Straight-Line Rent</dt><dd>A non-cash rent-timing adjustment removed in AFFO.</dd></div>
+<div class="g"><dt>Return of Capital (ROC)</dt><dd>A distribution that returns invested capital, reducing cost basis.</dd></div>
+<div class="g"><dt>Dividend Cut</dt><dd>A reduction in the distribution, often when payout exceeds AFFO.</dd></div>
+<div class="g"><dt>Net-Lease REIT</dt><dd>A REIT with long leases that often sustains higher payouts.</dd></div>
+<div class="g"><dt>Growth Sector</dt><dd>A REIT type that retains cash and runs a lower payout ratio.</dd></div>
+<div class="g"><dt>Margin of Safety</dt><dd>The distance a payout ratio sits below 100% of AFFO.</dd></div>
+<div class="g"><dt>Distributable Cash</dt><dd>The cash genuinely available to pay dividends, approximated by AFFO.</dd></div>
+<div class="g"><dt>Dividend Yield</dt><dd>Annual dividend divided by share price; paired with the payout ratio.</dd></div>
+<div class="g"><dt>Net Operating Income (NOI)</dt><dd>Property income after operating expenses, before debt and taxes.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

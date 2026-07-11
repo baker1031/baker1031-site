@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Interest Rates Affect REIT Returns | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>How Interest Rates Affect REIT Returns
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">How Interest Rates Affect REIT Returns</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Interest rates are one of the biggest drivers of REIT prices. This guide explains why rates move REIT valuations, how cap rates respond, which sectors are most rate-sensitive versus resilient, what a high-rate environment means, and how to think about positioning across the cycle.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Few forces shape REIT returns as powerfully as interest rates. When rates rise, REIT prices generally come under pressure for three reinforcing reasons: higher discount rates lower the present value of future cash flows, higher borrowing costs raise expenses on the leverage REITs use, and higher bond yields give income investors a competing, lower-risk alternative to REIT dividends. Cap rates — the yields buyers demand on real estate — tend to drift up alongside interest rates, which lowers property valuations. But REITs are not a simple bond proxy: their cash flows can grow as rents rise, so fundamentals matter alongside rates, and some sectors weather rising rates far better than others. This guide explains why rates move REIT prices, how cap rates and valuations respond, which sectors are rate-sensitive versus resilient, what a high-rate environment looks like, and how to think about positioning across the cycle. Market conditions change constantly — verify current market conditions with your advisor, and remember that past performance does not guarantee future results; this is educational information, not investment advice or a forecast.</p>
+<p>For readers who want the broader context behind how rate cycles fit into the REIT landscape, our <a href="reits-guide.html">complete 2026 REIT investing guide</a> covers the full picture across traded, non-traded, and private structures.</p>
+<h2 id="why-rates-move-reit-prices">Why Rates Move REIT Prices</h2>
+<p>Interest rates influence REIT prices through several channels that tend to push in the same direction. The first is the discount-rate channel: a REIT's value reflects the present value of its expected future cash flows, and when rates rise, those future cash flows are discounted at a higher rate, lowering their present value. Because REITs are income-oriented, long-duration assets, they can be especially sensitive to this effect — much like a bond, a stream of relatively stable future income is worth less when the rate used to discount it goes up.</p>
+<p>The second channel is borrowing cost. REITs commonly use leverage to acquire and develop property, so when interest rates rise, the cost of new debt and floating-rate debt increases, raising expenses and squeezing the cash flow available for distributions and growth. The third channel is competition from bond yields: REITs are bought largely for income, so when safer bonds offer higher yields, income investors have a lower-risk alternative, and REIT dividend yields may need to rise (meaning prices fall) to stay competitive. These channels often reinforce one another when rates climb.</p>
+<p>So rising rates generally pressure REIT prices through three reinforcing channels — a higher discount rate on future cash flows, higher borrowing costs, and competition from higher bond yields. Why rates move REIT prices — the discount-rate channel (higher rates lower the present value of future income, and REITs are long-duration income assets), the borrowing-cost channel (higher rates raise the cost of the leverage REITs use), and the bond-competition channel (higher bond yields give income investors a lower-risk alternative, pressuring REIT yields up and prices down) — explains why REITs are often rate-sensitive. The channels tend to compound. Understanding them frames the rest. Rising rates generally pressure REIT prices because they raise the discount rate on future cash flows, increase borrowing costs, and make competing bond yields more attractive.</p>
+<h2 id="cap-rates-and-valuations">Cap Rates and Valuations</h2>
+<p>The link between interest rates and property values runs largely through capitalization rates, or 'cap rates.' A cap rate is the ratio of a property's net operating income to its value — essentially the yield a buyer earns on the purchase price. When interest rates and the cost of capital rise, buyers tend to demand higher yields to compensate, so cap rates tend to rise. Because value is roughly income divided by the cap rate, a higher cap rate on the same income means a lower property value. This is the mechanism by which rising rates can erode the value of the real estate a REIT owns.</p>
+<p>The relationship isn't mechanical or instantaneous, though. Cap rates are driven by more than just interest rates — they also reflect rent-growth expectations, the supply-demand balance for a property type, and investor appetite for real estate. So in periods when rents are growing strongly, rising rates can be partly or fully offset by rising income, and valuations may hold up better than the rate move alone would suggest. Conversely, when growth is weak and rates rise, the cap-rate expansion can hit valuations harder. Reported NAVs for non-traded REITs may also lag market cap-rate moves because they're appraised periodically.</p>
+<p>So rising interest rates tend to push cap rates up, which lowers property valuations — but rent growth and demand can cushion the effect. Cap rates and valuations — a cap rate being the yield a buyer demands (income divided by value), so when rising rates push cap rates up, the same income supports a lower value, eroding the real estate a REIT owns — are the channel through which rates reach property values. The link is influenced by rent growth, supply-demand, and investor appetite, so strong income growth can offset rate-driven cap-rate expansion. Understanding cap rates clarifies how rates reach valuations. Rising rates tend to lift cap rates, which lowers property values for a given income, though rent growth and demand can cushion or offset the effect.</p>
+<div class="pullquote"><p>Value is roughly income divided by the cap rate — so when rising rates push cap rates higher, the same rent supports a lower property value unless income is growing fast enough to keep pace.</p></div>
+<h2 id="rate-sensitive-vs-resilient">Rate-Sensitive vs. Resilient Sectors</h2>
+<p>Not all REITs respond to rising rates the same way — sector characteristics matter enormously. The most rate-sensitive REITs tend to be those with long-duration, low-growth income, because their value behaves more like a bond. Net-lease REITs (long, fixed leases) and many healthcare REITs fall into this camp: their income is steady but grows slowly, so a higher discount rate weighs heavily and there's little rent growth to offset it. Mortgage REITs are typically the most rate-sensitive of all, since they earn an interest-rate spread and use significant leverage, so changes in rates can hit their book value and earnings sharply.</p>
+<p>More resilient sectors tend to be those with pricing power, short leases, or structural growth, because they can raise rents to keep pace with (or ahead of) rising rates and <a href="reits-and-inflation-hedge-or-headwind.html">inflation</a>. Residential REITs with annual leases can reset rents frequently, hotels reprice rooms nightly, and self-storage adjusts rates often — all of which lets income grow as conditions change. Some industrial and data-center exposure has benefited from strong secular demand that supports rent growth even when rates rise. The key distinction is whether a REIT's income can grow fast enough to offset the rate headwind, not simply that it's a REIT — a theme we develop further in our <a href="reits-and-rising-rates-a-sector-playbook.html">sector-by-sector playbook for rising rates</a>.</p>
+<p>So long-duration, slow-growth sectors (net-lease, healthcare) and mortgage REITs are typically most rate-sensitive, while short-lease, pricing-power sectors (residential, hotels, self-storage) and some growth sectors tend to be more resilient. Rate-sensitive vs. resilient sectors — long-duration, low-growth income (net-lease, healthcare) and mortgage REITs (which use leverage and earn a rate spread) being most sensitive, while sectors with pricing power, short leases, or structural growth (residential with annual leases, hotels with nightly pricing, self-storage, some industrial) are more resilient because their rents can grow with rates — vary because income growth can offset the rate headwind. Sector matters as much as rates. Understanding this guides positioning. Long-duration net-lease, healthcare, and mortgage REITs are typically most rate-sensitive; short-lease, pricing-power, and growth sectors tend to be more resilient.</p>
+<h2 id="high-rate-environment">REITs in a High-Rate Environment</h2>
+<p>In a sustained high-rate environment, several pressures tend to show up at once. Property transactions can slow because buyers and sellers disagree on value while cap rates reset, debt is more expensive to refinance, and REITs may face higher interest expense as maturing low-rate debt rolls over. Publicly traded REIT prices often fall ahead of any change in the underlying real estate, because the market quickly reprices the discount-rate and bond-competition effects. This can create a gap between a traded REIT's share price and the appraised value of its properties.</p>
+<p>But a high-rate environment is not uniformly bad for REITs, and it's important to avoid sweeping conclusions. Well-capitalized REITs with low leverage, staggered debt maturities, fixed-rate debt, and pricing power can navigate higher rates while continuing to grow rents. Higher rates also tend to slow new construction, which can tighten supply and support rents for existing properties over time. And REITs are not a simple bond proxy — their cash flows can grow, so a period of higher rates accompanied by solid economic and rent growth can look very different from higher rates in a weak economy. Conditions vary, so verify the current market environment rather than assuming.</p>
+<p>So a high-rate environment tends to pressure REIT prices and slow transactions, but balance-sheet strength, pricing power, and constrained new supply can offset some of the strain, and outcomes depend on the broader economy. REITs in a high-rate environment — facing slower transactions, costlier refinancing, higher interest expense, and traded-price declines that can outrun changes in property value, but with low-leverage, fixed-rate, pricing-power REITs better able to navigate it and constrained new supply potentially supporting rents — show that the impact isn't uniform. REITs are not a simple bond proxy; growth matters. Conditions change, so verify them. A high-rate environment generally pressures REIT prices and slows deals, but strong balance sheets, pricing power, and tighter new supply can cushion the effect, and the broader economy matters.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Rising rates generally pressure REIT prices through three channels: higher discount rates, higher borrowing costs, and competing bond yields.</li>
+<li>Cap rates tend to rise with interest rates, which lowers property valuations for a given level of income — though rent growth can offset it.</li>
+<li>Mortgage REITs and long-duration, slow-growth sectors (net-lease, healthcare) are most rate-sensitive; short-lease, pricing-power sectors are more resilient.</li>
+<li>REITs are not a simple bond proxy — rent growth and fundamentals matter, so diversifying across sectors and the cycle helps manage rate risk.</li>
+</ul></div>
+<h2 id="duration-and-leverage">Duration, Leverage, and Lease Length</h2>
+<p>Two structural features help explain why one REIT is more rate-sensitive than another: the duration of its cash flows and the structure of its balance sheet. Duration here is shorthand for how long and how fixed a REIT's income stream is. A net-lease REIT with 12-year leases and small annual escalators has long, bond-like duration, so its value moves a lot when discount rates change. A residential REIT that re-leases units every year has short effective duration, because it can reprice income quickly, making its value less tied to any single rate level.</p>
+<p>Balance-sheet structure matters just as much. A REIT with high leverage, lots of floating-rate debt, and near-term maturities is exposed to rising rates immediately, because its interest costs climb and refinancing gets expensive. A REIT with modest leverage, mostly fixed-rate debt, and well-laddered maturities has insulated much of its interest expense, buying time for rents to grow. Lease length ties the two together: short leases let a REIT raise rents to offset higher costs, while long fixed leases lock in income that can't easily keep pace. These features, more than the label 'REIT,' determine rate sensitivity.</p>
+<p>So a REIT's rate sensitivity depends on the duration of its income (lease length and rent-reset frequency) and its balance-sheet structure (leverage, fixed-versus-floating debt, and maturity laddering). Duration, leverage, and lease length — long, fixed income streams (net-lease) having bond-like duration that's very rate-sensitive while short-lease income (residential, hotels) reprices quickly, and high floating-rate near-maturity leverage amplifying rate exposure while modest, fixed, well-laddered debt insulates it — are the structural drivers of how much rates affect a given REIT. These features matter more than the REIT label. Understanding them sharpens the analysis. A REIT's rate sensitivity is driven by its cash-flow duration (lease length and rent resets) and balance sheet (leverage, fixed-versus-floating debt, and maturity laddering).</p>
+<div class="pullquote"><p>Two REITs can react to the same rate move very differently — the one with long fixed leases and floating-rate debt feels it immediately, while the one with annual leases and laddered fixed-rate debt has room to adapt.</p></div>
+<h2 id="positioning-across-the-cycle">Positioning Across the Cycle</h2>
+<p>Because rates move in cycles and their effect on REITs varies by sector and balance sheet, a common approach is to position across the cycle rather than try to time it precisely. Diversifying across REIT sectors — blending rate-sensitive income (net-lease, healthcare) with shorter-lease, pricing-power exposure (residential, self-storage, some industrial) — spreads rate risk so that no single rate scenario dominates outcomes. Attention to balance-sheet quality (low leverage, fixed-rate, laddered maturities) is another way to reduce vulnerability to rising rates without trying to forecast them.</p>
+<p>It's also worth remembering that rates eventually fall as well as rise, mirroring the broader <a href="commercial-real-estate-cycles-and-reit-performance.html">commercial real estate cycles</a> that shape REIT performance, and the same channels that pressure REITs when rates climb can support them when rates ease: lower discount rates lift valuations, cheaper debt reduces expenses, and lower bond yields make REIT income more competitive again. So a multi-year REIT allocation is exposed to both phases of the cycle, which is one reason long-term investors often hold through rate moves rather than reacting to each one. None of this is a prediction — it's a framework for thinking about risk, and the right positioning depends on your goals, horizon, and risk tolerance.</p>
+<p>So positioning across the cycle — diversifying across sectors and favoring strong balance sheets rather than timing rates — helps manage rate risk through both rising and falling phases. Positioning across the cycle — diversifying across rate-sensitive and pricing-power sectors, favoring strong balance sheets (low leverage, fixed-rate, laddered debt), and recognizing that rates fall as well as rise (which can support REITs through the lower-discount-rate, cheaper-debt, and less-competition channels) — is a risk-management framework rather than a forecast. Long-term investors often hold through cycles. The right positioning depends on your situation. Positioning across the cycle means diversifying across sectors, favoring strong balance sheets, and recognizing that rates fall as well as rise — a framework for managing rate risk, not a market timing call.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Navigate Rates and REITs</h2>
+<p>Baker 1031 Investments helps investors understand how interest rates affect REIT returns — why rates move REIT prices, how cap rates and valuations respond, which sectors are rate-sensitive versus resilient, what a high-rate environment can mean, and how to think about positioning across the cycle — so you can evaluate REIT exposure with realistic expectations about rate risk.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. We help you understand the rate channels, weigh sector and balance-sheet rate sensitivity, and, when suitable, access REIT offerings. Baker 1031 does not provide tax or legal advice; your CPA handles how REIT dividends are taxed in your situation. We keep our discussion of rates and markets general and non-promissory — market conditions change, so we encourage you to verify current conditions, and we never promise yields or returns. Past performance does not guarantee future results, and REIT prices and distributions can fluctuate with rates and the broader economy. Our role is to help you understand rate risk clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>How do interest rates affect REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Interest rates affect REITs through several reinforcing channels, and rising rates generally pressure REIT prices. First, the discount-rate channel: a REIT's value reflects the present value of future cash flows, and higher rates discount those flows more heavily, lowering present value — and because REITs are long-duration income assets, this effect can be significant. Second, the borrowing-cost channel: REITs use leverage, so higher rates raise the cost of new and floating-rate debt, squeezing cash flow. Third, the bond-competition channel: REITs are bought for income, so when safer bonds yield more, REIT dividend yields may need to rise (prices fall) to stay competitive. These channels often compound. That said, REITs aren't a simple bond proxy — their rents can grow, so fundamentals matter too. So rising rates tend to pressure REIT prices, but the magnitude depends on the sector, the REIT's balance sheet, and the broader economy.</p></div>
+</details>
+<details>
+<summary>Why do rising interest rates lower REIT prices?<span class="ic"></span></summary>
+<div class="ans"><p>Rising rates lower REIT prices mainly because they reduce the present value of the income REITs produce and raise their costs. A REIT's worth is largely the present value of expected future cash flows; when the discount rate rises, those future flows are worth less today, so the value falls. Because REIT income is relatively long-duration and income-like, it behaves somewhat like a bond and is sensitive to this effect. On top of that, REITs use debt, so higher rates increase borrowing costs and reduce the cash available for distributions and growth. Finally, higher bond yields compete with REIT dividends, so investors may demand a higher REIT yield — which means a lower price. These effects often happen together when rates climb. So rising rates pressure REIT prices through the discount-rate, borrowing-cost, and bond-competition channels at once, which is why REITs are often described as rate-sensitive. The exact impact varies by sector and balance sheet.</p></div>
+</details>
+<details>
+<summary>What is a cap rate and how does it relate to interest rates?<span class="ic"></span></summary>
+<div class="ans"><p>A capitalization rate, or cap rate, is the ratio of a property's net operating income to its value — essentially the yield a buyer earns on the purchase price. If a building generates $1 million of net operating income and sells for $20 million, the cap rate is 5%. Cap rates relate to interest rates because, when the cost of capital rises, buyers generally demand higher yields to compensate, so cap rates tend to rise alongside interest rates. Since value is roughly income divided by the cap rate, a higher cap rate on the same income implies a lower property value — which is how rising rates erode the real estate a REIT owns. The relationship isn't mechanical, though: cap rates also reflect rent-growth expectations, supply and demand, and investor appetite, so strong income growth can offset rate-driven cap-rate expansion. So cap rates are the channel through which interest rates reach property valuations, but other factors influence them too.</p></div>
+</details>
+<details>
+<summary>Are REITs a good investment when interest rates rise?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the REIT, the sector, and the broader environment — there's no blanket answer, and this isn't a forecast. Rising rates generally pressure REIT prices through higher discount rates, higher borrowing costs, and competition from bond yields, so REITs can face headwinds when rates climb. But REITs aren't a simple bond proxy: their rents can grow, and sectors with pricing power and short leases (residential, hotels, self-storage) can raise rents to offset rate pressure, while constrained new construction in a high-rate environment can tighten supply and support existing rents. Balance-sheet strength matters too — low-leverage, fixed-rate REITs navigate rising rates better than highly leveraged ones. So some REITs can perform reasonably even as rates rise, while others (long-duration net-lease, mortgage REITs) struggle. Rather than a yes-or-no answer, the better approach is to diversify across sectors, favor strong balance sheets, and verify current market conditions. Past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>Which REIT sectors are most sensitive to interest rates?<span class="ic"></span></summary>
+<div class="ans"><p>The most rate-sensitive REITs tend to be those with long-duration, slow-growing income, because their value behaves more like a bond. Net-lease REITs, with long fixed leases and small escalators, and many healthcare REITs fall into this category — their income is steady but grows slowly, so a higher discount rate weighs heavily with little rent growth to offset it. Mortgage REITs are typically the most rate-sensitive of all, since they earn an interest-rate spread and use significant leverage, so rate moves can sharply affect their book value and earnings. More resilient sectors tend to have pricing power or short leases — residential REITs with annual leases, hotels with nightly pricing, and self-storage with frequent rate adjustments can grow income to keep pace with rates. Some industrial and data-center exposure has also benefited from strong secular demand. So rate sensitivity hinges on whether income can grow fast enough to offset the rate headwind, which varies a great deal by sector.</p></div>
+</details>
+<details>
+<summary>Why are mortgage REITs so sensitive to interest rates?<span class="ic"></span></summary>
+<div class="ans"><p>Mortgage REITs (mREITs) are typically the most interest-rate-sensitive type of REIT because of how they make money. Rather than owning property, they finance real estate by holding mortgages and mortgage-backed securities, earning the spread between the interest those assets pay and their own cost of borrowing. When interest rates move, both sides of that spread can shift — and because mortgage REITs use significant leverage to amplify the spread, even modest rate changes can have an outsized effect on their earnings and book value. Rising short-term rates can raise their borrowing costs, while changes in long-term rates affect the value of their mortgage assets; the gap between the two (and how the yield curve moves) drives results. They also face prepayment and hedging complexities. So mortgage REITs combine an interest-rate spread business with leverage, which makes them far more rate-sensitive than equity REITs that own property and earn rents. They often offer higher yields but carry higher risk.</p></div>
+</details>
+<details>
+<summary>How does the discount rate affect REIT valuations?<span class="ic"></span></summary>
+<div class="ans"><p>The discount rate is the rate used to convert a REIT's expected future cash flows into a present value — and it's one of the most important drivers of REIT valuations. A REIT is worth roughly the sum of its future distributions and cash flows, each discounted back to today; when the discount rate rises (which tends to happen as interest rates rise), those future cash flows are worth less in today's dollars, so the REIT's value falls. Because REIT income is relatively stable and long-lived, it has long 'duration,' meaning its present value is quite sensitive to changes in the discount rate — similar to how a long-term bond's price falls more than a short-term bond's when rates rise. This is a core reason rising rates pressure REIT prices. So the discount rate channel explains much of REITs' rate sensitivity: higher rates mean a higher discount rate, which means lower present values, especially for long-duration, slow-growth REITs. Rent growth can partly offset this effect.</p></div>
+</details>
+<details>
+<summary>Do REITs behave like bonds when rates change?<span class="ic"></span></summary>
+<div class="ans"><p>REITs share some bond-like sensitivity to interest rates, but they are not simple bond proxies, and treating them as such can be misleading. Like bonds, REITs produce income and have long-duration cash flows, so rising rates tend to pressure their values through the discount-rate channel — which is why REITs and bonds sometimes move together when rates shift. But unlike a bond's fixed coupon, a REIT's cash flows can grow: rents rise over time, especially in pricing-power sectors, and that growth can offset or even outweigh the rate headwind. REITs also carry equity-like risks and rewards tied to property fundamentals, occupancy, and the economy. So while REITs have a rate-sensitive, income component that resembles a bond, they also have a growth component that a bond lacks. The practical takeaway is to expect some bond-like reaction to rates but not to assume REITs will move exactly like fixed income — fundamentals matter, and sector differences are large.</p></div>
+</details>
+<details>
+<summary>What happens to REITs in a high interest rate environment?<span class="ic"></span></summary>
+<div class="ans"><p>In a sustained high-rate environment, REITs often face several pressures at once: property transactions can slow as buyers and sellers disagree on value while cap rates reset, refinancing maturing debt becomes more expensive, and interest expense rises as low-rate debt rolls over. Publicly traded REIT prices frequently fall ahead of any change in the underlying real estate, because the market quickly reprices the discount-rate and bond-competition effects — sometimes creating a gap between share prices and appraised property values. But it's not uniformly negative: well-capitalized REITs with low leverage, fixed-rate and laddered debt, and pricing power can navigate higher rates while growing rents, and higher rates tend to slow new construction, which can tighten supply and support existing rents over time. Outcomes also depend heavily on the broader economy. So a high-rate environment generally pressures REITs but doesn't doom them; balance-sheet strength and sector matter, and conditions change, so verify the current environment rather than assuming a fixed outcome.</p></div>
+</details>
+<details>
+<summary>Can REITs still do well when rates are high?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, some REITs can perform reasonably even when rates are high, though this is never guaranteed and depends on specifics. The REITs best positioned for higher rates tend to share certain traits: pricing power and short leases (residential, hotels, self-storage) that let them raise rents to offset rate pressure; strong balance sheets with low leverage, fixed-rate debt, and well-laddered maturities that insulate interest expense; and exposure to sectors with structural demand growth (some industrial and data centers) that supports rents. Higher rates can also slow new construction, tightening supply and helping existing properties hold occupancy and pricing. The REITs that struggle most in a high-rate environment are typically the rate-sensitive ones — long-duration net-lease, some healthcare, and highly leveraged mortgage REITs. So 'high rates' doesn't automatically mean poor REIT performance; it shifts the advantage toward pricing-power sectors and strong balance sheets. Diversify, focus on quality, and verify current conditions rather than assuming any single outcome.</p></div>
+</details>
+<details>
+<summary>How does leverage affect a REIT's interest-rate risk?<span class="ic"></span></summary>
+<div class="ans"><p>Leverage — the debt a REIT uses to finance property — significantly amplifies its sensitivity to interest rates. A REIT with high leverage, lots of floating-rate debt, and near-term maturities is exposed to rising rates almost immediately: its interest costs climb as floating debt resets, and refinancing maturing debt becomes more expensive, squeezing the cash flow available for distributions and growth. By contrast, a REIT with modest leverage, mostly fixed-rate debt, and well-laddered maturities has effectively locked in much of its interest expense, so rising rates affect it more slowly and give rents time to grow. This is why two REITs in the same sector can react very differently to the same rate move — the difference often comes down to balance-sheet structure. So leverage and debt structure are central to interest-rate risk: lower leverage, fixed-rate debt, and staggered maturities reduce vulnerability to rising rates, while high floating-rate, short-maturity leverage increases it. Evaluating a REIT's balance sheet is key to understanding its rate exposure.</p></div>
+</details>
+<details>
+<summary>What is duration in the context of REITs?<span class="ic"></span></summary>
+<div class="ans"><p>In the context of REITs, 'duration' is shorthand for how long and how fixed a REIT's income stream is — and therefore how sensitive its value is to changes in interest rates. A REIT with long, fixed leases and small annual escalators (like a net-lease REIT) has long, bond-like duration: its income is locked in for years, so a higher discount rate weighs heavily on its value, much as rising rates hit a long-term bond hardest. A REIT that re-leases space frequently (like a residential REIT with annual leases or a hotel that reprices nightly) has short effective duration, because it can reset income quickly as conditions change, making its value less tied to any single rate level. So duration helps explain why some REITs are far more rate-sensitive than others. The longer and more fixed the income, the more a REIT behaves like a long bond when rates move; the shorter and more frequently reset the income, the more its growth can offset rate pressure. It's a useful lens for gauging rate risk.</p></div>
+</details>
+<details>
+<summary>How should I position a REIT allocation for interest-rate risk?<span class="ic"></span></summary>
+<div class="ans"><p>A common, non-predictive approach is to position across the cycle rather than try to time rates precisely. That usually means diversifying across REIT sectors — blending rate-sensitive income (net-lease, healthcare) with shorter-lease, pricing-power exposure (residential, self-storage, some industrial) — so no single rate scenario dominates your outcomes. It also means paying attention to balance-sheet quality, favoring REITs with low leverage, fixed-rate debt, and laddered maturities that are less vulnerable to rising rates. It helps to remember that rates fall as well as rise, and the same channels that pressure REITs when rates climb can support them when rates ease, so a long-term allocation is exposed to both phases. None of this is a forecast — it's a framework for managing risk, and the right positioning depends on your goals, horizon, and risk tolerance. So diversify across sectors, favor strong balance sheets, size the allocation sensibly, and verify current market conditions rather than reacting to every rate move.</p></div>
+</details>
+<details>
+<summary>Do falling interest rates help REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Generally, falling interest rates tend to support REIT valuations through the same channels that pressure them when rates rise — though this is a tendency, not a guarantee, and the broader economy matters. When rates fall, the discount rate applied to a REIT's future cash flows declines, which raises the present value of that income and tends to lift valuations. Cheaper debt reduces borrowing costs and refinancing expense, freeing up cash flow for distributions and growth. And lower bond yields make REIT dividend yields relatively more attractive again, drawing income investors back toward REITs. Cap rates may also compress as the cost of capital falls, supporting property values. That said, rates often fall for a reason — sometimes a weakening economy — and weak fundamentals (falling rents, rising vacancy) can offset the benefit of lower rates. So falling rates generally help REITs through the discount-rate, borrowing-cost, and bond-competition channels, but the net effect still depends on why rates are falling and how the economy is doing. Verify current conditions.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me navigate interest rates and REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand how interest rates affect REIT returns — why rates move REIT prices through the discount-rate, borrowing-cost, and bond-competition channels, how cap rates and valuations respond, which sectors are rate-sensitive versus resilient, what a high-rate environment can mean, and how to think about positioning across the cycle — so you can evaluate REIT exposure with realistic expectations about rate risk. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We keep our discussion of rates and markets general and non-promissory — conditions change, so we encourage you to verify current conditions, and we never promise yields or returns. Baker 1031 does not provide tax or legal advice; your CPA handles your situation. Past performance doesn't guarantee future results. Our role is to help you understand rate risk clearly and invest only when suitable.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>REIT</dt><dd>A company that owns, operates, or finances income-producing real estate.</dd></div>
+<div class="g"><dt>Interest Rate</dt><dd>The cost of borrowing money, set largely by the Federal Reserve and markets.</dd></div>
+<div class="g"><dt>Discount Rate</dt><dd>The rate used to convert future cash flows into present value.</dd></div>
+<div class="g"><dt>Cap Rate</dt><dd>Net operating income divided by property value — the yield a buyer demands.</dd></div>
+<div class="g"><dt>Net Operating Income (NOI)</dt><dd>A property's income after operating expenses, before debt and taxes.</dd></div>
+<div class="g"><dt>Duration</dt><dd>How long and fixed an income stream is, and thus its rate sensitivity.</dd></div>
+<div class="g"><dt>Leverage</dt><dd>The debt a REIT uses to finance property, amplifying rate exposure.</dd></div>
+<div class="g"><dt>Floating-Rate Debt</dt><dd>Debt whose interest cost rises and falls with market rates.</dd></div>
+<div class="g"><dt>Fixed-Rate Debt</dt><dd>Debt with a locked interest cost, insulating against rate moves.</dd></div>
+<div class="g"><dt>Net-Lease REIT</dt><dd>A REIT with long fixed leases — long-duration and rate-sensitive.</dd></div>
+<div class="g"><dt>Mortgage REIT (mREIT)</dt><dd>A REIT earning an interest-rate spread — very rate-sensitive.</dd></div>
+<div class="g"><dt>Pricing Power</dt><dd>The ability to raise rents to offset higher rates and inflation.</dd></div>
+<div class="g"><dt>Bond Proxy</dt><dd>Treating REITs like bonds — misleading, since REIT cash flows grow.</dd></div>
+<div class="g"><dt>Bond Yield</dt><dd>The income a bond pays, which competes with REIT dividends.</dd></div>
+<div class="g"><dt>Maturity Laddering</dt><dd>Staggering debt maturities to reduce refinancing risk.</dd></div>
+<div class="g"><dt>Across the Cycle</dt><dd>Positioning for both rising and falling rate phases.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Board of Governors of the Federal Reserve System. <a href="https://www.federalreserve.gov/" rel="noopener nofollow" target="_blank">Federal Reserve</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

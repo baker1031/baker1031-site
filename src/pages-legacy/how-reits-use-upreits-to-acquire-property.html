@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How REITs Use UPREITs to Acquire Property | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>How REITs Use UPREITs to Acquire Property
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">How REITs Use UPREITs to Acquire Property</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">721 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">The UPREIT structure exists in large part because it gives REITs a powerful tool to acquire property: offering owners operating partnership units (instead of cash) as a tax-deferred acquisition currency. This guide explains why REITs need this tool, how OP units work as currency, the win-win it creates, how the acquisition works from the REIT's side, and what it means for property owners.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">To understand the 721 exchange from a different angle, it helps to see why REITs created the UPREIT structure in the first place: it's a powerful acquisition tool. REITs grow by acquiring properties, and one obstacle to acquiring property from long-term owners is the tax those owners would owe on a sale — a big deterrent for owners sitting on large gains. The UPREIT structure solves this by letting the REIT offer OP units (instead of cash) as the acquisition consideration, so the owner can contribute their property tax-deferred (under Section 721) rather than sell and pay tax. This makes the REIT's currency (OP units) attractive to gain-laden owners, expanding the REIT's acquisition opportunities. Understanding how REITs use UPREITs to acquire property illuminates the 721 exchange from the REIT's perspective. This guide explains why REITs need this tool, how it works, the win-win, and what it means for owners.</p>
+<h2 id="why-need-tool">Why REITs need an acquisition tool</h2>
+<p>REITs grow primarily by acquiring properties, so they need effective ways to acquire — and the tax owners face on a sale is a major obstacle. A REIT wanting to acquire a desirable property from a long-term owner faces the problem that the owner would owe substantial tax on a cash sale (the four-layer tax, often a third or more of the gain). This tax deters owners with large gains from selling, making it hard for the REIT to acquire their properties with cash.</p>
+<p>Long-term owners of attractive properties often have very low basis (large embedded gains), so the tax obstacle is especially significant for exactly the properties REITs most want (well-located, established, income-producing real estate held for years). These owners are reluctant to sell and trigger the tax, so a cash offer (however generous) may not entice them — they'd lose a third to taxes. So the REIT needs a way to acquire without forcing the taxable sale.</p>
+<p>This is the problem the <a href="721-exchange-guide.html">UPREIT</a> structure solves — it gives the REIT a tax-deferred acquisition tool (<a href="op-units-explained.html">OP units</a>) to acquire from gain-laden owners who wouldn't sell for cash. So REITs need an acquisition tool that overcomes the tax obstacle, and the UPREIT provides it. Why REITs need an acquisition tool — because the tax owners face on a cash sale deters them (especially low-basis, long-term owners of desirable properties), obstructing the REIT's acquisitions — explains the motivation for the UPREIT structure. The tax obstacle to acquiring attractive properties is what the UPREIT solves. Understanding why REITs need this tool sets up how OP units serve as the solution. The UPREIT structure exists because REITs needed a way to acquire property without forcing owners to trigger the tax.</p>
+<h2 id="op-units-currency">OP units as acquisition currency</h2>
+<p>The UPREIT's solution is to use OP units as an acquisition currency — the REIT offers owners OP units (rather than cash) for their property. Because <a href="upreit-conversion-and-capital-gains-deferral.html">contributing property for OP units is tax-deferred under Section 721</a>, the owner can accept OP units without triggering the tax a cash sale would. So OP units function as a tax-advantaged currency the REIT can use to acquire property from owners who wouldn't sell for cash.</p>
+<p>This currency is attractive to gain-laden owners precisely because it's tax-deferred. An owner who'd lose a third of their gain to taxes in a cash sale can instead take OP units, deferring the tax and gaining REIT ownership (with diversification, income, and the path to liquidity). So the OP-unit currency entices owners that cash couldn't, because it offers tax deferral plus the REIT's benefits. The REIT's currency is appealing where cash isn't.</p>
+<p>For the REIT, OP units as currency expand its acquisition opportunities — it can acquire properties (using units) that it couldn't acquire with cash (because the owners wouldn't sell and pay tax). So the UPREIT's OP-unit currency is a powerful acquisition tool, opening doors that cash can't. OP units as acquisition currency — the REIT offering tax-deferred OP units (instead of cash) to acquire property from gain-laden owners who wouldn't sell for cash — is the UPREIT's solution to the tax obstacle. The tax-deferred currency entices owners that cash couldn't, expanding the REIT's acquisitions. Understanding OP units as currency shows the mechanism by which UPREITs acquire property: a tax-advantaged currency appealing to owners with large gains. The OP-unit currency is the UPREIT's acquisition tool, attractive precisely because it's tax-deferred.</p>
+<div class="pullquote"><p>OP units are the REIT's tax-advantaged acquisition currency — they entice gain-laden owners that cash can't, because contributing property for units is tax-deferred while a cash sale would trigger the tax.</p></div>
+<h2 id="win-win">The win-win: tax-deferred acquisitions</h2>
+<p>The UPREIT acquisition creates a win-win for both the REIT and the property owner. For the REIT, the win is acquiring desirable property it couldn't get with cash — using OP units to acquire from gain-laden owners, growing its portfolio with attractive, established properties. So the REIT expands its holdings with properties that the tax obstacle would otherwise have kept out of reach.</p>
+<p>For the owner, the win is exiting their property tax-deferred into diversified, passive REIT ownership — avoiding the tax a cash sale would trigger, gaining diversification (the REIT's portfolio), income (distributions), liquidity (convertible units), and estate benefits (the step-up). So the owner gets a tax-deferred exit with REIT-ownership benefits, which a cash sale couldn't provide. Both sides gain from the structure.</p>
+<p>This mutual benefit is why the <a href="what-is-an-upreit-umbrella-partnership-reit-basics.html">UPREIT structure</a> became widespread — it serves both the REIT (acquisition) and the owner (tax-deferred exit). The win-win aligns the interests: the REIT gets the property, the owner gets tax-deferred REIT ownership. The win-win — the REIT acquiring desirable property it couldn't get with cash, and the owner exiting tax-deferred into beneficial REIT ownership — is the mutual benefit that makes the UPREIT acquisition work. Both sides gain, which is why the structure is widespread. Understanding the win-win shows that the UPREIT acquisition isn't just a REIT tool but a mutually-beneficial arrangement. The win-win nature, serving both REIT and owner, is the foundation of why UPREIT acquisitions happen — both parties benefit from the tax-deferred structure.</p>
+<h2 id="how-acquisition-works">How the acquisition works</h2>
+<p>From the REIT's side, the UPREIT acquisition works through the operating partnership and OP units. The REIT identifies a property it wants to acquire and an owner open to OP units. The REIT (through its operating partnership) and the owner agree on the property's value, which determines the number of OP units the owner receives. The owner contributes the property to the operating partnership, and the partnership issues the OP units — a Section 721 contribution, tax-deferred for the owner.</p>
+<p>After the acquisition, the property is part of the REIT's portfolio (held by the operating partnership), and the former owner holds OP units (a limited-partner stake in the operating partnership). The REIT controls the property (as general partner of the operating partnership), and the former owner has a passive economic interest (the units). So the REIT has acquired the property, and the owner has become a unit-holding partner.</p>
+<p>The REIT may also negotiate tax protection (agreeing not to sell the contributed property in a taxable way for a period, protecting the owner's deferral) as part of the acquisition. So the acquisition involves the valuation, the contribution, the unit issuance, and often tax protection. How the acquisition works — the REIT and owner agreeing on value, the owner contributing the property to the operating partnership for OP units (a tax-deferred Section 721 contribution), and the REIT gaining the property while the owner gets units (often with tax protection) — shows the mechanics of an UPREIT acquisition from the REIT's side. The operating partnership and OP units are the vehicle. Understanding how the acquisition works clarifies the transaction by which a REIT uses the UPREIT structure to acquire property. The acquisition is the 721 exchange viewed from the REIT's perspective — the REIT acquiring via OP units.</p>
+<h2 id="growing-portfolio">Growing the REIT's portfolio</h2>
+<p>UPREIT acquisitions are a key way REITs grow their portfolios, with strategic advantages. By using OP units as currency, REITs can acquire properties from owners who wouldn't sell for cash, accessing a pool of desirable properties (established, low-basis-owner-held real estate) that cash buyers can't reach. So the UPREIT structure gives REITs a competitive acquisition advantage for these properties.</p>
+<p>The OP-unit currency also lets REITs acquire without using cash (preserving their cash for other purposes) and can align the contributing owner's interests with the REIT's (since the owner now holds units, they benefit from the REIT's performance). So UPREIT acquisitions offer REITs efficiency (no cash needed) and alignment (the owner becomes a stakeholder). These advantages make UPREIT acquisitions a valuable growth tool.</p>
+<p>Over time, REITs can grow substantially through UPREIT acquisitions, building large, diversified portfolios by accumulating properties from many contributing owners. So the UPREIT structure is a significant driver of REIT growth, enabling acquisitions that build the portfolio. Growing the REIT's portfolio — UPREIT acquisitions letting REITs reach desirable properties cash can't, acquire without using cash, and align owners' interests, building large portfolios over time — shows the strategic value of the UPREIT structure for REIT growth. The acquisition tool drives the REIT's expansion. Understanding how UPREIT acquisitions grow the portfolio illuminates their strategic importance to REITs. The UPREIT structure is a key engine of REIT growth, enabling the acquisitions that build the portfolio the diversified holding contributing owners ultimately share in.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>REITs need an acquisition tool because the tax owners face on a cash sale deters them, especially low-basis, long-term owners of desirable properties.</li>
+<li>OP units serve as a tax-deferred acquisition currency — enticing gain-laden owners that cash can't, because contributing for units defers the tax.</li>
+<li>The acquisition is a win-win: the REIT gets the property, and the owner gets a tax-deferred exit into beneficial REIT ownership.</li>
+<li>UPREIT acquisitions are a key REIT growth engine, reaching properties cash can't, preserving cash, and aligning owners' interests.</li>
+</ul></div>
+<h2 id="what-means-owners">What this means for property owners</h2>
+<p>Understanding how REITs use UPREITs to acquire property has practical implications for property owners. First, it means owners of desirable property have a valuable option — if a REIT wants your property, you can contribute it for OP units (tax-deferred) rather than selling for cash (taxable). So the UPREIT acquisition is an opportunity for owners: a tax-deferred exit that REITs actively seek to offer.</p>
+<p>Second, it means owners of property REITs want are in a favorable position — REITs compete to acquire desirable properties, and the UPREIT structure lets them offer an attractive, tax-deferred deal. So if you own property a REIT wants, you may have an appealing UPREIT option (and some negotiating leverage on value and tax protection). The REIT's desire for your property works in your favor.</p>
+<p>Third, it underscores that the <a href="721-exchange-explained-convert-property-into-reit-units.html">721 exchange (from the owner's side)</a> is the same transaction as the UPREIT acquisition (from the REIT's side) — understanding both perspectives helps owners see the transaction wholly. So owners benefit from understanding how REITs use UPREITs: it reveals the opportunity and their position. What this means for property owners — that owners of desirable property have a valuable, tax-deferred UPREIT option that REITs actively seek to offer, giving them an opportunity and a favorable position — translates the REIT's acquisition perspective into owner implications. The UPREIT acquisition is an opportunity for owners of property REITs want. Understanding what it means for owners shows the practical upshot: if a REIT wants your property, the UPREIT offers you a beneficial tax-deferred exit. The REIT's acquisition need is the owner's opportunity, which understanding the structure reveals.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps owners with UPREIT acquisitions</h2>
+<p>Baker 1031 Investments helps property owners understand and pursue UPREIT acquisition opportunities — recognizing when a REIT wants your property (offering a tax-deferred exit via OP units), evaluating the opportunity (the REIT, the valuation, the tax protection), and executing the 721 exchange/UPREIT contribution. We help you see the transaction from both perspectives and capture the opportunity if it fits your goals.</p>
+<p>REIT units and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — the UPREIT contribution involves securities (OP units), available to suitable investors after a review. We help you evaluate the REIT, negotiate appropriate terms (value and tax protection), and coordinate with your CPA and attorney. Our role is to help owners benefit from UPREIT acquisitions — recognizing the opportunity when a REIT wants your property, and executing a beneficial tax-deferred exit into REIT ownership. Understanding how REITs use UPREITs reveals an opportunity for owners of desirable property, and we help you capture it on favorable terms if it fits your goals. We help you turn the REIT's acquisition interest into your beneficial exit.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why do REITs use the UPREIT structure to acquire property?<span class="ic"></span></summary>
+<div class="ans"><p>Because it lets them acquire property tax-deferred, overcoming the tax obstacle that deters owners from selling for cash. A REIT wanting a desirable property from a long-term, low-basis owner faces the problem that the owner would owe substantial tax on a cash sale — deterring the sale. The UPREIT structure lets the REIT offer OP units (instead of cash) as a tax-deferred acquisition currency, so the owner can contribute the property without triggering the tax. This expands the REIT's acquisitions to properties cash couldn't reach.</p></div>
+</details>
+<details>
+<summary>How do OP units work as acquisition currency?<span class="ic"></span></summary>
+<div class="ans"><p>The REIT offers owners OP units (rather than cash) for their property. Because contributing property for OP units is tax-deferred under Section 721, the owner can accept units without triggering the tax a cash sale would. So OP units function as a tax-advantaged currency — attractive to gain-laden owners (who'd lose a third to taxes in a cash sale) because they defer the tax and offer REIT ownership benefits. The OP-unit currency entices owners that cash couldn't, expanding the REIT's acquisition opportunities to properties it couldn't buy with cash.</p></div>
+</details>
+<details>
+<summary>Why is the UPREIT acquisition a win-win?<span class="ic"></span></summary>
+<div class="ans"><p>For the REIT, the win is acquiring desirable property it couldn't get with cash (growing its portfolio with attractive, established properties). For the owner, the win is exiting tax-deferred into diversified, passive REIT ownership (avoiding the tax a cash sale would trigger, gaining diversification, income, liquidity, and estate benefits). So both sides gain — the REIT gets the property, the owner gets tax-deferred REIT ownership. This mutual benefit, serving both parties, is why the UPREIT structure became widespread for acquisitions.</p></div>
+</details>
+<details>
+<summary>How does an UPREIT acquisition work?<span class="ic"></span></summary>
+<div class="ans"><p>The REIT identifies a property it wants and an owner open to OP units. The REIT (through its operating partnership) and the owner agree on the property's value, determining the OP units the owner receives. The owner contributes the property to the operating partnership, which issues the units — a tax-deferred Section 721 contribution. After the acquisition, the property is in the REIT's portfolio, and the former owner holds OP units. The REIT often also negotiates tax protection (not selling the property taxably for a period, protecting the owner's deferral). It's the 721 exchange from the REIT's side.</p></div>
+</details>
+<details>
+<summary>Does the UPREIT acquisition help REITs grow?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — it's a key REIT growth engine. UPREIT acquisitions let REITs reach desirable properties cash can't (from owners who won't sell and pay tax), acquire without using cash (preserving cash for other purposes), and align contributing owners' interests with the REIT's (the owners now hold units). Over time, REITs build large, diversified portfolios by accumulating properties from many contributing owners. So the UPREIT structure significantly drives REIT growth, enabling acquisitions that expand the portfolio. It gives REITs a competitive acquisition advantage for gain-laden owners' properties.</p></div>
+</details>
+<details>
+<summary>What does this mean for me as a property owner?<span class="ic"></span></summary>
+<div class="ans"><p>It means you have a valuable option if a REIT wants your property — you can contribute it for OP units (tax-deferred) rather than selling for cash (taxable). REITs actively seek to offer this, so owners of desirable property are in a favorable position (REITs compete to acquire, offering attractive tax-deferred deals, giving you some leverage on value and tax protection). The 721 exchange (your side) is the same transaction as the UPREIT acquisition (the REIT's side). So the REIT's acquisition need is your opportunity — a beneficial tax-deferred exit into REIT ownership.</p></div>
+</details>
+<details>
+<summary>Will a REIT want my property?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on whether your property fits a REIT's criteria — the property type (matching the REIT's sector focus), quality (institutional-grade, well-located, well-maintained), size and value (above a threshold to be worth acquiring), location (in the REIT's target markets), and financials. REITs want institutional-quality properties in their target sectors. If your property fits, a REIT may be interested in an UPREIT acquisition. If not, alternatives (like the DST bridge) may reach REIT ownership. We can help you assess whether your property is one a REIT would want to acquire.</p></div>
+</details>
+<details>
+<summary>Can I negotiate the terms of an UPREIT acquisition?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes, to a degree — the property's value (determining your units) and the tax protection (the REIT agreeing not to sell your property taxably for a period) are typically negotiated. If a REIT wants your property, you may have some leverage on these terms. The valuation affects how many units you receive (your stake's value), and the tax protection affects the security of your deferral. So negotiating appropriate value and tax protection is part of the UPREIT acquisition. Your advisors and attorney help negotiate favorable terms. The negotiability depends on the REIT's interest and the specifics.</p></div>
+</details>
+<details>
+<summary>What is tax protection in an UPREIT acquisition?<span class="ic"></span></summary>
+<div class="ans"><p>An agreement by the REIT/operating partnership not to sell your contributed property in a taxable way for a period (or to compensate you if it does), protecting your deferred gain from being triggered by a partnership sale. It addresses the risk that the REIT sells your property and triggers your tax unexpectedly. Tax protection is often negotiated as part of the acquisition, giving you assurance your deferral won't be prematurely triggered, for the protected period. It's an important term to negotiate, as it protects the security of your tax deferral after contributing your property.</p></div>
+</details>
+<details>
+<summary>Is contributing to an UPREIT the same as a 721 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — they're the same transaction viewed from different sides. The UPREIT acquisition (the REIT's perspective) and the 721 exchange (your perspective as the owner) describe the same contribution of your property to the REIT's operating partnership for OP units, tax-deferred under Section 721. So 'how REITs use UPREITs to acquire property' and 'how you do a 721 exchange' are two views of one transaction. Understanding both perspectives helps you see the transaction wholly — the REIT acquires, and you exit tax-deferred into REIT ownership, in the same deal.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help with UPREIT acquisitions?<span class="ic"></span></summary>
+<div class="ans"><p>We help you recognize when a REIT wants your property (offering a tax-deferred exit via OP units), evaluate the opportunity (the REIT's quality, the valuation, the tax protection), negotiate favorable terms, and execute the 721 exchange/UPREIT contribution, coordinating with your CPA and attorney. UPREIT contributions involve securities (OP units), offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review. We help you turn a REIT's acquisition interest into your beneficial, tax-deferred exit into REIT ownership on favorable terms, if it fits your goals.</p></div>
+</details>
+<details>
+<summary>Why would a REIT prefer OP units over paying cash?<span class="ic"></span></summary>
+<div class="ans"><p>Because OP units let the REIT acquire desirable property it couldn't get with cash (from owners who won't sell and pay tax), preserve its cash for other uses, and align the contributing owner's interests with the REIT's (the owner becomes a unit-holding stakeholder who benefits from the REIT's performance). So OP units expand the REIT's acquisition opportunities and offer efficiency and alignment that cash doesn't. For the REIT, the OP-unit currency is a strategic advantage — it reaches a pool of properties (gain-laden owners' holdings) and conserves cash, which is why REITs developed and use the UPREIT structure.</p></div>
+</details>
+<details>
+<summary>Does the REIT benefit more than the owner?<span class="ic"></span></summary>
+<div class="ans"><p>Not necessarily — the UPREIT acquisition is structured as a win-win, with both sides benefiting. The REIT gains a desirable property it couldn't acquire with cash; the owner gains a tax-deferred exit into diversified, passive REIT ownership (with income, liquidity, and estate benefits) that a cash sale couldn't provide. Both achieve their goals through the structure. The owner can also negotiate value and tax protection to ensure favorable terms. So neither inherently benefits more — the mutual benefit is what makes the arrangement work for both. A well-negotiated UPREIT acquisition serves the owner's interests as much as the REIT's.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>UPREIT Acquisition</dt><dd>A REIT acquiring property via OP units, the 721 exchange from the REIT's side.</dd></div>
+<div class="g"><dt>Acquisition Currency</dt><dd>OP units used by the REIT to acquire property tax-deferred.</dd></div>
+<div class="g"><dt>Tax Obstacle</dt><dd>The tax deterring owners from selling for cash, solved by the UPREIT.</dd></div>
+<div class="g"><dt>Low Basis</dt><dd>The small basis (large gain) of long-term owners REITs want.</dd></div>
+<div class="g"><dt>Operating Partnership</dt><dd>The vehicle through which the REIT acquires and holds property.</dd></div>
+<div class="g"><dt>OP Units</dt><dd>The tax-deferred consideration the REIT offers for property.</dd></div>
+<div class="g"><dt>Section 721</dt><dd>The provision making the contribution tax-deferred.</dd></div>
+<div class="g"><dt>Win-Win</dt><dd>The mutual benefit to the REIT (acquisition) and owner (deferred exit).</dd></div>
+<div class="g"><dt>Tax Protection</dt><dd>The REIT's agreement shielding the owner's gain from triggering.</dd></div>
+<div class="g"><dt>Portfolio Growth</dt><dd>REITs expanding via UPREIT acquisitions.</dd></div>
+<div class="g"><dt>General Partner</dt><dd>The REIT's controlling role in the operating partnership.</dd></div>
+<div class="g"><dt>Limited Partner</dt><dd>The contributing owner's unit-holding role.</dd></div>
+<div class="g"><dt>Cash Preservation</dt><dd>The REIT acquiring without cash via OP units.</dd></div>
+<div class="g"><dt>Interest Alignment</dt><dd>The contributing owner becoming a REIT stakeholder.</dd></div>
+<div class="g"><dt>Institutional Quality</dt><dd>The property standard REITs seek to acquire.</dd></div>
+<div class="g"><dt>Owner Opportunity</dt><dd>The tax-deferred exit available when a REIT wants your property.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/721" rel="noopener nofollow" target="_blank">26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">721 Exchange</a><a href="insights.html">721 UPREIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. <a href="721-exchange-upreit.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View 721 Exchange (UPREIT) →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

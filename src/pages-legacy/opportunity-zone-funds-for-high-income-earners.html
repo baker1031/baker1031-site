@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opportunity Zone Funds for High-Income Earners | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Opportunity Zone Funds for High-Income Earners
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Opportunity Zone Funds for High-Income Earners</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Opportunity Zone Funds</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">High-income earners — with large or recurring capital gains from equity compensation, business interests, or investments — face significant tax bills. This guide explains how Opportunity Zone funds offer deferral plus tax-free growth, how they pair with other planning strategies, the risk tolerance the strategy requires, and how to build an OZ allocation within a diversified plan.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">High-income earners often face a recurring challenge: large capital gains — from exercising or selling equity compensation, exiting business interests, or liquidating concentrated investment positions — that generate significant, repeated tax bills. For these investors, Opportunity Zone funds can be a natural fit, offering two benefits at once: deferral of the tax on the original gain, and the potential for tax-free growth on the new investment after a 10-year hold. But OZ funds aren't a fit for everyone, even among high earners — they require risk tolerance, a long time horizon, and the ability to commit illiquid capital. Used thoughtfully, an OZ allocation can be one portion of a diversified, well-planned portfolio for a high-income investor with the right gains and risk profile. This guide explains the high-earner capital-gains problem, the deferral-plus-growth benefit, how OZs pair with other strategies, the risk tolerance required, and how to build an OZ allocation. This is educational information, not tax or investment advice — verify the current rules with your advisors, as OZ rules are time-sensitive and evolving.</p>
+<h2 id="high-earner-problem">The high-earner capital-gains problem</h2>
+<p>High-income earners frequently face a particular problem: large or recurring capital gains that drive significant tax bills. These gains can come from several sources — exercising and selling equity compensation (stock options, RSUs, ESPP shares), exiting or selling business interests, or liquidating concentrated or appreciated investment positions. So a high earner may realize substantial capital gains in a given year (or repeatedly across years), each triggering a sizable tax.</p>
+<p>The challenge compounds for those whose income and gains recur — a senior executive vesting equity annually, a serial entrepreneur with periodic exits, or an investor regularly rebalancing a large portfolio. For them, capital-gains tax isn't a one-time event but an ongoing drag, reducing the capital available to reinvest and compound. So the high-earner capital-gains problem is both the size and the recurrence of the tax.</p>
+<p>This is precisely the kind of situation <a href="opportunity-zones-guide.html">Opportunity Zone</a> funds are designed to help with — deferring the tax and potentially eliminating it on new growth. So understanding the problem frames why OZs appeal to high earners. The high-earner capital-gains problem — large or recurring gains (from equity compensation, business interests, or investments) driving significant, repeated tax bills that reduce reinvestable capital — is what makes OZ funds appealing to high-income investors. The size and recurrence of the tax are the issue. Understanding the problem frames the OZ solution. High earners with large or recurring capital gains face significant, repeated tax bills — the problem Opportunity Zone funds address through deferral and tax-free growth.</p>
+<h2 id="deferral-growth">Deferral plus tax-free growth</h2>
+<p>Opportunity Zone funds offer high earners two benefits at once: deferral of the tax on the original gain, and the potential for tax-free growth on the new investment. The deferral works by reinvesting a capital gain into a QOF within 180 days, which postpones the tax on that gain to a later recognition date — so the high earner keeps the full pre-tax gain working, rather than paying the tax now and reinvesting less.</p>
+<p>The tax-free growth comes from the 10-year exclusion: if the investor holds the QOF investment for at least 10 years, the appreciation on that new investment is excluded from tax entirely (the basis steps up to fair market value at sale). So beyond deferring the original gain, the OZ can make the new investment's growth permanently tax-free — a powerful benefit for a high earner who can commit to the long hold. Note the exclusion applies to the new appreciation, not the original gain (which is still taxed at recognition).</p>
+<p>Together, deferral and tax-free growth make OZ funds especially attractive for high earners with significant gains and a long horizon. So this combination is the core OZ appeal. Deferral plus tax-free growth — postponing the tax on the original gain (keeping the full pre-tax gain working) and potentially eliminating tax on the new investment's appreciation after a 10-year hold — is the core OZ benefit for high earners. It addresses both the immediate tax and future growth. Understanding it shows the dual benefit. OZ funds offer high earners deferral on the original gain plus potential tax-free growth on the new investment after 10 years — a dual benefit suited to large gains and a long horizon.</p>
+<div class="pullquote"><p>For a high earner facing a large, recurring tax bill, the appeal is twofold: defer the tax due now, and let the new investment's growth compound entirely tax-free over a decade — if the investment performs and the long hold is acceptable.</p></div>
+<h2 id="pairing-strategies">Pairing with other strategies</h2>
+<p>For high earners, Opportunity Zone funds rarely stand alone — they pair with other tax and financial planning strategies as part of a comprehensive approach. A high earner might use OZ funds alongside charitable giving (such as donor-advised funds), retirement-account maximization, tax-loss harvesting, <a href="opportunity-zones-and-estate-planning.html">estate planning</a>, and other vehicles — each addressing a different need, with the OZ specifically targeting capital gains and long-term tax-free growth.</p>
+<p>OZs also complement, rather than replace, real-estate-specific strategies: a <a href="1031-exchange-guide.html">1031 exchange</a> defers real estate gains (real-estate-only), while the OZ can handle non-real-estate gains (stock, business, crypto) that the 1031 can't. So a high earner with diverse gains might use a 1031 for real estate and an OZ for other gains. The right mix depends on the investor's gains, goals, time horizon, and risk tolerance — coordinated across their advisor, CPA, and attorney.</p>
+<p>So OZ funds work best as one component of an integrated plan, not a standalone solution. So pairing the OZ with other strategies is how high earners use it effectively. Pairing with other strategies — using OZ funds alongside charitable giving, retirement maximization, tax-loss harvesting, estate planning, and 1031 exchanges (for real estate), with the OZ targeting capital gains and long-term tax-free growth — is how high earners integrate the OZ into a comprehensive plan. It complements other vehicles. Understanding the pairing shows the integrated approach. OZ funds pair with other strategies (charitable giving, retirement, estate planning, 1031s) as one component of a high earner's comprehensive plan, targeting capital gains and tax-free growth.</p>
+<h2 id="risk-tolerance">Risk tolerance requirements</h2>
+<p>Opportunity Zone funds require genuine risk tolerance and a long time horizon — they aren't a fit for every high earner, even those with significant gains. OZ funds are typically development-oriented, illiquid, and long-term: they carry development and execution risk (most are building or major-renovation projects), illiquidity (limited ability to exit before the investment resolves), and a long hold (ideally 10+ years for the tax-free exclusion). So a high earner considering OZ funds must be comfortable with these risks.</p>
+<p>This means OZ funds suit high earners who can commit capital for a decade, accept the illiquidity, tolerate development risk, and don't need the invested funds in the near or medium term. The tax benefits are only valuable if the investment performs — a poor OZ investment delivers little benefit even with the tax advantages, and could lose principal. So the risk tolerance requirement is real: the strategy isn't a guaranteed tax play but a <a href="opportunity-zone-investing-risks.html">risk-bearing investment</a>.</p>
+<p>So before pursuing OZ funds, a high earner should honestly assess their risk tolerance and time horizon. So matching the strategy to your risk profile is essential. Risk tolerance requirements — the development, illiquidity, and long-hold risks of OZ funds, requiring a high earner to commit capital for a decade, accept illiquidity, and tolerate development risk, with the tax benefits valuable only if the investment performs — mean OZ funds suit only those with the right risk profile. The strategy is risk-bearing, not guaranteed. Understanding the requirements shows the suitability bar. OZ funds require real risk tolerance and a long horizon (development risk, illiquidity, a 10-year hold) — suiting only high earners who can commit illiquid capital and accept the risks.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>High earners with large or recurring capital gains (from equity comp, business interests, or investments) face significant, repeated tax bills.</li>
+<li>OZ funds offer deferral on the original gain plus potential tax-free growth on the new investment after a 10-year hold.</li>
+<li>OZs pair with other strategies (charitable giving, retirement, estate planning, 1031s) as one component of a comprehensive plan — not a standalone fix.</li>
+<li>OZ funds require real risk tolerance and a long horizon; build the allocation as a portion of a diversified plan, sized to capital you can commit long-term.</li>
+</ul></div>
+<h2 id="building-allocation">Building an OZ allocation</h2>
+<p>For a high earner who fits the profile, the prudent approach is to build an OZ allocation as a portion of a diversified plan — not to concentrate capital in OZ funds. Because OZ funds are illiquid, long-term, and higher-risk, they generally warrant an allocation appropriate for such holdings: a meaningful but bounded share of investable assets, sized to capital the investor can commit for the long hold and afford to put at risk.</p>
+<p>Building the allocation thoughtfully means matching the OZ investment to specific gains (deferring particular capital gains within their 180-day windows), diversifying across funds or sponsors where possible (to reduce concentration risk), and integrating the OZ allocation with the rest of the portfolio (so it complements other holdings and planning). The investor's advisor and CPA help size and structure the allocation appropriately. So the OZ becomes one deliberate, well-sized piece of a broader plan.</p>
+<p>So a high earner builds an OZ allocation prudently — sized, diversified, and integrated — rather than over-committing. So thoughtful allocation is the goal. Building an OZ allocation — sizing it as a bounded portion of a diversified plan (appropriate for illiquid, long-term, higher-risk holdings), matching it to specific gains, diversifying across funds, and integrating it with the broader portfolio — is the prudent approach for a qualifying high earner. It avoids over-concentration. Understanding it shows how to allocate. Build an OZ allocation as a bounded, diversified, integrated portion of a high earner's plan — matched to specific gains and sized to long-term-only capital, not a place to over-concentrate.</p>
+<h2 id="who-fits">Which high earners fit best</h2>
+<p>Not every high earner is a fit for OZ funds — <a href="who-should-invest-in-opportunity-zone-funds.html">the strategy suits a particular persona</a>. The best-fit high earner has significant capital gains to defer (from equity compensation, a business sale, or investments), a long time horizon (able to hold 10+ years for the exclusion), real risk tolerance (comfortable with development risk and illiquidity), and a diversified financial base (so an illiquid OZ allocation is a portion, not the whole, of their assets).</p>
+<p>Such investors — senior executives with vesting equity, founders with exits, professionals and investors with recurring large gains — can use OZ funds to address their capital-gains tax while pursuing tax-free growth, within a diversified plan. By contrast, a high earner who needs liquidity, has a short horizon, or can't tolerate development risk is generally not a fit, regardless of their gains. So fit depends on gains, horizon, risk tolerance, and diversification — not income alone.</p>
+<p>So the strategy is for high earners whose full profile aligns, not simply anyone with a high income. So matching the persona is key. Which high earners fit best — those with significant gains, a long horizon, real risk tolerance, and a diversified base (senior executives, founders, investors with recurring gains) — clarifies that OZ funds suit a particular profile, not every high earner. Fit depends on more than income. Understanding the persona shows the suitability. OZ funds best fit high earners with significant gains, a long horizon, real risk tolerance, and a diversified base — a particular profile, not simply anyone with a high income.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps high earners</h2>
+<p>Baker 1031 Investments helps high-income earners evaluate whether Opportunity Zone funds fit their situation — addressing their capital-gains problem through deferral and potential tax-free growth, pairing the OZ with their other planning, assessing the risk tolerance required, and building an appropriately sized OZ allocation within a diversified plan — so the strategy serves their goals, not the tax benefit alone.</p>
+<p>QOF interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review (OZ investments are typically suitable for <a href="accredited-investor-requirements.html">accredited investor</a>s — and many high earners qualify). We do not provide tax or legal advice — your CPA and attorney handle your specific tax and estate planning, which are time-sensitive and evolving; we help you understand the OZ opportunity and access suitable funds, coordinating with your professionals. We're candid that OZ funds carry real risk (development, illiquidity, a long hold) and aren't a fit for every high earner — the tax benefits are valuable only if the investment performs and the risks are acceptable. Our role is to help high earners assess fit honestly, build a prudent allocation, and invest only when suitable, as one component of a diversified plan. The benefits are compelling for the right investor, and we help you determine whether you're one — verifying the current rules with your advisors.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why are Opportunity Zone funds appealing to high-income earners?<span class="ic"></span></summary>
+<div class="ans"><p>Because high earners often face large or recurring capital gains — from equity compensation (options, RSUs, ESPP shares), business interests, or investments — that generate significant, repeated tax bills, and OZ funds address exactly that. OZ funds offer two benefits at once: deferral of the tax on the original gain (reinvesting it into a QOF within 180 days postpones the tax, keeping the full pre-tax gain working) and the potential for tax-free growth on the new investment (if held 10+ years, the appreciation is excluded from tax). So for a high earner with significant gains and a long horizon, OZ funds can defer a sizable current tax and let the new investment grow tax-free. That said, OZ funds carry real risk (development, illiquidity, a long hold) and aren't a fit for every high earner — the tax benefits are valuable only if the investment performs. So they're appealing for the right high-earner profile. Verify the current rules with your advisors, as OZ rules are time-sensitive and evolving.</p></div>
+</details>
+<details>
+<summary>What is the high-earner capital-gains problem?<span class="ic"></span></summary>
+<div class="ans"><p>It's the challenge high-income earners face from large or recurring capital gains driving significant, repeated tax bills. These gains can come from exercising and selling equity compensation (options, RSUs, ESPP), exiting or selling business interests, or liquidating concentrated or appreciated investment positions — each triggering a sizable capital-gains tax (federal, often state). The problem compounds for those whose gains recur: a senior executive vesting equity annually, a serial entrepreneur with periodic exits, or an investor regularly rebalancing a large portfolio faces capital-gains tax as an ongoing drag, not a one-time event, reducing the capital available to reinvest and compound. So the high-earner capital-gains problem is both the size and the recurrence of the tax. This is precisely what Opportunity Zone funds are designed to help with — deferring the tax and potentially eliminating it on new growth. Understanding the problem frames why OZs appeal to high earners with significant, repeated gains.</p></div>
+</details>
+<details>
+<summary>How do OZ funds provide tax-free growth?<span class="ic"></span></summary>
+<div class="ans"><p>Through the 10-year exclusion: if you hold a QOF investment for at least 10 years, the appreciation on that new investment is excluded from tax entirely — the basis steps up to fair market value at sale, so there's no taxable gain on the growth. So beyond deferring the original gain, the OZ can make the new investment's growth permanently tax-free, which is the program's signature benefit and especially valuable for a high earner who can commit to the long hold. Importantly, the exclusion applies to the new appreciation, not the original gain (which is deferred and then taxed at its recognition date). So the OZ defers the original gain's tax and eliminates tax on the new investment's growth (after 10 years). The tax-free growth is only realized if the investment appreciates and you hold the full period, so it's a potential benefit contingent on performance and the long hold. Verify the current rules, as the program is time-sensitive and evolving.</p></div>
+</details>
+<details>
+<summary>How do OZ funds pair with other planning strategies?<span class="ic"></span></summary>
+<div class="ans"><p>OZ funds rarely stand alone for high earners — they pair with other strategies as part of a comprehensive plan. A high earner might use OZ funds alongside charitable giving (such as donor-advised funds), retirement-account maximization, tax-loss harvesting, estate planning, and other vehicles — each addressing a different need, with the OZ specifically targeting capital gains and long-term tax-free growth. OZs also complement real-estate strategies: a 1031 exchange defers real estate gains (real-estate-only), while the OZ can handle non-real-estate gains (stock, business, crypto) the 1031 can't — so a high earner with diverse gains might use both. The right mix depends on the investor's gains, goals, horizon, and risk tolerance, coordinated across their advisor, CPA, and attorney. So OZ funds work best as one component of an integrated plan, not a standalone solution. This is why coordination with your professionals matters. Verify the current rules and your specific situation with your advisors.</p></div>
+</details>
+<details>
+<summary>Do OZ funds require a high risk tolerance?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — OZ funds require genuine risk tolerance and a long horizon, and aren't a fit for every high earner, even those with significant gains. OZ funds are typically development-oriented, illiquid, and long-term: they carry development and execution risk (most are building or major-renovation projects), illiquidity (limited ability to exit before the investment resolves), and a long hold (ideally 10+ years for the exclusion). So a high earner considering OZ funds must be comfortable with these risks and able to commit capital for a decade. The tax benefits are only valuable if the investment performs — a poor OZ investment delivers little benefit even with the tax advantages, and could lose principal. So the strategy isn't a guaranteed tax play but a risk-bearing investment requiring real risk tolerance. A high earner who needs liquidity, has a short horizon, or can't tolerate development risk is generally not a fit, regardless of their gains. Assess your risk tolerance honestly before pursuing OZ funds.</p></div>
+</details>
+<details>
+<summary>How much should a high earner allocate to OZ funds?<span class="ic"></span></summary>
+<div class="ans"><p>There's no universal figure, but because OZ funds are illiquid, long-term, and higher-risk, they generally warrant an allocation appropriate for such holdings — a meaningful but bounded share of investable assets, sized to capital the high earner can commit for the long hold and afford to put at risk. The idea is to build an OZ allocation as a portion of a diversified plan, not to concentrate capital in OZ funds. Thoughtful allocation means matching the OZ investment to specific gains (deferring particular capital gains within their 180-day windows), diversifying across funds or sponsors where possible, and integrating the allocation with the rest of the portfolio. Your advisor and CPA help size and structure it appropriately given your gains, goals, liquidity needs, and risk tolerance. So don't over-commit — treat the OZ as one deliberate, well-sized piece of a broader plan. Verify the appropriate allocation for your situation with your advisors.</p></div>
+</details>
+<details>
+<summary>Can high earners use OZ funds for equity compensation gains?<span class="ic"></span></summary>
+<div class="ans"><p>Generally yes — capital gains from selling equity compensation (such as exercised and sold stock options, vested and sold RSUs, or ESPP shares) are capital gains that can typically be invested in a QOF to defer them, provided they're capital gains (and within the 180-day window). This makes OZ funds particularly relevant for executives and employees of public or successful private companies who realize large gains from their equity. A 1031 can't defer these gains (it's real-estate-only), so the OZ is often the relevant tax-deferral tool. The nuance is that equity compensation can have ordinary-income components (e.g., the bargain element on certain option exercises, or RSU income at vesting) that aren't OZ-eligible — only the capital-gain portion qualifies, and your CPA determines the split. So OZ funds can address the capital-gain portion of equity-compensation proceeds. Confirm your specific gain's eligibility, character, and timing with your CPA, and verify the current rules.</p></div>
+</details>
+<details>
+<summary>Are OZ funds only for the very wealthy?<span class="ic"></span></summary>
+<div class="ans"><p>Not exclusively, but OZ fund interests are typically offered through a broker-dealer following a suitability review, and are generally suitable for accredited investors — a category many high earners meet. The strategy tends to fit investors with significant capital gains to defer, a diversified financial base (so an illiquid OZ allocation is a portion, not the whole, of their assets), a long horizon, and real risk tolerance. So OZ funds aren't only for the ultra-wealthy, but they do suit investors with meaningful gains and the capacity to commit illiquid, long-term capital and bear the risk. Income alone doesn't determine fit — gains, horizon, risk tolerance, and diversification all matter. So a high earner should assess their full profile, not just their income, to determine fit. Baker 1031 helps evaluate suitability, and recommendations follow a suitability review. Verify the current accreditation and suitability standards with your advisors, as these rules can change.</p></div>
+</details>
+<details>
+<summary>Which high earners are the best fit for OZ funds?<span class="ic"></span></summary>
+<div class="ans"><p>The best-fit high earner has significant capital gains to defer (from equity compensation, a business sale, or investments), a long time horizon (able to hold 10+ years for the exclusion), real risk tolerance (comfortable with development risk and illiquidity), and a diversified financial base (so an illiquid OZ allocation is a portion, not the whole, of their assets). Such investors — senior executives with vesting equity, founders with exits, professionals and investors with recurring large gains — can use OZ funds to address their capital-gains tax while pursuing tax-free growth, within a diversified plan. By contrast, a high earner who needs liquidity, has a short horizon, or can't tolerate development risk is generally not a fit, regardless of their gains. So fit depends on gains, horizon, risk tolerance, and diversification — not income alone. The strategy is for high earners whose full profile aligns, not simply anyone with a high income. Assess your fit with your advisors.</p></div>
+</details>
+<details>
+<summary>Do OZ funds replace a 1031 exchange for high earners?<span class="ic"></span></summary>
+<div class="ans"><p>No — they serve different gains and often complement each other. A 1031 exchange defers gains on the sale of real estate (real-estate-only, reinvested in like-kind real property), while an OZ fund can defer virtually any capital gain, including non-real-estate gains (stock, business, crypto) that a 1031 can't touch. So a high earner with diverse gains might use a 1031 for real estate gains and an OZ for other gains — they're complementary, not substitutes. The two also differ in mechanics: the 1031 defers indefinitely with a potential step-up at death, while the OZ defers the original gain to a recognition date and offers tax-free growth on the new investment after 10 years. So neither replaces the other; each fits particular gains and goals. A high earner's plan might use both, coordinated by their advisor and CPA. So consider both tools for different gains. Verify the current rules for each strategy with your advisors, as both are time-sensitive.</p></div>
+</details>
+<details>
+<summary>What's the risk if the OZ investment doesn't perform?<span class="ic"></span></summary>
+<div class="ans"><p>The tax benefits are only valuable if the investment performs — so a poor OZ investment delivers little benefit even with the tax advantages, and could lose principal. The 10-year exclusion makes appreciation tax-free, but a poor investment may have no appreciation (or lose value), leaving little for the exclusion to apply to. And while the deferral postpones the original gain's tax, it doesn't add value if the investment fails. So the OZ is a risk-bearing investment, not a guaranteed tax play — a high earner can lose money in an OZ fund like any real estate or business investment. This is why risk tolerance and a sound investment matter as much as the tax benefits: a high earner should evaluate the OZ investment's merits (project, location, sponsor) first, treating the tax benefits as an enhancement, not the driver. So don't let the tax benefits justify a weak investment. Diversification, sponsor due diligence, and appropriate sizing mitigate (but don't eliminate) the risk. Verify and assess carefully with your advisors.</p></div>
+</details>
+<details>
+<summary>Can OZ funds help with recurring annual gains?<span class="ic"></span></summary>
+<div class="ans"><p>Potentially yes — a high earner with recurring capital gains (such as annually vesting and sold equity, or periodic business or investment exits) can, in principle, make OZ investments across multiple years, deferring different gains as they arise (each within its own 180-day window). So OZ funds can be a recurring tool for a high earner with ongoing gains, building a series of OZ investments over time. However, each investment carries the same considerations — illiquidity, a long hold, development risk, and appropriate sizing — so a high earner should be mindful not to over-concentrate in OZ funds across years. The cumulative illiquid allocation should remain a bounded portion of a diversified plan. So while OZ funds can address recurring gains, do so within a thoughtful, diversified allocation framework, coordinated with your advisor and CPA. So they can help with recurring gains, used prudently. Verify the current rules and your situation with your advisors, as the program is time-sensitive and evolving.</p></div>
+</details>
+<details>
+<summary>Should a high earner invest in OZ funds just for the tax savings?<span class="ic"></span></summary>
+<div class="ans"><p>No — a high earner shouldn't invest mainly for the tax benefit without regard to the investment's merits, because the tax reduction is only valuable if the investment performs (a poor investment delivers little benefit and could lose principal). So while the tax savings are a key reason high earners consider OZ funds, the OZ investment should be evaluated first on its merits (the project, location, sponsor), with the tax benefits as an enhancement, not the driver. Don't let the tax savings drive you into an unsound investment ('don't let the tax tail wag the dog'). So pursue OZ funds where both the investment is sound and the tax savings apply — the combination is the goal. A good investment with OZ tax benefits is ideal; a poor one with tax benefits is still a poor investment. So the tax savings motivate, but a sound investment and the right risk profile are essential. Evaluate both carefully with your advisors, and verify the current rules.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help high earners?<span class="ic"></span></summary>
+<div class="ans"><p>We help high-income earners evaluate whether Opportunity Zone funds fit their situation — addressing their capital-gains problem through deferral and potential tax-free growth, pairing the OZ with their other planning, assessing the risk tolerance required, and building an appropriately sized OZ allocation within a diversified plan — so the strategy serves their goals, not the tax benefit alone. QOF interests are offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review (OZ investments are typically suitable for accredited investors, and many high earners qualify). We do not provide tax or legal advice — your CPA and attorney handle your specific planning; we help you understand the OZ opportunity and access suitable funds, coordinating with your professionals. We're candid that OZ funds carry real risk and aren't a fit for every high earner. We help you assess fit honestly, build a prudent allocation, and invest only when suitable, verifying the current rules with your advisors.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>High-Income Earner</dt><dd>An investor with large or recurring income and gains.</dd></div>
+<div class="g"><dt>Capital-Gains Problem</dt><dd>Large or recurring gains driving significant tax bills.</dd></div>
+<div class="g"><dt>Equity Compensation</dt><dd>Options, RSUs, ESPP shares creating large gains.</dd></div>
+<div class="g"><dt>Deferral</dt><dd>Postponing the original gain's tax via a QOF.</dd></div>
+<div class="g"><dt>Tax-Free Growth</dt><dd>The 10-year exclusion on the new investment's appreciation.</dd></div>
+<div class="g"><dt>10-Year Exclusion</dt><dd>Holding 10+ years to make appreciation tax-free.</dd></div>
+<div class="g"><dt>Recognition Date</dt><dd>When the deferred original gain is taxed.</dd></div>
+<div class="g"><dt>Risk Tolerance</dt><dd>Capacity to bear development, illiquidity, and hold risk.</dd></div>
+<div class="g"><dt>Illiquidity</dt><dd>Limited ability to exit a QOF before it resolves.</dd></div>
+<div class="g"><dt>Long Horizon</dt><dd>The 10+ year commitment the strategy requires.</dd></div>
+<div class="g"><dt>OZ Allocation</dt><dd>A bounded portion of a diversified plan in OZ funds.</dd></div>
+<div class="g"><dt>Diversified Plan</dt><dd>A portfolio where OZ funds are one component.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income/net-worth standards.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether an OZ fund fits the investor.</dd></div>
+<div class="g"><dt>Pairing Strategies</dt><dd>Using OZ funds alongside other planning tools.</dd></div>
+<div class="g"><dt>Concentration Risk</dt><dd>Over-committing to OZ funds, to be avoided.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/credits-deductions/businesses/opportunity-zones-frequently-asked-questions" rel="noopener nofollow" target="_blank">Opportunity Zones Frequently Asked Questions</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1400Z-2" rel="noopener nofollow" target="_blank">26 U.S. Code § 1400Z-2 — Special rules for capital gains invested in opportunity zones</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/opportunity-zones" rel="noopener nofollow" target="_blank">Investor.gov — Opportunity Zones</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8997" rel="noopener nofollow" target="_blank">About Form 8997, Initial and Annual Statement of Qualified Opportunity Fund (QOF) Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Opportunity Zone Funds</a><a href="insights.html">Opportunity Zones</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Opportunity Zone Funds we currently have available and how they fit a strategy like this one. <a href="opportunity-zone-funds.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Opportunity Zone Funds →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

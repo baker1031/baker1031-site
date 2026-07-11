@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 'Perpetual Interest' Rule: When Oil &amp; Gas Qualifies as Real Property | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>The 'Perpetual Interest' Rule: When Oil & Gas Qualifies as Real Property
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">The 'Perpetual Interest' Rule: When Oil & Gas Qualifies as Real Property</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Mineral & Royalty</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">The 1031 eligibility of an oil & gas interest comes down to one test: does it last for the life of the reserve? This guide explains the perpetual-interest rule, how leases, royalties, and production payments convey or fail it, the IRS authority behind the standard, and the red flags that signal a non-qualifying interest.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">If there's one principle that governs whether an oil and gas interest can be exchanged under Section 1031, it's this: duration decides everything. The tax law doesn't ask whether the asset is oil, gas, or coal; it asks whether the interest is a continuing, perpetual interest in real property — one that lasts for the life of the reserve — or a finite, time-limited right that looks more like a contract or a loan. A perpetual interest is real property and qualifies; a finite interest may be recharacterized as personal property or debt and fail. This 'perpetual interest rule' is the lens through which every oil and gas exchange question should be viewed, and understanding it lets an owner predict, before consulting counsel, which side of the line their interest is likely to fall on. This guide explains the rule, how different interests convey or fail it, the authority behind it, and the warning signs of a non-qualifying interest.</p>
+<p>This duration principle underpins the entire framework laid out in <a href="mineral-rights-1031-guide.html">our pillar guide on 1031 exchanges for minerals and royalties</a>.</p>
+<h2 id="like-kind-test">The like-kind test for natural resources</h2>
+<p>Section 1031 defers gain on the exchange of like-kind real property held for investment. For natural resources, the threshold question is whether the interest counts as real property at all — and that turns on its character under state law and federal tax principles. Most producing states <a href="1031-mineral-rights-exchanges-by-state.html">classify mineral and royalty interests as real property</a>, and the IRS generally follows that classification. But not every interest tied to oil and gas is real property; some are treated as personal property or as debt, and those don't qualify.</p>
+<p>What separates the real-property interests from the others is durational character. The tax law associates real property with open-ended, continuing interests — a fee estate in land lasts indefinitely, and an interest in minerals that continues for the productive life of the reserve has that same open-ended quality. By contrast, an interest carved out for a fixed term or a set quantity of production resembles a lesser interest or a financing arrangement, lacking the permanence the law associates with real estate.</p>
+<p>So the like-kind test for natural resources isn't really about the resource; it's about the shape of the interest. The same field can give rise to a perpetual royalty (real property, qualifies) and a production payment (debt, doesn't qualify). The commodity is identical; the durational character differs. Grasping that the test is about duration, not the underlying mineral, is the key insight that makes the rest of oil and gas 1031 analysis comprehensible.</p>
+<h2 id="perpetual-vs-finite">Perpetual vs. finite interests</h2>
+<p>A perpetual interest continues for as long as the minerals produce — it has no fixed expiration date and no cap on the quantity of production it covers. A <a href="mineral-rights-vs-royalty-interests-1031.html">perpetual royalty, a fee mineral interest</a>, and a perpetual overriding royalty (where one exists) all share this quality: they ride along with the reserve for its entire productive life. This open-ended duration is what gives them the character of a real-property interest, like owning land that lasts indefinitely.</p>
+<p>A finite interest, by contrast, is bounded — either by time (a term of years) or by quantity (a set volume or dollar amount of production). A term royalty that expires after twenty years, an <a href="overriding-royalty-interest-orri-1031-exchange.html">override that ends with a short-dated lease</a>, or a production payment entitling the holder to a fixed sum are all finite. They have a built-in endpoint, which makes them resemble a contractual right to a stream of value rather than an ownership stake in producing real property. That resemblance is what jeopardizes their like-kind status.</p>
+<p>The practical consequence is a spectrum. At one end sit clearly perpetual interests that qualify cleanly. At the other sit clearly finite interests — especially production payments — that clearly don't. In between lie the harder cases: an override tied to a lease that's likely to last decades, or a term interest with a long remaining life. The perpetual-interest rule sorts the spectrum: the more open-ended and reserve-life-long the interest, the more comfortably it qualifies; the more bounded and finite, the more its eligibility is in doubt.</p>
+<div class="pullquote"><p>The same field can produce a perpetual royalty that qualifies and a production payment that doesn't. The commodity is identical — only the duration differs.</p></div>
+<h2 id="the-principle">Why duration is the deciding principle</h2>
+<p>Duration is the deciding principle because the tax law treats the recovery of a fixed sum or a finite stream of payments differently from the ownership of a continuing asset. When an interest is bounded — entitling its holder to a set quantity of production or a fixed dollar amount — it economically resembles the repayment of an investment, like a loan secured by production. The law captures this with the production-payment rules of Section 636, which treat such interests as mortgage loans rather than real-property ownership.</p>
+<p>A perpetual interest, by contrast, never 'pays off.' It continues indefinitely, sharing in production for the life of the reserve, with no defined endpoint at which the holder has recovered a set amount. That open-ended participation is the economic signature of ownership rather than financing, which is why the law treats it as a real-property interest. The duration test is really a proxy for the deeper question of whether the holder owns a continuing asset or holds a right to a finite recovery.</p>
+<p>This is why duration, not the commodity or the cash flow's appearance, is decisive. A finite interest and a perpetual interest can pay identically in the early years — both throw off production revenue — but they diverge in character because one will end after recovering a defined amount and the other will not. The tax law looks past the surface similarity to the durational substance, and so should any owner trying to predict their interest's 1031 eligibility.</p>
+<h2 id="how-leases-convey">How leases and mineral interests convey perpetual character</h2>
+<p>A fee mineral interest is the clearest perpetual interest: outright ownership of the minerals beneath a tract, lasting as long as the owner holds it and the minerals exist. It carries the full bundle of rights — to lease, develop, and receive royalties — and has the indefinite duration of any fee estate. Fee minerals qualify as real property and are exchangeable without duration concerns, making them among the cleanest oil and gas assets for a 1031.</p>
+<p>A leasehold (working interest) created by an oil and gas lease is more nuanced. The lease itself has a primary term but is typically extended 'held by production' for as long as the wells produce, giving the working interest a potentially long, production-dependent life. The working interest's real-property component can qualify, though its tangible equipment is non-qualifying personal property. The lease's production-extended duration generally supports real-property character for the mineral component, even though the lease has a nominal term.</p>
+<p>The interaction of these interests matters. A mineral owner who leases retains a perpetual royalty (clearly qualifying) while the lessee holds the working interest (qualifying as to the mineral component). Overrides and other interests carved from the leasehold inherit the lease's duration — which is why a lease 'held by production' for a long-lived field can support overrides that look perpetual in substance, while a short-dated lease undermines them. How an interest is conveyed and what it's carved from determines its durational character, and therefore its eligibility.</p>
+<h2 id="how-royalties-convey">How royalties convey or fail the rule</h2>
+<p>A perpetual royalty — the cost-free share of production a mineral owner reserves when leasing — is the archetypal qualifying interest. It continues for the productive life of the minerals, has no fixed term or quantity cap, and is real property under state law and IRS authority. For most owners contemplating an oil and gas exchange, a perpetual royalty is the safest, cleanest asset to relinquish or acquire, precisely because it sits squarely on the qualifying side of the perpetual-interest rule.</p>
+<p>A term royalty fails or jeopardizes the rule by introducing a fixed endpoint. A royalty limited to twenty years, or until a set volume is produced, has a built-in expiration that gives it finite character. Whether it qualifies depends on how closely it resembles a production payment versus a continuing interest, and the analysis is genuinely uncertain — which is why term royalties require a tax adviser's opinion rather than an assumption of eligibility.</p>
+<p>Overriding royalties occupy the middle ground because they're tied to the lease. A perpetual override on a long-lived, production-held lease can convey enough continuing character to qualify; an override on a short-dated or marginal lease looks finite and may not. The royalty's label tells you little; its duration tells you everything. This is the perpetual-interest rule applied to royalties: read the conveyance for the term, and judge eligibility by how open-ended the interest truly is.</p>
+<h2 id="production-payments-differ">How production payments differ</h2>
+<p>Production payments are the clearest failure of the perpetual-interest rule, and understanding why illuminates the whole principle. A production payment is a right to a specified sum of money or quantity of production, payable out of a mineral interest. Because it's capped — the holder is entitled to a defined amount and no more — it has an inherent endpoint: once the specified sum or volume is delivered, the interest terminates. That finite, defined recovery is the economic signature of a loan, not ownership.</p>
+<p>Section 636 codifies this by treating a production payment as a mortgage loan for tax purposes. The holder is regarded as having made a financing arrangement secured by the mineral property, not as owning a real-property interest. Because a loan isn't like-kind to real estate, a production payment generally cannot be exchanged under Section 1031, regardless of how the document is titled or how royalty-like the cash flow appears in the early years.</p>
+<p>This makes production payments the perfect illustration of the rule: they pay like a royalty but are taxed like debt, purely because of their finite, capped character. An owner who carved out a production payment to monetize part of a stream has, for tax purposes, taken out a loan against the minerals — and can't exchange it. Recognizing this prevents the costly error of assuming a 'royalty-like' interest qualifies when its defined cap actually makes it debt.</p>
+<h2 id="the-authority">The authority behind the standard</h2>
+<p>The perpetual-interest rule rests on a body of IRS authority and case law built up over decades. Revenue Ruling 68-226 treated a perpetual oil and gas royalty as real property; Revenue Ruling 73-428 recognized like-kind exchanges of royalty interests; and Revenue Ruling 72-117 addressed overriding royalty interests as real property capable of exchange. These rulings establish that perpetual mineral and royalty interests are real property eligible for like-kind treatment.</p>
+<p>On the other side, Section 636 and the authorities interpreting it establish that production payments are debt, not real property — the statutory anchor for disqualifying finite, capped interests. Between these poles, courts and the IRS have analyzed various interests by their durational character, consistently treating open-ended interests as real property and finite ones as something else. The throughline across all of it is the duration principle this guide describes.</p>
+<p>For an owner, the practical significance of the authority is that the perpetual-interest rule isn't a rule of thumb someone invented — it's grounded in rulings and statute that a tax adviser will apply to the specific interest. A clean perpetual royalty has clear, favorable authority behind it; a finite interest runs into the production-payment rules and the broader principle that bounded interests aren't like-kind to real estate. Knowing the authority exists, and that it turns on duration, helps an owner understand why their adviser's analysis focuses so relentlessly on the term of the interest.</p>
+<h2 id="red-flags">Red flags that signal personal property or debt</h2>
+<p>Certain features in a conveyance are red flags that an interest may not qualify. The clearest is a cap — language entitling the holder to a specified sum of money or a fixed quantity of production, after which the interest ends. A cap is the signature of a production payment and almost always signals debt treatment under Section 636, putting like-kind treatment out of reach.</p>
+<p>A fixed term is the second red flag. Language limiting the interest to a set number of years, or tying it to a lease's primary term without production extension, gives the interest a finite life that may push it toward non-qualifying status. The shorter and more certain the endpoint, the stronger the red flag. An interest that clearly terminates on a date or after an event lacks the open-ended character of real property.</p>
+<p>Other warning signs include language framing the interest as a right to payment rather than an ownership stake, structures that look like financing or the monetization of a fixed amount, and tangible equipment bundled in (non-qualifying personal property since 2017). None of these automatically disqualifies an interest, but each is a signal to slow down and get a tax adviser's read. Conversely, the absence of these features — an open-ended, uncapped, perpetual interest in producing minerals — is the green flag that the interest sits comfortably on the qualifying side of the rule.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Duration, not the commodity, decides whether an oil &amp; gas interest is like-kind real property.</li>
+<li>Perpetual interests (fee minerals, perpetual royalties) qualify; finite interests (term royalties, production payments) may not.</li>
+<li>Production payments are treated as loans under §636 because they're capped — the clearest failure of the rule.</li>
+<li>Red flags: a quantity or dollar cap, a fixed term, payment-right language, or bundled equipment.</li>
+</ul></div>
+<h2 id="why-it-matters">Why the rule matters in practice</h2>
+<p>The perpetual-interest rule matters because it determines, before anything else, whether an exchange is even possible. An owner who relinquishes a non-qualifying finite interest believing it's exchangeable can complete what looks like a 1031 only to have the IRS disallow it, triggering the full four-layer tax plus penalties. Because eligibility can't be fixed after the sale, the rule has to be applied up front, to the specific conveyance, by someone who understands it.</p>
+<p>It also shapes strategy. An owner who learns that their term interest or production payment won't qualify can plan differently — perhaps restructuring before any sale (with counsel), perhaps using a different deferral tool for the taxable portion, perhaps simply timing the sale to manage the tax. Knowing the rule's verdict in advance turns a potential disaster into a planned outcome. And an owner with a clean perpetual interest can proceed with confidence, knowing the threshold question is settled in their favor.</p>
+<p>Finally, the rule explains why advisers focus so intently on the conveyance documents. The label on an interest ('royalty,' 'override,' 'mineral rights') tells you little; the durational terms tell you everything. Reading those terms against the perpetual-interest rule is the first and most important step in any oil and gas exchange, and it's why every guide in this series returns to the same point: confirm the interest is a perpetual real-property interest before you do anything else.</p>
+<h2 id="confirming">Confirming your interest qualifies</h2>
+<p>To confirm your interest qualifies, start with the document that created it — the deed, reservation, assignment, or lease — and have it read by an oil and gas attorney or a tax adviser familiar with minerals. They'll identify whether you hold a fee mineral interest, a perpetual royalty, a term interest, an override, a net profits interest, or a production payment, and assess its durational character against the perpetual-interest rule. This characterization is the gating step for any exchange.</p>
+<p>If the interest is clearly perpetual, you can proceed with confidence. If it's finite or borderline — a term royalty, a short-dated override, anything with a cap — you need an opinion on whether it qualifies and with what confidence, which defines the risk you'd accept by exchanging it. For working interests, separately confirm the equipment carve-out. This analysis, done before you list or sign anything, is what prevents the worst outcome of exchanging a non-qualifying interest.</p>
+<p>The encouraging reality is that most straightforward mineral and royalty ownership — fee minerals and perpetual royalties — qualifies cleanly under well-settled authority. The perpetual-interest rule mainly flags the unusual cases: the carved-out production payments, the term interests, the short-dated overrides. For the typical owner of perpetual minerals or royalties, confirming eligibility is a quick, reassuring step; for owners of finite interests, it's the essential warning that lets them plan around a problem rather than stumble into it.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you apply the rule</h2>
+<p>Baker 1031 Investments helps owners apply the perpetual-interest rule to their specific situation — coordinating with your tax adviser to characterize the interest from the conveyance, assess its durational character, and confirm whether it qualifies before you commit to an exchange. Because eligibility turns on duration and can't be fixed after the fact, we treat this characterization as the essential first step, especially for overrides, term interests, and anything with a cap.</p>
+<p>Once eligibility is confirmed, we help identify qualifying replacement property — perpetual royalties, conventional real estate, or DSTs — and coordinate the exchange. Securities such as DSTs are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. Our role is to make sure the threshold question — is this a perpetual real-property interest? — is answered correctly before any clock starts running.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is the perpetual-interest rule?<span class="ic"></span></summary>
+<div class="ans"><p>The principle that an oil and gas interest qualifies as like-kind real property for a 1031 exchange when it's a continuing, perpetual interest lasting for the life of the reserve — rather than a finite, time- or quantity-limited interest that may be treated as personal property or debt. Duration, not the commodity, decides eligibility.</p></div>
+</details>
+<details>
+<summary>Why does duration decide 1031 eligibility?<span class="ic"></span></summary>
+<div class="ans"><p>Because the tax law treats a continuing, open-ended interest as ownership of real property, while a bounded interest that entitles the holder to a fixed amount resembles the repayment of a loan. A perpetual interest never 'pays off'; a finite one does. That economic difference — ownership versus financing — is captured by the duration test.</p></div>
+</details>
+<details>
+<summary>Which oil and gas interests are perpetual?<span class="ic"></span></summary>
+<div class="ans"><p>Fee mineral interests and perpetual royalties are the clearest — they continue for the productive life of the minerals with no fixed term or cap. A perpetual override on a long-lived, production-held lease can also qualify. These open-ended interests have the durational character of a real-property fee estate.</p></div>
+</details>
+<details>
+<summary>Which interests are finite and may not qualify?<span class="ic"></span></summary>
+<div class="ans"><p>Term royalties (limited to a set number of years), production payments (capped at a fixed sum or volume), and short-dated overrides tied to expiring leases. These have built-in endpoints that give them finite character, resembling contracts or loans rather than continuing real-property interests, so their like-kind status is doubtful.</p></div>
+</details>
+<details>
+<summary>Why don't production payments qualify?<span class="ic"></span></summary>
+<div class="ans"><p>Because they're capped — entitling the holder to a specified sum or volume, after which the interest ends — which makes them economically like a loan. Section 636 codifies this by treating a production payment as a mortgage loan. Since debt isn't like-kind to real estate, a production payment generally can't be exchanged under Section 1031.</p></div>
+</details>
+<details>
+<summary>Does the type of mineral matter?<span class="ic"></span></summary>
+<div class="ans"><p>No. The perpetual-interest rule looks at the durational character of the interest, not whether it's oil, gas, or another resource. The same field can produce a qualifying perpetual royalty and a non-qualifying production payment. The commodity is irrelevant; the shape and duration of the interest is what counts.</p></div>
+</details>
+<details>
+<summary>What authority supports the perpetual-interest rule?<span class="ic"></span></summary>
+<div class="ans"><p>Revenue Rulings 68-226 and 73-428 (perpetual royalties as real property), Rev. Rul. 72-117 (overrides as real property), and Section 636 with its interpreting authorities (production payments as debt). Together they establish that perpetual interests qualify and finite, capped interests don't — the duration principle in action.</p></div>
+</details>
+<details>
+<summary>How does a lease affect an interest's duration?<span class="ic"></span></summary>
+<div class="ans"><p>A lease has a primary term but is typically extended 'held by production' for as long as the wells produce. Interests carved from the lease — like overrides — inherit its duration, so a long-lived, production-held lease supports overrides that look perpetual, while a short-dated lease undermines them. The lease's effective life shapes the interests derived from it.</p></div>
+</details>
+<details>
+<summary>What are the red flags that an interest won't qualify?<span class="ic"></span></summary>
+<div class="ans"><p>A cap on the sum of money or quantity of production (the signature of a production payment), a fixed term of years, language framing the interest as a right to payment rather than ownership, and bundled tangible equipment (non-qualifying personal property). Any of these signals to get a tax adviser's read before exchanging.</p></div>
+</details>
+<details>
+<summary>Can a term royalty ever qualify?<span class="ic"></span></summary>
+<div class="ans"><p>It's uncertain and fact-specific. A term royalty's fixed endpoint gives it finite character, and whether it qualifies depends on how closely it resembles a production payment versus a continuing interest. Some long-dated term interests might qualify with a favorable opinion; short-dated ones likely won't. A term royalty always warrants a tax adviser's analysis rather than an assumption.</p></div>
+</details>
+<details>
+<summary>How do I confirm my interest is perpetual?<span class="ic"></span></summary>
+<div class="ans"><p>Have an oil and gas attorney or tax adviser read the conveyance that created it — the deed, reservation, assignment, or lease. They'll determine whether it's a fee interest, perpetual royalty, term interest, override, or production payment, and assess its duration against the rule. This characterization is the gating step before any exchange and can't be fixed afterward.</p></div>
+</details>
+<details>
+<summary>What happens if I exchange a non-qualifying interest?<span class="ic"></span></summary>
+<div class="ans"><p>The IRS can disallow the exchange, triggering the full four-layer tax (capital gains, depletion recapture, NIIT, state tax) plus potential penalties. Because eligibility can't be corrected after the sale, applying the perpetual-interest rule up front — confirming the interest qualifies before you commit — is essential to avoid this outcome.</p></div>
+</details>
+<details>
+<summary>Is the equipment in a working interest perpetual?<span class="ic"></span></summary>
+<div class="ans"><p>No — and it doesn't matter for the duration test, because equipment is personal property, not real property, and since 2017 personal property can't be exchanged like-kind regardless of duration. In a working interest, the real-property mineral component is analyzed under the perpetual-interest rule, while the equipment is simply carved out and taxed.</p></div>
+</details>
+<details>
+<summary>Does the perpetual-interest rule apply outside oil and gas?<span class="ic"></span></summary>
+<div class="ans"><p>The same durational logic applies to other natural-resource and real-property interests — continuing interests tend to be real property, while finite or capped rights resemble contracts or debt. The oil and gas context is where it's most developed because of the variety of interests, but the underlying principle that duration shapes real-property character is general.</p></div>
+</details>
+<details>
+<summary>Why do advisers focus on the conveyance documents?<span class="ic"></span></summary>
+<div class="ans"><p>Because the label on an interest ('royalty,' 'override,' 'mineral rights') reveals little about its eligibility, while the durational terms reveal everything. Reading the conveyance for the term, any cap, and the nature of the right is how an adviser applies the perpetual-interest rule, which is why it's the first and most important step in any oil and gas exchange.</p></div>
+</details>
+<details>
+<summary>Is most mineral ownership perpetual?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — most straightforward fee mineral and perpetual royalty ownership qualifies cleanly under well-settled authority. The perpetual-interest rule mainly flags unusual cases like production payments, term interests, and short-dated overrides. For the typical owner of perpetual minerals or royalties, confirming eligibility is a quick, reassuring step.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Perpetual-Interest Rule</dt><dd>The principle that an oil and gas interest qualifies for 1031 when it's a continuing interest lasting for the life of the reserve.</dd></div>
+<div class="g"><dt>Perpetual Interest</dt><dd>An open-ended interest with no fixed term or quantity cap, having the character of a real-property fee estate.</dd></div>
+<div class="g"><dt>Finite Interest</dt><dd>An interest bounded by a fixed term or quantity, resembling a contract or loan rather than ownership.</dd></div>
+<div class="g"><dt>Fee Mineral Interest</dt><dd>Outright, indefinite ownership of the minerals beneath a tract; the clearest perpetual interest.</dd></div>
+<div class="g"><dt>Perpetual Royalty</dt><dd>A cost-free production share continuing for the productive life of the minerals; clearly qualifying real property.</dd></div>
+<div class="g"><dt>Term Royalty</dt><dd>A royalty limited to a set number of years or quantity; finite character may disqualify it.</dd></div>
+<div class="g"><dt>Production Payment</dt><dd>A capped right to a fixed sum or volume of production, treated as a loan under IRC §636 — not real property.</dd></div>
+<div class="g"><dt>Overriding Royalty Interest (ORRI)</dt><dd>A royalty carved from a working interest; inherits the lease's duration.</dd></div>
+<div class="g"><dt>Held by Production</dt><dd>A lease extended beyond its primary term for as long as wells produce, lengthening derived interests.</dd></div>
+<div class="g"><dt>Section 636</dt><dd>The Code section treating mineral production payments as loans rather than real-property interests.</dd></div>
+<div class="g"><dt>Real Property</dt><dd>Land and interests in it, including perpetual mineral and royalty interests; the only property eligible for 1031 since 2017.</dd></div>
+<div class="g"><dt>Personal Property</dt><dd>Tangible operating equipment; ineligible for like-kind exchange after the 2017 TCJA.</dd></div>
+<div class="g"><dt>Like-Kind</dt><dd>The standard requiring exchanged property to share the character of real property held for investment.</dd></div>
+<div class="g"><dt>Revenue Ruling 68-226</dt><dd>IRS authority treating a perpetual oil and gas royalty as real property.</dd></div>
+<div class="g"><dt>Revenue Ruling 72-117</dt><dd>IRS authority treating overriding royalty interests as real property capable of exchange.</dd></div>
+<div class="g"><dt>Cap</dt><dd>A fixed limit on the sum or quantity an interest entitles its holder to — the signature of a production payment.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. Revenue Ruling 68-226 (oil and gas royalty as real property)</li><li>IRS. Revenue Ruling 72-117 (overriding royalty interests)</li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/636" rel="noopener nofollow" target="_blank">26 U.S. Code § 636 — Mineral production payments</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Mineral &amp; Royalty Interests we currently have available and how they fit a strategy like this one. <a href="mineral-royalty-interests.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Mineral &amp; Royalty Interests →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

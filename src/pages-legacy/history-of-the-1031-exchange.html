@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The History of the 1031 Exchange | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>The History of the 1031 Exchange
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">The History of the 1031 Exchange</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">1031 Exchange</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">The 1031 exchange isn't a modern loophole — it dates to the Revenue Act of 1921 and has evolved over a century through landmark court cases and regulations. This guide traces the history: the 1921 origins, early case law including the pivotal Starker case, the 1984 deferred-exchange rules, the 1991 safe-harbor regulations, and the 2017 TCJA change to real-property-only.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">The like-kind exchange is one of the oldest provisions in the U.S. tax code, dating back over a century to the Revenue Act of 1921. Far from being a modern loophole, it reflects a long-standing principle: when an investor merely exchanges one investment property for another similar one, continuing their investment rather than cashing out, no tax should be due because there's been no real economic gain realized in usable form. Over the decades, the provision evolved — through landmark court cases that expanded how exchanges could work, through legislation that codified deferred exchanges, through regulations that created the safe harbors investors rely on today, and through the 2017 tax reform that limited it to real property. Understanding this history gives context to the modern 1031 exchange and the principles behind it. This guide traces the 1031 exchange's history from its 1921 origins to today.</p>
+<h2 id="origins-1921">Origins: the Revenue Act of 1921</h2>
+<p>The like-kind exchange originated in the Revenue Act of 1921, just a few years after the modern federal income tax began (with the 16th Amendment in 1913 and the income tax in 1913-1916). Congress included a provision allowing the exchange of like-kind property without immediate taxation, recognizing that an investor who simply swaps one investment property for another similar one hasn't truly cashed out or realized gain in a spendable form — they've continued their investment in a different property.</p>
+<p>The rationale was both principled and practical. Principled: taxing a mere change in the form of an investment (from one property to a like-kind one) seemed inappropriate when the investor hadn't received cash or fundamentally changed their economic position. Practical: valuing exchanged property for tax purposes was difficult, and taxing paper exchanges where no cash changed hands could be administratively burdensome and could discourage productive reinvestment. So Congress allowed like-kind exchanges to be tax-deferred.</p>
+<p>This original provision established the core principle that endures today: an exchange of like-kind property, where the investor continues their investment rather than cashing out, defers the gain rather than triggering immediate tax. The deferred gain isn't forgiven — it's carried into the replacement property (via the basis) and recognized later if the investor eventually cashes out. So from 1921, the like-kind exchange was a deferral (not an exemption) reflecting the continuity of investment. The origins in the Revenue Act of 1921 — establishing the like-kind exchange as a tax-deferral for investors continuing their investment in like-kind property — are the foundation of the modern <a href="1031-exchange-guide.html">1031 exchange</a>. This century-old provision reflects an enduring principle about not taxing mere changes in the form of an investment, which is why the 1031 exchange has persisted for over a hundred years. The 1921 origins set the principle that still governs exchanges today.</p>
+<h2 id="early-case-law">Early development and the Starker case</h2>
+<p>Over the following decades, the like-kind exchange provision (eventually numbered Section 1031) developed through case law and practice. Initially, exchanges were understood as simultaneous swaps — two parties trading properties at the same time. But this was limiting, because finding someone who had exactly the property you wanted and wanted exactly the property you had (a direct two-way swap) was difficult. The rigidity of requiring simultaneous swaps constrained the provision's usefulness.</p>
+<p>The pivotal development was the Starker case (Starker v. United States), decided by the Ninth Circuit in 1979. The Starkers had transferred property in exchange for a promise to receive replacement property later — a non-simultaneous, or 'deferred,' exchange. The court ultimately allowed this delayed exchange to qualify under Section 1031, establishing that exchanges didn't have to be simultaneous swaps. This was revolutionary, because it opened the door to the deferred exchange — selling your property and acquiring replacement property later — which is how virtually all modern exchanges work.</p>
+<p>The Starker decision transformed the like-kind exchange from a rigid simultaneous-swap mechanism into a flexible deferred-exchange tool. By allowing time between the sale of the relinquished property and the acquisition of the replacement, Starker made exchanges practical for ordinary investors who couldn't find simultaneous swap partners. This judicial expansion set the stage for the legislative and regulatory framework that followed. The early development and the Starker case — establishing that exchanges could be deferred (non-simultaneous), not just simultaneous swaps — was the pivotal evolution that made the modern deferred exchange possible. Starker opened the door to the flexible exchanges investors use today, transforming the provision from a niche swap mechanism into a widely usable tool. The case law, culminating in Starker, was essential to the modern exchange's development.</p>
+<div class="pullquote"><p>The 1979 Starker case was revolutionary — it established that exchanges didn't have to be simultaneous swaps, opening the door to the deferred exchange that virtually all modern exchanges use.</p></div>
+<h2 id="1984-rules">The 1984 deferred exchange rules</h2>
+<p>After Starker established that deferred exchanges could qualify, Congress acted in 1984 to codify and regulate them — adding structure and deadlines to the deferred exchange. The Deficit Reduction Act of 1984 amended Section 1031 to establish the time limits that govern deferred exchanges to this day: the <a href="1031-exchange-identification-rules.html">45-day identification period</a> (to identify replacement property) and the 180-day exchange period (to complete the acquisition). These deadlines are among the core <a href="1031-exchange-rules-requirements.html">rules every exchange must follow</a> today. These deadlines brought certainty and structure to the deferred exchange that Starker had opened up.</p>
+<p>The 1984 rules responded to the open-endedness that Starker created. Without time limits, a deferred exchange could theoretically remain open indefinitely, which Congress found inappropriate. By imposing the 45- and 180-day deadlines, Congress allowed deferred exchanges (consistent with Starker) but bounded them in time, ensuring the exchange was completed within a reasonable period. These deadlines became the defining feature of the deferred exchange — the time pressure investors navigate today.</p>
+<p>The 1984 legislation thus turned the judicially-permitted deferred exchange into a statutorily-structured one, with clear (if strict) deadlines. This codification gave investors and practitioners certainty about how deferred exchanges worked, enabling the exchange industry to develop. The 45- and 180-day rules from 1984 remain central to every exchange today. The 1984 deferred exchange rules — codifying the deferred exchange with the 45-day identification and 180-day completion deadlines — structured the modern exchange and remain its defining timeline. This legislation built on Starker, turning the permitted deferred exchange into a bounded, structured process. The 1984 deadlines are the framework within which every modern exchange operates, a direct legacy of this legislation. The 1984 rules gave the deferred exchange its enduring structure.</p>
+<h2 id="1991-regulations">The 1991 regulations and safe harbors</h2>
+<p>While the 1984 law established the deadlines, important practical questions remained about how to conduct a deferred exchange without the investor 'constructively receiving' the sale proceeds (which would disqualify the exchange). The Treasury addressed these in comprehensive regulations finalized in 1991, which created the safe harbors that make modern exchanges practical and secure. The most important was the <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> safe harbor.</p>
+<p>The 1991 regulations established that using a qualified intermediary — a third party who holds the sale proceeds and facilitates the exchange — would prevent the investor from being treated as having received the funds, preserving the exchange. This QI safe harbor solved the constructive-receipt problem, giving investors a clear, reliable way to conduct deferred exchanges. The regulations also created other safe harbors (qualified escrow accounts, qualified trusts, and rules for interest on the funds) that added security and certainty.</p>
+<p>These 1991 regulations are why the qualified intermediary is central to modern exchanges — the QI safe harbor is the standard mechanism for conducting a deferred exchange. The regulations turned the deferred exchange from a legally permitted but practically tricky maneuver into a routine, well-understood process with clear safe harbors. Virtually every modern exchange uses the QI safe harbor created by these regulations. The 1991 regulations and safe harbors — especially the qualified intermediary safe harbor — made the deferred exchange practical and secure, establishing the QI-based process used today. These regulations completed the framework that the 1921 origins, Starker, and the 1984 deadlines had built, giving investors a clear and reliable way to conduct exchanges. The 1991 safe harbors are why exchanges work the way they do today, with the QI at the center.</p>
+<h2 id="tcja-2017">TCJA 2017: real property only</h2>
+<p>The most significant recent change came with the Tax Cuts and Jobs Act of 2017 (TCJA), which limited Section 1031 to real property. Before the TCJA, like-kind exchanges could apply to various kinds of property — not just real estate, but also personal property and intangibles (equipment, vehicles, certain collectibles, and more). The TCJA, effective for exchanges after 2017, restricted 1031 to real property held for productive use or investment.</p>
+<p>This change ended like-kind exchanges for personal property and intangibles. After the TCJA, you can no longer do a 1031 exchange of equipment, vehicles, artwork, or other non-real-property assets — only real estate. For most real estate investors, this didn't affect their core exchanges (real-estate-for-real-estate exchanges continued unchanged), but it ended exchanges of business personal property and had implications for things like the equipment components of certain properties.</p>
+<p>The TCJA's limitation to real property is the current state of Section 1031 — it applies to real property held for investment or productive use, not to personal property or intangibles. So the modern 1031 exchange is specifically a real estate tax-deferral tool. The TCJA preserved 1031 for real estate (the most common and economically significant use) while removing it for other asset types. TCJA 2017's limitation to real property — ending like-kind exchanges for personal property and intangibles while preserving them for real estate — is the most recent major change, defining the modern 1031 exchange as a real-estate-specific tool. This change narrowed the provision's scope but preserved its core real estate application, which is how the 1031 exchange operates today. The TCJA is the latest chapter in the exchange's century-long evolution, leaving it as a real estate deferral tool.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>The like-kind exchange dates to the Revenue Act of 1921, reflecting the principle of not taxing mere changes in an investment's form.</li>
+<li>The 1979 Starker case established that exchanges could be deferred (non-simultaneous), enabling the modern exchange.</li>
+<li>The 1984 law added the 45-day identification and 180-day completion deadlines; the 1991 regulations created the qualified intermediary safe harbor.</li>
+<li>The 2017 TCJA limited Section 1031 to real property, ending exchanges of personal property and intangibles.</li>
+</ul></div>
+<h2 id="exchange-today">The exchange today</h2>
+<p>Today's 1031 exchange is the product of this century-long evolution — a real-property tax-deferral tool, conducted as a deferred exchange using a qualified intermediary, within the 45- and 180-day deadlines. The 1921 principle (deferral for continued investment), the Starker flexibility (deferred exchanges), the 1984 structure (deadlines), the 1991 safe harbors (the QI mechanism), and the 2017 scope (real property only) together define the modern exchange. Each historical development contributed an element of how exchanges work today.</p>
+<p>The modern exchange is widely used and well-established, supporting real estate investment, reinvestment, and the kind of property repositioning the original 1921 principle envisioned — mechanics we walk through for newcomers in our <a href="1031-exchange-basics-first-time-investors.html">primer for first-time exchangers</a>. Investors exchange into larger properties, diversify, change markets, or move into passive structures like DSTs (which themselves rely on a body of guidance, such as the 2004 ruling recognizing DSTs as exchangeable real property interests). The exchange remains a cornerstone of real estate tax strategy, a century after its origins.</p>
+<p>Understanding the history gives context to the modern exchange's features — why there's a qualified intermediary (1991 safe harbor), why there are 45- and 180-day deadlines (1984 rules), why deferred exchanges work (Starker), why it's real-property-only (TCJA), and why it exists at all (the 1921 principle of deferral for continued investment). The exchange today — the product of the 1921 origins, Starker, the 1984 deadlines, the 1991 safe harbors, and the 2017 real-property limitation — is a well-established real estate tax-deferral tool whose features reflect its century of evolution. Knowing this history illuminates how and why the modern exchange works as it does, and grounds the provision as a long-standing, principled part of the tax code rather than a recent loophole. The exchange today carries its full history in its modern form.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you use the modern exchange</h2>
+<p>Baker 1031 Investments helps investors use the modern 1031 exchange — the product of its century-long history — effectively. We guide you through the deferred exchange process (using a qualified intermediary, within the 45- and 180-day deadlines), identify replacement real property (including passive DST options), and structure the exchange to defer your gain, applying the framework that history has built. Understanding the exchange's principles and structure helps us help you use it well.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), with any recommendation following a suitability review — DSTs, recognized as exchangeable real property interests, are a modern application of the long-standing exchange principle. We help you apply the modern exchange (real property, deferred, QI-based, within the deadlines) to your goals, drawing on the well-established framework the exchange's history has produced. Our role is to help you use the modern 1031 exchange — a century-old tool in its current form — to defer your gain and reposition your real estate, grounded in the principles and structure that history has established.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>When did the 1031 exchange start?<span class="ic"></span></summary>
+<div class="ans"><p>The like-kind exchange originated in the Revenue Act of 1921, just a few years after the modern federal income tax began. Congress allowed the exchange of like-kind property without immediate taxation, recognizing that an investor who swaps one investment property for another similar one hasn't truly cashed out. So the 1031 exchange is over a century old — a long-standing provision, not a modern loophole, reflecting an enduring principle about not taxing mere changes in an investment's form.</p></div>
+</details>
+<details>
+<summary>Why was the like-kind exchange created?<span class="ic"></span></summary>
+<div class="ans"><p>For both principled and practical reasons. Principled: taxing a mere change in an investment's form (from one property to a like-kind one) seemed inappropriate when the investor hadn't received cash or changed their economic position. Practical: valuing exchanged property was difficult, and taxing paper exchanges with no cash could be burdensome and discourage productive reinvestment. So Congress allowed like-kind exchanges to defer the gain, reflecting the continuity of investment. This 1921 rationale still underlies the exchange today.</p></div>
+</details>
+<details>
+<summary>What was the Starker case?<span class="ic"></span></summary>
+<div class="ans"><p>Starker v. United States (Ninth Circuit, 1979) was the pivotal case establishing that exchanges didn't have to be simultaneous swaps — the Starkers transferred property for a promise to receive replacement property later (a deferred exchange), and the court allowed it under Section 1031. This opened the door to the deferred exchange — selling your property and acquiring replacement property later — which is how virtually all modern exchanges work. Starker transformed the exchange from a rigid swap into a flexible tool.</p></div>
+</details>
+<details>
+<summary>Where do the 45- and 180-day deadlines come from?<span class="ic"></span></summary>
+<div class="ans"><p>The Deficit Reduction Act of 1984, which codified the deferred exchange (permitted by Starker) and added the time limits: the 45-day identification period and the 180-day exchange period. Congress allowed deferred exchanges but bounded them in time, since an open-ended deferred exchange was inappropriate. These 1984 deadlines became the defining feature of the deferred exchange and remain central to every exchange today. The time pressure investors navigate is a direct legacy of the 1984 rules.</p></div>
+</details>
+<details>
+<summary>Why is there a qualified intermediary?<span class="ic"></span></summary>
+<div class="ans"><p>Because of the 1991 Treasury regulations, which created the qualified intermediary safe harbor. The QI — a third party who holds the sale proceeds — prevents the investor from constructively receiving the funds (which would disqualify the exchange). The 1991 regulations established this safe harbor as the standard mechanism for conducting a deferred exchange, solving the constructive-receipt problem. This is why the QI is central to modern exchanges — it's the safe-harbor mechanism the 1991 regulations created.</p></div>
+</details>
+<details>
+<summary>What did the 2017 TCJA change?<span class="ic"></span></summary>
+<div class="ans"><p>The Tax Cuts and Jobs Act of 2017 limited Section 1031 to real property, ending like-kind exchanges for personal property and intangibles (equipment, vehicles, artwork, etc.). Before the TCJA, 1031 applied to various property types; after it (for exchanges after 2017), only real estate held for investment or productive use qualifies. For most real estate investors, real-estate-for-real-estate exchanges continued unchanged, but exchanges of business personal property ended. This defines the modern 1031 as a real-estate-specific tool.</p></div>
+</details>
+<details>
+<summary>Can I still exchange equipment or personal property?<span class="ic"></span></summary>
+<div class="ans"><p>No — since the 2017 TCJA, like-kind exchanges apply only to real property. You can no longer do a 1031 exchange of equipment, vehicles, artwork, or other non-real-property assets — only real estate held for investment or productive use. So the modern 1031 exchange is specifically a real estate tax-deferral tool. If you have personal property, the 1031 exchange is no longer available for it; the TCJA ended that application while preserving real estate exchanges.</p></div>
+</details>
+<details>
+<summary>Is the 1031 exchange a loophole?<span class="ic"></span></summary>
+<div class="ans"><p>Not in the sense of an unintended gap — it's a deliberate, century-old provision (since 1921) reflecting the principle that exchanging one investment property for a like-kind one (continuing the investment) shouldn't trigger immediate tax. The gain is deferred, not forgiven — it's carried into the replacement property and recognized later if the investor cashes out. So it's a long-standing, principled deferral mechanism, not a loophole, with a clear rationale and a century of legislative and judicial development.</p></div>
+</details>
+<details>
+<summary>How is the deferred gain eventually taxed?<span class="ic"></span></summary>
+<div class="ans"><p>The deferred gain carries into the replacement property via the basis, and is recognized later if the investor eventually sells in a taxable transaction (rather than exchanging again or holding until death). So the exchange defers, not forgives, the gain — consistent with the 1921 principle. If the investor keeps exchanging, the deferral continues; if they hold until death, the step-up in basis can erase the accumulated deferred gain. The eventual taxation (or step-up) is part of the exchange's long-standing design.</p></div>
+</details>
+<details>
+<summary>How are DSTs related to the exchange's history?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs are a modern application of the exchange principle, recognized as exchangeable real property interests by IRS guidance (a 2004 ruling). They let investors exchange into passive, fractional real estate interests, extending the exchange to passive structures. So DSTs are a relatively recent development building on the exchange's framework — applying the long-standing exchange principle (deferral for continued real estate investment) to a passive, securitized form. They're part of the exchange's ongoing evolution.</p></div>
+</details>
+<details>
+<summary>Has the 1031 exchange changed much over time?<span class="ic"></span></summary>
+<div class="ans"><p>It has evolved significantly while retaining its core principle. The 1921 origins established the deferral principle; Starker (1979) allowed deferred exchanges; the 1984 law added the deadlines; the 1991 regulations created the QI safe harbor; and the 2017 TCJA limited it to real property. So the mechanics evolved (from simultaneous swaps to QI-based deferred exchanges) and the scope narrowed (to real property), but the core principle — deferral for continued like-kind investment — has endured for over a century.</p></div>
+</details>
+<details>
+<summary>Why does the history matter for using an exchange today?<span class="ic"></span></summary>
+<div class="ans"><p>Because it explains the modern exchange's features — the qualified intermediary (1991 safe harbor), the 45- and 180-day deadlines (1984 rules), the deferred-exchange structure (Starker), the real-property scope (TCJA), and the deferral principle (1921 origins). Understanding why these features exist helps you appreciate how and why the exchange works as it does. The history grounds the modern exchange as a principled, well-established tool, giving context to its rules and reassurance about its durability.</p></div>
+</details>
+<details>
+<summary>Was the exchange always called a '1031' exchange?<span class="ic"></span></summary>
+<div class="ans"><p>The 'Section 1031' designation refers to its place in the Internal Revenue Code. The like-kind exchange originated in 1921 and was carried into the Internal Revenue Code, eventually numbered Section 1031 (its location in the 1954 Code, which renumbered many provisions). So the substance dates to 1921, while the '1031' label reflects its code section. Today, investors commonly call it a '1031 exchange' after the code section, but the underlying like-kind exchange concept is over a century old, predating the specific numbering.</p></div>
+</details>
+<details>
+<summary>Why were exchanges limited to simultaneous swaps at first?<span class="ic"></span></summary>
+<div class="ans"><p>Because the original conception of an 'exchange' was a literal trade — two parties swapping properties at the same time, which fit the plain idea of exchanging like-kind property. The limitation was conceptual and practical, but it constrained the provision, since finding a party with exactly the property you wanted who wanted exactly yours was difficult. The Starker case (1979) broke this limitation by allowing deferred (non-simultaneous) exchanges, transforming the provision from a rigid swap into the flexible deferred exchange used today.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Revenue Act of 1921</dt><dd>The legislation that originated the like-kind exchange provision.</dd></div>
+<div class="g"><dt>Section 1031</dt><dd>The Internal Revenue Code section governing like-kind exchanges.</dd></div>
+<div class="g"><dt>Like-Kind Exchange</dt><dd>The tax-deferred exchange of like-kind investment property.</dd></div>
+<div class="g"><dt>Starker Case</dt><dd>The 1979 case establishing that exchanges could be deferred (non-simultaneous).</dd></div>
+<div class="g"><dt>Deferred Exchange</dt><dd>An exchange where the replacement is acquired after the relinquished sale, enabled by Starker.</dd></div>
+<div class="g"><dt>Simultaneous Swap</dt><dd>The original exchange form — two parties trading properties at once.</dd></div>
+<div class="g"><dt>Deficit Reduction Act of 1984</dt><dd>The law codifying deferred exchanges with the 45- and 180-day deadlines.</dd></div>
+<div class="g"><dt>45-Day Identification Period</dt><dd>The deadline to identify replacement property, from the 1984 rules.</dd></div>
+<div class="g"><dt>180-Day Exchange Period</dt><dd>The deadline to complete the exchange, from the 1984 rules.</dd></div>
+<div class="g"><dt>1991 Regulations</dt><dd>The Treasury regulations creating the QI and other safe harbors.</dd></div>
+<div class="g"><dt>Qualified Intermediary Safe Harbor</dt><dd>The 1991 mechanism preventing constructive receipt via a QI.</dd></div>
+<div class="g"><dt>Constructive Receipt</dt><dd>Control over funds that disqualifies the exchange, solved by the QI safe harbor.</dd></div>
+<div class="g"><dt>Tax Cuts and Jobs Act (TCJA)</dt><dd>The 2017 law limiting Section 1031 to real property.</dd></div>
+<div class="g"><dt>Real Property</dt><dd>The only property type eligible for 1031 since the TCJA.</dd></div>
+<div class="g"><dt>Personal Property</dt><dd>Non-real-estate assets, no longer 1031-eligible after the TCJA.</dd></div>
+<div class="g"><dt>Deferral</dt><dd>The exchange's effect — postponing, not forgiving, the gain, since 1921.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>U.S. Congress. <a href="https://www.congress.gov/bill/115th-congress/house-bill/1" rel="noopener nofollow" target="_blank">Tax Cuts and Jobs Act of 2017 (Public Law 115-97)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/cfr/text/26/1.1031(k)-1" rel="noopener nofollow" target="_blank">26 CFR § 1.1031(k)-1 — Treatment of deferred exchanges</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">1031 Exchange</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the 1031 Exchanges we currently have available and how they fit a strategy like this one. <a href="1031-exchanges.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View 1031 Exchanges →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

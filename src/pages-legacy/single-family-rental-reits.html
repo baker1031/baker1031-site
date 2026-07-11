@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Single-Family Rental REITs | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Single-Family Rental REITs
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Single-Family Rental REITs</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Single-family rental (SFR) REITs own scattered-site rental homes — the institutionalization of the single-family rental market. This guide explains what they own, the demand for rental homes, why scattered-site operations are complex, the maintenance and turnover costs, and how to evaluate the sector.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">For most of its history, single-family rental was a fragmented business run by individual landlords owning a handful of homes. Single-family rental (SFR) REITs represent the institutionalization of that market — large, professionally managed portfolios of thousands of scattered-site rental homes owned and operated by a single company. The demand thesis is straightforward: housing affordability is pushing more households to rent, and many renters want the space, yards, and school districts that single-family homes offer, plus the flexibility of renting rather than buying. The operational reality is harder: managing thousands of dispersed homes is far more complex than running concentrated apartment buildings, so scale, geographic density, and technology matter enormously, and maintenance and turnover costs run higher per unit than in apartments. This guide explains what SFR REITs own, the demand for rental homes, the challenge of scattered-site operations, the maintenance and turnover costs, and how to evaluate the sector. Demand, return, and outlook statements here are general and non-promissory — past performance doesn't guarantee future results, and you should verify current conditions; this is educational information, not investment advice.</p>
+<p>Single-family rentals are one part of a much larger residential and REIT story, told in full in our <a href="reits-guide.html">full primer on REITs and the 721 exchange</a>.</p>
+<h2 id="what-sfr-reits-own">What SFR REITs Own</h2>
+<p>A single-family rental REIT owns scattered-site single-family rental homes — individual houses, spread across neighborhoods and metro areas, that the REIT leases to residents. Unlike an apartment REIT, which owns concentrated buildings on single parcels, an SFR REIT owns thousands of separate homes in different locations. This is the institutionalization of a market that was historically the province of small, individual landlords: the SFR REIT aggregates many homes into one professionally managed, large-scale portfolio.</p>
+<p>The homes themselves are typically conventional suburban single-family residences — the kind of houses families buy or rent for the space, yards, and school access they offer. SFR REITs assemble these portfolios by acquiring existing homes (and, increasingly, by building new homes specifically for rent, sometimes in dedicated build-to-rent communities). The REIT earns rental income from leases on these homes and, over time, may benefit from appreciation in home values. Larger SFR REITs concentrate their homes in particular high-growth markets to gain operating density.</p>
+<p>So an SFR REIT owns a large, scattered-site portfolio of single-family rental homes, professionally managing what was once a fragmented, individual-landlord business. So understanding what it owns frames the sector. What SFR REITs own — thousands of scattered-site single-family rental homes (acquired or built-to-rent), professionally aggregated into a large-scale portfolio that institutionalizes a once-fragmented, individual-landlord market, earning rental income and potential appreciation — distinguishes the model from concentrated apartment ownership. Dispersed homes, not buildings, are the asset. Understanding what these REITs own frames everything else. An SFR REIT owns thousands of scattered-site single-family rental homes, professionally managing at scale what was historically a fragmented, individual-landlord business, and earning rental income plus potential appreciation.</p>
+<h2 id="demand-for-rental-homes">Demand for Rental Homes</h2>
+<p>The demand thesis for SFR rests on several converging forces. Housing affordability is the most prominent: as home prices and mortgage rates have made buying harder for many households, more families are renting for longer — and many of them want a house, not an apartment. Renting a single-family home lets a household access the space, yard, and neighborhood of a house without the down payment, mortgage, and maintenance obligations of ownership, which keeps a steady pool of demand for rental homes.</p>
+<p>Lifestyle and demographic factors reinforce that demand. Many renters seeking single-family homes are families who want extra bedrooms, a yard, and access to good school districts — needs that apartments don't meet as well. Others value the flexibility of renting (no transaction costs, easier relocation) even when they could afford to buy. Suburban and family renters, in particular, have become a meaningful and growing renter segment. None of this is guaranteed to persist, and conditions vary by market, but the underlying demand drivers are structural rather than purely cyclical — one reason rental housing is often grouped among the <a href="recession-resistant-reit-sectors.html">more defensive, recession-resistant REIT sectors</a>.</p>
+<p>So demand for rental homes is driven by affordability pushing households to rent, plus families wanting space, yards, and schools, and renters valuing flexibility. So this demand driver anchors the thesis. Demand for rental homes — housing affordability pushing more households (especially families) to rent rather than buy, the appeal of single-family space, yards, and school access that apartments don't match, and the flexibility many renters value — underpins steady demand for SFR, though conditions vary by market and past results don't guarantee the future. Affordability and family lifestyle are the anchors. Understanding them explains the sector's growth. SFR demand is driven by affordability pushing households to rent, families wanting space, yards, and schools, and renters valuing flexibility — structural drivers, though conditions vary.</p>
+<div class="pullquote"><p>The SFR thesis in one line: when buying a house gets out of reach, the demand to live in a house doesn't disappear — it shows up as demand to rent one.</p></div>
+<h2 id="scattered-site-operations">Scattered-Site Operations</h2>
+<p>The defining operational challenge of SFR is that the homes are scattered. Managing thousands of dispersed single-family homes is far more complex than managing concentrated apartment buildings, where hundreds of units sit on one parcel with shared systems and on-site staff. With SFR, each home is a separate property in a separate location, each with its own roof, HVAC, plumbing, yard, and local quirks — so leasing, maintenance, inspections, and resident service all have to be coordinated across a wide geographic footprint.</p>
+<p>This is why scale, geographic density, and technology matter so much in SFR. The more homes a REIT clusters within a given market, the more efficiently it can dispatch maintenance crews, manage leasing, and spread fixed costs — so density within markets, not just total home count, drives operating efficiency. Technology platforms for leasing, maintenance dispatch, resident communication, and home monitoring are central to running a scattered portfolio at scale. A well-run SFR REIT is as much a logistics-and-technology operation as a real estate owner, and operating skill differentiates the strong from the weak.</p>
+<p>So scattered-site operations are SFR's central complexity: dispersed homes demand scale, market density, and technology to manage efficiently, making operating skill a key differentiator. So this operational reality shapes the sector. Scattered-site operations — the complexity of managing thousands of dispersed single-family homes (each with its own systems and location) versus concentrated apartments, which makes scale, geographic density within markets, and technology essential to operating efficiency — are SFR's defining challenge and a key differentiator between operators. Density and technology, not just home count, drive efficiency. Understanding this explains why operating skill matters. SFR's central challenge is scattered-site operations: managing thousands of dispersed homes demands scale, market density, and technology, making operating skill a key differentiator between REITs.</p>
+<h2 id="maintenance-turnover-costs">Maintenance &amp; Turnover Costs</h2>
+<p>A direct consequence of the scattered-site model is that maintenance and turnover costs run higher per unit than in apartments. Each single-family home has its own building systems — roof, HVAC, water heater, plumbing, exterior, and often a yard — so there are more components to maintain per resident than in an apartment building where systems are shared and centralized. Routine and unexpected repairs, dispatched to dispersed locations, add up, and the cost per home is structurally higher than the cost per apartment unit.</p>
+<p>Turnover is similarly more expensive. When a resident moves out of a single-family home, the REIT typically has to clean, repair, repaint, and sometimes re-landscape the entire house before re-leasing it — a bigger 'make-ready' job than turning a single apartment unit, and one that may leave the home vacant longer given its dispersed location. Higher maintenance and turnover costs are why expense control, efficient maintenance operations, and strategies to extend resident tenure (reducing turnover) are so central to SFR profitability. These costs are a structural feature of the asset class, not a sign of poor management.</p>
+<p>So maintenance and turnover costs are structurally higher per unit in SFR than in apartments, making expense control and resident retention central to profitability. So these costs shape the economics. Maintenance and turnover costs — single-family homes each carrying their own building systems and yards (more to maintain per resident than shared-system apartments) and requiring a larger make-ready effort at turnover (with potentially longer vacancy), making per-unit costs structurally higher — are an inherent feature of SFR that puts a premium on expense control and resident retention. Higher per-unit costs are built into the asset class. Understanding them shapes the economics. SFR maintenance and turnover costs run structurally higher per unit than apartments because each home has its own systems and a bigger make-ready job, making expense control and retention central to profitability.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>SFR REITs own thousands of scattered-site single-family rental homes, institutionalizing a once-fragmented, individual-landlord market.</li>
+<li>Demand rests on affordability pushing households to rent, families wanting space, yards, and schools, and renters valuing flexibility.</li>
+<li>Scattered-site operations are the central challenge — managing dispersed homes makes scale, market density, and technology essential.</li>
+<li>Maintenance and turnover costs run structurally higher per unit than apartments, making expense control and resident retention central to profitability.</li>
+</ul></div>
+<h2 id="evaluating-sfr-reits">Evaluating SFR REITs</h2>
+<p>Evaluating an SFR REIT begins with market selection and geographic density. Investors look at which markets the REIT has chosen — typically high-growth, affordability-pressured metros with strong household formation and job growth — and how densely the REIT has clustered its homes within those markets, since density drives operating efficiency. A portfolio concentrated in well-chosen, growing markets with operating density is positioned differently from one thinly spread across many areas. The mix of acquired versus built-to-rent homes also matters.</p>
+<p>From there, the analysis turns to operating performance and costs. Occupancy and rent growth show demand strength; expense control — particularly maintenance and turnover costs, the sector's structural pressure points — shows operating skill. Resident retention (longer tenure reduces costly turnover) and the quality of the REIT's technology and maintenance platforms are differentiators worth examining. As with any REIT, investors also weigh the standard metrics — FFO, AFFO, and NAV — leverage, and the structure (traded versus non-traded), all within a suitability review for non-traded offerings.</p>
+<p>So evaluating SFR REITs means weighing market selection and density, occupancy and rent growth, expense control (especially maintenance and turnover), retention, and operating platforms, alongside the usual REIT metrics and structure. So this framework guides analysis. Evaluating SFR REITs — assessing market selection and geographic density (high-growth, affordability-pressured markets with home clustering), the acquired-versus-built-to-rent mix, occupancy and rent growth, expense control (especially maintenance and turnover), resident retention, and operating-technology platforms, plus FFO/AFFO/NAV, leverage, and structure within a suitability review — frames a disciplined look at the sector. Market selection, density, and expense control are central. Understanding this framework guides analysis. Evaluate SFR REITs by market selection and density, occupancy and rent growth, expense control (especially maintenance and turnover), retention, and operating platforms, alongside FFO/AFFO/NAV, leverage, and structure.</p>
+<div class="pullquote"><p>In SFR, the winners aren't just the ones who buy the right houses — they're the ones who can fix, lease, and re-lease thousands of scattered homes cheaply and fast.</p></div>
+<h2 id="growth-and-risk-profile">Growth and Risk Profile</h2>
+<p>Bringing the picture together, SFR REITs present a growth-oriented profile tied to housing fundamentals. The structural demand drivers — affordability pushing households to rent, families wanting houses, and renters valuing flexibility — have supported occupancy and rent growth, and the institutionalization of a fragmented market offers room for professionally managed operators to gain scale. For investors, SFR offers exposure to single-family housing through a liquid (if traded) vehicle, without the work of being a landlord.</p>
+<p>The risks are equally real. The scattered-site model carries structurally higher maintenance and turnover costs, so an operator that loses expense discipline can see margins erode quickly. SFR is also exposed to the housing cycle (home values and rents can fall), to local market conditions, and to regulatory factors like local landlord-tenant rules and eviction regulations. Like all REITs, SFR REITs carry market, interest-rate, leverage, and distribution risks — distributions aren't guaranteed, and share prices or NAVs can fluctuate. The growth thesis is a tendency, not a promise, and conditions vary by market.</p>
+<p>So the growth-and-risk profile is growth-oriented but operationally demanding: strong housing-driven demand meets higher operating costs and ordinary REIT risks. So this balanced view frames expectations. The growth and risk profile — structural, housing-driven demand and the institutionalization opportunity supporting occupancy and rent growth, balanced against structurally higher maintenance and turnover costs, housing-cycle and local-regulatory exposure, and ordinary REIT risks — captures the sector's appeal and its qualifiers. It's growth-leaning but operationally demanding. Understanding this sets realistic expectations. SFR REITs offer a growth-oriented profile from housing-driven demand, tempered by higher operating costs, housing-cycle and regulatory exposure, and ordinary REIT risks; nothing here is guaranteed.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Evaluate SFR REITs</h2>
+<p>Baker 1031 Investments helps investors understand the single-family rental REIT sector — what these scattered-site REITs own, the demand for rental homes, the operational complexity of scattered-site management, the maintenance and turnover costs, and how to evaluate market selection, geographic density, occupancy, and expense control — so you can decide whether the sector fits your goals and, if so, access suitable offerings.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. We help you understand the sector's demand drivers, operational dynamics, and cost pressures, evaluate specific SFR REIT offerings (the markets, density, occupancy, expense control, fees, and structure), and, if suitable, access them. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific situation, including how REIT dividends are taxed. We keep demand and outlook statements general and non-promissory — yields and returns are never promised, past performance does not guarantee future results, and you should verify current conditions. Our role is to help you evaluate the sector clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a single-family rental REIT?<span class="ic"></span></summary>
+<div class="ans"><p>A single-family rental (SFR) REIT is a Real Estate Investment Trust that owns scattered-site single-family rental homes — individual houses, spread across neighborhoods and metro areas, that the REIT leases to residents. Unlike an apartment REIT, which owns concentrated buildings on single parcels, an SFR REIT owns thousands of separate homes in different locations, professionally aggregated into one large-scale portfolio. This represents the institutionalization of a market that was historically run by small, individual landlords. The homes are typically conventional suburban single-family residences, assembled by acquiring existing homes and, increasingly, by building new homes specifically for rent. The REIT earns rental income from leases and may benefit from home-value appreciation over time, distributing most of its taxable income to shareholders as dividends like any REIT. So an SFR REIT is a large, professionally managed owner of scattered-site single-family rental homes — exposure to single-family housing through a security rather than direct landlording.</p></div>
+</details>
+<details>
+<summary>How do SFR REITs make money?<span class="ic"></span></summary>
+<div class="ans"><p>SFR REITs make money primarily from the rent residents pay on the single-family homes they lease. The REIT owns thousands of scattered-site homes and collects rental income from leases across the portfolio, which, after operating expenses, is distributed to shareholders as dividends in keeping with the REIT rules. Over time, the REIT may also benefit from appreciation in the value of the homes it owns, which can add to total return (though it isn't paid out as current income). The profitability of an SFR REIT depends heavily on controlling costs — particularly maintenance and turnover, which run structurally higher per unit than in apartments — and on keeping occupancy and rents healthy. Operating efficiency, driven by scale, geographic density, and technology, is central to how much of the rent collected actually reaches investors. So SFR REITs earn money from rental income on their homes (plus potential appreciation) and pass most of it through to investors as dividends, with cost control central to profitability.</p></div>
+</details>
+<details>
+<summary>Why is demand for single-family rentals growing?<span class="ic"></span></summary>
+<div class="ans"><p>Demand for single-family rentals is driven by several converging forces. Housing affordability is the most prominent: as home prices and mortgage costs have made buying harder for many households, more families rent for longer — and many want a house, not an apartment. Renting a single-family home lets a household access the space, yard, and neighborhood of a house without the down payment, mortgage, and maintenance of ownership. Lifestyle and demographic factors reinforce this: many SFR renters are families who want extra bedrooms, a yard, and access to good school districts — needs apartments don't meet as well — while others simply value the flexibility of renting even when they could buy. Suburban and family renters have become a meaningful, growing segment. None of this is guaranteed to persist, and conditions vary by market, but the drivers are structural rather than purely cyclical. So SFR demand grows from affordability, family lifestyle needs, and the flexibility of renting a house.</p></div>
+</details>
+<details>
+<summary>Why are scattered-site operations complex?<span class="ic"></span></summary>
+<div class="ans"><p>Scattered-site operations are complex because the homes are dispersed rather than concentrated. An apartment REIT manages hundreds of units on a single parcel, with shared systems and on-site staff. An SFR REIT manages thousands of separate homes in different locations, each with its own roof, HVAC, plumbing, yard, and local quirks — so leasing, maintenance, inspections, and resident service all have to be coordinated across a wide geographic footprint. This is why scale, geographic density, and technology matter so much: the more homes a REIT clusters within a given market, the more efficiently it can dispatch crews, manage leasing, and spread fixed costs. Technology platforms for leasing, maintenance dispatch, resident communication, and home monitoring are central to running a scattered portfolio at scale. A well-run SFR REIT is as much a logistics-and-technology operation as a real estate owner. So scattered-site operations are complex because dispersed homes demand scale, market density, and technology to manage efficiently, making operating skill a key differentiator.</p></div>
+</details>
+<details>
+<summary>Why are SFR maintenance and turnover costs higher than apartments?<span class="ic"></span></summary>
+<div class="ans"><p>SFR maintenance and turnover costs run higher per unit than apartments because each single-family home has its own building systems and a larger make-ready job. A home carries its own roof, HVAC, water heater, plumbing, exterior, and often a yard, so there are more components to maintain per resident than in an apartment building where systems are shared and centralized. Repairs, dispatched to dispersed locations, add up, and the cost per home is structurally higher than per apartment unit. Turnover is similarly more expensive: when a resident moves out, the REIT typically has to clean, repair, repaint, and sometimes re-landscape the entire house before re-leasing — a bigger job than turning a single apartment, and one that may leave the home vacant longer given its location. These costs are a structural feature of the asset class, which is why expense control and resident retention are so central to SFR profitability. So SFR costs are higher because each home has its own systems and a larger make-ready effort at turnover.</p></div>
+</details>
+<details>
+<summary>What is build-to-rent?<span class="ic"></span></summary>
+<div class="ans"><p>Build-to-rent (BTR) refers to single-family homes that are constructed specifically to be rented rather than sold to owner-occupants. Increasingly, SFR REITs and operators are building new homes — sometimes in dedicated communities of rental houses — as an alternative to acquiring existing scattered homes one at a time. Build-to-rent communities can offer operating advantages: homes are clustered together (improving density and maintenance efficiency), they're newer (reducing maintenance costs and capital expenditures), and they can be designed and amenitized specifically for renters. This is a way to add supply that meets the structural demand for single-family rental living while improving the operating efficiency that scattered acquisitions can lack. Build-to-rent has become a meaningful part of how the SFR sector grows. So build-to-rent is the practice of constructing new single-family homes specifically for rental — often in clustered communities — offering newer homes and better operating density than scattered acquisitions. It's an increasingly important growth channel for SFR REITs.</p></div>
+</details>
+<details>
+<summary>How is an SFR REIT different from an apartment REIT?<span class="ic"></span></summary>
+<div class="ans"><p>The core difference is the form and dispersion of the assets. An apartment REIT owns multifamily buildings — hundreds of units concentrated on single parcels, with shared building systems and on-site staff. An SFR REIT owns thousands of separate single-family homes scattered across neighborhoods and metro areas, each with its own systems and location. This drives several practical differences. Operationally, SFR is more complex: managing dispersed homes requires scale, geographic density, and technology, where apartments benefit from concentration. Cost-wise, SFR carries structurally higher per-unit maintenance and turnover costs because each home has its own systems and a bigger make-ready job. On the demand side, SFR specifically serves renters who want a house — space, a yard, and school access — while apartments serve those wanting urban or amenity-rich rental living. Both can offer steady rental income, but the operating models and cost structures differ. So an SFR REIT owns dispersed houses (complex, higher-cost operations) while an apartment REIT owns concentrated buildings (more efficient operations).</p></div>
+</details>
+<details>
+<summary>Why does geographic density matter for SFR REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Geographic density matters because it drives operating efficiency in a business where the homes are inherently dispersed. The more homes an SFR REIT clusters within a given market or submarket, the more efficiently it can run them: maintenance crews can be dispatched to nearby homes rather than driving across a metro, leasing teams can cover a tighter area, and fixed operating costs can be spread across more units in the same vicinity. A REIT with thousands of homes thinly spread across many markets faces higher per-home operating costs than one with the same number of homes densely concentrated in a few markets. That's why total home count alone doesn't tell the whole story — density within markets is what translates scale into efficiency. Evaluating an SFR REIT therefore involves looking not just at how many homes it owns but at how concentrated those homes are within its chosen markets. So geographic density matters because clustering homes lowers per-home operating costs, turning scale into genuine operating efficiency in a scattered-site business.</p></div>
+</details>
+<details>
+<summary>How do I evaluate a single-family rental REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Start with market selection and geographic density: which markets the REIT has chosen (typically high-growth, affordability-pressured metros with strong household formation and job growth) and how densely it has clustered its homes within those markets, since density drives operating efficiency. Consider the mix of acquired versus built-to-rent homes. Then assess operating performance and costs: occupancy and rent growth (demand strength), and expense control — particularly maintenance and turnover costs, the sector's structural pressure points (operating skill). Resident retention, since longer tenure reduces costly turnover, and the quality of the REIT's technology and maintenance platforms are differentiators worth examining. As with any REIT, weigh the standard metrics (FFO, AFFO, and NAV), leverage, and structure (traded versus non-traded), within a suitability review for non-traded offerings. So evaluate an SFR REIT by market selection and density, occupancy and rent growth, expense control (especially maintenance and turnover), retention, and operating platforms, alongside the usual REIT financial metrics and structure.</p></div>
+</details>
+<details>
+<summary>What are FFO, AFFO, and NAV?<span class="ic"></span></summary>
+<div class="ans"><p>FFO (funds from operations), AFFO (adjusted funds from operations), and NAV (net asset value) are the core metrics for evaluating REITs, including SFR REITs. FFO adjusts net income by adding back real estate depreciation (a large non-cash charge) and removing gains or losses on property sales, giving a clearer picture of the recurring cash a REIT's properties generate than standard earnings do. AFFO refines FFO further by subtracting recurring capital expenditures and other adjustments, approximating the cash actually available to support distributions — often considered the better gauge of distribution sustainability, and especially relevant for SFR given its higher maintenance capital needs. NAV estimates the per-share value of the REIT's underlying real estate net of debt, useful for judging whether shares trade at a premium or discount to asset value (and the basis for pricing non-traded REITs). For SFR REITs, these metrics apply to rental-home income and home values. So FFO, AFFO, and NAV measure cash flow, distribution coverage, and asset value — the standard lens for any REIT. Verify the specifics for any given REIT.</p></div>
+</details>
+<details>
+<summary>Are SFR REITs a growth or income investment?<span class="ic"></span></summary>
+<div class="ans"><p>SFR REITs tend to be more growth-oriented than pure income plays, though they offer both. The growth case rests on structural demand — affordability pushing households to rent, families wanting houses, and renters valuing flexibility — which has supported occupancy and rent growth, plus the institutionalization opportunity that lets professionally managed operators gain scale and benefit from home-value appreciation over time. That said, SFR REITs do pay dividends like all REITs, distributing most of their taxable income, so they provide an income component too. The balance leans toward growth because much of the return potential comes from rent growth and appreciation rather than a high current yield, and because the sector is still maturing as it institutionalizes a once-fragmented market. As always, growth and income are tendencies, not promises — distributions aren't guaranteed, and share prices, rents, and home values can fluctuate. So SFR REITs combine a growth orientation (rent growth and appreciation) with a dividend income component, leaning more toward growth than a high-yield income REIT.</p></div>
+</details>
+<details>
+<summary>Can I use an SFR REIT in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>No — REIT shares, including those of a single-family rental REIT, are not eligible for a 1031 exchange. A 1031 exchange requires the exchange of like-kind real property held for investment or business use, and REIT shares are securities (interests in a company), not real property, so they don't qualify. This means you can't sell investment real estate and 1031 directly into an SFR REIT to defer your capital-gains tax. There is an indirect path: you can 1031 into a Delaware Statutory Trust (DST), which is 1031-eligible like-kind real property, and the DST's property may later be acquired by a REIT through a 721 (UPREIT) exchange, converting your interest into operating-partnership units while maintaining deferral. But a direct 1031 into an SFR REIT isn't possible. Notably, individual rental houses you own directly are 1031-eligible real property — it's the REIT share that isn't. Baker 1031 does not provide tax advice, so confirm specifics with your tax advisor. So SFR REIT shares can't be used directly in a 1031 exchange, though a DST-then-721 path can bridge to REIT exposure with deferral preserved.</p></div>
+</details>
+<details>
+<summary>Are SFR REITs available to all investors?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the structure. Publicly traded SFR REITs are listed on stock exchanges and available to virtually any investor through an ordinary brokerage account — you can buy shares, or invest through a REIT fund or ETF that holds them, with no special qualification. Non-traded and private SFR REITs, by contrast, are offered through a broker-dealer, often have investment minimums, and typically require accredited or otherwise suitable investors. Before you invest in a non-traded offering, a suitability review considers your financial situation, goals, liquidity needs, and risk tolerance to determine whether an illiquid, longer-term investment is appropriate for you. This gatekeeping reflects the illiquidity and complexity of non-traded structures. So for liquid, broadly available exposure, publicly traded SFR REITs are the route, while non-traded offerings are gated and advisor-assisted. So availability depends on whether the REIT is traded (broadly accessible) or non-traded (offered through a broker-dealer to suitable investors after a suitability review).</p></div>
+</details>
+<details>
+<summary>What are the main risks of investing in SFR REITs?<span class="ic"></span></summary>
+<div class="ans"><p>SFR REITs carry several risks worth understanding. First, operating risk: the scattered-site model carries structurally higher maintenance and turnover costs than apartments, so an operator that loses expense discipline can see margins erode quickly — operating skill genuinely matters. Second, housing-cycle risk: SFR is exposed to home values and rents, which can fall during downturns, pressuring both income and the value of the homes. Third, local-market and regulatory risk: SFR operates under local landlord-tenant rules, eviction regulations, and occasionally political scrutiny of institutional single-family ownership, all of which vary by jurisdiction. Fourth, the ordinary REIT risks: market risk (traded share prices fluctuate), interest-rate risk, leverage risk, and distribution risk (dividends aren't guaranteed and can be cut). Concentration in particular markets can amplify local downturns. So while SFR REITs offer exposure to housing-driven demand, they carry real operating, cyclical, regulatory, and standard REIT risks. Diversification and disciplined operations help manage these, but they don't eliminate them, and past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me evaluate SFR REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand the single-family rental REIT sector — what these scattered-site REITs own, the demand for rental homes, the operational complexity of scattered-site management, the maintenance and turnover costs, and how to evaluate market selection, geographic density, occupancy, and expense control — so you can decide whether the sector fits your goals and, if so, access suitable offerings. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We help you understand the demand drivers, operational dynamics, and cost pressures, evaluate specific offerings (markets, density, occupancy, expense control, fees, and structure), and, if suitable, access them. Baker 1031 does not provide tax or legal advice — your CPA handles your specific situation. We keep demand and outlook statements general and non-promissory; yields and returns are never promised, past performance doesn't guarantee future results, and you should verify current conditions.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Single-Family Rental (SFR) REIT</dt><dd>A REIT that owns scattered-site single-family rental homes.</dd></div>
+<div class="g"><dt>Scattered-Site</dt><dd>Homes dispersed across locations rather than concentrated.</dd></div>
+<div class="g"><dt>Build-to-Rent (BTR)</dt><dd>New single-family homes built specifically for rent.</dd></div>
+<div class="g"><dt>Geographic Density</dt><dd>Clustering homes within a market for operating efficiency.</dd></div>
+<div class="g"><dt>Make-Ready</dt><dd>Preparing a vacated home for re-leasing.</dd></div>
+<div class="g"><dt>Turnover</dt><dd>The cost and process of re-leasing a vacated home.</dd></div>
+<div class="g"><dt>Occupancy</dt><dd>The share of homes in the portfolio that are leased.</dd></div>
+<div class="g"><dt>Resident Retention</dt><dd>Keeping residents longer to reduce costly turnover.</dd></div>
+<div class="g"><dt>Institutionalization</dt><dd>Professional, large-scale ownership of a once-fragmented market.</dd></div>
+<div class="g"><dt>Suburban Renter</dt><dd>A renter household seeking a single-family home and yard.</dd></div>
+<div class="g"><dt>Rent Growth</dt><dd>The rate at which rents on the homes increase.</dd></div>
+<div class="g"><dt>Expense Control</dt><dd>Managing maintenance and turnover costs to protect margins.</dd></div>
+<div class="g"><dt>FFO</dt><dd>Funds from operations — a REIT's recurring cash measure.</dd></div>
+<div class="g"><dt>AFFO</dt><dd>Adjusted FFO — cash available to support distributions.</dd></div>
+<div class="g"><dt>NAV</dt><dd>Net asset value — per-share value of the real estate.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether a non-traded REIT fits the investor.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-1099-div" rel="noopener nofollow" target="_blank">About Form 1099-DIV, Dividends and Distributions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

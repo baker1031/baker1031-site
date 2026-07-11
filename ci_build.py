@@ -91,19 +91,37 @@ def mult(v):
     return str(v).strip()
 
 # ---------------------------------------------------------------- maps
+def urlseg(u):
+    """Last path segment of a sheet URL value, sanitized into a clean slug."""
+    seg = u.rstrip('/').split('/')[-1]
+    return slugify(seg.replace('&', ' and '))
+
 off_slug = {}
 for row in LIST:
     u = s(row.get('URL'))
-    off_slug[row['Investment Name']] = (u.split('/')[-1] if u else slugify(row['Investment Name'])) + '.html'
+    off_slug[row['Investment Name']] = (urlseg(u) if u else slugify(row['Investment Name'])) + '.html'
 
 spon_slug = {}
 for row in LIST:
     su = s(row.get('Sponsor URL'))
     if su:
-        spon_slug[s(row['Sponsor'])] = 'sponsor-' + su.split('/')[-1] + '.html'
+        spon_slug[s(row['Sponsor'])] = 'sponsor-' + urlseg(su) + '.html'
 for sp in SPON:
     nm = s(sp['Investment Firm'])
-    spon_slug.setdefault(nm, 'sponsor-' + slugify(nm) + '.html')
+    spon_slug.setdefault(nm, 'sponsor-' + slugify(nm.replace('&', ' and ')) + '.html')
+
+# Guard against sheet data errors: two sponsors mapped to the same URL slug
+# (e.g. Resource Royalty's Sponsor URL mistakenly set to sponsors/exchangeright).
+# The sponsor whose own name matches the slug keeps it; others fall back to their name.
+_by_slug = {}
+for _nm, _sl in spon_slug.items():
+    _by_slug.setdefault(_sl, []).append(_nm)
+for _sl, _nms in _by_slug.items():
+    if len(_nms) > 1:
+        for _nm in _nms:
+            if slugify(_nm.replace('&', ' and ')) not in _sl:
+                spon_slug[_nm] = 'sponsor-' + slugify(_nm.replace('&', ' and ')) + '.html'
+                print('WARN: sponsor URL collision for %r on %s -> reassigned %s' % (_nm, _sl, spon_slug[_nm]))
 
 docs_by_inv = {}
 for d in DOCS:
@@ -309,3 +327,21 @@ for base, html_text in generated.items():
 shutil.copytree(os.path.join(ROOT, 'src', 'assets'), os.path.join(DIST, 'assets'))
 shutil.copy(os.path.join(DIST, 'baker1031.html'), os.path.join(DIST, 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
+
+# ---------------------------------------------------------------- sitemap.xml
+BASE_URL = os.environ.get('BASE_URL', 'https://baker1031-project3-site.netlify.app').rstrip('/')
+_pages = sorted(f for f in os.listdir(DIST) if f.endswith('.html'))
+_skip = {'article-template.html', 'baker1031.html', '404.html'}
+_urls = []
+for _p in _pages:
+    if _p in _skip:
+        continue
+    loc = BASE_URL + '/' + ('' if _p == 'index.html' else _p)
+    _urls.append('  <url><loc>%s</loc></url>' % loc)
+open(os.path.join(DIST, 'sitemap.xml'), 'w').write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + '\n'.join(_urls) + '\n</urlset>\n')
+open(os.path.join(DIST, 'robots.txt'), 'w').write(
+    'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % BASE_URL)
+print('sitemap.xml: %d urls' % len(_urls))

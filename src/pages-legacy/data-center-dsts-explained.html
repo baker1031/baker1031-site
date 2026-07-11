@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Center DSTs Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Data Center DSTs Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Data Center DSTs Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Data centers have become one of the most talked-about real estate sectors, powered by cloud computing and AI. This guide explains why data centers are in demand, how data center DSTs work, the role of tenant credit and lease length, the specialized risks to weigh, and how to evaluate a data center DST as 1031 replacement property.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Data centers — the facilities that house the servers, storage, and networking gear behind the internet, cloud computing, and artificial intelligence — have become one of the most closely watched real estate sectors. For 1031 investors, the question is whether and how to access this sector through a Delaware Statutory Trust (DST). A data center DST owns one or more data-center facilities leased to cloud providers, enterprises, or colocation operators, and lets accredited investors own fractional beneficial interests that qualify as like-kind real property for a 1031 exchange under IRS Revenue Ruling 2004-86. The appeal is real: secular demand from cloud and AI growth, often long leases to strong-credit tenants, and passive ownership. But data centers are a specialized, capital-intensive sector with their own risks — power and cooling demands, heavy capital expenditure, tenant concentration, and technological obsolescence. Data center DSTs are also less commonly offered than core sectors, so availability varies. This guide explains why data centers are in demand, how data center DSTs work, tenant credit and lease length, the specialized risks, and how to evaluate a data center DST. Note that DST interests are securities offered to accredited investors after a suitability review; this is educational information, not investment, tax, or legal advice, and projections are never guaranteed.</p>
+<p>If data-center DSTs are new to you, start with <a href="dst-guide.html">the definitive DST guide</a> for how the structure works across asset classes.</p>
+<h2 id="why-data-centers-demand">Why Data Centers Are in Demand</h2>
+<p>Data centers sit at the center of some of the most powerful secular trends in the economy. The shift of computing to the cloud means that enterprises increasingly rent computing capacity from large providers rather than running their own server rooms, and that capacity lives in data centers. On top of that, the rapid growth of artificial intelligence — which is highly compute-intensive — has driven a wave of demand for the specialized, high-power facilities that can house AI training and inference workloads. So the demand story behind data centers is rooted in structural, long-running shifts rather than a short-term cycle.</p>
+<p>This demand has historically translated into strong interest in data-center real estate from large, well-capitalized tenants: hyperscale cloud providers, major enterprises, and colocation operators that lease space to many customers. Because these facilities are essential infrastructure for tenants' core operations, and because relocating servers is disruptive and expensive, data centers can support long leases and sticky tenants in the right markets. That said, demand and rent trends are general observations, not promises — sector conditions can change, and no specific return or occupancy outcome is guaranteed.</p>
+<p>So data centers are in demand because of secular, long-running trends — the migration to the cloud and the explosive growth of AI — that drive large, creditworthy tenants to lease specialized, power-intensive facilities. This demand has historically supported long leases and sticky tenants in strong markets, because relocating computing infrastructure is costly and disruptive. For a 1031 investor, the appeal is exposure to an infrastructure-like real estate sector with structural tailwinds. But demand and rent observations are general and non-promissory; sector conditions can shift, and a data center DST's distributions and returns are projections, not guarantees. Understanding why data centers are in demand frames why the sector draws investor interest — and why it must still be evaluated carefully.</p>
+<h2 id="how-data-center-dsts-work">How Data Center DSTs Work</h2>
+<p>A data center DST works like any other DST, applied to data-center real estate. The DST is a trust that holds title to one or more income-producing data-center facilities, and a sponsor structures the offering, arranges any financing, and engages property and asset management. <a href="accredited-investor-requirements.html">Accredited investor</a>s purchase fractional beneficial interests in the trust, and those interests are treated as like-kind real property for a <a href="1031-exchange-guide.html">1031 exchange</a> under IRS Revenue Ruling 2004-86. So an investor who is selling other investment real estate can exchange into a data center DST and defer capital-gains tax, while gaining passive exposure to the sector.</p>
+<p>Once invested, the DST owner is passive: the trust receives rent from the data-center tenants, pays operating expenses and debt service, and distributes net cash flow to investors, typically monthly or quarterly. As with all DSTs, the structure carries the so-called 'seven deadly sins' restrictions on the trustee, a roughly five-to-seven-year hold horizon, illiquidity, and fees. Because data centers are specialized and capital-intensive, the sponsor's experience operating this property type — and the quality of the facilities and tenants — matters more than in a simpler sector. Data center DSTs are also less commonly offered than core sectors, so they may only be available where a sponsor brings a suitable offering.</p>
+<p>So a data center DST works by holding data-center real estate in a trust, selling accredited investors fractional beneficial interests that qualify as 1031 like-kind property under Rev Rul 2004-86, and distributing net rental cash flow to passive investors. The same DST mechanics apply — sponsor-structured, trustee-restricted, roughly five-to-seven-year hold, illiquid, fee-bearing — but the specialized, capital-intensive nature of data centers makes sponsor expertise and facility and tenant quality especially important. Availability is limited, so these DSTs appear where a sponsor offers one. For a 1031 investor, the structure delivers passive, deferral-eligible exposure to the sector. Understanding how data center DSTs work sets up the tenant-credit and risk questions that follow.</p>
+<div class="pullquote"><p>A data center DST applies familiar DST mechanics to an unfamiliar, specialized sector — which is exactly why the sponsor's experience and the quality of the facilities and tenants carry extra weight.</p></div>
+<h2 id="tenant-credit-lease-length">Tenant Credit &amp; Lease Length</h2>
+<p>In a data center, the income depends heavily on who the tenants are and how long they're committed — which makes tenant credit and lease length central to evaluating a data center DST. Data centers are often leased to large, well-capitalized tenants — hyperscale cloud providers, major enterprises, or established colocation operators — under long leases, sometimes a decade or more. Strong tenant credit and long lease terms can support a more predictable income profile, because a creditworthy tenant on a long lease is more likely to keep paying rent through economic cycles.</p>
+<p>But the same factors cut the other way through tenant concentration. A data center DST may derive much of its rent from a single tenant or a small handful of tenants, so the loss, non-renewal, or financial distress of one major tenant can have an outsized effect on the DST's income. Lease length matters here too: a long lease provides visibility, but it also means that when the lease eventually expires, re-leasing a highly specialized facility — possibly to a different kind of tenant with different power and configuration needs — can be challenging. So tenant credit and lease length are sources of both strength and concentrated risk.</p>
+<p>So tenant credit and lease length are central to a data center DST because the income rests on a small number of often large, creditworthy tenants on long leases. Strong credit and long terms can support a more predictable income profile, since a solid tenant is likelier to keep paying through cycles. But the flip side is tenant concentration: with rent dependent on one or a few tenants, a single non-renewal or default can disproportionately hit income, and re-leasing a specialized facility at lease end can be difficult. None of this guarantees any outcome — distributions are projections, not promises. Evaluating tenant credit, lease length, and concentration together is essential to understanding a data center DST's income profile.</p>
+<h2 id="specialized-risks">Specialized Risks to Consider</h2>
+<p>Beyond the usual DST risks (illiquidity, fees, trustee restrictions, no guaranteed returns), data centers carry specialized risks rooted in the nature of the asset. The first is power and cooling intensity: data centers consume enormous amounts of electricity and require sophisticated cooling, so access to reliable, affordable power and the ability to manage cooling and energy costs are critical. A facility in a market with constrained or expensive power, or with aging infrastructure, faces operating and competitive challenges that a simpler property would not.</p>
+<p>The second is capital expenditure: data centers are capital-intensive to build and maintain, and they may require ongoing investment to keep pace with tenant needs and technology. The third is tenant concentration, discussed above — reliance on a few large tenants. The fourth is technological obsolescence: data-center design and requirements evolve, and a facility built for one generation of computing may need costly upgrades, or may become less competitive, as technology shifts. These risks are specialized and meaningful, and they're part of why data center DSTs are less common and demand particular sponsor expertise.</p>
+<p>So data center DSTs carry specialized risks layered on top of ordinary DST risks. Power and cooling intensity make reliable, affordable energy and effective cooling critical, and a poorly located or aging facility is at a disadvantage. Heavy capital-expenditure requirements mean ongoing investment to keep facilities current. Tenant concentration means a few large tenants drive much of the income, so one departure or default can hurt disproportionately. And technological obsolescence means a facility can become less competitive as computing requirements evolve. These risks don't make the sector unsuitable, but they raise the bar on sponsor expertise and facility quality. None of them are eliminated by the DST structure, and no outcome is guaranteed. Weighing these specialized risks is essential before investing in a data center DST.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Data center DSTs own facilities leased to cloud, enterprise, or colocation tenants, with demand driven by secular cloud and AI growth.</li>
+<li>Income often rests on a few large, creditworthy tenants on long leases — a source of stability but also of tenant concentration risk.</li>
+<li>Specialized risks include power and cooling intensity, heavy capital expenditure, tenant concentration, and technological obsolescence.</li>
+<li>Data center DSTs are specialized and less commonly offered, so availability is limited and sponsor expertise and facility quality matter heavily.</li>
+</ul></div>
+<h2 id="availability-where-offered">Availability: Where Data Center DSTs Are Offered</h2>
+<p>Because data centers are a specialized, capital-intensive sector, data center DSTs are offered less frequently than core sectors like net-lease retail, <a href="multifamily-dsts-apartment-investing-for-your-1031.html">multifamily</a>, or industrial. The pool of sponsors with the expertise to acquire, operate, and structure data-center real estate into a DST is smaller, and suitable facilities with the right tenants and leases are not always available to package into an offering. So an investor interested in this sector should frame the question as 'where available' rather than assuming a data center DST can be sourced on demand at any given time.</p>
+<p>This limited availability has practical implications for 1031 planning. A 1031 exchange runs on strict deadlines — 45 days to identify replacement property and 180 days to close — so an investor who wants data-center exposure specifically should plan ahead and work with their broker-dealer to understand what is actually being offered within their exchange window. It may be that a suitable data center DST is available, or that the best fit is <a href="1031-exchange-replacement-property-options-compared.html">a different sector DST, a diversified offering, or a combination</a>. Flexibility helps, because availability of any single specialized sector is never guaranteed at a particular moment.</p>
+<p>So data center DSTs are specialized offerings that appear less frequently than core sectors, because fewer sponsors operate in the space and suitable facilities aren't always available to package. Investors should treat the sector as accessible 'where available' rather than on demand. For 1031 planning, the strict 45- and 180-day deadlines make this especially important: an investor who specifically wants data-center exposure should plan ahead and confirm with their broker-dealer what is actually being offered within their window, staying flexible in case a different sector or a diversified option is the better fit. Availability of any single specialized sector is never guaranteed at a given moment. Understanding availability is a practical part of evaluating whether a data center DST can fit a particular exchange.</p>
+<div class="pullquote"><p>Because data center DSTs are specialized and offered less often, the practical question isn't just whether the sector appeals to you — it's whether a suitable offering exists within your 45- and 180-day exchange window.</p></div>
+<h2 id="evaluating-data-center-dst">Evaluating a Data Center DST</h2>
+<p>Evaluating a data center DST starts with the tenants. Because income rests on a small number of often large tenants, examine tenant credit (the financial strength of the cloud providers, enterprises, or colocation operators), tenant concentration (how much rent depends on the largest tenant or two), and lease length (how long the leases run and when they expire). Strong credit, manageable concentration, and long remaining terms support a more predictable income profile — though never a guaranteed one.</p>
+<p>Next, evaluate the facility and its market: the quality and age of the data-center infrastructure, access to reliable and affordable power, the cooling and energy-cost picture, and the strength of the location for data-center demand. Then assess the sponsor's specific experience operating data-center real estate, since this sector demands more specialized expertise than core property types. Finally, weigh the usual DST factors — the debt (amount and terms of any non-recourse financing), the fees, the projected hold period, and the projected distributions, remembering that projections are estimates, not promises. Because these interests are securities, a suitability review through a broker-dealer confirms whether a data center DST fits your situation.</p>
+<p>So evaluating a data center DST means looking first at tenant credit, concentration, and lease length, since a few large tenants drive the income; then at the facility and market (infrastructure quality, power access and cost, cooling, and location strength); then at the sponsor's specific data-center experience, which matters more in this specialized sector; and finally at the standard DST factors — debt, fees, hold period, and projected distributions, all of which are estimates rather than guarantees. Because data center DSTs are specialized and less common, this evaluation is best done with a broker-dealer through a suitability review that confirms fit. Past performance doesn't guarantee future results, and no distribution or return is promised. Working through these factors systematically is how an investor decides whether a particular data center DST suits their 1031 and income goals.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Evaluate Data Center DSTs</h2>
+<p>Baker 1031 Investments helps investors understand and evaluate data center DSTs — why data centers are in demand, how data center DSTs work, the role of tenant credit and lease length, the specialized risks (power, capex, tenant concentration, and obsolescence), and how to evaluate a specific offering — so you can decide whether the sector fits your 1031 and income goals and, if so, access a suitable offering where one is available.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review that considers your financial situation, goals, and risk tolerance. Because data center DSTs are specialized and offered less frequently than core sectors, we help you understand the sector clearly and identify suitable offerings where available within your 1031 timeline. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax situation, including how a 1031 exchange into a DST applies to you. We help you evaluate tenant credit, lease length, facility and market quality, sponsor expertise, debt, and fees, and we coordinate with your tax professionals so the exchange mechanics are handled correctly. Demand and rent observations are general and non-promissory, distributions and returns are projections rather than guarantees, and past performance does not guarantee future results. Our role is to help you evaluate data center DSTs clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a data center DST?<span class="ic"></span></summary>
+<div class="ans"><p>A data center DST is a Delaware Statutory Trust that owns one or more income-producing data-center facilities leased to cloud providers, enterprises, or colocation operators, and that lets accredited investors own fractional beneficial interests in those properties. Those interests are treated as like-kind real property for a 1031 exchange under IRS Revenue Ruling 2004-86, so an investor selling other investment real estate can exchange into a data center DST and defer capital-gains tax while gaining passive exposure to the data-center sector. The DST receives rent from the data-center tenants, pays operating expenses and any debt service, and distributes net cash flow to investors. Like all DSTs, it carries trustee restrictions, a roughly five-to-seven-year hold, illiquidity, and fees. Data center DSTs are specialized and less commonly offered than core sectors, so availability varies. So a data center DST is a passive, 1031-eligible way to access data-center real estate, where a suitable offering is available.</p></div>
+</details>
+<details>
+<summary>Why are data centers in demand?<span class="ic"></span></summary>
+<div class="ans"><p>Data centers are in demand because of powerful, long-running secular trends. The migration of computing to the cloud means enterprises increasingly rent computing capacity from large providers rather than running their own server rooms, and that capacity lives in data centers. On top of that, the rapid growth of artificial intelligence — which is highly compute-intensive — has driven additional demand for the specialized, high-power facilities that house AI workloads. These trends are structural rather than short-term, which is part of what draws investor interest to the sector. The demand has historically translated into strong interest from large, well-capitalized tenants, and because relocating computing infrastructure is costly and disruptive, data centers can support long leases and sticky tenants in the right markets. That said, demand and rent observations are general and non-promissory — sector conditions can change, and no specific occupancy or return outcome is guaranteed for any data center DST.</p></div>
+</details>
+<details>
+<summary>How do data center DSTs work?<span class="ic"></span></summary>
+<div class="ans"><p>A data center DST works like other DSTs, applied to data-center real estate. The trust holds title to one or more income-producing data-center facilities, a sponsor structures the offering and arranges financing and management, and accredited investors buy fractional beneficial interests that qualify as 1031 like-kind property under Rev Rul 2004-86. Once invested, the owner is passive: the trust collects rent from the data-center tenants, pays operating expenses and debt service, and distributes net cash flow, typically monthly or quarterly. The usual DST features apply — trustee restrictions (the 'seven deadly sins'), a roughly five-to-seven-year hold horizon, illiquidity, and fees. Because data centers are specialized and capital-intensive, the sponsor's experience operating this property type and the quality of the facilities and tenants matter more than in a simpler sector. Data center DSTs are less commonly offered than core sectors, so they appear where a sponsor brings a suitable offering. So the mechanics are familiar, but the sector specialization raises the stakes on sponsor and asset quality.</p></div>
+</details>
+<details>
+<summary>Who are the tenants in a data center DST?<span class="ic"></span></summary>
+<div class="ans"><p>The tenants in a data center DST are typically large, well-capitalized organizations that need facilities to house their computing infrastructure. These often include hyperscale cloud providers (the major companies that operate large-scale cloud platforms), major enterprises that run significant computing operations, and colocation operators that lease space within a facility to many customers. Because data centers are essential infrastructure for these tenants' core operations, and because moving servers is disruptive and expensive, such tenants can be sticky and may commit to long leases. The strength of these tenants — their credit quality — is a central factor in a data center DST's income profile, because a creditworthy tenant on a long lease is more likely to keep paying rent through economic cycles. The flip side is tenant concentration: a data center DST may rely on a single tenant or a few tenants, so the financial health of those specific tenants matters a great deal. So examining who the tenants are and how strong they are is essential when evaluating a data center DST.</p></div>
+</details>
+<details>
+<summary>Are data center DST leases long?<span class="ic"></span></summary>
+<div class="ans"><p>Data centers are often leased under long leases — sometimes a decade or more — to large, creditworthy tenants, because relocating computing infrastructure is costly and disruptive, which encourages tenants to commit for extended terms. Long leases to strong tenants can support a more predictable income profile, since the rent is contracted over a long horizon with a tenant likely to keep paying. However, lease length cuts both ways. A long lease provides income visibility, but when it eventually expires, re-leasing a highly specialized facility can be challenging, especially if a prospective new tenant has different power, cooling, or configuration requirements. So while long leases are a strength, the eventual lease expiration and the specialized nature of the facility introduce re-leasing risk. Lease length should always be evaluated alongside tenant credit and tenant concentration, since they together shape the income profile. And remember that even long, strong leases don't guarantee any particular distribution or return — DST projections are estimates, not promises.</p></div>
+</details>
+<details>
+<summary>What is tenant concentration risk in a data center DST?<span class="ic"></span></summary>
+<div class="ans"><p>Tenant concentration risk is the risk that arises when a large share of a DST's rental income depends on a single tenant or a small handful of tenants. Data center DSTs are particularly prone to this, because a facility may be leased entirely or mostly to one or a few large tenants. While those tenants are often creditworthy, the concentration means that if a major tenant fails to renew, defaults, or runs into financial distress, the effect on the DST's income can be outsized — far more than if the rent were spread across many tenants. This is a meaningful risk to weigh, and it's part of why tenant credit matters so much in this sector: with concentration, the strength of each individual tenant carries more weight. When evaluating a data center DST, look closely at how much rent depends on the largest tenant or two, and consider that risk alongside lease length and re-leasing prospects. Tenant concentration is not eliminated by the DST structure, and no outcome is guaranteed.</p></div>
+</details>
+<details>
+<summary>What are the specialized risks of data center DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>Beyond ordinary DST risks like illiquidity, fees, and trustee restrictions, data center DSTs carry specialized risks rooted in the asset. Power and cooling intensity: data centers consume enormous electricity and need sophisticated cooling, so reliable, affordable power and effective energy management are critical, and a facility in a power-constrained or high-cost market is at a disadvantage. Capital expenditure: data centers are capital-intensive to build and maintain and may need ongoing investment to keep pace with tenant needs and technology. Tenant concentration: reliance on a few large tenants means one departure or default can hurt disproportionately. Technological obsolescence: data-center design and requirements evolve, so a facility built for one generation of computing may need costly upgrades or become less competitive. These risks are meaningful and are part of why data center DSTs are less common and demand particular sponsor expertise. None of them are eliminated by the DST structure, and no outcome is guaranteed, so they should be weighed carefully before investing.</p></div>
+</details>
+<details>
+<summary>Why are data center DSTs less common than other sectors?<span class="ic"></span></summary>
+<div class="ans"><p>Data center DSTs are less common than core sectors like net-lease retail, multifamily, or industrial for a few reasons. First, data centers are a specialized, capital-intensive property type, and the pool of sponsors with the expertise to acquire, operate, and structure data-center real estate into a DST is smaller. Second, suitable facilities with the right tenants, leases, and infrastructure aren't always available to package into an offering. Third, the operational complexity — power, cooling, capital expenditure, and technology requirements — raises the bar for bringing a sound offering to market. As a result, an investor interested in the sector should frame the question as 'where available' rather than assuming a data center DST can be sourced on demand at any given moment. This limited availability matters for 1031 planning, because exchanges run on strict 45- and 180-day deadlines. So an investor who specifically wants data-center exposure should plan ahead and confirm with their broker-dealer what is actually being offered within their exchange window, staying flexible in case a different option is a better fit.</p></div>
+</details>
+<details>
+<summary>Can I use a data center DST in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a data center DST can be used as replacement property in a 1031 exchange, where a suitable offering is available. Under IRS Revenue Ruling 2004-86, fractional beneficial interests in a properly structured DST are treated as like-kind real property, so an investor selling other investment real estate can exchange into a data center DST and defer capital-gains tax. The same 1031 rules apply as with any DST: you must use a qualified intermediary, identify replacement property within 45 days, close within 180 days, and reinvest the proceeds and replace the debt to achieve full deferral. Because data center DSTs are specialized and offered less frequently than core sectors, availability within your exchange window isn't guaranteed, so planning ahead and staying flexible is important. DST interests are securities offered to accredited investors after a suitability review through a broker-dealer. Baker 1031 does not provide tax advice — confirm the exchange mechanics and your specific eligibility with your tax advisor and qualified intermediary, since the deadlines are strict and the rules are technical.</p></div>
+</details>
+<details>
+<summary>What is technological obsolescence risk in data centers?<span class="ic"></span></summary>
+<div class="ans"><p>Technological obsolescence risk is the risk that a data-center facility becomes less competitive or requires costly upgrades as computing technology and tenant requirements evolve. Data centers are built to specifications — power density, cooling capacity, configuration — that suit the technology of their era, and those requirements change over time. A facility designed for one generation of computing may need significant capital investment to accommodate newer, more demanding workloads (such as AI training, which is far more power- and cooling-intensive than traditional computing), or it may become less attractive to tenants who want state-of-the-art infrastructure. This risk interacts with the sector's capital-expenditure intensity: keeping a facility current can require ongoing investment. For a data center DST investor, obsolescence risk is one reason facility quality, age, and the sponsor's plan for maintaining competitiveness matter so much. It's a specialized risk that doesn't apply in the same way to simpler property types, and it's not eliminated by the DST structure. Weighing it is part of evaluating whether a particular data center DST is sound.</p></div>
+</details>
+<details>
+<summary>Are distributions from a data center DST guaranteed?<span class="ic"></span></summary>
+<div class="ans"><p>No — distributions from a data center DST are not guaranteed. Any distribution figures presented in an offering are projections based on assumptions about rent, occupancy, expenses, and financing, and actual results can differ. Data centers carry their own specialized risks — power and cooling costs, capital expenditure, tenant concentration, and technological obsolescence — any of which can affect the DST's income. A major tenant's non-renewal or default, rising energy costs, or unexpected capital needs could all reduce cash flow available for distribution. As with any DST, there is no promise of a particular income level or return, and past performance does not guarantee future results. This is why evaluating tenant credit, lease length, concentration, facility quality, and the sponsor matters so much — those factors shape how realistic the projections are, but they never make them guarantees. Investors should treat projected distributions as estimates and size their investment with the understanding that income can fluctuate or be interrupted. So plan around the possibility of variability, not around a promised number.</p></div>
+</details>
+<details>
+<summary>How do I evaluate a data center DST?<span class="ic"></span></summary>
+<div class="ans"><p>Start with the tenants, since income rests on a small number of them: examine tenant credit (the financial strength of the cloud providers, enterprises, or colocation operators), tenant concentration (how much rent depends on the largest tenant or two), and lease length (how long the leases run and when they expire). Then evaluate the facility and market: the quality and age of the infrastructure, access to reliable and affordable power, the cooling and energy-cost picture, and the strength of the location for data-center demand. Next, assess the sponsor's specific experience operating data-center real estate, since this sector demands more specialized expertise than core property types. Finally, weigh the standard DST factors — the debt (amount and terms), the fees, the projected hold period, and the projected distributions, remembering these are estimates, not promises. Because these interests are securities, a suitability review through a broker-dealer confirms whether the offering fits your situation. Working through these factors systematically is how you decide whether a particular data center DST suits your goals.</p></div>
+</details>
+<details>
+<summary>Why does power matter so much for data center DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>Power matters enormously for data centers because they consume vast amounts of electricity — to run the servers and, just as importantly, to cool them. Servers generate heat, and keeping a facility at safe operating temperatures requires sophisticated, energy-intensive cooling. As a result, access to reliable, affordable power is one of the most important factors in a data center's competitiveness and profitability. A facility located in a market with constrained power capacity, an unreliable grid, or high energy costs faces real operating and competitive disadvantages, while one with secure, low-cost power is better positioned. The rise of AI workloads, which are far more power- and cooling-intensive than traditional computing, has only increased the importance of power. For a data center DST investor, this means the facility's location, its power arrangements, and the operator's ability to manage energy and cooling costs are central to the income picture. So when evaluating a data center DST, power access and cost should be near the top of the list — they directly affect both operating costs and the facility's long-term viability.</p></div>
+</details>
+<details>
+<summary>Who can invest in a data center DST?<span class="ic"></span></summary>
+<div class="ans"><p>Data center DSTs, like other DSTs, are securities offered under Regulation D to accredited investors, so you generally must meet the accredited-investor standard to invest. An accredited investor is someone who meets certain income or net-worth thresholds (commonly an individual income above a set level for the past two years, or a net worth above a set level excluding a primary residence), or who qualifies through certain professional credentials. Beyond meeting the accredited standard, you'll go through a suitability review with a broker-dealer, which considers your financial situation, investment goals, liquidity needs, and risk tolerance to determine whether an illiquid, specialized data center DST is appropriate for you. Because data centers carry specialized risks and are less commonly offered, the suitability review is especially important for this sector. So the short answer is that data center DSTs are available to accredited investors after a suitability review, not to the general public. If you're considering one, expect to verify your accredited status and complete the suitability process through a broker-dealer before investing.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me evaluate data center DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand and evaluate data center DSTs — why data centers are in demand, how data center DSTs work, the role of tenant credit and lease length, the specialized risks (power, capital expenditure, tenant concentration, and technological obsolescence), and how to evaluate a specific offering — so you can decide whether the sector fits your 1031 and income goals and, if so, access a suitable offering where available. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Because data center DSTs are specialized and offered less frequently than core sectors, we help you identify suitable offerings where available within your 1031 timeline and evaluate tenant credit, lease length, facility and market quality, sponsor expertise, debt, and fees. Baker 1031 does not provide tax or legal advice — your CPA and attorney handle your specific situation. Demand observations are general and non-promissory, distributions and returns are projections rather than guarantees, and past performance does not guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Data Center DST</dt><dd>A DST owning data-center facilities leased to cloud or enterprise tenants.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust holding real estate in 1031-eligible fractional beneficial interests.</dd></div>
+<div class="g"><dt>Hyperscale Tenant</dt><dd>A large cloud provider operating major-scale data-center capacity.</dd></div>
+<div class="g"><dt>Colocation Operator</dt><dd>A tenant that leases data-center space to many customers.</dd></div>
+<div class="g"><dt>Beneficial Interest</dt><dd>A DST investor's fractional ownership treated as real property.</dd></div>
+<div class="g"><dt>Rev Rul 2004-86</dt><dd>The IRS ruling making DST interests 1031-eligible like-kind property.</dd></div>
+<div class="g"><dt>Tenant Credit</dt><dd>The financial strength of a data center's tenants.</dd></div>
+<div class="g"><dt>Tenant Concentration</dt><dd>Reliance on one or a few tenants for most rent.</dd></div>
+<div class="g"><dt>Lease Length</dt><dd>How long a data-center tenant is contracted to pay rent.</dd></div>
+<div class="g"><dt>Power Intensity</dt><dd>A data center's heavy electricity demand for servers and cooling.</dd></div>
+<div class="g"><dt>Capital Expenditure</dt><dd>Ongoing investment needed to build and maintain a facility.</dd></div>
+<div class="g"><dt>Technological Obsolescence</dt><dd>Risk a facility becomes outdated as computing needs evolve.</dd></div>
+<div class="g"><dt>Cloud Computing</dt><dd>Renting computing capacity that lives in data centers.</dd></div>
+<div class="g"><dt>Non-Recourse Debt</dt><dd>Financing repaid only from the property, not investors personally.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income or net-worth thresholds for Reg D offerings.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>A broker-dealer's check that a DST fits the investor.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86 (Delaware Statutory Trusts and 1031)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

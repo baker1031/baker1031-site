@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Read a REIT's FFO | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>How to Read a REIT's FFO
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">How to Read a REIT's FFO</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">FFO — Funds From Operations — is the metric REIT investors use instead of GAAP net income. This guide explains why net income misleads for REITs, what FFO adds back, how to calculate and find FFO, how to use FFO per share and growth, and FFO's limitations.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">If you try to evaluate a REIT using its GAAP net income, you'll often be misled — and that's not your fault. Real estate accounting includes a huge non-cash depreciation charge that distorts a REIT's reported earnings, making profitable, growing REITs look far less profitable than they are. To get around this, the REIT industry uses a standardized metric called Funds From Operations (FFO), defined by Nareit, which adds back real estate depreciation and removes one-time gains and losses on property sales to better reflect a REIT's recurring operating performance. Understanding how to read FFO — where to find it, how it's calculated, how to use FFO per share and its growth, and what FFO can't tell you — is essential to evaluating any REIT. This guide explains why net income misleads, what FFO adds back, how to calculate and find FFO, how to use FFO per share and growth, and FFO's limitations. This is educational information, not investment advice — verify current details and a REIT's own definitions before relying on them.</p>
+<p>FFO is reported by listed and unlisted REITs alike, and our <a href="reits-guide.html">2026 REIT investing guide</a> shows where each type discloses its operating metrics.</p>
+<h2 id="why-net-income-misleads">Why Net Income Misleads for REITs</h2>
+<p>GAAP net income — the standard bottom-line profit measure for most companies — is misleading for REITs, primarily because of how real estate depreciation works. Under GAAP, a company depreciates its buildings over time, recording a large non-cash expense that reduces reported net income each year. For an ordinary company with depreciating equipment, this roughly reflects economic reality. But real estate often holds or gains value over time rather than wearing out, so the depreciation charge overstates the economic 'cost' and understates the REIT's true earning power.</p>
+<p>Because a REIT's assets are mostly real estate, this depreciation charge is enormous — often large enough to make a profitable, cash-generating REIT show low or even negative GAAP net income, even as it collects steady rents and grows. A second distortion comes from gains and losses on property sales: when a REIT sells a building, GAAP net income spikes (or drops) with the one-time gain or loss, making earnings lumpy and hard to compare from period to period. So net income, dragged down by non-cash depreciation and jolted by one-time sale gains, paints a distorted picture of a REIT's recurring operating performance. That's the core problem FFO was created to solve.</p>
+<p>So GAAP net income misleads for REITs because non-cash real estate depreciation overstates costs (real estate often holds value) and one-time property-sale gains and losses distort earnings. So this is why FFO exists. Why net income misleads for REITs — GAAP depreciating buildings as a huge non-cash expense even though real estate often holds or gains value (understating true earning power), and one-time gains and losses on property sales jolting reported earnings — means net income can make a profitable, growing REIT look unprofitable and lumpy. The depreciation charge is the central distortion. Understanding this explains why the industry turned to FFO. GAAP net income misleads for REITs because non-cash real estate depreciation understates earning power and one-time property-sale gains distort earnings — the reason FFO was created.</p>
+<h2 id="what-ffo-adds-back">What FFO Adds Back</h2>
+<p>FFO — Funds From Operations — is the REIT industry's standard measure of operating performance, defined by Nareit to correct the distortions in net income. The core idea is simple: start with GAAP net income, then add back the non-cash real estate depreciation and amortization (the charge that doesn't reflect a real cash cost for value-holding real estate), and remove the one-time gains on property sales (and add back losses), so that what remains reflects the REIT's recurring, real-estate operating performance rather than accounting artifacts.</p>
+<p>So the FFO formula is: net income, plus real estate depreciation and amortization, minus gains on property sales (plus losses on sales). By adding back depreciation, FFO reverses the largest non-cash distortion in REIT accounting; by stripping out property-sale gains and losses, it removes the lumpy, one-time items that have nothing to do with recurring operations. The result is a measure that's far more representative of the cash a REIT generates from running its real estate, and one that's comparable across REITs because Nareit standardizes the definition. So FFO adds back depreciation and removes sale gains to reveal recurring operating performance that net income obscures.</p>
+<p>So what FFO adds back — real estate depreciation and amortization — and what it removes — gains (and losses) on property sales — transforms distorted net income into a measure of recurring operating performance. So this adjustment is the heart of FFO. What FFO adds back — starting from net income, adding back non-cash real estate depreciation and amortization (reversing the largest distortion) and removing one-time gains on property sales (adding back losses) per the Nareit standard — produces a measure of a REIT's recurring real-estate operating performance that's comparable across REITs. The depreciation add-back is the key correction. Understanding the adjustment is the heart of reading FFO. FFO starts from net income, adds back real estate depreciation and amortization, and removes gains on property sales (adds back losses), turning distorted net income into a measure of recurring operating performance.</p>
+<div class="pullquote"><p>The whole point of FFO is one big correction: add back the depreciation that GAAP subtracts but real estate doesn't actually lose, and you turn a distorted net income into a usable measure of operating performance.</p></div>
+<h2 id="calculating-and-finding-ffo">Calculating and Finding FFO</h2>
+<p>Calculating FFO follows the Nareit formula directly: take net income (per GAAP), add back real estate depreciation and amortization, and subtract gains on the sale of property (adding back any losses). Some adjustments also remove impairment write-downs of real estate, since those, like depreciation, are non-cash charges on value-holding assets. The arithmetic is straightforward once you have the inputs; the work is mainly in locating the right figures.</p>
+<p>You'll find FFO in a REIT's quarterly and annual reporting — specifically in its earnings release and, most usefully, its supplemental financial package (often just called the 'supplemental'), which most REITs publish alongside earnings. The supplemental typically presents a reconciliation that starts with net income and walks down to FFO, showing each add-back and subtraction, so you can see exactly how the REIT got there. REITs report FFO because investors and analysts expect it, so you rarely have to compute it from scratch — but checking the reconciliation helps you understand what's included. So you calculate FFO via the Nareit formula, and you find it (already reconciled) in the REIT's earnings release and supplemental.</p>
+<p>So calculating FFO means applying the Nareit formula (net income plus depreciation, minus sale gains), and finding it means looking in the REIT's earnings release and supplemental, where a reconciliation shows the math. So knowing where to look makes FFO accessible. Calculating and finding FFO — applying the Nareit formula (net income, plus real estate depreciation and amortization, minus gains on property sales, sometimes adjusting for impairments), and locating it in the REIT's earnings release and supplemental financial package, where a reconciliation from net income to FFO shows each adjustment — makes the metric accessible without computing from scratch. The supplemental is the key document. Understanding where to find FFO and how the reconciliation works lets you use it confidently. Calculate FFO with the Nareit formula (net income plus depreciation minus sale gains), and find it already reconciled in the REIT's earnings release and supplemental financial package.</p>
+<h2 id="ffo-per-share-and-growth">FFO Per Share &amp; Growth</h2>
+<p>To make FFO useful for evaluating a REIT, look at it on a per-share basis and track its growth. FFO per share — total FFO divided by shares outstanding — is the REIT equivalent of earnings per share, and it's what matters to you as a shareholder, because a REIT that grows total FFO only by issuing lots of new shares isn't necessarily creating value per share. Watching FFO per share keeps the focus on the value accruing to each existing share rather than on headline totals.</p>
+<p>FFO-per-share growth — its trend over multiple quarters and years — is one of the most important indicators of a REIT's operating health. Steady, rising FFO per share suggests a REIT is growing its recurring real-estate income on a per-share basis, which can support a growing dividend; flat or declining FFO per share is a warning sign. FFO per share also anchors valuation: the price-to-FFO (P/FFO) multiple — share price divided by FFO per share — is the REIT analog of the price-to-earnings ratio, used to compare a REIT's valuation to its peers and its own history, and one of the three pillars when you <a href="how-to-evaluate-a-reit-ffo-affo-and-nav.html">evaluate a REIT using FFO, AFFO, and NAV together</a>. So FFO per share and its growth are the practical lenses for judging a REIT's performance and value.</p>
+<p>So FFO per share (the REIT version of EPS) and its growth (a key sign of operating health, and the basis for the P/FFO multiple) are how you actually use FFO to evaluate a REIT. So focusing on the per-share figure is essential. FFO per share and growth — FFO per share serving as the REIT equivalent of earnings per share (the value accruing to each share, not just headline totals inflated by share issuance), FFO-per-share growth signaling operating health and dividend-support potential, and the price-to-FFO multiple anchoring valuation against peers and history — are the practical lenses for evaluating a REIT. Per-share growth is the key signal. Understanding FFO per share and growth lets you judge performance and value. Use FFO per share (the REIT version of EPS) and its growth to judge a REIT's operating health and dividend support, with the price-to-FFO multiple anchoring valuation against peers.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>GAAP net income misleads for REITs because non-cash real estate depreciation understates earning power and property-sale gains distort earnings.</li>
+<li>FFO = net income + real estate depreciation and amortization − gains on property sales (+ losses), per the Nareit standard.</li>
+<li>Find FFO already reconciled in the REIT's earnings release and supplemental financial package, then use FFO per share and its growth.</li>
+<li>FFO's limits: it doesn't subtract recurring maintenance capex (AFFO does), 'core' definitions vary by company, and it isn't a perfect cash measure.</li>
+</ul></div>
+<h2 id="comparing-reits-with-ffo">Using FFO to Compare REITs</h2>
+<p>One of FFO's biggest strengths is comparability, which makes it the workhorse metric for comparing REITs. Because Nareit standardizes the FFO definition, two different REITs' reported FFO are calculated on a broadly consistent basis, so you can line up their FFO-per-share growth and their price-to-FFO multiples and make meaningful comparisons — something you can't reliably do with GAAP net income, which is distorted differently depending on each REIT's depreciation schedule and sale activity.</p>
+<p>In practice, you use FFO to compare REITs along a few dimensions: which REIT is growing FFO per share faster, which trades at a higher or lower P/FFO multiple (and whether that gap is justified by growth, quality, or sector), and how each REIT's FFO covers its dividend. Comparing P/FFO across REITs in the same sector helps you gauge relative valuation, while comparing FFO-per-share growth helps you gauge relative momentum. The key is to compare like with like — REITs in the same sector with similar risk and growth profiles — since a data-center REIT and a net-lease REIT naturally trade at different multiples. So FFO's standardization is what makes cross-REIT comparison possible and meaningful.</p>
+<p>So using FFO to compare REITs leverages its standardization to line up growth and valuation across REITs — best done within a sector, like with like. So comparability is FFO's defining advantage. Using FFO to compare REITs — relying on Nareit's standardized definition to line up FFO-per-share growth, price-to-FFO multiples, and dividend coverage across REITs (best within the same sector, comparing like with like) — leverages FFO's comparability, the advantage net income lacks. Standardization is what makes meaningful cross-REIT comparison possible. Understanding this shows why FFO is the workhorse comparison metric. FFO's standardized definition makes it the workhorse for comparing REITs — lining up FFO-per-share growth, P/FFO multiples, and dividend coverage, best done within a sector comparing like with like.</p>
+<div class="pullquote"><p>FFO's superpower is comparability: because Nareit standardizes the definition, you can line up two REITs' FFO multiples and growth side by side — something GAAP net income, distorted differently for every REIT, simply won't let you do.</p></div>
+<h2 id="limitations-of-ffo">Limitations of FFO</h2>
+<p>For all its usefulness, FFO has real limitations you should keep in mind. The most important is that FFO does not subtract recurring maintenance capital expenditures — the ongoing capital a REIT must spend to keep its properties competitive and leased (roofs, HVAC, tenant improvements, leasing commissions). Because these are real, recurring cash costs, FFO overstates the cash truly available to fund dividends. This is exactly the gap that AFFO (Adjusted FFO) is designed to close, by subtracting maintenance capex and other normalizations from FFO — which raises the question of <a href="affo-vs-ffo-which-metric-matters-more.html">whether AFFO or FFO matters more</a>.</p>
+<p>A second limitation is definitional drift: while Nareit's FFO is standardized, many REITs report 'adjusted,' 'core,' or 'normalized' FFO with company-specific adjustments (adding back acquisition costs, one-time items, or non-cash charges of their choosing), and these varying definitions aren't directly comparable across REITs. You have to check whether you're looking at Nareit FFO or a company-defined version. A third limitation is that FFO isn't a perfect cash-flow measure — it's an accounting-based proxy that still includes some non-cash items (like straight-line rent) and excludes others. So FFO is a powerful tool but not a complete one; it must be read alongside AFFO, the payout ratio, and <a href="how-to-analyze-a-reits-balance-sheet.html">a careful read of the REIT's balance sheet</a>.</p>
+<p>So FFO's limitations — it ignores recurring maintenance capex (AFFO addresses this), 'core' definitions vary and aren't comparable, and it isn't a perfect cash measure — mean it should be used with care and alongside other metrics. So knowing its limits keeps you from over-relying on it. Limitations of FFO — it doesn't subtract recurring maintenance capex (so it overstates distributable cash, which AFFO corrects), companies report 'adjusted' or 'core' FFO with varying, non-comparable definitions, and it remains an accounting proxy rather than a perfect cash measure — mean FFO should be read alongside AFFO, the payout ratio, and the balance sheet. It's powerful but incomplete. Understanding its limits prevents over-reliance. FFO's limits: it ignores recurring maintenance capex (AFFO fixes this), 'core' FFO definitions vary by company and aren't comparable, and it isn't a perfect cash measure — so use it alongside other metrics.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Read FFO</h2>
+<p>Baker 1031 Investments helps investors learn to read a REIT's FFO — why GAAP net income misleads for REITs, what FFO adds back, how to calculate and find FFO in the earnings release and supplemental, how to use FFO per share and its growth, how to compare REITs with FFO, and the limitations to keep in mind — so you can evaluate a REIT's operating performance with the right metric rather than a distorted one.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. We help you read FFO and FFO per share, locate the reconciliation in a REIT's supplemental, compare REITs on a standardized basis, and understand FFO's limitations — including that it ignores maintenance capex (where AFFO helps) and that 'core' definitions vary — so your analysis rests on a clear-eyed view of the numbers. Baker 1031 does not provide tax or legal advice; your CPA handles how REIT dividends are taxed in your situation. This content is educational and non-promissory — we don't recommend specific REITs or promise yields, and past performance doesn't guarantee future results; verify a REIT's own FFO definitions before relying on them. Our role is to help you read FFO clearly and evaluate REITs on sound footing, investing only when suitable for your goals.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is FFO?<span class="ic"></span></summary>
+<div class="ans"><p>FFO stands for Funds From Operations, the REIT industry's standard measure of operating performance. It exists because GAAP net income is misleading for REITs, mainly due to the large non-cash real estate depreciation charge that understates a REIT's true earning power (real estate often holds or gains value rather than wearing out). FFO, defined by Nareit, corrects this: it starts with net income, adds back real estate depreciation and amortization, and removes one-time gains on property sales (adding back losses), so the result reflects a REIT's recurring real-estate operating performance rather than accounting artifacts. FFO is far more representative than net income of the cash a REIT generates from running its properties, and because Nareit standardizes the definition, FFO is comparable across REITs. You'll find it in a REIT's earnings release and supplemental financial package. So FFO is the metric REIT investors use instead of net income — a standardized measure of recurring operating cash flow that adds back depreciation and strips out one-time sale gains, giving a clearer picture of how a REIT is actually performing.</p></div>
+</details>
+<details>
+<summary>Why is net income misleading for REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Net income misleads for REITs mainly because of how real estate depreciation works under GAAP. Companies depreciate their buildings over time, recording a large non-cash expense that reduces reported net income each year. For ordinary equipment that wears out, this roughly reflects reality — but real estate often holds or gains value rather than declining, so the depreciation charge overstates the economic cost and understates a REIT's true earning power. Because a REIT's assets are mostly real estate, this depreciation charge is enormous, often large enough to make a profitable, cash-generating REIT show low or even negative GAAP net income even as it collects steady rents and grows. A second distortion comes from gains and losses on property sales: when a REIT sells a building, net income spikes or drops with the one-time gain or loss, making earnings lumpy and hard to compare across periods. So net income, dragged down by non-cash depreciation and jolted by one-time sale gains, paints a distorted picture of a REIT's recurring operating performance — which is exactly why the industry created FFO to provide a clearer measure.</p></div>
+</details>
+<details>
+<summary>How do you calculate FFO?<span class="ic"></span></summary>
+<div class="ans"><p>You calculate FFO using the Nareit formula: start with GAAP net income, add back real estate depreciation and amortization, and subtract gains on the sale of property (adding back any losses on sales). Some calculations also add back impairment write-downs of real estate, since those, like depreciation, are non-cash charges on value-holding assets. The logic is to reverse the two main distortions in REIT net income — the large non-cash depreciation charge and the lumpy, one-time gains or losses from selling properties — so what remains reflects recurring operating performance. The arithmetic is straightforward once you have the inputs; the work is mostly in locating the right figures, which you'll find in the REIT's financial statements. In practice, you rarely have to compute FFO from scratch, because REITs report it themselves and show a reconciliation from net income to FFO in their earnings release and supplemental package. So FFO equals net income plus real estate depreciation and amortization minus property-sale gains (plus losses) — a simple formula whose purpose is to strip out the accounting items that make net income unrepresentative for a REIT.</p></div>
+</details>
+<details>
+<summary>Where do I find a REIT's FFO?<span class="ic"></span></summary>
+<div class="ans"><p>You'll find a REIT's FFO in its quarterly and annual reporting — specifically in the earnings release and, most usefully, the supplemental financial package (often just called the 'supplemental') that most REITs publish alongside earnings. The supplemental typically presents a reconciliation that starts with GAAP net income and walks down to FFO, showing each add-back (real estate depreciation and amortization) and subtraction (gains on property sales), so you can see exactly how the REIT arrived at the figure. REITs report FFO because investors and analysts expect it, so you rarely have to compute it from scratch. The supplemental usually also reports FFO per share and often AFFO, along with property-level operating detail, debt schedules, and other useful data. Checking the reconciliation is worthwhile because it shows you precisely what's included — and whether the REIT is presenting Nareit FFO or a company-defined 'core' or 'adjusted' version. So look first to the earnings release and supplemental, find the net-income-to-FFO reconciliation, and confirm which definition of FFO you're reading before relying on the number for analysis or comparison.</p></div>
+</details>
+<details>
+<summary>What is the difference between FFO and net income?<span class="ic"></span></summary>
+<div class="ans"><p>FFO and net income measure profitability differently, and for REITs the gap is large and important. Net income is the GAAP bottom line, which for a REIT is dragged down by a huge non-cash real estate depreciation charge and jolted by one-time gains or losses on property sales — so it tends to understate a REIT's recurring earning power and make results lumpy. FFO corrects these distortions: it starts with net income, adds back real estate depreciation and amortization (since real estate often holds value rather than wearing out), and removes the one-time property-sale gains (and adds back losses), leaving a measure of recurring real-estate operating performance. The practical result is that FFO is usually substantially higher than net income for a REIT, and far more representative of the cash the REIT generates from operations. Because Nareit standardizes FFO, it's also comparable across REITs in a way net income isn't. So the key difference is that net income reflects distorted GAAP accounting while FFO reflects recurring operating performance — which is why REIT investors rely on FFO, not net income, to evaluate a REIT's results.</p></div>
+</details>
+<details>
+<summary>What is FFO per share?<span class="ic"></span></summary>
+<div class="ans"><p>FFO per share is a REIT's total Funds From Operations divided by its shares outstanding — the REIT equivalent of earnings per share (EPS). It matters because, as a shareholder, you care about the operating performance accruing to each share you own, not just the headline total. A REIT can grow its total FFO simply by issuing lots of new shares to buy more properties, but if FFO per share doesn't grow, existing shareholders aren't necessarily better off. Watching FFO per share keeps the focus on per-share value creation. FFO-per-share growth — its trend over multiple quarters and years — is one of the most important indicators of a REIT's operating health: steady, rising FFO per share suggests growing recurring income on a per-share basis, which can support a growing dividend, while flat or declining FFO per share is a warning sign. FFO per share also anchors valuation through the price-to-FFO (P/FFO) multiple, the REIT analog of the P/E ratio. So FFO per share is the practical figure for judging a REIT's performance and value — always prefer it to headline total FFO.</p></div>
+</details>
+<details>
+<summary>What is P/FFO?<span class="ic"></span></summary>
+<div class="ans"><p>P/FFO is the price-to-FFO multiple — a REIT's share price divided by its FFO per share — and it's the REIT analog of the price-to-earnings (P/E) ratio. Because net income is distorted for REITs, the familiar P/E ratio isn't very useful for valuing a REIT, so investors use P/FFO instead, dividing the share price by FFO per share to gauge how much they're paying for each dollar of the REIT's recurring operating performance. P/FFO is used to compare a REIT's valuation to its peers and to its own history: a higher multiple may reflect stronger expected growth, higher quality, or a premium sector, while a lower multiple may reflect slower growth, higher risk, or being out of favor. As with any valuation multiple, the key is to compare like with like — REITs in the same sector with similar growth and risk profiles — since different sectors (for example, data centers versus net-lease) naturally command different multiples. So P/FFO is the standard REIT valuation multiple, and reading it well means comparing it across similar REITs and against a REIT's own historical range, while accounting for differences in growth, quality, and sector.</p></div>
+</details>
+<details>
+<summary>Do all REITs report FFO the same way?<span class="ic"></span></summary>
+<div class="ans"><p>Mostly yes for the headline figure, but with important caveats. Nareit defines FFO, so the great majority of REITs report a Nareit-compliant FFO calculated on a broadly consistent basis — net income, plus real estate depreciation and amortization, minus gains on property sales (plus losses) — which is what makes FFO comparable across REITs. So when you're looking at the standard 'FFO' line, you can generally trust that two REITs computed it similarly. The caveat is that many REITs also report a 'core,' 'adjusted,' 'normalized,' or 'recurring' FFO alongside the Nareit figure, adding back items of their own choosing — acquisition costs, one-time charges, certain non-cash items, or other company-specific adjustments. These company-defined versions aren't standardized and aren't directly comparable across REITs, so you have to check which line you're reading. Some REITs also differ in how they treat impairments or particular non-recurring items even within their Nareit FFO. So the practical rule is to confirm you're comparing Nareit FFO to Nareit FFO when you compare REITs, and to read the reconciliation to understand any company-specific adjustments before relying on a 'core' or 'adjusted' figure. Standardization applies to the base FFO, not to every variant a REIT may present.</p></div>
+</details>
+<details>
+<summary>Why is FFO better than net income for REITs?<span class="ic"></span></summary>
+<div class="ans"><p>FFO is better than net income for evaluating REITs because it corrects two distortions that make net income unrepresentative. First, it adds back real estate depreciation and amortization — the large non-cash charge that GAAP requires but that doesn't reflect economic reality for real estate that often holds or gains value. This add-back reverses the single biggest reason a profitable REIT can show low or negative net income. Second, FFO removes one-time gains and losses on property sales, which otherwise make net income lumpy and hard to compare from period to period. The result is a measure of a REIT's recurring real-estate operating performance — far closer to the cash the REIT actually generates from running its properties. On top of that, because Nareit standardizes the FFO definition, FFO is comparable across REITs, while net income is distorted differently for each REIT depending on its depreciation schedule and sale activity. So FFO is better because it strips out non-cash depreciation and one-time sale gains to reveal recurring performance, and because its standardization enables meaningful comparison — two things net income can't do for a REIT.</p></div>
+</details>
+<details>
+<summary>Does FFO measure cash flow exactly?<span class="ic"></span></summary>
+<div class="ans"><p>No — FFO is a useful proxy for a REIT's operating cash flow, but it isn't a perfect or exact cash-flow measure. FFO is an accounting-based metric: it starts from GAAP net income and makes specific adjustments (adding back real estate depreciation and amortization, removing property-sale gains and losses), but it still includes some non-cash items and excludes others. For example, FFO doesn't subtract recurring maintenance capital expenditures — the real, ongoing cash a REIT must spend to keep its properties competitive and leased — so it overstates the cash truly available to fund dividends. It also typically includes straight-line rent adjustments, which are non-cash. These gaps are exactly why analysts also use AFFO (Adjusted FFO), which subtracts maintenance capex and straight-line rent to better approximate distributable cash. So FFO should be understood as a standardized measure of recurring operating performance, not as exact cash flow. It's the right starting point for evaluating a REIT, but for questions about cash and dividend coverage you should look to AFFO and the actual cash-flow statement alongside it. Use FFO knowing what it does and doesn't capture.</p></div>
+</details>
+<details>
+<summary>What are the limitations of FFO?<span class="ic"></span></summary>
+<div class="ans"><p>FFO has several limitations to keep in mind. The most important is that it does not subtract recurring maintenance capital expenditures — the ongoing capital a REIT must spend to keep properties competitive and leased (roofs, HVAC, tenant improvements, leasing commissions). Because these are real, recurring cash costs, FFO overstates the cash truly available to fund dividends; AFFO (Adjusted FFO) is designed to close this gap. A second limitation is definitional drift: while Nareit's FFO is standardized, many REITs also report 'adjusted,' 'core,' or 'normalized' FFO with company-specific adjustments that aren't directly comparable across REITs, so you must check which version you're reading. A third limitation is that FFO isn't a perfect cash-flow measure — it's an accounting proxy that still includes some non-cash items (like straight-line rent) and excludes others. So while FFO is the right primary metric for a REIT's operating performance, it's powerful but incomplete: read it alongside AFFO (for distributable cash and dividend coverage), the payout ratio, and the balance sheet. Knowing FFO's limits keeps you from over-relying on a single number when evaluating a REIT.</p></div>
+</details>
+<details>
+<summary>What is the difference between FFO and AFFO?<span class="ic"></span></summary>
+<div class="ans"><p>FFO and AFFO are related REIT metrics, with AFFO building on FFO to better approximate distributable cash. FFO (Funds From Operations) starts with net income, adds back real estate depreciation and amortization, and removes property-sale gains, giving a standardized measure of recurring operating performance. AFFO (Adjusted FFO) takes FFO and goes further, subtracting recurring maintenance capital expenditures and straight-line rent adjustments (and sometimes other normalizations), so it more closely reflects the actual cash available to fund the dividend. The key trade-off is standardization versus accuracy: FFO is more standardized (Nareit defines it) and therefore more comparable across REITs, while AFFO is more economically accurate as a cash measure but less standardized, since companies define their maintenance-capex and other adjustments differently. In practice, investors use both — FFO for comparability and valuation (P/FFO), and AFFO for assessing dividend sustainability via the AFFO payout ratio. So the difference is that FFO measures recurring operating performance in a comparable way, while AFFO refines FFO into a closer estimate of distributable cash — and reading both gives a fuller picture of a REIT than either alone.</p></div>
+</details>
+<details>
+<summary>Should I rely only on FFO to evaluate a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>No — FFO is an essential metric, but you shouldn't rely on it alone. FFO is the right primary measure of a REIT's recurring operating performance and the basis for the P/FFO valuation multiple, but it has limitations: it ignores recurring maintenance capex (so it overstates distributable cash), 'core' versions vary by company, and it isn't a perfect cash measure. A sound REIT analysis uses FFO alongside several other tools. AFFO refines FFO into a closer estimate of distributable cash and supports the dividend-coverage analysis (the AFFO payout ratio). The balance sheet — leverage, debt maturities, and interest coverage — reveals financial risk that FFO doesn't capture. NAV (net asset value) estimates the underlying real estate value per share. And property-level metrics like occupancy, same-store NOI growth, and lease expirations show operational health. So treat FFO as the starting point and the key per-share growth and valuation gauge, but combine it with AFFO, the payout ratio, the balance sheet, NAV, and operating fundamentals for a complete view. Relying on any single metric — even one as useful as FFO — risks missing important parts of the picture.</p></div>
+</details>
+<details>
+<summary>Is higher FFO always better?<span class="ic"></span></summary>
+<div class="ans"><p>Not necessarily — higher FFO is generally good, but the figure needs context to be meaningful. First, focus on FFO per share rather than total FFO: a REIT can grow total FFO simply by issuing new shares to buy properties, but if FFO per share doesn't grow, existing shareholders aren't better off, so per-share growth is what matters. Second, consider how the FFO was achieved — sustainable, recurring growth from rising rents and good operations is more valuable than a one-time bump, and FFO supported by excessive leverage carries more risk. Third, remember FFO overstates distributable cash because it ignores maintenance capex, so a high FFO doesn't automatically mean a well-covered dividend; check AFFO and the payout ratio for that. Fourth, valuation matters — a REIT with strong FFO growth may already trade at a high P/FFO multiple that prices it in. So higher FFO per share, grown sustainably and at a reasonable valuation, is what to look for, not simply a bigger headline number. Context — per-share basis, quality and sustainability of growth, leverage, dividend coverage, and valuation — determines whether higher FFO is actually better.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me read FFO?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors learn to read a REIT's FFO — why GAAP net income misleads for REITs, what FFO adds back, how to calculate and find FFO in the earnings release and supplemental, how to use FFO per share and its growth, how to compare REITs with FFO, and the limitations to keep in mind — so you can evaluate a REIT's operating performance with the right metric rather than a distorted one. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We help you read FFO and FFO per share, locate the reconciliation in a supplemental, compare REITs on a standardized basis, and understand FFO's limits — including that it ignores maintenance capex (where AFFO helps). Baker 1031 doesn't provide tax or legal advice — your CPA handles your specific situation. This content is educational and non-promissory; we don't recommend specific REITs or promise yields, and past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>FFO</dt><dd>Funds From Operations — a REIT's standard measure of recurring operating performance.</dd></div>
+<div class="g"><dt>Net Income</dt><dd>The GAAP bottom line, distorted for REITs by depreciation and sale gains.</dd></div>
+<div class="g"><dt>Real Estate Depreciation</dt><dd>The large non-cash charge FFO adds back, since real estate often holds value.</dd></div>
+<div class="g"><dt>Amortization</dt><dd>A non-cash charge on intangibles, also added back in FFO.</dd></div>
+<div class="g"><dt>Gains on Property Sales</dt><dd>One-time sale gains removed in computing FFO (losses added back).</dd></div>
+<div class="g"><dt>Nareit</dt><dd>The trade association that defines the standardized FFO measure.</dd></div>
+<div class="g"><dt>FFO Per Share</dt><dd>Total FFO divided by shares outstanding — the REIT version of EPS.</dd></div>
+<div class="g"><dt>P/FFO</dt><dd>Price-to-FFO multiple — the REIT analog of the P/E ratio.</dd></div>
+<div class="g"><dt>Supplemental</dt><dd>A REIT's financial package showing the net-income-to-FFO reconciliation.</dd></div>
+<div class="g"><dt>Earnings Release</dt><dd>The quarterly report where a REIT first presents FFO.</dd></div>
+<div class="g"><dt>Reconciliation</dt><dd>The walk from net income to FFO showing each adjustment.</dd></div>
+<div class="g"><dt>Core / Adjusted FFO</dt><dd>Company-defined FFO variants that aren't directly comparable.</dd></div>
+<div class="g"><dt>Maintenance Capex</dt><dd>Recurring property capital FFO ignores but AFFO subtracts.</dd></div>
+<div class="g"><dt>AFFO</dt><dd>Adjusted FFO — FFO minus maintenance capex and straight-line rent.</dd></div>
+<div class="g"><dt>Straight-Line Rent</dt><dd>A non-cash rent-averaging adjustment included in FFO.</dd></div>
+<div class="g"><dt>Impairment</dt><dd>A non-cash write-down of real estate sometimes added back in FFO.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/856" rel="noopener nofollow" target="_blank">26 U.S. Code § 856 — Definition of real estate investment trust</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DST Investing in Texas | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>DST Investing in Texas
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">DST Investing in Texas</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Texas has no state income tax, which shapes how Texas investors think about a 1031 exchange and a Delaware Statutory Trust. This guide explains why Texas investors like DSTs, what the no-state-income-tax advantage means, the kinds of Texas-market offerings available, how to source replacement property, and how to work with a DST advisor.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Texas is one of the most active real estate markets in the country, and many Texas investors who own rental property eventually face the same question: how do I exit an active rental without triggering a large capital-gains tax bill — and without taking on another set of tenants, repairs, and management headaches? A Delaware Statutory Trust (DST) is one increasingly popular answer. A DST holds income-producing real estate, and an investor's fractional beneficial interest qualifies as like-kind real property for a 1031 exchange (under IRS Revenue Ruling 2004-86), so a Texas owner can sell an active rental and exchange into a passive, professionally managed DST while deferring federal capital-gains tax. Because Texas has no state income tax, the value of a 1031 here is primarily federal deferral — there's no state-level gain to defer. This guide explains why Texas investors like DSTs, the no-state-income-tax advantage, the kinds of Texas-market offerings available, how to source replacement property, and how to work with a DST advisor. Note that DST interests are securities offered through a broker-dealer to accredited investors after a suitability review, and Baker 1031 does not provide tax or legal advice — verify the current rules with your CPA.</p>
+<p>Texas owners new to these structures will find the fundamentals laid out in <a href="dst-guide.html">our complete guide to Delaware Statutory Trusts</a>.</p>
+<h2 id="why-texas-investors-like-dsts">Why Texas Investors Like DSTs</h2>
+<p>Texas investors are drawn to DSTs for the same core reasons investors everywhere are — passivity, diversification, and 1031 tax deferral — but the Texas context sharpens the appeal. Many Texas landlords have owned single-family rentals, small multifamily, or commercial buildings for years, watching them appreciate sharply in fast-growing metros like Austin, Dallas-Fort Worth, Houston, and San Antonio. The problem is that selling an appreciated rental outright triggers federal capital-gains tax (and <a href="depreciation-recapture-real-estate.html">depreciation recapture</a>), while continuing to own it means continuing to manage it. A DST resolves that tension: it lets an owner sell the active rental and 1031 the proceeds into a passive, fractional interest in institutional-quality real estate, deferring the tax.</p>
+<p>The passivity is often the deciding factor. A DST is sponsor-managed — a professional sponsor owns, operates, and eventually sells the underlying property, while the investor simply receives a share of the net rental income (distributions are projections, not guaranteed). For a Texas investor tired of late-night maintenance calls or out-of-town tenant turnover, <a href="1031-exchange-into-a-dst-passive-option.html">trading active management for passive ownership</a> is a meaningful lifestyle change. DSTs also offer diversification — an investor can split a single exchange across multiple DSTs holding different property types and markets — and relatively low minimums (often around $100,000), with a fast, predictable close that helps meet the 1031 timeline.</p>
+<p>So Texas investors like DSTs because they convert an active, taxable rental sale into a passive, tax-deferred, diversified income holding. Why Texas investors like DSTs — the ability to exit active rentals (single-family, small multifamily, commercial) that have appreciated in fast-growing metros, defer federal capital-gains tax through a 1031, and move into passive, sponsor-managed, fractional real estate with diversification and low minimums — reflects both universal DST benefits and the Texas context of rapid appreciation and active landlording. Passivity is often the deciding factor. Understanding the appeal frames the rest. Texas investors use DSTs to sell appreciated, management-intensive rentals and 1031 into passive, diversified, professionally managed real estate, deferring federal capital-gains tax in the process.</p>
+<div class="pullquote"><p>For a Texas landlord tired of repairs and tenant turnover, a DST trades active management for a passive, fractional stake in institutional real estate — while deferring the federal tax on the sale.</p></div>
+<h2 id="no-state-income-tax-advantage">No State Income Tax Advantage</h2>
+<p>Texas is one of a handful of states with no state income tax, and that fact shapes how a 1031 exchange works for Texas property. In a state with an income tax, a 1031 exchange defers both federal and state capital-gains tax. In Texas, there's no state-level capital-gains tax on the sale of investment real estate to begin with, so the value of a 1031 exchange — and of a DST as replacement property — is primarily the deferral of federal capital-gains tax and depreciation recapture. There's no state gain to defer because the state doesn't tax that gain in the first place.</p>
+<p>This doesn't make a 1031 less worthwhile for Texas investors — federal capital-gains tax plus the 3.8% <a href="net-investment-income-tax.html">net investment income tax</a> and depreciation recapture can still represent a substantial share of a sale, and deferring it keeps far more capital working. It simply means the planning conversation in Texas centers on federal tax, not a federal-plus-state stack. It also means a Texas investor sourcing an out-of-state DST should think about whether the replacement property's state imposes income or filing obligations on the income it generates, even though Texas itself does not — a point to confirm with a CPA, since state rules vary and this is educational information, not advice.</p>
+<p>So the no-state-income-tax advantage means a Texas 1031's primary benefit is federal deferral, with no state gain to defer. The no-state-income-tax advantage — Texas imposing no state income tax, so the sale of investment real estate generates no state-level capital-gains tax, making a 1031 exchange and a DST primarily a federal-deferral tool (federal capital gains, the 3.8% net investment income tax, and depreciation recapture) rather than a federal-plus-state one — defines the Texas planning context. It keeps the focus on federal tax. A Texas investor should still consider any out-of-state replacement property's own state rules with a CPA. Texas has no state income tax, so a 1031's value for Texas property is primarily federal capital-gains and recapture deferral — there's no state gain to defer, though out-of-state replacement property may carry its own state obligations.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Texas has no state income tax, so a 1031's value for Texas property is primarily federal capital-gains deferral — there's no state gain to defer.</li>
+<li>A DST interest is 1031-eligible like-kind real property (Rev Rul 2004-86), letting Texas owners exit active rentals into passive, professionally managed real estate.</li>
+<li>Texas investors can source DSTs in Texas, the broader Sunbelt, or anywhere — replacement property need not be in the same state as the property sold.</li>
+<li>DST interests are securities offered through Aurora Securities, Inc. (member FINRA/SIPC) to accredited investors after a suitability review; distributions are projected, not guaranteed.</li>
+</ul></div>
+<h2 id="popular-texas-market-offerings">Popular Texas-Market Offerings</h2>
+<p>DST sponsors regularly assemble offerings that hold real estate in Texas markets, reflecting the state's strong demographic and economic backdrop. Described generically, sample offerings have historically included multifamily apartment communities in growing metros, industrial and logistics facilities serving the state's freight and e-commerce corridors, net-lease retail and medical properties with creditworthy tenants, and self-storage and student-housing assets near major universities. These are described as the kinds of property types that appear in the market, not as recommendations of any specific security — actual availability changes constantly, and any specific offering must be evaluated on its own merits.</p>
+<p>The appeal of Texas-market property in a DST tracks the state's fundamentals: population and job growth, business in-migration, and ongoing development have supported demand for housing, logistics space, and consumer and medical services. That growth backdrop is part of why sponsors frequently target Texas and the broader Sunbelt. At the same time, growth markets can attract new supply and can be <a href="sunbelt-vs-coastal-dst-markets.html">more volatile than supply-constrained coastal markets</a>, so the same dynamics that create opportunity also create risk — a balance an investor should weigh. Projected distributions and appreciation are estimates, never guarantees, and any DST carries the risks of real estate, illiquidity, fees, and sponsor execution.</p>
+<p>So popular Texas-market offerings span multifamily, industrial, net-lease, and specialty sectors, reflecting the state's growth — described generically, not as recommendations. Popular Texas-market offerings — sample DSTs holding multifamily communities, industrial and logistics facilities, net-lease retail and medical buildings, and self-storage or student housing in growing Texas metros, described generically rather than as specific securities — reflect the state's population, job, and business growth. That growth supports demand but can bring new supply and volatility. Availability changes constantly, and every offering carries real estate, fee, and illiquidity risk. Texas-market DSTs generically span multifamily, industrial, net-lease, and specialty property in growing metros; described as property types that appear in the market, not recommendations, with availability and risk varying by offering.</p>
+<h2 id="sourcing-replacement-property">Sourcing Replacement Property</h2>
+<p>A key point for Texas investors is that 1031 replacement property does not have to be located in Texas — or in any particular state. The like-kind standard for real estate is broad: U.S. investment real estate is generally like-kind to other U.S. investment real estate, regardless of state or property type. So a Texas investor selling a Houston rental can exchange into a DST holding property in Texas, in the Sunbelt, or anywhere in the country. This geographic flexibility is one of the most useful features of DST investing, because it lets an investor pursue the best available opportunities rather than being confined to a single local market.</p>
+<p>In practice, sourcing means identifying the DST offerings available at the time of the exchange that fit the investor's objectives — income, growth, diversification, debt replacement, and risk tolerance — and that can close within the 1031 timeline. Because DSTs are pre-packaged and can close quickly (often in days), they're well suited to meeting the 45-day identification and 180-day completion deadlines, and they make <a href="dst-1031-exchange-using-a-dst-as-replacement-property.html">excellent backup identifications</a>. Many Texas investors use DSTs to diversify a single exchange across several offerings and geographies, blending Texas-market exposure with out-of-state property to balance growth and stability. Sourcing is done through a broker-dealer, since DST interests are securities.</p>
+<p>So sourcing replacement property is flexible — Texas investors can exchange into DSTs anywhere, choosing offerings that fit their goals and timeline. Sourcing replacement property — recognizing that 1031 replacement need not be in Texas (U.S. investment real estate is broadly like-kind), so a Texas seller can exchange into DSTs in Texas, the Sunbelt, or anywhere, choosing offerings that fit income, growth, diversification, and debt-replacement goals and can close within the 45/180-day deadlines — gives investors wide latitude. DSTs' fast close suits the timeline and makes good backups. Sourcing runs through a broker-dealer. Texas investors can source DST replacement property anywhere in the U.S., not just in Texas, selecting offerings that match their goals and the 1031 timeline through a broker-dealer.</p>
+<div class="pullquote"><p>Your replacement property doesn't have to sit in Texas — U.S. investment real estate is broadly like-kind, so you can exchange a Texas rental into a DST anywhere in the country.</p></div>
+<h2 id="growth-markets-and-diversification">Growth Markets and Diversification</h2>
+<p>Texas and the broader Sunbelt are frequently described as growth markets — areas seeing strong population gains, job creation, and business relocation. For a DST investor, that growth backdrop can be attractive because it tends to support demand for apartments, logistics space, retail, and services. But concentration in any single market — even a fast-growing one — carries risk, which is why diversification matters. Allocating an exchange across multiple DSTs in different markets and property types can temper the volatility that any one growth market may experience, particularly as new construction responds to demand.</p>
+<p>A Texas investor might, for example, pair a Texas-market multifamily DST (growth-oriented) with an out-of-state net-lease or healthcare DST (more income-stable), spreading exposure across geographies and sectors. Because a single 1031 exchange can be split across several DSTs (subject to the identification rules), diversification is achievable within one transaction. This lets an investor capture some Sunbelt growth potential while balancing it against steadier, supply-constrained markets — a way of managing the growth-versus-stability trade-off rather than betting entirely on one. As always, none of this guarantees returns; growth is a tendency, not a promise, and all real estate carries risk.</p>
+<p>So growth markets and diversification go hand in hand — Texas investors can pursue Sunbelt growth while spreading risk across DSTs. Growth markets and diversification — Texas and the Sunbelt offering population, job, and business growth that supports real estate demand, balanced by the concentration risk and new-supply volatility of any single growth market, which diversifying an exchange across multiple DSTs (different markets and sectors, such as Texas multifamily plus out-of-state net-lease) helps manage — let investors pursue growth while tempering risk. It's a balance, not a guarantee. Understanding it informs allocation. Texas investors can capture Sunbelt growth potential while managing concentration risk by diversifying a single exchange across multiple DSTs spanning different markets and property types.</p>
+<h2 id="working-with-a-dst-advisor-in-texas">Working With a DST Advisor in Texas</h2>
+<p>Because DST interests are securities, sourcing and investing in them runs through a broker-dealer, and most Texas investors work with a DST advisor to navigate the process. An advisor helps in several ways: clarifying goals (income, growth, diversification, debt replacement, estate planning), reviewing the available offerings and their sponsors, matching DSTs to the investor's risk tolerance and 1031 timeline, and coordinating with the <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> and CPA who handle the exchange mechanics and tax reporting. Given the 45-day and 180-day deadlines, having an experienced advisor lined up before the sale closes can be the difference between a smooth exchange and a rushed one.</p>
+<p>A good advisor is also candid about the trade-offs. DSTs are illiquid (typically held five to seven years until the sponsor sells), carry fees and sponsor-execution risk, and offer no guaranteed returns — distributions are projections. They're available only to <a href="accredited-investor-requirements.html">accredited investor</a>s after a suitability review, and the advisor's role includes confirming suitability, not just presenting offerings. For Texas investors specifically, an advisor can also flag the state-tax considerations of out-of-state replacement property (to be confirmed with a CPA) and help structure a diversified allocation across Texas and other markets. The advisor coordinates; the CPA and attorney handle tax and legal specifics.</p>
+<p>So working with a DST advisor in Texas means getting help to source, evaluate, and execute an exchange on time, with candor about the trade-offs. Working with a DST advisor in Texas — engaging a broker-dealer-affiliated advisor to clarify goals, review offerings and sponsors, match DSTs to risk tolerance and the 1031 timeline, coordinate with the qualified intermediary and CPA, confirm accredited suitability, and be candid about illiquidity, fees, and unguaranteed returns — is how most Texas investors execute a DST exchange. Lining up an advisor before closing helps meet deadlines. The advisor coordinates while tax professionals handle specifics. Texas investors typically work with a DST advisor to source and evaluate offerings, meet the 1031 timeline, confirm suitability, and coordinate with their CPA and qualified intermediary — with candor about DST illiquidity, fees, and risk.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps Texas Investors</h2>
+<p>Baker 1031 Investments helps Texas investors use Delaware Statutory Trusts in a 1031 exchange — understanding why Texas investors like DSTs, what the no-state-income-tax advantage means for their planning, the kinds of Texas-market offerings available, how to source replacement property anywhere in the country, and how to balance growth and stability across markets — so they can exit active rentals into passive, diversified, tax-deferred income suited to their goals.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific situation, including how a Texas 1031 defers federal capital-gains tax and depreciation recapture and how any out-of-state replacement property may be treated — state rules vary, so verify the current rules with your CPA, as this is educational information, not advice. We help you understand the DST structure, review offerings and sponsors generically (we describe sample property types, not specific securities, until a suitable match is identified), coordinate with your qualified intermediary and tax professionals, and source replacement property — in Texas, the Sunbelt, or anywhere — that fits your income, growth, diversification, and timeline needs. We're candid that DSTs are illiquid, carry fees and sponsor risk, and offer no guaranteed returns; distributions and appreciation are projections only. Our role is to help you invest only when a DST is suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Why do Texas investors use DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>Texas investors use DSTs to exit active rental property — single-family rentals, small multifamily, or commercial buildings that have appreciated in fast-growing metros like Austin, Dallas-Fort Worth, Houston, and San Antonio — without triggering a large capital-gains tax bill and without continuing to manage the property. A DST holds income-producing real estate, and an investor's fractional beneficial interest qualifies as like-kind real property for a 1031 exchange (under IRS Revenue Ruling 2004-86), so a Texas owner can sell an active rental and exchange the proceeds into a passive, sponsor-managed DST while deferring federal capital-gains tax. The passivity is often the deciding factor — the investor trades tenants, repairs, and management for a share of net rental income. DSTs also offer diversification (one exchange can be split across several offerings), relatively low minimums (often around $100,000), and a fast close that helps meet the 1031 deadlines. So Texas investors use DSTs to turn an active, taxable rental into passive, diversified, tax-deferred income.</p></div>
+</details>
+<details>
+<summary>Does Texas have a state capital-gains tax on real estate?<span class="ic"></span></summary>
+<div class="ans"><p>No — Texas is one of a handful of states with no state income tax, and it imposes no separate state-level capital-gains tax on the sale of investment real estate. This shapes how a 1031 exchange works for Texas property. In a state with an income tax, a 1031 defers both federal and state capital-gains tax; in Texas, there's no state gain to defer in the first place, so the value of a 1031 exchange — and of a DST as replacement property — is primarily the deferral of federal capital-gains tax, the 3.8% net investment income tax, and depreciation recapture. This doesn't make a 1031 less worthwhile, since federal taxes and recapture can still be substantial, but it keeps the Texas planning conversation focused on federal tax rather than a federal-plus-state stack. One caveat: if a Texas investor exchanges into out-of-state replacement property, that property's state may impose its own obligations — a point to confirm with a CPA, since state rules vary and this is educational information, not advice.</p></div>
+</details>
+<details>
+<summary>Can I exchange a Texas property into a DST in another state?<span class="ic"></span></summary>
+<div class="ans"><p>Yes. The like-kind standard for real estate is broad — U.S. investment real estate is generally like-kind to other U.S. investment real estate, regardless of state or property type — so 1031 replacement property does not have to be located in Texas or in any particular state. A Texas investor selling a Houston or Dallas rental can exchange into a DST holding property in Texas, elsewhere in the Sunbelt, or anywhere in the country. This geographic flexibility is one of the most useful features of DST investing: it lets you pursue the best available opportunities and diversify across markets rather than being confined to your local area. Many Texas investors deliberately blend Texas-market exposure with out-of-state DSTs to balance growth and stability. One thing to keep in mind is that out-of-state replacement property may carry the destination state's own income or filing obligations even though Texas does not — confirm that with your CPA. So yes, you can exchange a Texas property into a DST in any state.</p></div>
+</details>
+<details>
+<summary>What kinds of Texas-market DSTs are available?<span class="ic"></span></summary>
+<div class="ans"><p>DST sponsors regularly assemble offerings that hold real estate in Texas markets, reflecting the state's strong fundamentals. Described generically — not as recommendations of any specific security — sample offerings have historically included multifamily apartment communities in growing metros, industrial and logistics facilities serving the state's freight and e-commerce corridors, net-lease retail and medical properties with creditworthy tenants, and self-storage and student-housing assets near major universities. The appeal of Texas-market property tracks the state's population growth, job creation, and business in-migration, which support demand for housing, logistics space, and services. Actual availability changes constantly, so the right way to think about this is in terms of the property types that tend to appear in the market rather than a fixed menu. Every specific offering must be evaluated on its own merits, and growth markets can attract new supply and be more volatile than supply-constrained markets. So a range of Texas-market DSTs is typically available across multifamily, industrial, net-lease, and specialty sectors, with availability and risk varying by offering.</p></div>
+</details>
+<details>
+<summary>Does my replacement property have to be in Texas?<span class="ic"></span></summary>
+<div class="ans"><p>No. There is no requirement that 1031 replacement property be in the same state as the property you sold, or in any particular state. The like-kind rule for real estate is broad: U.S. investment real estate is generally like-kind to other U.S. investment real estate, so a Texas seller can exchange into a DST holding property anywhere in the country. This is actually a planning advantage — it lets you choose offerings based on your objectives (income, growth, diversification, debt replacement) and the markets you find attractive, rather than being limited to local property. Many Texas investors use this flexibility to diversify a single exchange across several DSTs in different states and sectors, blending fast-growing Sunbelt markets with steadier, supply-constrained ones. The main thing to verify is whether out-of-state replacement property carries the destination state's own tax or filing obligations on the income it produces; Texas itself imposes no state income tax, but other states differ. Confirm those specifics with your CPA. So your replacement property does not have to be in Texas.</p></div>
+</details>
+<details>
+<summary>How does the no-state-income-tax benefit affect my 1031?<span class="ic"></span></summary>
+<div class="ans"><p>Because Texas has no state income tax and no separate state capital-gains tax on real estate, a 1031 exchange of Texas property defers primarily federal tax — federal capital-gains tax, the 3.8% net investment income tax, and depreciation recapture — rather than a federal-plus-state stack. In a high-tax state like California, a 1031 also defers a substantial state-level gain; in Texas, there's no state gain to defer because the state doesn't tax it. This doesn't reduce the value of a 1031 for Texas investors — federal capital-gains rates plus the net investment income tax and recapture can still claim a large share of a sale, and deferring that keeps far more capital compounding in the replacement property. It simply means the planning focus is federal. One nuance: if you exchange into out-of-state property, that state may tax the income the replacement generates, so the no-state-income-tax benefit applies to the Texas side, not necessarily to out-of-state replacement property. Confirm the details with your CPA, since this is educational, not advice.</p></div>
+</details>
+<details>
+<summary>Is a DST a passive investment?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — passivity is one of the main reasons Texas investors choose DSTs. In a DST, a professional sponsor owns, operates, and eventually sells the underlying real estate, while the investor holds a fractional beneficial interest and simply receives a share of the net rental income. The investor has no management responsibilities — no tenants to screen, no repairs to coordinate, no leasing or financing decisions to make. This is a sharp contrast to owning an active rental, where the landlord handles everything. For a Texas investor who has spent years managing single-family rentals or small commercial property, the shift to passive ownership is often the deciding factor, especially for those approaching retirement or wanting to simplify their holdings. The trade-off for that passivity is loss of control: the investor doesn't make operating decisions and relies on the sponsor's execution, which is itself a risk. Distributions are projected, not guaranteed, and the investment is illiquid for the duration of the hold. So a DST is genuinely passive, with control and liquidity given up in exchange.</p></div>
+</details>
+<details>
+<summary>What are the minimum investment requirements for a DST?<span class="ic"></span></summary>
+<div class="ans"><p>DST minimums vary by sponsor and offering, but they're often around $100,000 for a 1031 exchange investment (some all-cash, non-1031 investments may have lower minimums, and certain offerings set higher ones). That's typically far less than the capital required to buy a comparable institutional-quality property outright, which is part of what makes DSTs accessible and what enables diversification — an investor with, say, $1 million of exchange proceeds could spread it across multiple DSTs rather than buying a single replacement property. DSTs are also limited to accredited investors and are offered through a broker-dealer after a suitability review, so meeting the financial-qualification thresholds for accredited status is a prerequisite. Beyond the minimum, an investor should weigh the offering's fees, projected distributions (which are estimates, not guarantees), hold period, leverage, and sponsor track record. So while minimums are relatively low compared with direct ownership, the more important questions are suitability, diversification, and the specifics of each offering. Confirm current minimums and requirements with your DST advisor for any given offering.</p></div>
+</details>
+<details>
+<summary>How long is a typical DST hold period?<span class="ic"></span></summary>
+<div class="ans"><p>A typical DST hold period is around five to seven years, though it varies by offering and by the sponsor's business plan and market conditions. During the hold, the sponsor operates the property and distributes net rental income to investors (distributions are projections, not guarantees), and at the end of the hold the sponsor sells the property. When the property sells, investors can take their proceeds as cash (paying the deferred tax), complete another 1031 exchange into a new DST or other replacement property to continue deferral, or, in some cases, participate in a 721 (UPREIT) exchange that rolls the interest into a REIT's operating partnership. Because a DST is illiquid — there's limited or no secondary market — an investor should be prepared to remain invested for the full hold, which makes the hold period an important suitability consideration. The hold is also why DSTs suit investors who want income over a defined period rather than ready access to their capital. So plan for a multi-year commitment, typically five to seven years, and discuss exit options with your advisor before investing.</p></div>
+</details>
+<details>
+<summary>Are DST distributions guaranteed?<span class="ic"></span></summary>
+<div class="ans"><p>No — DST distributions are never guaranteed. The income an investor receives from a DST comes from the net rental income the underlying property generates, and that income depends on real factors: occupancy, rent levels, operating expenses, and (for leveraged DSTs) debt service. Any distribution figures presented for an offering are projections based on the sponsor's assumptions, not promises — actual results can be higher or lower, and distributions can be reduced or suspended if the property underperforms. This is true of all DSTs and is a core risk of the structure. It's also why DSTs are offered only to accredited investors after a suitability review, and why a responsible advisor is candid that returns and income are not guaranteed and that past performance does not predict future results. Investors should size and diversify their DST holdings with this in mind — for example, by spreading an exchange across multiple offerings and markets to reduce reliance on any single property. So treat projected distributions as estimates, not guarantees, and invest only what fits your risk tolerance and goals.</p></div>
+</details>
+<details>
+<summary>Can DSTs help with diversification?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — diversification is one of the key advantages of DSTs, and it's especially useful for Texas investors who might otherwise be concentrated in a single local market. Because a single 1031 exchange can be split across multiple DSTs (subject to the identification rules), an investor can spread exchange proceeds across different property types — multifamily, industrial, net-lease retail, healthcare, self-storage — and different geographic markets in one transaction. A Texas investor might pair a Texas-market multifamily DST (growth-oriented) with an out-of-state net-lease or healthcare DST (more income-stable), balancing the growth potential of a fast-moving Sunbelt market against steadier, supply-constrained ones. This diversification helps temper the concentration risk and new-supply volatility that any single growth market can experience. Diversification reduces, but does not eliminate, risk — all the properties are still real estate and subject to market forces, and no allocation guarantees returns. Still, the ability to diversify within a single exchange, at relatively low minimums, is a meaningful benefit. So DSTs can substantially improve diversification compared with buying a single replacement property.</p></div>
+</details>
+<details>
+<summary>Do I need a qualified intermediary for a DST exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — like any 1031 exchange, a DST exchange requires a qualified intermediary (QI). A QI is an independent third party who holds the proceeds from the sale of your relinquished property and then uses them to acquire the replacement property (the DST interest) on your behalf, so that you never take constructive receipt of the funds — which is essential to preserving the tax deferral. You must set up the QI before closing the sale of your relinquished property; you can't take the cash first and add a QI later. The QI also helps you meet the strict 1031 deadlines: identifying replacement property within 45 days and completing the exchange within 180 days. For a DST exchange, your DST advisor typically coordinates with the QI (and your CPA) to ensure the offering closes within the timeline and the paperwork is correct. So a QI is a required part of the process, and lining one up before your sale closes is essential. Your advisor and CPA can help you select and coordinate with a qualified intermediary.</p></div>
+</details>
+<details>
+<summary>What are the risks of investing in a Texas-market DST?<span class="ic"></span></summary>
+<div class="ans"><p>A Texas-market DST carries the same core risks as any DST, plus considerations specific to growth markets. Core DST risks include illiquidity (you generally can't sell your interest and must remain invested for the multi-year hold), fees (which reduce net returns), sponsor-execution risk (you rely on the sponsor to operate and sell the property well), and the ordinary risks of real estate (declining occupancy, rents, or property values; interest-rate pressure on leveraged deals). Distributions are projected, not guaranteed. Texas and Sunbelt growth markets add a specific dynamic: strong population and job growth support demand, but that growth can attract new construction and supply, which may pressure rents and values and make growth markets more volatile than supply-constrained ones. So the same fundamentals that create opportunity also create risk. Diversifying across markets and sectors helps manage — but does not eliminate — these risks. DSTs are offered only to accredited investors after a suitability review. So weigh both the universal DST risks and the growth-market dynamics, and invest only what suits your goals and risk tolerance.</p></div>
+</details>
+<details>
+<summary>How do I find DST offerings as a Texas investor?<span class="ic"></span></summary>
+<div class="ans"><p>Because DST interests are securities, you find and invest in DST offerings through a broker-dealer, typically by working with a DST advisor. The advisor reviews the offerings available at the time of your exchange, screens them against your objectives (income, growth, diversification, debt replacement, estate planning) and risk tolerance, and identifies those that can close within your 1031 timeline. You generally can't buy a DST on a public exchange or through an ordinary brokerage account the way you'd buy a stock — the process involves a suitability review (DSTs are limited to accredited investors), offering documents to review, and a subscription process. For Texas investors, an advisor can present both Texas-market and out-of-state offerings, helping you build a diversified allocation. Given the 45-day identification and 180-day completion deadlines, it's wise to engage an advisor before your relinquished property closes so offerings can be lined up in time. So the practical route is to work with a DST advisor at a broker-dealer who can source, screen, and help you subscribe to suitable offerings within your timeline.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help Texas investors with DSTs?<span class="ic"></span></summary>
+<div class="ans"><p>We help Texas investors use DSTs in a 1031 exchange — understanding why Texas investors like DSTs, what the no-state-income-tax advantage means, the kinds of Texas-market offerings available, how to source replacement property anywhere in the country, and how to balance growth and stability across markets — so they can exit active rentals into passive, diversified, tax-deferred income. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific situation, including how a Texas 1031 defers federal capital-gains tax and recapture and how any out-of-state replacement property is treated — verify the current rules with your CPA. We help you understand the structure, review offerings and sponsors (described generically until a suitable match is identified), coordinate with your qualified intermediary and tax professionals, and source replacement property that fits your goals and timeline. We're candid that DSTs are illiquid, carry fees and sponsor risk, and offer no guaranteed returns — distributions are projections only. Our role is to help you invest only when a DST is suitable for you.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust holding income-producing real estate in which investors own fractional beneficial interests.</dd></div>
+<div class="g"><dt>1031 Exchange</dt><dd>A swap of like-kind investment real estate that defers capital-gains tax.</dd></div>
+<div class="g"><dt>Like-Kind Property</dt><dd>U.S. investment real estate, broadly interchangeable regardless of state or type.</dd></div>
+<div class="g"><dt>Beneficial Interest</dt><dd>An investor's fractional ownership stake in a DST's real estate.</dd></div>
+<div class="g"><dt>Revenue Ruling 2004-86</dt><dd>The IRS ruling treating a DST interest as 1031-eligible real property.</dd></div>
+<div class="g"><dt>No State Income Tax</dt><dd>Texas's lack of state income or state capital-gains tax.</dd></div>
+<div class="g"><dt>Federal Capital-Gains Tax</dt><dd>The federal tax on a property's gain that a 1031 defers.</dd></div>
+<div class="g"><dt>Depreciation Recapture</dt><dd>Tax on previously claimed depreciation, also deferred by a 1031.</dd></div>
+<div class="g"><dt>Net Investment Income Tax</dt><dd>The 3.8% federal surtax that can apply to investment gains.</dd></div>
+<div class="g"><dt>Sponsor</dt><dd>The firm that acquires, operates, and sells a DST's property.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The independent party that holds exchange proceeds to preserve deferral.</dd></div>
+<div class="g"><dt>45-Day / 180-Day Rules</dt><dd>The 1031 deadlines to identify and complete an exchange.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income or net-worth thresholds for DST offerings.</dd></div>
+<div class="g"><dt>Sunbelt</dt><dd>Fast-growing southern and southwestern markets, including Texas.</dd></div>
+<div class="g"><dt>Hold Period</dt><dd>The multi-year span (often five to seven years) a DST is held.</dd></div>
+<div class="g"><dt>Broker-Dealer</dt><dd>The firm through which DST securities are offered after suitability review.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>IRS. <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" rel="noopener nofollow" target="_blank">Like-Kind Exchanges — Real Estate Tax Tips</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a><a href="insights.html">Market</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

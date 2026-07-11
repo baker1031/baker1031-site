@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REIT Risks Every Investor Should Know | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>REIT Risks Every Investor Should Know
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">REIT Risks Every Investor Should Know</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">REITs can offer attractive income and diversification, but they aren't risk-free. This honest guide walks through the key REIT risks every investor should know — interest-rate risk, sector and tenant concentration, leverage and refinancing risk, management and conflict risk, and market and liquidity risk — and how to mitigate them.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">REITs are often presented in terms of their benefits — high dividends, diversification, passive real estate exposure — but a clear-eyed investor needs to understand the risks just as well. A REIT is a real investment in real estate that can lose value, cut its distribution, or underperform, and several distinct risks drive those outcomes. Rising interest rates can pressure REIT prices and, for some REITs, their earnings. Concentration in a single sector or tenant can magnify a downturn. Heavy leverage and looming debt maturities can force costly refinancing. Weak or conflicted management can erode returns. And market volatility (for traded REITs) and illiquidity (for non-traded REITs) add their own risks. The point isn't to scare you away from REITs — it's to help you invest with realistic expectations and to mitigate what you can. This guide walks through interest-rate risk, sector and tenant concentration, leverage and refinancing risk, management and conflict risk, and market and liquidity risk, then explains how to mitigate them. Note that past performance does not guarantee future results, and Baker 1031 does not provide tax or legal advice — verify current details before investing.</p>
+<p>Before drilling into each risk, it helps to understand how the asset class works overall, which our <a href="reits-guide.html">comprehensive REIT primer</a> lays out across traded and non-traded structures.</p>
+<h2 id="interest-rate-risk">Interest-Rate Risk</h2>
+<p>Interest-rate risk is one of the most significant risks REIT investors face, because <a href="how-interest-rates-affect-reit-returns.html">REITs are sensitive to changes in interest rates</a> in several ways. When rates rise, REIT share prices often fall. Part of the reason is competition for income: as bonds and other fixed-income investments offer higher yields, income-seeking investors may rotate out of REITs, pressuring their prices. Part of it is valuation: higher rates raise the discount rate applied to future cash flows, lowering present values, including for income-producing real estate.</p>
+<p>Rising rates also raise REITs' borrowing costs, since most REITs use debt — when a REIT must refinance maturing debt at higher rates, its interest expense climbs, pressuring cash flow and distributions. <a href="reits-and-rising-rates-a-sector-playbook.html">Mortgage REITs are especially rate-sensitive</a>: they earn the spread between what their mortgage assets pay and their cost of borrowing, so shifts in rates or the yield curve can compress that spread and the distribution directly. So interest-rate risk affects REITs through prices, valuations, borrowing costs, and (for mortgage REITs) earning spreads. It's important to note that the relationship isn't perfectly mechanical — quality REITs with growing rents can offset some rate pressure — but rate sensitivity is a defining REIT risk.</p>
+<p>So interest-rate risk pressures REIT prices, valuations, borrowing costs, and mortgage-REIT spreads, making it a defining risk to understand. So rate sensitivity is the first risk on the list. Interest-rate risk — rising rates pressuring REIT share prices (as competing yields rise and valuations fall), raising borrowing costs that squeeze cash flow when debt is refinanced, and compressing the interest-rate spreads mortgage REITs earn — is one of the most significant REIT risks. The relationship isn't perfectly mechanical, but rate sensitivity is fundamental. Understanding it frames the other risks. Interest-rate risk is a defining REIT risk: rising rates can pressure share prices and valuations, raise borrowing costs that squeeze distributions, and compress mortgage REITs' earning spreads — though quality REITs with growing rents can offset some of the pressure.</p>
+<h2 id="sector-tenant-concentration">Sector &amp; Tenant Concentration</h2>
+<p>Concentration risk — over-reliance on a single sector or a few tenants — can magnify losses when something goes wrong. A REIT concentrated in one property sector is exposed to that sector's specific fortunes: an office REIT faces the structural challenges of remote work, a retail REIT faces e-commerce pressure, a hotel REIT faces travel downturns. When a sector falls out of favor or faces secular decline, a REIT concentrated there can suffer sharp, prolonged underperformance that a diversified REIT would feel less acutely.</p>
+<p>Tenant concentration is the related risk at the property level. A REIT that depends on a few large tenants for much of its rent is vulnerable to those tenants' financial health — if a major tenant defaults, declares bankruptcy, or doesn't renew its lease, the REIT can lose a large chunk of income at once, threatening its distribution and value. Net-lease REITs, while prized for durable leases, can carry meaningful single-tenant exposure on individual properties. Geographic concentration adds another layer: a REIT focused on one city or region is exposed to that area's local economy, regulation, and conditions. So concentration — by sector, tenant, or geography — amplifies the impact of adverse events.</p>
+<p>So sector and tenant concentration magnify the effect of a downturn in a sector, a tenant's failure, or a regional shock — diversification dampens it. So concentration is a core REIT risk. Sector and tenant concentration risk — a REIT over-reliant on one property sector being exposed to that sector's secular and cyclical fortunes (office, retail, hotels each facing distinct pressures), a REIT dependent on a few large tenants being vulnerable to their default or non-renewal, and geographic concentration adding local-economy exposure — amplifies the impact of adverse events. Diversification across sectors, tenants, and markets dampens it. Understanding concentration is essential. Concentration risk — over-reliance on one sector, a few tenants, or one region — magnifies losses when a sector declines, a major tenant fails, or a local economy weakens; diversification across sectors, tenants, and geographies reduces it.</p>
+<div class="pullquote"><p>Concentration cuts both ways: a focused REIT can outperform when its sector thrives, but when that single sector or a major tenant turns, there's nowhere for the damage to hide.</p></div>
+<h2 id="leverage-refinancing">Leverage and Refinancing Risk</h2>
+<p>Leverage — the use of debt — amplifies both returns and risk, making it a central REIT risk. Real estate is a leveraged business, and most REITs borrow to acquire properties, which can boost returns when things go well. But debt also magnifies losses when property values or income fall: a heavily leveraged REIT has less cushion to absorb a downturn, and in severe cases excessive leverage can threaten a REIT's solvency. So the level of leverage a REIT carries directly affects how much risk you're taking.</p>
+<p>Refinancing risk is the timing dimension of leverage, and it's especially acute in a high-rate environment. When a REIT's debt matures, it must repay or refinance — and if it refinances at higher rates, its interest costs rise, pressuring distributions; if credit markets are tight, it may struggle to refinance at all, potentially forcing asset sales at unfavorable prices. A REIT with large debt maturities concentrated in the near term faces significant refinancing risk, while one that staggers its maturities and locks in fixed-rate debt is more resilient. So both the amount of debt and the schedule of when it comes due matter. Floating-rate debt adds direct exposure to rising rates.</p>
+<p>So leverage and refinancing risk — too much debt, or debt maturing at the wrong time in a high-rate environment — can pressure distributions and, in severe cases, solvency. So the balance sheet is a core risk. Leverage and refinancing risk — debt amplifying both returns and losses (a heavily leveraged REIT having less cushion in a downturn), and refinancing risk arising when maturing debt must be refinanced at higher rates or in tight credit markets (concentrated near-term maturities being most dangerous, especially with floating-rate debt) — make the balance sheet a central REIT risk. Both the level and timing of debt matter. Understanding leverage is essential. Leverage and refinancing risk make a REIT's balance sheet central: too much debt amplifies losses, and debt maturing at the wrong time — in a high-rate or tight-credit environment — can squeeze distributions or force asset sales, with concentrated near-term and floating-rate maturities most dangerous.</p>
+<h2 id="management-conflict">Management &amp; Conflict Risk</h2>
+<p>Management and conflict risk reflects the reality that a REIT is run by people whose decisions and incentives shape your outcome. Weak management can allocate capital poorly — overpaying for properties, mistiming the cycle, taking on too much debt, or failing to manage the portfolio well — eroding returns even when the underlying real estate market is healthy. A REIT's leadership matters, and a history of poor decisions or a lack of relevant experience is a genuine risk.</p>
+<p>Conflict risk is most acute in externally-managed and non-traded REITs. When a separate management company runs the REIT for fees, its incentives may not fully align with shareholders: a manager paid acquisition fees may grow the REIT's asset base (and its own fees) even when growth isn't in shareholders' best interest, and related-party transactions — buying from or selling to affiliates — may not be at arm's length. High fees themselves are a drag on returns, and conflicts can lead to decisions that benefit the manager more than the investor. So with externally-managed and non-traded REITs especially, the alignment of management's incentives, the fee structure, and the handling of conflicts are real risks to assess. Strong governance and aligned incentives mitigate this; weak governance amplifies it.</p>
+<p>So management and conflict risk — poor capital allocation, misaligned incentives, high fees, and related-party conflicts (especially in externally-managed and non-traded REITs) — can erode returns regardless of the real estate. So who runs the REIT matters. Management and conflict risk — weak management allocating capital poorly (overpaying, mistiming, overleveraging), and conflicts in externally-managed and non-traded REITs where fee-driven incentives, high fees, and related-party transactions may not align with shareholders — can erode returns even in a healthy market. Governance and alignment determine the severity. Understanding this risk matters because people run REITs. Management and conflict risk arises because people run REITs: weak management can allocate capital poorly, and externally-managed or non-traded REITs can carry misaligned fee-driven incentives and related-party conflicts — strong governance and aligned incentives mitigate it, weak governance amplifies it.</p>
+<div class="pullquote"><p>In an externally-managed REIT, the most important risk often isn't the real estate at all — it's whether the manager is paid to grow your wealth or simply to grow the size of the fund.</p></div>
+<h2 id="market-liquidity">Market &amp; Liquidity Risk</h2>
+<p>Market and liquidity risk takes different forms depending on whether a REIT is publicly traded or non-traded. A publicly traded REIT's shares move continuously with the market, so they carry market-price volatility: the price can <a href="reit-bear-markets-history-and-lessons.html">fall sharply during a broad sell-off</a> — driven by investor sentiment, rate expectations, or economic fears — even when the underlying properties and rents are stable. This volatility is the price of the daily liquidity traded REITs offer, and it can be uncomfortable for investors who watch (or react to) short-term swings.</p>
+<p>A non-traded REIT carries the opposite risk: illiquidity. Because its shares aren't exchange-listed, you generally can't sell on demand — your main avenue for liquidity is the redemption program, which is typically capped (commonly around 5% per year) and can be reduced or suspended at the REIT's discretion, especially during stress when many investors want out at once. So a non-traded REIT ties up your capital, and you may be unable to exit when you'd like. Both structures also face the broader economic and real estate cycle risk — recessions, falling occupancy, and declining rents can reduce income and value regardless of structure. So traded REITs carry volatility, non-traded REITs carry illiquidity, and both carry cycle risk.</p>
+<p>So market and liquidity risk means volatility for traded REITs, illiquidity for non-traded REITs, and economic-cycle risk for both. So this risk depends on the structure you choose. Market and liquidity risk — publicly traded REITs carrying market-price volatility (sharp swings driven by sentiment and rates, even when properties are stable), non-traded REITs carrying illiquidity (capped, suspendable redemptions that can trap capital), and both exposed to the broader economic and real estate cycle — varies with the structure you choose. Volatility is the cost of traded liquidity; illiquidity is the cost of smoother non-traded pricing. Understanding this completes the risk picture. Market and liquidity risk depends on structure: traded REITs carry price volatility (sharp swings even when properties are stable), non-traded REITs carry illiquidity (capped, suspendable redemptions), and both face economic and real estate cycle risk that can reduce income and value.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Interest-rate risk is fundamental: rising rates can pressure REIT prices, valuations, and borrowing costs, and compress mortgage REITs' earning spreads.</li>
+<li>Concentration risk — over-reliance on one sector, a few tenants, or one region — magnifies losses; diversification across sectors, tenants, and markets dampens it.</li>
+<li>Leverage and refinancing risk make the balance sheet central: too much debt or near-term maturities in a high-rate environment can squeeze distributions or force asset sales.</li>
+<li>Mitigate REIT risks through diversification (across REITs and sectors), quality (strong management, sound balance sheets), due diligence, and appropriate position sizing.</li>
+</ul></div>
+<h2 id="mitigating-risks">Mitigating REIT Risks</h2>
+<p>While REIT risks can't be eliminated, they can be managed through a few sound practices. The first is diversification: rather than concentrating in a single REIT, spread your exposure across multiple REITs, sectors, and geographies — a REIT fund or ETF does this automatically, and holding several REITs reduces the impact of any one sector's downturn or any single REIT's troubles. Diversification doesn't prevent losses, but it dampens the effect of concentration risk and the failure of any single investment.</p>
+<p>The second practice is quality: favor REITs with strong, aligned management, sound balance sheets (conservative leverage, well-staggered debt maturities), high-quality and well-leased properties, and sustainable, covered distributions. Quality REITs are better positioned to weather rate increases, downturns, and stress than overleveraged, poorly-managed, or richly-yielding-but-fragile ones. The third is due diligence — actually examining the management, balance sheet, portfolio, distribution coverage, and fees before investing, as covered in a thorough REIT checklist. The fourth is appropriate position sizing: keep any single REIT, and your overall REIT allocation, sized so that a bad outcome won't derail your plan. So diversification, quality, due diligence, and sizing together form a sensible risk-management approach.</p>
+<p>So mitigating REIT risks means diversifying, favoring quality, doing due diligence, and sizing positions appropriately — managing rather than eliminating risk. So a disciplined approach makes REITs investable. Mitigating REIT risks — diversifying across REITs, sectors, and geographies (reducing concentration risk), favoring quality (strong management, sound balance sheets, well-leased properties, covered distributions), conducting genuine due diligence before investing, and sizing positions appropriately so a bad outcome won't derail your plan — manages the risks even though it can't eliminate them. A disciplined approach makes REITs a sound, if risky, investment. Understanding mitigation completes the picture. Mitigate REIT risks by diversifying across REITs and sectors, favoring quality (strong management, sound balance sheets, covered distributions), doing real due diligence, and sizing positions appropriately — these manage the risks without eliminating them.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Understand REIT Risks</h2>
+<p>Baker 1031 Investments helps investors understand REIT risks honestly — interest-rate risk, sector and tenant concentration, leverage and refinancing risk, management and conflict risk, and market and liquidity risk — and how to mitigate them through diversification, quality, due diligence, and appropriate sizing, so you can invest in REITs with realistic expectations rather than only their benefits in view.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. We help you assess the risks of a specific REIT — its rate sensitivity, concentration, leverage and debt maturities, management and fee structure, and liquidity terms — and weigh them against the potential benefits, so your decision is informed. Baker 1031 does not provide tax or legal advice; your CPA handles how REIT distributions are taxed in your situation. We're candid that REITs carry real risk: distributions can be cut, share prices and NAVs fluctuate, leverage and rates pose genuine dangers, and non-traded REITs are illiquid. Neither yields nor returns are promised, and past performance does not guarantee future results. Our role is to help you understand the risks clearly, mitigate what you can, and invest only when a REIT is suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Are REITs risky investments?<span class="ic"></span></summary>
+<div class="ans"><p>REITs carry real risk — they aren't risk-free, but they aren't uniquely dangerous either. A REIT is an investment in real estate (or real estate debt) that can lose value, cut its distribution, or underperform, and several distinct risks drive those outcomes: interest-rate risk (rising rates can pressure prices and earnings), concentration risk (over-reliance on one sector or tenant), leverage and refinancing risk (debt amplifies losses and near-term maturities can force costly refinancing), management and conflict risk (weak or conflicted management can erode returns), and market and liquidity risk (volatility for traded REITs, illiquidity for non-traded ones). At the same time, REITs offer income, diversification, and passive real estate exposure, and the risks can be managed through diversification, quality, due diligence, and appropriate sizing. So REITs are neither safe nor reckless — they're real investments with understandable, manageable risks. The right approach is to invest with realistic expectations, understand the specific REIT's risks, and size the allocation to fit your goals and risk tolerance. Past performance doesn't guarantee future results, so treat any REIT as a risk asset.</p></div>
+</details>
+<details>
+<summary>How do interest rates affect REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Interest rates affect REITs in several ways, which is why rate sensitivity is a defining REIT risk. When rates rise, REIT share prices often fall — partly because higher-yielding bonds become more competitive with REIT distributions, drawing income investors away, and partly because higher rates raise the discount applied to future cash flows, lowering valuations including for income-producing real estate. Rising rates also raise REITs' borrowing costs: since most REITs use debt, refinancing maturing loans at higher rates increases interest expense, pressuring cash flow and distributions. Mortgage REITs are especially rate-sensitive, since they earn the spread between what their mortgage assets pay and their borrowing cost — shifts in rates or the yield curve can compress that spread directly. That said, the relationship isn't perfectly mechanical: quality REITs with contractual rent escalations and growing income can offset some rate pressure, and real estate can serve as an inflation hedge. So interest rates affect REITs through prices, valuations, borrowing costs, and mortgage-REIT spreads — a fundamental risk, though one that quality and rising rents can partly offset. Factor rate sensitivity into your expectations.</p></div>
+</details>
+<details>
+<summary>What is concentration risk in a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Concentration risk is the danger that comes from a REIT's over-reliance on a single sector, a few tenants, or one geographic area. Sector concentration: a REIT focused on one property type is exposed to that sector's specific fortunes — an office REIT to remote-work pressures, a retail REIT to e-commerce, a hotel REIT to travel downturns — so when a sector declines, a concentrated REIT can suffer sharp, prolonged underperformance. Tenant concentration: a REIT dependent on a few large tenants is vulnerable to their financial health — if a major tenant defaults, goes bankrupt, or doesn't renew, the REIT can lose substantial income at once, threatening its distribution. Geographic concentration: a REIT focused on one city or region is exposed to that area's local economy, regulation, and conditions. So concentration amplifies the impact of adverse events — a sector decline, a tenant failure, or a regional shock hits a concentrated REIT harder than a diversified one. The main mitigation is diversification: holding REITs across sectors, tenants, and geographies, or using diversified REITs and funds, dampens concentration risk. So assess how concentrated a REIT is before investing, and diversify your overall REIT exposure.</p></div>
+</details>
+<details>
+<summary>Why is leverage a risk for REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Leverage — the use of debt — is a risk because it amplifies both gains and losses. Real estate is a leveraged business, and most REITs borrow to acquire properties; this can boost returns when property values and income rise, but it magnifies losses when they fall. A heavily leveraged REIT has less cushion to absorb a downturn: if property values or rents decline, the debt remains fixed while the equity cushion shrinks, and in severe cases excessive leverage can threaten a REIT's solvency. There's also refinancing risk — the timing dimension of leverage. When a REIT's debt matures, it must repay or refinance, and refinancing at higher rates raises interest costs (pressuring distributions), while tight credit markets can make refinancing difficult or force asset sales at bad prices. A REIT with large near-term maturities, especially floating-rate debt in a rising-rate environment, faces significant refinancing risk. So leverage is a risk because too much debt amplifies losses and reduces resilience, and debt maturing at the wrong time can squeeze distributions or force unfavorable sales. Conservative leverage with well-staggered, fixed-rate maturities is far more resilient — assess both the level and timing of a REIT's debt.</p></div>
+</details>
+<details>
+<summary>What is refinancing risk for a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Refinancing risk is the risk that a REIT, when its debt matures, must refinance on worse terms — or struggles to refinance at all. Because most REITs use debt that comes due periodically, they regularly face the need to repay or roll over loans. If a REIT must refinance in a high-rate environment, its new interest costs are higher, which pressures cash flow and distributions. Worse, if credit markets are tight or the REIT's situation has deteriorated, it may be unable to refinance on reasonable terms, potentially forcing it to sell assets at unfavorable prices, cut its distribution, or raise dilutive equity. Refinancing risk is most acute when a REIT has large debt maturities concentrated in the near term, especially if that debt is floating-rate. A well-managed REIT mitigates this risk by staggering its debt maturities over many years, locking in fixed-rate debt where possible, and maintaining liquidity and unused credit lines as a buffer. So refinancing risk is about the timing of a REIT's debt: concentrated near-term maturities in a costly or tight credit environment are dangerous, while staggered, fixed-rate maturities are resilient. Examine a REIT's debt maturity ladder to assess this risk.</p></div>
+</details>
+<details>
+<summary>What management risks do REITs have?<span class="ic"></span></summary>
+<div class="ans"><p>REITs carry management risk because they're run by people whose decisions and incentives shape your outcome. Weak management can allocate capital poorly — overpaying for properties, mistiming the real estate cycle, taking on excessive debt, or failing to manage the portfolio and leases effectively — eroding returns even when the underlying market is healthy. A REIT's leadership, experience, and track record genuinely matter. Conflict risk is the related concern, most acute in externally-managed and non-traded REITs. When a separate management company runs the REIT for fees, its incentives may not align with shareholders: a manager paid acquisition fees may grow the REIT's asset base (and its fees) even when that's not in investors' interest, and related-party transactions with affiliates may not be at arm's length. High fees themselves drag on returns. So management risk spans poor capital allocation, misaligned incentives, high fees, and conflicts — particularly in externally-managed and non-traded structures. Strong governance, aligned incentives, internal management, and a solid track record mitigate the risk, while weak governance and fee-driven external management amplify it. So assess who runs a REIT, how they're paid, and how conflicts are managed before investing.</p></div>
+</details>
+<details>
+<summary>Are non-traded REITs riskier than traded REITs?<span class="ic"></span></summary>
+<div class="ans"><p>They carry different risks rather than being simply riskier or safer. A non-traded REIT's defining risk is illiquidity: because its shares aren't exchange-listed, you can't sell on demand — your main liquidity is the redemption program, which is typically capped (commonly around 5% per year) and can be suspended at the REIT's discretion, especially during stress. So your capital can be tied up, and you may be unable to exit when you'd like. Non-traded REITs have also historically carried higher fees and more potential for conflicts (often externally managed), which can erode returns. A publicly traded REIT's defining risk is market-price volatility: its shares move continuously with the market and can fall sharply during sell-offs even when the underlying properties are stable — but it offers daily liquidity. Both own real estate that carries the same underlying risks (rate sensitivity, concentration, leverage, cycle risk). So a non-traded REIT trades volatility for illiquidity and often higher fees, while a traded REIT trades illiquidity for volatility. Neither is categorically riskier — assess the specific risks of each structure against your needs, especially your liquidity requirements, before investing.</p></div>
+</details>
+<details>
+<summary>Can a REIT cut its distribution?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — a REIT can reduce or suspend its distribution, and this is a real risk for income investors. REIT distributions aren't guaranteed; they depend on the REIT's underlying income, which can decline due to rising vacancies, tenant defaults, falling rents, higher operating costs, or rising interest rates (which raise borrowing costs and, for mortgage REITs, compress earning spreads). If income falls enough, or if a distribution wasn't well-covered to begin with, a REIT may cut or suspend its dividend — which reduces your income and often pressures the share price as well. The risk is higher for REITs whose distributions aren't comfortably covered by funds from operations (FFO) or adjusted funds from operations (AFFO), those funding distributions partly with return of capital or debt, and those with heavy leverage or concentrated risks. So treat REIT distributions as variable income, not guaranteed payments like a bond's coupon. To reduce the risk of a cut affecting you, favor REITs with well-covered, sustainable distributions, diversify across REITs and sectors, and be wary of unusually high headline yields, which can signal the market expects a cut. So yes, distributions can be cut — verify coverage before relying on a REIT's income.</p></div>
+</details>
+<details>
+<summary>Do REITs lose value in a recession?<span class="ic"></span></summary>
+<div class="ans"><p>They can — REITs are exposed to the economic and real estate cycle, so a recession can reduce both their income and their value, though the impact varies by sector and REIT. In a downturn, businesses and consumers spend less, which can raise vacancies, pressure rents, and increase tenant defaults, reducing a REIT's rental income and potentially forcing distribution cuts. Property values can decline as well, and for publicly traded REITs, share prices often fall during recessions as investors sell risk assets. That said, the effect isn't uniform: more defensive, needs-based sectors (healthcare, certain residential, net-lease with strong tenants) tend to hold up better, while cyclical sectors (hotels, some retail and office) are typically hit harder. REITs with sound balance sheets and well-covered distributions weather downturns better than overleveraged ones. So REITs can lose value and income in a recession, but the severity depends on the sector, the quality of the REIT, and its balance sheet. Diversification across sectors and a focus on quality and defensive exposure can soften the blow. So factor recession and cycle risk into your REIT expectations, and don't assume real estate is recession-proof — it isn't.</p></div>
+</details>
+<details>
+<summary>How can I reduce the risk of investing in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>You can't eliminate REIT risk, but you can manage it through several sound practices. First, diversify: rather than concentrating in a single REIT, spread your exposure across multiple REITs, sectors, and geographies — a REIT fund or ETF does this automatically, and holding several REITs reduces the impact of any one sector's downturn or any single REIT's troubles. Second, favor quality: choose REITs with strong, aligned management, sound balance sheets (conservative leverage, staggered debt maturities), high-quality, well-leased properties, and sustainable, well-covered distributions — quality REITs weather stress better than overleveraged or fragile ones. Third, do due diligence: actually examine the management, balance sheet, portfolio, distribution coverage, and fees before investing. Fourth, size positions appropriately: keep any single REIT, and your total REIT allocation, sized so a bad outcome won't derail your overall plan. Fifth, match the structure to your needs — don't put capital you may need soon into an illiquid non-traded REIT. So diversification, quality, due diligence, sizing, and structure-matching together form a sensible risk-management approach. These manage the risks rather than eliminating them, but they meaningfully improve your odds. So invest in REITs deliberately, not on yield alone.</p></div>
+</details>
+<details>
+<summary>Does diversification reduce REIT risk?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — diversification is one of the most effective ways to reduce certain REIT risks, particularly concentration risk. Holding a single REIT exposes you fully to that REIT's specific sector, tenants, geography, management, and balance sheet, so a problem in any of those areas hits you directly. By spreading your exposure across multiple REITs, sectors (residential, industrial, healthcare, net-lease, and others), and geographies, you reduce the impact of any one sector's downturn, any single tenant's default, or any one REIT's troubles. A REIT mutual fund or ETF accomplishes this automatically by holding many REITs, and an investor building a portfolio of individual REITs can diversify deliberately. Diversification doesn't eliminate risk — broad market, interest-rate, and economic-cycle risks affect REITs as a group, so diversification within REITs won't protect against a sector-wide or market-wide decline. But it does dampen the idiosyncratic and concentration risks that come from over-reliance on a single investment or sector. So diversification meaningfully reduces concentration and single-REIT risk, though not market-wide risk. Combine it with quality selection, due diligence, and appropriate sizing for a fuller risk-management approach. Diversify your REIT exposure as a core practice.</p></div>
+</details>
+<details>
+<summary>Are mortgage REITs riskier than equity REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Generally, mortgage REITs (mREITs) carry higher and more distinct risks than equity REITs. A mortgage REIT doesn't own property; it finances real estate by holding mortgages and mortgage-backed securities, earning the interest-rate spread between what those assets pay and its cost of borrowing. This makes mortgage REITs highly sensitive to interest rates and the yield curve: when rates move or the curve shifts, the spread (and the distribution) can compress, and the value of the mortgage assets can fall. Mortgage REITs also often use significant leverage to amplify the spread, which magnifies both returns and losses, and they carry credit risk on the loans they hold. This combination tends to make mortgage REITs more volatile and their distributions less stable than those of income-oriented equity REITs, which own properties and earn rents. Their often-higher yields reflect this greater risk — the higher yield is compensation for risk, not a free lunch. So mortgage REITs are generally riskier than equity REITs, with acute interest-rate, leverage, and credit risks. They can play a role for investors who understand and accept those risks, but they shouldn't be treated as stable income. Size and diversify any mortgage-REIT exposure carefully, and don't chase the yield.</p></div>
+</details>
+<details>
+<summary>Is a high-yielding REIT more dangerous?<span class="ic"></span></summary>
+<div class="ans"><p>Often, yes — an unusually high yield can be a warning sign rather than a bargain. A high headline yield can reflect elevated risk in several ways: the share price may have fallen because the market expects a distribution cut; the REIT may be taking on excessive leverage or interest-rate risk to generate the yield (as mortgage REITs often do); or the distribution may not be covered by operating cash flow and is instead being funded by return of capital, debt, or new share issuance — which isn't sustainable. So a high yield should prompt more scrutiny, not less. The key is to evaluate the yield in context: is it covered by funds from operations (FFO) and adjusted funds from operations (AFFO), what's the payout ratio, how durable are the leases and tenants, how leveraged is the balance sheet, and what do the sector and rate environment imply? A sustainable, moderate yield backed by quality real estate and a sound balance sheet is far safer than a fragile, high one. So a high-yielding REIT can be more dangerous, because the elevated yield often signals elevated risk. Judge a REIT by the sustainability of its distribution and the quality of its assets, not by the headline yield. Don't chase yield.</p></div>
+</details>
+<details>
+<summary>Should REITs be a large part of my portfolio?<span class="ic"></span></summary>
+<div class="ans"><p>Generally, REITs warrant a measured allocation rather than a dominant one, because they carry equity-like, interest-rate, and real estate cycle risks, and their distributions aren't guaranteed. Most diversified portfolios include REITs as one component of a broader allocation — providing real estate exposure, income, and diversification — alongside other equities, bonds, and assets. The appropriate size depends on your goals, income needs, time horizon, and risk tolerance: an income-focused investor might hold a larger REIT allocation than a growth-focused one, but concentrating heavily in REITs (or in a single REIT or sector) exposes you to sector and distribution-cut risk that a balanced portfolio avoids. Within your REIT allocation, diversifying across REITs and sectors further reduces risk. So REITs can be a meaningful part of a portfolio, but generally not an outsized one — treat them as an important building block rather than the foundation. A financial advisor can help determine an appropriate allocation given your situation, and a suitability review applies for non-traded offerings. So size your REIT exposure to fit your overall plan and risk tolerance, keeping it diversified and proportionate rather than dominant. Match the allocation to your goals.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me understand REIT risks?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand REIT risks honestly — interest-rate risk, sector and tenant concentration, leverage and refinancing risk, management and conflict risk, and market and liquidity risk — and how to mitigate them through diversification, quality, due diligence, and appropriate sizing, so you can invest in REITs with realistic expectations rather than only their benefits in view. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We help you assess the risks of a specific REIT — its rate sensitivity, concentration, leverage and debt maturities, management and fee structure, and liquidity terms — and weigh them against the potential benefits. Baker 1031 does not provide tax or legal advice; your CPA handles how distributions are taxed. We're candid that REITs carry real risk: distributions can be cut, prices and NAVs fluctuate, leverage and rates pose dangers, and non-traded REITs are illiquid. Neither yields nor returns are promised, and past performance doesn't guarantee future results. Our role is to help you understand and mitigate the risks and invest only when suitable.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Interest-Rate Risk</dt><dd>The risk rising rates pressure REIT prices and income.</dd></div>
+<div class="g"><dt>Concentration Risk</dt><dd>Over-reliance on one sector, tenant, or region.</dd></div>
+<div class="g"><dt>Tenant Risk</dt><dd>The risk a major tenant defaults or doesn't renew.</dd></div>
+<div class="g"><dt>Sector Risk</dt><dd>The risk a REIT's property sector underperforms.</dd></div>
+<div class="g"><dt>Leverage</dt><dd>The use of debt, which amplifies returns and losses.</dd></div>
+<div class="g"><dt>Refinancing Risk</dt><dd>The risk of refinancing maturing debt on worse terms.</dd></div>
+<div class="g"><dt>Debt Maturity Ladder</dt><dd>The schedule of when a REIT's debt comes due.</dd></div>
+<div class="g"><dt>Management Risk</dt><dd>The risk of poor capital allocation by a REIT's leaders.</dd></div>
+<div class="g"><dt>Conflict of Interest</dt><dd>Misaligned incentives, common in external management.</dd></div>
+<div class="g"><dt>External Management</dt><dd>A REIT run by a separate firm for fees, with potential conflicts.</dd></div>
+<div class="g"><dt>Market Volatility</dt><dd>Daily price swings affecting publicly traded REITs.</dd></div>
+<div class="g"><dt>Illiquidity</dt><dd>The inability to readily sell a non-traded REIT interest.</dd></div>
+<div class="g"><dt>Redemption Program</dt><dd>A non-traded REIT's limited, often-capped liquidity feature.</dd></div>
+<div class="g"><dt>Distribution-Cut Risk</dt><dd>The risk a REIT reduces or suspends its dividend.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>Spreading exposure across REITs, sectors, and markets.</dd></div>
+<div class="g"><dt>Mortgage REIT (mREIT)</dt><dd>A rate-sensitive REIT earning mortgage interest spreads.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/oiea/investor-alerts-bulletins/ib_nontradedreits.html" rel="noopener nofollow" target="_blank">Investor Bulletin: Non-Traded REITs</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

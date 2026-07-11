@@ -10,7 +10,7 @@
  * Result: any edit to the sheet queues a rebuild (debounced ~5 min so a burst of
  * edits causes one build), plus a nightly safety rebuild at ~6am PT.
  */
-var BUILD_HOOK = 'PASTE_NETLIFY_BUILD_HOOK_URL_HERE';
+var BUILD_HOOK = 'https://api.netlify.com/build_hooks/6a5206c296c48bc50ee82a14';
 
 function onSheetEdit(e) {
   // debounce: schedule a single build 5 minutes after the last edit

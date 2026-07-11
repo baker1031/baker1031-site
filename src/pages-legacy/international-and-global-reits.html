@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>International &amp; Global REITs | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>International & Global REITs
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">International & Global REITs</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">REITs aren't just a US phenomenon — more than 40 countries now have REIT regimes. This guide explains why investors look beyond US REITs, surveys the major global REIT markets, examines currency and political risk, covers global REIT funds and ETFs, and discusses how to allocate internationally within a real estate sleeve.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Most US investors think of REITs as a domestic vehicle, but the REIT structure has spread worldwide — more than 40 countries now have REIT regimes, and the global REIT market spans Asia, Europe, North America, and beyond. For investors, this opens the door to international and global REITs: a way to gain exposure to foreign real estate, different property cycles, and economies that don't move in lockstep with the US. The potential benefits are diversification and access to growth and income outside the domestic market; the added risks are currency fluctuations and political or regulatory differences abroad. For most investors, the easiest way in is through global REIT funds and ETFs rather than individual foreign securities. This guide explains why investors look beyond US REITs, surveys the major global REIT markets, examines currency and political risk, covers global REIT funds, and discusses allocating internationally. These observations are general and educational — international investing carries added risks, and past performance doesn't guarantee future results; verify the current rules with your advisor.</p>
+<p>Going global is one way to extend a real estate allocation, and our <a href="reits-guide.html">complete guide to private and non-traded REITs</a> explains the domestic foundation it builds on.</p>
+<h2 id="why-look-beyond-us">Why Look Beyond US REITs</h2>
+<p>The US has the largest and most developed REIT market in the world, so it's natural for US investors to start (and often stay) at home. But there are real reasons to look beyond domestic REITs. The most important is diversification: real estate markets and economies in different countries don't move in perfect lockstep, so adding international real estate can reduce reliance on the US cycle. When US property markets are weak, real estate elsewhere may be stronger, and vice versa — spreading exposure across countries, much as one might lean on <a href="recession-resistant-reit-sectors.html">recession-resistant REIT sectors</a> domestically, can smooth the overall result.</p>
+<p>Beyond diversification, international REITs offer exposure to different property cycles and economies, and access to foreign real estate that simply isn't available through domestic REITs — fast-growing Asian cities, European logistics hubs, or <a href="growth-reit-sectors-where-appreciation-comes-from.html">growth-oriented property types where appreciation comes from</a> that are more prominent abroad. They also broaden the opportunity set: a global investor isn't limited to US valuations and yields, and can seek income or growth wherever it's most attractive. The trade-off is added complexity and risk (currency, politics, and unfamiliarity), which is why international exposure is usually a portion of a real estate allocation rather than the whole thing.</p>
+<p>So looking beyond US REITs offers diversification across uncorrelated property cycles, exposure to different economies, and access to foreign real estate — at the cost of added currency and political risk. So understanding the rationale frames the global opportunity. Why look beyond US REITs — for diversification across property cycles and economies that don't move in lockstep with the US, for exposure to different markets and growth, and for access to foreign real estate unavailable domestically, balanced against added currency and political risk — explains the appeal of going global. Diversification is the central reason. Understanding the rationale frames the rest. Investors look beyond US REITs for diversification across uncorrelated property cycles, exposure to different economies, and access to foreign real estate — accepting added currency and political risk in exchange.</p>
+<h2 id="major-global-markets">Major Global REIT Markets</h2>
+<p>The REIT model has spread to more than 40 countries, but a handful of markets dominate the global landscape. The United States is by far the largest and most developed REIT market, home to a wide range of sectors and the deepest pool of public REITs. Beyond the US, Asia-Pacific is a major center of REIT activity: Japan's J-REITs form one of the largest non-US markets, Australia's A-REITs (often called LPTs historically) are long-established and substantial, and Singapore's S-REITs are a prominent regional hub, known for diversified and cross-border portfolios.</p>
+<p>Europe is another major region. The United Kingdom has a well-developed REIT regime, and continental Europe includes significant REIT and listed-property markets across countries like France, Germany, the Netherlands, and Belgium. Canada rounds out the major developed markets with an established REIT sector. Together, these markets — the US, Japan, Australia, the UK, continental Europe, Singapore, and Canada — make up the bulk of the investable global REIT universe, each with its own dominant sectors, regulations, and economic drivers. Knowing where the major markets are helps an investor understand what a global REIT allocation actually holds.</p>
+<p>So the major global REIT markets are the US (the largest), plus Japan, Australia, the UK, continental Europe, Singapore, and Canada — together forming the core of the investable global universe. So mapping the markets shows where global exposure comes from. Major global REIT markets — the US as the largest and most developed, plus Japan's J-REITs, Australia's A-REITs, Singapore's S-REITs, the UK, continental Europe (France, Germany, the Netherlands, and others), and Canada — make up the core of the investable global REIT universe, each with distinct sectors and regulations. The US leads, with Asia-Pacific and Europe as major centers. Understanding the map shows where global exposure originates. The major global REIT markets are the US (largest), Japan, Australia, the UK, continental Europe, Singapore, and Canada — together forming the bulk of the investable global REIT universe.</p>
+<div class="pullquote"><p>The REIT idea has gone global: from Tokyo's J-REITs to Singapore's cross-border S-REITs to Europe's listed-property giants, more than 40 countries now offer investors a way to own real estate through shares.</p></div>
+<h2 id="currency-political-risk">Currency &amp; Political Risk</h2>
+<p>International REITs carry two added risks that domestic REITs don't: currency risk and political or regulatory risk. Currency risk arises because a foreign REIT's income and value are denominated in a foreign currency, so when you convert returns back to US dollars, exchange-rate movements affect what you actually earn. A strong year for a Japanese REIT in yen terms can be diminished — or amplified — by how the yen moves against the dollar. Currency can add or subtract meaningfully from returns, and it introduces a layer of volatility unrelated to the underlying real estate.</p>
+<p>Political and regulatory risk is the second added factor. Different countries have different legal systems, property rights, tax regimes, REIT rules, and political stability. A change in a foreign government's tax treatment of REITs, restrictions on foreign ownership, or broader political or economic instability can affect returns in ways that are harder to anticipate from abroad. Some markets are well-developed and stable; others carry more uncertainty. These risks don't make international REITs inappropriate — they make them a different proposition that calls for diversification and appropriate sizing, rather than concentrated bets on any single foreign market.</p>
+<p>So international REITs add currency risk (exchange-rate moves affecting dollar returns) and political/regulatory risk (differing laws, taxes, and stability abroad) on top of ordinary real estate risk. So weighing these added risks is essential to global investing. Currency and political risk — currency risk, where exchange-rate movements affect returns when converted back to dollars and add volatility unrelated to the real estate, and political/regulatory risk, where differing legal systems, tax regimes, REIT rules, and stability abroad affect outcomes — are the added risks of international REITs. They argue for diversification and sizing. Understanding them is essential before going global. International REITs add currency risk (exchange-rate effects on dollar returns) and political/regulatory risk (differing laws, taxes, and stability abroad) on top of ordinary real estate risk.</p>
+<h2 id="global-reit-funds">Global REIT Funds &amp; ETFs</h2>
+<p>For most investors, the easiest and most practical way to access international real estate is through global REIT funds and ETFs rather than buying individual foreign securities. A global or international REIT fund holds a diversified basket of REITs across many countries and sectors, so a single investment provides broad exposure to the global REIT universe — across Japan, Australia, Singapore, the UK, Europe, Canada, and often the US too — without the investor having to research and trade in foreign markets one by one.</p>
+<p>Funds and ETFs offer several advantages for global exposure: instant diversification across countries and sectors, professional management that handles the complexity of foreign markets, and the convenience of trading a single US-listed security through an ordinary brokerage account. Some funds are 'global' (including the US), while others are 'international' or 'ex-US' (excluding the US to complement a domestic allocation). Investors should note the fund's expense ratio, its country and sector mix, and whether (and how) it hedges currency, since these affect both returns and risk. So funds and ETFs are the standard on-ramp to global real estate for most investors.</p>
+<p>So global REIT funds and ETFs offer the simplest access to international real estate — diversified, professionally managed, and tradable as a single security — making them the standard on-ramp for most investors. So funds are the practical path to global exposure. Global REIT funds and ETFs — diversified baskets of REITs across many countries and sectors, available as a single US-listed security, offering instant diversification, professional management of foreign-market complexity, and a choice between 'global' (including the US) and 'international/ex-US' mandates — are the most practical way most investors access international real estate. They're the standard on-ramp. Understanding them shows how to invest globally without picking foreign securities. Global REIT funds and ETFs offer the simplest access to international real estate — diversified, professionally managed, and tradable as one security — making them the standard route for most investors.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>More than 40 countries have REIT regimes; the US is the largest market, with Japan, Australia, Singapore, the UK, Europe, and Canada major centers.</li>
+<li>The main reason to go global is diversification across property cycles and economies that don't move in lockstep with the US.</li>
+<li>International REITs add currency risk (exchange-rate effects) and political/regulatory risk (differing laws and stability) on top of real estate risk.</li>
+<li>Global REIT funds and ETFs are the easiest, most diversified way for most investors to access international real estate.</li>
+</ul></div>
+<h2 id="currency-hedging-considerations">Currency Hedging and Costs</h2>
+<p>Because currency is a defining feature of international investing, it's worth understanding how funds handle it. Some global REIT funds are unhedged, meaning you take on the full currency exposure — your returns reflect both the foreign real estate and the movement of foreign currencies against the dollar. Others are currency-hedged, using financial instruments to neutralize much of the exchange-rate effect, so returns track the underlying real estate more closely. Neither approach is automatically better: hedging reduces currency volatility but adds cost and removes any currency tailwind, while staying unhedged accepts currency swings in both directions.</p>
+<p>Costs are the other practical consideration. International and global REIT funds typically carry higher expense ratios than plain domestic REIT funds, reflecting the added complexity of investing across many markets, and currency hedging (where used) adds its own cost. Foreign withholding taxes on dividends can also affect net income, though tax treaties and foreign-tax-credit mechanisms may offset some of this — a detail to confirm with your tax advisor. So when evaluating a global REIT fund, look beyond the headline mandate to the expense ratio, the hedging approach, and the tax treatment, since these meaningfully affect what you keep.</p>
+<p>So currency hedging and costs matter: hedged funds reduce currency swings at a cost, unhedged funds accept them, and global funds carry higher expenses and foreign-tax considerations. So weighing these completes the picture of global REIT funds. Currency hedging and costs — the choice between unhedged funds (full currency exposure, both ways) and currency-hedged funds (reduced currency volatility at added cost), plus generally higher expense ratios on international funds and foreign withholding taxes on dividends (partly offset by treaties and credits) — are practical factors in global REIT investing. They affect net returns. Understanding them completes the fund picture. Currency hedging (reducing swings at a cost) versus unhedged exposure, higher international-fund expenses, and foreign dividend taxes all affect what you keep from a global REIT fund.</p>
+<div class="pullquote"><p>Going global means deciding what to do about currency: leave it unhedged and accept the swings in both directions, or pay for a hedge that keeps your returns closer to the underlying real estate.</p></div>
+<h2 id="allocating-internationally">Allocating Internationally</h2>
+<p>Putting it together, the practical question is how much international exposure to hold. For most investors, international REITs are a portion of the real estate sleeve — a complement to domestic REITs rather than a replacement. The size of that portion depends on your goals, risk tolerance, and how much currency and political risk you're comfortable taking on. A common approach is to hold a core of domestic REITs and add a measured allocation to international or global REITs for diversification, sized so that foreign-market and currency swings can't dominate the overall result.</p>
+<p>How you implement the allocation matters too. An 'ex-US' international REIT fund pairs naturally with a domestic REIT holding (no overlap), while a single 'global' fund bundles US and non-US exposure together for simplicity. Whichever route you choose, keep the international portion diversified across countries and sectors rather than concentrated in one foreign market, and revisit the allocation periodically as conditions change. The aim is to capture the diversification benefit of global real estate while keeping the added risks — currency, politics, costs — appropriately contained within a sensible portion of the portfolio.</p>
+<p>So allocating internationally means holding global REITs as a measured, diversified portion of the real estate sleeve — sized to your risk tolerance, paired sensibly with domestic exposure, and kept broad across countries. So thoughtful sizing captures the benefit while containing the risk. Allocating internationally — holding international or global REITs as a measured portion of the real estate sleeve (a complement to domestic REITs), sized to your goals and risk tolerance, implemented via an ex-US fund alongside domestic holdings or a single global fund, and kept diversified across countries and sectors — is how investors capture global diversification while containing the added risks. Sizing and breadth are key. Understanding allocation completes the global REIT picture. Allocate international REITs as a measured, diversified portion of your real estate sleeve, sized to your risk tolerance and paired sensibly with domestic exposure, to capture diversification while containing currency and political risk.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Invest Globally in REITs</h2>
+<p>Baker 1031 Investments helps investors understand international and global REITs — why investors look beyond US REITs, where the major global REIT markets are, the currency and political risks involved, how global REIT funds and ETFs provide access, and how to allocate internationally within a real estate sleeve — so you can decide whether global real estate diversification fits your goals and risk tolerance.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and interval vehicles typically require accredited or otherwise suitable investors and are illiquid, while publicly traded REITs and most global REIT funds trade through ordinary brokerage accounts. Our discussion of global markets is general and educational, not a recommendation of any specific country, company, or fund; international investing adds currency and political risk on top of ordinary real estate risk. Baker 1031 does not provide tax or legal advice; your CPA handles your specific tax situation, including foreign withholding taxes and tax-credit treatment, which can be technical. We help you understand the global REIT landscape, weigh the diversification benefits against the added risks, and access suitable offerings when appropriate. Yields and returns are never promised — past performance doesn't guarantee future results, and currency and market swings can affect outcomes. Our role is to help you understand global REITs clearly and invest only when suitable for your goals.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What are international and global REITs?<span class="ic"></span></summary>
+<div class="ans"><p>International and global REITs are Real Estate Investment Trusts — or funds holding them — that own real estate outside the United States, or across both the US and other countries. The REIT structure, which lets investors own income-producing real estate through shares, has spread to more than 40 countries, so today investors can gain exposure to real estate in Asia, Europe, North America, and beyond. 'International' typically refers to non-US (ex-US) exposure, while 'global' usually includes the US alongside foreign markets. These REITs own the same kinds of property — apartments, offices, logistics, retail, and more — but located abroad, and they follow the REIT-style rules of their home countries. For most US investors, the practical way to access them is through global or international REIT funds and ETFs rather than buying individual foreign securities. So international and global REITs extend the familiar REIT idea worldwide, offering diversification and access to foreign real estate, along with added currency and political considerations not present in domestic REITs.</p></div>
+</details>
+<details>
+<summary>Why should I invest beyond US REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The main reason to look beyond US REITs is diversification. Real estate markets and economies in different countries don't move in perfect lockstep, so adding international real estate can reduce your reliance on the US cycle — when US property markets are weak, real estate elsewhere may be stronger, and vice versa. Beyond diversification, international REITs offer exposure to different property cycles and economies, and access to foreign real estate that isn't available through US REITs, including fast-growing markets and property types more prominent abroad. They also broaden the opportunity set, so you're not limited to US valuations and yields. The trade-offs are added complexity and risk — currency fluctuations, political and regulatory differences, and unfamiliarity — which is why international exposure is usually a portion of a real estate allocation rather than the whole. So investing beyond US REITs can improve diversification and broaden opportunity, as long as you accept and contain the added risks. This is general and educational, not a recommendation of any specific market.</p></div>
+</details>
+<details>
+<summary>How many countries have REITs?<span class="ic"></span></summary>
+<div class="ans"><p>More than 40 countries now have REIT regimes — legal structures that let investors own income-producing real estate through shares, modeled on the REIT concept. The structure originated in the United States and has since spread across Asia, Europe, North America, Oceania, and beyond as governments adopted REIT frameworks to broaden access to real estate investment and develop their property markets. The maturity and size of these regimes vary widely: the US market is by far the largest and most developed, while others range from large and established (Japan, Australia, Singapore, the UK) to smaller and newer. This global spread is what makes international and global REIT investing possible — there's now a broad, investable universe of listed real estate across many economies. So with REIT regimes in more than 40 countries, investors can gain real estate exposure well beyond the US, typically most easily through global or international REIT funds that diversify across these many markets in a single holding. The exact count and rules evolve over time.</p></div>
+</details>
+<details>
+<summary>What are the major global REIT markets?<span class="ic"></span></summary>
+<div class="ans"><p>The major global REIT markets center on a handful of developed economies. The United States is by far the largest and most developed, with the widest range of sectors and the deepest pool of public REITs. In Asia-Pacific, Japan's J-REITs form one of the largest non-US markets, Australia's A-REITs are long-established and substantial, and Singapore's S-REITs are a prominent regional hub known for diversified, cross-border portfolios. In Europe, the United Kingdom has a well-developed REIT regime, and continental Europe includes significant markets across countries like France, Germany, the Netherlands, and Belgium. Canada rounds out the major developed markets. Together — the US, Japan, Australia, Singapore, the UK, continental Europe, and Canada — these make up the bulk of the investable global REIT universe, each with its own dominant sectors, regulations, and economic drivers. So a global REIT allocation is largely an allocation across these major markets. Knowing where they are helps you understand what a global REIT fund actually holds.</p></div>
+</details>
+<details>
+<summary>What is currency risk in international REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Currency risk is the risk that exchange-rate movements affect your returns when you convert a foreign investment back to US dollars. A foreign REIT's income, value, and distributions are denominated in a foreign currency — yen, euros, Singapore dollars — so even if the REIT performs well in its local currency, the dollar value of your return depends on how that currency moves against the dollar. A strong year for a Japanese REIT in yen terms can be diminished if the yen weakens against the dollar, or amplified if it strengthens. Currency can add or subtract meaningfully from international returns, and it introduces a layer of volatility that's unrelated to the underlying real estate. Some global REIT funds hedge currency to reduce this effect (at a cost), while others leave it unhedged. So currency risk is a defining feature of international REIT investing — it's a real, separate source of return and risk on top of the property performance. Understanding whether your investment is hedged helps you anticipate this effect.</p></div>
+</details>
+<details>
+<summary>What political and regulatory risks do global REITs face?<span class="ic"></span></summary>
+<div class="ans"><p>Global REITs face political and regulatory risks that come from investing across different legal and political systems. Different countries have different property rights, legal protections, tax regimes, REIT rules, and degrees of political and economic stability. A change in a foreign government's tax treatment of REITs or foreign investors, new restrictions on foreign ownership of real estate, shifts in regulation, or broader political or economic instability can all affect returns — and these factors can be harder to anticipate or monitor from abroad. Some markets (such as the major developed economies) are well-established and relatively stable, while others carry more uncertainty. These risks don't make international REITs inappropriate, but they argue for diversification across countries and for sizing international exposure sensibly rather than concentrating in any single foreign market. So political and regulatory risk is an added layer beyond ordinary real estate and currency risk. So when investing globally, favor diversified exposure and developed markets if you want to limit this risk, and understand that conditions abroad can change.</p></div>
+</details>
+<details>
+<summary>How do I invest in global REITs?<span class="ic"></span></summary>
+<div class="ans"><p>For most investors, the easiest and most practical way to invest in global REITs is through global or international REIT funds and ETFs rather than buying individual foreign securities. A global REIT fund holds a diversified basket of REITs across many countries and sectors, so a single, US-listed investment gives you broad exposure to the global REIT universe — Japan, Australia, Singapore, the UK, Europe, Canada, and often the US — traded through an ordinary brokerage account. This provides instant diversification, professional management of foreign-market complexity, and convenience, without you having to research and trade in each foreign market. Some funds are 'global' (including the US), while others are 'international' or 'ex-US' (excluding the US, to complement a domestic allocation). When choosing, note the expense ratio, the country and sector mix, and how the fund handles currency. So funds and ETFs are the standard on-ramp to global real estate. So unless you have specific expertise in foreign markets, a diversified global or international REIT fund is usually the simplest, lowest-friction way to add international real estate exposure.</p></div>
+</details>
+<details>
+<summary>Are global REIT funds diversified?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — that's one of their main advantages. A global or international REIT fund holds a basket of many REITs spread across multiple countries and property sectors, so a single fund provides diversification on two dimensions at once: geographic (across the US, Japan, Australia, Singapore, the UK, Europe, Canada, and others) and sector (residential, industrial, office, retail, healthcare, and more). This breadth means no single country, REIT, or sector dominates the result, which is precisely the diversification benefit that makes global real estate appealing. Compared to buying individual foreign REITs — which would require researching and trading in each market and concentrating risk in a few names — a diversified fund spreads exposure broadly and is professionally managed. That said, diversification reduces but doesn't eliminate risk: global REITs still carry real estate, currency, and political risk, and a broad downturn can affect many markets at once. So global REIT funds offer meaningful, built-in diversification across countries and sectors, which is a key reason they're the standard way to access international real estate. Check each fund's specific country and sector mix.</p></div>
+</details>
+<details>
+<summary>Should I hedge currency in international REIT investments?<span class="ic"></span></summary>
+<div class="ans"><p>Whether to hedge currency is a judgment call, and neither choice is automatically right. A currency-hedged global REIT fund uses financial instruments to neutralize much of the exchange-rate effect, so your returns track the underlying foreign real estate more closely and you avoid currency volatility — but hedging adds cost and removes any potential currency tailwind. An unhedged fund leaves you fully exposed to currency movements, which can help or hurt in any given period and adds volatility unrelated to the real estate. Over long horizons, currency effects can partly wash out, but over shorter periods they can be significant. Some investors prefer unhedged exposure for the additional diversification that foreign currencies can provide, while others prefer hedged exposure to isolate the real estate return. So the decision depends on your time horizon, your views, and how much currency volatility you're willing to accept. So consider whether a fund is hedged or unhedged when you choose it, and understand that hedging trades currency volatility for added cost. Discuss the trade-off in light of your goals.</p></div>
+</details>
+<details>
+<summary>How much of my portfolio should be in international REITs?<span class="ic"></span></summary>
+<div class="ans"><p>There's no single right number, but international REITs are generally held as a portion of the real estate sleeve — a complement to domestic REITs rather than a replacement. The appropriate size depends on your goals, risk tolerance, time horizon, and how much currency and political risk you're comfortable taking on. A common approach is to hold a core of domestic REITs and add a measured allocation to international or global REITs for diversification, sized so that foreign-market and currency swings can't dominate your overall result. Keeping the international portion diversified across countries and sectors — rather than concentrated in one foreign market — helps contain the added risks. So the goal is to capture the diversification benefit of global real estate while keeping currency, political, and cost risks contained within a sensible portion of the portfolio. So rather than a fixed percentage, think in terms of a measured, diversified complement to your domestic real estate exposure, sized to your comfort with the added risks. Revisit the allocation periodically as conditions and your circumstances change, ideally with guidance.</p></div>
+</details>
+<details>
+<summary>Are international REITs riskier than US REITs?<span class="ic"></span></summary>
+<div class="ans"><p>International REITs generally carry additional risks beyond those of US REITs, so in that sense they can be riskier, though the picture is nuanced. On top of the ordinary real estate risks all REITs share — fluctuating rents, occupancy, property values, and interest-rate sensitivity — international REITs add currency risk (exchange-rate movements affecting dollar returns) and political/regulatory risk (differing laws, tax regimes, REIT rules, and stability abroad). Some foreign markets are also less liquid or less transparent than the US market. At the same time, the diversification benefit of holding real estate across multiple countries can actually reduce overall portfolio risk, because foreign markets don't move in lockstep with the US. So international REITs add certain risks at the individual level while potentially improving diversification at the portfolio level. So the prudent approach is to hold international REITs as a diversified, appropriately sized portion of a real estate allocation, capturing the diversification benefit while containing the added risks. This is general and educational; assess specific funds and your own situation rather than assuming international is simply 'riskier' or 'safer.'</p></div>
+</details>
+<details>
+<summary>Do international REITs follow the same rules as US REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Not exactly — international REITs follow the REIT-style rules of their own home countries, which are modeled on the same general concept as US REITs but differ in the details. The core idea is shared across most regimes: a REIT owns income-producing real estate, must distribute a high share of its income to shareholders, and receives favorable tax treatment in exchange. But the specific requirements — the exact distribution threshold, asset and income tests, ownership rules, leverage limits, and tax treatment — vary from country to country. The US 90% distribution rule, for instance, has analogues abroad that may use different percentages or conditions. These differences are part of the political and regulatory landscape that makes international investing more complex. So international REITs share the REIT concept with US REITs but operate under different national rules, and those rules can change. For most investors, this is another reason to use diversified global REIT funds, where professional managers handle the country-by-country complexity. Confirm any specific tax or regulatory detail with your advisor, as the rules differ and evolve.</p></div>
+</details>
+<details>
+<summary>How are international REIT dividends taxed?<span class="ic"></span></summary>
+<div class="ans"><p>International REIT dividends can be subject to foreign withholding taxes as well as US taxes, which makes the treatment more complex than for domestic REITs. Many countries withhold tax on dividends paid to foreign investors, which reduces the income you receive. The US generally taxes the dividends as well, but mechanisms like the foreign tax credit may let you offset some of the foreign tax already paid, and tax treaties between the US and other countries can reduce withholding rates. The character of the income (ordinary versus qualified, and the availability of the Section 199A deduction that applies to US REIT dividends) can also differ for foreign REITs. The treatment further depends on whether you hold the investment in a taxable or tax-advantaged account, since foreign tax credits generally aren't useful in retirement accounts. So international REIT dividend taxation involves foreign withholding, US taxation, treaties, and credits — and it's genuinely technical. So Baker 1031 doesn't provide tax advice; verify the current rules and your specific treatment with your tax advisor, especially before holding international REITs in different account types.</p></div>
+</details>
+<details>
+<summary>Can I hold both US and international REITs?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — many investors hold both, and combining them is a common way to build a diversified real estate allocation. US REITs provide a core of exposure to the largest, most developed REIT market, while international REITs add diversification across foreign property cycles, economies, and currencies that don't move in lockstep with the US. Together, they can smooth the overall result and broaden the opportunity set beyond domestic markets. In practice, you can pair a domestic REIT holding with an 'international' or 'ex-US' REIT fund (so there's no overlap), or simply use a single 'global' REIT fund that bundles US and non-US exposure together for convenience. Whichever route you choose, keep the international portion diversified across countries and sectors and sized to your comfort with currency and political risk. So holding both US and international REITs is a sensible, diversified approach — the US providing the core and international adding global breadth. So decide on the mix based on your goals and risk tolerance, and revisit it periodically as conditions change.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me invest in global REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors understand international and global REITs — why investors look beyond US REITs, where the major global REIT markets are (the US plus Japan, Australia, Singapore, the UK, Europe, and Canada), the currency and political risks involved, how global REIT funds and ETFs provide access, and how to allocate internationally — so you can decide whether global real estate diversification fits your goals and risk tolerance. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and interval vehicles typically require accredited or otherwise suitable investors and are illiquid, while publicly traded REITs and most global REIT funds trade through ordinary brokerage. Our discussion of global markets is general and educational, not a recommendation of any specific country, company, or fund. Baker 1031 doesn't provide tax or legal advice; your CPA handles your specific situation, including foreign withholding and tax credits. We help you weigh the diversification benefits against the added currency and political risks and access suitable offerings. Yields and returns are never promised; past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>International REIT</dt><dd>A REIT or fund owning real estate outside the US (ex-US).</dd></div>
+<div class="g"><dt>Global REIT</dt><dd>A REIT or fund spanning both US and foreign real estate.</dd></div>
+<div class="g"><dt>J-REIT</dt><dd>A Japanese REIT, one of the largest non-US markets.</dd></div>
+<div class="g"><dt>A-REIT</dt><dd>An Australian REIT, a long-established global market.</dd></div>
+<div class="g"><dt>S-REIT</dt><dd>A Singapore REIT, a prominent cross-border regional hub.</dd></div>
+<div class="g"><dt>Currency Risk</dt><dd>Exchange-rate movements affecting returns converted to dollars.</dd></div>
+<div class="g"><dt>Currency Hedging</dt><dd>Neutralizing exchange-rate effects at an added cost.</dd></div>
+<div class="g"><dt>Political Risk</dt><dd>Risk from differing laws, policy, and stability abroad.</dd></div>
+<div class="g"><dt>Regulatory Risk</dt><dd>Risk from differing tax regimes and REIT rules by country.</dd></div>
+<div class="g"><dt>Global REIT Fund</dt><dd>A diversified basket of REITs across many countries.</dd></div>
+<div class="g"><dt>Ex-US Fund</dt><dd>An international fund excluding the US, to pair with domestic.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>Spreading exposure across countries and cycles to reduce risk.</dd></div>
+<div class="g"><dt>Expense Ratio</dt><dd>The annual cost of a REIT fund, often higher for global funds.</dd></div>
+<div class="g"><dt>Foreign Withholding Tax</dt><dd>Tax a country withholds on dividends paid to foreigners.</dd></div>
+<div class="g"><dt>Foreign Tax Credit</dt><dd>A US credit that may offset some foreign tax paid.</dd></div>
+<div class="g"><dt>Real Estate Sleeve</dt><dd>The portion of a portfolio allocated to real estate.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-1" rel="noopener nofollow" target="_blank">Investor.gov — Mutual Funds and Exchange-Traded Funds (ETFs)</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REITs and Inflation: Hedge or Headwind? | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>REITs and Inflation: Hedge or Headwind?
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">REITs and Inflation: Hedge or Headwind?</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Are REITs an inflation hedge or an inflation headwind? The honest answer is both. This guide explains the inflation-hedge argument, how rent resets and pricing power work, the interest-rate headwind that pulls the other way, which sectors hedge best, and the net effect of inflation on REIT returns.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Real estate has a long reputation as an inflation hedge, and REITs — which own income-producing commercial real estate — are often pitched as a way to protect a portfolio when prices rise. The hedge argument is real: rents and property values can rise with inflation, especially in sectors with pricing power, and a REIT's income can grow as landlords reset rents upward. But there's a competing force. Inflation often brings higher interest rates as central banks respond, and higher rates pressure REIT valuations through the rate channel — higher discount rates, costlier debt, and competing bond yields. So whether inflation is a hedge or a headwind for REITs depends heavily on the sector, the lease structure, and the rate environment. This guide explains the inflation-hedge argument, how rent resets and pricing power work, the interest-rate headwind, which sectors hedge best, and the net effect on returns. Market conditions change constantly — verify current conditions with your advisor, and remember past performance does not guarantee future results; this is educational information, not a forecast or investment advice.</p>
+<p>If you are still building a foundation in how these vehicles are structured and taxed, our <a href="reits-guide.html">full primer on REITs and the 721 exchange</a> sets the stage for the inflation discussion that follows.</p>
+<h2 id="the-inflation-hedge-argument">The Inflation-Hedge Argument</h2>
+<p>The case for real estate — and REITs — as an inflation hedge rests on a straightforward idea: when the general price level rises, the rents and values of physical real estate can rise too. Tenants pay more in nominal terms over time, replacement and construction costs climb (supporting the value of existing buildings), and the income a property generates can keep pace with or exceed inflation. Because a REIT owns income-producing real estate, its cash flow — and potentially its distributions — can grow during inflationary periods, helping preserve real purchasing power in a way that fixed-income investments often cannot.</p>
+<p>This is why real estate is frequently grouped with other 'real assets' that have historically offered some inflation protection. Unlike a bond with a fixed coupon, which loses real value as inflation erodes the purchasing power of its payments, a well-positioned property can raise rents and grow its income stream. Many commercial leases also include explicit inflation protection — annual rent escalators, percentage rent tied to tenant sales, or CPI-linked increases — that pass rising costs through to tenants. So the hedge argument is grounded in the ability of real estate income to grow with prices.</p>
+<p>So the inflation-hedge argument holds that REITs can protect against inflation because real estate rents and values can rise with the price level, and a REIT's income can grow accordingly. The inflation-hedge argument — that real estate rents and values can rise with inflation (as nominal rents climb, replacement costs increase, and many leases include escalators or CPI-linked increases), so a REIT's income and distributions can grow during inflationary periods, unlike a fixed-coupon bond — is the core case for REITs as a real asset. It rests on income that grows with prices. Understanding it frames the nuance. The inflation-hedge argument is that REIT rents and property values can rise with inflation, letting a REIT's income grow and preserve real purchasing power better than fixed income.</p>
+<h2 id="rent-resets-and-pricing-power">Rent Resets and Pricing Power</h2>
+<p>The strength of the inflation hedge depends largely on how quickly and how much a REIT can reset its rents — its 'pricing power.' The more frequently a landlord can re-price space, the more effectively it can pass rising costs and prices through to tenants. Short-lease sectors reset rents fastest: a hotel reprices rooms every night, an apartment typically renews leases every year, and self-storage can adjust rates frequently. In these sectors, rents can rise quickly as inflation takes hold, so the income stream tends to keep pace with (or even outrun) rising prices.</p>
+<p>Pricing power also comes from supply-demand dynamics and lease terms. In a tight market with limited new supply, landlords can push rents harder; where leases include escalators or CPI-linked bumps, increases are built in contractually. By contrast, a long fixed lease — common in net-lease real estate, where a tenant signs for 10 or 15 years with only small annual increases — locks in rent that may fall behind inflation, weakening the hedge. So the same inflation can be a strong tailwind for a short-lease, high-pricing-power REIT and a much weaker one for a long-lease REIT whose rents can't reset quickly.</p>
+<p>So a REIT's ability to hedge inflation depends on rent-reset frequency and pricing power — short leases and escalators help, while long fixed leases hedge less. Rent resets and pricing power — short-lease sectors (hotels repricing nightly, residential renewing annually, self-storage adjusting often) resetting rents fast so income keeps pace with inflation, plus contractual escalators and tight-supply markets adding pricing power, while long fixed net-leases lock in rents that can lag inflation — determine how strong the hedge is. Reset speed is the key variable. Understanding it sharpens the analysis. A REIT hedges inflation best when it can reset rents quickly (short leases, escalators, pricing power); long fixed leases hedge less because rents can't keep pace.</p>
+<div class="pullquote"><p>The inflation hedge is really about reset speed — a hotel that reprices nightly or an apartment that renews yearly can chase inflation, while a 15-year net lease locks in rent that may fall behind.</p></div>
+<h2 id="the-interest-rate-headwind">The Interest-Rate Headwind</h2>
+<p>The complicating factor for the inflation-hedge story is interest rates. Inflation often prompts central banks to raise rates to cool the economy, and higher rates are generally a headwind for REIT valuations. The same <a href="how-interest-rates-affect-reit-returns.html">rate channels that pressure REITs</a> in any rising-rate environment apply here: higher discount rates lower the present value of future cash flows, higher borrowing costs raise REIT expenses, and higher bond yields compete with REIT dividends. So even as inflation lifts rents on one hand, the rate response it triggers can weigh on REIT prices on the other.</p>
+<p>This is why REITs can disappoint as an inflation hedge in the short term even when the underlying real estate is doing its job. Publicly traded REIT prices may fall when rates rise in response to inflation, because the market quickly prices in the rate headwind — sometimes before the rent growth from inflation shows up in results. The net outcome depends on a tug-of-war: does the inflation-driven growth in rents and property income outpace the valuation drag from higher rates? In sectors with strong pricing power, rent growth can win out over time; in long-lease, rate-sensitive sectors, the rate headwind can dominate.</p>
+<p>So inflation brings a rate headwind for REITs because it often triggers higher rates, which pressure valuations through the discount-rate, borrowing-cost, and bond-competition channels — partly offsetting the rent-growth hedge. The interest-rate headwind — inflation often prompting central banks to raise rates, which pressure REIT valuations (higher discount rates, costlier debt, competing bond yields), so REITs can lag as an inflation hedge in the short term even as rents grow, with the net result hinging on whether rent growth outpaces the valuation drag — is the force pulling against the hedge. Rates are the offset. Understanding this completes the picture. Inflation tends to bring higher rates, which pressure REIT valuations through the rate channel, partly offsetting the rent-growth hedge — so the net effect is a tug-of-war.</p>
+<h2 id="sectors-that-hedge-best">Sectors That Hedge Best</h2>
+<p>Because the hedge depends on pricing power and reset speed, <a href="which-reit-sectors-best-hedge-inflation.html">some REIT sectors hedge inflation far better than others</a>. The strongest hedges tend to be short-lease sectors that can re-price quickly: residential (apartments renew annually), hotels (nightly room pricing), and self-storage (frequent rate adjustments). These sectors can raise rents in step with inflation, so their income tends to grow as prices rise, helping offset the rate headwind. Sectors with contractual escalators or rents tied to tenant sales (some retail with percentage rent) can also pass inflation through, depending on lease terms.</p>
+<p>Weaker inflation hedges tend to be long fixed-lease sectors. Net-lease REITs, where tenants sign 10- to 15-year leases with only modest annual bumps, lock in rent that can fall behind a burst of inflation — and because their income is long-duration, they're also more exposed to the interest-rate headwind. The result is a double disadvantage during inflationary, rising-rate periods: rents can't reset fast, and valuations face rate pressure. So when evaluating REITs as an inflation hedge, the sector and lease structure matter more than the simple label 'real estate.' Diversifying across sectors can balance these dynamics rather than betting on any single one.</p>
+<p>So short-lease, pricing-power sectors (residential, hotels, self-storage, some escalator-linked retail) hedge inflation best, while long fixed-lease sectors (net-lease) hedge least and face more rate pressure. Sectors that hedge best — short-lease, fast-resetting sectors (residential, hotels, self-storage, and escalator- or percentage-rent retail) being the strongest inflation hedges because their rents grow with prices, while long fixed-lease net-lease sectors hedge least and also carry more interest-rate exposure (a double disadvantage in inflationary, rising-rate periods) — vary widely by lease structure. Reset speed drives the hedge. Diversifying across sectors balances the dynamics. Short-lease, pricing-power sectors hedge inflation best; long fixed-lease net-lease sectors hedge least and face more rate pressure.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>REITs can hedge inflation because real estate rents and values can rise with prices — but it's a partial, sector-dependent hedge, not a guarantee.</li>
+<li>Reset speed and pricing power drive the hedge: short leases (residential, hotels, self-storage) and rent escalators help; long fixed net-leases hedge less.</li>
+<li>Inflation often brings higher interest rates, which pressure REIT valuations — a headwind that can offset the rent-growth hedge, especially short-term.</li>
+<li>The net effect varies by sector and the rate environment, so diversify across sectors and verify current market conditions rather than assuming a fixed outcome.</li>
+</ul></div>
+<h2 id="real-vs-nominal-returns">Real vs. Nominal Returns</h2>
+<p>An important distinction in judging REITs as an inflation hedge is the difference between nominal and real returns. A nominal return is the raw percentage gain; a real return subtracts inflation to show the change in actual purchasing power. The whole point of an inflation hedge is to protect real returns — to keep your wealth growing faster than prices. A bond paying a fixed 4% coupon loses real value when inflation runs at 5%, because its payments don't grow. The hope with REITs is that growing rents lift nominal income and value enough to preserve, or grow, real returns.</p>
+<p>Whether REITs actually deliver positive real returns during inflation is an empirical, period-specific question, and history is mixed rather than uniform. Over longer horizons, real estate income has often grown roughly in line with inflation, supporting the real-return case. Over shorter horizons, the interest-rate headwind can cause REIT prices to fall in real terms even as inflation lifts rents, so the hedge can look weak exactly when investors want it most. This is why REITs are better thought of as a partial, long-term inflation hedge than as a precise, short-term one. The right framing is about preserving purchasing power over time, not guaranteeing it in any given year.</p>
+<p>So judging REITs as an inflation hedge means looking at real (inflation-adjusted) returns over a reasonable horizon, where growing rents can help — rather than nominal returns in any single period. Real vs. nominal returns — a real return subtracting inflation to show purchasing power, which is what a hedge aims to protect, with REITs' growing rents potentially preserving real returns over the long run (history is mixed) even though the short-term rate headwind can pull real returns down when investors most want protection — frame REITs as a partial, long-term hedge rather than a precise short-term one. Horizon matters. Understanding this sets realistic expectations. REITs are best judged as a partial, long-term inflation hedge by their real returns over time, since growing rents can preserve purchasing power even though short-term rate headwinds can hurt.</p>
+<div class="pullquote"><p>An inflation hedge is about real returns, not nominal ones — and REITs are better understood as a partial, long-horizon hedge than a guarantee that they'll beat inflation in any single year.</p></div>
+<h2 id="net-effect-on-returns">Net Effect on Returns</h2>
+<p>Pulling it together, the net effect of inflation on REIT returns is a tug-of-war between two forces: the rent-growth hedge (which lifts income and value as prices rise) and the interest-rate headwind (which pressures valuations as inflation pushes rates up). Which force wins depends on the sector, the lease structure, the pace of inflation, and how aggressively rates rise in response. In short-lease, high-pricing-power sectors during moderate inflation, growing rents can outpace the rate drag, and REITs can serve as a reasonable inflation hedge over time. In long-lease, rate-sensitive sectors during a sharp rate-hiking cycle, the headwind can dominate, which is why a <a href="reits-and-rising-rates-a-sector-playbook.html">sector playbook for rising rates</a> is worth keeping in mind.</p>
+<p>The practical implication is to set realistic, non-promissory expectations: REITs are a partial, conditional, long-term inflation hedge — not a guaranteed one. Sector selection and diversification matter, balance-sheet strength matters (low-leverage, fixed-rate REITs better withstand the rate headwind), and the time horizon matters, because the rent-growth benefit tends to accrue over years while the rate headwind can hit prices quickly. None of this predicts any particular outcome; inflation and rate environments differ each cycle. So verify current market conditions, keep expectations grounded, and treat REITs as one component of an inflation-aware allocation rather than a complete solution.</p>
+<p>So the net effect of inflation on REIT returns depends on whether inflation-driven rent growth outpaces the rate-driven valuation headwind — varying by sector, lease structure, and rate environment, making REITs a partial, conditional, long-term hedge. Net effect on returns — a tug-of-war between the rent-growth hedge and the interest-rate headwind, won by rent growth in short-lease pricing-power sectors during moderate inflation but by rates in long-lease sectors during sharp hiking cycles, making REITs a partial, conditional, long-term inflation hedge rather than a guaranteed one — depends on sector, leases, and the rate environment. Expectations should be grounded and non-promissory. Verify current conditions. Inflation's net effect on REITs is a tug-of-war between rent growth and the rate headwind, varying by sector and rate environment — making REITs a partial, conditional, long-term hedge, not a guarantee.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Think About REITs and Inflation</h2>
+<p>Baker 1031 Investments helps investors think clearly about REITs and inflation — the inflation-hedge argument, how rent resets and pricing power work, the interest-rate headwind that pulls the other way, which sectors hedge best, and the net effect on returns — so you can evaluate REIT exposure with realistic, balanced expectations rather than treating REITs as a guaranteed inflation cure.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. We help you understand the hedge-and-headwind dynamics, weigh sector and lease-structure differences, and, when suitable, access REIT offerings. Baker 1031 does not provide tax or legal advice; your CPA handles how REIT dividends are taxed in your situation. We keep our discussion of inflation and markets general and non-promissory — conditions change, so we encourage you to verify current market conditions, and we never promise that REITs will hedge inflation or deliver any particular return. Past performance does not guarantee future results, and REIT prices and distributions can fluctuate with inflation, rates, and the broader economy. Our role is to help you understand the trade-offs clearly and invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>Are REITs a good inflation hedge?<span class="ic"></span></summary>
+<div class="ans"><p>REITs can serve as a partial, long-term inflation hedge, but they aren't a guaranteed or perfect one — the honest answer is 'it depends.' The hedge argument is real: REITs own income-producing real estate, and rents and property values can rise with inflation, so a REIT's income and distributions can grow as prices climb, helping preserve real purchasing power in a way fixed-coupon bonds can't. But there's a competing force: inflation often prompts central banks to raise interest rates, and higher rates pressure REIT valuations through higher discount rates, costlier debt, and competing bond yields. So whether REITs hedge inflation well depends on the sector (short-lease, pricing-power sectors hedge best), the lease structure, and how sharply rates rise. Over longer horizons and in the right sectors, REITs have often provided meaningful inflation protection; over short horizons or in rate-sensitive sectors, the hedge can disappoint. So treat REITs as a conditional, long-term inflation hedge — useful as one component, not a complete solution. Verify current conditions.</p></div>
+</details>
+<details>
+<summary>Why is real estate considered an inflation hedge?<span class="ic"></span></summary>
+<div class="ans"><p>Real estate is considered an inflation hedge because the rents and values of physical property can rise along with the general price level. When inflation pushes up the cost of goods, labor, and construction, several things happen: tenants pay more in nominal rent over time, replacement and building costs climb (which supports the value of existing properties), and the income a property generates can keep pace with or exceed inflation. Many commercial leases also build in explicit inflation protection — annual rent escalators, CPI-linked increases, or percentage rent tied to tenant sales — that pass rising costs through to tenants. Because a REIT owns income-producing real estate, its cash flow can grow during inflationary periods, unlike a bond whose fixed coupon loses real value as inflation erodes its purchasing power. This is why real estate is grouped with other 'real assets' that have historically offered inflation protection. So real estate hedges inflation through its ability to grow rents and values with prices — though, as with REITs, the strength of that hedge varies by sector and lease structure.</p></div>
+</details>
+<details>
+<summary>How do rent escalators help REITs hedge inflation?<span class="ic"></span></summary>
+<div class="ans"><p>Rent escalators are contractual provisions that increase a tenant's rent over time, and they help REITs hedge inflation by building rising income directly into the lease. There are a few common forms: fixed annual escalators (rent rises a set percentage each year), CPI-linked escalators (rent rises with a published inflation index), and percentage rent (the landlord earns a share of a tenant's sales, which tend to rise with prices). When inflation runs higher, CPI-linked and percentage-rent structures pass much of that increase through to the landlord automatically, while fixed escalators help if they're set at or above the inflation rate. This contractual rent growth is part of why real estate income can keep pace with inflation. That said, escalators only hedge well if they keep up with actual inflation — a fixed 2% annual bump falls behind if inflation runs at 5%. So escalators strengthen the inflation hedge, especially CPI-linked ones, but their effectiveness depends on the terms and the pace of inflation. Short-lease sectors that reset rents to market frequently can hedge even more directly.</p></div>
+</details>
+<details>
+<summary>What is pricing power for a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Pricing power is a REIT's ability to raise rents — to charge tenants more as costs and prices rise — and it's central to how well a REIT hedges inflation. Pricing power comes from a few sources. The first is lease length: short leases let a landlord re-price space frequently, so a hotel (nightly pricing), an apartment (annual renewals), or a self-storage facility (frequent adjustments) can lift rents quickly as inflation takes hold. The second is supply and demand: in a tight market with limited new construction, landlords can push rents harder because tenants have fewer alternatives. The third is lease terms: escalators and percentage rent build in increases contractually. A REIT with strong pricing power can grow its income with inflation, making it a better hedge; a REIT with long fixed leases and weak demand has little pricing power, so its rents can fall behind inflation. So pricing power — driven by reset speed, market tightness, and lease terms — determines how effectively a REIT can pass inflation through to tenants and protect its real income.</p></div>
+</details>
+<details>
+<summary>Do rising interest rates cancel out the inflation hedge?<span class="ic"></span></summary>
+<div class="ans"><p>Rising interest rates don't necessarily cancel out the inflation hedge, but they do pull against it — the relationship is a tug-of-war, not a cancellation. Inflation often prompts central banks to raise rates, and higher rates pressure REIT valuations through higher discount rates, costlier debt, and competing bond yields. So even as inflation lifts rents (the hedge), the rate response it triggers can weigh on REIT prices (the headwind). Which force wins depends on the sector and the pace of each. In short-lease, high-pricing-power sectors during moderate inflation, growing rents can outpace the rate drag over time, so the hedge holds even if prices wobble short-term. In long-lease, rate-sensitive sectors during a sharp hiking cycle, the rate headwind can dominate and the hedge can look weak. So rising rates partly offset the inflation hedge rather than canceling it, and the net effect depends on sector, lease structure, and how aggressively rates rise. This is why REITs are a conditional, not automatic, inflation hedge.</p></div>
+</details>
+<details>
+<summary>Which REIT sectors hedge inflation best?<span class="ic"></span></summary>
+<div class="ans"><p>The REIT sectors that hedge inflation best tend to be short-lease sectors with strong pricing power, because they can re-price rents quickly as prices rise. Residential REITs (apartments renew leases annually), hotels (rooms reprice nightly), and self-storage (rates adjust frequently) lead this group — their income can grow in step with inflation, helping offset the interest-rate headwind. Sectors with contractual escalators or rents tied to tenant sales, such as some retail with percentage rent, can also pass inflation through depending on lease terms. The weakest inflation hedges tend to be long fixed-lease sectors like net-lease REITs, where tenants sign 10- to 15-year leases with only modest annual increases — their rents can fall behind a burst of inflation, and because their income is long-duration, they also face more interest-rate pressure, a double disadvantage. So short-lease, pricing-power sectors hedge inflation best, while long fixed-lease sectors hedge least. Diversifying across sectors can balance these dynamics rather than betting on a single one. Verify current conditions, since sector behavior shifts.</p></div>
+</details>
+<details>
+<summary>Why do long-lease net-lease REITs hedge inflation poorly?<span class="ic"></span></summary>
+<div class="ans"><p>Net-lease REITs hedge inflation relatively poorly because of their long, fixed lease structure. In a net lease, a tenant typically signs for 10 to 15 years and pays most operating costs, with rent rising only by small, pre-set annual amounts. That locks in income that can't easily keep pace with a burst of inflation — if rent rises 2% a year while inflation runs at 5%, the landlord's real income falls behind. Because the rent is fixed for so long, the landlord has little ability to reset it to market until the lease expires, so the inflation hedge is weak. On top of that, long fixed-income streams are 'long-duration,' which makes net-lease REITs more sensitive to the interest-rate headwind that often accompanies inflation: higher discount rates weigh heavily on long-duration income. So net-lease REITs face a double disadvantage in inflationary, rising-rate periods — rents can't reset quickly, and valuations face more rate pressure. They're prized for stable income, but that stability is what limits their inflation-hedging ability. Short-lease sectors hedge better.</p></div>
+</details>
+<details>
+<summary>Can a REIT's dividends grow with inflation?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, a REIT's dividends can grow with inflation, but it depends on the sector and lease structure, and it isn't guaranteed. Because REITs distribute most of their taxable income (the 90% rule), their dividends are tied to the income their properties generate. When inflation lifts rents — especially in short-lease, pricing-power sectors that reset rents quickly, or in properties with CPI-linked escalators — a REIT's income and therefore its distributions can rise over time. This is the heart of the inflation-hedge case: growing nominal income can help preserve the real value of your dividend stream. However, the relationship isn't automatic. In long fixed-lease sectors, rents (and dividends) may lag inflation, and the interest-rate headwind that often accompanies inflation can pressure REIT prices and, in stressed cases, even lead to distribution cuts. So dividends can grow with inflation in the right sectors over a reasonable horizon, but they can also stagnate or be cut if income falls or rates bite. So treat dividend growth as possible and sector-dependent, not assured. Verify the specifics and current conditions.</p></div>
+</details>
+<details>
+<summary>Are REITs better than bonds during inflation?<span class="ic"></span></summary>
+<div class="ans"><p>REITs and bonds respond very differently to inflation, and which is 'better' depends on the environment and your goals — there's no universal answer. The case for REITs is that their income can grow with inflation: rising rents (especially in short-lease sectors) can lift a REIT's distributions and property values, helping preserve real purchasing power. A conventional bond, by contrast, pays a fixed coupon that loses real value as inflation erodes it, so traditional bonds tend to fare poorly in inflationary periods. That's the core argument for REITs over nominal bonds as an inflation hedge. But REITs carry equity-like risk and face the interest-rate headwind that inflation often triggers, so they can be volatile and can fall in price even as rents grow, while certain inflation-protected bonds (like TIPS) are designed specifically to track inflation with less volatility. So REITs may offer better inflation protection than nominal bonds over the long run through growing income, but with more risk and volatility, and they're not a substitute for the safety bonds provide. Many portfolios hold both. Verify current conditions.</p></div>
+</details>
+<details>
+<summary>What is the difference between a real and nominal return?<span class="ic"></span></summary>
+<div class="ans"><p>A nominal return is the raw percentage gain on an investment, while a real return subtracts inflation to show the change in your actual purchasing power. For example, if an investment returns 7% in a year when inflation is 4%, the nominal return is 7% but the real return is roughly 3% — that 3% is the amount by which your wealth actually grew in purchasing-power terms. This distinction matters a great deal for inflation hedging, because the whole point of a hedge is to protect real returns, not just nominal ones. A bond paying a fixed 4% coupon shows a positive nominal return but a negative real return when inflation runs at 5%, since its fixed payments buy less over time. The hope with REITs is that growing rents lift nominal income and value enough to keep real returns positive. So when judging REITs as an inflation hedge, look at real (inflation-adjusted) returns over a reasonable horizon rather than nominal returns in any single period — that's the measure that captures whether your purchasing power is actually being preserved.</p></div>
+</details>
+<details>
+<summary>Do REITs always rise with inflation?<span class="ic"></span></summary>
+<div class="ans"><p>No — REITs don't always rise with inflation, and assuming they will is a common misunderstanding. While the underlying real estate can grow rents and values during inflationary periods, REIT prices (especially publicly traded ones) are also driven by interest rates, market sentiment, and the broader economy. Because inflation often triggers higher interest rates, and higher rates pressure REIT valuations through the discount-rate, borrowing-cost, and bond-competition channels, REIT prices can actually fall during inflationary, rising-rate periods even as the properties grow their income. This is why REITs can disappoint as an inflation hedge in the short term, just when investors most want protection. Over longer horizons and in pricing-power sectors, growing rents can lead REITs to keep pace with or beat inflation, but there's no guarantee in any given period. So REITs are a partial, conditional, long-term inflation hedge — not an investment that mechanically rises with inflation. Set realistic expectations, diversify across sectors, focus on the long term, and verify current market conditions rather than assuming a fixed relationship.</p></div>
+</details>
+<details>
+<summary>How does inflation affect commercial real estate values?<span class="ic"></span></summary>
+<div class="ans"><p>Inflation affects commercial real estate values through two opposing channels. On the supportive side, inflation tends to raise rents (as landlords re-price space and escalators kick in) and replacement costs (making existing buildings more valuable to replace), both of which can lift property values — the foundation of the inflation-hedge argument. On the opposing side, inflation often prompts central banks to raise interest rates, and higher rates tend to push capitalization rates up; since value is roughly income divided by the cap rate, rising cap rates lower property values for a given level of income. So the net effect on commercial real estate values depends on whether inflation-driven income growth outpaces the cap-rate expansion driven by rising rates. In sectors with strong pricing power and fast rent resets, growing income can win out over time; in long-lease, rate-sensitive sectors, the cap-rate pressure can dominate, at least in the short run. So inflation can either raise or pressure commercial real estate values depending on the sector, lease structure, and rate response. Verify current conditions, since this balance shifts each cycle.</p></div>
+</details>
+<details>
+<summary>Should I add REITs to my portfolio as an inflation hedge?<span class="ic"></span></summary>
+<div class="ans"><p>Whether to add REITs as an inflation hedge depends on your goals, time horizon, risk tolerance, and overall portfolio — and it's a decision to make with realistic, non-promissory expectations. REITs can offer partial, long-term inflation protection because their rents and values can grow with prices, and they add real estate diversification to a portfolio of stocks and bonds. But they're not a guaranteed hedge: they carry equity-like risk and volatility, face the interest-rate headwind inflation often brings, and can fall in price even when rents are rising. So REITs are best viewed as one component of an inflation-aware allocation rather than a complete solution, sized to fit your plan. If you do add them, sector selection matters — short-lease, pricing-power sectors hedge inflation better than long fixed-lease ones — as does balance-sheet quality and diversification. So consider REITs as a partial, long-term inflation hedge within a broader strategy, after weighing the risks, and verify current market conditions. This is educational information, not a recommendation; a suitability review applies to any specific REIT investment.</p></div>
+</details>
+<details>
+<summary>Does deflation or low inflation hurt REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The relationship between low inflation, deflation, and REITs is nuanced, and outcomes depend on why prices are weak. In a low-inflation environment, the inflation-hedge case for REITs matters less, but low inflation often comes with low interest rates — and low rates are generally supportive of REIT valuations through lower discount rates, cheaper debt, and less competition from bond yields. So mild low-inflation, low-rate conditions can actually be favorable for REITs. Deflation (an outright fall in the price level) is more concerning: it can signal economic weakness, falling rents, and rising vacancy, which directly hurt the income REITs depend on, even if low rates provide some offset. So the danger isn't low inflation itself but the weak demand that often accompanies deflation. The practical takeaway is that REITs tend to do best in moderate conditions — enough growth to support rents, without inflation so high that it triggers aggressive rate hikes. As always, this is a general tendency, not a forecast; the net effect depends on the broader economy, the sector, and the rate environment, so verify current conditions rather than assuming a fixed relationship.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me think about REITs and inflation?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors think clearly about REITs and inflation — the inflation-hedge argument, how rent resets and pricing power work, the interest-rate headwind that pulls the other way, which sectors hedge best, and the net effect on returns — so you can evaluate REIT exposure with realistic, balanced expectations rather than treating REITs as a guaranteed inflation cure. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. We help you weigh the hedge-and-headwind dynamics and sector differences and, when suitable, access offerings. We keep our discussion of inflation and markets general and non-promissory — conditions change, so verify current conditions, and we never promise REITs will hedge inflation or deliver any return. Baker 1031 doesn't provide tax or legal advice; your CPA handles your situation. Past performance doesn't guarantee future results. Our role is to help you understand the trade-offs and invest only when suitable.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Inflation</dt><dd>A sustained rise in the general price level, eroding purchasing power.</dd></div>
+<div class="g"><dt>Inflation Hedge</dt><dd>An investment whose value or income tends to rise with inflation.</dd></div>
+<div class="g"><dt>REIT</dt><dd>A company that owns, operates, or finances income-producing real estate.</dd></div>
+<div class="g"><dt>Real Asset</dt><dd>A physical asset (like real estate) often used to hedge inflation.</dd></div>
+<div class="g"><dt>Pricing Power</dt><dd>A REIT's ability to raise rents as costs and prices rise.</dd></div>
+<div class="g"><dt>Rent Escalator</dt><dd>A lease clause that raises rent over time, often by a set percent or CPI.</dd></div>
+<div class="g"><dt>CPI-Linked Rent</dt><dd>Rent that rises with a published inflation index.</dd></div>
+<div class="g"><dt>Percentage Rent</dt><dd>Rent tied to a tenant's sales, which tend to rise with prices.</dd></div>
+<div class="g"><dt>Short-Lease Sector</dt><dd>Sectors (residential, hotels, storage) that reset rents quickly.</dd></div>
+<div class="g"><dt>Net-Lease REIT</dt><dd>A long fixed-lease REIT that hedges inflation less effectively.</dd></div>
+<div class="g"><dt>Cap Rate</dt><dd>Net operating income divided by value; rises with interest rates.</dd></div>
+<div class="g"><dt>Interest-Rate Headwind</dt><dd>Higher rates from inflation pressuring REIT valuations.</dd></div>
+<div class="g"><dt>Real Return</dt><dd>An investment's return after subtracting inflation.</dd></div>
+<div class="g"><dt>Nominal Return</dt><dd>The raw return before adjusting for inflation.</dd></div>
+<div class="g"><dt>TIPS</dt><dd>Treasury bonds designed to track inflation directly.</dd></div>
+<div class="g"><dt>Real Estate Value</dt><dd>Property worth, driven by income and the cap rate.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>Board of Governors of the Federal Reserve System. <a href="https://www.federalreserve.gov/" rel="noopener nofollow" target="_blank">Federal Reserve</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a><a href="insights.html">Market</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Much of Your Portfolio Should Be REITs? | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>How Much of Your Portfolio Should Be REITs?
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">How Much of Your Portfolio Should Be REITs?</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">How much of a portfolio should be in REITs? There's no single right answer, but there are sensible ways to think about it. This guide covers the case for a REIT allocation, commonly cited ranges, income versus growth tilts, the correlation benefits of real estate, and how to set your own target.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">One of the most common questions investors ask about REITs is how much of a portfolio they should represent. There's no universal answer — the right REIT allocation depends on your goals, income needs, time horizon, and risk tolerance — but there are sensible frameworks for thinking it through. REITs offer a distinct package: diversification into real estate as an asset class, an income stream driven by the 90% distribution rule, and a real-asset character that some investors value as an inflation consideration. Commonly cited allocation ranges fall roughly in the 5-15% area, but those are general educational reference points, not recommendations, and the right number for any individual can be higher, lower, or zero. This guide explains the case for a REIT allocation, the commonly cited ranges, how an income-versus-growth tilt changes the picture, the correlation benefits real estate can offer, and how to set your target with an advisor. Allocation ranges discussed here are commonly cited general ranges for education, not recommendations or promises of any outcome — set your own target with a financial professional based on your situation.</p>
+<p>Sizing a position makes more sense once you know what you are sizing, so our <a href="reits-guide.html">comprehensive REIT primer</a> is worth reading alongside this allocation discussion.</p>
+<h2 id="case-for-reit-allocation">The Case for a REIT Allocation</h2>
+<p>The case for including REITs in a portfolio rests on a few distinct benefits. First, diversification: REITs give exposure to real estate as a separate asset class, alongside stocks and bonds, and real estate has historically behaved somewhat differently from those assets — so adding REITs can broaden a portfolio beyond traditional holdings. Second, income: because the 90% distribution rule requires REITs to pay out most of their taxable income, REIT yields tend to run higher than the broad stock market, providing a meaningful income stream.</p>
+<p>Third, REITs are often discussed as an inflation consideration: real estate generates rents and holds physical assets whose values and lease rates can rise over time, which some investors view as a potential partial hedge against inflation — though this is a general consideration, not a guarantee. Fourth, accessibility: REITs let an investor own a slice of large, professionally managed, diversified real estate portfolios through liquid shares (for traded REITs), without the capital, leverage, or management burden of direct property ownership. Together, these make a reasoned case for a real estate sleeve in many diversified portfolios.</p>
+<p>So the case for a REIT allocation rests on diversification, income, an inflation consideration, and accessible real estate exposure. The case for a REIT allocation — diversification into real estate as a distinct asset class, an income stream driven by the 90% distribution rule, a real-asset character that some view as a general inflation consideration, and accessible, professionally managed, liquid real estate exposure without direct-ownership burdens — explains why many diversified portfolios include a real estate sleeve. None of these benefits is guaranteed. Understanding the case frames the sizing question. REITs can add diversification, income, a potential inflation consideration, and accessible real estate exposure to a portfolio — the general case for including a real estate sleeve, though none of these benefits is promised.</p>
+<h2 id="common-allocation-ranges">Common Allocation Ranges</h2>
+<p>When investors and commentators discuss how much of a portfolio to put in REITs, the figures most often cited fall roughly in the 5-15% range of a diversified portfolio. These commonly cited ranges reflect a view that real estate is worth a meaningful but not dominant allocation — enough to provide diversification and income, but not so much that it overwhelms the portfolio or concentrates risk in a single asset class. It's important to be clear that these are general educational reference points, not recommendations.</p>
+<p>Where an individual lands within (or outside) such a range depends on their situation. Someone who already owns substantial direct real estate (a home, rental properties, or business real estate) might count that exposure and hold fewer REITs, or none. An income-focused retiree might tilt toward the higher end for yield, while a young growth investor might hold less. Some investors hold no REITs at all, and that can be entirely appropriate. So the commonly cited 5-15% range is a starting point for discussion, not a target everyone should hit — your real estate exposure outside REITs and your goals can move the number substantially.</p>
+<p>So commonly cited REIT allocations cluster around 5-15%, but they're general reference points, and the right figure for you depends on your broader real estate exposure and goals. Common allocation ranges — figures most often cited clustering around roughly 5-15% of a diversified portfolio, reflecting a meaningful-but-not-dominant real estate sleeve — are general educational reference points, not recommendations, and an individual's right number depends on existing real estate exposure, goals, and risk tolerance (and can be higher, lower, or zero). They're a starting point for discussion. Understanding them frames a conversation with an advisor. Commonly cited REIT allocations run roughly 5-15% of a portfolio, but these are general educational ranges, not recommendations — your own figure depends on your other real estate exposure, goals, and risk tolerance, and may be higher, lower, or zero.</p>
+<div class="pullquote"><p>The often-cited 5-15% figure is a conversation starter, not a prescription — the right REIT allocation for you might sit anywhere along that range, above it, or at zero.</p></div>
+<h2 id="income-vs-growth-tilt">Income vs. Growth Tilt</h2>
+<p>How you size and shape a REIT allocation depends heavily on whether you're tilting toward income or growth. An income-focused investor — often someone in or near retirement who wants <a href="reits-for-retirement-income.html">cash flow</a> — might lean toward a larger REIT sleeve and toward income-oriented REIT sectors (net-lease, healthcare, certain residential) that emphasize steady distributions. For these investors, the 90% distribution rule's high payout is a feature, and REITs can function as part of an income strategy alongside bonds and dividend stocks.</p>
+<p>A growth-focused investor with a longer horizon might size REITs differently, emphasizing total return (income plus appreciation) and sectors with stronger growth characteristics (industrial, data centers), while keeping the overall real estate sleeve modest so equities can drive long-term growth. The tilt also affects which structures fit: income investors who don't need liquidity might consider non-traded REITs for a longer-term income holding (after a suitability review), while growth and liquidity-minded investors favor publicly traded REITs and REIT funds. So your income-versus-growth orientation shapes both the size and the composition of the allocation.</p>
+<p>So an income tilt argues for a larger, income-sector REIT sleeve, while a growth tilt argues for a more modest, total-return-oriented one. Income versus growth tilt — income-focused investors leaning toward a larger sleeve and income-oriented sectors (net-lease, healthcare, residential) for steady distributions, versus growth-focused investors emphasizing total return and growth sectors (industrial, data centers) while keeping the sleeve modest — shapes both the size and composition of a REIT allocation, and even the structures (non-traded for long-term income, traded for liquidity). Your orientation drives the design. Understanding the tilt personalizes the allocation. Your income-versus-growth orientation shapes the REIT allocation: income investors may hold a larger, income-sector sleeve, while growth investors may keep a modest, total-return-oriented one — and the tilt also influences which REIT structures fit.</p>
+<h2 id="correlation-benefits">Correlation Benefits</h2>
+<p>A central argument for a REIT allocation is diversification through correlation benefits. Correlation measures how closely two assets move together; assets that don't move in perfect lockstep can, when combined, reduce a portfolio's overall volatility for a given level of return. Real estate has historically shown only moderate correlation with stocks and bonds over longer periods, so adding a real estate sleeve via REITs can, in principle, improve a <a href="reits-in-a-diversified-portfolio.html">portfolio's diversification and risk-adjusted profile</a>.</p>
+<p>There's an important caveat. Publicly traded REITs are still equities that trade on exchanges, so in the short term — especially during sharp market sell-offs — they can move closely with the broader stock market, and the diversification benefit can shrink just when investors hope for it most. Over longer horizons, real estate's distinct fundamentals (rents, leases, property cycles) tend to reassert themselves, restoring some of the diversification benefit. So the correlation benefit of REITs is real but partial and time-dependent: meaningful over the long run, weaker during acute market stress. Investors should expect diversification, not immunity from market downturns.</p>
+<p>So REITs offer real but imperfect correlation benefits — diversification over the long run, with less protection during acute sell-offs. Correlation benefits — real estate's historically moderate long-run correlation with stocks and bonds improving a portfolio's diversification and risk-adjusted profile, tempered by the reality that publicly traded REITs trade as equities and can move with the stock market during sharp sell-offs — are a central but partial argument for a REIT allocation. The benefit is meaningful long-term, weaker in stress. Understanding it sets realistic expectations. REITs can improve diversification because real estate has historically shown moderate long-run correlation with stocks and bonds, but traded REITs move with equities during sharp sell-offs — so the correlation benefit is real but partial, not protection from downturns.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>The case for REITs rests on diversification, income (from the 90% distribution rule), a general inflation consideration, and accessible real estate exposure.</li>
+<li>Commonly cited allocation ranges cluster around 5-15%, but these are general educational reference points, not recommendations — your number may be higher, lower, or zero.</li>
+<li>An income tilt argues for a larger, income-sector sleeve; a growth tilt argues for a more modest, total-return-oriented one.</li>
+<li>Real estate's moderate long-run correlation with stocks and bonds can aid diversification, but traded REITs still move with equities during sharp sell-offs.</li>
+</ul></div>
+<h2 id="setting-your-target">Setting Your Target</h2>
+<p>Setting your own REIT target is best done as a structured conversation rather than by adopting a generic number. Start by inventorying your existing real estate exposure: a home, rental properties, business real estate, or real estate held inside funds all count, and heavy existing exposure argues for fewer REITs. Then clarify your goals — income versus growth, your time horizon, and your liquidity needs — since these shape both how much and what kind of REIT exposure fits.</p>
+<p>Next, weigh your risk tolerance and how a REIT sleeve interacts with the rest of your portfolio, including the partial correlation benefit and the reality that <a href="are-reits-a-good-investment-pros-and-cons.html">REITs carry real risk</a> (distributions can be cut, prices and NAVs fluctuate, sectors can underperform). Consider account placement too, since REITs' mostly-ordinary-income dividends are often more tax-efficient in a tax-advantaged account. Finally, set a target range rather than a precise point, and revisit it as circumstances change. Because this is genuinely individual, it's a decision to make with a financial professional who can account for your full picture — not a number to copy from an article.</p>
+<p>So setting your target means inventorying existing real estate, clarifying goals and risk tolerance, considering account placement, and deciding with an advisor. Setting your target — inventorying existing real estate exposure, clarifying goals (income versus growth, horizon, liquidity), weighing risk tolerance and the partial correlation benefit, considering account placement for tax efficiency, and setting a target range to revisit over time — turns the allocation question into a personal, advisor-supported decision rather than a generic number. The right figure is individual. Coordinating with a professional grounds it in your full picture. Set your REIT target by inventorying existing real estate, clarifying goals and risk tolerance, considering account placement, and choosing a target range with a financial professional — a personal decision, not a number to copy from a general range.</p>
+<div class="pullquote"><p>The most important input to your REIT target isn't a rule of thumb — it's the real estate you already own, your goals, and your tolerance for risk, weighed with an advisor who sees the whole picture.</p></div>
+<h2 id="common-mistakes">Common Allocation Mistakes</h2>
+<p>A few recurring mistakes can undermine a REIT allocation. The first is double-counting or ignoring existing real estate: an investor who already holds significant property (a home, rentals, business real estate) but then adds a large REIT sleeve can end up far more concentrated in real estate than intended. The second is chasing yield — sizing a REIT allocation based purely on a high headline distribution rate, without regard to risk, sector, or whether the income is sustainable. High yields can signal higher risk, and distributions aren't guaranteed.</p>
+<p>Other mistakes include over-relying on the diversification story (expecting REITs to protect a portfolio during every downturn, when traded REITs can fall with stocks in sharp sell-offs), neglecting tax-aware account placement (holding mostly-ordinary-income REIT dividends in a taxable account when a tax-advantaged account might be more efficient), and treating a generic 5-15% range as a prescription rather than a starting point. Setting a number once and never revisiting it as life and markets change is another. Avoiding these pitfalls keeps a REIT allocation aligned with its actual purpose in the portfolio.</p>
+<p>So common mistakes include ignoring existing real estate, chasing yield, over-relying on diversification, neglecting account placement, and copying generic ranges. Common allocation mistakes — double-counting or ignoring existing real estate exposure, chasing high headline yields without regard to risk, over-relying on the diversification story during sharp sell-offs, neglecting tax-aware account placement, and treating a generic range as a prescription rather than a starting point — can undermine a REIT allocation. Each stems from skipping the personal analysis. Avoiding them keeps the sleeve purposeful. The main pitfalls are ignoring existing real estate, chasing yield, over-relying on diversification, neglecting account placement, and copying a generic range — avoid them by grounding your REIT allocation in your own situation and revisiting it over time.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Set a REIT Allocation</h2>
+<p>Baker 1031 Investments helps investors think through how much of a portfolio to allocate to REITs — the case for a real estate sleeve, the commonly cited ranges, the income-versus-growth tilt, the correlation benefits, and how to set a target — so you can arrive at an allocation that fits your goals, income needs, time horizon, and risk tolerance.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. The allocation ranges discussed here are commonly cited general ranges for education, not recommendations, and we don't promise any particular outcome — REITs carry real risk, distributions can be cut, and prices and NAVs fluctuate. Baker 1031 does not provide tax or legal advice; your CPA handles how REIT dividends are taxed in your situation, including the account-placement considerations that affect after-tax results, so verify the current rules with your tax advisor. We help you weigh your existing real estate exposure, your goals, and your risk tolerance, and — when REITs are suitable — access appropriate offerings, coordinating with your tax and financial professionals. Yields and returns are never promised; past performance does not guarantee future results. Our role is to help you set a REIT allocation that's genuinely yours.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>How much of my portfolio should be in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>There's no universal answer — the right REIT allocation depends on your goals, income needs, time horizon, and risk tolerance. Commonly cited ranges fall roughly in the 5-15% area of a diversified portfolio, reflecting a view that real estate deserves a meaningful but not dominant sleeve. But those are general educational reference points, not recommendations, and the right figure for you can be higher, lower, or zero. If you already own substantial real estate (a home, rentals, or business property), you might hold fewer REITs or none, since you already have real estate exposure. An income-focused investor might tilt higher for yield; a growth investor might hold less. So treat 5-15% as a starting point for discussion rather than a target everyone should hit. The best approach is to set your number with a financial professional who can account for your full picture, including your other real estate, your goals, and your risk tolerance. This is general education, not advice.</p></div>
+</details>
+<details>
+<summary>What is a commonly cited REIT allocation range?<span class="ic"></span></summary>
+<div class="ans"><p>The figures most often cited for a REIT allocation cluster around roughly 5-15% of a diversified portfolio. This range reflects a common view that real estate is worth a meaningful allocation — enough to provide diversification and income — but not so large that it dominates the portfolio or concentrates risk in one asset class. It's important to understand that these are general educational reference points, not recommendations. Where an individual actually lands depends on their situation: existing real estate holdings, goals (income versus growth), time horizon, and risk tolerance can move the number well above, below, or to zero. Some investors hold no REITs at all, which can be entirely appropriate. So the 5-15% range is best treated as a starting point for a conversation, not a prescription. Use it to frame a discussion with a financial professional, who can help you decide on a figure that genuinely fits your circumstances rather than adopting a generic number from an article.</p></div>
+</details>
+<details>
+<summary>Why include REITs in a portfolio at all?<span class="ic"></span></summary>
+<div class="ans"><p>REITs offer a distinct package of potential benefits that lead many investors to include a real estate sleeve. First, diversification: REITs provide exposure to real estate as a separate asset class, which has historically behaved somewhat differently from stocks and bonds. Second, income: because the 90% distribution rule requires REITs to pay out most of their taxable income, REIT yields tend to run higher than the broad stock market. Third, REITs are often discussed as a general inflation consideration, since real estate generates rents and holds physical assets whose values and lease rates can rise over time — though this is not guaranteed. Fourth, accessibility: REITs let you own a slice of large, professionally managed, diversified real estate portfolios through liquid shares, without the capital and management burden of direct ownership. So the case for REITs rests on diversification, income, a potential inflation consideration, and accessibility. None of these benefits is promised, and REITs carry real risk, so size any allocation to fit your goals.</p></div>
+</details>
+<details>
+<summary>Do REITs help diversify a portfolio?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, REITs can help diversify a portfolio, though the benefit is real but partial. Diversification works because assets that don't move in perfect lockstep can, when combined, reduce a portfolio's overall volatility. Real estate has historically shown only moderate correlation with stocks and bonds over longer periods, so adding a REIT sleeve can improve diversification and a portfolio's risk-adjusted profile. The caveat is that publicly traded REITs are still equities that trade on exchanges, so in the short term — especially during sharp market sell-offs — they can move closely with the broader stock market, and the diversification benefit can shrink just when investors hope for it most. Over longer horizons, real estate's distinct fundamentals tend to reassert themselves. So REITs offer meaningful long-run diversification but not immunity from downturns. Expect a diversification benefit over time, not protection in every sell-off, and size your allocation with that realistic expectation in mind.</p></div>
+</details>
+<details>
+<summary>Should retirees hold more REITs for income?<span class="ic"></span></summary>
+<div class="ans"><p>Income-focused investors, including many retirees, sometimes tilt toward a larger REIT sleeve because REITs' high payouts — driven by the 90% distribution rule — can provide meaningful cash flow alongside bonds and dividend stocks. Income-oriented REIT sectors such as net-lease, healthcare, and certain residential properties emphasize steadier distributions, which can suit an income strategy. That said, more isn't automatically better: REIT income isn't guaranteed (distributions can be cut), REITs carry market and interest-rate risk, and over-concentrating in REITs for yield can increase risk. Tax matters too — REITs' mostly-ordinary-income dividends are often more tax-efficient in a tax-advantaged account. So a retiree might reasonably hold a somewhat larger, income-tilted REIT allocation, but it should still be sized within a diversified plan and matched to their risk tolerance and liquidity needs. So REITs can be part of a retirement income strategy, but the size and composition should be set with a financial professional, not maximized for yield alone.</p></div>
+</details>
+<details>
+<summary>Can REITs hedge against inflation?<span class="ic"></span></summary>
+<div class="ans"><p>REITs are often discussed as a potential partial inflation consideration, but it's important to frame this carefully — it's a general consideration, not a guarantee. The rationale is that real estate generates rents and holds physical assets, and over time both property values and lease rates can rise with inflation; some leases even include escalators tied to inflation. That gives real estate a real-asset character that some investors value when they're concerned about inflation eroding purchasing power. However, the relationship isn't perfect or automatic: in the short term, rising interest rates that often accompany inflation can pressure REIT prices, and the effect varies by sector and lease structure. So REITs may offer some inflation-related benefit over time, particularly in certain sectors, but they shouldn't be treated as a reliable or complete inflation hedge. So consider the inflation angle as one general reason among several to hold real estate exposure, not as a promise. Size any allocation to your overall goals and risk tolerance, with professional guidance.</p></div>
+</details>
+<details>
+<summary>Does owning a home count toward my real estate allocation?<span class="ic"></span></summary>
+<div class="ans"><p>This is a judgment call, but many investors and advisors do consider existing real estate — including a home, rental properties, and business real estate — when deciding how much to add in REITs. The logic is that your overall exposure to real estate as an asset class includes what you already own, not just your REIT holdings. If you already have substantial direct real estate, adding a large REIT sleeve on top could leave you more concentrated in real estate than you intend. That said, a primary residence is also a personal-use asset and a different kind of exposure than income-producing REITs, so some investors weight it differently from investment property. The practical takeaway is to inventory your total real estate exposure before sizing a REIT allocation, so the REIT sleeve complements rather than duplicates what you have. So consider your home and other property in the overall picture, and decide with a financial professional how much additional REIT exposure, if any, makes sense for your situation.</p></div>
+</details>
+<details>
+<summary>What's the difference between an income and a growth REIT allocation?<span class="ic"></span></summary>
+<div class="ans"><p>The difference is in size, sector, and structure. An income-tilted REIT allocation tends to be larger and to emphasize income-oriented sectors — net-lease, healthcare, certain residential — that prioritize steady distributions, suiting investors (often in or near retirement) who want cash flow. The 90% distribution rule's high payout is the feature here. A growth-tilted allocation tends to be more modest and to emphasize total return (income plus appreciation) and sectors with stronger growth characteristics, such as industrial and data centers, while keeping the overall real estate sleeve smaller so equities can drive long-term growth. The tilt also affects structure: income investors who don't need liquidity might consider non-traded REITs for a long-term income holding (after a suitability review), while growth and liquidity-minded investors favor publicly traded REITs and REIT funds. So your income-versus-growth orientation shapes both how much you hold and what kind. Decide the tilt based on your goals, horizon, and liquidity needs, with professional guidance.</p></div>
+</details>
+<details>
+<summary>Are REITs riskier than bonds?<span class="ic"></span></summary>
+<div class="ans"><p>Generally, yes — REITs carry more risk than high-quality bonds, even though both are often used for income. REIT share prices fluctuate with the market and can fall during sell-offs; distributions aren't guaranteed and can be cut if property income declines; and REITs (especially mortgage REITs) are sensitive to interest rates. High-quality bonds, by contrast, offer a contractual interest payment and return of principal at maturity (subject to credit and rate risk), making them generally less volatile. So REITs are more equity-like in their risk than bonds, and they shouldn't be treated as a bond substitute even when used for income. This is why REITs are usually a complement to, not a replacement for, the bond portion of a portfolio. So if you're considering REITs for income, recognize that you're taking on more risk than with bonds, and size the allocation accordingly within a diversified plan. Match the REIT sleeve to your risk tolerance and revisit it as conditions change, with professional guidance.</p></div>
+</details>
+<details>
+<summary>How does account placement affect my REIT allocation?<span class="ic"></span></summary>
+<div class="ans"><p>Account placement — sometimes called asset location — can meaningfully affect the after-tax value of a REIT allocation, because REIT dividends are mostly ordinary income and therefore relatively tax-inefficient in a taxable account. Holding REITs inside a tax-advantaged account, such as a traditional or Roth IRA, can shelter those ordinary dividends from current tax, while keeping more tax-efficient assets in taxable accounts. This is a general educational strategy, not a recommendation for any specific investor, and the benefit depends on your overall situation and the type of account. One nuance: the federal 20% Section 199A deduction on qualified REIT dividends generally applies only in taxable accounts, so sheltering in an IRA is a trade-off rather than a free lunch. So account placement is worth considering alongside the size of your REIT allocation — where you hold REITs can matter as much as how much you hold. Baker 1031 doesn't provide tax advice; discuss the right placement for your situation with your CPA.</p></div>
+</details>
+<details>
+<summary>Is it okay to hold no REITs at all?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — holding no REITs can be entirely appropriate for some investors. There's no rule that a portfolio must contain REITs, and the commonly cited 5-15% range is a general reference point, not a requirement. An investor who already owns substantial direct real estate (a home, rental properties, or business real estate) may already have ample real estate exposure and reasonably choose to hold no REITs. Others may prefer to express their views through different asset classes, or may simply decide REITs don't fit their goals or risk tolerance. The key is that the decision should be intentional — based on your overall real estate exposure, goals, and risk profile — rather than a default. So a zero REIT allocation is a legitimate choice, just as a 5%, 10%, or 15% allocation can be. So don't feel obligated to hold REITs because a general range suggests a number; decide what fits your full financial picture, ideally with a financial professional who can weigh all your holdings.</p></div>
+</details>
+<details>
+<summary>How often should I revisit my REIT allocation?<span class="ic"></span></summary>
+<div class="ans"><p>A REIT allocation, like any allocation, should be revisited periodically rather than set once and forgotten. A common practice is to review your overall portfolio allocation at least annually and after major life or market changes — a new home or property purchase or sale, a change in income or goals, retirement, or a significant market move. These events can shift your total real estate exposure, your income needs, or your risk tolerance, all of which feed into the right REIT allocation. Market movements can also drift your allocation away from target over time, which is what periodic rebalancing addresses. The goal isn't to react to every fluctuation but to make sure the REIT sleeve still serves its intended purpose in your plan. So treat your REIT allocation as a living decision: set a target range, review it on a regular cadence and after major changes, and adjust thoughtfully. So revisit at least annually and at life events, ideally with a financial professional who can keep the allocation aligned with your evolving picture.</p></div>
+</details>
+<details>
+<summary>Should I use REIT funds or individual REITs for my allocation?<span class="ic"></span></summary>
+<div class="ans"><p>For most investors, a broad REIT index fund or ETF is the simplest way to implement a REIT allocation, because it provides instant diversification across many REITs and sectors at low cost and with little effort. Picking individual REITs can offer targeting and the potential for outperformance, but it requires research and analysis, concentrates risk in fewer names, and takes more effort and skill. So how you implement the allocation is a separate question from how much to allocate. Many investors favor low-cost diversified REIT funds for the core of their real estate sleeve, while more experienced investors may add individual REITs for specific exposures. Either way, the implementation should match your time, expertise, and willingness to monitor holdings. So decide your target allocation first, then choose an implementation — fund, individual REITs, or a mix — that fits your situation. So the fund-versus-individual choice is about execution; the allocation size is about your goals and risk tolerance, and both are worth discussing with a professional.</p></div>
+</details>
+<details>
+<summary>Are allocation ranges like 5-15% guarantees of any result?<span class="ic"></span></summary>
+<div class="ans"><p>No — commonly cited allocation ranges such as 5-15% are general educational reference points, not recommendations, and they guarantee nothing about returns, income, or risk. They simply reflect a common view that real estate is worth a meaningful but not dominant portfolio sleeve. Whether any allocation produces a good outcome depends on market conditions, the specific REITs held, fees, timing, and your overall plan — none of which a range can promise. REITs carry real risk: prices and NAVs fluctuate, distributions can be cut, and sectors can underperform. So treat any cited range as a starting point for thinking and discussion, never as a promise of performance or a substitute for personalized advice. The right allocation for you is individual and should be set with a financial professional based on your goals, existing real estate, time horizon, and risk tolerance. So use ranges to frame the conversation, but make your decision on your own facts — and remember that past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me set a REIT allocation?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors think through how much of a portfolio to allocate to REITs — the case for a real estate sleeve, the commonly cited ranges, the income-versus-growth tilt, the correlation benefits, and how to set a target — so you can arrive at an allocation that fits your goals, income needs, time horizon, and risk tolerance. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. The allocation ranges we discuss are commonly cited general ranges for education, not recommendations, and we don't promise any outcome — REITs carry real risk. Baker 1031 doesn't provide tax or legal advice; your CPA handles how REIT dividends are taxed, including account-placement considerations. We help you weigh your existing real estate, goals, and risk tolerance, and access suitable offerings when appropriate. Yields and returns are never promised; past performance doesn't guarantee future results.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>REIT</dt><dd>A company that owns, operates, or finances income-producing real estate.</dd></div>
+<div class="g"><dt>Asset Allocation</dt><dd>How a portfolio is divided among asset classes like stocks, bonds, and real estate.</dd></div>
+<div class="g"><dt>REIT Allocation</dt><dd>The share of a portfolio held in REITs.</dd></div>
+<div class="g"><dt>Diversification</dt><dd>Spreading investments to reduce overall risk.</dd></div>
+<div class="g"><dt>Correlation</dt><dd>A measure of how closely two assets move together.</dd></div>
+<div class="g"><dt>Asset Class</dt><dd>A group of similar investments, such as real estate.</dd></div>
+<div class="g"><dt>Income Tilt</dt><dd>Emphasizing cash flow and income-oriented holdings.</dd></div>
+<div class="g"><dt>Growth Tilt</dt><dd>Emphasizing total return and appreciation.</dd></div>
+<div class="g"><dt>90% Distribution Rule</dt><dd>The requirement to pay out at least 90% of taxable income.</dd></div>
+<div class="g"><dt>Yield</dt><dd>Annual distribution income as a percentage of price.</dd></div>
+<div class="g"><dt>Inflation Consideration</dt><dd>Real estate's potential, partial relationship to inflation.</dd></div>
+<div class="g"><dt>Risk Tolerance</dt><dd>How much volatility and loss an investor can accept.</dd></div>
+<div class="g"><dt>Time Horizon</dt><dd>How long until an investor needs the money.</dd></div>
+<div class="g"><dt>Rebalancing</dt><dd>Periodically restoring a portfolio to its target allocation.</dd></div>
+<div class="g"><dt>Asset Location</dt><dd>Placing assets in the most tax-efficient account type.</dd></div>
+<div class="g"><dt>Risk-Adjusted Return</dt><dd>Return measured relative to the risk taken to earn it.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-1099-div" rel="noopener nofollow" target="_blank">About Form 1099-DIV, Dividends and Distributions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

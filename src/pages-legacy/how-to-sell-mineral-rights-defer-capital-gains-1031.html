@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Sell Mineral Rights and Defer Capital Gains With a 1031 Exchange | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>How to Sell Mineral Rights and Defer Capital Gains With a 1031 Exchange
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">How to Sell Mineral Rights and Defer Capital Gains With a 1031 Exchange</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Mineral & Royalty</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">If you're selling minerals, the order of operations is everything. This step-by-step guide shows how to defer the capital gains and depletion-recapture hit with a 1031 exchange — confirming eligibility, engaging the QI before closing, beating the 45-day clock, avoiding boot — with a worked example of deferring tax on a $1M mineral sale.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Selling mineral rights can be a sound decision — to diversify out of a concentrated, declining asset, to simplify an estate, or to lock in value after a price run-up. But the sale comes with a tax bill that surprises many owners: capital gains, the net investment income tax, state tax, and the recapture of years of depletion deductions, which together can claim roughly a third of the proceeds. A 1031 exchange can defer all of it — but only if you set it up correctly and in the right sequence. The single most common way owners lose the chance is by closing the sale first and asking about a 1031 afterward, by which point the proceeds have been received and the exchange is impossible. This guide walks through the steps in order, so you keep the option alive and use it well.</p>
+<p>For the full deferral playbook behind these steps, see <a href="mineral-rights-1031-guide.html">our complete guide to mineral rights and royalty 1031 exchanges</a>.</p>
+<h2 id="when-triggers">When selling minerals triggers capital gains</h2>
+<p>Selling a mineral or royalty interest is a disposition of a capital asset, so the gain — sale price minus your adjusted basis and selling costs — is generally taxed as a capital gain. If you've held the interest more than a year, that's long-term capital gain, taxed federally at up to 20%. Higher-income owners add the 3.8% <a href="net-investment-income-tax.html">net investment income tax</a>, and most states tax the gain as well, sometimes at meaningful rates. Already, that's three layers.</p>
+<p>The fourth layer is what catches mineral owners off guard: depletion recapture. Throughout your ownership you likely deducted depletion — frequently percentage depletion at 15% of gross royalty income for qualifying owners — which sheltered part of your income but steadily lowered your adjusted basis. A lower basis means a larger gain on sale, and the portion of that gain attributable to the depletion you previously deducted is effectively recaptured. Long-held interests can have a basis near zero, so nearly the entire sale price becomes taxable gain.</p>
+<p>Add the four layers together and <a href="capital-gains-tax-selling-mineral-rights-defer.html">the capital gains tax bill on an appreciated mineral sale</a> routinely approaches or exceeds a third of the proceeds. That's the number a <a href="1031-exchange-guide.html">1031 exchange</a> defers. For an owner who intends to reinvest — whether back into minerals, into real estate, or into a passive DST — deferring that tax keeps a third more capital working in the next asset. The decision to sell and the decision to exchange are separate: you can do both, selling the minerals and rolling the proceeds forward tax-deferred.</p>
+<h2 id="confirm-eligibility">Step 1 — Confirm your interest qualifies</h2>
+<p>Before anything else, confirm that what you're selling is a perpetual interest in real property, because only then can it be exchanged. A fee mineral interest or a perpetual royalty qualifies cleanly. A term interest, a lease-bound overriding royalty, or a production payment may not — production payments are treated as loans under Section 636 and generally can't be exchanged. If you hold a working interest, the real-property component qualifies but the tangible equipment is personal property that no longer qualifies after 2017 and must be carved out.</p>
+<p>This characterization is a job for an oil and gas attorney or a tax adviser familiar with minerals, reading the actual conveyance that created your interest. The document's substance and duration — not its title — determine eligibility, and the determination can't be reversed after you've sold. An owner who skips this step and assumes their 'royalty' qualifies risks completing an exchange the IRS later disallows, turning a deferred sale into a fully taxable one with penalties.</p>
+<p>If part of your interest doesn't qualify — say, the equipment in a working interest, or a non-qualifying term component — you can still exchange the qualifying portion and plan for the taxable remainder deliberately. The point of doing this first is to know exactly what's exchangeable and what isn't, so the rest of the plan is built on solid ground. Eligibility is the foundation; everything else assumes it.</p>
+<h2 id="set-up-before-close">Step 2 — Set up the exchange before you close</h2>
+<p>This is the step that makes or breaks the exchange. You must engage a <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> (QI) before the sale closes, because the QI has to receive the proceeds so that you never take actual or constructive receipt of them. If the buyer's funds reach you, your attorney's trust account, or any account you control — even briefly — the exchange is dead and the full tax is due. There is no after-the-fact fix; the sequence is everything.</p>
+<p>Concretely, before closing you sign an exchange agreement with the QI, the QI is assigned into your purchase and sale agreement, and the closing instructions direct the proceeds to the QI's segregated qualified escrow account. Your sale contract should also include language noting your intent to effect a 1031 exchange and the buyer's cooperation. None of this is burdensome, but all of it must be in place before the closing happens, which is why you set up the exchange while the sale is still pending — not after it funds.</p>
+<p>Mineral sales add one wrinkle worth flagging: trailing production checks. Royalty and production proceeds for periods before closing often arrive weeks later, after the sale has closed. These need to be handled per your QI's and CPA's instructions so they don't inadvertently become receipt of exchange funds. Sorting out the mechanics for trailing income before closing — who receives it, how it's routed — prevents an avoidable problem unique to oil and gas exchanges.</p>
+<div class="pullquote"><p>Engage the qualified intermediary before the sale closes. If the proceeds ever reach you, the exchange is dead — and there's no fix after the fact.</p></div>
+<h2 id="find-replacement">Step 3 — Find replacement property in 45 days</h2>
+<p>From the day your mineral sale closes, you have 45 days to identify replacement property in writing and 180 days to close on it. Both clocks start together and are absolute. Identification is a signed, written notice unambiguously describing each candidate, delivered to the QI — not your agent — by day 45. After that, you can't add or change properties, so the identification you make is the menu you must close from.</p>
+<p>Because the 45 days are short and markets for some assets are thin, the winning move is to start building your replacement shortlist before you sell. Mineral sellers have a broad menu: conventional investment real estate (like-kind to your perpetual interest), DSTs (passive, securitized institutional real estate), and securitized oil and gas royalty programs (staying in minerals but diversified). Lining these up in advance turns the 45 days into a selection window rather than a frantic search.</p>
+<p>Identify more than one option, and include a fast-closing backup. Under the 3-property rule you can name up to three properties of any value; a sensible structure is a primary target plus one or two backups, with at least one being a DST or royalty pool that's certain to close quickly. If your primary deal stalls after day 45, that backup is the difference between completing the exchange and watching it fail. For mineral sellers especially — where valuation and closing can be slower — this insurance is close to essential.</p>
+<h2 id="boot-pitfalls">Step 4 — Avoid the cash ('boot') pitfalls</h2>
+<p>To defer the entire gain, you must reinvest all of your net proceeds and acquire replacement real property of equal or greater value than the net sale price. Any cash you keep, or value you fail to replace, is '<a href="what-is-boot-1031-exchange-how-to-avoid.html">boot</a>' and is taxable up to the amount of your gain. The most common way mineral sellers accidentally create boot is by pulling some proceeds out at closing or by reinvesting into a cheaper replacement than what they sold.</p>
+<p>Debt is usually less of an issue for mineral sellers than for real estate investors, because mineral and royalty interests are often unencumbered — there's no mortgage to replace. That simplifies the math: with no debt to match, full deferral generally just requires reinvesting all the cash proceeds into equal-or-greater-value replacement property. If your interest did carry debt, though, you'd need to replace it (with new financing or added cash) to avoid mortgage boot, exactly as in any exchange.</p>
+<p>If you want some cash out — say, to cover taxes on a non-qualifying portion or for a specific need — you can do a partial exchange deliberately, deferring most of the gain and paying tax only on the boot you choose to take. The key is intentionality: plan the taxable amount with your CPA in advance rather than stumbling into boot by mishandling the proceeds. Done knowingly, a partial exchange is a useful tool; done accidentally, boot is just unnecessary tax.</p>
+<h2 id="worked-example">A worked example — deferring tax on a $1M mineral sale</h2>
+<p>Consider an owner selling a perpetual royalty interest for $1,000,000. Suppose years of depletion have driven the adjusted basis down to roughly $100,000, leaving about $900,000 of gain. Stacking the layers — federal capital gains at up to 20%, the 3.8% net investment income tax, and state income tax (say a combined effective rate in the low-to-mid 30s once depletion recapture is included) — the tax on a straight sale could land in the neighborhood of $270,000 to $300,000. That's the money a 1031 keeps invested.</p>
+<p>Now run the same sale as an exchange. Before closing, the owner engages a QI; at closing, the full $1,000,000 goes to the QI's escrow rather than to the owner. Within 45 days, the owner identifies a primary replacement — say, a diversified DST portfolio of institutional real estate — plus a backup DST, both certain to close quickly. Within 180 days, the owner closes, the QI deploys the full $1,000,000 into the replacement property, and because the entire net proceeds were reinvested into equal-or-greater value with no debt to replace, no boot is created and the entire gain is deferred.</p>
+<p>The result: instead of reinvesting roughly $700,000–$730,000 after tax, the owner has the full $1,000,000 working in diversified, passive real estate, with the deferred tax compounding on their behalf. Held until death, the chain could receive a stepped-up basis, potentially erasing the deferred gain for heirs. The numbers here are illustrative and every situation differs — your CPA should run your actual figures — but the structure shows why mineral owners who intend to reinvest so often choose to exchange rather than simply sell.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>Selling minerals triggers capital gains, NIIT, state tax, and depletion recapture — often ~a third of proceeds.</li>
+<li>Confirm your interest is a perpetual real-property interest before you sell; eligibility can't be fixed later.</li>
+<li>Engage the QI before closing — proceeds touching you ends the exchange — and plan for trailing royalty checks.</li>
+<li>Reinvest all proceeds into equal-or-greater value to avoid boot; identify a fast-closing DST or royalty-pool backup.</li>
+</ul></div>
+<h2 id="assemble-team">Step 5 — Assemble the right team early</h2>
+<p>Every step above is easier with the right people in place before you sell — and easier still with <a href="mineral-royalty-owner-1031-exchange-checklist.html">a mineral and royalty owner's 1031 exchange checklist</a> in hand — because mineral exchanges reward specialized experience more than ordinary real estate exchanges do. The qualified intermediary is required and must be engaged before closing; for minerals, choose one comfortable with oil and gas closings and the trailing-income mechanics, and vet their fund security — segregated escrow, fidelity bonding, and errors-and-omissions coverage — since those funds are irreplaceable if mishandled.</p>
+<p>Your CPA does the heavy analytical lifting: confirming the gain and basis, quantifying depletion recapture, allocating any personal property in a working interest, modeling the four-layer tax, and ultimately reporting the exchange on Form 8824. A CPA who understands mineral taxation will catch issues a generalist might miss — the percentage-depletion history, the recapture math, and the interaction with state tax in both the producing state and your residence state, which is why <a href="1031-mineral-rights-exchanges-by-state.html">how mineral rights 1031 exchanges work state by state</a> matters. Engage them before you sign, not at filing time.</p>
+<p>An oil and gas attorney or experienced advisor rounds out the team. The attorney characterizes the interest from the conveyance documents — the threshold eligibility question — and an advisor sources mineral-appropriate replacement property, builds in a fast-closing backup, and coordinates the deadlines so nothing slips. Because minerals add characterization, valuation, and trailing-income wrinkles on top of the standard 1031 mechanics, a team that has done oil and gas exchanges before is worth seeking out. Assembled early, this team turns a potentially fraught mineral sale into a routine, fully deferred exchange.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you sell minerals and defer the tax</h2>
+<p>Baker 1031 Investments helps mineral and royalty owners run this sequence correctly: confirming the interest qualifies (in coordination with your tax adviser), estimating the four-layer tax including depletion recapture, engaging a qualified intermediary before closing, and sorting out the trailing-income mechanics unique to oil and gas. We then help you identify replacement property that fits your goals — conventional real estate, institutional DSTs, or securitized royalty programs — and build in a fast-closing backup so the 45-day clock never forces a poor choice.</p>
+<p>Securities such as DSTs and royalty programs are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review for your specific situation. The figures in this guide are illustrative; your CPA should model your actual numbers. Our role is to help you sell your minerals on your terms while deferring the tax and reinvesting the full proceeds — ideally starting the conversation before you've signed a purchase agreement, when every option is still open.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>How do I sell mineral rights and defer capital gains?<span class="ic"></span></summary>
+<div class="ans"><p>Use a 1031 exchange: confirm your interest is a perpetual real-property interest, engage a qualified intermediary before the sale closes so you never receive the proceeds, identify like-kind replacement property within 45 days, and close within 180 days, reinvesting all proceeds into equal-or-greater value. Done in that order, the exchange defers the full capital gains and depletion-recapture tax.</p></div>
+</details>
+<details>
+<summary>What tax do I owe when I sell minerals?<span class="ic"></span></summary>
+<div class="ans"><p>A mineral sale typically triggers federal capital gains (up to 20%), the 3.8% net investment income tax, state income tax, and depletion recapture from years of deductions that lowered your basis. Combined, the bill often approaches or exceeds a third of the proceeds, especially on long-held interests with a low basis.</p></div>
+</details>
+<details>
+<summary>What's the one mistake that ends a mineral exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Closing the sale before engaging a qualified intermediary. If the proceeds reach you or an account you control — even briefly — you've taken constructive receipt and the exchange is impossible. The QI must be in place before closing so the funds go to its escrow instead. There's no after-the-fact fix.</p></div>
+</details>
+<details>
+<summary>Do I have to confirm my interest qualifies first?<span class="ic"></span></summary>
+<div class="ans"><p>Yes, before anything else. Only a perpetual real-property interest can be exchanged. Fee minerals and perpetual royalties qualify; production payments (debt under §636) and many term interests don't, and working-interest equipment is taxable personal property. Have a tax adviser characterize the exact interest from the conveyance documents — it can't be fixed after the sale.</p></div>
+</details>
+<details>
+<summary>What are the deadlines?<span class="ic"></span></summary>
+<div class="ans"><p>From the day your sale closes, 45 days to identify replacement property in writing and 180 days to close on it. Both clocks start together and are absolute, falling on weekends and holidays without extension. Because mineral valuations and replacement markets can be slow, identify a fast-closing backup to ensure you can close in time.</p></div>
+</details>
+<details>
+<summary>What is boot, and how do I avoid it?<span class="ic"></span></summary>
+<div class="ans"><p>Boot is cash or value you receive rather than reinvest; it's taxable up to your gain. To avoid it, reinvest all your net proceeds into replacement real property of equal or greater value. Mineral interests are often unencumbered, so with no debt to replace, full deferral usually just means reinvesting all the cash into equal-or-greater value.</p></div>
+</details>
+<details>
+<summary>How are trailing royalty checks handled in an exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Royalty proceeds for pre-closing periods often arrive after the sale closes. These must be routed per your QI's and CPA's instructions so they don't become receipt of exchange funds and jeopardize the exchange. Sort out who receives trailing income, and how, before closing — it's a wrinkle specific to oil and gas exchanges.</p></div>
+</details>
+<details>
+<summary>What can I reinvest the proceeds into?<span class="ic"></span></summary>
+<div class="ans"><p>Any like-kind investment real estate: conventional property you own directly, DSTs (passive, securitized institutional real estate qualifying under Rev. Rul. 2004-86), or securitized oil and gas royalty programs that keep you in minerals but diversified. The choice depends on whether you want to leave the energy space, your need for diversification, and how passive you want to be.</p></div>
+</details>
+<details>
+<summary>Can I take some cash out and still exchange?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — that's a partial exchange. You can reinvest most of the proceeds tax-deferred and intentionally keep some cash as boot, paying tax only on that portion. Plan it deliberately with your CPA so the taxable amount is known in advance — for example, to cover tax on a non-qualifying part of the interest — rather than creating boot by accident.</p></div>
+</details>
+<details>
+<summary>How much tax could I defer on a $1 million sale?<span class="ic"></span></summary>
+<div class="ans"><p>On a $1,000,000 sale of a low-basis royalty (say ~$900,000 gain), the four-layer tax could be roughly $270,000–$300,000 depending on your bracket and state. A full 1031 defers all of it, letting you reinvest the entire $1,000,000 rather than ~$700,000–$730,000 after tax. Figures are illustrative; your CPA should run your actual numbers.</p></div>
+</details>
+<details>
+<summary>Is it worth exchanging if I want to leave the oil and gas business?<span class="ic"></span></summary>
+<div class="ans"><p>Often yes. A 1031 lets you exit minerals entirely by exchanging into real estate or passive DSTs while deferring the tax — converting a depleting, volatile asset into stable, diversified, professionally managed real estate. You don't have to stay in oil and gas to use a 1031; you only need to reinvest into like-kind real property.</p></div>
+</details>
+<details>
+<summary>When should I start the process?<span class="ic"></span></summary>
+<div class="ans"><p>Before you sign a purchase agreement, ideally. Confirming eligibility, engaging the QI before closing, and building a replacement shortlist all need to happen before the sale funds. Starting after you've closed is too late for the exchange. The earlier you involve your tax adviser, QI, and an advisor, the more options stay open.</p></div>
+</details>
+<details>
+<summary>Can I still exchange if a buyer is already pressing me to close?<span class="ic"></span></summary>
+<div class="ans"><p>Possibly, if you act immediately — but you must get a qualified intermediary in place and the exchange documents signed before the closing funds, which can be arranged quickly if everyone moves. What you cannot do is close first and arrange the 1031 afterward. If a buyer is pushing, tell them you're structuring a 1031 and need the QI assigned into the contract before closing.</p></div>
+</details>
+<details>
+<summary>What happens to my depletion deductions after I exchange?<span class="ic"></span></summary>
+<div class="ans"><p>When you exchange into replacement real property, your carried-over basis and the deferred gain move with you, and your future deductions follow the new asset (for example, depreciation on a real estate or DST replacement). You stop generating mineral depletion because you no longer own the minerals, but the tax you deferred — including recaptured depletion — stays deferred in the new property.</p></div>
+</details>
+<details>
+<summary>Does deferring the tax mean I never pay it?<span class="ic"></span></summary>
+<div class="ans"><p>Not exactly — a 1031 defers, it doesn't forgive. The deferred gain carries forward in your basis and would be recognized on a future taxable sale that isn't itself an exchange. However, if you keep exchanging and hold until death, your heirs may receive a stepped-up basis that eliminates the deferred gain entirely. Many owners exchange repeatedly with exactly that outcome in mind.</p></div>
+</details>
+<details>
+<summary>Can I move from minerals into a DST and later into a REIT?<span class="ic"></span></summary>
+<div class="ans"><p>Potentially. Some DSTs are structured so that, at the end of their life cycle, investors can roll into a REIT operating partnership through a 721 exchange (an 'UPREIT'). That can provide further diversification and liquidity, though it's typically a one-way move that ends future 1031 eligibility for that interest. It's an advanced strategy to discuss with your advisor and CPA.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Capital Gain</dt><dd>The excess of sale price over adjusted basis and selling costs; taxed at up to 20% long-term federally.</dd></div>
+<div class="g"><dt>Adjusted Basis</dt><dd>Original cost reduced by depletion and other adjustments; a low basis means a larger taxable gain.</dd></div>
+<div class="g"><dt>Depletion Recapture</dt><dd>Gain on sale attributable to prior depletion deductions that reduced the asset's basis.</dd></div>
+<div class="g"><dt>Net Investment Income Tax (NIIT)</dt><dd>A 3.8% tax on investment income for higher-income taxpayers, applying to mineral-sale gains.</dd></div>
+<div class="g"><dt>Perpetual Interest</dt><dd>An interest continuing for the life of production, treated as real property eligible for 1031.</dd></div>
+<div class="g"><dt>Production Payment</dt><dd>A right to a specified sum or volume of production, treated as a loan under IRC §636 — not exchangeable.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The independent party that must receive the proceeds before closing so the seller never takes receipt.</dd></div>
+<div class="g"><dt>Constructive Receipt</dt><dd>Access to or control over the proceeds, which disqualifies the exchange.</dd></div>
+<div class="g"><dt>45-Day Identification Period</dt><dd>The window after closing to identify replacement property in writing.</dd></div>
+<div class="g"><dt>180-Day Exchange Period</dt><dd>The window after closing to acquire the replacement property.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Cash or non-like-kind value received in an exchange; taxable up to the amount of gain.</dd></div>
+<div class="g"><dt>Partial Exchange</dt><dd>An exchange in which some proceeds are intentionally kept as taxable boot while the rest is deferred.</dd></div>
+<div class="g"><dt>Trailing Income</dt><dd>Royalty or production proceeds for pre-closing periods that arrive after the sale and must be routed carefully.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A securitized fractional interest in institutional real estate qualifying as 1031 replacement property.</dd></div>
+<div class="g"><dt>Royalty Program</dt><dd>A securitized vehicle holding many royalty interests, used as diversified replacement property.</dd></div>
+<div class="g"><dt>Step-Up in Basis</dt><dd>The reset of basis to fair market value at death, which can erase deferred gain for heirs.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-8824" rel="noopener nofollow" target="_blank">Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)</a></li><li>IRS. <a href="https://www.irs.gov/pub/irs-pdf/p5652.pdf" rel="noopener nofollow" target="_blank">Oil and Gas Handbook — Depletion (IRM 4.41.1)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/636" rel="noopener nofollow" target="_blank">26 U.S. Code § 636 — Mineral production payments</a></li><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86 (Delaware Statutory Trusts)</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Mineral &amp; Royalty Interests we currently have available and how they fit a strategy like this one. <a href="mineral-royalty-interests.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Mineral &amp; Royalty Interests →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

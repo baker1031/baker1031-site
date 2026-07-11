@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opportunity Zone Fund Fees Explained | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Opportunity Zone Fund Fees Explained
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Opportunity Zone Fund Fees Explained</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Opportunity Zone Funds</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">Opportunity Zone funds charge several layers of fees that reduce your net returns — and understanding them is essential to comparing funds and judging value. This transparent guide explains the common QOF fee layers, acquisition and management fees, the promote and carried interest, how fees affect your net returns, and how to compare funds on cost.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">Opportunity Zone funds, like other private real estate funds, charge fees — and those fees reduce the returns that reach you. Understanding the fee structure is essential to comparing funds, judging whether you are getting fair value, and setting realistic expectations for your net (after-fee) return. Fees aren't inherently bad; sponsors do real work (sourcing, developing, managing, and exiting projects) and deserve compensation, and a higher-fee fund with a superior sponsor and strategy can still be the better investment. But fees vary, can be opaque, and compound over a long hold, so you should know what you are paying and why. This transparent, educational guide explains the common QOF fee layers, acquisition and management fees, the promote and carried interest, how fees affect your net returns, and how to compare funds on cost. Note that OZ rules are time-sensitive and evolving — verify the current rules with your tax advisor; this is educational information, not investment advice, and real estate carries risk.</p>
+<h2 id="common-fee-layers">Common QOF fee layers</h2>
+<p><a href="opportunity-zones-guide.html">Opportunity Zone</a> funds typically have several fee layers, each compensating the sponsor for a different role. The most common are acquisition fees (charged when the fund acquires or develops properties), asset-management or management fees (ongoing, for managing the fund and its assets over the hold), and a promote or carried interest (a share of the profits above a return hurdle, paid to the sponsor at exit). Some funds also charge financing, disposition, construction-management, or administrative fees.</p>
+<p>These layers stack — a single fund may charge an upfront acquisition fee, annual management fees throughout the hold, and a promote at the end — so the total cost is the combination, not any single fee. Because the structures vary across funds (in which fees apply, at what rates, and on what basis), comparing funds requires looking at the full stack, not just one headline number. Fee disclosures appear in the offering documents (the <a href="how-to-review-a-ppm.html">private placement memorandum</a> and operating agreement).</p>
+<p>So understanding the common QOF fee layers — acquisition, management, and promote, plus possible others — is the starting point for assessing cost. Common QOF fee layers — acquisition fees (on acquiring/developing), asset-management fees (ongoing, over the hold), a promote/carried interest (profit share above a hurdle, at exit), and possibly financing, disposition, or administrative fees — stack to form the fund's total cost. The structures vary across funds. Understanding the layers is the starting point for assessing cost. QOF funds typically charge layered fees — acquisition, ongoing management, and a promote/carried interest, plus possibly others — that stack into the total cost, disclosed in the offering documents and varying across funds.</p>
+<h2 id="acquisition-management">Acquisition &amp; management fees</h2>
+<p>Acquisition fees and management fees are the more fixed, ongoing components of a QOF's cost. An acquisition fee is typically a percentage charged when the fund acquires or develops a property, compensating the sponsor for sourcing and closing the deal. It is usually a one-time, upfront charge per acquisition, and because it is taken off the top, it reduces the capital actually deployed into the project — so its level matters to your invested base.</p>
+<p>An asset-management (or management) fee is an ongoing charge — often an annual percentage of assets, invested capital, or committed capital — that compensates the sponsor for managing the fund and overseeing the assets throughout the hold. Because it recurs every year over a long (10-year) hold, even a modest annual rate compounds into a meaningful cumulative cost. So management fees, though individually small-sounding, add up over time and are a key part of the total cost.</p>
+<p>So acquisition and management fees — the upfront, per-deal acquisition charge and the recurring annual management fee — are the more predictable, fixed components of a QOF's cost. Acquisition and management fees — the upfront acquisition fee (per deal, reducing deployed capital) and the recurring asset-management fee (an annual charge compounding over the long hold) — are the more fixed, ongoing components of a QOF's cost. They aren't performance-based, so they apply regardless of results. Understanding them shows the baseline cost. Acquisition fees (upfront, per deal) and management fees (recurring, annual, compounding over the hold) are the fixed components of a QOF's cost, applying regardless of performance and reducing your net return.</p>
+<div class="pullquote"><p>An annual management fee can sound small, but over a 10-year hold even a modest yearly rate compounds into a meaningful cumulative drag on your return — so weigh recurring fees over the full hold, not just one year.</p></div>
+<h2 id="promote-carried-interest">Promote / carried interest</h2>
+<p>The promote (also called carried interest) is the performance-based component of a QOF's compensation — a share of the profits above a return hurdle, paid to the sponsor. The idea is to reward the sponsor for delivering returns: investors typically receive their capital back plus a preferred return (the hurdle) first, and then the profits above that are split between investors and the sponsor (the sponsor's share being the promote). A common structure might give the sponsor, say, a percentage of profits above the hurdle, often with tiers.</p>
+<p>The promote is where alignment lives — a well-structured promote pays the sponsor mainly when investors do well (above the hurdle), aligning incentives. But the details matter: the hurdle rate (the return investors get first), the promote percentage, whether there is a catch-up, and the tiers all affect how much of the upside the sponsor takes. A high promote with a low (or no) hurdle is less investor-friendly than a moderate promote above a meaningful hurdle. So scrutinize the promote's structure, not just its existence.</p>
+<p>So the promote/carried interest is the performance-based fee that both compensates and aligns the sponsor — and its structure (hurdle, percentage, tiers) determines the balance between sponsor and investor. Promote/carried interest — the sponsor's performance-based share of profits above a return hurdle (investors typically receiving their capital plus a preferred return first), structured via the hurdle rate, promote percentage, catch-up, and tiers — both compensates and aligns the sponsor, with the structure determining the sponsor-investor split. The details matter. Understanding the promote shows the performance-based cost. The promote (carried interest) is the sponsor's performance-based profit share above a hurdle — it aligns incentives, but scrutinize the hurdle, percentage, and tiers, since the structure determines how much upside the sponsor takes.</p>
+<h2 id="fees-net-returns">How fees affect net returns</h2>
+<p>Fees matter because they reduce your net (after-fee) return — the return that actually reaches you. Every fee layer takes a slice: acquisition fees reduce the capital deployed, management fees recur annually over the hold, and the promote takes a share of the profits. The gross return the project generates is therefore higher than the net return you receive, and the gap is the fees. So when evaluating a fund, focus on the expected net return to you, not the gross project return.</p>
+<p>The impact compounds over the long OZ hold — recurring management fees and the eventual promote, applied over 10 years, can meaningfully reduce cumulative results. This is why two funds with similar gross strategies can deliver different net returns depending on their fee loads, and why a transparent fee structure is valuable (you can see what you are paying). It is also why fees should be weighed against value — a higher-fee fund can still be the better net outcome if the sponsor and strategy are superior.</p>
+<p>So fees affect your net returns directly and cumulatively, making the after-fee return the figure that matters. How fees affect net returns — every layer (acquisition reducing deployed capital, management recurring annually, the promote sharing profits) reducing the net return you receive below the gross project return, with the impact compounding over the long hold, so the net (after-fee) return is what matters and fees must be weighed against the value provided — is the practical bottom line. Net return is the figure to focus on. Understanding the impact shows why fees matter. Fees reduce your net return below the gross project return, with the impact compounding over the long hold — so focus on the expected net (after-fee) return and weigh fees against the value the sponsor provides.</p>
+<p>Always ask how a fund presents returns (gross vs. net of fees) so you are comparing the figure that reaches you.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>QOFs charge layered fees — acquisition (upfront), asset-management (recurring), and a promote/carried interest (performance-based) — that stack into the total cost.</li>
+<li>Acquisition and management fees are fixed (applying regardless of results), with management fees compounding over the long hold; the promote is performance-based and aligns the sponsor.</li>
+<li>Fees reduce your net (after-fee) return below the gross project return, with the impact compounding over 10 years — focus on the net return to you.</li>
+<li>Compare funds on total cost and alignment, weighing fees against the sponsor and strategy — a higher-fee fund can still be the better net outcome if it is superior.</li>
+</ul></div>
+<h2 id="comparing-funds-cost">Comparing funds on cost</h2>
+<p>Comparing funds on cost requires looking at the full fee stack and the alignment, not a single headline number. Add up the layers — the acquisition fee, the annual management fee over the hold, and the promote (with its hurdle and tiers) — to understand each fund's total cost, and compare funds on that basis. A fund with a lower headline fee but a high promote (or vice versa) may cost more overall than it first appears, so the combination is what counts.</p>
+<p>Weigh cost against value and alignment. Lower fees are good all else equal, but all else is rarely equal — a higher-fee fund with a superior sponsor, strategy, and track record can deliver a better net outcome than a cheaper but weaker fund. And alignment matters: a structure where the sponsor co-invests and earns a promote only above a meaningful hurdle aligns incentives better than high guaranteed fees with little sponsor skin in the game. So judge cost in context, alongside quality and alignment.</p>
+<p>So comparing funds on cost means evaluating the total fee stack, focusing on the net return, and weighing fees against value and alignment — not just chasing the lowest headline fee. Comparing funds on cost — summing the full fee stack (acquisition, management over the hold, and promote with its hurdle and tiers), focusing on the net return to you, and weighing cost against value and alignment (a superior, well-aligned, higher-fee fund can beat a cheaper but weaker one) — is how to assess QOF fees properly. Context matters. Understanding how to compare shows how to judge value. Compare funds on the total fee stack and net return, weighing cost against the sponsor's quality and alignment — not chasing the lowest headline fee, since a superior, well-aligned fund can deliver a better net outcome.</p>
+<div class="pullquote"><p>Lower fees are good all else equal — but all else is rarely equal. A superior, well-aligned sponsor charging more can deliver a better net outcome than a cheaper but weaker fund.</p></div>
+<h2 id="questions-and-transparency">Fee questions &amp; transparency</h2>
+<p>Transparency around fees is itself a marker of a quality fund, so <a href="opportunity-zone-due-diligence-checklist.html">ask direct questions and judge the answers</a>. Ask for a complete list of all fees (acquisition, management, promote, financing, disposition, administrative, and any others), the rates and the basis each is charged on, when each applies, and how the promote works (the hurdle, percentage, catch-up, and tiers). A sponsor who answers clearly and completely is a good sign; evasiveness or vagueness about fees is a warning.</p>
+<p>Also ask how the fund presents its return projections — whether they are gross or net of fees — so you are comparing the figure that reaches you, and how much capital the sponsor co-invests (alignment). The offering documents (the private placement memorandum and operating agreement) disclose the fees, so read them carefully and have your advisors review them. Clear, complete fee disclosure lets you compare funds accurately and judge value.</p>
+<p>So asking the right fee questions and insisting on transparency lets you compare funds on true cost and spot opacity. Fee questions and transparency — asking for a complete fee list (rates, basis, timing), how the promote works (hurdle, percentage, tiers), whether projections are gross or net, and the sponsor's co-investment, while reading the offering documents and treating opacity as a warning — let you compare funds on true cost. Transparency itself signals quality. Understanding what to ask makes the comparison reliable. Ask for a complete fee list, how the promote works, whether projections are net of fees, and the sponsor's co-investment — insisting on transparency lets you compare true cost, and fee opacity is itself a warning sign.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you understand fees</h2>
+<p>Baker 1031 Investments helps investors understand Opportunity Zone fund fees — the common layers, the acquisition and management fees, the promote and carried interest, how fees affect net returns, and how to compare funds on cost — transparently and educationally, so you can judge value and compare funds on a true-cost basis rather than a headline number.</p>
+<p>QOF interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review (and OZ funds are typically offered to <a href="accredited-investor-requirements.html">accredited investor</a>s). We help you read and interpret the fee disclosures in the offering documents, ask the right fee questions, focus on the net (after-fee) return, and weigh fees against the sponsor's quality and alignment. We coordinate with your CPA and attorney on the technical, time-sensitive rules — Baker 1031 does not provide tax or legal advice, so verify the current rules with your tax advisor. Our role is to help you understand QOF fees clearly and transparently, so you can compare funds on total cost and alignment and judge whether you are getting fair value. Fees reduce net returns and deserve scrutiny, and we help you put cost in context alongside quality and alignment, so you invest with a clear understanding of what you are paying and why.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What fees do Opportunity Zone funds charge?<span class="ic"></span></summary>
+<div class="ans"><p>Opportunity Zone funds typically charge several layers of fees: acquisition fees (charged when the fund acquires or develops properties), asset-management or management fees (ongoing, for managing the fund and its assets over the hold), and a promote or carried interest (a share of the profits above a return hurdle, paid to the sponsor at exit). Some funds also charge financing, disposition, construction-management, or administrative fees. These layers stack — a single fund may charge an upfront acquisition fee, annual management fees throughout the hold, and a promote at the end — so the total cost is the combination, not any single fee. The structures vary across funds (in which fees apply, at what rates, and on what basis), and the fees are disclosed in the offering documents (the private placement memorandum and operating agreement). So OZ funds charge layered fees that stack into the total cost — understand the full stack, not just one headline number, to assess what you are paying.</p></div>
+</details>
+<details>
+<summary>What is an acquisition fee?<span class="ic"></span></summary>
+<div class="ans"><p>An acquisition fee is a charge — typically a percentage — that the fund takes when it acquires or develops a property, compensating the sponsor for sourcing, underwriting, and closing the deal. It is usually a one-time, upfront charge per acquisition. Because it is taken off the top, it reduces the capital actually deployed into the project, so its level matters to your invested base — a higher acquisition fee means less of your capital goes to work in the underlying real estate. Acquisition fees are common in private real estate funds and are not inherently problematic, but their size should be reasonable relative to the work involved and the market norm. So an acquisition fee is an upfront, per-deal charge for sourcing and closing the investment, reducing the deployed capital — one of the fixed (non-performance-based) components of a QOF's cost. Review the acquisition fee in the offering documents and weigh it as part of the total fee stack when comparing funds.</p></div>
+</details>
+<details>
+<summary>What is an asset-management fee?<span class="ic"></span></summary>
+<div class="ans"><p>An asset-management (or management) fee is an ongoing charge — often an annual percentage of assets, invested capital, or committed capital — that compensates the sponsor for managing the fund and overseeing the assets throughout the hold. Unlike the upfront acquisition fee, it recurs every year, so over a long (10-year) OZ hold, even a modest annual rate compounds into a meaningful cumulative cost. This is why management fees, though individually small-sounding, add up substantially over time and are a key part of the total cost. They are also fixed in the sense that they apply regardless of the fund's performance (the sponsor earns them whether or not results are strong). So an asset-management fee is a recurring annual charge for managing the fund over the hold, compounding into a meaningful cumulative cost and applying regardless of results. Weigh it over the full hold (not just one year) when comparing funds, since the cumulative drag is what affects your net return.</p></div>
+</details>
+<details>
+<summary>What is a promote or carried interest?<span class="ic"></span></summary>
+<div class="ans"><p>A promote (also called carried interest) is the performance-based component of a QOF sponsor's compensation — a share of the profits above a return hurdle, paid to the sponsor. The typical structure has investors receive their capital back plus a preferred return (the hurdle) first, and then the profits above that are split between investors and the sponsor, with the sponsor's share being the promote. The idea is to reward the sponsor for delivering returns and to align incentives — a well-structured promote pays the sponsor mainly when investors do well. But the details matter: the hurdle rate, the promote percentage, whether there is a catch-up, and any tiers all affect how much of the upside the sponsor takes. A high promote with a low or no hurdle is less investor-friendly than a moderate promote above a meaningful hurdle. So scrutinize the promote's structure, not just its existence — it determines the sponsor-investor split of the profits.</p></div>
+</details>
+<details>
+<summary>How do fees affect my net return?<span class="ic"></span></summary>
+<div class="ans"><p>Fees reduce your net (after-fee) return — the return that actually reaches you — below the gross return the project generates. Every layer takes a slice: acquisition fees reduce the capital deployed, management fees recur annually over the hold, and the promote takes a share of the profits at exit. The gap between the gross project return and your net return is the fees. The impact compounds over the long OZ hold — recurring management fees and the eventual promote, applied over 10 years, can meaningfully reduce cumulative results. This is why two funds with similar gross strategies can deliver different net returns depending on their fee loads. So when evaluating a fund, focus on the expected net return to you, not the gross project return, and ask whether projections are presented gross or net of fees. Fees should also be weighed against value — a higher-fee fund can still be the better net outcome if the sponsor and strategy are superior. The net return is the figure that matters.</p></div>
+</details>
+<details>
+<summary>Are OZ fund fees higher than other investments?<span class="ic"></span></summary>
+<div class="ans"><p>OZ fund fees are broadly in line with other private real estate funds, which generally charge more than passive, public investments (like index funds) because they involve active sourcing, development, and management work. So compared with a low-cost index fund, an OZ fund's layered fees (acquisition, management, promote) are higher — but that comparison isn't apples-to-apples, since the OZ fund is doing active development work and offering distinct tax benefits. Compared with other private real estate or development funds, OZ fund fees are generally similar in structure, though levels vary. So OZ fund fees are higher than passive public investments but comparable to other active private real estate funds. The relevant question isn't whether the fees are higher than an index fund (they are), but whether they are reasonable for the value and aligned with your interests, and whether the net return justifies them. Compare OZ funds with each other and with the value provided, not with passive investments.</p></div>
+</details>
+<details>
+<summary>Why do fees matter more over a long hold?<span class="ic"></span></summary>
+<div class="ans"><p>Because recurring fees compound over time, and OZ investments have a long (10-year) hold. An annual management fee, applied every year for a decade, accumulates into a much larger cumulative cost than its single-year rate suggests — and that cumulative drag reduces your net return. Similarly, the promote applies to the profits built up over the long hold. So a fee that sounds small annually can have a significant cumulative impact over 10 years. This is why you should weigh recurring fees over the full hold, not just one year, when comparing funds and projecting your net return. A fund with slightly higher annual fees can end up meaningfully more expensive over a decade. So fees matter more over a long hold because the recurring components compound — making the cumulative, multi-year cost (not the single-year rate) the relevant measure. Always consider the total fee burden across the full holding period when assessing an OZ fund's cost and its effect on your net return.</p></div>
+</details>
+<details>
+<summary>How do I compare funds on cost?<span class="ic"></span></summary>
+<div class="ans"><p>Look at the full fee stack and the alignment, not a single headline number. Add up the layers — the acquisition fee, the annual management fee over the hold, and the promote (with its hurdle and tiers) — to understand each fund's total cost, and compare funds on that basis. A fund with a lower headline fee but a high promote (or vice versa) may cost more overall than it first appears, so the combination is what counts. Then weigh cost against value and alignment: a higher-fee fund with a superior sponsor, strategy, and track record can deliver a better net outcome than a cheaper but weaker fund, and a structure where the sponsor co-invests and earns a promote only above a meaningful hurdle aligns incentives better than high guaranteed fees. So compare funds on the total fee stack and the net return, weighing cost against quality and alignment — not just chasing the lowest headline fee. Context matters; the goal is the best net outcome, not the cheapest fund.</p></div>
+</details>
+<details>
+<summary>Should I just pick the lowest-fee fund?<span class="ic"></span></summary>
+<div class="ans"><p>Not necessarily — the lowest-fee fund isn't automatically the best, because fees are only one factor and all else is rarely equal. Lower fees are good when comparing otherwise-identical funds, but a higher-fee fund with a superior sponsor, stronger strategy, better track record, and better alignment can deliver a higher net (after-fee) return than a cheaper but weaker fund. So the goal is the best net outcome for the risk, not the lowest cost. That said, fees do reduce returns and deserve scrutiny — excessive or opaque fees are a real concern, and you shouldn't overpay for mediocre value. So weigh fees in context: consider the total cost, the net return, the sponsor's quality, and the alignment together. Don't ignore fees, but don't fixate on them either. So pick the fund offering the best combination of quality, alignment, and reasonable cost — not simply the lowest fee. A balanced assessment of cost and value serves you better than chasing the cheapest option.</p></div>
+</details>
+<details>
+<summary>What is a hurdle rate?<span class="ic"></span></summary>
+<div class="ans"><p>A hurdle rate (or preferred return) is the return investors receive before the sponsor's promote begins. In a typical structure, investors first get their capital back plus a preferred return (the hurdle) — for example, a stated annual percentage — and only the profits above that threshold are split with the sponsor (the sponsor's share being the promote). The hurdle protects investors by ensuring the sponsor's performance fee kicks in only after investors have received a baseline return, aligning incentives. A higher, meaningful hurdle is more investor-friendly than a low or nonexistent one, because it requires the sponsor to deliver more before sharing in the upside. So when evaluating a promote, examine the hurdle rate — it determines how much return you receive before the sponsor profits. So a hurdle rate is the preferred return investors get first, above which the sponsor's promote applies — a key feature of the promote structure that affects alignment and how the profits are split between you and the sponsor.</p></div>
+</details>
+<details>
+<summary>Are fees disclosed before I invest?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — the fees are disclosed in the fund's offering documents, principally the private placement memorandum (PPM) and the operating agreement, which you receive and can review before investing. These documents lay out the fee structure — the acquisition fee, management fee, promote (with the hurdle and tiers), and any other fees — along with the strategy, risks, and terms. So you should read these disclosures carefully (and have your advisors review them) to understand exactly what you will be paying. If anything is unclear, ask the sponsor for clarification — a transparent sponsor will explain the fees completely. Opacity or evasiveness about fees is a warning sign. So yes, OZ fund fees are disclosed before you invest, in the offering documents, and you should review them thoroughly as part of your due diligence. Don't invest without understanding the full fee structure. Transparency around fees is itself a marker of a quality, investor-respecting fund — insist on it before committing capital.</p></div>
+</details>
+<details>
+<summary>Do fees mean a fund is a bad investment?<span class="ic"></span></summary>
+<div class="ans"><p>No — fees alone don't make a fund a bad investment. Sponsors do real work (sourcing, developing, managing, and exiting projects) and deserve fair compensation, and a fund with reasonable, transparent, well-aligned fees can be an excellent investment. Fees become a problem when they are excessive (out of line with the value and market norms), opaque (hidden or hard to understand), or misaligned (high guaranteed fees with little sponsor skin in the game). So the issue isn't the existence of fees but their level, transparency, and alignment, and whether the net return justifies them. A higher-fee fund with a superior sponsor can deliver a better net outcome than a cheaper, weaker one. So don't reject a fund simply because it charges fees — all OZ funds do. Instead, assess whether the fees are reasonable, transparent, and aligned, and whether the expected net return and the sponsor's quality justify the cost. Fees are a factor to weigh in context, not an automatic disqualifier.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 charge for OZ investments?<span class="ic"></span></summary>
+<div class="ans"><p>Baker 1031 Investments offers QOF interests and related securities through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and the specific compensation arrangements are disclosed as part of the offering and the suitability process. The fees charged by an OZ fund itself (acquisition, management, promote) are set by the fund's sponsor and disclosed in the fund's offering documents (the PPM and operating agreement). We help you understand those fund-level fees transparently so you can compare funds on true cost. Because compensation arrangements vary by offering, you should review the specific disclosures for any investment you consider, and ask us directly about how compensation works for that offering — transparency is part of our approach. We coordinate with your CPA and attorney on the technical rules, and Baker 1031 does not provide tax or legal advice. So review the offering-specific disclosures for the exact fee and compensation details, and ask us any questions — we aim to help you understand the full cost so you can judge value and compare funds clearly.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me understand fees?<span class="ic"></span></summary>
+<div class="ans"><p>We help you understand Opportunity Zone fund fees — the common layers, the acquisition and management fees, the promote and carried interest, how fees affect net returns, and how to compare funds on cost — transparently and educationally, so you can judge value and compare funds on a true-cost basis rather than a headline number. QOF interests are offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review, and OZ funds are typically offered to accredited investors. We help you read and interpret the fee disclosures in the offering documents, ask the right fee questions, focus on the net (after-fee) return, and weigh fees against the sponsor's quality and alignment. We coordinate with your CPA and attorney on the technical, time-sensitive rules — Baker 1031 does not provide tax or legal advice, so verify the current rules with your tax advisor. We help you compare funds on total cost and alignment and judge whether you are getting fair value, so you invest with a clear understanding of what you are paying and why.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Fee Layers</dt><dd>The stacked fees in a QOF (acquisition, management, promote).</dd></div>
+<div class="g"><dt>Acquisition Fee</dt><dd>An upfront, per-deal charge for sourcing and closing.</dd></div>
+<div class="g"><dt>Asset-Management Fee</dt><dd>A recurring annual charge for managing the fund.</dd></div>
+<div class="g"><dt>Promote</dt><dd>The sponsor's performance-based profit share above a hurdle.</dd></div>
+<div class="g"><dt>Carried Interest</dt><dd>Another term for the promote (the sponsor's profit share).</dd></div>
+<div class="g"><dt>Hurdle Rate</dt><dd>The preferred return investors get before the promote.</dd></div>
+<div class="g"><dt>Preferred Return</dt><dd>A baseline return to investors ahead of the sponsor's share.</dd></div>
+<div class="g"><dt>Catch-Up</dt><dd>A promote feature letting the sponsor catch up after the hurdle.</dd></div>
+<div class="g"><dt>Net Return</dt><dd>The after-fee return that actually reaches the investor.</dd></div>
+<div class="g"><dt>Gross Return</dt><dd>The project return before fees are deducted.</dd></div>
+<div class="g"><dt>Disposition Fee</dt><dd>A fee charged when a property is sold.</dd></div>
+<div class="g"><dt>Total Cost</dt><dd>The combined cost of all fee layers over the hold.</dd></div>
+<div class="g"><dt>Alignment</dt><dd>The sponsor's incentives matching investors' interests.</dd></div>
+<div class="g"><dt>Co-Investment</dt><dd>Sponsor capital invested alongside investors (skin in the game).</dd></div>
+<div class="g"><dt>PPM</dt><dd>Private placement memorandum disclosing the fees and terms.</dd></div>
+<div class="g"><dt>Operating Agreement</dt><dd>The fund document setting the fee and economic terms.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments (Investor Information)</a></li><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/opportunity-zones" rel="noopener nofollow" target="_blank">Investor.gov — Opportunity Zones</a></li><li>IRS. <a href="https://www.irs.gov/credits-deductions/businesses/opportunity-zones-frequently-asked-questions" rel="noopener nofollow" target="_blank">Opportunity Zones Frequently Asked Questions</a></li><li>Economic Innovation Group. <a href="https://eig.org/opportunity-zones-2-0-where-things-stand/" rel="noopener nofollow" target="_blank">Opportunity Zones 2.0: Where Things Stand After the One Big Beautiful Bill Act</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Opportunity Zone Funds</a><a href="insights.html">Opportunity Zones</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Opportunity Zone Funds we currently have available and how they fit a strategy like this one. <a href="opportunity-zone-funds.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Opportunity Zone Funds →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

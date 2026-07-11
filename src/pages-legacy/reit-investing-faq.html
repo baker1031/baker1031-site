@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REIT Investing FAQ | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>REIT Investing FAQ
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">REIT Investing FAQ</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">REIT</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">What is a REIT, how do REITs pay investors, and are they a good investment? This plain-language FAQ answers the most common REIT questions — what a REIT is in simple terms, how REITs pay you, whether REITs are a good investment, how REITs compare to DSTs, and how to start investing in REITs.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">If you are new to Real Estate Investment Trusts — REITs — you probably have a short list of practical questions: what exactly is a REIT, how does it pay me, is it actually a good investment, how is it different from a DST, and <a href="reit-investing-for-beginners-how-to-get-started.html">how do I get started</a>? This FAQ answers those questions in plain language. In short, a REIT is a company that owns income-producing real estate and pays most of its income to shareholders as dividends — a bit like a mutual fund for real estate. Because of a rule requiring REITs to distribute at least 90% of their taxable income, REIT yields tend to run higher than the broad stock market. Whether a REIT is a good investment depends on your goals: REITs offer income, diversification, professional management, and liquidity if they trade on an exchange, but they carry market, interest-rate, and (for non-traded REITs) illiquidity risk, and their dividends are taxed mostly as ordinary income. This guide walks through what a REIT is, how REITs pay investors, whether they are a good fit, how they compare to DSTs, and how to start. Note that REIT taxation and suitability rules vary by situation — this is educational information, not investment advice; verify the current rules with your tax advisor.</p>
+<h2 id="what-is-a-reit-simple">What Is a REIT in Simple Terms?</h2>
+<p>In the simplest terms, a REIT is a company that owns income-producing real estate and pays most of that income to its shareholders as dividends. Think of it like a mutual fund, but for real estate: instead of buying, financing, and managing a building yourself, you buy shares in a company that already owns a portfolio of properties — apartments, warehouses, shopping centers, <a href="data-center-reits-explained.html">data centers</a>, medical buildings — and you collect a share of the rent the properties generate. The 'trust' in <a href="reits-guide.html">Real Estate Investment Trust</a> simply reflects the structure; functionally, it is a real estate company built to pass income through to investors.</p>
+<p>What makes a REIT special is its tax treatment. To qualify as a REIT, a company must follow a set of rules — most notably, distributing at least 90% of its taxable income to shareholders each year, holding most of its assets in real estate, and earning most of its income from real estate. In exchange for following these rules, a qualifying REIT pays no corporate income tax; instead, the income is taxed at the shareholder level. That is why REITs distribute so much of what they earn: they are built to pass income through, not to retain it. So a REIT lets ordinary investors own a slice of large, professionally managed real estate portfolios through shares that can be as easy to buy as a stock.</p>
+<p>So in simple terms, a REIT is a company that owns income-producing real estate and pays most of its income to shareholders as dividends — a mutual-fund-like way to own real estate without managing property yourself. A REIT — a Real Estate Investment Trust that owns or finances income-producing real estate, qualifies by following tax rules (chiefly the 90% distribution rule), avoids corporate tax by passing income through, and pays shareholders dividends — gives investors real estate exposure through shares rather than direct ownership. It pools capital and distributes income. Understanding what a REIT is in plain terms frames every other question. A REIT is a company that owns income-producing real estate and pays most of its income to shareholders as dividends, letting you own real estate through shares like a mutual fund for property.</p>
+<h2 id="how-reits-pay-investors">How Do REITs Pay Investors?</h2>
+<p>REITs pay investors primarily through dividends funded by the income their real estate generates. An equity REIT — the most common kind — owns properties and earns rent from its tenants; after paying expenses, it passes most of that rental income through to shareholders as regular dividends, often paid monthly or quarterly. A mortgage REIT instead finances real estate by holding mortgages and mortgage-backed securities, earning interest, and pays dividends from that interest income. Either way, the cash you receive comes from real estate income flowing through to you.</p>
+<p>The reason REIT dividends tend to be generous is the 90% distribution rule: to keep its tax-advantaged status, a REIT must distribute at least 90% of its taxable income to shareholders each year, and most distribute close to 100%. Because the REIT is required to pass most of its earnings through rather than retaining them, REIT yields have historically run higher than the broad stock market. Beyond dividends, equity REIT shares can also appreciate over time if the value of the underlying properties and the REIT's earnings grow — so total return can combine income and some price appreciation. But the income component is the headline: REITs are, first and foremost, an income investment.</p>
+<p>So REITs pay investors mainly through dividends — funded by rents (equity REITs) or mortgage interest (mortgage REITs) and driven by the 90% distribution rule — with some potential share-price appreciation on top. How REITs pay investors — distributing most of their real estate income as regular dividends (rents for equity REITs, interest for mortgage REITs), required by the 90% rule to pay out at least 90% of taxable income, with possible appreciation as a secondary source — explains why REITs are prized for income. Dividends are the core, appreciation a bonus. Understanding how REITs pay you frames whether they fit an income goal. REITs pay investors mostly through dividends funded by rental or mortgage income, driven by the 90% distribution rule, with some potential price appreciation on equity REIT shares as a secondary source of return.</p>
+<div class="pullquote"><p>Because a REIT must distribute at least 90% of its taxable income, most of what the underlying real estate earns flows straight through to you as dividends — which is why REIT yields tend to run higher than the broad stock market.</p></div>
+<h2 id="are-reits-good-investment">Are REITs a Good Investment?</h2>
+<p>Whether REITs are a good investment depends on your goals, and an honest answer weighs both sides. On the positive side, REITs offer several real benefits: income (often higher yields than the broad market, thanks to the 90% rule), diversification (one REIT owns many properties, and real estate has historically behaved somewhat differently from stocks and bonds), professional management (you don't deal with tenants, repairs, or financing), and liquidity if the REIT is publicly traded (you can buy or sell shares on an exchange like a stock). For an investor who wants real estate exposure and income without the work of direct ownership, REITs can be an attractive building block.</p>
+<p>On the other side, REITs carry genuine risks. They are sensitive to interest rates — rising rates can pressure REIT share prices and, for mortgage REITs, the spread they earn. Publicly traded REITs are subject to stock-market volatility and can fall even when the underlying properties are stable. Non-traded REITs are illiquid, with capped and suspendable redemptions, and have historically carried higher fees. And REIT dividends are taxed mostly as ordinary income (with a partial deduction), which can be less favorable than qualified-dividend or capital-gains treatment. Distributions are not guaranteed and can be cut. So REITs are not a risk-free, bond-like income source — they are real investments that can lose value.</p>
+<p>So are REITs a good investment? It depends — they offer income, diversification, professional management, and (if traded) liquidity, balanced against rate-sensitivity, market or illiquidity risk, and mostly-ordinary-income taxation. Whether REITs are a good investment — weighing real benefits (income from the 90% rule, diversification across many properties and asset classes, professional management, liquidity if traded) against real risks (interest-rate sensitivity, market volatility, non-traded illiquidity and higher fees, ordinary-income taxation, and the chance of distribution cuts) — depends on your goals, time horizon, and risk tolerance. There is no universal yes or no. Understanding the balance helps you decide. REITs can be a good investment for income and diversification if you accept their rate-sensitivity, market or illiquidity risk, and mostly-ordinary-income taxation — but whether they fit depends on your goals and risk tolerance.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>A REIT is a company that owns income-producing real estate and pays most of its income to shareholders as dividends — like a mutual fund for real estate.</li>
+<li>REITs pay investors mainly through dividends, driven by the 90% distribution rule, with some potential appreciation on equity REIT shares.</li>
+<li>Whether REITs are a good investment depends on your goals: income, diversification, and liquidity versus rate-sensitivity, market or illiquidity risk, and ordinary-income taxation.</li>
+<li>REIT shares are securities, not like-kind real property, so they are not 1031-eligible — a DST is the 1031-eligible passive real estate alternative.</li>
+</ul></div>
+<h2 id="reit-vs-dst-difference">REIT vs. DST: What's the Difference?</h2>
+<p>REITs and <a href="dst-guide.html">Delaware Statutory Trust</a>s (DSTs) are often mentioned together because both let you own real estate passively, but they differ in a way that matters enormously for tax planning. The key distinction is 1031 eligibility. A DST is fractional, passive real estate that qualifies as like-kind property for a <a href="1031-exchange-guide.html">1031 exchange</a> — so an investor selling appreciated real estate can exchange into a DST and defer capital-gains tax. A REIT share, by contrast, is a security, not real property, so it is <a href="reits-and-1031-exchanges-why-reit-shares-dont-qualify.html">not eligible for a 1031 exchange</a>; you cannot sell investment property and 1031 directly into REIT shares to defer your gain.</p>
+<p>Beyond 1031 eligibility, the two differ in liquidity and structure. Publicly traded REITs are liquid — you can buy and sell shares on an exchange — while a DST is an illiquid, held-to-term investment (typically several years until the sponsor sells the property). REITs typically own large, diversified portfolios across many properties and sectors; a DST usually holds one property or a small group of properties. There is a bridge between the two: a DST's property can later be acquired by a REIT through a 721 (<a href="721-exchange-guide.html">UPREIT</a>) exchange, converting the DST interest into operating-partnership units (and eventually REIT shares) while maintaining tax deferral. So the structures can connect, but they start from different places.</p>
+<p>So the core REIT-vs-DST difference is that a DST is 1031-eligible passive real estate (good for deferring gain on a property sale), while a REIT share is a liquid security that is not 1031-eligible. REIT vs. DST — a DST being fractional, passive, like-kind real estate that qualifies for a 1031 exchange (deferring capital-gains tax) but is illiquid and usually concentrated, versus a REIT share being a liquid (if traded), diversified security that is not 1031-eligible — turns chiefly on tax treatment in an exchange. A 721 path can later bridge a DST into a REIT. Understanding the difference clarifies which fits your situation. The main REIT-vs-DST difference is 1031 eligibility: a DST is 1031-eligible passive real estate good for deferring gain, while a REIT share is a liquid security that is not 1031-eligible.</p>
+<div class="pullquote"><p>If you are selling appreciated property and want to defer capital-gains tax, a DST is 1031-eligible and a REIT share is not — that single difference often decides which one belongs in your plan.</p></div>
+<h2 id="how-to-start-investing-reits">How Do I Start Investing in REITs?</h2>
+<p>How you start investing in REITs depends on the type of REIT. The simplest route is a publicly traded REIT: these are listed on stock exchanges, so you can buy shares through an ordinary brokerage account, just like buying a stock. You can purchase shares of an individual REIT, or — for instant diversification across many REITs and sectors — buy a REIT mutual fund or ETF that holds a basket of REITs. This route has low minimums, daily liquidity, and transparent pricing, and it is available to virtually any investor without special qualification.</p>
+<p>Non-traded and private REITs work differently. They are not bought on an exchange; instead, they are offered through a broker-dealer, often have investment minimums, and typically require accredited or otherwise suitable investors. Before you invest, a suitability review considers your financial situation, goals, liquidity needs, and risk tolerance to confirm that an illiquid, longer-term non-traded REIT is appropriate. Whichever route you take, it is worth understanding a few things before committing: the REIT's type (equity, mortgage, or hybrid) and sector, its fee structure, its liquidity terms, and how its dividends will be taxed. Starting small, diversifying, and sizing the allocation to fit your overall plan are sensible first steps.</p>
+<p>So you start investing in REITs either by buying publicly traded REITs or REIT funds through a brokerage account, or by accessing non-traded REITs through a broker-dealer after a suitability review. How to start investing in REITs — buying publicly traded REITs, mutual funds, or ETFs through an ordinary brokerage account (liquid, low-minimum, broadly available), or accessing non-traded and private REITs through a broker-dealer with a suitability review (for accredited or otherwise suitable investors) — depends on the type of REIT and your goals. Understand the type, sector, fees, liquidity, and taxation first. Knowing how to start turns interest into action. You start investing in REITs by buying traded REITs or REIT funds through a brokerage account, or accessing non-traded REITs through a broker-dealer after a suitability review — understanding type, sector, fees, and taxation first.</p>
+<h2 id="reit-fees-and-taxes">REIT Fees and Taxes to Understand First</h2>
+<p>Two practical factors deserve attention before you invest in any REIT: fees and taxes. On fees, publicly traded REITs are generally low-cost — you pay ordinary brokerage trading costs (often zero commission), and a REIT fund or ETF charges only a modest expense ratio. Non-traded REITs have historically carried higher upfront costs — selling commissions, dealer-manager fees, and offering expenses — that can reduce the portion of your investment initially deployed into real estate, plus ongoing fees. Because fees reduce your net return, understanding a REIT's full cost structure is an important first step, especially for non-traded offerings.</p>
+<p>On taxes, most REIT ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT paid no corporate tax. The offset is a 20% deduction under Section 199A on qualified REIT dividends, which lowers the effective top federal rate on those dividends and was made permanent by the 2025 OBBBA legislation. Some REIT distributions are classified as return of capital (which reduces your cost basis rather than being taxed currently) or as capital-gain distributions. The REIT reports the breakdown on Form 1099-DIV. Because of the ordinary-income character, many investors hold REITs in tax-advantaged accounts (like IRAs) where it can be more efficient — though your situation governs. Baker 1031 does not provide tax advice; confirm the details with your tax advisor.</p>
+<p>So before investing, understand a REIT's fees (low for traded, historically higher for non-traded) and taxes (mostly ordinary income with a 20% deduction, plus possible return of capital), because both affect your net result. REIT fees and taxes — traded REITs being low-cost while non-traded REITs have historically carried higher upfront and ongoing fees, and REIT dividends being taxed mostly as ordinary income with a 20% Section 199A deduction (plus return-of-capital and capital-gain components reported on Form 1099-DIV) — are practical factors to understand before you invest. They shape your net return. Understanding fees and taxes rounds out the basics. Understand REIT fees (low for traded, higher for non-traded) and taxes (mostly ordinary income with a 20% deduction, plus possible return of capital) before investing, since both affect your net return; confirm specifics with your tax advisor.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Get Started With REITs</h2>
+<p>Baker 1031 Investments helps investors answer the practical REIT questions — what a REIT is, how REITs pay you, whether REITs fit your goals, how REITs compare to DSTs, how to start investing, and what fees and taxes to understand first — so you can decide whether REITs belong in your plan and, if so, access suitable offerings.</p>
+<p>REIT and non-traded-REIT interests and related securities are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review — non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage accounts. Baker 1031 does not provide tax or legal advice; your CPA and attorney handle your specific tax situation, including how REIT dividends are taxed and how REITs interact with 1031 and 721 strategies, which can be technical. We help you understand the REIT structure, weigh REITs against alternatives like DSTs, and access suitable offerings when appropriate, coordinating with your tax professionals. Yields and returns are never promised — past performance does not guarantee future results, and REIT share prices and distributions can fluctuate. Our role is to answer your REIT questions clearly and help you invest only when suitable for your goals and risk tolerance.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a REIT in simple terms?<span class="ic"></span></summary>
+<div class="ans"><p>In simple terms, a REIT is a company that owns income-producing real estate and pays most of that income to shareholders as dividends. Think of it like a mutual fund for real estate: instead of buying, financing, and managing a property yourself, you buy shares in a company that already owns a portfolio of buildings — apartments, warehouses, shopping centers, data centers, medical offices — and you collect a share of the rent they generate. To qualify as a REIT, a company must follow tax rules, most notably distributing at least 90% of its taxable income to shareholders each year, holding most of its assets in real estate, and earning most of its income from real estate. In exchange, a qualifying REIT pays no corporate income tax — the income is taxed at the shareholder level. So a REIT is a tax-advantaged real estate company built to pass income through, letting ordinary investors own a slice of large, professionally managed real estate portfolios through shares.</p></div>
+</details>
+<details>
+<summary>How do REITs pay investors?<span class="ic"></span></summary>
+<div class="ans"><p>REITs pay investors mainly through dividends funded by the income their real estate generates. An equity REIT owns properties and earns rent from tenants; after expenses, it passes most of that rental income through to shareholders as regular dividends, often monthly or quarterly. A mortgage REIT finances real estate by holding mortgages and mortgage-backed securities, earning interest, and pays dividends from that interest income. The 90% distribution rule — requiring a REIT to pay out at least 90% of its taxable income each year — is why REIT yields tend to run higher than the broad stock market. Beyond dividends, equity REIT shares can also appreciate over time if the underlying property values and earnings grow, so total return can combine income and some price appreciation. So REITs pay you mostly through dividends, with some potential share-price appreciation as a secondary source — the income component being the headline, since REITs are first and foremost an income investment.</p></div>
+</details>
+<details>
+<summary>Are REITs a good investment?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on your goals — and an honest answer weighs both sides. On the positive side, REITs offer income (often higher yields than the broad market, thanks to the 90% rule), diversification (one REIT owns many properties, and real estate behaves somewhat differently from stocks and bonds), professional management (no tenants or repairs to handle), and liquidity if the REIT is publicly traded. On the other side, REITs are sensitive to interest rates, publicly traded REITs carry stock-market volatility, non-traded REITs are illiquid and have historically carried higher fees, and REIT dividends are taxed mostly as ordinary income. Distributions are not guaranteed and can be cut. So REITs are not a risk-free, bond-like income source — they are real investments that can lose value. Whether they are a good investment for you depends on your goals, time horizon, and risk tolerance, so size and diversify any REIT allocation appropriately.</p></div>
+</details>
+<details>
+<summary>What is the difference between a REIT and a DST?<span class="ic"></span></summary>
+<div class="ans"><p>The key difference is 1031 eligibility. A DST (Delaware Statutory Trust) is fractional, passive real estate that qualifies as like-kind property for a 1031 exchange, so an investor selling appreciated real estate can exchange into a DST and defer capital-gains tax. A REIT share, by contrast, is a security, not real property, so it is not eligible for a 1031 exchange — you cannot sell investment property and 1031 directly into REIT shares to defer your gain. Beyond that, publicly traded REITs are liquid and usually own large, diversified portfolios, while a DST is illiquid, held to term, and usually concentrated in one property or a few. There is a bridge: a DST's property can later be acquired by a REIT through a 721 (UPREIT) exchange, preserving deferral. So a DST is 1031-eligible passive real estate good for deferring gain, while a REIT share is a liquid security that is not 1031-eligible — that single difference often decides which fits your plan.</p></div>
+</details>
+<details>
+<summary>How do I start investing in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the type of REIT. The simplest route is a publicly traded REIT — listed on a stock exchange, so you can buy shares through an ordinary brokerage account just like a stock. You can buy an individual REIT, or a REIT mutual fund or ETF for instant diversification across many REITs. This route has low minimums, daily liquidity, and transparent pricing, and is available to virtually any investor. Non-traded and private REITs are different: they are offered through a broker-dealer, often have minimums, and typically require accredited or otherwise suitable investors, with a suitability review first. Whichever route you take, understand the REIT's type (equity, mortgage, or hybrid), sector, fees, liquidity terms, and how its dividends are taxed before committing. Starting small, diversifying, and sizing the allocation to fit your overall plan are sensible first steps. So begin with traded REITs or funds through a brokerage, or non-traded REITs through a broker-dealer after a suitability review.</p></div>
+</details>
+<details>
+<summary>Why are REIT yields higher than stock yields?<span class="ic"></span></summary>
+<div class="ans"><p>REIT yields tend to run higher than the broad stock market because of the 90% distribution rule. To keep its tax-advantaged status and avoid corporate income tax, a REIT must distribute at least 90% of its taxable income to shareholders each year — and most distribute close to 100%. By contrast, ordinary companies often retain a large share of their earnings to reinvest internally, paying out only a fraction as dividends. Because a REIT is structurally required to pass most of its earnings through rather than retaining them, the dividend yield on REIT shares is typically higher. The trade-off is that REITs can't easily fund growth from retained earnings, so they often raise new capital by issuing shares or debt. So REIT yields are higher mainly because the structure forces most income out to shareholders — though a high yield is never guaranteed, and distributions can be cut if property income declines, so don't treat a stated yield as a promise.</p></div>
+</details>
+<details>
+<summary>Are REIT dividends taxed?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — REIT dividends are generally taxable, and most of a REIT's ordinary dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, because the REIT itself paid no corporate tax. The offset is a 20% deduction under Section 199A on qualified REIT dividends, which lowers the effective top federal rate on those dividends and was made permanent by the 2025 OBBBA legislation. Some REIT distributions are also classified as return of capital (which reduces your cost basis rather than being taxed currently) or as capital-gain distributions (taxed at capital-gains rates). The REIT reports the breakdown on Form 1099-DIV. Because of the ordinary-income character, many investors hold REITs in tax-advantaged accounts like IRAs, where it can be more efficient — though your situation governs. So REIT dividends are mostly ordinary income with a 20% deduction, plus possible return-of-capital and capital-gain components. Baker 1031 doesn't provide tax advice; verify the current rules with your tax advisor.</p></div>
+</details>
+<details>
+<summary>Are REITs liquid?<span class="ic"></span></summary>
+<div class="ans"><p>It depends on the type. Publicly traded REITs are listed on stock exchanges, so their shares trade throughout the day at market prices — they're highly liquid, much like stocks, and you can generally buy or sell quickly through a brokerage account. Non-traded REITs are a different story: they're registered with the SEC but not listed on an exchange, so their shares don't trade daily. Liquidity in a non-traded REIT typically comes only through a periodic redemption program, which is often capped (commonly around 5% per year) and can be suspended at the REIT's discretion, especially during stress. So non-traded REITs are illiquid and intended for longer-term investors who don't need ready access to their capital. So if liquidity matters to you, a publicly traded REIT offers it; a non-traded REIT does not. Match the structure to your liquidity needs, and don't commit capital to a non-traded REIT that you might need in the near or medium term.</p></div>
+</details>
+<details>
+<summary>Can I invest in REITs with a small amount of money?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — one of the appeals of REITs is their low barrier to entry. With a publicly traded REIT, you can buy a single share through a brokerage account, often for a relatively small dollar amount, and many brokerages now allow fractional shares, so you can start with even less. A REIT mutual fund or ETF lets you spread a modest amount across many REITs and sectors at once, giving you diversification without needing a large sum. This contrasts sharply with direct real estate ownership, which typically requires a substantial down payment, financing, and ongoing capital. Non-traded REITs, by contrast, usually have higher investment minimums and are offered through a broker-dealer to suitable investors, so they're less accessible for small amounts. So for small-dollar investing, publicly traded REITs and REIT funds are the most accessible route. As always, size any REIT allocation to fit your overall plan and diversify rather than concentrating in a single holding.</p></div>
+</details>
+<details>
+<summary>What are the main risks of investing in REITs?<span class="ic"></span></summary>
+<div class="ans"><p>REITs carry several risks. Interest-rate risk: REITs (especially mortgage REITs) are sensitive to rising rates, which can pressure share prices and the spread mortgage REITs earn. Market risk: publicly traded REIT prices fluctuate with the broader market and can fall even when the underlying properties are stable. Property and sector risk: rents, occupancy, and property values can decline, and individual sectors can underperform. Distribution risk: dividends aren't guaranteed and can be cut if income falls. Liquidity risk: non-traded REITs are illiquid, with capped, suspendable redemptions. Leverage risk: many REITs use debt, which amplifies both returns and losses. And tax character: REIT dividends are taxed mostly as ordinary income. So while REITs offer income and diversification, they are real investments that can lose value. Diversifying across REIT types and sectors, understanding the structure, and sizing the allocation appropriately help manage these risks — but don't eliminate them. Past performance doesn't guarantee future results.</p></div>
+</details>
+<details>
+<summary>What's the difference between equity, mortgage, and hybrid REITs?<span class="ic"></span></summary>
+<div class="ans"><p>The three types differ by how they participate in real estate. Equity REITs — the most common — own and operate income-producing properties (apartments, warehouses, offices, retail, healthcare, data centers) and earn income mainly from rents, plus property appreciation over time. Mortgage REITs (mREITs) don't own property; they finance real estate by holding mortgages and mortgage-backed securities, earning the interest-rate spread between what those assets pay and their borrowing cost — which makes them highly interest-rate-sensitive, often higher-yielding but higher-risk. Hybrid REITs combine both approaches, owning some property and holding some mortgage debt. So when you invest in an equity REIT you're effectively a landlord (through shares); in a mortgage REIT you're effectively a lender. Each carries a different risk-and-return profile, and the type shapes how the REIT will behave as interest rates and property markets move. So knowing whether a REIT is equity, mortgage, or hybrid is a basic first step in understanding what you're actually buying.</p></div>
+</details>
+<details>
+<summary>Can I use a REIT in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>No — REIT shares are not eligible for a 1031 exchange. A 1031 exchange requires the exchange of like-kind real property held for investment or business use, and REIT shares are securities, not real property, so they don't qualify. This means you can't sell investment real estate and 1031 directly into REIT shares to defer your capital-gains tax. There is, however, an indirect path involving REITs: you can 1031 into a Delaware Statutory Trust (DST), which is 1031-eligible like-kind real property, and the DST's property may later be acquired by a REIT through a 721 (UPREIT) exchange. That converts your interest into operating-partnership units (which can eventually convert to REIT shares) while maintaining your tax deferral. So a direct 1031 into a REIT isn't possible, but a 1031-into-DST-then-721-into-REIT structure can ultimately give you REIT exposure with deferral preserved. This is technical, so confirm the specifics with your tax advisor before relying on any of it.</p></div>
+</details>
+<details>
+<summary>Should I hold REITs in a retirement account?<span class="ic"></span></summary>
+<div class="ans"><p>Many investors choose to hold REITs in a tax-advantaged retirement account like an IRA, and there's a tax logic to it. Because most REIT dividends are taxed as ordinary income rather than at the lower qualified-dividend rates, holding REITs in a taxable account can mean a relatively high tax bill on the income. In a tax-deferred account like a traditional IRA, that ordinary-income dividend isn't taxed currently, and in a Roth IRA, qualified withdrawals can be tax-free — so the ordinary-income character of REIT dividends is sheltered. That said, the 20% Section 199A deduction on qualified REIT dividends only applies in taxable accounts, so the analysis isn't one-sided, and your overall situation (account space, other holdings, goals) matters. So holding REITs in a retirement account is a common and often tax-efficient choice, but it's not automatic for everyone. Baker 1031 doesn't provide tax advice — discuss the right account location for REITs with your tax advisor.</p></div>
+</details>
+<details>
+<summary>How are REITs different from REIT mutual funds or ETFs?<span class="ic"></span></summary>
+<div class="ans"><p>An individual REIT is a single company that owns a portfolio of properties, so when you buy its shares you're investing in that one REIT's strategy, sector, and management. A REIT mutual fund or ETF, by contrast, holds shares of many different REITs in a single fund, so one purchase gives you diversified exposure across multiple REITs, sectors, and management teams. The fund approach reduces the risk that any single REIT's problems hurt you disproportionately, and it's an easy way to gain broad real estate exposure with a modest investment — at the cost of a small annual expense ratio. Buying individual REITs gives you more control to target specific sectors or companies, but concentrates your risk. So if you want simple, diversified real estate exposure, a REIT fund or ETF is often the easiest route; if you want to target particular sectors or REITs, individual REIT shares give you that control. Many investors use a mix, and either can fit a diversified plan.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me get started with REITs?<span class="ic"></span></summary>
+<div class="ans"><p>We help investors answer the practical REIT questions — what a REIT is, how REITs pay you, whether REITs fit your goals, how REITs compare to DSTs, how to start investing, and what fees and taxes to understand first — so you can decide whether REITs belong in your plan and, if so, access suitable offerings. REIT and non-traded-REIT interests are offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review; non-traded and private REITs typically require accredited or otherwise suitable investors, while publicly traded REITs trade through ordinary brokerage. Baker 1031 does not provide tax or legal advice — your CPA and attorney handle your specific situation, including REIT dividend taxation and how REITs interact with 1031 and 721 strategies. We help you understand the structure, weigh REITs against alternatives like DSTs, and access suitable offerings when appropriate. Yields and returns are never promised; past performance doesn't guarantee future results, and REIT share prices and distributions can fluctuate.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>REIT</dt><dd>A company that owns, operates, or finances income-producing real estate.</dd></div>
+<div class="g"><dt>Equity REIT</dt><dd>A REIT that owns property and earns income from rents.</dd></div>
+<div class="g"><dt>Mortgage REIT (mREIT)</dt><dd>A REIT that finances real estate and earns mortgage interest.</dd></div>
+<div class="g"><dt>Hybrid REIT</dt><dd>A REIT that both owns property and holds mortgage debt.</dd></div>
+<div class="g"><dt>Dividend</dt><dd>The distribution a REIT pays shareholders from its income.</dd></div>
+<div class="g"><dt>90% Distribution Rule</dt><dd>The requirement to pay out at least 90% of taxable income.</dd></div>
+<div class="g"><dt>Yield</dt><dd>Annual dividend income expressed as a percentage of share price.</dd></div>
+<div class="g"><dt>Publicly Traded REIT</dt><dd>An exchange-listed, liquid, market-priced REIT.</dd></div>
+<div class="g"><dt>Non-Traded REIT</dt><dd>An SEC-registered but unlisted, illiquid REIT.</dd></div>
+<div class="g"><dt>REIT ETF / Fund</dt><dd>A fund holding many REITs for diversified exposure.</dd></div>
+<div class="g"><dt>Section 199A Deduction</dt><dd>The 20% deduction on qualified REIT dividends.</dd></div>
+<div class="g"><dt>Form 1099-DIV</dt><dd>The form reporting REIT dividends and their tax character.</dd></div>
+<div class="g"><dt>Return of Capital</dt><dd>A distribution that reduces basis rather than being taxed currently.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>1031-eligible fractional real estate (unlike a REIT share).</dd></div>
+<div class="g"><dt>721 / UPREIT Exchange</dt><dd>Contributing property to a REIT for OP units, preserving deferral.</dd></div>
+<div class="g"><dt>Suitability Review</dt><dd>Assessing whether a REIT offering fits the investor.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>U.S. Securities and Exchange Commission. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Investor.gov — Real Estate Investment Trusts (REITs)</a></li><li>Nareit. <a href="https://www.reit.com/what-reit" rel="noopener nofollow" target="_blank">What's a REIT (Real Estate Investment Trust)?</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li><li>IRS. <a href="https://www.irs.gov/forms-pubs/about-form-1099-div" rel="noopener nofollow" target="_blank">About Form 1099-DIV, Dividends and Distributions</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">REIT</a><a href="insights.html">REITs</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the REITs we currently have available and how they fit a strategy like this one. <a href="reits.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View REITs →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>

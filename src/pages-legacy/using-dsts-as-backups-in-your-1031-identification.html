@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using DSTs as Backups in Your 1031 Identification | Baker 1031 Investments</title>
+<style>
+  @font-face {
+    font-family: "Optima";
+    font-weight: 700;
+    font-style: normal;
+    src: url(assets/optima-bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Roboto Condensed";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(assets/roboto-condensed.woff2) format("woff2");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff url(assets/bg-stripes.gif) repeat;
+    padding: 20px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+  }
+
+  .optima {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- Top links ---------- */
+  .top-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 12px 0 5px;
+  }
+  .top-links a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-links a:hover { text-decoration: underline; }
+  .top-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Header / logo ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 5px 0 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .main-nav a {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    text-decoration: none;
+  }
+  .main-nav a:hover { color: #0099ff; }
+  .main-nav a::after {
+    content: "\276F";  /* heavy caret, rotated to point down */
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    vertical-align: 1px;
+  }
+
+  .logo { height: 45px; width: auto; display: block; }
+
+  /* ---------- Hero video ---------- */
+  .hero-video {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 45%, #16233a 100%);
+    overflow: hidden;
+  }
+  .hero-video .play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: 50%;
+  }
+  .hero-video .play-hint::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 13px 0 13px 22px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.65);
+  }
+  .hero-video h1 {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* ---------- TOC banner ---------- */
+  html { scroll-behavior: smooth; }
+  .toc-banner {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  .toc-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #243856;
+    cursor: pointer;
+  }
+  .toc-toggle::after {
+    content: "\276F";
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+    transition: transform 0.2s ease;
+  }
+  .toc-banner.collapsed .toc-links { display: none; }
+  .toc-banner.collapsed .toc-toggle { display: block; }
+  .toc-banner.collapsed.open .toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+  .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
+  .toc-banner a {
+    color: #243856;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
+  .toc-banner a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- Content ---------- */
+  main { padding: 36px 0; }
+
+  h1 {
+    font-size: 26px;
+    color: #243856;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #243856;
+    margin: 0 0 12px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  .main-cols {
+    display: flex;
+    gap: 28px;
+  }
+  .main-cols .copy { flex: 1; }
+
+  .quick-links {
+    width: 280px;
+    flex: none;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .quick-links a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .quick-links a:hover { text-decoration: underline; }
+  .quick-links a::before {
+    content: "\276F";  /* heavy right caret */
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-access {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-access::after {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 7px;
+  }
+  .btn-access:hover {
+    box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18);
+    transform: translateY(1px);
+  }
+
+  .strategy {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 140px;
+  }
+  .strategy img, .strategy .thumb {
+    width: 140px;
+    height: auto;
+    align-self: stretch;
+    flex: none;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .strategy h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 6px;
+  }
+  .strategy p { margin-bottom: 10px; }
+  .strategy .btn-access { margin-top: 0; }
+
+  .carousel {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel .card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .section-head h2 { margin: 0; }
+  .carousel-nav { display: flex; gap: 8px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .carousel-btn:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .card {
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  .card .photo {
+    height: 130px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border-bottom: 1px solid #ccc;
+  }
+  .card .card-body { padding: 12px 14px 14px; }
+  .card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 2px;
+  }
+  .card .location {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .card .attrs { border-top: 1px solid #eee; }
+  .card .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .card .attr .label { color: #777; }
+  .card .attr .value { font-weight: 700; color: #243856; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .why-card.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .why-card.featured h3 { font-size: 16px; }
+  .why-card.featured .chart { flex: 1; margin-top: 12px; min-height: 180px; }
+  .why-card.featured .chart svg { width: 100%; height: 100%; display: block; }
+  .why-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 18px;
+  }
+  .why-card h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin-bottom: 8px;
+  }
+  .why-card p { margin: 0; }
+
+  .faq-section {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .faq-media {
+    width: 360px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .faq-image {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  .faq-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+  }
+  .faq-body {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 28px;
+  }
+  .faq-body > p { margin-bottom: 14px; }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 0;
+    font-weight: 700;
+    color: #243856;
+    font-size: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .answer { padding: 0 0 12px 22px; color: #555; }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 28px 0 0;
+  }
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #243856;
+  }
+  .hamburger:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+
+  .mobile-menu {
+    display: none;
+    background: #243856;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .mobile-menu a:hover { color: #0099ff; }
+  .mobile-menu .menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+  .mobile-menu a.secondary {
+    font-family: "Roboto Condensed", "Roboto Narrow", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding: 7px 0;
+  }
+  .mobile-menu a.secondary::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 24px;
+    margin-top: 16px;
+  }
+  .explore-grid a {
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+  }
+  .explore-grid a:hover { text-decoration: underline; }
+  .explore-grid a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .disclosures {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 16px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .disclosures p { margin-bottom: 8px; }
+  .disclosures p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 3px solid #ff9900;
+    margin: 28px 0 0;
+    padding-top: 4px;
+  }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #243856;
+    color: #fff;
+    padding: 18px 24px;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+  .footer-bar .optima { font-size: 14px; letter-spacing: 0.14em; }
+  .footer-bar .contact { text-align: right; }
+  .footer-bar a { color: #fff; text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .carousel .card { flex: 0 0 calc((100% - 20px) / 2); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .why-card.featured { grid-column: 1 / 3; grid-row: auto; }
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .main-cols { flex-direction: column; }
+    .quick-links {
+      width: 100%;
+      border-left: 0;
+      border-top: 1px solid #ccc;
+      padding-left: 0;
+      padding-top: 16px;
+    }
+    .faq-section { flex-direction: column; }
+    .faq-media { width: 100%; }
+    .faq-image { min-height: 180px; }
+    .faq-body { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .main-nav { display: none; }
+    .top-links { display: none; }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .faq-media { display: none; }
+    .hero-video { aspect-ratio: 16 / 9; }
+    .hero-video h1 { font-size: 18px; left: 16px; bottom: 14px; }
+    .carousel .card { flex: 0 0 100%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card.featured { grid-column: auto; }
+    .strategy { flex-direction: column; }
+    .strategy img, .strategy .thumb { width: 100%; height: 160px; align-self: auto; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .logo-text-wrap, .top-links { gap: 12px; }
+  }
+  /* ---------- Offering page hero ---------- */
+  .breadcrumbs {
+    font-size: 12px;
+    color: #777;
+    margin-top: 14px;
+  }
+  .breadcrumbs a { color: #0099ff; text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs .sep {
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 10px;
+    margin: 0 6px;
+    display: inline-block;
+  }
+  .offering-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #2e4568 0%, #243856 55%, #16233a 100%);
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+  .offering-hero h1 {
+    color: #fff;
+    font-size: 26px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .offering-hero { padding: 14px 18px; }
+    .offering-hero h1 { font-size: 19px; }
+  }
+  .offering-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .sidebar {
+    width: 280px;
+    flex: none;
+    border-right: 1px solid #ccc;
+    padding-right: 28px;
+  }
+  .sidebar a {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar a:hover { color: #0099ff; }
+  .sidebar a::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .offering-image {
+    flex: 1;
+    min-height: 380px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+  }
+  @media (max-width: 820px) {
+    .offering-layout { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      border-right: 0;
+      padding-right: 0;
+    }
+    .offering-image { min-height: 220px; }
+  }
+  .offering-main { flex: 1; min-width: 0; }
+  .offering-main .offering-image { min-height: 380px; }
+  .offering-main h2 { margin-top: 40px; }
+  .offering-main ul {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .offering-main li { margin-bottom: 6px; padding-left: 20px; position: relative; }
+  .offering-main li::before {
+    content: "\276F";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .sidebar h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .sidebar .facts { margin-top: 40px; }
+  .sidebar .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .sidebar .fact .label { color: #777; }
+  .sidebar .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  /* ---- data-driven offering extras ---- */
+  .yield-scroll { overflow-x: auto; }
+  .yield-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .yield-table th, .yield-table td {
+    border: 1px solid #eee;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .yield-table th { background: #f5f5f5; color: #243856; font-weight: 700; }
+  .yield-summary { margin-top: 10px; font-size: 13px; color: #555; }
+  .yield-summary strong { color: #243856; }
+
+  .bm-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .bm-table th, .bm-table td { border: 1px solid #eee; padding: 6px 10px; text-align: left; }
+  .bm-table th { background: #f5f5f5; color: #243856; }
+  .bm-good { color: #1a7f37; font-weight: 700; }
+  .bm-bad { color: #b35900; font-weight: 700; }
+
+  .sponsor-panel { display: flex; gap: 20px; align-items: flex-start; margin-top: 8px; }
+  .sponsor-logo { width: 100px; height: 100px; flex: none; border: 1px solid #eee; object-fit: contain; background: #fff; }
+  .sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 18px;
+    margin: 12px 0;
+  }
+  .sponsor-stat .num { font-weight: 700; color: #243856; font-size: 16px; }
+  .sponsor-stat .lbl { font-size: 12px; color: #777; }
+  @media (max-width: 640px) {
+    .sponsor-panel { flex-direction: column; }
+    .sponsor-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .subhead {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: #243856;
+    margin: 18px 0 6px;
+  }
+  .doc-note { font-size: 13px; font-style: italic; color: #777; margin: 4px 0 8px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .status-line { font-size: 13px; color: #777; margin-top: 8px; }
+  .status-line .avail { color: #1a7f37; font-weight: 700; }
+  .footnotes {
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+  }
+  .footnotes p { margin-bottom: 6px; }
+  .footnotes p:last-child { margin-bottom: 0; }
+  .footnotes sup { color: #243856; font-weight: 700; }
+  .bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .bookmark-btn .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .bookmark-btn:hover { background: rgba(255,255,255,0.08); }
+  .bookmark-btn.saved { border-color: #ff9900; }
+  /* ---------- Directory table ---------- */
+  .dir-table-wrap { overflow-x: auto; margin-top: 20px; }
+  .dir-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .dir-table th, .dir-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dir-table th {
+    background: #f5f5f5;
+    color: #243856;
+    font-weight: 700;
+  }
+  .dir-table th.sortable { cursor: pointer; user-select: none; }
+  .dir-table th.sortable:hover { background: #ededed; }
+  .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
+  .dir-table tr:nth-child(even) td { background: #fafafa; }
+  .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
+  .dir-table a.inv-name:hover { text-decoration: underline; }
+  .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
+  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
+  .status-available { color: #1a7f37; font-weight: 700; }
+
+  .mobile-sort { display: none; margin-top: 16px; }
+  .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
+  .mobile-sort select {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #243856;
+  }
+
+  @media (max-width: 768px) {
+    .dir-table-wrap { overflow-x: visible; }
+    .mobile-sort { display: block; }
+    .dir-table { border: 0; }
+    .dir-table thead { display: none; }
+    .dir-table, .dir-table tbody, .dir-table tr, .dir-table td { display: block; width: 100%; }
+    .dir-table tr {
+      border: 1px solid #ccc;
+      margin-top: 14px;
+      background: #fff;
+    }
+    .dir-table tr:nth-child(even) td { background: #fff; }
+    .dir-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 8px 12px;
+      text-align: right;
+      white-space: normal;
+    }
+    .dir-table td::before {
+      content: attr(data-label);
+      color: #777;
+      font-size: 12px;
+      text-align: left;
+      flex: none;
+    }
+    .dir-table td:first-child {
+      display: block;
+      text-align: left;
+      background: #f5f5f5 !important;
+      padding: 10px 12px;
+    }
+    .dir-table td:first-child::before { content: none; }
+    .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
+    .dir-table td:last-child::before { content: none; }
+    .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+  }
+
+  /* ---------- Preview drawer ---------- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 40;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0,0,0,0.25);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-photo {
+    height: 200px;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
+  }
+  .drawer-body { padding: 18px 20px 24px; }
+  .drawer h3 {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .drawer .sponsor-line { color: #777; font-size: 13px; margin-bottom: 12px; }
+  .drawer .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .drawer .fact .label { color: #777; }
+  .drawer .fact .value { font-weight: 700; color: #243856; text-align: right; }
+  .drawer .desc { margin-top: 12px; font-size: 13px; color: #555; }
+  .drawer .btn-access { margin-top: 14px; }
+  .drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+  }
+  .drawer-close:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  /* ---------- Article template ---------- */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #777;
+    margin-top: 16px;
+  }
+  .article-meta .cat {
+    background: #243856;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .article-meta .dot { color: #ccc; }
+  .article-body h2 { margin-top: 36px; }
+  .article-body p { margin-bottom: 14px; }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .meta-row .article-meta { margin-top: 0; }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 12px;
+    margin-left: auto;
+  }
+  .article-intro {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 14px 18px;
+    margin: 16px 0 4px;
+  }
+  .article-intro p:last-child { margin-bottom: 0; }
+  .audio-player .ap-label { font-size: 13px; color: #555; }
+  .audio-player button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #243856;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .audio-player button:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); }
+  .audio-player .ap-status { font-size: 12px; color: #777; font-style: italic; }
+
+  .faq-glossary {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .fg-col { flex: 1; min-width: 0; }
+  .fg-col + .fg-col { border-left: 1px solid #ccc; padding-left: 28px; }
+  @media (max-width: 820px) {
+    .faq-glossary { flex-direction: column; }
+    .fg-col + .fg-col { border-left: 0; padding-left: 0; }
+  }
+
+  .glossary-list { margin: 0; }
+  .glossary-term {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .glossary-term dt {
+    font-weight: 700;
+    color: #243856;
+    margin-bottom: 4px;
+  }
+  .glossary-term dt::before {
+    content: "\276F";
+    display: inline-block;
+    color: #ff9900;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .glossary-term dd { margin: 0; color: #555; }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .author-photo {
+    width: 88px;
+    height: 88px;
+    flex: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e4568, #16233a);
+    border: 1px solid #ccc;
+    object-fit: cover;
+  }
+  .author-box .a-name {
+    font-family: "Optima", Candara, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: #243856;
+  }
+  .author-box .a-title { font-size: 13px; color: #777; margin: 2px 0 8px; }
+  .author-box p { margin-bottom: 8px; }
+  .author-box a { color: #0099ff; text-decoration: none; }
+  .author-box a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .author-box { flex-direction: column; }
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .back-link::before {
+    content: "\276E";
+    display: inline-block;
+    color: #999;
+    font-weight: 900;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  /* ---------- legacy content restyle (old-site classes -> new design) ---------- */
+  .legacy { font-size: 14px; }
+  .legacy .wrap { max-width: none; margin: 0; padding: 0; }
+  .legacy h2 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 20px; color: #243856; margin: 36px 0 12px; }
+  .legacy h3 { font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 14px; color: #243856; margin: 20px 0 8px; }
+  .legacy p { margin-bottom: 12px; }
+  .legacy .lead { font-size: 16px; color: #555; }
+  .legacy a { color: #0099ff; text-decoration: none; }
+  .legacy a:hover { text-decoration: underline; }
+  .legacy ul, .legacy ol { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .legacy ol { counter-reset: li; }
+  .legacy li { padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .legacy ul > li::before { content: "\276F"; position: absolute; left: 0; top: 1px;
+    color: #ff9900; font-weight: 900; font-size: 12px; }
+  .legacy ol > li { counter-increment: li; }
+  .legacy ol > li::before { content: counter(li) "."; position: absolute; left: 0;
+    color: #243856; font-weight: 700; }
+  .legacy img { display: none; }
+  .legacy .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #999; margin-bottom: 4px; display: block; }
+  .legacy .no, .legacy .n { color: #243856; font-weight: 700; margin-right: 6px; }
+  .legacy .takeaways { background: #f5f5f5; border: 1px solid #eee; padding: 14px 18px; margin: 16px 0; }
+  .legacy .takeaways .tk-h { font-weight: 700; color: #243856; margin-bottom: 8px;
+    font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .legacy .pullquote { border-left: 3px solid #ff9900; padding: 6px 0 6px 16px; margin: 16px 0;
+    font-size: 16px; color: #243856; font-weight: 700; }
+  .legacy table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 12px 0; }
+  .legacy th, .legacy td { border: 1px solid #eee; padding: 7px 10px; text-align: left; }
+  .legacy th { background: #f5f5f5; color: #243856; }
+  .legacy .tcap { font-size: 12px; color: #777; font-style: italic; }
+  .legacy .tnum { font-variant-numeric: tabular-nums; }
+  .legacy details { border-bottom: 1px solid #eee; }
+  .legacy summary { list-style: none; cursor: pointer; padding: 9px 0; font-weight: 700; color: #243856; font-size: 14px; }
+  .legacy summary::-webkit-details-marker { display: none; }
+  .legacy summary::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; transition: transform 0.2s ease; }
+  .legacy details[open] summary::before { transform: rotate(90deg); }
+  .legacy .ans, .legacy dd { padding: 0 0 12px 22px; color: #555; margin: 0; }
+  .legacy dl { margin: 0; }
+  .legacy dt { font-weight: 700; color: #243856; padding-top: 10px; }
+  .legacy dt::before { content: "\276F"; display: inline-block; color: #ff9900;
+    font-weight: 900; font-size: 12px; margin-right: 8px; }
+  .legacy .refs { font-size: 12px; color: #777; }
+  .legacy .refs a { color: #777; }
+  .legacy .disclosures, .legacy .fineprint { background: #f5f5f5; border: 1px solid #eee;
+    padding: 14px 16px; margin-top: 24px; font-size: 12px; line-height: 1.55; color: #777; }
+  .legacy .btn, .legacy .toolcta { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: #fff; border: 1px solid #ccc; color: #333; font-size: 14px; text-decoration: none; cursor: pointer; }
+  .legacy .btn:hover, .legacy .toolcta:hover { box-shadow: inset 1px 2px 4px rgba(0,0,0,0.18); text-decoration: none; }
+  .legacy .acard, .legacy .authorbio { display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid #ccc; background: #f5f5f5; padding: 16px 18px; margin-top: 24px; }
+  .legacy .acard .cbody p, .legacy .authorbio p { margin-bottom: 6px; }
+  .legacy .acard .h, .legacy .nm { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; }
+  .legacy .sub, .legacy .ti { font-size: 12px; color: #777; }
+  /* calculators */
+  .legacy .calc-shell { display: flex; gap: 28px; align-items: flex-start; margin: 20px 0; }
+  .legacy .calc-shell .card { flex: 1; border: 1px solid #ccc; background: #fff; }
+  .legacy .card-h { display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+    border-bottom: 1px solid #eee; }
+  .legacy .card-h h2 { margin: 0; font-size: 14px; }
+  .legacy .card-h .n { color: #ff9900; font-family: "Optima", Candara, sans-serif; font-size: 16px; }
+  .legacy .pad { padding: 14px 18px 18px; }
+  .legacy .subh { font-weight: 700; color: #243856; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 6px 0 10px; }
+  .legacy .subh.two { margin-top: 18px; }
+  .legacy .field { margin-bottom: 12px; }
+  .legacy .field label { display: block; font-size: 13px; font-weight: 700; color: #243856; margin-bottom: 4px; }
+  .legacy .field input, .legacy .field select { width: 100%; font: inherit; font-size: 14px;
+    padding: 8px 10px; border: 1px solid #ccc; background: #fff; color: #333; box-sizing: border-box; }
+  .legacy .money { position: relative; }
+  .legacy .money input { padding-left: 22px; }
+  .legacy .money::before { content: "$"; position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%); color: #777; font-size: 13px; }
+  .legacy .pct input { padding-right: 26px; }
+  .legacy .hint, .legacy .note { font-size: 12px; color: #999; margin-top: 4px; }
+  .legacy .brk .row { display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .legacy .brk .row span { color: #777; }
+  .legacy .brk .row b { color: #243856; }
+  .legacy .total { background: #f5f5f5; border: 1px solid #eee; padding: 12px 16px;
+    margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .legacy .total .tk { font-size: 13px; color: #777; }
+  .legacy .total .tv { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    font-size: 22px; color: #243856; }
+  .legacy .explain .grid { display: block; }
+  .legacy .panel { border: 1px solid #ccc; background: #fff; padding: 16px 18px; margin-top: 14px; }
+  .legacy .panel .h { font-family: "Optima", Candara, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #243856; margin-bottom: 8px; }
+  .legacy .g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; }
+  .legacy .g > * { min-width: 0; }
+  .legacy .ic { display: none; }
+  .legacy .dtable2 { overflow-x: auto; }
+  @media (max-width: 820px) {
+    .legacy .calc-shell { flex-direction: column; }
+    .legacy .g { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- @@NAV@@ -->
+
+  <nav class="breadcrumbs">
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Insights<span class="sep">❯</span>Using DSTs as Backups in Your 1031 Identification
+  </nav>
+
+  <section class="offering-hero">
+    <h1 class="optima">Using DSTs as Backups in Your 1031 Identification</h1>
+  </section>
+
+  <main>
+    <a class="back-link" href="insights.html">Back to All Insights</a>
+
+    <div class="meta-row" style="margin-top:16px;">
+      <div class="article-meta"><span class="cat">Delaware Statutory Trusts</span> Baker 1031 Research &nbsp;&middot;&nbsp; Updated June 2026 &nbsp;&middot;&nbsp; 16 min read</div>
+    </div>
+    <div class="article-intro"><p style="margin:0;">A backup identification protects your 1031 exchange if the primary deal collapses — and a DST is one of the most reliable backups available. This guide explains why you need a backup, how DSTs serve as dependable backups, the identification rules and limits, how to activate a DST backup if a deal fails, and how to coordinate with your qualified intermediary.</p></div>
+
+    <div class="legacy">
+
+<!-- ===== TWO-COLUMN BODY ===== -->
+<div class="wrap abody">
+<article class="article">
+<p class="lead">A 1031 exchange runs on a tight, unforgiving clock: from the day you sell your relinquished property, you have just 45 days to identify your replacement property in writing and 180 days to close. The catch is that you can't add new identifications after the 45-day deadline — so if you identify a single property and that deal falls apart on day 90, you may have no eligible replacement left, which can blow up the entire exchange and trigger the capital-gains tax you were trying to defer. That's why experienced exchangers identify backups, and why Delaware Statutory Trusts (DSTs) have become a favored backup choice: they're pre-packaged, generally available, and close quickly, so if your primary deal fails you can still complete the exchange on time. This guide explains why you need a backup identification, how DSTs serve as reliable backups, the identification rules and limits, how to activate a DST backup if a deal fails, and how to coordinate with your qualified intermediary. Note that DST interests are securities offered through a broker-dealer to accredited investors after a suitability review, and Baker 1031 does not provide tax or legal advice — verify the current rules with your advisors.</p>
+<p>Using DSTs as backups is a tactic grounded in the fundamentals from <a href="dst-guide.html">our definitive DST guide</a>.</p>
+<h2 id="why-you-need-a-backup">Why You Need a Backup Identification</h2>
+<p>A 1031 exchange is a race against two deadlines, and the first one is the dangerous one. Within 45 days of selling your relinquished property, you must identify your replacement property in writing and deliver that identification to your <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> (QI). After day 45, the list is locked — you cannot add a property you didn't name, no matter what happens to the deals you did identify. That rigidity is what makes a backup identification so important.</p>
+<p>Consider what happens without a backup. You identify one replacement property, the seller backs out (or the inspection turns up a problem, or financing falls through, or the deal simply slips past day 180), and you have no other eligible property to acquire. The exchange fails, the proceeds are released to you, and the capital-gains tax — plus <a href="depreciation-recapture-real-estate.html">depreciation recapture</a> and any state tax — comes due. A single point of failure on a transaction you don't fully control is a serious risk, and identifying a backup is the standard way to manage it.</p>
+<p>So a backup identification is insurance against the one thing you can't fix after day 45: a primary deal that collapses with no fallback. So building a backup into your identification is prudent planning, not pessimism. Why you need a backup identification — because the 45-day deadline locks your list, leaving you with no eligible replacement if your sole identified property fails before the 180-day close, which would cause the exchange to fail and trigger the deferred capital-gains tax, recapture, and state tax — is fundamental to protecting an exchange. A backup is insurance against a single point of failure. Understanding this frames why DSTs are valued as backups. You need a backup because you can't add identifications after day 45, so a single failed deal with no fallback can collapse the exchange and trigger the tax you meant to defer.</p>
+<div class="pullquote"><p>After day 45 your identification list is frozen — so if your only named property falls through on day 90, you may have nothing eligible left to buy, and the exchange fails along with the tax deferral.</p></div>
+<h2 id="how-dsts-serve-as-backups">How DSTs Serve as Reliable Backups</h2>
+<p>DSTs make exceptionally reliable backups because of three structural features. First, they're pre-packaged: a DST is already assembled, with the property acquired, the financing in place, and the offering documents completed, so you're not negotiating a purchase from scratch. Second, they're generally available: at any given time there's typically a menu of DST offerings across asset classes, so you can usually find one that fits your equity and debt needs. Third, they close quickly — often within a few days — because there's no traditional purchase negotiation to complete.</p>
+<p>Those features map perfectly onto the problem a backup needs to solve. If your primary replacement deal fails late in the exchange — say on day 120 — you may not have time to find, negotiate, and close a conventional replacement property before day 180. A DST, by contrast, can typically be funded in days, so it can rescue an exchange on short notice. This speed and availability are precisely why advisors so often pair a direct-purchase primary identification with one or more DST backups: the DST is the dependable parachute that ensures the exchange can still close on time.</p>
+<p>So DSTs serve as reliable backups because they're pre-packaged, generally available, and fast to close — exactly the qualities you need when a primary deal collapses against a hard deadline. So a DST backup turns a fragile exchange into a resilient one. How DSTs serve as reliable backups — being pre-packaged (already assembled with property, financing, and documents ready), generally available across asset classes, and fast to close (often within days, with no purchase negotiation) — makes them ideal fallbacks when a primary replacement deal fails late in the 45-to-180-day window. Their speed and availability rescue exchanges on short notice. Understanding this shows why advisors pair direct purchases with DST backups. DSTs are reliable backups because they're pre-packaged, available, and close in days, so they can rescue an exchange when a primary deal fails near the deadline.</p>
+<h2 id="identification-rules-and-limits">Identification Rules and Limits</h2>
+<p>The IRS identification rules govern how many properties you can name as replacements, and understanding them is essential to building backups correctly. The three-property rule is the most common: you can identify up to three replacement properties regardless of their total value, and you can ultimately acquire any or all of them. For an exchanger using a single primary and one or two DST backups, the three-property rule usually fits cleanly — your primary plus one or two DSTs.</p>
+<p>If you want to identify more than three properties, the 200% rule applies: you can identify any number of replacement properties as long as their combined fair market value doesn't exceed 200% of the value of the property you sold. This is useful if you want several DST backups or want to diversify across multiple offerings. There's also a less-used 95% rule — if you identify properties exceeding both limits, you must actually acquire at least 95% of the total value identified. All identifications must be unambiguous and in writing, delivered to your QI by day 45.</p>
+<p>So the identification rules — three-property, 200%, and the rarely-used 95% — set the framework within which you can name a primary plus DST backups. So knowing which rule you're using shapes how many backups you can carry. Identification rules and limits — the three-property rule (up to three replacements regardless of value, fitting a primary plus one or two DST backups), the 200% rule (any number of properties whose combined value is at most 200% of the relinquished property, useful for several DST backups), and the seldom-used 95% rule (acquire 95% of identified value if you exceed both limits) — govern how many backups you can identify, all in writing to your QI by day 45. These rules frame your backup strategy. Understanding them lets you structure identifications correctly. The three-property rule lets you name up to three replacements (a primary plus DST backups), the 200% rule allows more if their value stays under 200% of what you sold, and all IDs must be written and delivered to your QI by day 45.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div>
+<ul>
+<li>You can't add identifications after day 45, so a backup is the only protection if your primary replacement deal fails before day 180.</li>
+<li>DSTs make reliable backups because they're pre-packaged, generally available, and can close in days — ideal when time is short.</li>
+<li>The three-property rule lets you name a primary plus one or two DST backups; the 200% rule allows more if combined value stays within limits.</li>
+<li>Activating a backup means notifying your QI and funding the DST before day 180 — coordinate early, because DST interests are suitability-reviewed securities.</li>
+</ul></div>
+<h2 id="activating-the-backup">Activating the Backup if a Deal Fails</h2>
+<p>If your primary replacement deal falls through, activating a DST backup is straightforward — but it has to happen within the remaining time. The moment it becomes clear the primary won't close, you notify your qualified intermediary that you intend to acquire one of your identified DST backups instead. Because the DST was already named on your day-45 identification, it's a valid replacement; you're not adding a new property, just acquiring one you already identified.</p>
+<p>From there, you complete the DST subscription — confirming your accreditation, signing the offering and subscription documents, and directing your QI to wire the exchange proceeds to fund your purchase of the DST beneficial interest. Because DSTs close quickly, this can often be done in a matter of days, well within the time a failed primary deal typically leaves. The key is to act promptly and to ensure the funding is complete before day 180, the hard deadline to acquire your replacement property and finish the exchange.</p>
+<p>So activating a DST backup means notifying your QI, completing the subscription, and funding the DST from exchange proceeds before day 180 — a process the DST's speed makes feasible even late in the window. So a well-chosen DST backup can be activated quickly when you need it. Activating the backup if a deal fails — notifying your QI that you'll acquire an identified DST instead of the failed primary, completing the DST subscription (accreditation confirmation, signing documents), and directing your QI to wire exchange proceeds to fund the purchase before the 180-day deadline — is the process for rescuing an exchange, made feasible by the DST's fast close. Act promptly and fund before day 180. Understanding the steps lets you execute under pressure. To activate a DST backup, notify your QI, complete the subscription, and have the QI fund the DST from exchange proceeds before day 180 — the DST's speed makes this achievable even late in the exchange.</p>
+<div class="pullquote"><p>Because the DST was already on your day-45 list, activating it isn't adding a property — it's simply funding one you already identified, which the DST's fast close makes possible in days.</p></div>
+<h2 id="coordinating-with-your-qi">Coordinating With Your QI</h2>
+<p>Your qualified intermediary is central to the entire backup strategy, because the QI holds your exchange proceeds and receives your identifications. The first coordination point is the identification itself: your written identification of the primary property and the DST backups must be delivered to your QI by day 45, in an unambiguous form (the DST is typically identified by its legal name and the specific property or offering). Getting this document right and on time is non-negotiable — a defective or late identification can invalidate a replacement.</p>
+<p>Throughout the exchange, you and your advisor should keep the QI informed of the status of the primary deal so that if it shows signs of failing, the pivot to a DST backup is already understood and ready. When you activate the backup, the QI must wire the exchange funds directly to fund the DST purchase — the proceeds can't pass through your hands without breaking the exchange. Coordinating the wire timing, the subscription paperwork, and the day-180 deadline among you, your QI, your DST sponsor or broker-dealer, and your CPA is what makes the activation smooth.</p>
+<p>So coordinating with your QI — getting the day-45 written identification right, keeping the QI updated on the primary deal, and orchestrating the direct funding wire before day 180 — is what turns a DST backup from a name on a list into a completed exchange. So the QI is your essential partner in the backup strategy. Coordinating with your QI — delivering an unambiguous written identification of the primary and DST backups by day 45, keeping the QI informed of the primary deal's status, and orchestrating the direct funding wire (proceeds must never touch your hands) before day 180 among you, the QI, the DST broker-dealer, and your CPA — is what executes a backup cleanly. The QI holds the funds and receives the IDs. Understanding this coordination makes activation smooth. Coordinate with your QI to get the day-45 identification right, keep the QI updated, and orchestrate the direct funding wire before day 180 — the QI must fund the DST directly to preserve the exchange.</p>
+<h2 id="structuring-a-backup-plan">Structuring a Smart Backup Plan</h2>
+<p>Beyond simply naming a backup, there's an art to structuring one well. The most common approach is to identify your primary direct-purchase property plus one or two DST backups under the three-property rule, choosing DSTs whose equity and debt requirements match your exchange. Because a successful 1031 generally requires reinvesting equal or greater equity and replacing the debt you paid off, your backup DST should be sized so that funding it would still satisfy those requirements — a DST with non-recourse debt can supply the debt replacement you need without a personal loan.</p>
+<p>Sizing matters in another way too: you may not need to fund the entire backup. If your primary deal closes but leaves a small amount of unused exchange proceeds (<a href="what-is-boot-1031-exchange-how-to-avoid.html">boot</a>), a DST backup can absorb that remainder, letting you defer tax on the full amount rather than paying tax on the leftover cash. So a DST backup can serve two roles — full rescue if the primary fails, or partial 'sweep' of residual proceeds if the primary closes short. Matching the backup's structure to these scenarios is what makes the plan genuinely useful.</p>
+<p>So a smart backup plan pairs a primary with appropriately sized DST backups that satisfy your equity and debt replacement needs and can either rescue or top off the exchange. So thoughtful structuring multiplies the value of a backup. Structuring a smart backup plan — identifying a primary plus one or two DST backups under the three-property rule, sizing them to satisfy the equal-or-greater equity and debt-replacement requirements (using non-recourse DST debt), and using a DST backup either as a full rescue if the primary fails or as a partial sweep of leftover proceeds to avoid taxable boot — turns a backup from a formality into a flexible tool. Match the structure to the scenarios. Understanding this maximizes a backup's value. A smart backup plan sizes DST backups to meet your equity and debt needs, so they can either fully rescue a failed exchange or absorb leftover proceeds to avoid taxable boot.</p>
+<h2 id="how-baker-helps">How Baker 1031 Helps You Build DST Backups</h2>
+<p>Baker 1031 Investments helps 1031 exchangers build resilient identifications — understanding why you need a backup, how DSTs serve as reliable backups, the identification rules and limits, how to activate a backup if a deal fails, and how to coordinate with your qualified intermediary — so a single failed deal doesn't cost you your tax deferral.</p>
+<p>DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to <a href="accredited-investor-requirements.html">accredited investor</a>s after a suitability review, and any recommendation follows that review. We help you identify suitable DST backups sized to your equity and debt-replacement needs, prepare for fast activation if your primary deal falters, and coordinate the timing among you, your QI, and your CPA so funding completes before day 180. Baker 1031 does not provide tax or legal advice; your CPA and attorney confirm your 1031 eligibility, the identification mechanics, and the deadlines, which are strict and time-sensitive — and you should verify the current rules. Distributions and returns on any DST are projections, not promises; they are never guaranteed, and past performance does not guarantee future results. Our role is to help you understand DST backups clearly, build a backup into your identification when suitable, and complete your exchange on time when a primary deal fails.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details open="">
+<summary>What is a backup identification in a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>A backup identification is a replacement property you name in your 1031 identification specifically as a fallback in case your primary replacement deal fails. In a 1031 exchange, you must identify your replacement property in writing within 45 days of selling your relinquished property, and you cannot add new identifications after that deadline. So if you identify only one property and that deal collapses before the 180-day closing deadline, you have no eligible replacement left and the exchange fails. A backup identification solves this by naming one or more additional properties at the outset, so that if the primary falls through, you can pivot to an already-identified alternative and still complete the exchange on time. DSTs are popular backups because they're pre-packaged and close quickly. So a backup identification is insurance against the single biggest avoidable risk in an exchange — a primary deal failing with nothing to replace it.</p></div>
+</details>
+<details>
+<summary>Why are DSTs good backup properties for a 1031 exchange?<span class="ic"></span></summary>
+<div class="ans"><p>DSTs make excellent backups because of three structural features that match exactly what a backup needs to do. First, they're pre-packaged — the property is already acquired, the financing is already in place, and the offering documents are complete, so there's no purchase to negotiate from scratch. Second, they're generally available — at any given time there's typically a menu of DST offerings across asset classes, so you can usually find one that fits your equity and debt needs. Third, they close quickly, often within a few days, because there's no traditional negotiation to finish. Together, these mean that if your primary deal fails late in the exchange — when there isn't time to find and close a conventional property — a DST can still rescue the exchange before day 180. So DSTs are reliable backups precisely because they're fast, available, and ready to go, which is why advisors so often pair a direct-purchase primary with one or more DST backups.</p></div>
+</details>
+<details>
+<summary>What is the three-property rule?<span class="ic"></span></summary>
+<div class="ans"><p>The three-property rule is the most common of the IRS identification rules for a 1031 exchange. It lets you identify up to three potential replacement properties within your 45-day identification period, regardless of their total value, and you can ultimately acquire any or all of them. For an exchanger using a backup strategy, the three-property rule usually fits cleanly: you identify your primary replacement property plus one or two DST backups, all within the three-property limit. This gives you protection without needing to track property values against a percentage cap. If you want to identify more than three properties — for example, several DST backups for diversification — you'd instead use the 200% rule, which allows any number of properties as long as their combined value doesn't exceed 200% of what you sold. So the three-property rule is the simplest way to carry a primary plus backups, and it's the rule most backup strategies rely on. All identifications must still be unambiguous, in writing, and delivered to your QI by day 45.</p></div>
+</details>
+<details>
+<summary>What is the 200% rule?<span class="ic"></span></summary>
+<div class="ans"><p>The 200% rule is one of the IRS identification rules for a 1031 exchange, used when you want to identify more than three replacement properties. It lets you identify any number of potential replacement properties, regardless of count, as long as their combined fair market value does not exceed 200% of the value of the property you relinquished. This is useful for backup strategies when you want to name several DST backups — for instance, to diversify across multiple offerings or sponsors — and would exceed the three-property limit. The trade-off is that you must track the total identified value against the 200% cap; if your primary plus all your DST backups together stay within twice the value of what you sold, you're fine. If you exceed both the three-property and 200% limits, the stricter 95% rule kicks in, requiring you to actually acquire 95% of the total identified value. So the 200% rule gives you flexibility to carry many backups, as long as you watch the combined value. Confirm the calculations with your QI and CPA.</p></div>
+</details>
+<details>
+<summary>Can I add a backup property after the 45-day deadline?<span class="ic"></span></summary>
+<div class="ans"><p>No — you cannot add any new identification, including a backup, after the 45-day identification deadline. This is the single most important reason to build backups into your identification from the start. The 1031 rules require that all replacement properties be identified in writing and delivered to your qualified intermediary within 45 days of selling your relinquished property, and that list is then locked. After day 45, you can only acquire properties you already identified — you cannot name a new one, no matter what happens to your identified deals. So if your primary deal fails on day 90 and you didn't identify a backup, you're generally out of options, and the exchange fails. This rigidity is precisely why experienced exchangers identify one or more DST backups within the 45-day window — the DST is pre-packaged and fast to close, so it's there to acquire if the primary collapses. So plan your backups before day 45; you can't fix the omission afterward. Coordinate the identification carefully with your QI.</p></div>
+</details>
+<details>
+<summary>How do I activate a DST backup if my primary deal fails?<span class="ic"></span></summary>
+<div class="ans"><p>If your primary replacement deal falls through, you activate a DST backup by acquiring a DST you already identified within your 45-day window. The moment it's clear the primary won't close, you notify your qualified intermediary that you'll acquire the identified DST instead. Because the DST was already named on your identification, it's a valid replacement — you're not adding a property, just funding one you already identified. You then complete the DST subscription: confirm your accreditation, sign the offering and subscription documents, and direct your QI to wire the exchange proceeds to fund your purchase of the DST beneficial interest. Because DSTs close quickly — often in days — this can usually be done well within the time a failed primary deal leaves. The critical point is that the funding must be complete before day 180, the hard deadline to acquire your replacement and finish the exchange. So activating a backup is mainly a matter of acting promptly and letting the DST's speed do the rest. Work closely with your QI and broker-dealer to execute it on time.</p></div>
+</details>
+<details>
+<summary>What is the role of the qualified intermediary in a backup strategy?<span class="ic"></span></summary>
+<div class="ans"><p>The qualified intermediary (QI) is central to any backup strategy because the QI holds your exchange proceeds and receives your written identifications. First, your day-45 identification — naming your primary property and your DST backups — must be delivered to the QI in unambiguous form, typically identifying each DST by its legal name and specific property or offering. Getting this right and on time is non-negotiable, since a defective or late identification can invalidate a replacement. Throughout the exchange, you and your advisor should keep the QI informed of the primary deal's status, so a pivot to a backup is ready if needed. When you activate a backup, the QI must wire the exchange funds directly to fund the DST purchase — the proceeds can't pass through your hands without breaking the exchange. So the QI is the partner who holds the money, accepts the identifications, and executes the funding. Coordinating identification, status updates, and the funding wire with your QI is what turns a DST backup from a name on a list into a completed, tax-deferred exchange.</p></div>
+</details>
+<details>
+<summary>Does using a DST backup affect my tax deferral?<span class="ic"></span></summary>
+<div class="ans"><p>No — acquiring a properly identified DST backup preserves your tax deferral just as a primary DST or any other qualifying replacement would. A DST beneficial interest is treated as a direct interest in like-kind real property under IRS Revenue Ruling 2004-86, so funding a DST you identified within your 45 days and closed before day 180 completes a valid 1031 exchange and defers your capital-gains tax. The fact that the DST was a backup rather than your first choice makes no difference to the tax treatment — what matters is that it was timely identified, is like-kind real property, and is funded with exchange proceeds through your QI. To fully defer, you'll generally still need to reinvest equal or greater equity and replace the debt you paid off, so your backup DST should be sized to meet those requirements (a DST's non-recourse debt can supply the debt replacement). So a DST backup defers tax exactly like a primary would, provided the identification, timing, and reinvestment rules are met. Confirm your specific situation with your CPA, since these rules are technical.</p></div>
+</details>
+<details>
+<summary>How many DST backups should I identify?<span class="ic"></span></summary>
+<div class="ans"><p>There's no single right number — it depends on your risk tolerance, your exchange size, and which identification rule you're using. Many exchangers identify one primary direct-purchase property plus one or two DST backups under the three-property rule, which gives meaningful protection while keeping the identification simple. Others, especially those diversifying their exchange across several offerings or wanting extra insurance, identify more DST backups under the 200% rule, as long as the combined value of all identified properties stays within 200% of what they sold. The more backups you identify, the more protection you have if a primary fails — but you also want each backup to be one you'd genuinely be willing to acquire, properly sized to your equity and debt needs. So a common, sensible structure is a primary plus one or two DST backups, with more added under the 200% rule if you want greater redundancy or diversification. The goal is to ensure that no single deal failure can collapse your exchange. Discuss the right number for your situation with your advisor and QI.</p></div>
+</details>
+<details>
+<summary>What happens if I don't use the DST backup?<span class="ic"></span></summary>
+<div class="ans"><p>If your primary deal closes successfully and you don't need the DST backup, nothing happens — there's no obligation to acquire a property you identified but didn't need. Identification simply names properties you're permitted to acquire; it doesn't commit you to buying all of them. Under the three-property rule, you can acquire any or all of the three you identified, so if the primary closes and fully uses your exchange proceeds, you simply let the unused DST backups go unacquired. There's no penalty or tax consequence for identifying a backup you don't use. That said, a DST backup can sometimes still be useful even when the primary closes: if the primary leaves a small amount of leftover exchange proceeds (which would otherwise be taxable boot), you can fund a DST backup with that remainder to defer tax on the full amount. So an unused backup is simply set aside at no cost, but a partially used one can sweep up residual proceeds. Either way, identifying backups costs you nothing if you don't need them. Coordinate the final acquisition decisions with your QI before day 180.</p></div>
+</details>
+<details>
+<summary>Can a DST backup also absorb leftover exchange proceeds?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — this is one of the most useful secondary roles a DST backup can play. A successful 1031 exchange generally requires reinvesting all of your net equity; any leftover exchange proceeds you don't reinvest become 'boot,' which is taxable. Sometimes a primary replacement property is slightly smaller than your relinquished property, leaving a small amount of unused proceeds. If you've identified a DST backup, you can fund it with that remainder, absorbing the leftover cash into qualifying like-kind real property and deferring tax on the full amount rather than paying tax on the boot. Because DSTs come in relatively small increments and have low minimums, they're well suited to soaking up these remainders precisely. So a DST backup serves double duty: a full rescue if the primary fails, and a partial 'sweep' of residual proceeds if the primary closes short. This flexibility is a meaningful reason to identify a DST backup even when you're confident your primary will close. Coordinate the sizing and funding with your QI and CPA to capture the full deferral.</p></div>
+</details>
+<details>
+<summary>Are DST backups available to all investors?<span class="ic"></span></summary>
+<div class="ans"><p>No — DST interests, whether used as a primary or a backup, are securities offered under Regulation D to accredited investors, so they're not available to everyone. To invest in a DST, you generally must qualify as an accredited investor (meeting income or net-worth thresholds) and complete a suitability review with the broker-dealer offering the interest. This applies to a DST backup just as it does to a primary DST — the same accreditation and suitability requirements govern your ability to acquire it. So before you identify a DST as a backup, you should confirm that you qualify and that the offering is suitable for you, since you'd need to be able to actually acquire it if your primary fails. Identifying a DST you couldn't ultimately invest in would defeat the purpose of the backup. So part of building a sound backup plan is confirming your accreditation and completing the suitability process in advance, so the DST is genuinely available to you on short notice. Work with a broker-dealer early to ensure your backups are real options.</p></div>
+</details>
+<details>
+<summary>What are the deadlines I need to watch in a backup strategy?<span class="ic"></span></summary>
+<div class="ans"><p>Two deadlines govern every 1031 exchange and your backup strategy. The first is the 45-day identification deadline: within 45 calendar days of selling your relinquished property, you must identify all your replacement properties — including any DST backups — in writing and deliver that identification to your qualified intermediary. After day 45, the list is locked; you cannot add a backup you didn't name. The second is the 180-day closing deadline: you must acquire your replacement property (whether the primary or an activated backup) and complete the exchange within 180 calendar days of the sale. These deadlines run concurrently from the sale date, are calendar days (not business days), and generally cannot be extended. So your backup strategy lives entirely inside these two windows: name your backups by day 45, and if a primary fails, fund a backup before day 180. The DST's fast close is what makes activating a backup feasible even late in the 180-day window. So watch both deadlines closely and build in margin — coordinate the timing with your QI and CPA, and don't wait until the last days.</p></div>
+</details>
+<details>
+<summary>Can I use multiple DSTs as backups to diversify?<span class="ic"></span></summary>
+<div class="ans"><p>Yes — using multiple DSTs as backups is a common way to add both protection and diversification to a 1031 exchange. Under the three-property rule, you can identify a primary plus up to two DST backups; under the 200% rule, you can identify even more DSTs as long as their combined value (with any other identified properties) stays within 200% of what you sold. By choosing DSTs across different asset classes, geographies, and sponsors, you not only protect against a primary deal failing but also set up the possibility of spreading your exchange across several offerings for diversification. If your primary fails, you could then fund several DST backups rather than one, diversifying your replacement. This is especially attractive to investors moving from a single concentrated property into a more diversified passive portfolio. So multiple DST backups serve a dual purpose: redundancy against deal failure and a path to diversification. Just ensure each DST is one you'd genuinely acquire, sized appropriately and suitable for you. Coordinate the identification and the 200%-rule math with your QI and CPA to keep everything compliant.</p></div>
+</details>
+<details>
+<summary>How does Baker 1031 help me use DSTs as backups?<span class="ic"></span></summary>
+<div class="ans"><p>We help 1031 exchangers build resilient identifications — understanding why you need a backup, how DSTs serve as reliable backups, the identification rules and limits, how to activate a backup if a deal fails, and how to coordinate with your qualified intermediary — so a single failed deal doesn't cost you your tax deferral. DST interests are securities offered through the broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), to accredited investors after a suitability review, and any recommendation follows that review. We help you identify suitable DST backups sized to your equity and debt-replacement needs, prepare for fast activation if your primary deal falters, and coordinate the timing among you, your QI, and your CPA so funding completes before day 180. Baker 1031 does not provide tax or legal advice; your CPA and attorney confirm your eligibility, the identification mechanics, and the deadlines, which are strict — verify the current rules. Distributions and returns are projections, never guaranteed, and past performance doesn't guarantee future results. Our role is to help you build a backup when suitable and complete your exchange on time when a primary fails.</p></div>
+</details>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary">
+<div class="g"><dt>Backup Identification</dt><dd>A replacement property named as a fallback if the primary deal fails.</dd></div>
+<div class="g"><dt>Delaware Statutory Trust (DST)</dt><dd>A trust holding 1031-eligible fractional real estate interests.</dd></div>
+<div class="g"><dt>1031 Exchange</dt><dd>A tax-deferred swap of like-kind investment real estate.</dd></div>
+<div class="g"><dt>Qualified Intermediary (QI)</dt><dd>The party that holds exchange proceeds and receives identifications.</dd></div>
+<div class="g"><dt>45-Day Identification Period</dt><dd>The deadline to name replacement properties in writing.</dd></div>
+<div class="g"><dt>180-Day Exchange Period</dt><dd>The deadline to acquire the replacement and finish the exchange.</dd></div>
+<div class="g"><dt>Three-Property Rule</dt><dd>Identify up to three replacements regardless of value.</dd></div>
+<div class="g"><dt>200% Rule</dt><dd>Identify any number of properties up to 200% of relinquished value.</dd></div>
+<div class="g"><dt>95% Rule</dt><dd>If you exceed both limits, acquire 95% of identified value.</dd></div>
+<div class="g"><dt>Relinquished Property</dt><dd>The investment property you sell to start the exchange.</dd></div>
+<div class="g"><dt>Replacement Property</dt><dd>The like-kind real estate you acquire to complete the exchange.</dd></div>
+<div class="g"><dt>Boot</dt><dd>Unreinvested exchange proceeds that become taxable.</dd></div>
+<div class="g"><dt>Debt Replacement</dt><dd>Matching the paid-off debt with new debt (or cash) to fully defer.</dd></div>
+<div class="g"><dt>Non-Recourse Debt</dt><dd>DST loan not personally guaranteed by investors.</dd></div>
+<div class="g"><dt>Accredited Investor</dt><dd>An investor meeting income/net-worth thresholds for DST offerings.</dd></div>
+<div class="g"><dt>Beneficial Interest</dt><dd>A DST investor's fractional ownership in the trust's property.</dd></div>
+</dl>
+<h2 id="sources">Sources &amp; References</h2>
+<div class="refs"><ol><li>IRS. <a href="https://www.irs.gov/pub/irs-drop/rr-04-86.pdf" rel="noopener nofollow" target="_blank">Revenue Ruling 2004-86 (Delaware Statutory Trusts)</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1031" rel="noopener nofollow" target="_blank">26 U.S. Code § 1031 — Exchange of real property held for productive use or investment</a></li><li>Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/cfr/text/26/1.1031(k)-1" rel="noopener nofollow" target="_blank">26 CFR § 1.1031(k)-1 — Treatment of deferred exchanges</a></li><li>FINRA. <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" rel="noopener nofollow" target="_blank">Real Estate Investments</a></li></ol></div>
+<h2 id="disclosures">Disclosures</h2>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Delaware Statutory Trusts</a><a href="insights.html">DSTs</a><a href="insights.html">1031 Exchange</a></div>
+<aside class="author-box" style="display:flex;gap:18px;align-items:flex-start;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;padding:20px 22px;margin:40px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif"><div><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#35647E;font-weight:700;margin-bottom:3px">About the author</div><div style="font-size:16px;font-weight:600;color:#16243a"><a href="jerry-baker-bio.html" style="color:#16243a;text-decoration:none">Jerry Baker</a></div><div style="font-size:13px;color:#5a6b82;margin:1px 0 8px">Founder &amp; Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE</div><p style="font-size:13.5px;line-height:1.6;color:#42526b;margin:0">Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#35647E;text-decoration:none;font-weight:600">Read full bio →</a></p><div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e7f0;font-size:10.5px;line-height:1.5;color:#6b788b"><span style="font-weight:700;color:#16243a">Reviewed by</span> <a href="https://brokercheck.finra.org/individual/summary/2805591" rel="noopener" style="color:#16243a;text-decoration:none;border-bottom:1px solid #35647E" target="_blank">Lori Kamen</a> — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</div></div></aside><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://www.baker1031.com/#org"},"url":"https://www.baker1031.com/about/jerry-baker/","image":"https://www.baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}</script>
+<aside class="b1031-offer-cta" style="max-width:880px;margin:30px auto 0;padding:18px 22px;background:#f6f8fb;border:1px solid #e1e7f0;border-left:3px solid #35647E;border-radius:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#42526b"><strong style="display:block;color:#16243a;font-size:15px;margin-bottom:4px">Explore current offerings</strong>See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. <a href="delaware-statutory-trusts.html" style="color:#35647E;font-weight:600;text-decoration:none;white-space:nowrap">View Delaware Statutory Trusts →</a><span style="display:block;margin-top:7px;font-size:12px;color:#8794a6">Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.</span></aside>
+</article>
+<!-- SIDEBAR -->
+
+</div>
+
+<!-- SUBSCRIBE -->
+
+
+    </div>
+  </main>
+
+<script>
+    const prog=document.getElementById('prog');
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function onScroll(){
+      const h=document.documentElement, m=h.scrollHeight-h.clientHeight;
+      if(prog) prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';
+      let idx=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<=140) idx=i; });
+      links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    }
+    addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+    const cl=document.getElementById('copylink');
+    cl&&cl.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
+    const pb=document.getElementById('printbtn');
+    pb&&pb.addEventListener('click',e=>{e.preventDefault();window.print();});
+    function setFaq(open){document.querySelectorAll('.faq details').forEach(d=>{if(open){d.dataset.was=d.open?'1':'0';d.open=true;}else{d.open=d.dataset.was==='1';}});}
+    addEventListener('beforeprint',()=>setFaq(true));
+    addEventListener('afterprint',()=>setFaq(false));
+  </script>
+
+<!-- @@FOOTER@@ -->
+
+</div>
+</body>
+</html>
