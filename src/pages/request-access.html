@@ -1408,9 +1408,10 @@ function build(s){
   if(s.kind==='schedule') return '<div class="kick">Final step — required for access</div><h2>Schedule your introductory call</h2>'+
     '<p class="q-sub">Before we can share specific investment opportunities, FINRA and SEC rules require us to establish a broker–client relationship and review your suitability. A brief 25-minute introductory call is how we do that. Once your call is scheduled, you’ll receive access to current offerings and your tailored example portfolios.</p>'+
     '<div class="cal-wrap"><div id="my-cal-inline-25min" style="width:100%;height:660px;overflow:auto;"></div></div>'+
+    '<p class="hint" id="calFallback" style="margin-top:10px;">Calendar not loading? <a href="#" id="calDirect" target="_blank" rel="noopener" style="color:#0099ff;">Open the scheduler in a new tab</a>.</p>'+
     '<div class="nav"><button class="btn ghost" onclick="showExitModal()">Back</button><span class="enter-tip">select a time above to finish &amp; unlock access</span></div>';
 
-  let head='<div class="kick">'+(s.kind==='review'?'Final review':(s.kind==='consent'?'Last step':'Question '+idx))+'</div><h2>'+esc(s.q)+'</h2>'+
+  let head='<div class="kick">'+(s.kind==='review'?'Final review':(s.kind==='consent'?'Acknowledgements':'Question '+idx))+'</div><h2>'+esc(s.q)+'</h2>'+
     (s.sub?'<p class="q-sub">'+esc(s.sub)+'</p>':'');
 
   if(s.kind==='single'){
@@ -1602,14 +1603,23 @@ function loadCal(){
   Cal.ns["25min"]("on",{action:"bookingSuccessful",callback:function(){ finishSchedule(); }});
   window.__calBooted=true;
 }
+function calDirectUrl(){
+  const full=encodeURIComponent([data.pref||data.first,data.last].filter(Boolean).join(' '));
+  return 'https://cal.com/jerry-baker-yn6qn1/25min?name='+full+'&email='+encodeURIComponent(data.email||'')+'&notes='+encodeURIComponent(calNotes());
+}
 function initCalStep(){
   loadCal();
   const full=[data.pref||data.first,data.last].filter(Boolean).join(' ');
   Cal.ns["25min"]("inline",{ elementOrSelector:"#my-cal-inline-25min",
+    calLink:"jerry-baker-yn6qn1/25min",
     config:{ layout:"month_view", theme:"light", useSlotsViewOnSmallScreen:"true",
       name:full, email:data.email||'', notes:calNotes(), smsReminderNumber:data.phone||'' } });
   Cal.ns["25min"]("ui",{ theme:"light", cssVarsPerTheme:{light:{"cal-brand":"#243856"}}, hideEventTypeDetails:true, layout:"month_view" });
   armLeaveGuards();
+  // set direct-link fallback; surface it if the inline embed hasn't rendered an iframe
+  var dl=document.getElementById('calDirect'); if(dl)dl.href=calDirectUrl();
+  setTimeout(function(){ var c=document.getElementById('my-cal-inline-25min'), fb=document.getElementById('calFallback');
+    if(c && !c.querySelector('iframe') && fb){ fb.style.fontWeight='700'; fb.style.color='#b26a00'; } }, 4000);
 }
 function finishSchedule(){ data.callBooked=true; clearLeaveGuards();
   const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();} }
