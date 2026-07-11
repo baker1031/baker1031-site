@@ -20,6 +20,23 @@ const REGION_MAP = {
   'Northeast': 'Northeast', 'Midwest': 'Midwest', 'South': 'Southeast', 'West': 'West Coast / Pacific',
   'No preference': 'National / No preference',
 };
+// "avoid" selects were created with these exact option titles
+const REGION_AVOID_MAP = {
+  'Northeast': 'Northeast', 'Midwest': 'Midwest', 'South': 'Southeast', 'West': 'West Coast / Pacific',
+};
+const STAGE_MAP = {
+  'In process — my property has sold': 'Actively in 1031',
+  'Planning — selling soon': 'Property listed for sale',
+  'Just exploring options': 'Thinking about an exchange',
+  'Cash investor — not a 1031': 'Non-1031 cash',
+};
+const SOURCE_MAP = {
+  'Web search': 'Web', 'AI assistant (ChatGPT, Claude, etc.)': 'AI', 'Referral': 'Referral',
+  'Advisor / CPA': 'COI', 'Social media': 'Web', 'Event': 'Event', 'Other': null,
+};
+const ENTITY_MAP = { 'Single': 'Individual', 'Married': 'Joint' };
+const NUM = (v) => { const n = Number(String(v == null ? '' : v).replace(/[^0-9.\-]/g, '')); return isNaN(n) ? null : n; };
+const DATEISO = (v) => { if (!v) return null; const d = new Date(v); return isNaN(d) ? null : d.toISOString().slice(0, 10); };
 
 function mapMulti(arr, map) {
   const out = [];
@@ -87,13 +104,31 @@ export default async (req) => {
   const recordId = assert.json && assert.json.data && assert.json.data.id && assert.json.data.id.record_id;
   if (!recordId) return json({ error: 'attio person upsert failed', detail: assert.json }, 502);
 
-  // 2) Best-effort: set the CRM select fields + registration date (never block on this)
-  const roles = d.role && ROLE_MAP[d.role] ? [ROLE_MAP[d.role]] : [];
+  // 2) Best-effort: map every field to its Attio attribute (never block the lead on this)
   const values = { registration_date: new Date().toISOString().slice(0, 10) };
-  if (roles.length) values.roles = roles;
-  values.accreditation_status = d.accreditedLikely ? 'Self-certified' : 'Not verified';
-  const props = mapMulti(d.propertyTypesLike, PROP_MAP); if (props.length) values.property_preferences = props;
-  const regs = mapMulti(d.regionsLike, REGION_MAP); if (regs.length) values.region_preferences = regs;
+  const set = (k, v) => { if (v !== null && v !== undefined && v !== '' && !(Array.isArray(v) && !v.length)) values[k] = v; };
+
+  set('preferred_name', d.preferredName);
+  set('state_residence', d.state);
+  if (d.role && ROLE_MAP[d.role]) set('roles', [ROLE_MAP[d.role]]);
+  if (d.exchangeStatus && STAGE_MAP[d.exchangeStatus]) set('client_stage', STAGE_MAP[d.exchangeStatus]);
+  if (d.maritalStatus && ENTITY_MAP[d.maritalStatus]) set('entity_type', ENTITY_MAP[d.maritalStatus]);
+  if (d.heardVia && SOURCE_MAP[d.heardVia]) set('source', SOURCE_MAP[d.heardVia]);
+  set('accreditation_status', d.accreditedLikely ? 'Self-certified' : 'Not verified');
+  set('annual_income', NUM(d.annualIncome));
+  set('net_worth_band', d.netWorthBand);
+  set('equity_to_reinvest', NUM(d.equityToReinvest));
+  set('debt_to_replace', NUM(d.debtToReplace));
+  set('relinquished_sale_date', DATEISO(d.saleClosingDate));
+  set('deadline_45', DATEISO(d.deadline45));
+  set('deadline_180', DATEISO(d.deadline180));
+  set('property_preferences', mapMulti(d.propertyTypesLike, PROP_MAP));
+  set('property_types_avoid', mapMulti(d.propertyTypesAvoid, PROP_MAP));
+  set('region_preferences', mapMulti(d.regionsLike, REGION_MAP));
+  set('regions_avoid', mapMulti(d.regionsAvoid, REGION_AVOID_MAP));
+  set('investment_goals', d.goals || []);
+  if (d.callBooked) { set('intro_call_time', d.callTime || 'Scheduled'); set('substantive_relationship_date', new Date().toISOString().slice(0, 10)); }
+
   await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => {});
 
   // 3) Full detail as a note (always attempt)
