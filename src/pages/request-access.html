@@ -1205,7 +1205,8 @@
   @media (max-width: 640px) { .author-box { flex-direction: column; } }
 
   /* ---------- investor registration widget (scoped) ---------- */
-  #regform{max-width:760px;margin:8px 0 0;}
+  #regform{max-width:none;width:100%;margin:8px 0 0;}
+  #regform .cal-wrap{border:1px solid #eee;margin-top:6px;}
   #regform .rf-bar{height:5px;background:#e6e6e6;margin-bottom:6px;}
   #regform .rf-bar > i{display:block;height:100%;background:#ff9900;width:0;transition:width .35s ease;}
   #regform .rf-stepn{font-size:12px;color:#8a97a6;letter-spacing:.06em;text-align:right;min-height:16px;}
@@ -1331,6 +1332,7 @@ const SCREENS = [
  {k:'source',kind:'source',q:'Almost done — anything else?'},
  {k:'review',kind:'review',q:'Review your registration'},
  {k:'consent',kind:'consent',q:'Consent & acknowledgements'},
+ {k:'schedule',kind:'schedule',q:'Schedule your introductory call'},
  {k:'done',kind:'done'},
 ];
 
@@ -1397,9 +1399,16 @@ function build(s){
     '<p class="q-sub">A few quick questions about your 1031 exchange, your accreditation, and what you’re looking for. It takes about 3 minutes, with no obligation — you’ll be able to request access to current DST offerings and get example portfolios tailored to your situation.</p>'+
     '<div class="nav"><button class="btn" onclick="next()">Start</button><span class="enter-tip">press <b>Enter ↵</b></span></div>'+disc();
 
-  if(s.kind==='done') return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">Thank you'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
-    '<p class="q-sub" style="margin:10px auto;">Your registration is complete. A Baker 1031 advisor will follow up'+
-    (data.email?(' at <b>'+esc(data.email)+'</b>'):'')+' — typically within one business day.</p><div id="submitState"></div></div>';
+  if(s.kind==='done') return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">You’re all set'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
+    (data.callBooked
+      ? '<p class="q-sub" style="margin:10px auto;">Your introductory call is scheduled — you’ll receive a calendar invite by email'+(data.email?(' at <b>'+esc(data.email)+'</b>'):'')+'. After we’ve spoken and confirmed your suitability, you’ll be given access to current offerings and your tailored example portfolios.</p>'
+      : '<p class="q-sub" style="margin:10px auto;">Your registration is saved. To unlock investment opportunities, please schedule your required introductory call — <a href="#" onclick="goto(\'schedule\');return false;" style="color:#0099ff;">pick a time here</a>.</p>')+
+    '<div id="submitState"></div></div>';
+
+  if(s.kind==='schedule') return '<div class="kick">Final step — required for access</div><h2>Schedule your introductory call</h2>'+
+    '<p class="q-sub">Before we can share specific investment opportunities, FINRA and SEC rules require us to establish a broker–client relationship and review your suitability. A brief 25-minute introductory call is how we do that. Once your call is scheduled, you’ll receive access to current offerings and your tailored example portfolios.</p>'+
+    '<div class="cal-wrap"><div id="my-cal-inline-25min" style="width:100%;height:660px;overflow:auto;"></div></div>'+
+    '<div class="nav"><button class="btn ghost" onclick="showExitModal()">Back</button><span class="enter-tip">select a time above to finish &amp; unlock access</span></div>';
 
   let head='<div class="kick">'+(s.kind==='review'?'Final review':(s.kind==='consent'?'Last step':'Question '+idx))+'</div><h2>'+esc(s.q)+'</h2>'+
     (s.sub?'<p class="q-sub">'+esc(s.sub)+'</p>':'');
@@ -1492,6 +1501,7 @@ function updateUSnotice(){ const el=main().querySelector('#usNotice'); if(!el)re
   else el.classList.remove('on'); }
 
 function bind(s){
+  if(s.kind==='schedule'){ ensureExitModal(); try{initCalStep();}catch(e){console&&console.log&&console.log(e);} }
   if((s.kind==='single'&&!s.select)){
     main().querySelectorAll('.opt').forEach(o=>o.onclick=()=>{ data[s.key]=o.dataset.v;
       main().querySelectorAll('.opt').forEach(x=>x.classList.remove('sel')); o.classList.add('sel'); setTimeout(()=>next(),170); });
@@ -1557,7 +1567,8 @@ function collect(s){
 
 function next(skip){
   const list=steps(); const s=list[idx];
-  if(s.kind==='consent'){ if(!collect(s))return; submit(); idx=list.length-1; render(); return; }
+  if(s.kind==='consent'){ if(!collect(s))return; submit(); idx++; render(); return; } // -> schedule
+  if(s.kind==='schedule'){ return; } // advance only via a completed booking
   if(!skip && !collect(s))return;
   if(skip && (s.kind==='multi'||s.kind==='multix'||s.kind==='dates'||s.kind==='amounts'||s.kind==='source')) collect(Object.assign({},s,{optional:true}));
   idx++; render();
@@ -1565,8 +1576,61 @@ function next(skip){
 function prev(){ idx--; render(); }
 function goto(k){ const list=steps(); const i=list.findIndex(x=>x.k===k); if(i>=0){idx=i;render();} }
 
-document.addEventListener('keydown',e=>{ if(e.key!=='Enter')return; if(e.target.tagName==='TEXTAREA')return; e.preventDefault();
-  const s=steps()[idx]; if(s.kind!=='done')next(); });
+document.addEventListener('keydown',e=>{ if(e.key!=='Enter')return; if(e.target.tagName==='TEXTAREA')return;
+  const s=steps()[idx]; if(s.kind==='done'||s.kind==='schedule')return; e.preventDefault(); next(); });
+
+/* ---------- introductory-call scheduling (Cal.com) + exit-intent guard ---------- */
+let __leaveArmed=false;
+function calNotes(){ const L=[];
+  L.push('Role: '+(data.role||'')); if(data.clientName)L.push('On behalf of: '+data.clientName);
+  L.push('Phone: '+(data.phone||'')); L.push('State: '+(data.state||''));
+  L.push('Exchange status: '+(data.exchangeStatus||''));
+  if(data.saleDate){const d=deadlines(data.saleDate);L.push('Sale close: '+data.saleDate+(d?(' — 45-day '+d.d45+', 180-day '+d.d180):''));}
+  if(data.equity)L.push('Equity to reinvest: $'+Number(data.equity).toLocaleString());
+  if(data.debt)L.push('Debt to replace: $'+Number(data.debt).toLocaleString());
+  L.push('Accreditation: '+(data.accreditation||''));
+  if((data.propTypes||[]).length)L.push('Property types (like): '+data.propTypes.join(', '));
+  if((data.dislikeTypes||[]).length)L.push('Property types (avoid): '+data.dislikeTypes.join(', '));
+  if((data.goals||[]).length)L.push('Goals: '+data.goals.join(', '));
+  if(data.notes)L.push('Notes: '+data.notes);
+  return L.join('\n'); }
+function loadCal(){
+  if(window.__calBooted)return;
+  (function (C, A, L) { let p=function(a,ar){a.q.push(ar);}; let d=C.document; C.Cal=C.Cal||function(){ let cal=C.Cal; let ar=arguments; if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;} if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[]; if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);} else p(cal,ar); return;} p(cal,ar); }; })(window,"https://app.cal.com/embed/embed.js","init");
+  Cal("init","25min",{origin:"https://app.cal.com"});
+  Cal.config=Cal.config||{}; Cal.config.forwardQueryParams=true;
+  Cal.ns["25min"]("on",{action:"bookingSuccessful",callback:function(){ finishSchedule(); }});
+  window.__calBooted=true;
+}
+function initCalStep(){
+  loadCal();
+  const full=[data.pref||data.first,data.last].filter(Boolean).join(' ');
+  Cal.ns["25min"]("inline",{ elementOrSelector:"#my-cal-inline-25min",
+    config:{ layout:"month_view", theme:"light", useSlotsViewOnSmallScreen:"true",
+      name:full, email:data.email||'', notes:calNotes(), smsReminderNumber:data.phone||'' } });
+  Cal.ns["25min"]("ui",{ theme:"light", cssVarsPerTheme:{light:{"cal-brand":"#243856"}}, hideEventTypeDetails:true, layout:"month_view" });
+  armLeaveGuards();
+}
+function finishSchedule(){ data.callBooked=true; clearLeaveGuards();
+  const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();} }
+function armLeaveGuards(){ __leaveArmed=true;
+  window.onbeforeunload=function(e){ if(__leaveArmed&&!data.callBooked){ e.preventDefault(); e.returnValue=''; return ''; } };
+  document.addEventListener('mouseout',exitIntent); }
+function clearLeaveGuards(){ __leaveArmed=false; window.onbeforeunload=null; document.removeEventListener('mouseout',exitIntent); }
+function exitIntent(e){ if(!__leaveArmed||data.callBooked)return; if((e.clientY<=0)&&!e.relatedTarget){ showExitModal(); } }
+function ensureExitModal(){ if(document.getElementById('exitModal'))return;
+  const m=document.createElement('div'); m.id='exitModal';
+  m.style.cssText='display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center;';
+  m.innerHTML='<div style="background:#fff;max-width:460px;margin:20px;padding:26px 26px 22px;border-top:5px solid #ff9900;">'+
+    '<h3 style="font-family:Optima,Candara,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:#243856;margin:0 0 10px;font-size:18px;">Wait — one required step remains</h3>'+
+    '<p style="color:#3a4a5c;font-size:14px;line-height:1.6;margin:0 0 18px;">Investment opportunities can only be released after your introductory call. If you leave now without scheduling, you <b>won’t be able to access current offerings yet</b>. It only takes a moment to pick a time.</p>'+
+    '<div style="display:flex;gap:10px;flex-wrap:wrap;">'+
+    '<button class="btn" onclick="hideExitModal()">Stay &amp; schedule</button>'+
+    '<button class="btn ghost" onclick="leaveNow()">Leave without access</button></div></div>';
+  document.body.appendChild(m); }
+function showExitModal(){ ensureExitModal(); document.getElementById('exitModal').style.display='flex'; }
+function hideExitModal(){ const m=document.getElementById('exitModal'); if(m)m.style.display='none'; }
+function leaveNow(){ hideExitModal(); clearLeaveGuards(); idx=steps().findIndex(x=>x.k==='review'); if(idx<0)idx=0; render(); }
 
 function payload(){ return { submittedFrom:'investor-registration', role:data.role, onBehalfOf:data.clientName||'',
   firstName:data.first,lastName:data.last,preferredName:data.pref||'',email:data.email,phone:data.phone,state:data.state,
