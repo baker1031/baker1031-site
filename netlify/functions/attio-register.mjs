@@ -194,6 +194,23 @@ export default async (req) => {
       title: 'Form CRS Delivery Receipt — ' + ackAt.slice(0, 10) + ' — ' + (fullName || d.email),
       format: 'plaintext', content: receipt,
     } }, token).catch(() => {});
+
+    // Compliance mailbox: email the receipt (PDF attached) to crs@baker1031.com so
+    // there's a durable file archive of every Form CRS delivery. Uses Resend if
+    // RESEND_API_KEY is set; no-ops silently otherwise.
+    if (process.env.RESEND_API_KEY) {
+      const mailbox = process.env.CRS_MAILBOX || 'crs@baker1031.com';
+      const from = process.env.CRS_FROM || 'Baker 1031 Compliance <compliance@baker1031.com>';
+      const emailBody = { from, to: [mailbox], reply_to: d.email || undefined,
+        subject: 'Form CRS Delivery Receipt — ' + (fullName || d.email) + ' — ' + ackAt.slice(0, 10),
+        text: receipt };
+      if (d.crsReceiptPdfB64) emailBody.attachments = [{ filename: 'FormCRS-Receipt-' + ackAt.slice(0, 10) + '.pdf', content: d.crsReceiptPdfB64 }];
+      try {
+        await fetch('https://api.resend.com/emails', { method: 'POST',
+          headers: { Authorization: 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify(emailBody) });
+      } catch (e) {}
+    }
   }
 
   // 4) #5: on booking, create the Clerk account (invitation) so they can access the portal

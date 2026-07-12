@@ -1258,6 +1258,11 @@
   #regform .crs-box p{margin:0 0 6px;font-size:13.5px;color:#3a4a5c;line-height:1.5;}
   #regform .crs-box a{color:#0099ff;font-weight:700;}
   #regform .crs-seen{color:#2e7d32;font-weight:700;font-size:12px;}
+  #regform .foryou-wrap{max-width:560px;margin:18px auto 0;text-align:left;}
+  #regform .foryou-h{font-family:"Optima",Candara,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#243856;font-size:14px;margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:6px;}
+  #regform .foryou{border-left:3px solid #ff9900;padding:2px 0 2px 14px;margin:10px 0;}
+  #regform .foryou h4{margin:0 0 2px;font-family:"Optima",Candara,sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;color:#243856;}
+  #regform .foryou p{margin:0;font-size:13.5px;color:#3a4a5c;line-height:1.5;}
   #regform .review{border:1px solid #eee;}
   #regform .review .r{display:flex;justify-content:space-between;gap:16px;padding:9px 14px;border-bottom:1px solid #eee;font-size:14px;}
   #regform .review .r:last-child{border-bottom:0;}
@@ -1315,9 +1320,32 @@ const NONUS_TLD=/\.(uk|ca|au|de|fr|in|cn|jp|mx|br|es|it|nl|se|ch|ru|za|nz|sg|hk|
 const data = { propTypes:[], regions:[], dislikeTypes:[], dislikeRegions:[], goals:[], consent:{} };
 // #8: Form CRS (Customer Relationship Summary) delivery
 const CRS_URL='https://irp.cdn-website.com/1764ea31/files/uploaded/Aurora+Form+CRS.pdf';
-const CRS_VERSION='Aurora Securities, Inc. — Form CRS (current published version)';
+const CRS_VERSION='Aurora Securities, Inc. Form CRS (current published version)';
 function crsViewed(){ if(!data.crsViewedAt) data.crsViewedAt=new Date().toISOString(); var s=document.getElementById('crsSeen'); if(s)s.style.display='inline'; }
 function crsAck(on){ data.consent.cCRS=!!on; if(on){ if(!data.crsAckAt) data.crsAckAt=new Date().toISOString(); } else { data.crsAckAt=''; } }
+// Objection-handling content, keyed to what the investor just told us — shown on the
+// confirmation screen so concerns are addressed right away (mirrors the account "For you").
+const FORYOU_GOALS={
+  "Monthly income":{h:"Built for monthly income",p:"The DSTs we focus on for income — net-lease and stabilized multifamily — distribute rental income monthly, covered by in-place leases rather than speculation. We’ll prioritize offerings whose projected Year-1 yield and coverage match your income goal."},
+  "Growth / appreciation":{h:"Positioned for growth",p:"For appreciation we look to value-add and development-oriented sponsors and sectors with demographic tailwinds. Growth carries more variability than income deals — we’ll balance it against your timeline and risk tolerance."},
+  "Diversification":{h:"Diversify in a single exchange",p:"One exchange can be split across multiple DSTs — different sponsors, property types, and regions — so no single asset or operator concentrates your risk. Your replacement doesn’t have to be one building."},
+  "Estate planning / step-up":{h:"A step-up for your heirs",p:"Hold your DST interests for life and your heirs inherit at a stepped-up cost basis — the deferred capital-gains liability is generally eliminated at that point. DSTs pass cleanly to a trust or beneficiaries without re-titling a property."},
+  "721 / UPREIT exit option":{h:"A path to liquidity",p:"A 721 (UPREIT) exit can convert DST interests into operating-partnership units of a REIT, trading direct ownership for a more liquid, diversified position over time. We can prioritize offerings that carry a 721 option."},
+  "All-cash / debt-free":{h:"All-cash, debt-free options",p:"Debt-free DSTs carry no mortgage — no lender, no refinancing risk, no loan maturity to manage. They suit investors with no debt to replace who want to avoid leverage entirely."},
+  "Simplify — stop being a landlord":{h:"Truly passive ownership",p:"No tenants, toilets, or midnight calls. A DST is professionally managed institutional real estate — you keep real-estate exposure and income without operating anything."}
+};
+function personalizeReg(){
+  var out=[];
+  (data.goals||[]).forEach(function(g){ if(FORYOU_GOALS[g]) out.push(FORYOU_GOALS[g]); });
+  var st=data.exchangeStatus||'';
+  if(/In process/i.test(st)) out.push({h:"Your exchange clock is running",p:"You’re inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. DSTs are often used precisely because they can close fast within the window, so you never risk the exchange."});
+  else if(/Planning|Just exploring/i.test(st)) out.push({h:"Line up replacements before you close",p:"The best exchanges are planned before the sale closes. We can pre-screen DSTs that fit your equity and debt so you’re ready to identify on day one."});
+  else if(/Cash investor/i.test(st)) out.push({h:"Cash investors welcome",p:"DSTs aren’t only for 1031 exchanges — accredited cash investors use them for passive, diversified real-estate income too."});
+  if(!data.accreditedLikely) out.push({h:"Confirming your accreditation",p:"DST offerings are limited to accredited investors. On your introductory call we’ll confirm your status — a quick, standard step required before any offering can be shared."});
+  out.push({h:"About liquidity",p:"DSTs are long-term holds (typically 5–10 years) and aren’t traded on demand — that’s the trade-off for passive, institutional ownership. We match hold periods to your timeline and, where it matters, prioritize offerings with a 721 liquidity path."});
+  out.push({h:"About sponsors & fees",p:"Every sponsor we place is vetted for track record and alignment, and each offering’s fees (“load”) and projections are laid out in its Private Placement Memorandum — the official document that takes precedence over anything we show you. You see the full picture before you decide."});
+  return out;
+}
 
 const SCREENS = [
  {k:'welcome',kind:'welcome'},
@@ -1446,8 +1474,12 @@ function build(s){
     var crsLine = data.consent.cCRS
       ? '<p class="hint" style="margin-top:12px;">Aurora Securities’ Form CRS was delivered and acknowledged on '+esc((data.crsAckAt||'').slice(0,10))+'. <a href="#" onclick="crsReceiptPDF();return false;" style="color:#0099ff;">Download your Form CRS receipt (PDF)</a>.</p>'
       : '';
+    // #handle-objections: show personalized reassurance right away
+    var fy=personalizeReg();
+    var fyBlock = fy.length? '<div class="foryou-wrap"><div class="foryou-h">For you — based on what you told us</div>'+
+      fy.map(function(b){return '<div class="foryou"><h4>'+esc(b.h)+'</h4><p>'+esc(b.p)+'</p></div>';}).join('')+'</div>' : '';
     return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">Your call is scheduled'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
-      appt+access+crsLine+'<div id="submitState"></div></div>';
+      appt+access+crsLine+fyBlock+'<div id="submitState"></div></div>';
   }
 
   if(s.kind==='schedule') return '<div class="kick">Final step — required for access</div><h2>Schedule your introductory call</h2>'+
@@ -1505,7 +1537,7 @@ function build(s){
     '<label class="q-lab">Anything you’d like us to know?</label><textarea id="fld_notes" placeholder="Questions, timeline, specific property, etc.">'+esc(data.notes||'')+'</textarea>'+navHTML('Continue',true);
   if(s.kind==='consent'){
     const items=[
-      ['c1','I understand this registration is not an offer to sell or a solicitation of any security, and that any investment is made solely through a sponsor’s Private Placement Memorandum, which controls in all respects.',true],
+      ['c1','I understand this registration is not an offer to sell or a solicitation of any security, and that any investment is made solely through a sponsor’s Private Placement Memorandum — the official offering document, which takes precedence over anything described on this website.',true],
       ['c2','I understand DST and 1031 offerings are available only to accredited investors and are subject to a suitability review.',true],
       ['c3','I consent to be contacted by Baker 1031 Investments by email or phone regarding this registration.',true],
       ['c4','I have read and agree to the Privacy Policy.',true],
@@ -1722,8 +1754,9 @@ function crsReceiptLines(){
     'Baker 1031 Investments  -  Securities offered through',
     'Aurora Securities, Inc., member FINRA/SIPC.'];
 }
-function pdfEsc(s){ return String(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)'); }
-function crsReceiptPDF(){
+function ascii(s){ return String(s).replace(/[‐-―]/g,'-').replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/[^\x00-\x7F]/g,''); }
+function pdfEsc(s){ return ascii(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)'); }
+function buildCrsPdf(){
   var lines=crsReceiptLines();
   var content='BT /F1 11 Tf 56 770 Td 15 TL\n'+lines.map(function(l){return '('+pdfEsc(l)+') Tj T*';}).join('\n')+'\nET';
   var objs=['<< /Type /Catalog /Pages 2 0 R >>',
@@ -1737,7 +1770,11 @@ function crsReceiptPDF(){
   pdf+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n';
   offs.forEach(function(o){ pdf+=(('0000000000'+o).slice(-10))+' 00000 n \n'; });
   pdf+='trailer\n<< /Size '+(objs.length+1)+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF';
-  var blob=new Blob([pdf],{type:'application/pdf'});
+  return pdf;
+}
+function crsReceiptB64(){ try{ return data.consent.cCRS? btoa(buildCrsPdf()) : ''; }catch(e){ return ''; } }
+function crsReceiptPDF(){
+  var blob=new Blob([buildCrsPdf()],{type:'application/pdf'});
   var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download='Baker1031-FormCRS-Receipt.pdf'; document.body.appendChild(a); a.click(); a.remove();
 }
@@ -1779,6 +1816,7 @@ function payload(){ return { submittedFrom:'investor-registration', role:data.ro
   outsideUSSignals:nonUSsignals(),consented:true,
   crsAcknowledged:!!data.consent.cCRS, crsAckAt:data.crsAckAt||'', crsViewedAt:data.crsViewedAt||'',
   crsUrl:CRS_URL, crsVersion:CRS_VERSION, crsTimezone:(Intl&&Intl.DateTimeFormat?Intl.DateTimeFormat().resolvedOptions().timeZone:''),
+  crsReceiptPdfB64:crsReceiptB64(),
   autoPortfolio:autoPortfolio(),
   callBooked:!!data.callBooked,callTime:data.callTime||'' }; }
 // #6: auto-build a starter portfolio from the investor's stated preferences so
@@ -1803,7 +1841,7 @@ function submit(){ const p=payload();
     const link='mailto:'+CONFIG.notifyEmail+'?subject='+encodeURIComponent('Investor Registration — '+(data.first||'')+' '+(data.last||''))+'&body='+body;
     setTimeout(()=>{ const el=document.getElementById('submitState'); if(el)el.innerHTML='<p class="q-sub" style="margin:0 auto 14px;">To finish, send us your details:</p><a class="btn" href="'+link+'">Email my registration</a> <button class="btn ghost" onclick="downloadJSON()">Download a copy</button>'; },50); } }
 function downloadJSON(){ const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='baker1031-registration.json'; a.click(); }
-function disc(){ return '<p class="disc">This registration is for informational purposes and is not an offer to sell or a solicitation of an offer to buy any security. DST and 1031 offerings are available only to accredited investors and are made solely through a sponsor’s Private Placement Memorandum, which controls in all respects. Nothing here is investment, tax, or legal advice. Securities offered through Aurora Securities, Inc., member FINRA/SIPC; Baker 1031 Investments is independent of Aurora Securities. Consult your own CPA and attorney regarding your exchange.</p>'; }
+function disc(){ return '<p class="disc">This registration is for informational purposes and is not an offer to sell or a solicitation of an offer to buy any security. DST and 1031 offerings are available only to accredited investors and are made solely through a sponsor’s Private Placement Memorandum — the official offering document, which takes precedence over anything described on this website. Nothing here is investment, tax, or legal advice. Securities offered through Aurora Securities, Inc., member FINRA/SIPC; Baker 1031 Investments is independent of Aurora Securities. Consult your own CPA and attorney regarding your exchange.</p>'; }
 
 render();
 </script>
