@@ -5,7 +5,7 @@
 
 const NAVY = '#243856', ACCENT = '#ff9900', INK = '#333333', MUTE = '#8a97a6', LINK = '#0099ff';
 const SITE = process.env.SITE_URL || 'https://www.baker1031.com';
-const LOGO = SITE + '/assets/logo.png';
+const LOGO = process.env.MAIL_LOGO || 'https://res.cloudinary.com/opoazlei/image/upload/v1783843015/76c3b97b-a853-46f1-bf6f-19285b0754f8_l5pbup.png';
 const CAL_SCHEDULER = process.env.CAL_SCHEDULER || 'https://cal.com/jerry-baker-yn6qn1/25min';
 const HEAD_FONT = "'Optima', Candara, 'Segoe UI', 'Trebuchet MS', Helvetica, Arial, sans-serif";
 const BODY_FONT = "'Roboto Condensed', 'Segoe UI', Helvetica, Arial, sans-serif";
