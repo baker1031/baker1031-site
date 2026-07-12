@@ -283,6 +283,30 @@ footer = open(os.path.join(ROOT, 'src', 'partials', 'footer.html')).read()
 def inject(html_text):
     return html_text.replace('<!-- @@NAV@@ -->', nav).replace('<!-- @@FOOTER@@ -->', footer)
 
+# Pages that stay OPEN (no soft gate): home, registration, About group, contact,
+# lead-gen/capability pages, all legal/compliance pages, auth pages, 404. Every
+# other page (listings, offerings, insights/articles, resources, strategies, geo,
+# glossary, calculators, sponsors, data-center, guides, property) gets the soft gate.
+GATE_OPEN = set([
+    'baker1031.html', 'index.html', 'request-access.html',
+    'about.html', 'our-approach.html', 'methodology.html', 'due-diligence.html',
+    'team-partners.html', 'jerry-baker-bio.html',
+    'contact.html', 'who-we-serve.html', 'for-advisors-cpas.html', 'for-agents-brokers.html',
+    'account.html', 'employee.html', '404.html',
+    'privacy-policy.html', 'terms.html', 'ccpa.html', 'commitment-to-privacy.html',
+    'reg-bi.html', 'accessibility.html', 'disclosures.html', 'sitemap.html', 'request-access.html',
+])
+GATE_TAG = '<script src="assets/softgate.js" defer></script>'
+
+def gate(html_text, base):
+    if base in GATE_OPEN:
+        return html_text
+    if GATE_TAG in html_text:
+        return html_text
+    if '</body>' in html_text:
+        return html_text.replace('</body>', '  ' + GATE_TAG + '\n</body>', 1)
+    return html_text + '\n' + GATE_TAG
+
 shutil.rmtree(DIST, ignore_errors=True)
 os.makedirs(DIST)
 count = 0
@@ -327,10 +351,10 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
                                lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(sp_dir, indent=1, ensure_ascii=False) + '\n</script>',
                                html_text, flags=re.S)
-        open(os.path.join(DIST, base), 'w').write(inject(html_text))
+        open(os.path.join(DIST, base), 'w').write(gate(inject(html_text), base))
         count += 1
 for base, html_text in generated.items():
-    open(os.path.join(DIST, base), 'w').write(inject(html_text))
+    open(os.path.join(DIST, base), 'w').write(gate(inject(html_text), base))
     count += 1
 
 shutil.copytree(os.path.join(ROOT, 'src', 'assets'), os.path.join(DIST, 'assets'))
