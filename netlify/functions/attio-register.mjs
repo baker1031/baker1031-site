@@ -1,5 +1,6 @@
 // Netlify Function: receives investor-registration form JSON and writes it to Attio.
 // The Attio token lives ONLY here, as the ATTIO_API_TOKEN env var — never in the page.
+import { readPortal, writePortal, newId } from './portal-common.mjs';
 const ATTIO = 'https://api.attio.com/v2';
 
 const ROLE_MAP = {
@@ -134,6 +135,22 @@ export default async (req) => {
   }
 
   await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => {});
+
+  // 2b) #6: seed a starter portfolio into the client's portal (firm-added), flagged new
+  if (d.autoPortfolio && d.autoPortfolio.holdings && d.autoPortfolio.holdings.length) {
+    try {
+      const rr = await attio('/objects/people/records/' + recordId, 'GET', null, token);
+      const rec = rr.json && rr.json.data;
+      const portal = readPortal(rec);
+      if (!portal.portfolios.some(p => p.source === 'auto')) {
+        portal.portfolios.unshift({ id: newId('pf'), name: d.autoPortfolio.name || 'Starter portfolio',
+          theme: d.autoPortfolio.theme || 'Balanced', holdings: d.autoPortfolio.holdings.slice(0, 40),
+          blendLtv: d.autoPortfolio.blendLtv || 0, yield: d.autoPortfolio.yield || 0, total: d.autoPortfolio.total || 0,
+          hidden: false, source: 'auto', createdAt: Date.now() });
+        await writePortal(recordId, portal, token);
+      }
+    } catch (e) {}
+  }
 
   // 3) Full detail as a note (always attempt)
   await attio('/notes', 'POST', {

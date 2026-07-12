@@ -1294,6 +1294,8 @@
 
 <!-- @@FOOTER@@ -->
 
+<script type="application/json" id="directory-data">[]</script>
+<script src="assets/pfbuilder.js"></script>
 <script>
 const CONFIG = { submitUrl: "/.netlify/functions/attio-register", notifyEmail: "invest@baker1031.com" };
 
@@ -1674,7 +1676,23 @@ function payload(){ return { submittedFrom:'investor-registration', role:data.ro
   propertyTypesLike:data.propTypes,propertyTypesAvoid:data.dislikeTypes,regionsLike:data.regions,regionsAvoid:data.dislikeRegions,
   goals:data.goals,heardVia:data.hear||'',notes:data.notes||'',joinList:!!data.consent.c5,
   outsideUSSignals:nonUSsignals(),consented:true,
+  autoPortfolio:autoPortfolio(),
   callBooked:!!data.callBooked,callTime:data.callTime||'' }; }
+// #6: auto-build a starter portfolio from the investor's stated preferences so
+// it's waiting in their portal when they first sign in.
+function autoPortfolio(){
+  try{
+    if(!window.PF) return null;
+    var inv=JSON.parse(document.getElementById('directory-data').textContent)||[];
+    if(!inv.length) return null;
+    var p=window.PF.buildFromPrefs(inv,{ equityToReinvest:data.equity, debtToReplace:data.debt,
+      propertyTypesLike:data.propTypes, propertyTypesAvoid:data.dislikeTypes, goals:data.goals });
+    if(!p) return null;
+    return { name:'Starter portfolio — based on your preferences', theme:p.theme, total:p.total,
+      blendLtv:p.blendLtv, yield:p.yield,
+      holdings:(p.holdings||[]).map(function(h){ return {name:h.name,url:h.url,sponsor:h.sponsor,type:h.type,alloc:h.alloc}; }) };
+  }catch(e){ return null; }
+}
 function submit(){ const p=payload();
   const done=()=>{ const el=document.getElementById('submitState'); if(el)el.innerHTML='<button class="btn ghost" onclick="downloadJSON()">Download my responses</button>'; };
   if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(()=>{}); setTimeout(done,50); }

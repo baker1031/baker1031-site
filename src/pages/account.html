@@ -1228,7 +1228,29 @@
   #acct .muted { color:#8a97a6; font-size:13px; }
   #acct .savemsg { color:#2e7d32; font-weight:700; font-size:13px; margin-left:10px; display:none; }
   #acct .savemsg.on { display:inline; }
-  @media (max-width:560px){ #acct .fieldrow { grid-template-columns:1fr; } }
+  /* advisor card, firm-added, dots */
+  #acct .subh { font-family:"Roboto Condensed",Arial,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:#243856; margin:6px 0 8px; }
+  #acct .newdot { color:#ff5a00; font-size:10px; vertical-align:middle; margin-right:7px; }
+  #acct .firmtag { display:inline-block; background:#243856; color:#fff; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:3px; vertical-align:middle; }
+  #acct .advport { border:1px solid #e6eaf0; margin:8px 0; padding:10px 12px; }
+  #acct .advport-h { font-weight:700; color:#243856; margin-bottom:6px; }
+  #acct .holding { display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid #f4f4f4; }
+  #acct .holding:last-child { border-bottom:0; }
+  #acct .holding a { color:#0099ff; text-decoration:none; }
+  #acct .hmeta { color:#8a97a6; font-size:12px; font-weight:400; }
+  #acct .bm.firm a { color:#243856; }
+  /* interactive tour */
+  .tour-ov { position:fixed; inset:0; background:rgba(20,30,48,.55); z-index:9998; }
+  .tour-pop { position:absolute; z-index:9999; max-width:320px; background:#fff; border:1px solid #243856; box-shadow:0 8px 28px rgba(0,0,0,.25); padding:16px 18px; }
+  .tour-pop h4 { margin:0 0 6px; font-family:"Optima",Candara,sans-serif; text-transform:uppercase; letter-spacing:.05em; color:#243856; font-size:14px; }
+  .tour-pop p { margin:0 0 12px; font-size:14px; color:#3a4a5c; line-height:1.5; }
+  .tour-pop .row { display:flex; justify-content:space-between; align-items:center; }
+  .tour-pop .step { font-size:12px; color:#8a97a6; }
+  .tour-pop .tbtns button { font-family:"Optima",Candara,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:12px; padding:8px 14px; cursor:pointer; border:1px solid #243856; }
+  .tour-pop .tskip { background:#fff; color:#243856; margin-right:8px; }
+  .tour-pop .tnext { background:#243856; color:#fff; }
+  .tour-spot { position:absolute; z-index:9998; border:2px solid #ff9900; box-shadow:0 0 0 4px rgba(255,153,0,.25); border-radius:4px; pointer-events:none; transition:all .2s; }
+  @media (max-width:560px){ #acct .fieldrow { grid-template-columns:1fr; } .tour-pop{ max-width:88vw; } }
 </style>
 </head>
 <body>
@@ -1308,7 +1330,7 @@
     var bms=bookmarks();
     var fy=personalize(p);
     var html=''+
-    '<div class="card"><h2 class="sec">Your details</h2>'+
+    '<div class="card" id="card-details"><h2 class="sec">Your details</h2>'+
       '<div class="fieldrow">'+
         '<div><label class="q-lab">Preferred name</label><input type="text" id="f_pref" value="'+esc(p.preferredName)+'"></div>'+
         '<div><label class="q-lab">Phone</label><input type="tel" id="f_phone" value="'+esc(p.phone)+'"></div>'+
@@ -1316,26 +1338,54 @@
       '<p class="muted" style="margin-top:8px;">Your name, email, and password are managed under <b>Login &amp; security</b> below and stay in sync with your record.</p>'+
       '<div><button class="btn" id="saveProfile">Save changes</button><span class="savemsg" id="saveMsg">Saved ✓</span></div>'+
     '</div>'+
-    '<div class="card"><h2 class="sec">Login &amp; security</h2>'+
+    '<div class="card" id="card-security"><h2 class="sec">Login &amp; security</h2>'+
       '<p class="muted" style="margin-bottom:10px;">Update your name, email, password, and connected devices. Changes sync to your Baker 1031 record.</p>'+
       '<div id="clerkProfile"></div>'+
     '</div>'+
-    '<div class="card"><h2 class="sec">Investment goals</h2>'+
+    '<div class="card" id="card-goals"><h2 class="sec">Investment goals</h2>'+
       '<p class="muted">These shape what we prepare for you. Tap to toggle.</p>'+
       '<div class="chips" id="goalChips">'+GOAL_OPTS.map(function(g){return chip(g,goals.indexOf(g)>-1);}).join('')+'</div>'+
       '<div><button class="btn ghost" id="saveGoals">Save goals</button><span class="savemsg" id="goalMsg">Saved ✓</span></div>'+
     '</div>'+
-    '<div class="card"><h2 class="sec">Saved investments</h2>'+
+    '<div class="card" id="card-saved"><h2 class="sec">Saved investments</h2>'+
       (bms.length? '<div id="bmList">'+bms.map(function(b){return '<div class="bm" data-slug="'+esc(b.slug)+'"><a href="'+esc(b.url)+'">'+esc(b.name)+'</a><button class="rm" data-slug="'+esc(b.slug)+'">Remove</button></div>';}).join('')+'</div>'
         : '<p class="muted">No saved investments yet. Browse the <a href="investments.html" style="color:#0099ff;">current offerings</a> and tap the ☆ to save them here.</p>')+
     '</div>'+
-    '<div class="card"><h2 class="sec">For you</h2>'+
+    advisorCard(d.portal)+
+    '<div class="card" id="card-foryou"><h2 class="sec">For you</h2>'+
       '<p class="muted">Based on what you told us, here&rsquo;s how DSTs address what matters to you:</p>'+
       fy.map(function(b){return '<div class="foryou"><h3>'+esc(b.h)+'</h3><p>'+esc(b.p)+'</p></div>';}).join('')+
       '<div style="margin-top:12px;"><a class="btn" href="investments.html">Browse current offerings</a></div>'+
     '</div>';
     BODY.innerHTML=html; GATE.style.display='none'; BODY.style.display='block';
     wire(d);
+    maybeTour(d);
+  }
+
+  function dot(isNew){ return isNew? '<span class="newdot" title="New">●</span>' : ''; }
+  function advisorCard(portal){
+    portal=portal||{portfolios:[],firmAdded:[],newCount:0};
+    var deals=portal.firmAdded||[], ports=portal.portfolios||[];
+    if(!deals.length && !ports.length){
+      return '<div class="card" id="card-advisor"><h2 class="sec">From your advisor</h2>'+
+        '<p class="muted">When your Baker 1031 advisor prepares example portfolios or flags specific offerings for you, they&rsquo;ll appear here.</p></div>';
+    }
+    var h='<div class="card" id="card-advisor"><h2 class="sec">From your advisor '+dot(portal.newCount>0)+'</h2>';
+    if(ports.length){
+      h+='<h3 class="subh">Example portfolios prepared for you</h3>';
+      h+=ports.map(function(p){
+        var rows=(p.holdings||[]).map(function(x){ return '<div class="holding"><a href="'+esc(x.url)+'">'+esc(x.name)+'</a><span class="hmeta">'+esc(x.type||'')+(x.alloc?(' · $'+Number(x.alloc).toLocaleString()):'')+'</span></div>'; }).join('');
+        return '<div class="advport">'+
+          '<div class="advport-h">'+dot(p.isNew)+esc(p.name||p.theme||'Example portfolio')+'<span class="hmeta"> · '+((p.holdings||[]).length)+' holdings'+(p.total?(' · $'+Number(p.total).toLocaleString()):'')+'</span></div>'+
+          rows+'</div>';
+      }).join('');
+    }
+    if(deals.length){
+      h+='<h3 class="subh" style="margin-top:14px;">Offerings your advisor flagged <span class="firmtag">Firm Added</span></h3>';
+      h+='<div>'+deals.map(function(x){ return '<div class="bm firm">'+dot(x.isNew)+'<a href="'+esc(x.url)+'">'+esc(x.name)+'</a>'+(x.sponsor?'<span class="hmeta"> · '+esc(x.sponsor)+'</span>':'')+'</div>'; }).join('')+'</div>';
+    }
+    h+='<div style="margin-top:12px;"><a class="btn" href="investments.html">Browse all offerings</a></div></div>';
+    return h;
   }
 
   function wire(d){
@@ -1361,6 +1411,56 @@
     if(cp && window.Clerk && window.Clerk.mountUserProfile){
       try{ window.Clerk.mountUserProfile(cp,{appearance:{elements:{rootBox:{width:'100%'},card:{boxShadow:'none',border:'none'}}}}); }catch(err){}
     }
+  }
+
+  // ---- portal server actions (mark new items viewed / dismiss tour) ----
+  function portalAction(token, action){
+    return fetch('/.netlify/functions/account-data',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({action:action})}).catch(function(){});
+  }
+
+  // ---- #4 unread dots: clear them after the user has dwelled on the page ----
+  // ---- #5 first-login interactive tour ----
+  var TOUR_STEPS=[
+    {sel:'#card-details', h:'Your details', p:'Update your preferred name and phone here. They stay in sync with your Baker 1031 record.'},
+    {sel:'#card-security', h:'Login & security', p:'Change your name, email, password, and connected devices — all in one place.'},
+    {sel:'#card-goals', h:'Investment goals', p:'Tap these to tell us what matters most. They shape what we prepare for you.'},
+    {sel:'#card-saved', h:'Saved investments', p:'Offerings you bookmark anywhere on the site collect here so you can revisit them.'},
+    {sel:'#card-advisor', h:'From your advisor', p:'Example portfolios and offerings your advisor prepares for you appear here — a dot marks anything new.'},
+    {sel:'#card-foryou', h:'For you', p:'Personalized notes on how DSTs address the goals and concerns you shared. Welcome aboard!'}
+  ];
+  function maybeTour(d){
+    var token=d.__token, portal=d.portal||{};
+    // clear "new" dots after a short dwell so they're gone next visit
+    if(portal.newCount>0){ setTimeout(function(){ portalAction(token,'markViewed'); },5000); }
+    if(portal.tourSeen) return;
+    startTour(function(){ portalAction(token,'setTourSeen'); });
+  }
+  function startTour(onDone){
+    var steps=TOUR_STEPS.filter(function(s){ return document.querySelector(s.sel); });
+    if(!steps.length){ onDone&&onDone(); return; }
+    var i=0;
+    var ov=document.createElement('div'); ov.className='tour-ov';
+    var spot=document.createElement('div'); spot.className='tour-spot';
+    var pop=document.createElement('div'); pop.className='tour-pop';
+    document.body.appendChild(ov); document.body.appendChild(spot); document.body.appendChild(pop);
+    function end(){ [ov,spot,pop].forEach(function(el){ if(el.parentNode)el.parentNode.removeChild(el); }); onDone&&onDone(); }
+    function show(){
+      var el=document.querySelector(steps[i].sel); if(!el){ i++; if(i>=steps.length)return end(); return show(); }
+      el.scrollIntoView({block:'center',behavior:'smooth'});
+      setTimeout(function(){
+        var r=el.getBoundingClientRect(), sy=window.scrollY, sx=window.scrollX;
+        spot.style.top=(r.top+sy-4)+'px'; spot.style.left=(r.left+sx-4)+'px'; spot.style.width=(r.width+8)+'px'; spot.style.height=(r.height+8)+'px';
+        var top=r.bottom+sy+10; if(top+180>sy+window.innerHeight) top=r.top+sy-190; if(top<sy+10) top=sy+10;
+        var left=r.left+sx; if(left+330>sx+window.innerWidth) left=sx+window.innerWidth-340;
+        pop.style.top=top+'px'; pop.style.left=Math.max(10,left)+'px';
+        pop.innerHTML='<h4>'+steps[i].h+'</h4><p>'+steps[i].p+'</p><div class="row"><span class="step">'+(i+1)+' / '+steps.length+'</span>'+
+          '<span class="tbtns"><button class="tskip">Skip</button><button class="tnext">'+(i===steps.length-1?'Done':'Next')+'</button></span></div>';
+        pop.querySelector('.tskip').onclick=end;
+        pop.querySelector('.tnext').onclick=function(){ i++; if(i>=steps.length)return end(); show(); };
+      },260);
+    }
+    ov.onclick=function(){}; // block clicks behind
+    show();
   }
 
   function showGateError(msg){

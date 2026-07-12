@@ -1328,18 +1328,46 @@
       <div id="results"></div>
 
       <div class="card" id="shareCard" style="display:none;">
-        <h2 class="sec">Share &amp; grant access</h2>
-        <p class="muted">Create a client-facing link that reproduces the portfolios above (no password needed for the client), then optionally grant that client portal access.</p>
+        <h2 class="sec">Share, save &amp; grant access</h2>
+        <p class="muted">Create a client-facing link that reproduces the portfolios above (no password needed for the client), save a portfolio into a client's portal, or grant portal access.</p>
         <div class="toolrow">
           <button class="btn ghost" id="linkBtn">Generate client link</button>
           <button class="btn ghost" id="copyLink">Copy link</button>
         </div>
         <div class="linkbox" id="linkOut"></div>
-        <div class="toolrow" style="margin-top:14px;">
-          <input type="email" id="grantEmail" placeholder="client@example.com">
-          <button class="btn" id="grantBtn">Grant portal access</button>
+
+        <label class="q-lab" style="margin-top:16px;display:block;">Client email (for save / grant)</label>
+        <input type="email" id="grantEmail" placeholder="client@example.com">
+        <label class="q-lab" style="margin-top:12px;display:block;">Portfolio to save</label>
+        <select id="saveWhich"></select>
+        <div class="toolrow" style="margin-top:8px;">
+          <label style="font-weight:400;color:#555;"><input type="checkbox" id="alsoDeals" style="width:auto;margin-right:6px;">also add its holdings as <b>Firm-Added</b> deals</label>
+        </div>
+        <div class="toolrow" style="margin-top:8px;">
+          <button class="btn" id="saveBtn">Save to client's portal</button>
+          <button class="btn ghost" id="grantBtn">Grant portal access</button>
         </div>
         <span class="err" id="grantMsg"></span>
+      </div>
+
+      <div class="card">
+        <h2 class="sec">Firm-add a single deal</h2>
+        <p class="muted">Add a specific offering into a client's portal. It appears flagged <b>Firm Added</b> (distinct from a client's own bookmarks) and pings their profile as new.</p>
+        <div class="grid2">
+          <div><label class="q-lab">Client email</label><input type="email" id="fa_email" placeholder="client@example.com"></div>
+          <div><label class="q-lab">Offering</label><select id="fa_deal"></select></div>
+        </div>
+        <div style="margin-top:10px;"><button class="btn" id="fa_add">Add deal to client's portal</button> <span class="err" id="fa_msg"></span></div>
+      </div>
+
+      <div class="card">
+        <h2 class="sec">Saved portfolios</h2>
+        <p class="muted">Portfolios you've saved into client portals. Edit the name, hide from the client, or remove.</p>
+        <div class="toolrow">
+          <input type="email" id="mg_email" placeholder="Filter by client email (blank = all recent)">
+          <button class="btn ghost" id="mg_load">Load</button>
+        </div>
+        <div id="mg_list" style="margin-top:12px;"></div>
       </div>
     </div>
   </div>
@@ -1502,7 +1530,80 @@
     lastPorts=ports; lastOpts=o;
     renderPorts(ports,'results',o);
     document.getElementById('shareCard').style.display='';
-    if(o.email) document.getElementById('grantEmail').value=o.email;
+    if(o.email){ document.getElementById('grantEmail').value=o.email; document.getElementById('fa_email').value=o.email; }
+    // populate the "portfolio to save" dropdown
+    var sw=document.getElementById('saveWhich');
+    sw.innerHTML=ports.map(function(p,i){ return '<option value="'+i+'"'+(p.theme==='Balanced'?' selected':'')+'>'+esc(p.theme)+' · '+p.hold.length+' holdings · '+money(p.total)+'</option>'; }).join('');
+  }
+  function portfolioPayload(p){
+    return { name:(lastOpts.client?lastOpts.client+' — ':'')+p.theme+' portfolio', theme:p.theme,
+      blendLtv:p.blendLtv, yield:p.yield, total:p.total,
+      holdings:p.hold.map(function(h){ return { name:h.o.name, url:h.o.url, sponsor:h.o.sponsor, type:h.o.type, alloc:Math.round(h.alloc) }; }) };
+  }
+  function empPost(path, payload){
+    return fetch('/.netlify/functions/'+path,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});});
+  }
+  function saveToClient(){
+    var msg=document.getElementById('grantMsg'); msg.style.color='#c0392b';
+    var email=document.getElementById('grantEmail').value.trim();
+    if(!email){ msg.textContent='Enter a client email.'; return; }
+    if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return; }
+    if(!lastPorts){ msg.textContent='Build a portfolio first.'; return; }
+    var idx=parseInt(document.getElementById('saveWhich').value,10)||0;
+    var also=document.getElementById('alsoDeals').checked;
+    msg.style.color='#555'; msg.textContent='Saving…';
+    empPost('employee-portfolio',{action:'save',email:email,portfolio:portfolioPayload(lastPorts[idx]),alsoAddDeals:also})
+      .then(function(res){ if(res.s>=200&&res.s<300&&res.j.ok){ msg.style.color='#2e7d32'; msg.textContent='Saved to '+email+"'s portal"+(also?' · holdings firm-added ✓':' ✓'); }
+        else if(res.s===401){ msg.textContent='Session expired — re-enter the password.'; }
+        else { msg.textContent='Could not save: '+(res.j.error||('HTTP '+res.s)); } })
+      .catch(function(){ msg.textContent='Network error — try again.'; });
+  }
+  function firmAddDeal(){
+    var msg=document.getElementById('fa_msg'); msg.style.color='#c0392b';
+    var email=document.getElementById('fa_email').value.trim();
+    var url=document.getElementById('fa_deal').value;
+    if(!email){ msg.textContent='Enter a client email.'; return; }
+    if(!url){ msg.textContent='Choose an offering.'; return; }
+    if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return; }
+    var o=POOL.filter(function(x){return x.url===url;})[0]||{};
+    msg.style.color='#555'; msg.textContent='Adding…';
+    empPost('employee-portfolio',{action:'addDeal',email:email,deal:{url:url,name:o.name,sponsor:o.sponsor,type:o.type}})
+      .then(function(res){ if(res.s>=200&&res.s<300&&res.j.ok){ msg.style.color='#2e7d32'; msg.textContent='Added to '+email+"'s portal ✓"; }
+        else if(res.s===401){ msg.textContent='Session expired — re-enter the password.'; }
+        else { msg.textContent='Could not add: '+(res.j.error||('HTTP '+res.s)); } })
+      .catch(function(){ msg.textContent='Network error — try again.'; });
+  }
+  function loadManage(){
+    var wrap=document.getElementById('mg_list'); wrap.innerHTML='<p class="muted">Loading…</p>';
+    var email=document.getElementById('mg_email').value.trim();
+    var payload=email?{action:'list',email:email}:{action:'listAll'};
+    empPost('employee-portfolio',payload).then(function(res){
+      if(res.s===401){ wrap.innerHTML='<p class="err">Session expired — re-enter the password.</p>'; return; }
+      if(!(res.s>=200&&res.s<300&&res.j.ok)){ wrap.innerHTML='<p class="err">Could not load: '+esc(res.j.error||('HTTP '+res.s))+'</p>'; return; }
+      var list=res.j.portfolios||[];
+      list.forEach(function(p){ if(!p.clientEmail) p.clientEmail=email; });
+      if(!list.length){ wrap.innerHTML='<p class="muted">No saved portfolios'+(email?(' for '+esc(email)):'')+' yet.</p>'; return; }
+      wrap.innerHTML=list.map(function(p){
+        return '<div class="port" data-id="'+esc(p.id)+'" data-email="'+esc(p.clientEmail||'')+'"><h3>'+esc(p.name||p.theme||'Portfolio')+(p.hidden?' · <span style="color:#b26a00;">hidden</span>':'')+'</h3><div class="body">'
+          +'<p class="muted">'+esc(p.clientEmail||'')+' · '+((p.holdings||[]).length)+' holdings · '+money(p.total||0)+'</p>'
+          +'<div class="toolrow"><input type="text" class="mg-name" value="'+esc(p.name||'')+'"><button class="btn ghost mg-rename">Rename</button>'
+          +'<button class="btn ghost mg-hide">'+(p.hidden?'Unhide':'Hide')+'</button>'
+          +'<button class="btn ghost mg-remove" style="border-color:#c0392b;color:#c0392b;">Remove</button></div>'
+          +'<span class="err mg-msg"></span></div></div>';
+      }).join('');
+      wrap.querySelectorAll('.port').forEach(function(card){
+        var id=card.dataset.id, em=card.dataset.email, msg=card.querySelector('.mg-msg');
+        function act(payload,ok){ msg.style.color='#555'; msg.textContent='…';
+          empPost('employee-portfolio',Object.assign({email:em,id:id},payload)).then(function(res){
+            if(res.s>=200&&res.s<300&&res.j.ok){ msg.style.color='#2e7d32'; msg.textContent=ok; if(payload.action==='remove'){ card.remove(); } else loadManage(); }
+            else if(res.s===401){ msg.style.color='#c0392b'; msg.textContent='Session expired.'; }
+            else { msg.style.color='#c0392b'; msg.textContent=(res.j.error||('HTTP '+res.s)); } }); }
+        card.querySelector('.mg-rename').onclick=function(){ act({action:'edit',name:card.querySelector('.mg-name').value.trim()},'Renamed ✓'); };
+        card.querySelector('.mg-hide').onclick=function(){ var hiding=card.querySelector('.mg-hide').textContent==='Hide'; act({action:'hide',hidden:hiding},hiding?'Hidden ✓':'Unhidden ✓'); };
+        card.querySelector('.mg-remove').onclick=function(){ act({action:'remove'},'Removed ✓'); };
+      });
+    }).catch(function(){ wrap.innerHTML='<p class="err">Network error — try again.</p>'; });
   }
 
   // ---------- shareable link (client view via URL hash) ----------
@@ -1542,10 +1643,16 @@
     fillChips('c_goals',GOALS);
     fillChips('c_typeInc',TYPES); fillChips('c_typeExc',TYPES);
     fillChips('c_regInc',REGIONS); fillChips('c_regExc',REGIONS);
+    // offering picker for firm-add
+    document.getElementById('fa_deal').innerHTML='<option value="">— choose an offering —</option>'+
+      POOL.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(o){ return '<option value="'+esc(o.url)+'">'+esc(o.name)+' ('+esc(o.sponsor)+')</option>'; }).join('');
     document.getElementById('buildBtn').onclick=runBuild;
     document.getElementById('linkBtn').onclick=genLink;
     document.getElementById('copyLink').onclick=function(){ var u=genLink(); if(u&&navigator.clipboard){ navigator.clipboard.writeText(u).then(function(){ var b=document.getElementById('copyLink'); b.textContent='Copied ✓'; setTimeout(function(){b.textContent='Copy link';},1500); }); } };
     document.getElementById('grantBtn').onclick=grant;
+    document.getElementById('saveBtn').onclick=saveToClient;
+    document.getElementById('fa_add').onclick=firmAddDeal;
+    document.getElementById('mg_load').onclick=loadManage;
   }
   function grant(){
     var msg=document.getElementById('grantMsg'); msg.style.color='#c0392b';

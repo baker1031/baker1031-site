@@ -1,6 +1,7 @@
 // Member account API. Verifies the Clerk session JWT (networkless, via JWKS),
 // then reads/updates the signed-in person's Attio record. GET = load, POST = save.
 import crypto from 'node:crypto';
+import { readPortal, writePortal } from './portal-common.mjs';
 
 const ATTIO = 'https://api.attio.com/v2';
 const CLERK_FAPI = 'https://keen-heron-49.clerk.accounts.dev';
@@ -41,6 +42,15 @@ const opt = (arr) => (arr || []).map(v => (v.option && v.option.title) || (v.sta
 const val = (arr) => (arr && arr[0]) ? (arr[0].value != null ? arr[0].value : arr[0]) : '';
 
 function json(o, s = 200){ return new Response(JSON.stringify(o), { status: s, headers: { 'Content-Type': 'application/json' } }); }
+
+function portalPayload(rec){
+  const p = readPortal(rec);
+  const vP = p.viewed.portfolios, vF = p.viewed.firmAdded;
+  const portfolios = (p.portfolios || []).filter(x => !x.hidden).map(x => ({ ...x, isNew: vP.indexOf(x.id) < 0 }));
+  const firmAdded = (p.firmAdded || []).map(x => ({ ...x, isNew: vF.indexOf(x.slug) < 0 }));
+  return { portfolios, firmAdded, tourSeen: !!p.tourSeen,
+           newCount: portfolios.filter(x => x.isNew).length + firmAdded.filter(x => x.isNew).length };
+}
 
 export default async (req) => {
   const ATT = process.env.ATTIO_API_TOKEN, SK = process.env.CLERK_SECRET_KEY;
@@ -95,12 +105,25 @@ export default async (req) => {
       propertyAvoid: opt(v.property_types_avoid),
       regionAvoid: opt(v.regions_avoid),
       portalAccess: !!val(v.portal_access),
-    }});
+    }, portal: portalPayload(rec) });
   }
 
   if (req.method === 'POST') {
     if (!rec) return json({ error: 'no record to update' }, 404);
     let body; try { body = await req.json(); } catch (e) { return json({ error: 'bad json' }, 400); }
+
+    // ---- portal actions (mark new items as viewed / dismiss the tour) ----
+    if (body.action === 'markViewed' || body.action === 'setTourSeen') {
+      const portal = readPortal(rec);
+      if (body.action === 'setTourSeen') portal.tourSeen = true;
+      else {
+        portal.viewed.portfolios = (portal.portfolios || []).map(x => x.id);
+        portal.viewed.firmAdded = (portal.firmAdded || []).map(x => x.slug);
+      }
+      await writePortal(rec.id.record_id, portal, ATT);
+      return json({ ok: true });
+    }
+
     const values = {};
     if (body.firstName || body.lastName) {
       const fn = body.firstName || user.first_name || '', ln = body.lastName || user.last_name || '';

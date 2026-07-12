@@ -295,7 +295,7 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
                                lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(dir_rows, indent=1, ensure_ascii=False) + '\n</script>',
                                html_text, flags=re.S)
-        if base == 'employee.html':
+        if base in ('employee.html', 'request-access.html'):
             html_text = html_text.replace('<script type="application/json" id="directory-data">[]</script>',
                                           '<script type="application/json" id="directory-data">' + json.dumps(dir_rows, ensure_ascii=False) + '</script>')
         if base == 'account.html':
