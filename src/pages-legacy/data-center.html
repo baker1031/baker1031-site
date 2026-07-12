@@ -1244,6 +1244,30 @@
     <a class="back-link" href="baker1031.html">Back to Home</a>
 
     <div class="legacy">
+<style>
+  /* ---- data-center component styling (KPIs, cohort tabs, charts, pref rows) ---- */
+  .legacy .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 8px; }
+  .legacy .kpi { display: flex; flex-direction: column; gap: 3px; border: 1px solid #eee; background: #fafafa; padding: 14px 16px; }
+  .legacy .kpi .l { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #777; font-weight: 700; }
+  .legacy .kpi .n { font-family: "Optima", Candara, sans-serif; font-weight: 700; font-size: 26px; color: #243856; line-height: 1.1; }
+  .legacy .kpi .d { font-size: 12px; color: #888; }
+  .legacy .tabsbar { display: inline-flex; gap: 0; border: 1px solid #ccc; margin: 6px 0 14px; }
+  .legacy .tabsbar .tab { padding: 8px 16px; font-size: 13px; cursor: pointer; background: #fff; color: #243856; border-right: 1px solid #ccc; user-select: none; }
+  .legacy .tabsbar .tab:last-child { border-right: 0; }
+  .legacy .tabsbar .tab.on { background: #243856; color: #fff; }
+  .legacy .chartcard { border: 1px solid #eee; padding: 14px 16px; margin: 16px 0; }
+  .legacy .chartcard .ct { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+  .legacy .chartcard .ct h3 { margin: 0; font-family: "Optima", Candara, sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; color: #243856; }
+  .legacy .chartcard .ct .mk { font-size: 12px; color: #999; }
+  .legacy .chartwrap { position: relative; height: 360px; }
+  .legacy .chartwrap canvas { max-width: 100%; }
+  .legacy .prefrow { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid #f0f0f0; }
+  .legacy .pref { font-weight: 700; color: #243856; }
+  .legacy .secblock { margin: 26px 0; }
+  .legacy .scroller { overflow-x: auto; }
+  @media (max-width: 720px) { .legacy .kpis { grid-template-columns: 1fr 1fr; } .legacy .chartwrap { height: 300px; } }
+  @media (max-width: 480px) { .legacy .kpis { grid-template-columns: 1fr; } }
+</style>
 <section class="pagehead"><div class="wrap">
 <div>
 
@@ -2043,6 +2067,7 @@
   </main>
 
 <script>(function(){var b=document.getElementById('spmore'),t=document.getElementById('sponsorTbl');if(b&&t)b.addEventListener('click',function(){var o=t.classList.toggle('open');b.textContent=o?'Show fewer sponsors':'Show all 82 sponsors in this dataset';});})();</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
   (function(){
     document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
@@ -2053,7 +2078,7 @@
     // Default the view to Our Preferred Sponsors on load (#27).
     (function(){var p=document.querySelector('.tab[data-cohort="pref"]');if(p)p.click();})();
     if(!window.Chart){return;}
-    var INK='#35647E',ACCENT='#35647E',HAIR='#EFEEEC',MUTE='#777';
+    var INK='#243856',ACCENT='#243856',HAIR='#EFEEEC',MUTE='#777';
     Chart.defaults.font.family='"Open Sans", sans-serif'; Chart.defaults.font.size=12; Chart.defaults.color=MUTE;
     var grid={color:HAIR,drawTicks:false}, pct=function(v){return v+'%';};
     var sp=[{"n":"Syndicated Equities","v":41,"p":false},{"n":"Denholtz","v":38.05,"p":true},{"n":"Bridgeview","v":37.25,"p":true},{"n":"Peachtree Group","v":31.18,"p":true},{"n":"Olympus Property","v":25.75,"p":true},{"n":"Bluerock","v":21.39,"p":false},{"n":"Time Equities","v":20.77,"p":false},{"n":"Carter Exchange","v":20.07,"p":true},{"n":"Griffin Capital","v":18.04,"p":true},{"n":"NexPoint","v":16.83,"p":true},{"n":"Capital Square","v":15.2,"p":true},{"n":"Moody National","v":14.56,"p":false},{"n":"Passco","v":12.33,"p":false},{"n":"Cantor Fitzgerald","v":11.67,"p":false},{"n":"Net Lease Capital Advisors","v":8.72,"p":false},{"n":"Livingston Street Capital","v":8.52,"p":false},{"n":"Walton Global Holdings","v":8.2,"p":false},{"n":"Inland","v":8.1,"p":false},{"n":"ExchangeRight","v":7.77,"p":true},{"n":"Four Springs Capital","v":7.05,"p":false},{"n":"AEI Capital Corporation","v":6.75,"p":false},{"n":"Starboard Realty Advisors","v":6.34,"p":false}];

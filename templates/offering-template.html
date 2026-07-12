@@ -934,14 +934,13 @@
   if (!btn) return;
   var star = document.getElementById('bookmarkStar');
   var label = document.getElementById('bookmarkLabel');
-  var key = 'b1031-bookmark-' + (location.pathname || 'offering');
+  // Key off the URL slug so it matches the inventory directory's bookmark keys.
+  var slug = ((location.pathname || '').split('/').pop() || 'offering').replace(/\.html$/, '');
   try {
     var dataEl = document.getElementById('offering-data');
-    if (dataEl) {
-      var slug = JSON.parse(dataEl.textContent).url;
-      if (slug) key = 'b1031-bookmark-' + slug;
-    }
+    if (dataEl) { var u = JSON.parse(dataEl.textContent).url; if (u) slug = String(u).replace(/\.html$/, ''); }
   } catch (e) {}
+  var key = 'b1031-bookmark-' + slug;
 
   function render(saved) {
     star.innerHTML = saved ? '&#9733;' : '&#9734;';

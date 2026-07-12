@@ -857,6 +857,20 @@
   .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
   .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
   .status-available { color: #1a7f37; font-weight: 700; }
+  /* ---------- bookmark star + saved filter ---------- */
+  .dir-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .saved-toggle {
+    display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ccc;
+    color: #243856; font-family: "Roboto Condensed","Roboto Narrow",Roboto,Arial,sans-serif; font-size: 13px;
+    padding: 7px 14px; cursor: pointer;
+  }
+  .saved-toggle:hover { border-color: #243856; }
+  .saved-toggle .star { color: #ff9900; font-size: 15px; line-height: 1; }
+  .saved-toggle.on { background: #243856; color: #fff; border-color: #243856; }
+  .dir-table th.dir-star-h, .dir-table td.dir-star-c { width: 34px; text-align: center; padding-left: 4px; padding-right: 4px; }
+  .dir-star { background: none; border: 0; cursor: pointer; font-size: 18px; line-height: 1; color: #c7ccd2; padding: 2px 4px; }
+  .dir-star:hover { color: #ff9900; }
+  .dir-star.on { color: #ff9900; }
 
   .mobile-sort { display: none; margin-top: 16px; }
   .mobile-sort label { font-size: 13px; color: #777; margin-right: 8px; }
@@ -1000,25 +1014,29 @@
   <main>
     <p style="margin-top: 20px;">Current Delaware Statutory Trust and 1031-eligible offerings tracked by Baker 1031 Investments. Click an investment name for full details and analysis, or use Preview for a quick look. Offerings are private placements available to accredited investors only.</p>
 
-    <div class="mobile-sort">
-      <label for="sortSelect">Sort by</label>
-      <select id="sortSelect">
-        <option value="">Default</option>
-        <option value="name">Investment</option>
-        <option value="propertyType">Property Type</option>
-        <option value="location">Location</option>
-        <option value="ltv">LTV</option>
-        <option value="minimum">Minimum</option>
-        <option value="y1Yield">Y1 Yield</option>
-        <option value="avgYield">Avg. Yield</option>
-        <option value="status">Status</option>
-      </select>
+    <div class="dir-controls">
+      <div class="mobile-sort">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect">
+          <option value="">Default</option>
+          <option value="name">Investment</option>
+          <option value="propertyType">Property Type</option>
+          <option value="location">Location</option>
+          <option value="ltv">LTV</option>
+          <option value="minimum">Minimum</option>
+          <option value="y1Yield">Y1 Yield</option>
+          <option value="avgYield">Avg. Yield</option>
+          <option value="status">Status</option>
+        </select>
+      </div>
+      <button type="button" id="savedToggle" class="saved-toggle"><span class="star">&#9734;</span> <span id="savedToggleLabel">Show saved</span></button>
     </div>
 
     <div class="dir-table-wrap">
       <table class="dir-table">
         <thead>
           <tr>
+            <th class="dir-star-h" aria-label="Saved"></th>
             <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
             <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
             <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
@@ -2013,11 +2031,26 @@ var DIR = [];
   var tbody = document.getElementById('dirBody');
   var sortKey = null, sortDir = 1;
 
-  function render(rows) {
+  function bmKey(o) { return 'b1031-bookmark-' + String(o.url || '').replace(/\.html$/, ''); }
+  function isBm(o) { try { return localStorage.getItem(bmKey(o)) === '1'; } catch (e) { return false; } }
+  function setBm(o, v) { try { v ? localStorage.setItem(bmKey(o), '1') : localStorage.removeItem(bmKey(o)); } catch (e) {} }
+
+  var baseRows = DIR.slice();
+  var savedOnly = false;
+  function paint() {
+    var rows = savedOnly ? baseRows.filter(isBm) : baseRows;
+    renderRows(rows);
+    if (savedOnly && !rows.length) {
+      tbody.innerHTML = '<tr><td colspan="10" style="padding:20px;color:#888;">No saved investments yet. Tap the ☆ on any row (or the Bookmark button on an offering page) to save it here.</td></tr>';
+    }
+  }
+  function renderRows(rows) {
     tbody.innerHTML = rows.map(function (o) {
       var i = DIR.indexOf(o);
       var statusCls = o.status === 'Available' ? 'status-available' : '';
+      var saved = isBm(o);
       return '<tr>' +
+        '<td class="dir-star-c"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button></td>' +
         '<td><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
           '<span class="sub">' + esc(o.sponsor) + '</span></td>' +
         '<td data-label="Property Type">' + esc(o.propertyType) + '</td>' +
@@ -2050,7 +2083,7 @@ var DIR = [];
       th.querySelector('.arrow').textContent =
         th.getAttribute('data-key') === sortKey ? (sortDir === 1 ? '\u25B2' : '\u25BC') : '';
     });
-    render(rows);
+    baseRows = rows; paint();
   }
   document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
     th.addEventListener('click', function () { doSort(th.getAttribute('data-key')); });
@@ -2059,13 +2092,39 @@ var DIR = [];
   var sortSelect = document.getElementById('sortSelect');
   if (sortSelect) {
     sortSelect.addEventListener('change', function () {
-      if (!this.value) { sortKey = null; sortDir = 1; render(DIR); return; }
+      if (!this.value) { sortKey = null; sortDir = 1; baseRows = DIR.slice(); paint(); return; }
       sortKey = null; // force ascending on fresh pick
       doSort(this.value);
     });
   }
 
-  render(DIR);
+  // star click (event delegation) \u2014 toggles the shared bookmark key
+  tbody.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.dir-star') : null;
+    if (!btn) return;
+    var o = DIR[+btn.getAttribute('data-i')]; if (!o) return;
+    var next = !isBm(o); setBm(o, next);
+    btn.textContent = next ? '\u2605' : '\u2606';
+    btn.classList.toggle('on', next);
+    btn.setAttribute('aria-pressed', next ? 'true' : 'false');
+    if (savedOnly && !next) paint(); // drop it from the filtered view
+  });
+
+  var savedToggle = document.getElementById('savedToggle');
+  if (savedToggle) {
+    savedToggle.addEventListener('click', function () {
+      savedOnly = !savedOnly;
+      savedToggle.classList.toggle('on', savedOnly);
+      savedToggle.querySelector('.star').innerHTML = savedOnly ? '\u2605' : '\u2606';
+      document.getElementById('savedToggleLabel').textContent = savedOnly ? 'Showing saved' : 'Show saved';
+      paint();
+    });
+  }
+
+  // refresh stars when returning to the tab (bookmarks may have changed on an offering page)
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) paint(); });
+
+  paint();
 })();
 
 function openDrawer(i) {
