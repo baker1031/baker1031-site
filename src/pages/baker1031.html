@@ -142,6 +142,15 @@
     object-fit: cover;
     z-index: 0;
   }
+  .hero-video::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 55%;
+    background: linear-gradient(to top, rgba(11,18,32,0.80) 0%, rgba(11,18,32,0.35) 45%, rgba(11,18,32,0) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
   .hero-video h1 {
     position: absolute;
     left: 28px;
@@ -151,7 +160,7 @@
     color: #fff;
     font-size: 26px;
     line-height: 1.3;
-    z-index: 1;
+    z-index: 2;
     text-shadow: 0 1px 8px rgba(0,0,0,0.5);
   }
 
@@ -297,6 +306,8 @@
     align-self: stretch;
     flex: none;
     background: linear-gradient(135deg, #2e4568, #16233a);
+    background-size: cover;
+    background-position: center;
     border: 1px solid #ccc;
     object-fit: cover;
   }
@@ -702,7 +713,7 @@
     <h2 class="optima" style="margin-top: 28px;" id="strategies">Our 1031 Exchange Strategies</h2>
 
     <div class="strategy">
-      <div class="thumb" aria-hidden="true"></div>
+      <div class="thumb" style="background-image:url('https://res.cloudinary.com/opoazlei/image/upload/v1783843881/Apartments_pllp0h.jpg')" aria-hidden="true"></div>
       <div>
         <h3>Delaware Statutory Trusts (DSTs)</h3>
         <p>Institutional-quality, professionally managed real estate structured for 1031 exchange investors. DSTs allow you to complete your exchange into fractional interests in large commercial properties — multifamily, industrial, net-lease, and more — with no landlord responsibilities.</p>
@@ -713,7 +724,7 @@
     <hr class="divider-light">
 
     <div class="strategy">
-      <div class="thumb" aria-hidden="true"></div>
+      <div class="thumb" style="background-image:url('https://res.cloudinary.com/opoazlei/image/upload/v1783843880/Hotel_ojlaau.avif')" aria-hidden="true"></div>
       <div>
         <h3>721 UPREIT Exchanges</h3>
         <p>Exchange your property into an operating partnership of a REIT through a 721 contribution — converting a single asset into a diversified, institutionally managed portfolio with potential liquidity over time.</p>
@@ -724,7 +735,7 @@
     <hr class="divider-light">
 
     <div class="strategy">
-      <div class="thumb" aria-hidden="true"></div>
+      <div class="thumb" style="background-image:url('https://res.cloudinary.com/opoazlei/image/upload/v1783843878/Amazon_q2ru5v.png')" aria-hidden="true"></div>
       <div>
         <h3>Opportunity Zone Funds</h3>
         <p>Reinvest capital gains into qualified Opportunity Zone funds to defer tax and, after a ten-year hold, potentially eliminate tax on new appreciation — a powerful complement to a 1031 strategy for gains that don't qualify for exchange.</p>
@@ -735,7 +746,7 @@
     <hr class="divider-light">
 
     <div class="strategy">
-      <div class="thumb" aria-hidden="true"></div>
+      <div class="thumb" style="background-image:url('https://res.cloudinary.com/opoazlei/image/upload/v1783843879/Oil_Wells_m8jf8v.webp')" aria-hidden="true"></div>
       <div>
         <h3>Mineral &amp; Royalty Interests</h3>
         <p>Like-kind exchangeable interests in producing oil, gas, and mineral royalties — offering passive income streams uncorrelated with traditional real estate sectors and eligible for 1031 treatment.</p>
@@ -746,7 +757,7 @@
     <hr class="divider-light">
 
     <div class="strategy">
-      <div class="thumb" aria-hidden="true"></div>
+      <div class="thumb" style="background-image:url('https://res.cloudinary.com/opoazlei/image/upload/v1783843879/Mall_a3ex5g.jpg')" aria-hidden="true"></div>
       <div>
         <h3>REITs &amp; Income Funds</h3>
         <p>Public and private REITs and income-oriented real estate funds for investors seeking diversification, professional management, and simplified reporting alongside their tax-advantaged holdings.</p>
@@ -931,104 +942,6 @@
             <div class="attr"><span class="label">Annual Return</span><span class="value">21.14%</span></div>
             <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.57x</span></div>
             <div class="attr"><span class="label">Hold Period</span><span class="value">2.6 Years</span></div>
-          </div>
-        </div>
-      </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Gateway Logistics Center</h3>
-          <div class="location">Nashville, TN</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">10.4%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.67x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">4.8 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Trailside Multifamily</h3>
-          <div class="location">Denver, CO</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">8.7%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.52x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">6.1 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Palmetto Medical Plaza</h3>
-          <div class="location">Charleston, SC</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">7.9%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.46x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">5.5 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Ironworks Industrial Park</h3>
-          <div class="location">Columbus, OH</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">11.1%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.74x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">4.3 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Riverbend Self-Storage</h3>
-          <div class="location">Austin, TX</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">9.8%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.61x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">5.0 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Copper Creek Villas</h3>
-          <div class="location">Phoenix, AZ</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">8.4%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.49x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">5.7 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Harborline Distribution</h3>
-          <div class="location">Savannah, GA</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">10.9%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.71x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">4.5 Years</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="photo" aria-hidden="true"></div>
-        <div class="card-body">
-          <h3>Bluegrass Net Lease Portfolio</h3>
-          <div class="location">Louisville, KY</div>
-          <div class="attrs">
-            <div class="attr"><span class="label">Annual Return</span><span class="value">7.6%</span></div>
-            <div class="attr"><span class="label">Equity Multiple</span><span class="value">1.44x</span></div>
-            <div class="attr"><span class="label">Hold Period</span><span class="value">6.3 Years</span></div>
           </div>
         </div>
       </div>
