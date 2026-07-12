@@ -60,4 +60,22 @@ export function newId(prefix){
   return (prefix || 'p') + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
 }
 
+// #3: add a person to an Attio list named for a deal/offering. Creates the list if
+// it doesn't exist yet. Idempotent-ish (duplicate entries are tolerated by Attio;
+// list creation is guarded by a deterministic slug).
+export async function addToDealList(dealName, recordId, token){
+  const base = 'deal-' + String(dealName || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+  const slug = base || ('deal-' + recordId.slice(0, 8));
+  // create the list (ignore "already exists")
+  await attio('/lists', 'POST', { data: {
+    name: String(dealName || 'Deal').slice(0, 80), api_slug: slug,
+    parent_object: 'people', workspace_access: 'read-and-write',
+  } }, token).catch(() => {});
+  // add the person as an entry
+  const r = await attio('/lists/' + slug + '/entries', 'POST', { data: {
+    parent_record_id: recordId, parent_object: 'people', entry_values: {},
+  } }, token).catch(() => ({ ok: false }));
+  return { ok: !!(r && r.ok), slug };
+}
+
 export function json(o, s = 200){ return new Response(JSON.stringify(o), { status: s, headers: { 'Content-Type': 'application/json' } }); }

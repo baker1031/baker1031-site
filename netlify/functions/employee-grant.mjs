@@ -3,6 +3,7 @@
 // for the person (upserting them if needed) and sends a Clerk invitation so they can
 // set a password and sign in. Idempotent.
 import { verify } from './employee-auth.mjs';
+import { sendMail } from './mailer.mjs';
 
 const ATTIO = 'https://api.attio.com/v2';
 const CLERK = 'https://api.clerk.com/v1';
@@ -47,5 +48,6 @@ export default async (req) => {
       }
     } catch (e) {}
   }
+  await sendMail(email, 'portalGranted', {}).catch(() => {}); // #5
   return json({ ok: true, recordId, invited });
 };

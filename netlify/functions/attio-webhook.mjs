@@ -1,6 +1,7 @@
 // #7: Attio webhook. When a person's Portal Access is true, ensure a Clerk
 // account/invitation exists for them. Clerk's ignore_existing + existing-user
 // handling makes this idempotent (no duplicate emails on repeat updates).
+import { sendMail } from './mailer.mjs';
 const ATTIO = 'https://api.attio.com/v2';
 const CLERK = 'https://api.clerk.com/v1';
 
@@ -35,6 +36,8 @@ export default async (req) => {
       headers: { Authorization: 'Bearer ' + SK, 'Content-Type': 'application/json' },
       body: JSON.stringify({ email_address: email, notify: true, ignore_existing: true, public_metadata: { source: 'attio-portal-access' } }) });
     if (inv.ok) invited++;
+    const nm = (v.name && v.name[0] && (v.name[0].first_name || v.name[0].full_name)) || '';
+    await sendMail(email, 'portalGranted', { name: nm }).catch(() => {}); // #5
   }
   return json({ ok: true, invited });
 };

@@ -2,7 +2,8 @@
 // Actions: save (portfolio -> client), addDeal (firm-add a deal -> client),
 // list (one client), listAll (recent, paginated), edit, remove, hide.
 import { verify } from './employee-auth.mjs';
-import { attio, findPersonByEmail, upsertPersonByEmail, readPortal, writePortal, newId, json } from './portal-common.mjs';
+import { attio, findPersonByEmail, upsertPersonByEmail, readPortal, writePortal, newId, json, addToDealList } from './portal-common.mjs';
+import { sendMail } from './mailer.mjs';
 
 function personName(rec){
   const n = rec && rec.values && rec.values.name && rec.values.name[0];
@@ -67,13 +68,15 @@ export default async (req) => {
     portal.portfolios.unshift(entry);
     // optionally firm-add the holdings as deals too
     if (body.alsoAddDeals) {
-      (entry.holdings || []).forEach(h => {
+      for (const h of (entry.holdings || [])) {
         const slug = (h.url || '').replace(/\.html$/, '');
         if (slug && !portal.firmAdded.some(d => d.slug === slug))
           portal.firmAdded.push({ slug, name: h.name, url: h.url, sponsor: h.sponsor || '', type: h.type || '', addedAt: Date.now() });
-      });
+        if (h.name) await addToDealList(h.name, recordId, ATT).catch(() => {}); // #3
+      }
     }
     await writePortal(recordId, portal, ATT);
+    await sendMail(email, 'newPortfolio', { name: personName(rec), ref: entry.ref }).catch(() => {}); // #5
     return json({ ok: true, id: entry.id });
   }
 
@@ -84,6 +87,8 @@ export default async (req) => {
     if (!portal.firmAdded.some(x => x.slug === slug))
       portal.firmAdded.push({ slug, name: d.name || slug, url: d.url || (slug + '.html'), sponsor: d.sponsor || '', type: d.type || '', addedAt: Date.now() });
     await writePortal(recordId, portal, ATT);
+    await addToDealList(d.name || slug, recordId, ATT).catch(() => {}); // #3
+    await sendMail(email, 'newDeals', { name: personName(rec), count: 1, dealName: d.name || slug }).catch(() => {}); // #5
     return json({ ok: true });
   }
 

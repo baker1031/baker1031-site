@@ -1,7 +1,18 @@
 // Netlify Function: receives investor-registration form JSON and writes it to Attio.
 // The Attio token lives ONLY here, as the ATTIO_API_TOKEN env var — never in the page.
 import { readPortal, writePortal, newId } from './portal-common.mjs';
+import { sendMail } from './mailer.mjs';
 const ATTIO = 'https://api.attio.com/v2';
+
+// #1: funnel status differentiates registered-but-not-scheduled from scheduled.
+const FUNNEL_REGISTERED = 'Registered - No Call';
+const FUNNEL_SCHEDULED = 'Intro Call Scheduled';
+async function ensureFunnelStatus(token){
+  await attio('/objects/people/attributes', 'POST', { data: { title: 'Funnel Status', api_slug: 'funnel_status', type: 'select', description: 'Registration funnel stage (managed by the baker1031 site).', is_multiselect: false, is_required: false, is_unique: false, config: {} } }, token).catch(() => {});
+  for (const t of [FUNNEL_REGISTERED, FUNNEL_SCHEDULED]) {
+    await attio('/objects/people/attributes/funnel_status/options', 'POST', { data: { title: t } }, token).catch(() => {});
+  }
+}
 
 const ROLE_MAP = {
   'Investor (the exchanger)': 'Investor/Client',
@@ -128,13 +139,30 @@ export default async (req) => {
   set('region_preferences', mapMulti(d.regionsLike, REGION_MAP));
   set('regions_avoid', mapMulti(d.regionsAvoid, REGION_AVOID_MAP));
   set('investment_goals', d.goals || []);
+  values.funnel_status = d.callBooked ? FUNNEL_SCHEDULED : FUNNEL_REGISTERED; // #1
   if (d.callBooked) {
     set('intro_call_time', d.callTime || 'Scheduled');
     set('substantive_relationship_date', new Date().toISOString().slice(0, 10));
     values.portal_access = true; // #6: booking the intro call grants portal access
   }
 
+  await ensureFunnelStatus(token);
   await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => {});
+
+  // #2: when the intro call is booked, create a Deal in Attio.
+  // Deal value = equity to reinvest x 0.05 x 0.9.
+  if (d.callBooked) {
+    const equity = NUM(d.equityToReinvest) || 0;
+    const dealValue = Math.round(equity * 0.05 * 0.9);
+    const dealName = (fullName || d.email) + ' — 1031 Exchange';
+    // try with a default stage; if the stage title differs, retry without it
+    const mk = (extra) => attio('/objects/deals/records', 'POST', { data: { values: Object.assign({
+      name: dealName, value: dealValue,
+      associated_people: [{ target_object: 'people', target_record_id: recordId }],
+    }, extra) } }, token);
+    let dr = await mk({ stage: 'Lead' }).catch(() => ({ ok: false }));
+    if (!dr.ok) { await mk({}).catch(() => {}); }
+  }
 
   // 2b) #6: seed a starter portfolio into the client's portal (firm-added), flagged new
   if (d.autoPortfolio && d.autoPortfolio.holdings && d.autoPortfolio.holdings.length) {
@@ -225,6 +253,16 @@ export default async (req) => {
       });
       invited = r.ok; // 400 = already invited / already a user — fine, ignore
     } catch (e) {}
+  }
+
+  // 5) lifecycle emails (Resend). Cal.com already sends its own booking confirmation
+  // + reminder, so we send the CRM/portal-side messages here.
+  const first = d.firstName || d.preferredName || '';
+  const schedUrl = (process.env.SITE_URL || 'https://www.baker1031.com') + '/request-access.html';
+  if (d.callBooked) {
+    await sendMail(d.email, 'portalGranted', { name: first }).catch(() => {});
+  } else {
+    await sendMail(d.email, 'welcome', { name: first, scheduleUrl: schedUrl }).catch(() => {});
   }
 
   return json({ ok: true, recordId, invited });
