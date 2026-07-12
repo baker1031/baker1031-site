@@ -1253,6 +1253,11 @@
   #regform .consent-item{display:flex;gap:11px;align-items:flex-start;margin:12px 0;font-size:14px;color:#3a4a5c;}
   #regform .consent-item input{margin-top:3px;flex:none;width:18px;height:18px;}
   #regform .consent-item a{color:#0099ff;}
+  #regform .crs-box{border:1px solid #d7deea;background:#f7f9fc;padding:14px 16px;margin:6px 0 14px;}
+  #regform .crs-box .crs-h{font-family:"Optima",Candara,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#243856;font-size:13px;margin-bottom:6px;}
+  #regform .crs-box p{margin:0 0 6px;font-size:13.5px;color:#3a4a5c;line-height:1.5;}
+  #regform .crs-box a{color:#0099ff;font-weight:700;}
+  #regform .crs-seen{color:#2e7d32;font-weight:700;font-size:12px;}
   #regform .review{border:1px solid #eee;}
   #regform .review .r{display:flex;justify-content:space-between;gap:16px;padding:9px 14px;border-bottom:1px solid #eee;font-size:14px;}
   #regform .review .r:last-child{border-bottom:0;}
@@ -1308,6 +1313,11 @@ const COMMON_DOMAINS=["gmail.com","googlemail.com","yahoo.com","hotmail.com","ou
 const NONUS_TLD=/\.(uk|ca|au|de|fr|in|cn|jp|mx|br|es|it|nl|se|ch|ru|za|nz|sg|hk|ae|ie|be|dk|no|fi|pl|pt|gr|kr|tw|il|sa|tr)$/i;
 
 const data = { propTypes:[], regions:[], dislikeTypes:[], dislikeRegions:[], goals:[], consent:{} };
+// #8: Form CRS (Customer Relationship Summary) delivery
+const CRS_URL='https://irp.cdn-website.com/1764ea31/files/uploaded/Aurora+Form+CRS.pdf';
+const CRS_VERSION='Aurora Securities, Inc. — Form CRS (current published version)';
+function crsViewed(){ if(!data.crsViewedAt) data.crsViewedAt=new Date().toISOString(); var s=document.getElementById('crsSeen'); if(s)s.style.display='inline'; }
+function crsAck(on){ data.consent.cCRS=!!on; if(on){ if(!data.crsAckAt) data.crsAckAt=new Date().toISOString(); } else { data.crsAckAt=''; } }
 
 const SCREENS = [
  {k:'welcome',kind:'welcome'},
@@ -1433,8 +1443,11 @@ function build(s){
           '<p class="hint" style="margin:6px 0 0;">We’ve emailed'+(data.email?(' <b>'+esc(data.email)+'</b>'):' you')+' an invitation to set your password. Once you set it, click <b>Client Login</b> at the top of any page to open your portal — you’ll find your saved offerings and a tailored example portfolio waiting. From there you can browse current offerings; final access to offering documents is confirmed on your call.</p>'+
           '<div style="margin-top:10px;"><a class="btn" href="investments.html">Browse Investment Opportunities</a></div></div>'
       : '<p class="hint" style="margin-top:12px;max-width:56ch;margin-left:auto;margin-right:auto;">Because of your accreditation or residency responses, an advisor will confirm your eligibility on the call before any offerings or portal access are shared. If you qualify, we’ll email you an invitation to set up your login.</p>';
+    var crsLine = data.consent.cCRS
+      ? '<p class="hint" style="margin-top:12px;">Aurora Securities’ Form CRS was delivered and acknowledged on '+esc((data.crsAckAt||'').slice(0,10))+'. <a href="#" onclick="crsReceiptPDF();return false;" style="color:#0099ff;">Download your Form CRS receipt (PDF)</a>.</p>'
+      : '';
     return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">Your call is scheduled'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
-      appt+access+'<div id="submitState"></div></div>';
+      appt+access+crsLine+'<div id="submitState"></div></div>';
   }
 
   if(s.kind==='schedule') return '<div class="kick">Final step — required for access</div><h2>Schedule your introductory call</h2>'+
@@ -1498,8 +1511,17 @@ function build(s){
       ['c4','I have read and agree to the Privacy Policy.',true],
       ['c5','Add me to the Baker 1031 offerings and insights list (optional).',false],
     ];
+    // #8: Form CRS delivery — present it here (before any recommendation), require an
+    // affirmative acknowledgment, and timestamp receipt for the compliance record.
+    var crsBox='<div class="crs-box">'+
+      '<div class="crs-h">Form CRS — Customer Relationship Summary</div>'+
+      '<p>Securities are offered through <b>Aurora Securities, Inc.</b> (member FINRA/SIPC). Before we discuss any account or investment, regulators require that we deliver Aurora’s <b>Form CRS</b> — a short summary of the relationship, services, fees, conflicts, and standard of conduct. Please review it now:</p>'+
+      '<p><a href="'+CRS_URL+'" target="_blank" rel="noopener" id="crsView" onclick="crsViewed()">Open Aurora Securities Form CRS (PDF) ↗</a>'+
+      '<span class="crs-seen" id="crsSeen" style="display:none;"> ✓ opened</span></p>'+
+      '</div>';
+    var crsItem='<label class="consent-item"><input type="checkbox" id="cx_cCRS"'+(data.consent.cCRS?' checked':'')+' onchange="crsAck(this.checked)"><span>I acknowledge that I have received and reviewed Aurora Securities, Inc.’s <b>Form CRS</b> (Customer Relationship Summary). <b style="color:var(--err)">*</b></span></label>';
     let h=items.map(([k,t,req])=>'<label class="consent-item"><input type="checkbox" id="cx_'+k+'"'+(data.consent[k]?' checked':'')+'><span>'+t+(req?' <b style="color:var(--err)">*</b>':'')+'</span></label>').join('');
-    return head+h+navHTML('Submit registration');
+    return head+crsBox+crsItem+h+navHTML('Submit registration');
   }
   if(s.kind==='review') return head+'<div class="review" id="review">'+reviewRows()+'</div>'+
     '<div class="nav"><button class="btn ghost" onclick="prev()">Back</button><button class="btn" onclick="next()">Looks good — continue</button><span class="enter-tip">press <b>Enter ↵</b></span></div>'+disc();
@@ -1593,8 +1615,10 @@ function collect(s){
     if(!data.marital)return fail('Please select single or married.');
     if(!data.netWorth)return fail('Please select a net-worth band.'); computeAccred(); }
   if(s.kind==='source'){ data.hear=g('fld_hear');data.notes=g('fld_notes'); }
-  if(s.kind==='consent'){ ['c1','c2','c3','c4','c5'].forEach(k=>data.consent[k]=!!main().querySelector('#cx_'+k).checked);
-    if(!(data.consent.c1&&data.consent.c2&&data.consent.c3&&data.consent.c4))return fail('Please check the required acknowledgements to continue.'); }
+  if(s.kind==='consent'){ ['c1','c2','c3','c4','c5','cCRS'].forEach(k=>{var el=main().querySelector('#cx_'+k); if(el)data.consent[k]=!!el.checked;});
+    if(data.consent.cCRS&&!data.crsAckAt) data.crsAckAt=new Date().toISOString();
+    if(!(data.consent.c1&&data.consent.c2&&data.consent.c3&&data.consent.c4))return fail('Please check the required acknowledgements to continue.');
+    if(!data.consent.cCRS)return fail('Please review Aurora’s Form CRS and check the acknowledgement to continue.'); }
   if(err)err.classList.remove('on'); return true;
 }
 
@@ -1680,6 +1704,43 @@ function calLinks(){
     reschedule: data.callUid?('https://cal.com/reschedule/'+data.callUid):'',
     cancel: data.callUid?('https://cal.com/booking/'+data.callUid+'?cancel=true'):'' };
 }
+// #8: self-contained Form CRS receipt PDF (no external library / CDN)
+function crsReceiptLines(){
+  var name=[data.first,data.last].filter(Boolean).join(' ')||'(name not provided)';
+  return ['FORM CRS DELIVERY RECEIPT',
+    '(Customer Relationship Summary - Reg BI / SEC Rule 17a-14)','',
+    'Recipient: '+name,'Email: '+(data.email||''),
+    'Document delivered: '+CRS_VERSION,'Document URL: '+CRS_URL,
+    'Delivery method: Electronic - presented on the Baker 1031',
+    '   registration form prior to any recommendation or account.',
+    'Opened by investor (UTC): '+(data.crsViewedAt||'link presented'),
+    'Acknowledged received & reviewed (UTC): '+(data.crsAckAt||''),
+    'Local timezone: '+((Intl&&Intl.DateTimeFormat)?Intl.DateTimeFormat().resolvedOptions().timeZone:''),'',
+    'The investor affirmatively acknowledged receiving and reviewing',
+    "Aurora Securities, Inc.'s Form CRS. Retained as part of the",
+    "firm's books and records.",'',
+    'Baker 1031 Investments  -  Securities offered through',
+    'Aurora Securities, Inc., member FINRA/SIPC.'];
+}
+function pdfEsc(s){ return String(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)'); }
+function crsReceiptPDF(){
+  var lines=crsReceiptLines();
+  var content='BT /F1 11 Tf 56 770 Td 15 TL\n'+lines.map(function(l){return '('+pdfEsc(l)+') Tj T*';}).join('\n')+'\nET';
+  var objs=['<< /Type /Catalog /Pages 2 0 R >>',
+    '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
+    '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>',
+    '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',
+    '<< /Length '+content.length+' >>\nstream\n'+content+'\nendstream'];
+  var pdf='%PDF-1.4\n', offs=[];
+  objs.forEach(function(o,i){ offs.push(pdf.length); pdf+=(i+1)+' 0 obj\n'+o+'\nendobj\n'; });
+  var xref=pdf.length;
+  pdf+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n';
+  offs.forEach(function(o){ pdf+=(('0000000000'+o).slice(-10))+' 00000 n \n'; });
+  pdf+='trailer\n<< /Size '+(objs.length+1)+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF';
+  var blob=new Blob([pdf],{type:'application/pdf'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='Baker1031-FormCRS-Receipt.pdf'; document.body.appendChild(a); a.click(); a.remove();
+}
 function finishSchedule(detail){ data.callBooked=true; var cap=captureBooking(detail); data.callTime=cap.display; data.callStartISO=cap.startISO; data.callUid=cap.uid; clearLeaveGuards();
   try{ if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())}).catch(function(){}); } }catch(e){}
   const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();}
@@ -1716,6 +1777,8 @@ function payload(){ return { submittedFrom:'investor-registration', role:data.ro
   propertyTypesLike:data.propTypes,propertyTypesAvoid:data.dislikeTypes,regionsLike:data.regions,regionsAvoid:data.dislikeRegions,
   goals:data.goals,heardVia:data.hear||'',notes:data.notes||'',joinList:!!data.consent.c5,
   outsideUSSignals:nonUSsignals(),consented:true,
+  crsAcknowledged:!!data.consent.cCRS, crsAckAt:data.crsAckAt||'', crsViewedAt:data.crsViewedAt||'',
+  crsUrl:CRS_URL, crsVersion:CRS_VERSION, crsTimezone:(Intl&&Intl.DateTimeFormat?Intl.DateTimeFormat().resolvedOptions().timeZone:''),
   autoPortfolio:autoPortfolio(),
   callBooked:!!data.callBooked,callTime:data.callTime||'' }; }
 // #6: auto-build a starter portfolio from the investor's stated preferences so

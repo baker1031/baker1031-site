@@ -161,6 +161,41 @@ export default async (req) => {
     },
   }, token).catch(() => {});
 
+  // 3b) #8: Form CRS delivery receipt — durable, timestamped compliance record.
+  // (Attio's public API has no file-upload endpoint, so the receipt is recorded as a
+  //  structured note + attributes; the investor is also given a downloadable PDF.)
+  if (d.crsAcknowledged) {
+    const ackAt = d.crsAckAt || new Date().toISOString();
+    // ensure the two reporting attributes exist (idempotent)
+    await attio('/objects/people/attributes', 'POST', { data: { title: 'CRS Acknowledged', api_slug: 'crs_acknowledged', type: 'checkbox', description: 'Form CRS acknowledged by the investor during registration.', is_multiselect: false, is_required: false, is_unique: false, config: {} } }, token).catch(() => {});
+    await attio('/objects/people/attributes', 'POST', { data: { title: 'CRS Delivered Date', api_slug: 'crs_delivered_date', type: 'date', description: 'Date Aurora Form CRS was delivered to and acknowledged by the investor.', is_multiselect: false, is_required: false, is_unique: false, config: {} } }, token).catch(() => {});
+    await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values: {
+      crs_acknowledged: true, crs_delivered_date: ackAt.slice(0, 10),
+    } } }, token).catch(() => {});
+    const receipt = [
+      'FORM CRS DELIVERY RECEIPT',
+      '(Customer Relationship Summary — Reg BI / SEC Rule 17a-14)',
+      '',
+      'Recipient: ' + (fullName || '(name not provided)'),
+      'Email: ' + d.email,
+      d.phone ? ('Phone: ' + d.phone) : '',
+      'Document delivered: ' + (d.crsVersion || 'Aurora Securities, Inc. Form CRS'),
+      'Document URL: ' + (d.crsUrl || ''),
+      'Delivery method: Electronic — presented on the Baker 1031 registration form prior to any recommendation, account, or order.',
+      d.crsViewedAt ? ('Opened by investor (UTC): ' + d.crsViewedAt) : 'Opened by investor: link presented; open event not recorded',
+      'Acknowledged received & reviewed (UTC): ' + ackAt,
+      d.crsTimezone ? ("Investor's local timezone: " + d.crsTimezone) : '',
+      'Acknowledgement: The investor affirmatively checked "I have received and reviewed Aurora Securities, Inc.\'s Form CRS."',
+      '',
+      'This receipt evidences delivery of Form CRS and is retained as part of the firm\'s books and records.',
+    ].filter(Boolean).join('\n');
+    await attio('/notes', 'POST', { data: {
+      parent_object: 'people', parent_record_id: recordId,
+      title: 'Form CRS Delivery Receipt — ' + ackAt.slice(0, 10) + ' — ' + (fullName || d.email),
+      format: 'plaintext', content: receipt,
+    } }, token).catch(() => {});
+  }
+
   // 4) #5: on booking, create the Clerk account (invitation) so they can access the portal
   let invited = false;
   if (d.callBooked && process.env.CLERK_SECRET_KEY && d.email) {
