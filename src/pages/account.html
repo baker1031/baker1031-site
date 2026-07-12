@@ -32,7 +32,7 @@
 
   .page {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid #333;
@@ -1207,8 +1207,15 @@
   /* ---------- member account portal ---------- */
   #acct { max-width: 820px; margin: 8px 0 0; }
   #acct .gate { border:1px solid #eee; background:#fafafa; padding:26px; text-align:center; }
-  #acct .card { border:1px solid #eee; padding:18px 20px; margin:14px 0; }
+  #acct .card { border:1px solid #eee; padding:16px 20px 14px; margin:12px 0; line-height:1.45; }
+  #acct .card > p.muted:first-of-type { margin-bottom:2px; }
   #acct h2.sec { font-family:"Optima",Candara,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#243856; font-size:16px; margin:0 0 12px; border-bottom:1px solid #eee; padding-bottom:6px; }
+  /* collapsible sections */
+  #acct .card > h2.sec { cursor:pointer; user-select:none; position:relative; padding-right:26px; }
+  #acct .card > h2.sec::after { content:"\25BE"; position:absolute; right:2px; top:50%; transform:translateY(-60%); color:#94a2b5; font-size:13px; transition:transform .18s; }
+  #acct .card.collapsed > h2.sec { margin-bottom:0; border-bottom:0; }
+  #acct .card.collapsed > h2.sec::after { transform:translateY(-60%) rotate(-90deg); }
+  #acct .card.collapsed > *:not(h2.sec) { display:none !important; }
   #acct .fieldrow { display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; }
   #acct label.q-lab { display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#243856; margin:10px 0 3px; }
   #acct input[type=text], #acct input[type=tel] { width:100%; padding:10px 12px; border:1px solid #ccc; font-size:15px; font-family:inherit; color:#243856; }
@@ -1219,26 +1226,29 @@
   #acct .btn { font-family:"Optima",Candara,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:14px; padding:11px 24px; cursor:pointer; border:1px solid #243856; background:#243856; color:#fff; margin-top:14px; }
   #acct .btn.ghost { background:#fff; color:#243856; }
   #acct .btn:hover { background:#1b2c45; }
-  #acct .bm { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid #f0f0f0; }
+  #acct .bm { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:6px 0; border-bottom:1px solid #f0f0f0; }
   #acct .bm a { color:#0099ff; text-decoration:none; font-weight:700; }
   #acct .bm .rm { background:none; border:0; color:#b23b3b; cursor:pointer; font-size:13px; }
-  #acct .foryou { border-left:3px solid #ff9900; padding:10px 0 10px 16px; margin:12px 0; }
-  #acct .foryou h3 { margin:0 0 4px; font-family:"Optima",Candara,sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:13px; color:#243856; }
-  #acct .foryou p { margin:0; font-size:14px; color:#3a4a5c; }
+  #acct .foryou { border-left:3px solid #ff9900; padding:2px 0 2px 14px; margin:12px 0; }
+  #acct .foryou h3 { margin:0 0 2px; font-family:"Optima",Candara,sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:13px; color:#243856; }
+  #acct .foryou p { margin:0; font-size:14px; color:#3a4a5c; line-height:1.45; }
   #acct .muted { color:#8a97a6; font-size:13px; }
   #acct .savemsg { color:#2e7d32; font-weight:700; font-size:13px; margin-left:10px; display:none; }
   #acct .savemsg.on { display:inline; }
   /* advisor card, firm-added, dots */
-  #acct .subh { font-family:"Roboto Condensed",Arial,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:#243856; margin:6px 0 8px; }
+  #acct .subh { font-family:"Roboto Condensed",Arial,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:#243856; margin:4px 0 4px; }
   #acct .newdot { color:#ff5a00; font-size:10px; vertical-align:middle; margin-right:7px; }
   #acct .firmtag { display:inline-block; background:#243856; color:#fff; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:3px; vertical-align:middle; }
   #acct .advport { border:1px solid #e6eaf0; margin:8px 0; padding:10px 12px; }
   #acct .advport-h { font-weight:700; color:#243856; margin-bottom:6px; }
+  #acct .advport-h .pref { font-family:"Roboto Mono",ui-monospace,monospace; font-weight:700; letter-spacing:.04em; font-size:11px; color:#fff; background:#ff9900; padding:2px 7px; border-radius:3px; margin-right:2px; }
   #acct .holding { display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid #f4f4f4; }
   #acct .holding:last-child { border-bottom:0; }
   #acct .holding a { color:#0099ff; text-decoration:none; }
   #acct .hmeta { color:#8a97a6; font-size:12px; font-weight:400; }
   #acct .bm.firm a { color:#243856; }
+  #acct .bm .bm-left { display:flex; align-items:center; gap:2px; min-width:0; }
+  #acct .bm .bm-left a { white-space:normal; }
   /* interactive tour */
   .tour-ov { position:fixed; inset:0; background:rgba(20,30,48,.55); z-index:9998; }
   .tour-pop { position:absolute; z-index:9999; max-width:320px; background:#fff; border:1px solid #243856; box-shadow:0 8px 28px rgba(0,0,0,.25); padding:16px 18px; }
@@ -1376,13 +1386,13 @@
       h+=ports.map(function(p){
         var rows=(p.holdings||[]).map(function(x){ return '<div class="holding"><a href="'+esc(x.url)+'">'+esc(x.name)+'</a><span class="hmeta">'+esc(x.type||'')+(x.alloc?(' · $'+Number(x.alloc).toLocaleString()):'')+'</span></div>'; }).join('');
         return '<div class="advport">'+
-          '<div class="advport-h">'+dot(p.isNew)+esc(p.name||p.theme||'Example portfolio')+'<span class="hmeta"> · '+((p.holdings||[]).length)+' holdings'+(p.total?(' · $'+Number(p.total).toLocaleString()):'')+'</span></div>'+
+          '<div class="advport-h">'+dot(p.isNew)+(p.ref?'<span class="pref">'+esc(p.ref)+'</span> ':'')+esc(p.name||p.theme||'Example portfolio')+'<span class="hmeta"> · '+((p.holdings||[]).length)+' holdings'+(p.total?(' · $'+Number(p.total).toLocaleString()):'')+'</span></div>'+
           rows+'</div>';
       }).join('');
     }
     if(deals.length){
       h+='<h3 class="subh" style="margin-top:14px;">Offerings your advisor flagged <span class="firmtag">Firm Added</span></h3>';
-      h+='<div>'+deals.map(function(x){ return '<div class="bm firm">'+dot(x.isNew)+'<a href="'+esc(x.url)+'">'+esc(x.name)+'</a>'+(x.sponsor?'<span class="hmeta"> · '+esc(x.sponsor)+'</span>':'')+'</div>'; }).join('')+'</div>';
+      h+='<div>'+deals.map(function(x){ return '<div class="bm firm"><span class="bm-left">'+dot(x.isNew)+'<a href="'+esc(x.url)+'">'+esc(x.name)+'</a></span>'+(x.sponsor?'<span class="hmeta">'+esc(x.sponsor)+'</span>':'')+'</div>'; }).join('')+'</div>';
     }
     h+='<div style="margin-top:12px;"><a class="btn" href="investments.html">Browse all offerings</a></div></div>';
     return h;
@@ -1409,9 +1419,17 @@
     // Embed Clerk's full profile (name, email, password, devices) inside the portal
     var cp=document.getElementById('clerkProfile');
     if(cp && window.Clerk && window.Clerk.mountUserProfile){
-      try{ window.Clerk.mountUserProfile(cp,{appearance:{elements:{rootBox:{width:'100%'},card:{boxShadow:'none',border:'none'}}}}); }catch(err){}
+      try{ window.Clerk.mountUserProfile(cp,{appearance:{elements:{rootBox:{width:'100%',maxWidth:'none'},cardBox:{width:'100%',maxWidth:'none'},card:{boxShadow:'none',border:'none',width:'100%',maxWidth:'none'}}}}); }catch(err){}
     }
+    // Collapsible sections — click the heading to toggle. The unread dot lives in the
+    // heading, so it stays visible when a section is collapsed.
+    document.querySelectorAll('#acct .card > h2.sec').forEach(function(h){
+      h.setAttribute('role','button'); h.setAttribute('tabindex','0');
+      h.onclick=function(){ h.parentNode.classList.toggle('collapsed'); };
+      h.onkeydown=function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); h.parentNode.classList.toggle('collapsed'); } };
+    });
   }
+  function expandAllCards(){ document.querySelectorAll('#acct .card.collapsed').forEach(function(c){ c.classList.remove('collapsed'); }); }
 
   // ---- portal server actions (mark new items viewed / dismiss tour) ----
   function portalAction(token, action){
@@ -1436,6 +1454,7 @@
     startTour(function(){ portalAction(token,'setTourSeen'); });
   }
   function startTour(onDone){
+    expandAllCards(); // #1: keep every section open while the tutorial runs
     var steps=TOUR_STEPS.filter(function(s){ return document.querySelector(s.sel); });
     if(!steps.length){ onDone&&onDone(); return; }
     var i=0;
@@ -1446,6 +1465,7 @@
     function end(){ [ov,spot,pop].forEach(function(el){ if(el.parentNode)el.parentNode.removeChild(el); }); onDone&&onDone(); }
     function show(){
       var el=document.querySelector(steps[i].sel); if(!el){ i++; if(i>=steps.length)return end(); return show(); }
+      el.classList.remove('collapsed'); // ensure the highlighted section is open
       el.scrollIntoView({block:'center',behavior:'smooth'});
       setTimeout(function(){
         var r=el.getBoundingClientRect(), sy=window.scrollY, sx=window.scrollX;

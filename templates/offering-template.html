@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A Delaware Statutory Trust (DST) offering summary for 1031 exchange investors from Baker 1031 Investments: property details, financing, projected income, benchmarks, and sponsor track record. Offered only to accredited investors by the Private Placement Memorandum.">
 <title>AEI Healthcare Portfolio VII DST | Baker 1031 Investments</title>
 <style>
   @font-face {
@@ -853,7 +854,7 @@
 <!-- @@NAV@@ -->
 
     <nav class="breadcrumbs">
-    <a href="baker1031.html">Home</a><span class="sep">❯</span><a href="#">Investments</a><span class="sep">❯</span><span data-field="title">AEI Healthcare Portfolio VII DST</span>
+    <a href="baker1031.html">Home</a><span class="sep">❯</span><a href="investments.html">Investments</a><span class="sep">❯</span><span data-field="title">AEI Healthcare Portfolio VII DST</span>
   </nav>
 
   <section class="offering-hero">
@@ -905,6 +906,7 @@
         <div data-field="financingFacts"></div>
 
         <h2 class="optima" id="income">Income Forecast</h2>
+        <p class="doc-note">Projected distribution rates are estimates based on the sponsor's assumptions in the Private Placement Memorandum, are not guaranteed, and may differ materially from actual results. Figures are as of the last-updated date shown above and are sourced from the sponsor. See disclosures below.</p>
         <div data-field="incomeTable"></div>
 
         <h2 class="optima" id="benchmarks">Benchmarks<sup style="font-size:11px;">4</sup></h2>
@@ -919,6 +921,13 @@
     </div>
 
     <hr class="divider">
+
+    <section class="disclosures" aria-label="Important disclosures">
+      <p><strong>Important disclosures.</strong> This webpage is a summary for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any security. Interests in this Delaware Statutory Trust (DST) offering are available only to accredited investors, as defined in Rule 501 of Regulation D under the Securities Act of 1933, and are offered solely by means of the offering's confidential Private Placement Memorandum (PPM). The securities described have not been registered under the Securities Act of 1933 or any state securities laws and are offered in reliance on exemptions from registration under Regulation D. This summary is qualified in its entirety by, and subject to, the full PPM, which controls in the event of any conflict.</p>
+      <p><strong>Risk factors.</strong> An investment in a DST involves substantial risk, including the possible loss of principal. DST interests are illiquid, have no public market, are subject to transfer restrictions, and are intended to be held for the long term. Returns depend on the performance of the underlying property, its tenants, and the sponsor, none of which is guaranteed. Any projected income, distribution rate, cap rate, or benchmark figure shown on this page is an estimate based on assumptions stated in the PPM as of the date indicated, is not guaranteed, and may differ materially from actual results. Past performance is not indicative of future results.</p>
+      <p><strong>Tax and legal.</strong> A 1031 exchange defers, but does not eliminate, capital gains tax; it is tax-deferred, not tax-free. Baker 1031 Investments does not provide tax, legal, or accounting advice. Consult your own independent tax, legal, and financial advisors before investing. Learn more about <a href="delaware-statutory-trusts.html">Delaware Statutory Trusts</a>, review our <a href="due-diligence.html">due diligence process</a>, or <a href="contact.html">contact our team</a> with questions.</p>
+      <p>Continue your research: <a href="investments.html">view all available DST investment offerings</a>, browse the <a href="glossary.html">1031 exchange and DST glossary</a>, or read our <a href="faq.html">frequently asked questions</a>.</p>
+    </section>
 
     <div class="footnotes" data-field="footnotes"></div>
   </main>
@@ -1104,6 +1113,18 @@
   // title, breadcrumb, browser title
   var name = d.investmentName || d.title;
   if (name) { setAll('title', esc(name)); document.title = name + ' | Baker 1031 Investments'; }
+
+  // meta description: per-offering summary for search engines / AI overviews
+  var descText = d.metaDescription;
+  if (!descText && d.description) {
+    descText = String(d.description).replace(/\s+/g, ' ').trim();
+    if (descText.length > 155) descText = descText.slice(0, 155).replace(/\s+\S*$/, '') + '…';
+  }
+  if (descText) {
+    var md = document.querySelector('meta[name="description"]');
+    if (!md) { md = document.createElement('meta'); md.setAttribute('name', 'description'); document.head.appendChild(md); }
+    md.setAttribute('content', descText);
+  }
 
   // hero image
   var photo = d.photoLinkUse || d.heroImage;

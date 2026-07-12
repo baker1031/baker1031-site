@@ -61,7 +61,7 @@ export default async (req) => {
 
   if (action === 'save') {
     const pf = body.portfolio || {};
-    const entry = { id: newId('pf'), name: pf.name || 'Example portfolio', theme: pf.theme || '',
+    const entry = { id: newId('pf'), ref: pf.ref || '', name: pf.name || 'Example portfolio', theme: pf.theme || '',
       holdings: (pf.holdings || []).slice(0, 40), blendLtv: pf.blendLtv || 0, yield: pf.yield || 0,
       total: pf.total || 0, hidden: false, source: 'firm', createdAt: Date.now() };
     portal.portfolios.unshift(entry);

@@ -31,10 +31,12 @@
 
   function build(theme, opts){
     var pool=opts.pool.slice();
+    var usage=opts.usage||{};
     pool.forEach(function(o){
       o._score = theme==='Income' ? o.yield
                : theme==='Growth' ? (o.yield*0.3 + (o.allCash?0:o.ltv)*0.1 + 3)
                : (o.yield*0.6 + 2);
+      o._score -= (usage[o.url]||0)*1000; // diversity: avoid reusing offerings across portfolios
     });
     pool.sort(function(a,b){ return b._score-a._score; });
     var picked=[], typesUsed={};
@@ -82,7 +84,16 @@
     themes=Array.from(new Set(themes)).slice(0,3);
     var o={ pool:filtered, equity:opts.equity, debt:opts.debt||0, targetLtv:opts.targetLtv||0,
             tol:(opts.tol==null?7:opts.tol), count:opts.count||5 };
-    return themes.map(function(t){ return build(t,o); }).filter(Boolean);
+    // sequential build with diversity + de-duplication so portfolios don't repeat
+    var usage={}, sigs={}, out=[];
+    themes.forEach(function(t){
+      o.usage=usage;
+      var p=build(t,o); if(!p) return;
+      var s=(p.holdings||[]).map(function(h){return h.url;}).sort().join('|');
+      if(sigs[s]) return; sigs[s]=1; out.push(p);
+      (p.holdings||[]).forEach(function(h){ usage[h.url]=(usage[h.url]||0)+1; });
+    });
+    return out;
   }
 
   // From raw registration prefs -> a single "starter" portfolio (Balanced).

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DST sponsor profile from Baker 1031 Investments: sponsor facts, key strategies, current 1031 exchange offerings, and full-cycle track record.">
 <title>AEI Capital Corporation | Baker 1031 Investments</title>
 <style>
   @font-face {
@@ -1060,11 +1061,15 @@
         <h2 class="optima" id="soverview" style="margin-top: 20px;">Overview</h2>
         <div data-field="overview"></div>
 
-        <h2 class="optima" id="sstrategies">Key Strategies &amp; Advantages</h2>
+        <h2 class="optima" id="sstrategies">Key Strategies, Advantages &amp; Risks</h2>
         <ul data-field="strategies"></ul>
+        <p class="doc-note">These strategies describe the sponsor's approach and potential advantages only. They should be weighed against the risks common to DST investments, including illiquidity, loss of principal, and the absence of guaranteed distributions. Complete risk factors are set out in the sponsor's Private Placement Memorandum.</p>
 
         <h2 class="optima" id="sofferings">Current Offerings</h2>
         <div data-field="currentOfferings"></div>
+        <div class="disclosures" style="margin-top: 12px;">
+          <p>Available only to accredited investors as defined under Regulation D. This is not an offer to sell, or a solicitation of an offer to buy, any security. Any offering is made solely by the sponsor's Private Placement Memorandum (PPM), which contains complete terms, fees, and risk factors and controls in the event of any conflict with this website; it should be read in full prior to investing.</p>
+        </div>
 
         <h2 class="optima" id="strack">Track Record</h2>
         <div class="sponsor-stats" data-field="trackRecord" style="margin-top: 14px;"></div>
@@ -1084,6 +1089,20 @@
             </thead>
             <tbody data-field="dealHistory"></tbody>
           </table>
+        </div>
+
+        <div class="footnotes">
+          <p>Past performance is not indicative of, or a guarantee of, future results. Equity Multiple and Annual Return figures shown reflect the sponsor's historical, full-cycle offerings only; they are sponsor-reported, unaudited, and current as of the most recent data made available by the sponsor. Individual investor results will vary, and no current or future offering is guaranteed to perform similarly.</p>
+          <p>DST and 1031 exchange investments involve substantial risk, including illiquidity, the potential loss of principal, and no assurance that distributions will be made. Suitability depends on individual investor circumstances. A 1031 exchange may defer, not eliminate, applicable taxes. Baker 1031 Investments does not provide tax or legal advice; consult your own tax, legal, and financial advisors regarding your specific situation before investing.</p>
+        </div>
+
+        <div class="explore-grid" aria-label="Continue your research">
+          <a href="delaware-statutory-trusts.html">Understand Delaware Statutory Trusts</a>
+          <a href="due-diligence.html">How we evaluate DST sponsors</a>
+          <a href="investments.html">Browse current DST offerings</a>
+          <a href="glossary.html">1031 exchange glossary</a>
+          <a href="strategies.html">1031 exchange strategies</a>
+          <a href="contact.html">Speak with our team</a>
         </div>
       </div>
     </div>
@@ -1584,6 +1603,11 @@
   }
 
   if (d.name) { setAll('title', esc(d.name)); document.title = d.name + ' | Baker 1031 Investments'; }
+
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && d.name) {
+    metaDesc.setAttribute('content', d.name + ' — DST sponsor profile reviewed by Baker 1031 Investments: sponsor facts, key strategies, current 1031 exchange offerings, and full-cycle track record.');
+  }
 
   var logo = document.querySelector('[data-field-logo]');
   if (logo) { if (d.logo) { logo.src = d.logo; } else { logo.style.display = 'none'; } }

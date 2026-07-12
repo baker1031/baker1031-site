@@ -32,7 +32,7 @@
 
   .page {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid #333;
@@ -1269,6 +1269,21 @@
       #acct .toolrow { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:8px; }
       #acct .toolrow input { flex:1 1 240px; }
       #acct .linkbox { width:100%; font-size:12px; color:#555; margin-top:8px; padding:8px; border:1px dashed #bbb; word-break:break-all; background:#fafafa; display:none; }
+      /* editable portfolio controls */
+      #acct .port h3 { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+      #acct .port h3 .psel { font-family:"Roboto Condensed",Arial,sans-serif; font-weight:400; text-transform:none; letter-spacing:0; font-size:13px; color:#243856; display:inline-flex; align-items:center; gap:5px; }
+      #acct .port h3 input.pname { font-family:"Roboto Condensed",Arial,sans-serif; font-weight:700; text-transform:none; letter-spacing:0; font-size:14px; padding:4px 8px; border:1px solid #ccc; min-width:180px; }
+      #acct .port h3 .pref { font-family:"Roboto Mono",ui-monospace,monospace; font-weight:700; letter-spacing:.04em; font-size:12px; color:#fff; background:#ff9900; padding:3px 8px; border-radius:3px; text-transform:none; }
+      #acct .hedit { margin-top:4px; display:flex; gap:12px; }
+      #acct .lnk { background:none; border:0; padding:0; color:#0099ff; cursor:pointer; font-size:12px; }
+      #acct .lnk.rm { color:#c0392b; }
+      #acct .allocIn { width:110px; text-align:right; padding:4px 6px; border:1px solid #ccc; font-size:13px; }
+      #acct .alts { grid-column:1 / -1; background:#f7f9fc; border:1px solid #e3e7ee; padding:8px 10px; margin:6px 0 2px; }
+      #acct .alts .altrow { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:5px 0; border-bottom:1px solid #eef1f5; }
+      #acct .alts .altrow:last-child { border-bottom:0; }
+      #acct .alts .altrow .use { border:1px solid #243856; background:#fff; color:#243856; font-size:12px; padding:4px 10px; cursor:pointer; }
+      #acct .adddeal { display:flex; gap:8px; align-items:center; margin-top:10px; flex-wrap:wrap; }
+      #acct .adddeal select { flex:1 1 260px; }
       @media (max-width:640px){ #acct .grid2,#acct .grid3{ grid-template-columns:1fr; } #acct .holding{ grid-template-columns:1fr 1fr; } }
     </style>
 
@@ -1338,13 +1353,12 @@
 
         <label class="q-lab" style="margin-top:16px;display:block;">Client email (for save / grant)</label>
         <input type="email" id="grantEmail" placeholder="client@example.com">
-        <label class="q-lab" style="margin-top:12px;display:block;">Portfolio to save</label>
-        <select id="saveWhich"></select>
-        <div class="toolrow" style="margin-top:8px;">
-          <label style="font-weight:400;color:#555;"><input type="checkbox" id="alsoDeals" style="width:auto;margin-right:6px;">also add its holdings as <b>Firm-Added</b> deals</label>
+        <p class="muted" style="margin-top:8px;">Tick the <b>save</b> box on each portfolio above that you want to add to this client's portal.</p>
+        <div class="toolrow" style="margin-top:6px;">
+          <label style="font-weight:400;color:#555;"><input type="checkbox" id="alsoDeals" style="width:auto;margin-right:6px;">also add their holdings as <b>Firm-Added</b> deals</label>
         </div>
         <div class="toolrow" style="margin-top:8px;">
-          <button class="btn" id="saveBtn">Save to client's portal</button>
+          <button class="btn" id="saveBtn">Save selected to client's portal</button>
           <button class="btn ghost" id="grantBtn">Grant portal access</button>
         </div>
         <span class="err" id="grantMsg"></span>
@@ -1425,11 +1439,15 @@
   function blendLtv(hold){ var e=0,d=0; hold.forEach(function(h){ e+=h.alloc; d+=h.alloc*(h.o.ltv/100); }); return e?(d/e*100):0; }
   function build(theme, opts){
     var pool=opts.pool.slice();
+    var usage=opts.usage||{};
     // theme scoring
     pool.forEach(function(o){
       o._score = theme==='Income' ? o.yield
                : theme==='Growth' ? (o.yield*0.3 + (o.allCash?0:o.ltv)*0.1 + 3)
                : /* Balanced */ (o.yield*0.6 + 2);
+      // diversity penalty: strongly prefer offerings not already used by another
+      // portfolio in this run, so the generated portfolios don't duplicate.
+      o._score -= (usage[o.url]||0)*1000;
     });
     // prefer diversification: pick best per property type first
     pool.sort(function(a,b){ return b._score-a._score; });
@@ -1515,7 +1533,7 @@
 
   var lastPorts=null, lastOpts=null;
   function runBuild(){
-    var err=document.getElementById('buildErr'); err.textContent='';
+    var err=document.getElementById('buildErr'); err.textContent=''; err.style.color='';
     var o=gatherOpts();
     if(!o.equity || o.equity<10000){ err.textContent='Enter the equity to reinvest (at least $10,000).'; return; }
     if(!o.pool.length){ err.textContent='No offerings match those filters. Loosen the include/exclude selections.'; return; }
@@ -1525,18 +1543,117 @@
     if(o.goals.indexOf('Growth')>-1) themes.push('Growth');
     themes.push('Balanced');
     themes=Array.from(new Set(themes)).slice(0,3);
-    var ports=themes.map(function(t){ return build(t,o); }).filter(Boolean);
+    // Build sequentially, tracking which offerings each portfolio used so the next
+    // one prefers different holdings; then drop any that came out identical anyway.
+    var usage={}, sigs={}, ports=[], collapsed=0;
+    function sig(p){ return p.hold.map(function(h){return h.o.url;}).sort().join('|'); }
+    themes.forEach(function(t){
+      o.usage=usage;
+      var p=build(t,o); if(!p) return;
+      var s=sig(p);
+      if(sigs[s]){ collapsed++; return; }        // identical holdings to an earlier one — skip
+      sigs[s]=1; ports.push(p);
+      p.hold.forEach(function(h){ usage[h.o.url]=(usage[h.o.url]||0)+1; });
+    });
     if(!ports.length){ err.textContent='Could not assemble a portfolio within budget — the smallest minimums exceed the equity entered.'; return; }
+    if(collapsed>0){
+      err.style.color='#555';
+      err.textContent='Showing '+ports.length+' distinct portfolio'+(ports.length>1?'s':'')+'. The available inventory ('+o.pool.length+' matching offering'+(o.pool.length>1?'s':'')+') is too small to build more without repeating the same holdings — widen the type/region filters or lower the offerings-per-portfolio count for more variety.';
+    }
+    ports.forEach(function(p){ if(!p.name) p.name=(o.client?o.client+' — ':'')+p.theme+' portfolio'; if(!p.ref) p.ref=makeRef(o.client); });
     lastPorts=ports; lastOpts=o;
-    renderPorts(ports,'results',o);
+    renderResults();
     document.getElementById('shareCard').style.display='';
     if(o.email){ document.getElementById('grantEmail').value=o.email; document.getElementById('fa_email').value=o.email; }
-    // populate the "portfolio to save" dropdown
-    var sw=document.getElementById('saveWhich');
-    sw.innerHTML=ports.map(function(p,i){ return '<option value="'+i+'"'+(p.theme==='Balanced'?' selected':'')+'>'+esc(p.theme)+' · '+p.hold.length+' holdings · '+money(p.total)+'</option>'; }).join('');
+  }
+
+  // ---------- interactive, editable portfolio results ----------
+  // #4: a short reference code so the employee and client see the same identifier
+  function makeRef(client){
+    var ini=(String(client||'').match(/[A-Za-z]/g)||['P']).slice(0,2).join('').toUpperCase(); if(ini.length<2)ini=(ini+'PF').slice(0,2);
+    var c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', r=''; for(var i=0;i<4;i++)r+=c.charAt(Math.floor(Math.random()*c.length));
+    return ini+'-'+r;
+  }
+  function recalc(p){
+    p.total=p.hold.reduce(function(s,h){return s+(Number(h.alloc)||0);},0);
+    p.blendLtv=blendLtv(p.hold);
+    p.yield=p.total? p.hold.reduce(function(s,h){return s+(Number(h.alloc)||0)*(h.o.yield||0);},0)/p.total : 0;
+    p.types=Array.from(new Set(p.hold.map(function(h){return h.o.type;}))).length;
+  }
+  function altsFor(o,p){
+    var used={}; p.hold.forEach(function(h){ used[h.o.url]=1; });
+    return POOL.filter(function(x){ return !used[x.url]; }).map(function(x){
+      var sc=0; if(x.type===(o&&o.type))sc+=100; if(x.region===(o&&o.region))sc+=30;
+      sc-=Math.abs((x.yield||0)-((o&&o.yield)||0))*2; sc-=Math.abs((x.ltv||0)-((o&&o.ltv)||0))*0.2;
+      return {x:x,sc:sc};
+    }).sort(function(a,b){return b.sc-a.sc;}).slice(0,6).map(function(r){return r.x;});
+  }
+  function dealOptions(p){
+    var used={}; p.hold.forEach(function(h){ used[h.o.url]=1; });
+    return POOL.filter(function(x){ return !used[x.url]; }).slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+  }
+  function renderResults(){
+    var el=document.getElementById('results');
+    el.innerHTML=lastPorts.map(function(p,pi){
+      recalc(p); if(!p.name)p.name=p.theme||'Custom portfolio'; if(!p.ref)p.ref=makeRef(lastOpts&&lastOpts.client);
+      var rows=p.hold.map(function(h,hi){
+        return '<div class="holding" data-pi="'+pi+'" data-hi="'+hi+'">'+
+          '<div class="h-name"><a href="'+esc(h.o.url)+'" target="_blank">'+esc(h.o.name)+'</a>'+
+            '<div class="h-sub">'+esc(h.o.sponsor)+' · '+esc(h.o.type)+' · '+esc(h.o.region)+(h.o.allCash?' · all-cash':(' · '+(h.o.ltv||0).toFixed(0)+'% LTV'))+'</div>'+
+            '<div class="hedit"><button class="lnk swap" data-pi="'+pi+'" data-hi="'+hi+'">Swap / alternatives ▾</button><button class="lnk rm" data-pi="'+pi+'" data-hi="'+hi+'">Remove</button></div>'+
+          '</div>'+
+          '<div class="h-amt"><input class="allocIn" data-pi="'+pi+'" data-hi="'+hi+'" value="'+Math.round(h.alloc)+'"></div>'+
+          '<div class="h-meta">'+(h.o.yield?h.o.yield.toFixed(1)+'%':'—')+'</div>'+
+          '<div class="h-meta">'+(p.total?(h.alloc/p.total*100).toFixed(0):'0')+'%</div>'+
+          '<div class="alts" data-altfor="'+pi+'-'+hi+'" style="display:none;"></div>'+
+        '</div>';
+      }).join('');
+      var addOpts=dealOptions(p).map(function(o){return '<option value="'+esc(o.url)+'">'+esc(o.name)+' ('+esc(o.sponsor)+')</option>';}).join('');
+      return '<div class="port" data-pi="'+pi+'">'+
+        '<h3><label class="psel"><input type="checkbox" class="pcheck" data-pi="'+pi+'" checked> save</label>'+
+          '<span class="pref" title="Reference — share this with the client">'+esc(p.ref)+'</span>'+
+          '<input class="pname" data-pi="'+pi+'" value="'+esc(p.name)+'"><span class="hmeta">'+p.hold.length+' holdings</span></h3>'+
+        '<div class="body">'+
+          '<div class="holding" style="border-bottom:1px solid #e3e7ee;color:#8a97a6;font-size:12px;font-weight:700;"><div>Offering</div><div class="h-amt">Allocation</div><div class="h-meta">Y1 yld</div><div class="h-meta">Weight</div></div>'+
+          (rows||'<p class="muted" style="padding:8px 0;">No holdings yet — add a deal below.</p>')+
+          '<div class="adddeal"><select data-add="'+pi+'"><option value="">+ Add a deal…</option>'+addOpts+'</select><button class="btn ghost addbtn" data-add="'+pi+'">Add</button></div>'+
+          '<div class="tot"><span>Total allocated · '+p.types+' sector'+(p.types!==1?'s':'')+'</span><span>'+money(p.total)+'</span></div>'+
+          '<div class="tot" style="border-top:0;font-weight:400;color:#555;"><span>Blended LTV '+p.blendLtv.toFixed(1)+'% · blended Y1 yield '+p.yield.toFixed(1)+'%</span><span></span></div>'+
+        '</div></div>';
+    }).join('')+'<div style="margin:8px 0 4px;"><button class="btn ghost" id="newCustom">+ New custom portfolio</button></div>';
+  }
+  function wireResults(){
+    var el=document.getElementById('results');
+    el.addEventListener('click',function(e){
+      var t=e.target;
+      if(t.id==='newCustom'){ lastPorts.push({theme:'Custom',name:'Custom portfolio',hold:[],total:0,blendLtv:0,yield:0,types:0,withinLtv:true}); renderResults(); return; }
+      var pi=t.getAttribute('data-pi'), hi=t.getAttribute('data-hi');
+      if(t.classList.contains('rm')){ lastPorts[+pi].hold.splice(+hi,1); renderResults(); return; }
+      if(t.classList.contains('swap')){
+        var box=el.querySelector('.alts[data-altfor="'+pi+'-'+hi+'"]');
+        if(box.style.display!=='none'){ box.style.display='none'; box.innerHTML=''; return; }
+        var p=lastPorts[+pi], h=p.hold[+hi], alts=altsFor(h.o,p);
+        box.innerHTML=alts.length? alts.map(function(x){ return '<div class="altrow"><span><b>'+esc(x.name)+'</b> <span class="hmeta">'+esc(x.sponsor)+' · '+esc(x.type)+' · '+esc(x.region)+(x.allCash?' · all-cash':(' · '+(x.ltv||0).toFixed(0)+'% LTV'))+' · '+(x.yield?x.yield.toFixed(1)+'%':'—')+'</span></span><button class="use" data-pi="'+pi+'" data-hi="'+hi+'" data-url="'+esc(x.url)+'">Use</button></div>'; }).join('') : '<p class="muted" style="margin:0;">No alternatives available (all comparable offerings are already in this portfolio).</p>';
+        box.style.display='block'; return;
+      }
+      if(t.classList.contains('use')){
+        var np=POOL.filter(function(x){return x.url===t.getAttribute('data-url');})[0]; if(!np)return;
+        var hold=lastPorts[+pi].hold[+hi]; hold.o=np; if(hold.alloc<np.min)hold.alloc=np.min; renderResults(); return;
+      }
+      if(t.classList.contains('addbtn')){
+        var ai=t.getAttribute('data-add'); var sel=el.querySelector('select[data-add="'+ai+'"]'); var url=sel.value; if(!url)return;
+        var o=POOL.filter(function(x){return x.url===url;})[0]; if(!o)return;
+        lastPorts[+ai].hold.push({o:o,alloc:o.min}); renderResults(); return;
+      }
+    });
+    el.addEventListener('change',function(e){
+      var t=e.target;
+      if(t.classList.contains('allocIn')){ var v=parseMoney(t.value); lastPorts[+t.getAttribute('data-pi')].hold[+t.getAttribute('data-hi')].alloc=v; renderResults(); }
+      else if(t.classList.contains('pname')){ lastPorts[+t.getAttribute('data-pi')].name=t.value; }
+    });
   }
   function portfolioPayload(p){
-    return { name:(lastOpts.client?lastOpts.client+' — ':'')+p.theme+' portfolio', theme:p.theme,
+    return { name:p.name||((lastOpts&&lastOpts.client?lastOpts.client+' — ':'')+(p.theme||'Custom')+' portfolio'), theme:p.theme, ref:p.ref,
       blendLtv:p.blendLtv, yield:p.yield, total:p.total,
       holdings:p.hold.map(function(h){ return { name:h.o.name, url:h.o.url, sponsor:h.o.sponsor, type:h.o.type, alloc:Math.round(h.alloc) }; }) };
   }
@@ -1550,14 +1667,21 @@
     if(!email){ msg.textContent='Enter a client email.'; return; }
     if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return; }
     if(!lastPorts){ msg.textContent='Build a portfolio first.'; return; }
-    var idx=parseInt(document.getElementById('saveWhich').value,10)||0;
+    // #1 multi-select: save every portfolio whose "save" box is ticked
+    var picks=[].slice.call(document.querySelectorAll('#results .pcheck:checked')).map(function(c){return +c.getAttribute('data-pi');});
+    if(!picks.length){ msg.textContent='Tick the "save" box on at least one portfolio above.'; return; }
+    var chosen=picks.map(function(i){return lastPorts[i];}).filter(function(p){return p && p.hold && p.hold.length;});
+    if(!chosen.length){ msg.textContent='The selected portfolio has no holdings.'; return; }
     var also=document.getElementById('alsoDeals').checked;
-    msg.style.color='#555'; msg.textContent='Saving…';
-    empPost('employee-portfolio',{action:'save',email:email,portfolio:portfolioPayload(lastPorts[idx]),alsoAddDeals:also})
-      .then(function(res){ if(res.s>=200&&res.s<300&&res.j.ok){ msg.style.color='#2e7d32'; msg.textContent='Saved to '+email+"'s portal"+(also?' · holdings firm-added ✓':' ✓'); }
-        else if(res.s===401){ msg.textContent='Session expired — re-enter the password.'; }
-        else { msg.textContent='Could not save: '+(res.j.error||('HTTP '+res.s)); } })
-      .catch(function(){ msg.textContent='Network error — try again.'; });
+    msg.style.color='#555'; msg.textContent='Saving '+chosen.length+' portfolio'+(chosen.length>1?'s':'')+'…';
+    Promise.all(chosen.map(function(p){ return empPost('employee-portfolio',{action:'save',email:email,portfolio:portfolioPayload(p),alsoAddDeals:also}); }))
+      .then(function(reslist){
+        var ok=reslist.filter(function(r){return r.s>=200&&r.s<300&&r.j.ok;}).length;
+        var un=reslist.some(function(r){return r.s===401;});
+        if(un){ msg.style.color='#c0392b'; msg.textContent='Session expired — re-enter the password.'; }
+        else if(ok===chosen.length){ msg.style.color='#2e7d32'; msg.textContent='Saved '+ok+' portfolio'+(ok>1?'s':'')+' to '+email+"'s portal"+(also?' · holdings firm-added ✓':' ✓'); }
+        else { msg.style.color='#c0392b'; msg.textContent='Saved '+ok+' of '+chosen.length+' — some failed.'; } })
+      .catch(function(){ msg.style.color='#c0392b'; msg.textContent='Network error — try again.'; });
   }
   function firmAddDeal(){
     var msg=document.getElementById('fa_msg'); msg.style.color='#c0392b';
@@ -1653,6 +1777,7 @@
     document.getElementById('saveBtn').onclick=saveToClient;
     document.getElementById('fa_add').onclick=firmAddDeal;
     document.getElementById('mg_load').onclick=loadManage;
+    wireResults();
   }
   function grant(){
     var msg=document.getElementById('grantMsg'); msg.style.color='#c0392b';
