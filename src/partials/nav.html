@@ -180,7 +180,7 @@
         function refresh(){
           var signedIn=!!window.Clerk.user;
           logins.forEach(function(a){
-            if(signedIn){ a.style.display='none'; }
+            if(signedIn){ a.style.display=''; a.textContent='My Account'; a.setAttribute('href','account.html'); a.onclick=null; }
             else { a.style.display=''; a.textContent='Client Login'; a.setAttribute('href','#');
                    a.onclick=function(e){e.preventDefault(); window.Clerk.openSignIn({});}; }
           });

@@ -144,7 +144,21 @@ export default async (req) => {
     },
   }, token).catch(() => {});
 
-  return json({ ok: true, recordId });
+  // 4) #5: on booking, create the Clerk account (invitation) so they can access the portal
+  let invited = false;
+  if (d.callBooked && process.env.CLERK_SECRET_KEY && d.email) {
+    try {
+      const r = await fetch('https://api.clerk.com/v1/invitations', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + process.env.CLERK_SECRET_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email_address: d.email, notify: true, ignore_existing: true,
+          public_metadata: { source: 'investor-registration' } }),
+      });
+      invited = r.ok; // 400 = already invited / already a user — fine, ignore
+    } catch (e) {}
+  }
+
+  return json({ ok: true, recordId, invited });
 };
 
 function json(obj, status = 200) {

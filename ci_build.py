@@ -295,6 +295,12 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
                                lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(dir_rows, indent=1, ensure_ascii=False) + '\n</script>',
                                html_text, flags=re.S)
+        if base == 'account.html':
+            _bmindex = ([{'slug': r['url'].replace('.html', ''), 'name': r['name'], 'url': r['url']} for r in dir_rows]
+                        + [{'slug': r['url'].replace('.html', ''), 'name': r['name'], 'url': r['url']} for r in sp_dir])
+            html_text = re.sub(r'<script type="application/json" id="bookmark-index">.*?</script>',
+                               lambda _m: '<script type="application/json" id="bookmark-index">' + json.dumps(_bmindex, ensure_ascii=False) + '</script>',
+                               html_text, flags=re.S)
         if base == 'delaware-statutory-trusts.html':
             bm_map = {s(b['Property Type']): b for b in BM}
             picks = ['Marina', 'Healthcare', 'Net Lease', 'Multifamily', 'Self-Storage', 'Office']
