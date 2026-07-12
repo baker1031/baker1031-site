@@ -1263,9 +1263,53 @@
   .legacy .chartwrap canvas { max-width: 100%; }
   .legacy .prefrow { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid #f0f0f0; }
   .legacy .pref { font-weight: 700; color: #243856; }
-  .legacy .secblock { margin: 26px 0; }
-  .legacy .scroller { overflow-x: auto; }
-  @media (max-width: 720px) { .legacy .kpis { grid-template-columns: 1fr 1fr; } .legacy .chartwrap { height: 300px; } }
+  .legacy .secblock { margin: 40px 0; }
+  .legacy .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* ---- data tables (sponsor track records, comparison, realized deals) ---- */
+  .legacy table.dtable, .legacy table.compare { width: 100%; border-collapse: collapse; font-size: 13px; margin: 6px 0; }
+  /* neutralize the .legacy .prefrow flex rule when it lands on a table row */
+  .legacy table.dtable tr, .legacy table.compare tr { display: table-row; }
+  .legacy table.dtable th, .legacy table.dtable td,
+  .legacy table.compare th, .legacy table.compare td {
+    display: table-cell; padding: 10px 14px; border-bottom: 1px solid #eee;
+    text-align: right; white-space: nowrap; vertical-align: middle;
+  }
+  .legacy table.dtable th, .legacy table.compare th {
+    background: #f5f5f5; color: #243856; font-family: "Optima", Candara, sans-serif;
+    text-transform: uppercase; letter-spacing: .04em; font-size: 12px; line-height: 1.25;
+    border-bottom: 2px solid #dcdcdc; white-space: normal;
+  }
+  .legacy table.dtable th:first-child, .legacy table.dtable td:first-child,
+  .legacy table.compare th:first-child, .legacy table.compare td:first-child { text-align: left; white-space: normal; }
+  .legacy table.dtable caption, .legacy table.compare caption {
+    caption-side: top; text-align: left; color: #777; font-size: 12px; font-style: italic; margin-bottom: 8px;
+  }
+  .legacy table.dtable tbody tr:hover td { background: #f7f9fc; }
+  .legacy table.dtable tr.prefrow td { background: #f3f6fb; }
+  .legacy table.dtable tr.prefrow:hover td { background: #eef3fa; }
+  .legacy .compare .acol { color: #555; }
+  .legacy .compare .pcol { color: #243856; font-weight: 700; }
+  .legacy .pref { color: #243856; font-weight: 700; }
+  /* Load-more: hide the extended rows until the table is toggled open */
+  .legacy table.dtable tr.more { display: none; }
+  .legacy table.dtable.open tr.more { display: table-row; }
+  /* Load-more / filter controls */
+  .legacy .dealmore { text-align: center; margin: 16px 0 4px; }
+  .legacy .dealmore button {
+    font-family: "Optima", Candara, sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .06em; font-size: 12px; color: #243856; background: #fff;
+    border: 1px solid #243856; padding: 10px 22px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .legacy .dealmore button:hover { background: #243856; color: #fff; }
+  .legacy .dealfilter { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 12px 0 4px; }
+  .legacy .dealfilter input[type="search"] {
+    flex: 1 1 320px; min-width: 220px; padding: 9px 12px; border: 1px solid #ccc; font-size: 14px;
+  }
+  .legacy .dealfilter .cnt { color: #777; font-size: 13px; }
+  .legacy .asof { color: #555; font-size: 13px; }
+  .legacy .asof b { margin-left: 5px; color: #243856; }
+  @media (max-width: 720px) { .legacy .kpis { grid-template-columns: 1fr 1fr; } .legacy .chartwrap { height: 300px; }
+    .legacy table.dtable th, .legacy table.dtable td, .legacy table.compare th, .legacy table.compare td { padding: 8px 10px; } }
   @media (max-width: 480px) { .legacy .kpis { grid-template-columns: 1fr; } }
 </style>
 <section class="pagehead"><div class="wrap">
@@ -1275,7 +1319,7 @@
 
 <p>Independent, transparent performance data for the securitized 1031 market — aggregated full-cycle track records, sponsor-by-sponsor results, and current-yield benchmarks across every property sector we cover.</p>
 </div>
-<div class="asof">Data as of<b>Q2 2026</b></div>
+<div class="asof">Data as of <b>Q2 2026</b></div>
 </div></section>
 <div class="tabsbar"><div class="wrap">
 <span class="lbl">Cohort</span>
@@ -1325,8 +1369,8 @@
 <div class="blockhead"><h2>Sponsor Full-Cycle Performance</h2><span class="note">Realized results · by sponsor</span></div>
 <p class="intro">The table reports realized, full-cycle results for sponsors with at least one completed program, ranked by deal count. "Preferred" denotes sponsors on Baker 1031's curated platform, which collectively show higher returns and success rates than the market as a whole. “Preferred” is Baker 1031's own designation — not an endorsement, recommendation, or guarantee of any security or of future performance — and may reflect business relationships. Past performance does not predict future results.</p>
 <div class="chartcard">
-<div class="ct"><h3>Average Annual Return by Sponsor</h3><span class="mk">Full-cycle · realized</span></div>
-<div class="chartwrap"><canvas id="sponsorChart"></canvas></div>
+<div class="ct"><h3>Average Annual Return by Sponsor</h3><span class="mk"><span style="display:inline-block;width:9px;height:9px;background:#243856;margin-right:4px;vertical-align:middle;"></span>Preferred &nbsp; <span style="display:inline-block;width:9px;height:9px;background:#9aa6b8;margin-right:4px;vertical-align:middle;"></span>Other · full-cycle realized</span></div>
+<div class="chartwrap" style="height:640px"><canvas id="sponsorChart"></canvas></div>
 </div>
 <div class="secblock" style="padding-top:30px">
 <div class="scroller"><table class="dtable" id="sponsorTbl">
@@ -2066,7 +2110,6 @@
     </div>
   </main>
 
-<script>(function(){var b=document.getElementById('spmore'),t=document.getElementById('sponsorTbl');if(b&&t)b.addEventListener('click',function(){var o=t.classList.toggle('open');b.textContent=o?'Show fewer sponsors':'Show all 82 sponsors in this dataset';});})();</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
   (function(){
@@ -2083,8 +2126,8 @@
     var grid={color:HAIR,drawTicks:false}, pct=function(v){return v+'%';};
     var sp=[{"n":"Syndicated Equities","v":41,"p":false},{"n":"Denholtz","v":38.05,"p":true},{"n":"Bridgeview","v":37.25,"p":true},{"n":"Peachtree Group","v":31.18,"p":true},{"n":"Olympus Property","v":25.75,"p":true},{"n":"Bluerock","v":21.39,"p":false},{"n":"Time Equities","v":20.77,"p":false},{"n":"Carter Exchange","v":20.07,"p":true},{"n":"Griffin Capital","v":18.04,"p":true},{"n":"NexPoint","v":16.83,"p":true},{"n":"Capital Square","v":15.2,"p":true},{"n":"Moody National","v":14.56,"p":false},{"n":"Passco","v":12.33,"p":false},{"n":"Cantor Fitzgerald","v":11.67,"p":false},{"n":"Net Lease Capital Advisors","v":8.72,"p":false},{"n":"Livingston Street Capital","v":8.52,"p":false},{"n":"Walton Global Holdings","v":8.2,"p":false},{"n":"Inland","v":8.1,"p":false},{"n":"ExchangeRight","v":7.77,"p":true},{"n":"Four Springs Capital","v":7.05,"p":false},{"n":"AEI Capital Corporation","v":6.75,"p":false},{"n":"Starboard Realty Advisors","v":6.34,"p":false}];
     new Chart(document.getElementById('sponsorChart'),{type:'bar',
-      data:{labels:sp.map(function(s){return s.n;}),datasets:[{data:sp.map(function(s){return s.v;}),backgroundColor:sp.map(function(s){return s.p?ACCENT:INK;}),borderWidth:0,maxBarThickness:60}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y.toFixed(2)+'% avg annual return'+(sp[c.dataIndex].p?' · Preferred':'');}}}},scales:{y:{grid:grid,border:{display:false},ticks:{callback:pct},suggestedMin:0},x:{grid:{display:false},border:{color:INK}}}}});
+      data:{labels:sp.map(function(s){return s.n;}),datasets:[{data:sp.map(function(s){return s.v;}),backgroundColor:sp.map(function(s){return s.p?ACCENT:'#9aa6b8';}),borderWidth:0,maxBarThickness:22}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x.toFixed(2)+'% avg annual return'+(sp[c.dataIndex].p?' · Preferred':'');}}}},scales:{x:{grid:grid,border:{display:false},ticks:{callback:pct},suggestedMin:0},y:{grid:{display:false},border:{color:INK},ticks:{autoSkip:false,font:{size:11.5}}}}}});
     var sec=[["Oil & Gas Mineral / Royalty",9.6,10],["Marina",7.98,9.7],["Healthcare",6.41,7.03],["Industrial",5.39,5.84],["Small-Bay Industrial",5.36,6.23],["Net Lease",5.21,5.47],["Senior Living",5.12,6.65],["Multifamily",5.04,5.95],["GSA (Government)",4.7,4.7],["Self-Storage",4.5,4.79],["Life Sciences",4.07,4.18],["Hospitality",3.2,3.4],["Office",2.79,3],["Land",0,0]];
     new Chart(document.getElementById('sectorChart'),{type:'bar',
       data:{labels:sec.map(function(s){return s[0];}),datasets:[

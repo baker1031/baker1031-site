@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Account | Baker 1031 Investments</title>
+<title>Employee Portal | Baker 1031 Investments</title>
 <style>
   @font-face {
     font-family: "Optima";
@@ -1237,177 +1237,356 @@
 <!-- @@NAV@@ -->
 
   <nav class="breadcrumbs">
-    <a href="baker1031.html">Home</a><span class="sep">❯</span>My Account
+    <a href="baker1031.html">Home</a><span class="sep">❯</span>Employee Portal
   </nav>
 
   <section class="offering-hero">
-    <h1 class="optima">My Account</h1>
+    <h1 class="optima">Employee Portal</h1>
   </section>
 
   <main>
-    <div id="acct">
-      <div class="gate" id="acctGate">
-        <p>Loading your account…</p>
-      </div>
-      <div id="acctBody" style="display:none;"></div>
+  <div id="acct">
+    <style>
+      #acct .emp-gate { max-width:420px; margin:24px auto; }
+      #acct .emp-gate input { width:100%; margin:10px 0; }
+      #acct .err { color:#c0392b; font-size:13px; display:block; min-height:16px; margin-top:6px; }
+      #acct .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+      #acct .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+      #acct .num { text-align:right; }
+      #acct .port { border:1px solid #e3e7ee; margin:14px 0; }
+      #acct .port h3 { font-family:"Optima",Candara,sans-serif; text-transform:uppercase; letter-spacing:.05em; color:#243856; font-size:15px; background:#f5f7fb; padding:10px 14px; margin:0; }
+      #acct .port .body { padding:12px 14px; }
+      #acct .holding { display:grid; grid-template-columns:1.6fr .8fr .7fr .7fr; gap:8px; padding:8px 0; border-bottom:1px solid #f0f0f0; align-items:baseline; }
+      #acct .holding:last-child { border-bottom:0; }
+      #acct .holding .h-name { font-weight:700; color:#243856; }
+      #acct .holding .h-name a { color:#243856; text-decoration:none; }
+      #acct .holding .h-name a:hover { color:#0099ff; }
+      #acct .holding .h-sub { color:#8a97a6; font-size:12px; font-weight:400; }
+      #acct .holding .h-amt { text-align:right; font-weight:700; }
+      #acct .holding .h-meta { text-align:right; color:#555; }
+      #acct .port .tot { display:flex; justify-content:space-between; padding-top:10px; margin-top:6px; border-top:2px solid #e3e7ee; font-weight:700; color:#243856; }
+      #acct .flag { color:#b26a00; font-size:12px; margin-top:6px; }
+      #acct .toolrow { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:8px; }
+      #acct .toolrow input { flex:1 1 240px; }
+      #acct .linkbox { width:100%; font-size:12px; color:#555; margin-top:8px; padding:8px; border:1px dashed #bbb; word-break:break-all; background:#fafafa; display:none; }
+      @media (max-width:640px){ #acct .grid2,#acct .grid3{ grid-template-columns:1fr; } #acct .holding{ grid-template-columns:1fr 1fr; } }
+    </style>
+
+    <!-- ============ STAFF GATE ============ -->
+    <div class="card emp-gate" id="empGate">
+      <h2 class="sec">Staff sign-in</h2>
+      <p class="muted">Enter the staff password to open the portfolio builder.</p>
+      <input type="password" id="empPass" placeholder="Password" autocomplete="off">
+      <button class="btn" id="empGo">Enter</button>
+      <span class="err" id="empErr"></span>
     </div>
 
+    <!-- ============ CLIENT VIEW (shared link, no gate) ============ -->
+    <div id="clientView" style="display:none;">
+      <div class="card">
+        <h2 class="sec" id="cvTitle">Your example portfolio</h2>
+        <p class="muted">Prepared by Baker 1031 Investments for illustrative purposes. These are sample allocations built from offerings currently tracked on our platform — not a recommendation or an offer. Any investment is made solely through a sponsor's private placement memorandum after a suitability determination.</p>
+      </div>
+      <div id="cvResults"></div>
+      <div class="card"><a class="btn" href="request-access.html">Request Investment Access</a></div>
+    </div>
+
+    <!-- ============ BUILDER APP ============ -->
+    <div id="empApp" style="display:none;">
+      <div class="card">
+        <h2 class="sec">Portfolio Builder</h2>
+        <p class="muted">Reads the live offering inventory. Enter the exchange figures and preferences, then generate example portfolios. Nothing here is saved unless you grant a client portal access below.</p>
+        <div class="grid2">
+          <div><label class="q-lab">Client name (for the link/label)</label><input type="text" id="i_client" placeholder="e.g. The Miller Family"></div>
+          <div><label class="q-lab">Client email (optional)</label><input type="email" id="i_email" placeholder="client@example.com"></div>
+        </div>
+        <div class="grid3" style="margin-top:12px;">
+          <div><label class="q-lab">Equity to reinvest ($)</label><input type="text" inputmode="numeric" class="num" id="i_equity" placeholder="1,000,000"></div>
+          <div><label class="q-lab">Debt to replace ($)</label><input type="text" inputmode="numeric" class="num" id="i_debt" placeholder="0"></div>
+          <div><label class="q-lab">Target LTV (%)</label><input type="text" inputmode="decimal" class="num" id="i_ltv" placeholder="auto from debt"></div>
+        </div>
+        <div class="grid2" style="margin-top:12px;">
+          <div><label class="q-lab">LTV threshold (± percentage points)</label><input type="text" inputmode="decimal" class="num" id="i_ltvtol" value="7"></div>
+          <div><label class="q-lab">Offerings per portfolio (max)</label><input type="text" inputmode="numeric" class="num" id="i_count" value="5"></div>
+        </div>
+
+        <label class="q-lab" style="margin-top:14px;display:block;">Goals</label>
+        <div class="chips" id="c_goals"></div>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div><label class="q-lab">Include property types <span class="muted">(none = all)</span></label><div class="chips" id="c_typeInc"></div></div>
+          <div><label class="q-lab">Exclude property types</label><div class="chips" id="c_typeExc"></div></div>
+        </div>
+        <div class="grid2" style="margin-top:12px;">
+          <div><label class="q-lab">Include regions <span class="muted">(none = all)</span></label><div class="chips" id="c_regInc"></div></div>
+          <div><label class="q-lab">Exclude regions</label><div class="chips" id="c_regExc"></div></div>
+        </div>
+
+        <div style="margin-top:16px;"><button class="btn" id="buildBtn">Build example portfolios</button> <span class="err" id="buildErr"></span></div>
+      </div>
+
+      <div id="results"></div>
+
+      <div class="card" id="shareCard" style="display:none;">
+        <h2 class="sec">Share &amp; grant access</h2>
+        <p class="muted">Create a client-facing link that reproduces the portfolios above (no password needed for the client), then optionally grant that client portal access.</p>
+        <div class="toolrow">
+          <button class="btn ghost" id="linkBtn">Generate client link</button>
+          <button class="btn ghost" id="copyLink">Copy link</button>
+        </div>
+        <div class="linkbox" id="linkOut"></div>
+        <div class="toolrow" style="margin-top:14px;">
+          <input type="email" id="grantEmail" placeholder="client@example.com">
+          <button class="btn" id="grantBtn">Grant portal access</button>
+        </div>
+        <span class="err" id="grantMsg"></span>
+      </div>
+    </div>
+  </div>
+
     <div class="disclosures" style="margin-top: 28px;">
-      <p>Securities offered through Aurora Securities, Inc., member FINRA/SIPC. Baker 1031 Investments is independent of Aurora Securities and is not a registered broker-dealer or investment adviser. This page is informational only and is not an offer to sell or a solicitation of an offer to buy any security; offerings are made solely through a sponsor's private placement memorandum following a suitability determination. Consult your own CPA and attorney.</p>
+      <p>Internal tool. Example portfolios are illustrative, are built from offerings currently tracked by Baker 1031 Investments, and are not recommendations, offers, or guarantees. Any investment is made solely through a sponsor's private placement memorandum following a suitability determination. Figures are estimates and are not guaranteed.</p>
     </div>
   </main>
 
 <!-- @@FOOTER@@ -->
 
-<script type="application/json" id="bookmark-index">[]</script>
+<script type="application/json" id="directory-data">[]</script>
 <script>
 (function(){
-  var GATE=document.getElementById('acctGate'), BODY=document.getElementById('acctBody');
-  var IDX=[]; try{ IDX=JSON.parse(document.getElementById('bookmark-index').textContent); }catch(e){}
-  var IDXMAP={}; IDX.forEach(function(o){ IDXMAP[o.slug]=o; });
-  var GOAL_OPTS=["Monthly income","Growth / appreciation","Diversification","Estate planning / step-up","721 / UPREIT exit option","All-cash / debt-free","Simplify — stop being a landlord"];
-  var esc=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');};
+  var INV=[]; try{ INV=JSON.parse(document.getElementById('directory-data').textContent)||[]; }catch(e){}
+  var GOALS=['Income','Growth','Diversification','Tax deferral','Estate planning','Liquidity / 721 option'];
+  var TOKEN=null;
 
-  // #10 personalized content keyed to goals / exchange status / accreditation
-  var GOAL_CONTENT={
-    "Monthly income":{h:"Built for monthly income",p:"The DSTs we focus on for income — net-lease and stabilized multifamily — distribute rental income monthly, with distributions covered by in-place leases rather than speculation. We'll prioritize offerings whose projected Year-1 yield and coverage match your income goal."},
-    "Growth / appreciation":{h:"Positioned for growth",p:"For appreciation we look to value-add and development-oriented sponsors and sectors with demographic tailwinds. Growth carries more variability than income deals — we'll balance it against your timeline and risk tolerance."},
-    "Diversification":{h:"Diversify in a single exchange",p:"One exchange can be split across multiple DSTs — different sponsors, property types, and regions — so no single asset or operator concentrates your risk. Your replacement doesn't have to be one building."},
-    "Estate planning / step-up":{h:"A step-up for your heirs",p:"Hold your DST interests for life and your heirs inherit at a stepped-up cost basis — the deferred capital-gains liability is generally eliminated at that point. DSTs pass cleanly to a trust or beneficiaries without re-titling a property."},
-    "721 / UPREIT exit option":{h:"A path to liquidity",p:"A 721 (UPREIT) exit can convert DST interests into operating-partnership units of a REIT, trading direct ownership for a more liquid, diversified position over time. We can prioritize offerings that carry a 721 option."},
-    "All-cash / debt-free":{h:"All-cash, debt-free options",p:"Debt-free DSTs carry no mortgage — no lender, no refinancing risk, no loan maturity to manage. They suit investors with no debt to replace who want to avoid leverage entirely."},
-    "Simplify — stop being a landlord":{h:"Truly passive ownership",p:"No tenants, toilets, or midnight calls. A DST is professionally managed institutional real estate — you keep real-estate exposure and income without operating anything."}
-  };
-  function personalize(p){
-    var out=[];
-    (p.goals||[]).forEach(function(g){ if(GOAL_CONTENT[g]) out.push(GOAL_CONTENT[g]); });
-    var st=p.exchangeStatus||'';
-    if(/Actively in 1031/i.test(st)) out.push({h:"Your exchange clock is running",p:"You're inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. We can identify suitable DSTs quickly so you never risk the exchange; DSTs are often used precisely because they can close fast within the window."});
-    else if(/listed for sale|Thinking about/i.test(st)) out.push({h:"Line up replacements before you close",p:"The best exchanges are planned before the sale closes. We can pre-screen DSTs that fit your equity and debt so you're ready to identify on day one."});
-    else if(/Non-1031 cash/i.test(st)) out.push({h:"Cash investors welcome",p:"DSTs aren't only for 1031 exchanges — accredited cash investors use them for passive, diversified real-estate income too."});
-    if(/Not verified|May not|^$/i.test(p.accreditation||'')) out.push({h:"Confirming your accreditation",p:"DST offerings are limited to accredited investors. On your introductory call we'll confirm your status — a quick, standard step required before any offering can be shared."});
-    // universal objection handling
-    out.push({h:"About liquidity",p:"DSTs are long-term holds (typically 5–10 years) and are not traded on demand — that's the trade-off for passive, institutional ownership. We match hold periods to your timeline and, where it matters, prioritize offerings with a 721 liquidity path."});
-    out.push({h:"About sponsors & fees",p:"Every sponsor we place is vetted for track record and alignment, and each offering's fees ('load') and projections are laid out in its PPM, which controls. We show you the full picture before you decide."});
-    return out;
-  }
+  // ---------- helpers ----------
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function money(n){ return '$'+Math.round(n).toLocaleString(); }
+  function parseMoney(v){ if(v==null)return 0; var str=String(v).trim().toLowerCase().replace(/[$,\s]/g,''); if(!str)return 0;
+    var m=str.match(/^([0-9.]+)([kmb])?$/); if(!m)return Number(str.replace(/[^0-9.]/g,''))||0;
+    var num=parseFloat(m[1])||0; var suf=m[2]; if(suf==='k')num*=1e3; else if(suf==='m')num*=1e6; else if(suf==='b')num*=1e9; return num; }
+  function parsePct(v){ if(v==null)return null; var m=String(v).match(/-?[0-9.]+/); return m?parseFloat(m[0]):null; }
+  function region(loc){ var s=String(loc||'').toLowerCase();
+    var W=['ca','california','wa','washington','or','oregon','nv','nevada','az','arizona','co','colorado','ut','utah','id','idaho','mt','montana','wy','hi','ak','new mexico','nm'];
+    var NE=['ny','new york','nj','new jersey','ma','massachusetts','ct','connecticut','pa','pennsylvania','me','maine','nh','vt','ri','md','maryland','de','delaware','dc','virginia','va'];
+    var MW=['il','illinois','oh','ohio','mi','michigan','in','indiana','wi','wisconsin','mn','minnesota','ia','iowa','mo','missouri','ks','kansas','ne','nebraska','nd','sd','oklahoma','ok'];
+    var SE=['tx','texas','fl','florida','ga','georgia','nc','north carolina','sc','south carolina','tn','tennessee','al','alabama','ms','mississippi','la','louisiana','ky','kentucky','ar','arkansas','wv'];
+    function hit(arr){ return arr.some(function(t){ return new RegExp('(^|[^a-z])'+t+'([^a-z]|$)').test(s); }); }
+    if(hit(W))return 'West'; if(hit(NE))return 'Northeast'; if(hit(MW))return 'Midwest'; if(hit(SE))return 'South';
+    if(/national|diversified|multi|various|u\.s\.|us\b/.test(s))return 'National'; return 'Other'; }
 
-  function bookmarks(){
-    var out=[];
-    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i);
-      if(k && k.indexOf('b1031-bookmark-')===0 && localStorage.getItem(k)==='1'){
-        var slug=k.slice('b1031-bookmark-'.length); out.push(IDXMAP[slug]||{slug:slug,name:slug.replace(/-/g,' '),url:slug+'.html'}); } } }catch(e){}
-    return out;
-  }
+  // normalize inventory
+  var POOL=INV.map(function(r){
+    var min=parseMoney(r.minimum)||25000;
+    var ltv=parsePct(r.ltv); // may be null (all-cash)
+    var y=parsePct(r.y1Yield)!=null?parsePct(r.y1Yield):parsePct(r.avgYield);
+    return { name:r.name, url:r.url, sponsor:r.sponsor, type:r.propertyType||'Other',
+      region:region(r.location), location:r.location||'', min:min, ltv:(ltv==null?0:ltv), allCash:(ltv==null||ltv===0),
+      yield:(y==null?0:y), status:(r.status||''), avail:parsePct(r.availablePct) };
+  }).filter(function(o){ return o.name; });
 
-  function chip(v,sel){ return '<span class="chip'+(sel?' sel':'')+'" data-v="'+esc(v)+'">'+esc(v)+'</span>'; }
+  var TYPES=Array.from(new Set(POOL.map(function(o){return o.type;}))).sort();
+  var REGIONS=Array.from(new Set(POOL.map(function(o){return o.region;}))).sort();
 
-  function renderAccount(d){
-    var p=d.profile||{};
-    var goals=p.goals||[];
-    var bms=bookmarks();
-    var fy=personalize(p);
-    var html=''+
-    '<div class="card"><h2 class="sec">Your details</h2>'+
-      '<div class="fieldrow">'+
-        '<div><label class="q-lab">Preferred name</label><input type="text" id="f_pref" value="'+esc(p.preferredName)+'"></div>'+
-        '<div><label class="q-lab">Phone</label><input type="tel" id="f_phone" value="'+esc(p.phone)+'"></div>'+
-      '</div>'+
-      '<p class="muted" style="margin-top:8px;">Your name, email, and password are managed under <b>Login &amp; security</b> below and stay in sync with your record.</p>'+
-      '<div><button class="btn" id="saveProfile">Save changes</button><span class="savemsg" id="saveMsg">Saved ✓</span></div>'+
-    '</div>'+
-    '<div class="card"><h2 class="sec">Login &amp; security</h2>'+
-      '<p class="muted" style="margin-bottom:10px;">Update your name, email, password, and connected devices. Changes sync to your Baker 1031 record.</p>'+
-      '<div id="clerkProfile"></div>'+
-    '</div>'+
-    '<div class="card"><h2 class="sec">Investment goals</h2>'+
-      '<p class="muted">These shape what we prepare for you. Tap to toggle.</p>'+
-      '<div class="chips" id="goalChips">'+GOAL_OPTS.map(function(g){return chip(g,goals.indexOf(g)>-1);}).join('')+'</div>'+
-      '<div><button class="btn ghost" id="saveGoals">Save goals</button><span class="savemsg" id="goalMsg">Saved ✓</span></div>'+
-    '</div>'+
-    '<div class="card"><h2 class="sec">Saved investments</h2>'+
-      (bms.length? '<div id="bmList">'+bms.map(function(b){return '<div class="bm" data-slug="'+esc(b.slug)+'"><a href="'+esc(b.url)+'">'+esc(b.name)+'</a><button class="rm" data-slug="'+esc(b.slug)+'">Remove</button></div>';}).join('')+'</div>'
-        : '<p class="muted">No saved investments yet. Browse the <a href="investments.html" style="color:#0099ff;">current offerings</a> and tap the ☆ to save them here.</p>')+
-    '</div>'+
-    '<div class="card"><h2 class="sec">For you</h2>'+
-      '<p class="muted">Based on what you told us, here&rsquo;s how DSTs address what matters to you:</p>'+
-      fy.map(function(b){return '<div class="foryou"><h3>'+esc(b.h)+'</h3><p>'+esc(b.p)+'</p></div>';}).join('')+
-      '<div style="margin-top:12px;"><a class="btn" href="investments.html">Browse current offerings</a></div>'+
-    '</div>';
-    BODY.innerHTML=html; GATE.style.display='none'; BODY.style.display='block';
-    wire(d);
-  }
+  // ---------- chip UI ----------
+  function chip(v){ return '<span class="chip" data-v="'+esc(v)+'">'+esc(v)+'</span>'; }
+  function fillChips(id,arr){ var el=document.getElementById(id); if(!el)return; el.innerHTML=arr.map(chip).join('');
+    el.querySelectorAll('.chip').forEach(function(c){ c.onclick=function(){ c.classList.toggle('sel'); }; }); }
+  function selected(id){ return [].slice.call(document.querySelectorAll('#'+id+' .chip.sel')).map(function(c){return c.dataset.v;}); }
 
-  function wire(d){
-    var token=d.__token;
-    function post(payload,msgId){
-      fetch('/.netlify/functions/account-data',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(payload)})
-        .then(function(r){ if(msgId){var m=document.getElementById(msgId); if(m){m.classList.add('on'); setTimeout(function(){m.classList.remove('on');},2000);} } }).catch(function(){});
+  // ---------- portfolio construction ----------
+  function blendLtv(hold){ var e=0,d=0; hold.forEach(function(h){ e+=h.alloc; d+=h.alloc*(h.o.ltv/100); }); return e?(d/e*100):0; }
+  function build(theme, opts){
+    var pool=opts.pool.slice();
+    // theme scoring
+    pool.forEach(function(o){
+      o._score = theme==='Income' ? o.yield
+               : theme==='Growth' ? (o.yield*0.3 + (o.allCash?0:o.ltv)*0.1 + 3)
+               : /* Balanced */ (o.yield*0.6 + 2);
+    });
+    // prefer diversification: pick best per property type first
+    pool.sort(function(a,b){ return b._score-a._score; });
+    var picked=[], typesUsed={};
+    for(var pass=0; pass<2 && picked.length<opts.count; pass++){
+      for(var i=0;i<pool.length && picked.length<opts.count;i++){
+        var o=pool[i]; if(picked.indexOf(o)>-1) continue;
+        if(pass===0 && typesUsed[o.type]) continue;      // pass 0: one per type
+        if(o.min>opts.equity) continue;                   // single min already exceeds budget
+        picked.push(o); typesUsed[o.type]=1;
+      }
     }
-    document.getElementById('saveProfile').onclick=function(){
-      post({preferredName:document.getElementById('f_pref').value.trim(),phone:document.getElementById('f_phone').value.trim()},'saveMsg');
-    };
-    document.querySelectorAll('#goalChips .chip').forEach(function(c){ c.onclick=function(){ c.classList.toggle('sel'); }; });
-    document.getElementById('saveGoals').onclick=function(){
-      var g=[].slice.call(document.querySelectorAll('#goalChips .chip.sel')).map(function(c){return c.dataset.v;});
-      post({goals:g},'goalMsg');
-    };
-    document.querySelectorAll('#acct .bm .rm').forEach(function(btn){ btn.onclick=function(){
-      var slug=btn.dataset.slug; try{ localStorage.removeItem('b1031-bookmark-'+slug); }catch(e){}
-      var row=btn.closest('.bm'); if(row) row.remove();
-    };});
-    // Embed Clerk's full profile (name, email, password, devices) inside the portal
-    var cp=document.getElementById('clerkProfile');
-    if(cp && window.Clerk && window.Clerk.mountUserProfile){
-      try{ window.Clerk.mountUserProfile(cp,{appearance:{elements:{rootBox:{width:'100%'},card:{boxShadow:'none',border:'none'}}}}); }catch(err){}
+    if(!picked.length) return null;
+    // ensure sum of minimums fits; drop smallest-score until it does
+    picked.sort(function(a,b){ return b._score-a._score; });
+    while(picked.length>1 && picked.reduce(function(s,o){return s+o.min;},0)>opts.equity){ picked.pop(); }
+    // allocate: start at minimum, distribute remainder toward target LTV
+    var hold=picked.map(function(o){ return {o:o, alloc:o.min}; });
+    var used=hold.reduce(function(s,h){return s+h.alloc;},0);
+    var remain=opts.equity-used; if(remain<0) remain=0;
+    // weight extra allocation to steer blended LTV toward target
+    for(var iter=0; iter<40 && remain>1000; iter++){
+      var cur=blendLtv(hold);
+      var wantHigher = cur < opts.targetLtv;   // need more high-LTV weight
+      // choose a holding to add to
+      var cand=hold.slice().sort(function(a,b){
+        return wantHigher ? (b.o.ltv-a.o.ltv) : (a.o.ltv-b.o.ltv);
+      })[0];
+      var step=Math.min(remain, Math.max(5000, opts.equity*0.05));
+      cand.alloc+=step; remain-=step;
     }
+    // sweep any small remainder into the top holding
+    if(remain>0){ hold[0].alloc+=remain; remain=0; }
+    var total=hold.reduce(function(s,h){return s+h.alloc;},0);
+    var bl=blendLtv(hold);
+    var withinLtv = Math.abs(bl-opts.targetLtv)<=opts.tol || opts.targetLtv===0;
+    return { theme:theme, hold:hold, total:total, blendLtv:bl, withinLtv:withinLtv,
+             yield: hold.reduce(function(s,h){return s+h.alloc*h.o.yield;},0)/(total||1),
+             types: Array.from(new Set(hold.map(function(h){return h.o.type;}))).length };
   }
 
-  function showGateError(msg){
-    GATE.innerHTML='<p class="muted">'+msg+'</p><p style="margin-top:10px;"><a href="account.html" style="color:#0099ff;">Try again</a></p>';
-    GATE.style.display='block';
+  function renderPorts(ports, into, opts){
+    var el=(typeof into==='string')?document.getElementById(into):into;
+    el.innerHTML = ports.map(function(p){
+      if(!p) return '';
+      var rows=p.hold.map(function(h){
+        return '<div class="holding"><div class="h-name"><a href="'+esc(h.o.url)+'">'+esc(h.o.name)+'</a>'
+          +'<div class="h-sub">'+esc(h.o.sponsor)+' · '+esc(h.o.type)+' · '+esc(h.o.region)+(h.o.allCash?' · all-cash':(' · '+h.o.ltv.toFixed(0)+'% LTV'))+'</div></div>'
+          +'<div class="h-amt">'+money(h.alloc)+'</div>'
+          +'<div class="h-meta">'+(h.o.yield?h.o.yield.toFixed(1)+'%':'—')+'</div>'
+          +'<div class="h-meta">'+(p.total?(h.alloc/p.total*100).toFixed(0):'0')+'%</div></div>';
+      }).join('');
+      return '<div class="port"><h3>'+esc(p.theme)+' · '+p.hold.length+' holdings</h3><div class="body">'
+        +'<div class="holding" style="border-bottom:1px solid #e3e7ee;color:#8a97a6;font-size:12px;font-weight:700;">'
+        +'<div>Offering</div><div class="h-amt">Allocation</div><div class="h-meta">Y1 yld</div><div class="h-meta">Weight</div></div>'
+        +rows
+        +'<div class="tot"><span>Total allocated · '+p.types+' sector'+(p.types>1?'s':'')+'</span><span>'+money(p.total)+'</span></div>'
+        +'<div class="tot" style="border-top:0;font-weight:400;color:#555;"><span>Blended LTV '+p.blendLtv.toFixed(1)+'% · blended Y1 yield '+p.yield.toFixed(1)+'%</span><span></span></div>'
+        +(p.withinLtv?'':'<div class="flag">Blended LTV is outside your target band — available offerings don’t bracket that LTV. Adjust the target/threshold or the type/region filters.</div>')
+        +'</div></div>';
+    }).join('');
   }
-  function showSignIn(){
-    GATE.innerHTML='<h2 class="optima" style="text-transform:uppercase;letter-spacing:.05em;color:#243856;">Sign in to your account</h2>'+
-      '<p class="muted" style="margin:8px 0 16px;">Access your saved investments, preferences, and details.</p>'+
-      '<button class="btn" id="gateSignIn" style="border:1px solid #243856;background:#243856;color:#fff;font-family:Optima,Candara,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:11px 24px;cursor:pointer;">Client Login</button>';
-    GATE.style.display='block';
-    document.getElementById('gateSignIn').onclick=function(){ try{ window.Clerk.openSignIn({signUpUrl:'/request-access.html'}); }catch(e){} };
-    try{ window.Clerk.addListener(function(){ if(window.Clerk.user) location.reload(); }); }catch(e){}
+
+  function gatherOpts(){
+    var equity=parseMoney(document.getElementById('i_equity').value);
+    var debt=parseMoney(document.getElementById('i_debt').value);
+    var ltvIn=parsePct(document.getElementById('i_ltv').value);
+    var targetLtv = (ltvIn!=null && ltvIn>0) ? ltvIn : (debt>0 && (equity+debt)>0 ? (debt/(equity+debt)*100) : 0);
+    var tol=parsePct(document.getElementById('i_ltvtol').value); if(tol==null)tol=7;
+    var count=parseInt(document.getElementById('i_count').value,10)||5; count=Math.max(2,Math.min(8,count));
+    var incT=selected('c_typeInc'), excT=selected('c_typeExc'), incR=selected('c_regInc'), excR=selected('c_regExc');
+    var pool=POOL.filter(function(o){
+      if(incT.length && incT.indexOf(o.type)<0) return false;
+      if(excT.indexOf(o.type)>-1) return false;
+      if(incR.length && incR.indexOf(o.region)<0) return false;
+      if(excR.indexOf(o.region)>-1) return false;
+      return true;
+    });
+    return { equity:equity, debt:debt, targetLtv:targetLtv, tol:tol, count:count, pool:pool,
+             goals:selected('c_goals'), incT:incT, excT:excT, incR:incR, excR:excR,
+             client:document.getElementById('i_client').value.trim(), email:document.getElementById('i_email').value.trim() };
   }
-  function loadAccount(){
-    var session=window.Clerk && window.Clerk.session;
-    if(!session || !session.getToken){ showGateError('We couldn’t start your secure session. Please refresh and try again.'); return; }
-    var done=false;
-    var t=setTimeout(function(){ if(!done){ done=true; showGateError('This is taking longer than expected. Please refresh to try again.'); } },12000);
-    session.getToken().then(function(token){
-      return fetch('/.netlify/functions/account-data',{headers:{'Authorization':'Bearer '+token}})
-        .then(function(r){ return r.json().then(function(d){ return {status:r.status, d:d}; }); })
-        .then(function(res){
-          if(done) return; done=true; clearTimeout(t);
-          var d=res.d;
-          if(res.status && res.status>=200 && res.status<300 && d && d.profile){ d.__token=token; renderAccount(d); }
-          else if(res.status===401){ showSignIn(); }
-          else { showGateError('We couldn’t load your account details yet. If you just registered, please try again shortly.'); }
-        });
-    }).catch(function(){ if(done) return; done=true; clearTimeout(t); showGateError('Account service is temporarily unavailable. Please try again shortly.'); });
+
+  var lastPorts=null, lastOpts=null;
+  function runBuild(){
+    var err=document.getElementById('buildErr'); err.textContent='';
+    var o=gatherOpts();
+    if(!o.equity || o.equity<10000){ err.textContent='Enter the equity to reinvest (at least $10,000).'; return; }
+    if(!o.pool.length){ err.textContent='No offerings match those filters. Loosen the include/exclude selections.'; return; }
+    // choose themes by goals
+    var themes=[];
+    if(o.goals.indexOf('Income')>-1) themes.push('Income');
+    if(o.goals.indexOf('Growth')>-1) themes.push('Growth');
+    themes.push('Balanced');
+    themes=Array.from(new Set(themes)).slice(0,3);
+    var ports=themes.map(function(t){ return build(t,o); }).filter(Boolean);
+    if(!ports.length){ err.textContent='Could not assemble a portfolio within budget — the smallest minimums exceed the equity entered.'; return; }
+    lastPorts=ports; lastOpts=o;
+    renderPorts(ports,'results',o);
+    document.getElementById('shareCard').style.display='';
+    if(o.email) document.getElementById('grantEmail').value=o.email;
   }
-  function afterClerk(){
-    if(!window.Clerk.user){ showSignIn(); return; }
-    loadAccount();
+
+  // ---------- shareable link (client view via URL hash) ----------
+  function encodeState(){
+    var s={ c:lastOpts.client, e:lastOpts.equity, d:lastOpts.debt, l:lastOpts.targetLtv, t:lastOpts.tol,
+      n:lastOpts.count, it:lastOpts.incT, xt:lastOpts.excT, ir:lastOpts.incR, xr:lastOpts.excR, g:lastOpts.goals };
+    return btoa(unescape(encodeURIComponent(JSON.stringify(s)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
   }
-  function boot(){
-    var waited=0;
-    (function poll(){
-      if(window.Clerk && window.Clerk.loaded){ afterClerk(); return; }
-      waited+=200;
-      if(waited>=15000){ showGateError('We couldn’t reach the sign-in service. Please refresh to try again.'); return; }
-      setTimeout(poll,200);
-    })();
+  function decodeState(str){ try{ var b=str.replace(/-/g,'+').replace(/_/g,'/'); while(b.length%4)b+='='; return JSON.parse(decodeURIComponent(escape(atob(b)))); }catch(e){ return null; } }
+
+  function genLink(){
+    if(!lastOpts) return;
+    var url=location.origin+location.pathname+'#p='+encodeState();
+    var box=document.getElementById('linkOut'); box.style.display='block'; box.textContent=url;
+    return url;
   }
-  boot();
+
+  // rebuild ports from a decoded state (client side, no gate)
+  function portsFromState(s){
+    var o={ equity:s.e||0, debt:s.d||0, targetLtv:s.l||0, tol:(s.t==null?7:s.t), count:s.n||5,
+      pool:POOL.filter(function(x){
+        if((s.it||[]).length && s.it.indexOf(x.type)<0) return false;
+        if((s.xt||[]).indexOf(x.type)>-1) return false;
+        if((s.ir||[]).length && s.ir.indexOf(x.region)<0) return false;
+        if((s.xr||[]).indexOf(x.region)>-1) return false;
+        return true;
+      }), goals:s.g||[] };
+    var themes=[]; if(o.goals.indexOf('Income')>-1)themes.push('Income'); if(o.goals.indexOf('Growth')>-1)themes.push('Growth'); themes.push('Balanced');
+    themes=Array.from(new Set(themes)).slice(0,3);
+    return themes.map(function(t){return build(t,o);}).filter(Boolean);
+  }
+
+  // ---------- boot ----------
+  function showApp(){
+    document.getElementById('empGate').style.display='none';
+    document.getElementById('empApp').style.display='';
+    fillChips('c_goals',GOALS);
+    fillChips('c_typeInc',TYPES); fillChips('c_typeExc',TYPES);
+    fillChips('c_regInc',REGIONS); fillChips('c_regExc',REGIONS);
+    document.getElementById('buildBtn').onclick=runBuild;
+    document.getElementById('linkBtn').onclick=genLink;
+    document.getElementById('copyLink').onclick=function(){ var u=genLink(); if(u&&navigator.clipboard){ navigator.clipboard.writeText(u).then(function(){ var b=document.getElementById('copyLink'); b.textContent='Copied ✓'; setTimeout(function(){b.textContent='Copy link';},1500); }); } };
+    document.getElementById('grantBtn').onclick=grant;
+  }
+  function grant(){
+    var msg=document.getElementById('grantMsg'); msg.style.color='#c0392b';
+    var email=document.getElementById('grantEmail').value.trim();
+    if(!email){ msg.textContent='Enter a client email.'; return; }
+    if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return; }
+    msg.style.color='#555'; msg.textContent='Granting…';
+    fetch('/.netlify/functions/employee-grant',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},body:JSON.stringify({email:email})})
+      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+      .then(function(res){ if(res.s>=200&&res.s<300&&res.j.ok){ msg.style.color='#2e7d32'; msg.textContent='Portal access granted'+(res.j.invited?' · invitation emailed ✓':' · already had an account ✓'); }
+        else if(res.s===401){ msg.style.color='#c0392b'; msg.textContent='Session expired — re-enter the password.'; }
+        else { msg.style.color='#c0392b'; msg.textContent='Could not grant access: '+(res.j.error||('HTTP '+res.s)); } })
+      .catch(function(){ msg.style.color='#c0392b'; msg.textContent='Network error — try again.'; });
+  }
+  function login(){
+    var err=document.getElementById('empErr'); err.textContent='';
+    var pw=document.getElementById('empPass').value;
+    if(!pw){ err.textContent='Enter the password.'; return; }
+    fetch('/.netlify/functions/employee-auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})})
+      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+      .then(function(res){ if(res.s>=200&&res.s<300&&res.j.ok){ TOKEN=res.j.token; showApp(); } else { err.textContent='Incorrect password.'; } })
+      .catch(function(){ err.textContent='Sign-in service unavailable. Try again shortly.'; });
+  }
+
+  // client-shared link? render read-only, skip the gate entirely
+  var hash=location.hash||'';
+  if(hash.indexOf('#p=')===0){
+    var st=decodeState(hash.slice(3));
+    if(st){
+      document.getElementById('empGate').style.display='none';
+      document.getElementById('clientView').style.display='';
+      if(st.c) document.getElementById('cvTitle').textContent=(st.c.replace(/[<>]/g,''))+' — example portfolio';
+      renderPorts(portsFromState(st),'cvResults',st);
+    } else { document.getElementById('empErr').textContent='This link is invalid or expired.'; }
+  } else {
+    document.getElementById('empGo').onclick=login;
+    document.getElementById('empPass').addEventListener('keydown',function(e){ if(e.key==='Enter') login(); });
+  }
 })();
 </script>
+
 </div>
 </body>
 </html>

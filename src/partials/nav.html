@@ -59,8 +59,8 @@
 
   <nav class="top-links">
     <a href="#" id="clientLogin">Client Login</a>
-    <span id="clerkUser" class="clerk-user" style="display:none;"></span>
-    <a href="request-access.html">Request Investment Access</a>
+    <a href="#" id="clientSignout" style="display:none;">Sign Out</a>
+    <a href="request-access.html" class="req-access">Request Investment Access</a>
   </nav>
 
   <header>
@@ -72,7 +72,7 @@
         <div class="nav-drop"><div class="nav-drop-inner">
           <a href="investments.html">Browse Offerings</a>
           <a href="property-types.html">Property Types</a>
-          <a href="request-access.html">Request Investment Access</a>
+          <a href="request-access.html" class="req-access">Request Investment Access</a>
         </div></div>
       </div>
       <div class="nav-item">
@@ -158,10 +158,10 @@
     <a class="sub" href="contact.html">Contact an Advisor</a>
     <hr class="menu-divider">
     <a class="secondary" href="#" id="clientLoginM">Client Login</a>
-    <a class="secondary" href="request-access.html">Request Investment Access</a>
+    <a class="secondary" href="#" id="clientSignoutM" style="display:none;">Sign Out</a>
+    <a class="secondary req-access" href="request-access.html">Request Investment Access</a>
   </nav>
 
-  <style>.clerk-user{vertical-align:middle;margin-left:4px;} .clerk-user .cl-userButtonBox,.clerk-user button{vertical-align:middle;}</style>
   <script>
   /* ---- Clerk sign-in UI (publishable key is safe to expose) ---- */
   (function(){
@@ -176,19 +176,21 @@
       if(!window.Clerk)return;
       window.Clerk.load().then(function(){
         var logins=[document.getElementById('clientLogin'),document.getElementById('clientLoginM')].filter(Boolean);
-        var slot=document.getElementById('clerkUser');
+        var signouts=[document.getElementById('clientSignout'),document.getElementById('clientSignoutM')].filter(Boolean);
+        var reqLinks=[].slice.call(document.querySelectorAll('.req-access'));
         function refresh(){
           var signedIn=!!window.Clerk.user;
           logins.forEach(function(a){
             if(signedIn){ a.style.display=''; a.textContent='My Account'; a.setAttribute('href','account.html'); a.onclick=null; }
             else { a.style.display=''; a.textContent='Client Login'; a.setAttribute('href','#');
-                   a.onclick=function(e){e.preventDefault(); window.Clerk.openSignIn({});}; }
+                   a.onclick=function(e){e.preventDefault(); window.Clerk.openSignIn({signUpUrl:'/request-access.html'});}; }
           });
-          if(slot){
-            if(signedIn){ slot.style.display='inline-block'; slot.innerHTML='';
-              try{ window.Clerk.mountUserButton(slot,{afterSignOutUrl:location.href}); }catch(e){} }
-            else { slot.style.display='none'; slot.innerHTML=''; }
-          }
+          signouts.forEach(function(a){
+            a.style.display=signedIn?'':'none';
+            a.onclick=function(e){ e.preventDefault(); try{ window.Clerk.signOut({redirectUrl:'/'}); }catch(err){ window.Clerk.signOut(); } };
+          });
+          // #4: hide "Request Investment Access" everywhere when signed in
+          reqLinks.forEach(function(a){ a.style.display=signedIn?'none':''; });
         }
         refresh();
         window.Clerk.addListener(refresh);

@@ -62,6 +62,20 @@ export default async (req) => {
   if (req.method === 'GET') {
     if (!rec) return json({ email, found: false, profile: { email, firstName: user.first_name || '', lastName: user.last_name || '' } });
     const v = rec.values || {};
+    // Clerk owns name/email (via the embedded profile) → reconcile into Attio when they drift.
+    try {
+      const aFn = (v.name && v.name[0] && v.name[0].first_name) || '';
+      const aLn = (v.name && v.name[0] && v.name[0].last_name) || '';
+      const cFn = user.first_name || '', cLn = user.last_name || '';
+      const rec2 = {};
+      if ((cFn || cLn) && (cFn !== aFn || cLn !== aLn)) {
+        rec2.name = [{ first_name: cFn, last_name: cLn, full_name: (cFn + ' ' + cLn).trim() }];
+      }
+      if (Object.keys(rec2).length) {
+        await attio('/objects/people/records/' + rec.id.record_id, 'PATCH', { data: { values: rec2 } }, ATT);
+        if (rec2.name) v.name = rec2.name;
+      }
+    } catch (e) {}
     return json({ email, found: true, recordId: rec.id.record_id, profile: {
       firstName: (v.name && v.name[0] && v.name[0].first_name) || user.first_name || '',
       lastName: (v.name && v.name[0] && v.name[0].last_name) || user.last_name || '',
