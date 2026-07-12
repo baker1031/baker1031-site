@@ -127,7 +127,11 @@ export default async (req) => {
   set('region_preferences', mapMulti(d.regionsLike, REGION_MAP));
   set('regions_avoid', mapMulti(d.regionsAvoid, REGION_AVOID_MAP));
   set('investment_goals', d.goals || []);
-  if (d.callBooked) { set('intro_call_time', d.callTime || 'Scheduled'); set('substantive_relationship_date', new Date().toISOString().slice(0, 10)); }
+  if (d.callBooked) {
+    set('intro_call_time', d.callTime || 'Scheduled');
+    set('substantive_relationship_date', new Date().toISOString().slice(0, 10));
+    values.portal_access = true; // #6: booking the intro call grants portal access
+  }
 
   await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => {});
 

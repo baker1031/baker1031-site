@@ -58,7 +58,8 @@
   </style>
 
   <nav class="top-links">
-    <a href="#">Client Login</a>
+    <a href="#" id="clientLogin">Client Login</a>
+    <span id="clerkUser" class="clerk-user" style="display:none;"></span>
     <a href="request-access.html">Request Investment Access</a>
   </nav>
 
@@ -156,6 +157,44 @@
     <a class="sub" href="jerry-baker-bio.html">Jerry Baker</a>
     <a class="sub" href="contact.html">Contact an Advisor</a>
     <hr class="menu-divider">
-    <a class="secondary" href="#">Client Login</a>
+    <a class="secondary" href="#" id="clientLoginM">Client Login</a>
     <a class="secondary" href="request-access.html">Request Investment Access</a>
   </nav>
+
+  <style>.clerk-user{vertical-align:middle;margin-left:4px;} .clerk-user .cl-userButtonBox,.clerk-user button{vertical-align:middle;}</style>
+  <script>
+  /* ---- Clerk sign-in UI (publishable key is safe to expose) ---- */
+  (function(){
+    if(window.__clerkBoot)return; window.__clerkBoot=1;
+    var PK='pk_test_a2Vlbi1oZXJvbi00OS5jbGVyay5hY2NvdW50cy5kZXYk';
+    var FAPI='keen-heron-49.clerk.accounts.dev';
+    var s=document.createElement('script');
+    s.async=true; s.crossOrigin='anonymous';
+    s.setAttribute('data-clerk-publishable-key',PK);
+    s.src='https://'+FAPI+'/npm/@clerk/clerk-js@5/dist/clerk.browser.js';
+    s.onload=function(){
+      if(!window.Clerk)return;
+      window.Clerk.load().then(function(){
+        var logins=[document.getElementById('clientLogin'),document.getElementById('clientLoginM')].filter(Boolean);
+        var slot=document.getElementById('clerkUser');
+        function refresh(){
+          var signedIn=!!window.Clerk.user;
+          logins.forEach(function(a){
+            if(signedIn){ a.style.display='none'; }
+            else { a.style.display=''; a.textContent='Client Login'; a.setAttribute('href','#');
+                   a.onclick=function(e){e.preventDefault(); window.Clerk.openSignIn({});}; }
+          });
+          if(slot){
+            if(signedIn){ slot.style.display='inline-block'; slot.innerHTML='';
+              try{ window.Clerk.mountUserButton(slot,{afterSignOutUrl:location.href}); }catch(e){} }
+            else { slot.style.display='none'; slot.innerHTML=''; }
+          }
+        }
+        refresh();
+        window.Clerk.addListener(refresh);
+        window.__clerkReady=true;
+      }).catch(function(){});
+    };
+    document.head.appendChild(s);
+  })();
+  </script>

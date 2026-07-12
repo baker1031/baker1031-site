@@ -1640,7 +1640,14 @@ function extractCallTime(detail){
   return ''; }
 function finishSchedule(detail){ data.callBooked=true; data.callTime=extractCallTime(detail); clearLeaveGuards();
   try{ if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())}).catch(function(){}); } }catch(e){}
-  const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();} }
+  const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();}
+  // #5: prompt account creation, prefilled, once the call is booked
+  try{
+    if(window.Clerk && window.Clerk.loaded && !window.Clerk.user){
+      setTimeout(function(){ try{ window.Clerk.openSignUp({ initialValues:{ emailAddress:data.email||'', firstName:data.first||'', lastName:data.last||'' } }); }catch(e){} }, 1200);
+    }
+  }catch(e){}
+}
 function armLeaveGuards(){ __leaveArmed=true;
   window.onbeforeunload=function(e){ if(__leaveArmed&&!data.callBooked){ e.preventDefault(); e.returnValue=''; return ''; } };
   document.addEventListener('mouseout',exitIntent); }
