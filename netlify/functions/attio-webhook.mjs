@@ -8,7 +8,7 @@ function json(o, s = 200){ return new Response(JSON.stringify(o), { status: s, h
 
 export default async (req) => {
   const ATT = process.env.ATTIO_API_TOKEN, SK = process.env.CLERK_SECRET_KEY;
-  if (!ATT || !SK) return json({ error: 'not configured' }, 500);
+  if (!ATT || !SK) return json({ ok: true, skipped: 'not configured' }); // 200 so Attio keeps the webhook enabled
   let body; try { body = await req.json(); } catch (e) { return json({ ok: true }); }
   const events = body.events || (body.event_type ? [body] : []);
   const recIds = [];
