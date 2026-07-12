@@ -1255,10 +1255,48 @@
 <!-- ===== TWO-COLUMN BODY ===== -->
 <div class="wrap abody">
 <article class="article">
-<p class="lead">In a 1031 exchange, two dates matter more than any others, and missing either ends the exchange. A deadline calculator takes your closing date and returns your exact day-45 identification deadline and day-180 closing deadline — so you can plan backward with no ambiguity. Because most failed exchanges die on the calendar, knowing these dates precisely, building in buffer, and avoiding the tax-return-date trap is among the most important things you can do. This guide explains how the deadline calculator works, how the days are counted, the variants for reverse and improvement exchanges, and how to use the result. Baker 1031's calculators are at baker1031.com/calculators.</p>
+<p class="lead">In a 1031 exchange, two dates matter more than any others, and missing either ends the exchange. <a href="45-180-day-deadline-calculator.html">A deadline calculator takes your closing date and returns your exact day-45 identification deadline and day-180 closing deadline</a> — so you can plan backward with no ambiguity. Because timing is what sinks most failed exchanges, knowing these dates precisely, building in buffer, and avoiding the tax-return-date trap is among the most important things you can do. This guide explains how the deadline calculator works, how the days are counted, the variants for reverse and improvement exchanges, and how to use the result. Baker 1031's full set of tools is on the <a href="calculators.html">1031 &amp; DST calculators</a> page.</p>
 <h2 id="enter">Enter Your Closing Date</h2>
-<p>The single input that matters is the date your relinquished sale closes — the date title transfers to the buyer. Both deadlines count from this date, so it's the anchor for the entire timeline. Enter it and the calculator returns your two deadlines.</p>
-<p>This closing date isn't necessarily when you signed a contract or listed the property — it's the actual transfer of title at closing, when your <a href="insights.html">qualified intermediary</a> receives the proceeds. That's day zero for both clocks.</p>
+<p>The single input that matters is the date your relinquished sale closes — the date title transfers to the buyer. Both deadlines count from this date, so it's the anchor for the entire timeline. Enter it below and the calculator returns your two deadlines.</p>
+<div class="calc-shell">
+<div class="card">
+<div class="card-h"><span class="n">45 / 180</span><h2>Deadline Calculator</h2></div>
+<div class="pad">
+<div class="field">
+<label for="closeDate">Relinquished sale closing date</label>
+<input type="date" id="closeDate">
+<div class="hint">The date title transfers and your qualified intermediary receives the proceeds.</div>
+</div>
+<div class="brk" id="calcOut" style="display:none;">
+<div class="row"><span>Day 45 — identification deadline</span><b id="out45">—</b></div>
+<div class="row"><span>Day 180 — closing deadline</span><b id="out180">—</b></div>
+</div>
+<p class="note">Calendar days, counted from the day after closing. A late-year sale can trigger the tax-return-date trap, so your effective closing deadline may be earlier than day 180 — confirm with your CPA. Educational estimate only.</p>
+</div>
+</div>
+</div>
+<script>
+  (function(){
+    var inp=document.getElementById('closeDate');
+    if(!inp) return;
+    var out=document.getElementById('calcOut'),o45=document.getElementById('out45'),o180=document.getElementById('out180');
+    var opts={timeZone:'UTC',year:'numeric',month:'long',day:'numeric'};
+    function calc(){
+      var v=inp.value;
+      if(!v){ out.style.display='none'; return; }
+      var p=v.split('-');
+      var base=Date.UTC(+p[0],+p[1]-1,+p[2]);
+      var d45=new Date(base); d45.setUTCDate(d45.getUTCDate()+45);
+      var d180=new Date(base); d180.setUTCDate(d180.getUTCDate()+180);
+      o45.textContent=d45.toLocaleDateString('en-US',opts);
+      o180.textContent=d180.toLocaleDateString('en-US',opts);
+      out.style.display='block';
+    }
+    inp.addEventListener('change',calc);
+    inp.addEventListener('input',calc);
+  })();
+</script>
+<p>This closing date isn't necessarily when you signed a contract or listed the property — it's the actual transfer of title at closing, when your <a href="what-is-a-qualified-intermediary.html">qualified intermediary</a> receives the proceeds. That's day zero for both clocks.</p>
 <p>Knowing the dates the moment you close lets you immediately mark your calendar and plan backward. The calculator removes any guesswork about exactly when each deadline falls.</p>
 <h2 id="45">Your 45-Day Identification Deadline</h2>
 <p>The calculator adds 45 calendar days to your closing date to give your identification deadline — the date by which your written, signed identification of replacement property must reach your qualified intermediary. This is the deadline most exchanges fail.</p>
@@ -1283,33 +1321,27 @@
 <li>A late-year sale can trigger the tax-return-date trap — file an extension to keep all 180 days.</li>
 </ul></div>
 <h2 id="variants">Deadlines for Reverse and Improvement Exchanges</h2>
-<p>The standard 45/180-day deadlines apply to a forward (delayed) exchange. In a <strong>reverse exchange</strong>, where you buy first, the deadlines apply to the parking arrangement: from when the exchange accommodation titleholder parks a property, you generally have 45 days to identify the relinquished property to sell and 180 days to complete.</p>
-<p>In an <strong>improvement exchange</strong>, all value-adding construction must be completed and paid for within the same 180-day window. The deadline calculator's 180-day date is the limit for finishing improvements, not just acquiring the property.</p>
+<p>The standard 45/180-day deadlines apply to a forward (delayed) exchange. In a <a href="reverse-1031-exchange.html"><strong>reverse exchange</strong></a>, where you buy first, the deadlines apply to the parking arrangement: from when the exchange accommodation titleholder parks a property, you generally have 45 days to identify the relinquished property to sell and 180 days to complete.</p>
+<p>In an <a href="improvement-construction-1031-exchanges.html"><strong>improvement exchange</strong></a>, all value-adding construction must be completed and paid for within the same 180-day window. The deadline calculator's 180-day date is the limit for finishing improvements, not just acquiring the property.</p>
 <p>For these variants, the calculator's dates still anchor the timeline, but the activities within the window differ. Understanding which deadline governs which activity is important for the more complex structures.</p>
 <h2 id="plan">Planning Backward From the Deadlines</h2>
 <p>With the exact dates in hand, plan backward to set milestones. A practical schedule might target identification by day 35–40, a replacement under contract by day 70–90, financing approved by day 130, and closing by day 160–165 — each leaving buffer before the next.</p>
 <p>Planning backward turns the two deadline dates into a concrete project plan, rather than a vague sense of "I have six months." The investors who finish cleanly are the ones who map the timeline from the deadlines, not toward them.</p>
-<p>Use the calculator's dates to set calendar reminders well before each deadline — for example two weeks before day 45 and two weeks before day 180 — so a slipping closing doesn't become a missed deadline.</p>
-<h2 id="calendar">Add Deadlines to Your Calendar</h2>
-<p>Once you have the dates, set reminders well before each — for example, two weeks before day 45 and two weeks before day 180. Building in buffer keeps a slipping closing from becoming a missed deadline.</p>
-<p>Share the dates with your qualified intermediary, CPA, advisor, and any lender, so everyone is working to the same timeline. Misalignment among your team on the dates is a common, avoidable source of delay.</p>
-<p>The calculator's value is precision and shared clarity: everyone knows exactly when each deadline falls, and you can build the whole exchange schedule around those two firm dates.</p>
+<h2 id="calendar">Put the Dates to Work: Reminders and Your Team</h2>
+<p>Once you have the dates, set reminders well ahead of each — a couple of weeks before each deadline gives buffer if a closing slips. Then share the dates with everyone involved: your qualified intermediary, CPA, advisor, and any lender.</p>
+<p>Each has a role tied to the timeline. Your QI tracks the dates and holds the funds; your CPA watches for the tax-return-date interaction and handles any extension; your advisor coordinates the replacement-property search against the dates; and your lender works to have financing ready before the closing deadline. When everyone works from the same two dates, you avoid the misaligned assumptions that quietly derail exchanges.</p>
 <h2 id="why-fail">Why Deadlines Cause Most Failed Exchanges</h2>
 <p>Almost every failed <a href="1031-exchange-guide.html">1031 exchange</a> dies on the calendar, not on the law. The substantive rules — like-kind, same taxpayer, value — are usually satisfied by careful planning. The deadlines, by contrast, are a relentless clock that runs whether or not the market cooperates or your financing comes together.</p>
 <p>The <a href="1031-exchange-identification-rules.html">45-day identification</a> deadline causes the most failures, because committing to replacement property in just over six weeks is genuinely hard. Investors who start searching only after they sell often haven't lined up enough viable options by day 45, and after that they can't add any.</p>
 <p>This is why a deadline calculator — and the precise dates it provides — matters so much. Knowing exactly when each deadline falls, from the moment you close, lets you work backward and prepare, rather than discovering too late that time has run out. The calculator is a small tool that addresses the single biggest cause of failed exchanges.</p>
 <h2 id="backup">The Deadlines and Your DST Backup</h2>
-<p>The deadline calculator's dates and a fast-closing DST backup work together to protect your exchange. Because a DST can close in a few business days, identifying one within your 45-day window gives you a reliable way to close inside the 180-day deadline even if a direct deal stalls.</p>
-<p>When you know your exact deadlines and have a DST backup identified, the timeline shifts from a threat to a managed process. If your primary deal is at risk as a deadline approaches, the calculator tells you how much time remains, and the DST gives you a way to use it.</p>
-<p>Many exchangers treat the DST backup as insurance they hope not to use — but the combination of knowing the precise dates and having a fast-closing option identified is what turns the unforgiving 1031 timeline into a manageable one. The calculator and the backup are complementary protections.</p>
-<h2 id="team">Sharing the Dates With Your Team</h2>
-<p>Once the calculator gives you the dates, share them with everyone involved — your qualified intermediary, CPA, advisor, and any lender. A common, avoidable cause of delay is team members working to different assumptions about when the deadlines fall.</p>
-<p>Your QI tracks the dates and holds the funds; your CPA watches for the tax-return-date interaction and handles any extension; your advisor coordinates the replacement-property search against the dates; and your lender works to have financing ready before the closing deadline. All of them need the same dates.</p>
-<p>Putting the calculator's dates in front of the whole team early aligns everyone on the timeline and surfaces any tax-return-date issue before it becomes a problem. Shared clarity on two firm dates is one of the simplest, most effective things you can do to keep an exchange on track.</p>
+<p>The deadline calculator's dates and <a href="using-dsts-as-backups-in-your-1031-identification.html">a DST backup</a> can work together to protect your exchange. A DST is a passive replacement-property option that — subject to offering availability, completion of accreditation and suitability review, and the sponsor's acceptance of your subscription — may be able to close relatively quickly, so <a href="how-to-identify-dsts-within-the-45-day-window.html">identifying one within your 45-day window</a> can give you an additional route to close inside the 180-day deadline if a direct deal stalls.</p>
+<p>When you know your exact deadlines and have a DST identified as a backup, the timeline is easier to manage. If your primary deal is at risk as a deadline approaches, the calculator tells you how much time remains, and a suitable DST may give you a way to use it.</p>
+<p>DSTs are illiquid securities offered only to verified accredited investors through a sponsor's private placement memorandum (PPM), which should be read in full for risks, fees, and expenses before investing; they involve substantial risk, including possible loss of principal and the risk that an intended 1031 exchange fails to qualify for tax deferral. Knowing your precise dates and lining up a suitable backup early are complementary parts of a prepared process.</p>
 <h2 id="use">Using the Deadline Calculator Effectively</h2>
 <p>The deadline calculator is most useful when run at (or even before) closing, so you know your dates from day one. Pair it with the front-loaded preparation the rest of this guide series describes — starting your replacement search before you sell, lining up financing, and identifying a DST backup.</p>
 <p>Knowing the dates is necessary but not sufficient; you also need to act on them with a prepared process. The calculator gives you the deadlines; your preparation determines whether you meet them comfortably.</p>
-<p>If a deadline is approaching and a deal is at risk, the dates also tell you how much time remains to pivot to a fast-closing DST backup. The calculator, combined with a backup and a prepared team, turns the unforgiving 1031 timeline into a manageable one.</p>
+<p>If a deadline is approaching and a deal is at risk, the dates also tell you how much time remains to pivot to a backup such as a DST — provided you have one identified and it remains available and suitable. Combined with that backup and a prepared team, the calculator helps turn the unforgiving 1031 timeline into a manageable one.</p>
 <h2 id="faq">Frequently Asked Questions</h2>
 <div class="faq">
 <details open="">
@@ -1374,7 +1406,7 @@
 </details>
 <details>
 <summary>Why do most 1031 exchanges fail on the deadlines?<span class="ic"></span></summary>
-<div class="ans"><p>Because the deadlines are a relentless clock that runs regardless of the market or your financing, and the 45-day identification window is short. Investors who start searching only after selling often haven't lined up enough viable options by day 45, and after that they can't add any. Knowing the exact dates early and preparing addresses this.</p></div>
+<div class="ans"><p>Because the deadlines run whether or not the market or your financing cooperates, and the 45-day identification window is short. Investors who start searching only after selling often haven't lined up enough viable options by day 45, and after that they can't add any. Knowing the exact dates early and preparing addresses this.</p></div>
 </details>
 <details>
 <summary>How do the deadlines work with a DST backup?<span class="ic"></span></summary>
