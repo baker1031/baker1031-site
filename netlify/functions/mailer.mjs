@@ -3,36 +3,40 @@
 // navy #243856, accent #ff9900, serif display headings, sans body. No default
 // export, so this module is a helper, not a routable endpoint.
 
-const NAVY = '#243856', ACCENT = '#ff9900', INK = '#333333', MUTE = '#8a97a6';
+const NAVY = '#243856', ACCENT = '#ff9900', INK = '#333333', MUTE = '#8a97a6', LINK = '#0099ff';
 const SITE = process.env.SITE_URL || 'https://www.baker1031.com';
+const LOGO = SITE + '/assets/logo.png';
+const HEAD_FONT = "'Optima', Candara, 'Segoe UI', 'Trebuchet MS', Helvetica, Arial, sans-serif";
+const BODY_FONT = "'Roboto Condensed', 'Segoe UI', Helvetica, Arial, sans-serif";
 
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
 
-// Branded shell — table layout, inline styles (email-client safe).
+// Branded shell — table layout, inline styles (email-client safe). White header
+// with the real logo + orange rule, mirroring the site header.
 function shell({ heading, preheader, bodyHtml, cta }){
-  const btn = cta ? (
-    '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:22px 0 6px;"><tr><td bgcolor="' + NAVY + '" style="border-radius:2px;">' +
-    '<a href="' + esc(cta.url) + '" style="display:inline-block;padding:13px 28px;font-family:Georgia,\'Times New Roman\',serif;font-weight:bold;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:#ffffff;text-decoration:none;">' + esc(cta.label) + '</a>' +
+  const btn = cta && cta.url ? (
+    '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:24px 0 6px;"><tr><td bgcolor="' + NAVY + '" style="border-radius:2px;">' +
+    '<a href="' + esc(cta.url) + '" target="_blank" style="display:inline-block;padding:13px 30px;font-family:' + HEAD_FONT + ';font-weight:bold;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:#ffffff;text-decoration:none;">' + esc(cta.label) + '</a>' +
     '</td></tr></table>') : '';
   return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + esc(heading) + '</title></head>' +
-  '<body style="margin:0;padding:0;background:#f4f4f4;">' +
+  '<body style="margin:0;padding:0;background:#eef0f3;">' +
   '<div style="display:none;max-height:0;overflow:hidden;opacity:0;">' + esc(preheader || '') + '</div>' +
-  '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:24px 12px;"><tr><td align="center">' +
-  '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #e3e3e3;">' +
-  // header bar
-  '<tr><td style="background:' + NAVY + ';padding:18px 28px;">' +
-  '<div style="font-family:Georgia,\'Times New Roman\',serif;font-weight:bold;text-transform:uppercase;letter-spacing:.14em;font-size:16px;color:#ffffff;">Baker 1031 Investments</div>' +
-  '<div style="height:3px;width:44px;background:' + ACCENT + ';margin-top:8px;"></div>' +
+  '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef0f3;padding:26px 12px;"><tr><td align="center">' +
+  '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #d9dde3;">' +
+  // header: white, logo, orange rule (matches the site)
+  '<tr><td style="background:#ffffff;padding:22px 28px 0;">' +
+  '<a href="' + SITE + '" target="_blank" style="text-decoration:none;"><img src="' + LOGO + '" alt="Baker 1031 Investments" height="34" style="height:34px;width:auto;display:block;border:0;"></a>' +
   '</td></tr>' +
+  '<tr><td style="padding:14px 28px 0;"><div style="height:3px;width:100%;background:' + ACCENT + ';"></div></td></tr>' +
   // body
-  '<tr><td style="padding:28px;font-family:Arial,Helvetica,sans-serif;color:' + INK + ';font-size:15px;line-height:1.6;">' +
-  '<h1 style="font-family:Georgia,\'Times New Roman\',serif;font-weight:bold;text-transform:uppercase;letter-spacing:.04em;color:' + NAVY + ';font-size:20px;margin:0 0 14px;">' + esc(heading) + '</h1>' +
+  '<tr><td style="padding:24px 28px 28px;font-family:' + BODY_FONT + ';color:' + INK + ';font-size:15px;line-height:1.6;">' +
+  '<h1 style="font-family:' + HEAD_FONT + ';font-weight:bold;text-transform:uppercase;letter-spacing:.05em;color:' + NAVY + ';font-size:21px;margin:0 0 16px;">' + esc(heading) + '</h1>' +
   bodyHtml + btn +
   '</td></tr>' +
   // footer
-  '<tr><td style="padding:18px 28px;border-top:1px solid #eee;font-family:Arial,Helvetica,sans-serif;color:' + MUTE + ';font-size:11px;line-height:1.5;">' +
+  '<tr><td style="padding:18px 28px;border-top:1px solid #eee;background:#fafbfc;font-family:' + BODY_FONT + ';color:' + MUTE + ';font-size:11px;line-height:1.5;">' +
   '<p style="margin:0 0 8px;">Securities offered through Aurora Securities, Inc., member FINRA/SIPC. Baker 1031 Investments, LLC is independent of Aurora Securities and is not a registered broker-dealer or investment adviser. This message is informational only and is not an offer to sell or a solicitation of an offer to buy any security; offerings are made solely through a sponsor’s private placement memorandum following a suitability determination. DST/1031 investments are illiquid and involve risk, including loss of principal. Past performance does not guarantee future results.</p>' +
-  '<p style="margin:0;">Baker 1031 Investments &middot; <a href="' + SITE + '" style="color:' + MUTE + ';">baker1031.com</a> &middot; <a href="mailto:invest@baker1031.com" style="color:' + MUTE + ';">invest@baker1031.com</a></p>' +
+  '<p style="margin:0;">Baker 1031 Investments &middot; <a href="' + SITE + '" target="_blank" style="color:' + LINK + ';">baker1031.com</a> &middot; <a href="mailto:invest@baker1031.com" style="color:' + LINK + ';">invest@baker1031.com</a></p>' +
   '</td></tr>' +
   '</table></td></tr></table></body></html>';
 }
