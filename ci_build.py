@@ -78,6 +78,20 @@ def money(v):
         return '${:,.0f}'.format(v)
     return str(v).strip()
 
+def money_compact(v):
+    # AUM-style compact currency: 2000000000 -> "$2.0B", 440000000 -> "$440M".
+    if v in (None, ''): return ''
+    if isinstance(v, (int, float)):
+        n = float(v)
+        if n >= 1e9:
+            return '${:.1f}B'.format(n / 1e9)
+        if n >= 1e6:
+            return '${:.0f}M'.format(n / 1e6)
+        if n >= 1e3:
+            return '${:,.0f}'.format(n)
+        return '${:,.0f}'.format(n)
+    return str(v).strip()
+
 def yrs(v):
     if v in (None, ''): return ''
     if isinstance(v, (int, float)):
@@ -198,7 +212,7 @@ def build_offering(row):
       'sponsorButtonText': s(row.get('Sponsor Button Text')) or ('Learn More About ' + sp),
       'sponsorFounded': s(spr.get('Year Founded')),
       'sponsorDescription': s(spr.get('Description / Overview')) or s(row.get('Sponsor Description')),
-      'sponsorAum': s(spr.get('AUM')) or s(row.get('Sponsor AUM')),
+      'sponsorAum': money_compact(spr.get('AUM')) or money_compact(row.get('Sponsor AUM')),
       'fullCycleCount': s(spr.get('Full-Cycle Deals')) or s(row.get('Full-Cycle Count')),
       'sponsorAar': pct(spr.get('Average Annual Return')) or pct(row.get('Sponsor AAR')),
       'sponsorAem': mult(spr.get('Average Equity Multiple')) or s(row.get('Sponsor AEM')),
@@ -247,7 +261,7 @@ for sp in SPON:
                'sub': ' · '.join(x for x in [r['propertyType'], r['location'],
                         (r['ltv'] + ' LTV' if r['ltv'] else ''), (r['minimum'] + ' minimum' if r['minimum'] else '')] if x),
                'url': r['url']} for r in dir_rows if r['sponsor'] == nm]
-    d = {'name': nm, 'founded': s(sp.get('Year Founded')), 'aum': s(sp.get('AUM')),
+    d = {'name': nm, 'founded': s(sp.get('Year Founded')), 'aum': money_compact(sp.get('AUM')),
          'hq': s(sp.get('Headquarters (City, State)')), 'website': s(sp.get('Website')),
          'logo': s(sp.get('Logo')),
          'fullCycleDeals': s(sp.get('Full-Cycle Deals')) or (str(len(track)) if track else ''),
