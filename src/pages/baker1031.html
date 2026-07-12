@@ -134,6 +134,14 @@
     border-width: 13px 0 13px 22px;
     border-color: transparent transparent transparent rgba(255,255,255,0.65);
   }
+  .hero-video .hero-vid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
   .hero-video h1 {
     position: absolute;
     left: 28px;
@@ -143,6 +151,8 @@
     color: #fff;
     font-size: 26px;
     line-height: 1.3;
+    z-index: 1;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
   }
 
   /* ---------- TOC banner ---------- */
@@ -650,7 +660,10 @@
 
   <!-- Video placeholder -->
   <section class="hero-video">
-    <div class="play-hint" aria-hidden="true"></div>
+    <video class="hero-vid" autoplay muted loop playsinline preload="auto"
+           poster="https://res.cloudinary.com/opoazlei/video/upload/so_0,f_auto,q_auto/Baker_1031_Homepage_Video_q9k7ca.jpg">
+      <source src="https://res.cloudinary.com/opoazlei/video/upload/q_auto/v1783842226/Baker_1031_Homepage_Video_q9k7ca.mp4" type="video/mp4">
+    </video>
     <h1 class="optima">Defer the tax.<br>Stay invested in real estate.</h1>
   </section>
 
