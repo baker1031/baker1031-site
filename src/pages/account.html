@@ -1348,10 +1348,6 @@
       '<p class="muted" style="margin-top:8px;">Your name, email, and password are managed under <b>Login &amp; security</b> below and stay in sync with your record.</p>'+
       '<div><button class="btn" id="saveProfile">Save changes</button><span class="savemsg" id="saveMsg">Saved ✓</span></div>'+
     '</div>'+
-    '<div class="card" id="card-security"><h2 class="sec">Login &amp; security</h2>'+
-      '<p class="muted" style="margin-bottom:10px;">Update your name, email, password, and connected devices. Changes sync to your Baker 1031 record.</p>'+
-      '<div id="clerkProfile"></div>'+
-    '</div>'+
     '<div class="card" id="card-goals"><h2 class="sec">Investment goals</h2>'+
       '<p class="muted">These shape what we prepare for you. Tap to toggle.</p>'+
       '<div class="chips" id="goalChips">'+GOAL_OPTS.map(function(g){return chip(g,goals.indexOf(g)>-1);}).join('')+'</div>'+
@@ -1366,6 +1362,10 @@
       '<p class="muted">Based on what you told us, here&rsquo;s how DSTs address what matters to you:</p>'+
       fy.map(function(b){return '<div class="foryou"><h3>'+esc(b.h)+'</h3><p>'+esc(b.p)+'</p></div>';}).join('')+
       '<div style="margin-top:12px;"><a class="btn" href="investments.html">Browse current offerings</a></div>'+
+    '</div>'+
+    '<div class="card" id="card-security"><h2 class="sec">Login &amp; security</h2>'+
+      '<p class="muted" style="margin-bottom:10px;">Update your name, email, password, and connected devices. Changes sync to your Baker 1031 record.</p>'+
+      '<div id="clerkProfile"></div>'+
     '</div>';
     BODY.innerHTML=html; GATE.style.display='none'; BODY.style.display='block';
     wire(d);
@@ -1440,11 +1440,11 @@
   // ---- #5 first-login interactive tour ----
   var TOUR_STEPS=[
     {sel:'#card-details', h:'Your details', p:'Update your preferred name and phone here. They stay in sync with your Baker 1031 record.'},
-    {sel:'#card-security', h:'Login & security', p:'Change your name, email, password, and connected devices — all in one place.'},
     {sel:'#card-goals', h:'Investment goals', p:'Tap these to tell us what matters most. They shape what we prepare for you.'},
     {sel:'#card-saved', h:'Saved investments', p:'Offerings you bookmark anywhere on the site collect here so you can revisit them.'},
     {sel:'#card-advisor', h:'From your advisor', p:'Example portfolios and offerings your advisor prepares for you appear here — a dot marks anything new.'},
-    {sel:'#card-foryou', h:'For you', p:'Personalized notes on how DSTs address the goals and concerns you shared. Welcome aboard!'}
+    {sel:'#card-foryou', h:'For you', p:'Personalized notes on how DSTs address the goals and concerns you shared.'},
+    {sel:'#card-security', h:'Login & security', p:'Finally, manage your name, email, password, and connected devices here. Welcome aboard!'}
   ];
   function maybeTour(d){
     var token=d.__token, portal=d.portal||{};
