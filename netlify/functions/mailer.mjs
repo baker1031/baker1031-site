@@ -6,6 +6,7 @@
 const NAVY = '#243856', ACCENT = '#ff9900', INK = '#333333', MUTE = '#8a97a6', LINK = '#0099ff';
 const SITE = process.env.SITE_URL || 'https://www.baker1031.com';
 const LOGO = SITE + '/assets/logo.png';
+const CAL_SCHEDULER = process.env.CAL_SCHEDULER || 'https://cal.com/jerry-baker-yn6qn1/25min';
 const HEAD_FONT = "'Optima', Candara, 'Segoe UI', 'Trebuchet MS', Helvetica, Arial, sans-serif";
 const BODY_FONT = "'Roboto Condensed', 'Segoe UI', Helvetica, Arial, sans-serif";
 
@@ -61,21 +62,21 @@ export const templates = {
   }),
   noShow: (d) => ({
     subject: 'We missed you — let’s reschedule your Baker 1031 call',
-    html: shell({ heading: 'We missed you', preheader: 'Reschedule your introductory call.',
+    html: shell({ heading: 'We missed you', preheader: 'Book a new time for your introductory call.',
       bodyHtml: p(hi(d.name)) + p('It looks like we weren’t able to connect for your introductory call. No problem — these things happen. Whenever you’re ready, you can grab a new time below.'),
-      cta: { label: 'Pick a new time', url: d.rescheduleUrl || d.scheduleUrl || (SITE + '/request-access.html') } }),
+      cta: { label: 'Pick a new time', url: CAL_SCHEDULER } }),
   }),
   cancelled: (d) => ({
     subject: 'Your Baker 1031 introductory call was cancelled',
-    html: shell({ heading: 'Call cancelled', preheader: 'Your introductory call has been cancelled.',
+    html: shell({ heading: 'Call cancelled', preheader: 'Book a new time whenever it suits you.',
       bodyHtml: p(hi(d.name)) + p('Your introductory call with Baker 1031 Investments has been cancelled. If this wasn’t intentional, or you’d like to find another time, we’d be glad to reconnect whenever it suits you.'),
-      cta: { label: 'Reschedule', url: d.scheduleUrl || (SITE + '/request-access.html') } }),
+      cta: { label: 'Book a new time', url: CAL_SCHEDULER } }),
   }),
   rescheduled: (d) => ({
     subject: 'Your Baker 1031 call has been rescheduled',
     html: shell({ heading: 'Call rescheduled', preheader: 'Your introductory call has a new time.',
       bodyHtml: p(hi(d.name)) + p('Your introductory call with Baker 1031 Investments has been rescheduled' + (d.when ? ' to <b>' + esc(d.when) + '</b>' : '') + '. A calendar update is on its way. We look forward to speaking with you.'),
-      cta: d.rescheduleUrl ? { label: 'Manage your booking', url: d.rescheduleUrl } : null }),
+      cta: { label: 'Manage your booking', url: d.bookingUrl || d.rescheduleUrl || CAL_SCHEDULER } }),
   }),
   portalGranted: (d) => ({
     subject: 'Your Baker 1031 investor portal is ready',

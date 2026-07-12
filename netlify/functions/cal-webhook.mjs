@@ -26,6 +26,7 @@ export default async (req) => {
   const email = att.email || (pl.responses && pl.responses.email && pl.responses.email.value) || '';
   const name = (att.name || (pl.responses && pl.responses.name && pl.responses.name.value) || '').split(' ')[0];
   const when = pl.startTime ? new Date(pl.startTime).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) : '';
+  const bookingUrl = pl.uid ? ('https://cal.com/booking/' + pl.uid) : '';
   const rescheduleUrl = pl.uid ? ('https://cal.com/reschedule/' + pl.uid) : '';
   if (!email) return json({ ok: true, skipped: 'no attendee email' });
 
@@ -35,6 +36,6 @@ export default async (req) => {
   else if (/NO_?SHOW/i.test(trigger)) tpl = 'noShow';
   if (!tpl) return json({ ok: true, ignored: trigger });
 
-  await sendMail(email, tpl, { name, when, rescheduleUrl }).catch(() => {});
+  await sendMail(email, tpl, { name, when, rescheduleUrl, bookingUrl }).catch(() => {});
   return json({ ok: true, sent: tpl });
 };
