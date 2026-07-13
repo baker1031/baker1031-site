@@ -19,6 +19,7 @@ import openpyxl
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
 SHEET_ID = os.environ.get('SHEET_ID', '1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7IlyZg')
+GA4_MEASUREMENT_ID = os.environ.get('GA4_MEASUREMENT_ID', 'G-P29LR49RL8')
 
 # ---------------------------------------------------------------- fetch
 def load_workbook():
@@ -293,9 +294,21 @@ print('generated: %d offering + %d sponsor pages' % (len(dir_rows), len(sp_dir))
 # ---------------------------------------------------------------- assemble
 nav = open(os.path.join(ROOT, 'src', 'partials', 'nav.html')).read()
 footer = open(os.path.join(ROOT, 'src', 'partials', 'footer.html')).read()
+GA4_TAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '%s');
+</script>""" % (GA4_MEASUREMENT_ID, GA4_MEASUREMENT_ID)
+ANALYTICS_EXCLUDE = {'employee.html'}
 
-def inject(html_text):
-    return html_text.replace('<!-- @@NAV@@ -->', nav).replace('<!-- @@FOOTER@@ -->', footer)
+def inject(html_text, base=''):
+    html_text = html_text.replace('<!-- @@NAV@@ -->', nav).replace('<!-- @@FOOTER@@ -->', footer)
+    if base not in ANALYTICS_EXCLUDE and GA4_TAG not in html_text and '</head>' in html_text:
+        html_text = html_text.replace('</head>', GA4_TAG + '\n</head>', 1)
+    return html_text
 
 # Pages that stay OPEN (no soft gate): home, registration, About group, contact,
 # lead-gen/capability pages, all legal/compliance pages, auth pages, 404. Every
@@ -365,10 +378,10 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
                                lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(sp_dir, indent=1, ensure_ascii=False) + '\n</script>',
                                html_text, flags=re.S)
-        open(os.path.join(DIST, base), 'w').write(gate(inject(html_text), base))
+        open(os.path.join(DIST, base), 'w').write(gate(inject(html_text, base), base))
         count += 1
 for base, html_text in generated.items():
-    open(os.path.join(DIST, base), 'w').write(gate(inject(html_text), base))
+    open(os.path.join(DIST, base), 'w').write(gate(inject(html_text, base), base))
     count += 1
 
 shutil.copytree(os.path.join(ROOT, 'src', 'assets'), os.path.join(DIST, 'assets'))
