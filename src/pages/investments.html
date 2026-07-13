@@ -834,13 +834,15 @@
   .dir-table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     font-size: 13px;
   }
   .dir-table th, .dir-table td {
     border: 1px solid #eee;
-    padding: 10px 12px;
+    padding: 9px 8px;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
   .dir-table th {
     background: #f5f5f5;
@@ -855,8 +857,25 @@
   .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
   .dir-table a.inv-name:hover { text-decoration: underline; }
   .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
-  .dir-table .btn-access { margin-top: 0; padding: 4px 10px; font-size: 13px; }
-  .status-available { color: #1a7f37; font-weight: 700; }
+  .dir-table .btn-access { display: inline-block; margin-top: 0; padding: 4px 8px; font-size: 12px; white-space: nowrap; }
+  .investment-cell { min-width: 0; }
+  .investment-heading { display: flex; align-items: flex-start; gap: 5px; }
+  .investment-heading .inv-name { min-width: 0; }
+  .investment-status {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: #f1f3f5;
+    color: #59636e;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .investment-status.status-available { background: #e8f5ec; color: #1a7f37; }
+  .yield-values { display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 3px 7px; line-height: 1.35; }
+  .yield-value { white-space: nowrap; }
+  .yield-label { color: #777; font-size: 10px; font-weight: 700; margin-right: 2px; }
   /* ---------- bookmark star + saved filter ---------- */
   .dir-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .saved-toggle {
@@ -881,6 +900,13 @@
     border: 1px solid #ccc;
     background: #fff;
     color: #243856;
+  }
+
+  @media (max-width: 1050px) and (min-width: 769px) {
+    .dir-table { font-size: 12px; }
+    .dir-table th, .dir-table td { padding: 8px 6px; }
+    .dir-table .sub { font-size: 11px; }
+    .dir-table .btn-access { padding-left: 6px; padding-right: 6px; }
   }
 
   @media (max-width: 768px) {
@@ -923,6 +949,9 @@
     .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
     .dir-table td:last-child::before { content: none; }
     .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
+    .investment-heading { align-items: center; }
+    .investment-status { margin-top: 6px; }
+    .yield-values { justify-content: flex-end; }
   }
 
   /* ---------- Preview drawer ---------- */
@@ -1044,18 +1073,24 @@
 
     <div class="dir-table-wrap">
       <table class="dir-table">
+        <colgroup>
+          <col style="width: 34%">
+          <col style="width: 14%">
+          <col style="width: 11%">
+          <col style="width: 9%">
+          <col style="width: 11%">
+          <col style="width: 14%">
+          <col style="width: 7%">
+        </colgroup>
         <thead>
           <tr>
-            <th class="dir-star-h" aria-label="Saved"></th>
             <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
             <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
             <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
             <th class="sortable" data-key="ltv">LTV<span class="arrow"></span></th>
             <th class="sortable" data-key="minimum">Minimum<span class="arrow"></span></th>
-            <th class="sortable" data-key="y1Yield">Y1 Yield<span class="arrow"></span></th>
-            <th class="sortable" data-key="avgYield">Avg. Yield<span class="arrow"></span></th>
-            <th class="sortable" data-key="status">Status<span class="arrow"></span></th>
-            <th></th>
+            <th class="sortable" data-key="y1Yield" title="Sort by Year 1 yield">Yield <span class="sub">Y1 / Avg.</span><span class="arrow"></span></th>
+            <th aria-label="Preview"></th>
           </tr>
         </thead>
         <tbody id="dirBody"></tbody>
@@ -2051,7 +2086,7 @@ var DIR = [];
     var rows = savedOnly ? baseRows.filter(isBm) : baseRows;
     renderRows(rows);
     if (savedOnly && !rows.length) {
-      tbody.innerHTML = '<tr><td colspan="10" style="padding:20px;color:#888;">No saved investments yet. Tap the ☆ on any row (or the Bookmark button on an offering page) to save it here.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" style="padding:20px;color:#888;">No saved investments yet. Tap the ☆ on any row (or the Bookmark button on an offering page) to save it here.</td></tr>';
     }
   }
   function renderRows(rows) {
@@ -2060,17 +2095,15 @@ var DIR = [];
       var statusCls = o.status === 'Available' ? 'status-available' : '';
       var saved = isBm(o);
       return '<tr>' +
-        '<td class="dir-star-c"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button></td>' +
-        '<td><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
-          '<span class="sub">' + esc(o.sponsor) + '</span></td>' +
+        '<td class="investment-cell"><div class="investment-heading"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a></div>' +
+          '<span class="sub">' + esc(o.sponsor) + '</span>' +
+          '<span class="investment-status ' + statusCls + '">Status: ' + esc(o.status) + '</span></td>' +
         '<td data-label="Property Type">' + esc(o.propertyType) + '</td>' +
         '<td data-label="Location">' + esc(o.location) + '</td>' +
         '<td data-label="LTV">' + esc(o.ltv) + '</td>' +
         '<td data-label="Minimum">' + esc(o.minimum) + '</td>' +
-        '<td data-label="Y1 Yield">' + esc(o.y1Yield) + '</td>' +
-        '<td data-label="Avg. Yield">' + esc(o.avgYield) + '</td>' +
-        '<td data-label="Status" class="' + statusCls + '">' + esc(o.status) + '</td>' +
-        '<td><a class="btn-access" href="#" onclick="openDrawer(' + i + '); return false;">Preview</a></td>' +
+        '<td data-label="Yield (Y1 / Avg.)"><span class="yield-values"><span class="yield-value"><span class="yield-label">Y1</span>' + esc(o.y1Yield || '—') + '</span><span aria-hidden="true">/</span><span class="yield-value"><span class="yield-label">Avg.</span>' + esc(o.avgYield || '—') + '</span></span></td>' +
+        '<td><a class="btn-access" href="#" onclick="openDrawer(' + i + '); return false;">View</a></td>' +
         '</tr>';
     }).join('');
   }
