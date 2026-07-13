@@ -155,10 +155,10 @@
     margin-top: 12px;
   }
   .toc-links {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    align-items: start;
+    gap: 6px 18px;
   }
   .toc-toggle {
     display: none;
@@ -184,25 +184,37 @@
   .toc-banner.collapsed .toc-links { display: none; }
   .toc-banner.collapsed .toc-toggle { display: block; }
   .toc-banner.collapsed.open .toc-links {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 8px;
     padding-top: 10px;
   }
   .toc-banner.collapsed.open .toc-toggle::after { transform: rotate(270deg); }
   .toc-banner a {
+    position: relative;
+    min-width: 0;
     color: #243856;
     text-decoration: none;
     font-size: 14px;
+    line-height: 1.45;
+    padding-left: 18px;
   }
   .toc-banner a:hover { color: #0099ff; text-decoration: underline; }
   .toc-banner a::before {
     content: "\276F";
-    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0.15em;
     color: #ff9900;
     font-weight: 900;
     font-size: 12px;
-    margin-right: 6px;
+  }
+
+  @media (max-width: 900px) and (min-width: 769px) {
+    .toc-links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 14px;
+    }
   }
 
   /* ---------- Content ---------- */
@@ -680,21 +692,24 @@
     padding-right: 28px;
   }
   .sidebar a {
+    position: relative;
     display: block;
     color: #0099ff;
     text-decoration: none;
     font-size: 14px;
-    padding: 8px 0;
+    line-height: 1.55;
+    padding: 8px 0 8px 28px;
     border-bottom: 1px solid #eee;
   }
   .sidebar a:hover { color: #0099ff; }
   .sidebar a::before {
     content: "\276F";
-    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0.8em;
     color: #ff9900;
     font-weight: 900;
     font-size: 12px;
-    margin-right: 8px;
   }
   .offering-image {
     flex: 1;
@@ -1254,17 +1269,8 @@
 (function () {
   var banner = document.getElementById('tocBanner');
   var links = banner.querySelector('.toc-links');
-  function neededWidth() {
-    var clone = links.cloneNode(true);
-    clone.style.cssText = 'display:flex;flex-wrap:nowrap;gap:32px;position:absolute;visibility:hidden;width:auto;left:-9999px;';
-    document.body.appendChild(clone);
-    var w = clone.scrollWidth;
-    document.body.removeChild(clone);
-    return w;
-  }
   function check() {
-    var avail = banner.clientWidth - 32;
-    if (neededWidth() > avail) {
+    if (window.innerWidth <= 768) {
       banner.classList.add('collapsed');
     } else {
       banner.classList.remove('collapsed', 'open');
