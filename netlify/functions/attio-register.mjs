@@ -241,31 +241,18 @@ export default async (req) => {
     }
   }
 
-  // 4) #5: on booking, create the Clerk account (invitation) so they can access the portal
-  let invited = false;
-  if (d.callBooked && process.env.CLERK_SECRET_KEY && d.email) {
-    try {
-      const r = await fetch('https://api.clerk.com/v1/invitations', {
-        method: 'POST',
-        headers: { Authorization: 'Bearer ' + process.env.CLERK_SECRET_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email_address: d.email, notify: true, ignore_existing: true,
-          public_metadata: { source: 'investor-registration' } }),
-      });
-      invited = r.ok; // 400 = already invited / already a user — fine, ignore
-    } catch (e) {}
-  }
-
-  // 5) lifecycle emails (Resend). Cal.com already sends its own booking confirmation
-  // + reminder, so we send the CRM/portal-side messages here.
+  // 4) lifecycle emails (Resend). Portal provisioning is deliberately not done
+  // here: portal_access is the Attio trigger and attio-webhook owns Clerk + the
+  // portal email, whether access was set by this form, Cal.com, or an Attio user.
   const first = d.firstName || d.preferredName || '';
   const schedUrl = (process.env.SITE_URL || 'https://www.baker1031.com') + '/request-access.html';
-  if (d.callBooked) {
-    await sendMail(d.email, 'portalGranted', { name: first }).catch(() => {});
-  } else {
-    await sendMail(d.email, 'welcome', { name: first, scheduleUrl: schedUrl }).catch(() => {});
+  let welcomeEmail = null;
+  if (!d.callBooked) {
+    welcomeEmail = await sendMail(d.email, 'welcome', { name: first, scheduleUrl: schedUrl });
+    if (!welcomeEmail.ok) console.error('Registration welcome email failed', { email: d.email, welcomeEmail });
   }
 
-  return json({ ok: true, recordId, invited });
+  return json({ ok: true, recordId, provisioning: d.callBooked ? 'attio-webhook' : undefined, welcomeEmail });
 };
 
 function json(obj, status = 200) {

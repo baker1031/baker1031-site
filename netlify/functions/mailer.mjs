@@ -101,7 +101,8 @@ export const templates = {
 
 export async function sendMail(to, tpl, data){
   const KEY = process.env.RESEND_API_KEY;
-  if (!KEY || !to) return { ok: false, skipped: true };
+  if (!KEY) return { ok: false, skipped: true, error: 'resend not configured' };
+  if (!to) return { ok: false, error: 'recipient required' };
   const build = templates[tpl];
   if (!build) return { ok: false, error: 'unknown template' };
   const { subject, html } = build(data || {});
@@ -110,6 +111,8 @@ export async function sendMail(to, tpl, data){
     const r = await fetch('https://api.resend.com/emails', { method: 'POST',
       headers: { Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from, to: [to], subject, html }) });
-    return { ok: r.ok, status: r.status };
+    let response = null; try { response = await r.json(); } catch (e) {}
+    const requestId = r.headers.get('x-resend-id') || (response && (response.id || response.data && response.data.id)) || null;
+    return { ok: r.ok, status: r.status, requestId, error: r.ok ? undefined : ((response && response.message) || 'resend rejected email') };
   } catch (e) { return { ok: false, error: String(e && e.message || e) }; }
 }
