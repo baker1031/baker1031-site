@@ -517,6 +517,10 @@ GA4_TAG = """<!-- Google tag (gtag.js) -->
   gtag('js', new Date());
   gtag('config', '%s');
 </script>""" % (GA4_MEASUREMENT_ID, GA4_MEASUREMENT_ID)
+FAVICON_TAG = """<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">"""
 ANALYTICS_SCRIPT = '<script src="assets/analytics.js" defer></script>'
 ANALYTICS_EXCLUDE = {'employee.html'}
 RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 1031 topics">
@@ -583,6 +587,8 @@ def inject(html_text, base=''):
         html_text = html_text.replace('<!-- @@FOOTER@@ -->', RELATED_HUBS_HTML + '\n<!-- @@FOOTER@@ -->', 1)
     html_text = html_text.replace('<!-- @@FOOTER@@ -->', footer)
     html_text = seo_inject(html_text, base)
+    if FAVICON_TAG not in html_text and '</head>' in html_text:
+        html_text = html_text.replace('</head>', FAVICON_TAG + '\n</head>', 1)
     if base not in ANALYTICS_EXCLUDE and GA4_TAG not in html_text and '</head>' in html_text:
         html_text = html_text.replace('</head>', GA4_TAG + '\n</head>', 1)
         html_text = html_text.replace('</head>', ANALYTICS_SCRIPT + '\n</head>', 1)
