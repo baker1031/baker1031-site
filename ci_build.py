@@ -13,6 +13,7 @@ Local test:  python3 ci_build.py          (uses fallback xlsx if no network)
 Netlify:     see netlify.toml
 """
 import datetime
+import hashlib
 import html as html_lib
 import io, json, os, re, shutil, sys, unicodedata, urllib.request
 
@@ -83,6 +84,14 @@ REVIEWER = {
     'identifier': {'@type': 'PropertyValue', 'propertyID': 'FINRA CRD', 'value': '2805591'},
     'sameAs': ['https://brokercheck.finra.org/individual/summary/2805591'],
 }
+
+REVIEW_NOTE_HTML = '''<section class="b1031-review-note" aria-label="Content review">
+  <strong>Reviewed by Lori Kamen</strong> — Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591). Last reviewed July 11, 2026. Educational content is reviewed periodically for accuracy and regulatory compliance; current law, offering terms, and suitability depend on the applicable facts and documents.
+</section>'''
+
+CURRENT_1031_SOURCE_NOTE = '''<p class="b1031-current-law-source">Current-law source reviewed July 11, 2026: <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" target="_blank" rel="noopener noreferrer">IRS guidance on like-kind exchanges</a>. Section 1031 treatment depends on the property, taxpayer, timing, and transaction documents; confirm current treatment with your CPA and attorney.</p>'''
+
+CURRENT_OZ_SOURCE_NOTE = '''<p class="b1031-current-law-source">Current-law source reviewed July 11, 2026: <a href="https://www.irs.gov/newsroom/opportunity-zones" target="_blank" rel="noopener noreferrer">IRS Opportunity Zone guidance</a> and <a href="https://www.irs.gov/irb/2026-28_IRB" target="_blank" rel="noopener noreferrer">IRS Notice 2026-40</a>. Opportunity Zone benefits are conditional, time-sensitive, and dependent on the QOF, the taxpayer, the holding period, and current law; confirm the details with your CPA and attorney.</p>'''
 
 SEO_META = {}
 
@@ -238,6 +247,54 @@ def page_citations(base, raw):
         citations = AUTHORITY_SOURCES[:]
     return citations[:12]
 
+def faq_schema(raw, canonical):
+    items = []
+    pattern = re.compile(r'<details\b[^>]*>\s*<summary\b[^>]*>(.*?)</summary>(.*?)</details>', flags=re.S | re.I)
+    for match in pattern.finditer(raw):
+        question = text_from_html(match.group(1))
+        answer = text_from_html(match.group(2))
+        if question and answer:
+            items.append({
+                '@type': 'Question',
+                'name': question,
+                'acceptedAnswer': {'@type': 'Answer', 'text': answer},
+            })
+    if len(items) < 2:
+        return None
+    return {'@type': 'FAQPage', 'url': canonical, 'mainEntity': items[:50]}
+
+def glossary_schema(raw, canonical, title):
+    terms = []
+    pattern = re.compile(r'<dt\b[^>]*>(.*?)</dt>\s*<dd\b[^>]*>(.*?)</dd>', flags=re.S | re.I)
+    for match in pattern.finditer(raw):
+        name = text_from_html(match.group(1))
+        definition = text_from_html(match.group(2))
+        if name and definition:
+            terms.append({'@type': 'DefinedTerm', 'name': name, 'description': definition})
+    if not terms:
+        return None
+    return {
+        '@type': 'DefinedTermSet',
+        'name': title,
+        'url': canonical,
+        'hasDefinedTerm': terms[:100],
+    }
+
+def ensure_visible_review_and_sources(raw, base):
+    if base in NOINDEX_PAGES:
+        return raw
+    visible = re.sub(r'<(style|script|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.S | re.I)
+    if not re.search(r'(?:class=["\'][^"\']*review-note|Reviewed by\s+Lori Kamen)', visible, flags=re.I):
+        if re.search(r'</main>', raw, flags=re.I):
+            raw = re.sub(r'</main>', REVIEW_NOTE_HTML + '\n</main>', raw, count=1, flags=re.I)
+        elif re.search(r'</body>', raw, flags=re.I):
+            raw = re.sub(r'</body>', REVIEW_NOTE_HTML + '\n</body>', raw, count=1, flags=re.I)
+    if (re.search(r'fully intact', raw, flags=re.I) or base == 'is-the-1031-exchange-going-away-policy-outlook.html') and 'b1031-current-law-source' not in raw:
+        raw = re.sub(r'</main>', CURRENT_1031_SOURCE_NOTE + '\n</main>', raw, count=1, flags=re.I)
+    if re.search(r'opportunity zone|qualified opportunity fund|\bQOF\b', raw, flags=re.I) and re.search(r'potentially tax-free|tax-free|eliminating federal tax', raw, flags=re.I) and 'b1031-current-law-source' not in raw:
+        raw = re.sub(r'</main>', CURRENT_OZ_SOURCE_NOTE + '\n</main>', raw, count=1, flags=re.I)
+    return raw
+
 def state_authority_note(base):
     state_slug = state_slug_for_page(base)
     if not state_slug:
@@ -303,6 +360,16 @@ def seo_jsonld(base, title, description, canonical, raw):
     if reviewer:
         data['reviewedBy'] = reviewer
         data['dateModified'] = REVIEW_DATE_ISO
+    graph = [data]
+    faq = faq_schema(raw, canonical)
+    if faq:
+        graph.append(faq)
+    if base == 'glossary.html':
+        glossary = glossary_schema(raw, canonical, title)
+        if glossary:
+            graph.append(glossary)
+    if len(graph) > 1:
+        data = {'@context': 'https://schema.org', '@graph': graph}
     return html_json(data)
 
 def remove_seo_tags(raw):
@@ -326,7 +393,10 @@ spon_slug = {}
 for row in LIST:
     su = s(row.get('Sponsor URL'))
     if su:
-        spon_slug[s(row['Sponsor'])] = 'sponsor-' + urlseg(su) + '.html'
+        sponsor_path_slug = urlseg(su)
+        if sponsor_path_slug.startswith('sponsor-'):
+            sponsor_path_slug = sponsor_path_slug[len('sponsor-'):]
+        spon_slug[s(row['Sponsor'])] = 'sponsor-' + sponsor_path_slug + '.html'
 for sp in SPON:
     nm = s(sp['Investment Firm'])
     spon_slug.setdefault(nm, 'sponsor-' + slugify(nm.replace('&', ' and ')) + '.html')
@@ -584,6 +654,39 @@ RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 
 
 def seo_inject(html_text, base):
     html_text = normalize_editorial_identity(html_text)
+    if base == 'is-the-1031-exchange-going-away-policy-outlook.html':
+        html_text = re.sub(r'\bas of 2026\b', lambda match: ('As' if match.group(0)[0].isupper() else 'as') + ' of July 11, 2026', html_text, flags=re.I)
+        html_text = re.sub(r'\bfully intact\b', 'available for qualifying real property under current guidance', html_text, flags=re.I)
+        html_text = re.sub(r'\bfully available(?: now)?\b', 'available under current guidance', html_text, flags=re.I)
+        html_text = html_text.replace('available for qualifying real property under current guidance for real estate',
+                                      'available for qualifying real property under current guidance')
+    is_oz_page = bool(re.search(r'opportunity[- ]zone|(?:^|[-_])qof(?:[-_.]|$)', base, flags=re.I))
+    if is_oz_page or base in ('faq.html', 'insights.html'):
+        def conditional_tax_free(match):
+            if not is_oz_page:
+                nearby = text_from_html(html_text[max(0, match.start() - 320):match.end() + 320])
+                if not re.search(r'opportunity zone|qualified opportunity fund|\bQOF\b|\bOZ\b|10-year exclusion', nearby, flags=re.I):
+                    return match.group(0)
+            last_lt = html_text.rfind('<', 0, match.start())
+            last_gt = html_text.rfind('>', 0, match.start())
+            if last_lt > last_gt:
+                return match.group(0)
+            context = html_text[max(0, match.start() - 24):match.start()].lower()
+            if re.search(r'(?:potential|potentially|not|is not|isn\'t|no)\s+$', context):
+                return match.group(0)
+            return 'potentially tax-free'
+        html_text = re.sub(r'\btax-free\b', conditional_tax_free, html_text, flags=re.I)
+        html_text = re.sub(r'\beliminating federal tax on all the appreciation\b',
+                           'potentially excluding federal tax on qualifying appreciation',
+                           html_text, flags=re.I)
+        html_text = re.sub(r'\beliminating tax on\b', 'potentially excluding tax on', html_text, flags=re.I)
+        html_text = re.sub(r'\beliminate tax on\b', 'may exclude tax on', html_text, flags=re.I)
+        html_text = re.sub(r'\beliminates tax on\b', 'may exclude tax on', html_text, flags=re.I)
+        html_text = re.sub(r'\beliminate tax\b', 'may exclude tax', html_text, flags=re.I)
+        html_text = re.sub(r'\btax eliminated on\b', 'potential tax on', html_text, flags=re.I)
+        if is_oz_page:
+            html_text = re.sub(r'\bfully intact\b', 'potentially available under the current program', html_text, flags=re.I)
+    html_text = ensure_visible_review_and_sources(html_text, base)
     html_text = html_text.replace('[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]', APPROVED_DISCLOSURE_LINK)
     meta = SEO_META.get(base, {})
     title = meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
@@ -726,6 +829,48 @@ home_source = open(os.path.join(ROOT, 'src', 'pages', 'baker1031.html')).read()
 open(os.path.join(DIST, 'index.html'), 'w').write(gate(inject(home_source, 'index.html'), 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
 
+# Externalize exact repeated inline style blocks into shared assets. This keeps
+# page-specific CSS intact while removing the same large nav/footer/font rules
+# from hundreds of HTML documents.
+def externalize_repeated_css():
+    style_pattern = re.compile(r'<style(?P<attrs>[^>]*)>(?P<body>.*?)</style>', flags=re.S | re.I)
+    occurrences = {}
+    for base in sorted(f for f in os.listdir(DIST) if f.endswith('.html')):
+        path = os.path.join(DIST, base)
+        raw = open(path, encoding='utf-8', errors='replace').read()
+        for match in style_pattern.finditer(raw):
+            attrs = match.group('attrs').strip()
+            body = match.group('body').strip()
+            if attrs or len(body) < 500:
+                continue
+            digest = hashlib.sha1(body.encode('utf-8')).hexdigest()[:12]
+            entry = occurrences.setdefault(digest, {'body': body, 'pages': set()})
+            entry['pages'].add(base)
+    repeated = {k: v for k, v in occurrences.items() if len(v['pages']) >= 2}
+    for digest, entry in repeated.items():
+        open(os.path.join(DIST, 'assets', 'shared-' + digest + '.css'), 'w').write(entry['body'] + '\n')
+    replaced = 0
+    for base in sorted(f for f in os.listdir(DIST) if f.endswith('.html')):
+        path = os.path.join(DIST, base)
+        raw = open(path, encoding='utf-8', errors='replace').read()
+        def replace_style(match):
+            nonlocal replaced
+            attrs = match.group('attrs').strip()
+            body = match.group('body').strip()
+            if attrs or len(body) < 500:
+                return match.group(0)
+            digest = hashlib.sha1(body.encode('utf-8')).hexdigest()[:12]
+            if digest not in repeated:
+                return match.group(0)
+            replaced += 1
+            return '<link rel="stylesheet" href="assets/shared-%s.css">' % digest
+        updated = style_pattern.sub(replace_style, raw)
+        if updated != raw:
+            open(path, 'w').write(updated)
+    print('shared CSS: externalized %d repeated blocks into %d assets' % (replaced, len(repeated)))
+
+externalize_repeated_css()
+
 # ---------------------------------------------------------------- sitemap.xml
 _pages = sorted(f for f in os.listdir(DIST) if f.endswith('.html'))
 _urls = []
@@ -790,11 +935,43 @@ def validate_dist():
         if duplicates:
             failures.append('%s: duplicate HTML IDs: %s' % (base, ', '.join(duplicates)))
         blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', raw, flags=re.S | re.I)
+        schema_types = set()
         for i, block in enumerate(blocks, 1):
             try:
-                json.loads(block)
+                parsed = json.loads(block)
+                entities = parsed.get('@graph', [parsed]) if isinstance(parsed, dict) else []
+                for entity in entities:
+                    if not isinstance(entity, dict):
+                        continue
+                    entity_type = entity.get('@type')
+                    if isinstance(entity_type, list):
+                        schema_types.update(str(item) for item in entity_type)
+                    elif entity_type:
+                        schema_types.add(str(entity_type))
             except Exception as exc:
                 failures.append('%s: invalid JSON-LD block %d (%s)' % (base, i, exc))
+        if indexable and len(re.findall(r'<details\b', raw, flags=re.I)) >= 2 and 'FAQPage' not in schema_types:
+            failures.append('%s: FAQ content is missing FAQPage structured data' % base)
+        if indexable and base == 'glossary.html' and re.search(r'<dt\b', raw, flags=re.I) and 'DefinedTermSet' not in schema_types:
+            failures.append('%s: glossary terms are missing DefinedTermSet structured data' % base)
+        for block in re.findall(r'<script[^>]+type=["\']application/json["\'][^>]*>(.*?)</script>', raw, flags=re.S | re.I):
+            try:
+                payload = json.loads(block)
+            except Exception:
+                continue
+            def check_dynamic_urls(value):
+                if isinstance(value, dict):
+                    for key, child in value.items():
+                        if key in ('url', 'href') and isinstance(child, str) and child.endswith('.html') and not child.startswith(('http://', 'https://', '/')):
+                            if not os.path.isfile(os.path.join(DIST, child)):
+                                failures.append('%s: broken generated data link %s' % (base, child))
+                        check_dynamic_urls(child)
+                elif isinstance(value, list):
+                    for child in value:
+                        check_dynamic_urls(child)
+            check_dynamic_urls(payload)
+        if base == 'sponsors.html' and re.search(r'<img[^>]+alt=(["\'])\s*\1', raw, flags=re.I):
+            failures.append('sponsors.html: generated sponsor logo has empty alt text')
         word_count = len(re.findall(r"\b[\w’'-]+\b", plain(raw)))
         if indexable and word_count < 800:
             thin_pages.append({'page': base, 'words': word_count, 'reason': 'below 800-word review threshold'})

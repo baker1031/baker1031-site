@@ -2110,8 +2110,9 @@
     </div>
   </main>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
 <script>
+  window.addEventListener('DOMContentLoaded', function(){
   (function(){
     document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
       document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on');});
@@ -2135,7 +2136,8 @@
         {label:'Peak Yield',data:sec.map(function(s){return s[2];}),backgroundColor:ACCENT,borderWidth:0,maxBarThickness:22}]},
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'rectRounded',padding:16,font:{size:11.5}}},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.x.toFixed(2)+'%';}}}},scales:{x:{grid:grid,border:{display:false},ticks:{callback:pct},suggestedMin:0},y:{grid:{display:false},border:{color:INK}}}}});
   })();
-  </script>
+  });
+</script>
 <script>(function(){var s=document.getElementById('dealSearch');if(!s)return;var rows=[].slice.call(document.querySelectorAll('#dealsTable tbody tr')),c=document.getElementById('dealCount');function f(){var q=s.value.trim().toLowerCase(),n=0;rows.forEach(function(r){var hit=!q||(r.getAttribute('data-f')||'').indexOf(q)>-1;r.style.display=hit?'':'none';if(hit)n++;});if(c)c.textContent=n;}s.addEventListener('input',f);}());</script>
 
 <!-- @@FOOTER@@ -->

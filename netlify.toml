@@ -21,6 +21,132 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/offerings/"
+  to = "/investments.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/offerings/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/capabilities/"
+  to = "/strategies.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/capabilities/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sponsors/:slug/"
+  to = "/sponsor-:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/1031-exchange/:state/:city/"
+  to = "/1031-exchange-:state-:city.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/1031-exchange/:state/"
+  to = "/1031-exchange-:state.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/:term/"
+  to = "/glossary-:term.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/advisors/"
+  to = "/for-advisors-cpas.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/agents/"
+  to = "/for-agents-brokers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/approach/"
+  to = "/our-approach.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/jerry-baker/"
+  to = "/jerry-baker-bio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/team/"
+  to = "/team-partners.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculators/cost-segregation-calculator/"
+  to = "/calculator-cost-segregation.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculators/portfolio-builder/"
+  to = "/calculators.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculators/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/property-types/:type/"
+  to = "/property-type-:type.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculators/"
+  to = "/calculators.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:slug/"
+  to = "/:slug.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

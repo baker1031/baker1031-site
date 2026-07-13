@@ -1069,6 +1069,7 @@
         <tbody id="dirBody"></tbody>
       </table>
     </div>
+    <button type="button" class="btn-access" id="loadMoreSponsors" aria-controls="dirBody" hidden>Load more sponsors</button>
   </main>
 
 <!-- @@FOOTER@@ -->
@@ -2377,12 +2378,15 @@ var DIR = [];
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
   var tbody = document.getElementById('dirBody');
-  var sortKey = null, sortDir = 1;
+  var sortKey = null, sortDir = 1, activeRows = DIR.slice(), shown = 0, pageSize = 24;
 
-  function render(rows) {
-    tbody.innerHTML = rows.map(function (o) {
+  function render(rows, reset) {
+    activeRows = rows;
+    if (reset || !shown) shown = Math.min(pageSize, rows.length);
+    shown = Math.min(shown, rows.length);
+    tbody.innerHTML = rows.slice(0, shown).map(function (o) {
       var i = DIR.indexOf(o);
-      var logo = o.logo ? '<img src="' + esc(o.logo) + '" alt="">' : '';
+      var logo = o.logo ? '<img src="' + esc(o.logo) + '" alt="' + esc(o.name + ' logo') + '" loading="lazy" decoding="async">' : '';
       return '<tr>' +
         '<td class="logo-cell">' + logo + '<a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
           '<span class="sub">' + esc(o.hq) + '</span></td>' +
@@ -2396,6 +2400,11 @@ var DIR = [];
         '<td><a class="btn-access" href="#" onclick="openDrawer(' + i + '); return false;">Preview</a></td>' +
         '</tr>';
     }).join('');
+    var more = document.getElementById('loadMoreSponsors');
+    if (more) {
+      more.hidden = shown >= rows.length;
+      more.textContent = 'Load more sponsors (' + (rows.length - shown) + ' remaining)';
+    }
   }
 
   function numVal(s) {
@@ -2419,7 +2428,7 @@ var DIR = [];
       th.querySelector('.arrow').textContent =
         th.getAttribute('data-key') === sortKey ? (sortDir === 1 ? '\u25B2' : '\u25BC') : '';
     });
-    render(rows);
+    render(rows, true);
   }
   document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
     th.addEventListener('click', function () { doSort(th.getAttribute('data-key')); });
@@ -2427,13 +2436,19 @@ var DIR = [];
   var sortSelect = document.getElementById('sortSelect');
   if (sortSelect) {
     sortSelect.addEventListener('change', function () {
-      if (!this.value) { sortKey = null; sortDir = 1; render(DIR); return; }
+      if (!this.value) { sortKey = null; sortDir = 1; render(DIR, true); return; }
       sortKey = null;
       doSort(this.value);
     });
   }
 
-  render(DIR);
+  var loadMore = document.getElementById('loadMoreSponsors');
+  if (loadMore) loadMore.onclick = function () {
+    shown = Math.min(shown + pageSize, activeRows.length);
+    render(activeRows, false);
+    return false;
+  };
+  render(DIR, true);
 })();
 
 function openDrawer(i) {
