@@ -22,8 +22,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
 SHEET_ID = os.environ.get('SHEET_ID', '1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7IlyZg')
 GA4_MEASUREMENT_ID = os.environ.get('GA4_MEASUREMENT_ID', 'G-P29LR49RL8')
-BASE_URL = os.environ.get('BASE_URL', 'https://baker1031-project3-site.netlify.app').rstrip('/')
+BASE_URL = os.environ.get('BASE_URL', 'https://baker1031.com').rstrip('/')
 BUILD_DATE = os.environ.get('BUILD_DATE', datetime.date.today().isoformat())
+REVIEW_DATE = 'July 11, 2026'
+REVIEW_DATE_ISO = '2026-07-11'
 
 # These files remain available as authoring/source material but must never be
 # emitted as public, indexable pages.
@@ -252,6 +254,7 @@ def normalize_editorial_identity(raw):
                       'Gerald F. &quot;Jerry&quot; Baker, III leads the editorial work at Baker 1031 Investments')
     raw = raw.replace('Source: Baker 1031 Research.', 'Source: Gerald F. &quot;Jerry&quot; Baker, III.')
     raw = raw.replace('Baker 1031 Research', AUTHOR_NAME)
+    raw = re.sub(r'Last reviewed\s+[A-Za-z]+\s+(?:\d{1,2},\s+)?\d{4}', 'Last reviewed ' + REVIEW_DATE, raw)
     raw = raw.replace(
         'President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal.',
         'Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591).')
@@ -276,8 +279,8 @@ def seo_jsonld(base, title, description, canonical, raw):
     }
     citations = page_citations(base, raw)
     review_text = text_from_html(raw)
-    review_match = re.search(r'Reviewed by\s+(.+?)\s+—\s+(.+?)\.\s+Last reviewed\s+([A-Za-z]+\s+\d{4})', review_text, flags=re.I)
-    reviewer = REVIEWER if review_match or base not in NOINDEX_PAGES else None
+    review_match = re.search(r'Reviewed by\s+(.+?)\s+—\s+(.+?)\.\s+Last reviewed\s+([A-Za-z]+\s+(?:\d{1,2},\s+)?\d{4})', review_text, flags=re.I)
+    reviewer = REVIEWER if base not in NOINDEX_PAGES else None
     if base == 'jerry-baker-bio.html':
         data = {
             '@context': 'https://schema.org', '@type': ['ProfilePage', 'WebPage'],
@@ -293,14 +296,13 @@ def seo_jsonld(base, title, description, canonical, raw):
         }
         if data['@type'] == 'Article':
             data['author'] = author
-            if reviewer:
-                data['reviewedBy'] = reviewer
-                if review_match:
-                    data['dateModified'] = review_match.group(3)
         if citations:
             data['citation'] = citations
     else:
         data = {'@context': 'https://schema.org', '@type': 'WebPage', 'url': canonical, 'name': title, 'description': description, 'publisher': publisher}
+    if reviewer:
+        data['reviewedBy'] = reviewer
+        data['dateModified'] = REVIEW_DATE_ISO
     return html_json(data)
 
 def remove_seo_tags(raw):

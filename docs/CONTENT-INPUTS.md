@@ -56,10 +56,10 @@ The visible placeholder was replaced with a neutral desk-contact paragraph. If y
 
 ## Article author and reviewer records
 
-The build now uses Gerald F. "Jerry" Baker, III as the named author and Lori Kamen as the named reviewer where it generates Article structured data. Reviewer metadata identifies Lori Kamen as Chief Compliance Officer, Aurora Securities, Inc., FINRA CRD #2805591, with a BrokerCheck link. The visible bylines and review notes are normalized to the same identities.
+The build now uses Gerald F. "Jerry" Baker, III as the named author and Lori Kamen as the named reviewer across all public pages. Reviewer metadata identifies Lori Kamen as Chief Compliance Officer, Aurora Securities, Inc., FINRA CRD #2805591, with a BrokerCheck link. The approved review date is July 11, 2026, and the visible bylines, review notes, and JSON-LD use the same date.
 
-- Which pages the reviewer may approve
-- Last-reviewed date for existing articles, or the review-date policy. Existing June 2026 dates remain only where the source page already contained that date; no new review date is invented.
+- No page-scope input remains: Lori Kamen is authorized to approve all public pages.
+- Future review-date changes should update the centralized date in `ci_build.py`; page-level dates should not be hand-edited.
 
 ## Article template
 

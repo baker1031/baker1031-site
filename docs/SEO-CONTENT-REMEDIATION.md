@@ -8,6 +8,7 @@
 - Robots directives, including noindex for private/template routes
 - JSON-LD generation with Baker 1031 publisher, named author, citations, and page URLs
 - Named author identity: Gerald F. "Jerry" Baker, III; reviewer identity: Lori Kamen, Chief Compliance Officer, FINRA CRD #2805591
+- All public pages carry the approved Lori Kamen review identity and July 11, 2026 review date; private and template routes remain noindex
 - Official state tax-authority citations for state and state-metro pages, maintained in `data/state-tax-authorities.json`
 - Internal links from every public page to the six core strategy hubs, offerings, sponsors, and insights
 - LLM discovery files generated from current offerings and indexable pages
@@ -40,6 +41,8 @@ dist/content-quality-report.json identifies pages below the 800-word review thre
 6. Merge or redirect articles whose only distinction is a keyword variation.
 
 The build reports thin pages so editorial changes can be prioritized without mass-producing AI copy that could weaken trust or create regulatory risk.
+
+See `docs/THIN-PAGE-CONTENT-INVENTORY.md` for the current 90-page breakdown and the approved source material available for expansion.
 
 ## Authority, authorship, and citations
 
