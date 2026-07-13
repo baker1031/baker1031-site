@@ -714,6 +714,14 @@ for base, html_text in generated.items():
     count += 1
 
 shutil.copytree(os.path.join(ROOT, 'src', 'assets'), os.path.join(DIST, 'assets'))
+# Copy root-level discovery assets before validation so absolute root links such
+# as /favicon.ico are checked against the same dist tree that will be deployed.
+shutil.copy(os.path.join(ROOT, 'data', 'favicon.ico'), os.path.join(DIST, 'favicon.ico'))
+open(os.path.join(DIST, 'site.webmanifest'), 'w').write(json.dumps({
+    'name': 'Baker 1031 Investments', 'short_name': 'Baker 1031',
+    'icons': [{'src': '/assets/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
+              {'src': '/assets/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'}],
+    'theme_color': '#243856', 'background_color': '#243856', 'display': 'standalone', 'start_url': '/'}))
 home_source = open(os.path.join(ROOT, 'src', 'pages', 'baker1031.html')).read()
 open(os.path.join(DIST, 'index.html'), 'w').write(gate(inject(home_source, 'index.html'), 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
@@ -871,11 +879,4 @@ with open(os.path.join(DIST, 'llms-full.txt'), 'w') as _fh:
         _fh.write('\n===== PAGE: %s/%s =====\n%s\n%s\n' % (
             BASE_URL, _p, (_title.group(1).strip() if _title else _p), _body))
 
-# favicon + web manifest
-shutil.copy(os.path.join(ROOT, 'data', 'favicon.ico'), os.path.join(DIST, 'favicon.ico'))
-open(os.path.join(DIST, 'site.webmanifest'), 'w').write(json.dumps({
-    'name': 'Baker 1031 Investments', 'short_name': 'Baker 1031',
-    'icons': [{'src': '/assets/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
-              {'src': '/assets/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'}],
-    'theme_color': '#243856', 'background_color': '#243856', 'display': 'standalone', 'start_url': '/'}))
 print('llms.txt + llms-full.txt + favicon + manifest written')
