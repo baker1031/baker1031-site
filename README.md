@@ -66,6 +66,12 @@ Required Netlify environment variables:
 - CLERK_SECRET_KEY or ATTIO_API_TOKEN
 - CAL_WEBHOOK_SECRET
 
+Optional contact-sync variables, used by `attio-google-contact-sync.mjs`:
+
+- ATTIO_CONTACT_WEBHOOK_SECRET
+- GOOGLE_CONTACTS_SYNC_WEBHOOK_URL
+- ATTIO_PEOPLE_OBJECT_ID
+
 Do not rely on fallback credentials; the functions fail closed when these values are missing.
 
 For the Sheet trigger:
