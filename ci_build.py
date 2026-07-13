@@ -818,6 +818,12 @@ FAVICON_TAG = """<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="manifest" href="/site.webmanifest">"""
 ANALYTICS_SCRIPT = '<script src="assets/analytics.js" defer></script>'
 ANALYTICS_EXCLUDE = {'employee.html'}
+# Sentry's browser loader is the official project-specific snippet generated in
+# the Sentry project settings. It is intentionally limited to public site
+# pages; the employee terminal is excluded so internal operational data is not
+# sent to a third-party error tracker.
+SENTRY_TAG = '<script src="https://js.sentry-cdn.com/49f51d213d1534d765e758b5cc973547.min.js" crossorigin="anonymous" defer></script>'
+SENTRY_EXCLUDE = {'employee.html'}
 RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 1031 topics">
   <div class="b1031-related-inner">
     <div class="b1031-related-kicker">Explore the Baker 1031 research library</div>
@@ -969,6 +975,8 @@ def inject(html_text, base=''):
     if base not in ANALYTICS_EXCLUDE and GA4_TAG not in html_text and '</head>' in html_text:
         html_text = html_text.replace('</head>', GA4_TAG + '\n</head>', 1)
         html_text = html_text.replace('</head>', ANALYTICS_SCRIPT + '\n</head>', 1)
+    if base not in SENTRY_EXCLUDE and SENTRY_TAG not in html_text and '</head>' in html_text:
+        html_text = html_text.replace('</head>', SENTRY_TAG + '\n</head>', 1)
     return html_text
 
 # Pages that stay OPEN (no soft gate): home, registration, About group, contact,
