@@ -104,7 +104,12 @@
         var h=a.hold.find(function(x){return x.o===o;});
         return s+(h?h.alloc:0)*(o._score-(usage[o.url]||0)*1000);
       },0)/a.total:0;
-      var score=quality+types*0.8+picked.length*0.15;
+      // The requested count is a ceiling, not a requirement. Income and
+      // Growth can favor a tighter, higher-scoring mix; Balanced pays more for
+      // diversification and will usually use more of the available slots.
+      var diversityWeight=theme==='Balanced'?0.8:0.5;
+      var complexityWeight=theme==='Balanced'?0.15:0.5;
+      var score=quality+types*diversityWeight-picked.length*complexityWeight;
       var result={a:a,score:score,types:types};
       if(!fallback||score>fallback.score)fallback=result;
       if(a.withinLtv&&(!best||score>best.score))best=result;
@@ -115,7 +120,7 @@
     }
     var mins=pool.map(function(o){return o.min;}).sort(function(a,b){return a-b;}), maxCount=0,minTotal=0;
     mins.some(function(min){ if(maxCount>=opts.count||minTotal+min>opts.equity)return true; minTotal+=min; maxCount++; return false; });
-    for(var target=maxCount;target>=1&&!best;target--) visit(0,[],target);
+    for(var target=maxCount;target>=1;target--) visit(0,[],target);
     var chosen=best||(opts.enforceLtv?null:fallback); if(!chosen)return null;
     var hold=chosen.a.hold, total=chosen.a.total, bl=chosen.a.blendLtv;
     return { theme:theme, blendLtv:bl, total:total, withinLtv:chosen.a.withinLtv,
