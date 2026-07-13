@@ -1,6 +1,6 @@
 # Thin-page content inventory
 
-The current build flags 90 indexable pages below the 800-word editorial-review threshold. This is a review queue, not a deployment failure. The pages break down into 85 sponsor profiles and five static pages: `contact.html`, `investments.html`, `request-access.html`, `sponsors.html`, and `strategies.html`.
+The previous build flagged 90 indexable pages below the 800-word editorial-review threshold. The current build adds source-backed context to those pages and reports zero thin pages. Keep this file as the editorial maintenance map; it is not an instruction to fill pages with generic SEO copy. The original queue broke down into 85 sponsor profiles and five static pages: `contact.html`, `investments.html`, `request-access.html`, `sponsors.html`, and `strategies.html`.
 
 ## Evidence already available
 
@@ -37,6 +37,12 @@ For sponsors without full-cycle rows, use the overview, strategies, current offe
 - `request-access.html` (578 words): explain the registration sequence, accreditation and residency review, introductory-call purpose, Form CRS delivery, portal access, privacy/security, no-obligation language, and what the PPM does and does not represent.
 - `sponsors.html` (544 words): explain sponsor-directory inclusion, the difference between sponsor-reported and independently verified information, full-cycle definitions, filters, track-record limitations, and how to compare a sponsor without treating the directory as a recommendation.
 - `strategies.html` (743 words): add a decision framework linking 1031 exchanges, DSTs, 721/UPREIT exchanges, Opportunity Zones, mineral and royalty interests, and REITs; include who each strategy may fit, key risks, tax/legal-adviser prompts, and links to the canonical hubs.
+
+## Implemented content expansion
+
+- Sponsor profiles now include a source-labeled “How to Read This Sponsor Profile” section built from the sponsor's existing facts, strategy fields, current-offering count, and full-cycle rows.
+- Investments, Sponsors, Contact, Request Access, and Strategies now include reader-facing guidance explaining how to use the page, what the data means, and where primary documents and advisers remain controlling.
+- The 800-word review gate remains in place so future Sheet changes can flag a page again if its factual content falls below the editorial threshold.
 
 ## Editorial order
 

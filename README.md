@@ -20,7 +20,7 @@ Static, data-driven website for Baker 1031 Investments. Netlify builds the site 
 - src/assets/ — shared fonts, logo, analytics event listener, soft gate, and shared enhancement styles
 - templates/ — source-only offering, sponsor, and article templates; templates are not public routes
 - data/fallback-master-listings.xlsx — fallback snapshot used only when the live Sheet cannot be fetched
-- apps-script/sheet-trigger.gs — Sheet edit/nightly rebuild trigger; the Netlify hook must be stored in Apps Script properties, never committed
+- apps-script/ — separate Sheet-to-Netlify build automation; the Netlify hook must be stored in Apps Script properties, never committed
 - netlify/functions/ — serverless functions for authentication, portal actions, mail, scheduling, and data services
 - docs/ — editorial inputs, SEO/content remediation plan, and operating notes
 
@@ -70,6 +70,8 @@ For the Sheet trigger:
 2. In Apps Script, open Project Settings -> Script properties.
 3. Add NETLIFY_BUILD_HOOK with the rotated hook URL.
 4. Run setupTriggers() once.
+
+The companion setup guide is in apps-script/README.md. The script debounces edits, runs a nightly safety build, and leaves unrelated Apps Script triggers untouched.
 
 ## Local build
 

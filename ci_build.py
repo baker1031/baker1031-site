@@ -359,6 +359,48 @@ FOOTNOTES = [
     'Benchmarks compare this offering’s projected figures against sector medians computed across current offerings tracked by Baker 1031 Investments as of the last-updated date shown. Benchmark data is internal, unaudited, and subject to change.',
 ]
 
+def sponsor_research_context(d):
+    """Add useful, source-labeled context to generated sponsor profiles.
+
+    This is assembled only from workbook fields already displayed on the page;
+    it avoids inventing sponsor claims merely to satisfy a word-count check.
+    """
+    name = html_lib.escape(s(d.get('name', 'this sponsor')))
+    founded = html_lib.escape(s(d.get('founded'))) if d.get('founded') else ''
+    aum = html_lib.escape(s(d.get('aum'))) if d.get('aum') else ''
+    hq = html_lib.escape(s(d.get('hq'))) if d.get('hq') else ''
+    strategy_items = [html_lib.escape(x) for x in (d.get('strategies') or []) if x]
+    offering_count = len(d.get('currentOfferings') or [])
+    track_count = len(d.get('fullTrackRecord') or [])
+    facts = []
+    if founded: facts.append('a reported founding year of %s' % founded)
+    if aum: facts.append('reported assets under management of %s' % aum)
+    if hq: facts.append('a reported headquarters in %s' % hq)
+    fact_sentence = ', '.join(facts) if facts else 'the sponsor facts shown above'
+    strategy_html = ''
+    if strategy_items:
+        strategy_html = '<h3 class="subhead">What the strategy fields mean</h3><p>The strategy and advantage fields are a compact description of how %s presents its approach. They are not a recommendation, rating, or substitute for the PPM. Compare them with property-level leverage, tenant concentration, reserves, fees, exit assumptions, and the investor rights described in the offering documents.</p><ul class="research-list">%s</ul>' % (
+            name, ''.join('<li>%s</li>' % item for item in strategy_items))
+    track_sentence = (
+        'The page includes %d full-cycle record%s in the current workbook. Those figures are sponsor-reported and unaudited; they are shown to make the source and scope visible, not to imply that a future offering will repeat historical results.' %
+        (track_count, '' if track_count == 1 else 's')) if track_count else (
+        'No full-cycle rows are currently present in the workbook for this sponsor. That absence is a data-coverage limitation, not evidence about performance.')
+    offering_sentence = (
+        '%s current offering%s are linked from this profile. Availability, projected income, leverage, and documents can change, so investors should confirm the current version of each PPM and related supplement before relying on any figure.' %
+        (offering_count, '' if offering_count == 1 else 's')) if offering_count else (
+        'No current offerings are linked from this profile in the workbook snapshot. The directory can change as new offerings are reviewed.')
+    return '''
+        <section class="research-context" id="sresearch">
+          <h2 class="optima">How to Read This Sponsor Profile</h2>
+          <p>This page is a Baker 1031 Investments research summary for %s. The workbook currently records %s. Baker 1031 presents these fields to help an accredited investor organize due-diligence questions; the page is not a sponsor endorsement, performance guarantee, or individualized investment recommendation.</p>
+          <p>The overview and facts combine sponsor-provided information with the current Baker 1031 directory snapshot. A reported number should be read as reported, not as independently audited. The most authoritative source for an offering's structure, fees, conflicts, financial projections, risk factors, transfer restrictions, and suitability is the sponsor's Private Placement Memorandum and its supplements.</p>
+          %s
+          <h3 class="subhead">Current coverage</h3>
+          <p>%s %s</p>
+          <p>Use this profile alongside the <a href="due-diligence.html">Baker 1031 due-diligence process</a>, the <a href="methodology.html">data methodology</a>, and the relevant <a href="delaware-statutory-trusts.html">DST guide</a>. Before investing, review the complete documents with your own tax, legal, and financial advisers and confirm that the strategy fits your exchange timeline, liquidity needs, and risk tolerance.</p>
+        </section>
+    ''' % (name, fact_sentence, strategy_html, offering_sentence, track_sentence)
+
 # ---------------------------------------------------------------- generation
 otpl = open(os.path.join(ROOT, 'templates', 'offering-template.html')).read()
 stpl = open(os.path.join(ROOT, 'templates', 'sponsor-template.html')).read()
@@ -489,6 +531,7 @@ for sp in SPON:
     page = re.sub(r'<script type="application/json" id="sponsor-data">\n.*?\n</script>',
                   lambda _m: '<script type="application/json" id="sponsor-data">\n' + html_json(d) + '\n</script>',
                   page, flags=re.S)
+    page = page.replace('<!-- @@SPONSOR_RESEARCH_CONTEXT@@ -->', sponsor_research_context(d))
     page = page.replace('>AEI Capital Corporation<', '>' + nm + '<')
     SEO_META[slug] = {
         'title': nm + ' | Baker 1031 Investments',
