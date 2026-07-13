@@ -3,7 +3,7 @@
 // notices; these are the Baker 1031-branded follow-ups on top of that.
 // Configure in Cal.com: Settings > Webhooks -> point at /.netlify/functions/cal-webhook
 // with triggers BOOKING_CANCELLED, BOOKING_RESCHEDULED, BOOKING_NO_SHOW_UPDATED.
-// Optionally set CAL_WEBHOOK_SECRET (and the same secret in Cal) to verify signatures.
+// Set CAL_WEBHOOK_SECRET (and the same secret in Cal) to verify signatures.
 import crypto from 'node:crypto';
 import { sendMail } from './mailer.mjs';
 
@@ -12,12 +12,11 @@ function json(o, s = 200){ return new Response(JSON.stringify(o), { status: s, h
 export default async (req) => {
   const raw = await req.text();
   const secret = process.env.CAL_WEBHOOK_SECRET;
-  if (secret) {
-    const sig = req.headers.get('x-cal-signature-256') || '';
-    const expect = crypto.createHmac('sha256', secret).update(raw).digest('hex');
-    if (sig.length !== expect.length || !crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expect))) {
-      return json({ ok: false, error: 'bad signature' }, 401);
-    }
+  if (!secret) return json({ ok: false, error: 'webhook authentication is not configured' }, 500);
+  const sig = req.headers.get('x-cal-signature-256') || '';
+  const expect = crypto.createHmac('sha256', secret).update(raw).digest('hex');
+  if (sig.length !== expect.length || !crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expect))) {
+    return json({ ok: false, error: 'bad signature' }, 401);
   }
   let body; try { body = JSON.parse(raw); } catch (e) { return json({ ok: true }); }
   const trigger = body.triggerEvent || body.trigger || '';

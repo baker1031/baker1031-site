@@ -1377,10 +1377,10 @@
     portal=portal||{portfolios:[],firmAdded:[],newCount:0};
     var deals=portal.firmAdded||[], ports=portal.portfolios||[];
     if(!deals.length && !ports.length){
-      return '<div class="card" id="card-advisor"><h2 class="sec">From your advisor</h2>'+
+      return '<div class="card card-advisor"><h2 class="sec">From your advisor</h2>'+
         '<p class="muted">When your Baker 1031 advisor prepares example portfolios or flags specific offerings for you, they&rsquo;ll appear here.</p></div>';
     }
-    var h='<div class="card" id="card-advisor"><h2 class="sec">From your advisor '+dot(portal.newCount>0)+'</h2>';
+    var h='<div class="card card-advisor"><h2 class="sec">From your advisor '+dot(portal.newCount>0)+'</h2>';
     if(ports.length){
       h+='<h3 class="subh">Example portfolios prepared for you</h3>';
       h+=ports.map(function(p){
@@ -1442,7 +1442,7 @@
     {sel:'#card-details', h:'Your details', p:'Update your preferred name and phone here. They stay in sync with your Baker 1031 record.'},
     {sel:'#card-goals', h:'Investment goals', p:'Tap these to tell us what matters most. They shape what we prepare for you.'},
     {sel:'#card-saved', h:'Saved investments', p:'Offerings you bookmark anywhere on the site collect here so you can revisit them.'},
-    {sel:'#card-advisor', h:'From your advisor', p:'Example portfolios and offerings your advisor prepares for you appear here — a dot marks anything new.'},
+    {sel:'.card-advisor', h:'From your advisor', p:'Example portfolios and offerings your advisor prepares for you appear here — a dot marks anything new.'},
     {sel:'#card-foryou', h:'For you', p:'Personalized notes on how DSTs address the goals and concerns you shared.'},
     {sel:'#card-security', h:'Login & security', p:'Finally, manage your name, email, password, and connected devices here. Welcome aboard!'}
   ];

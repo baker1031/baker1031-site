@@ -1,23 +1,32 @@
-# Baker 1031 — DST & 1031 Exchange Advisors
+# Baker 1031 Investments — 1031 Exchange, DST & Real Estate Research
+
+Last updated: {{GENERATED}}
 
 > Baker 1031 is a Delaware Statutory Trust (DST) and 1031 exchange brokerage that helps accredited investors defer capital gains and own institutional real estate passively — through DSTs, 1031 and 721 (UPREIT) exchanges, Opportunity Zone funds, mineral & royalty interests, and REITs.
 
-Baker 1031 operates an independent DST offerings marketplace, a directory of 82 tracked sponsors with realized full-cycle track records, a market-data center, and an educational insights library. Securities offered through Aurora Securities, Inc. (member FINRA/SIPC). Content is informational only and is not an offer to sell or a solicitation to buy any security, or tax or legal advice.
+Baker 1031 operates an independent DST offerings marketplace, a tracked sponsor directory with realized full-cycle track records, a market-data center, and an educational insights library. Securities offered through Aurora Securities, Inc. (member FINRA/SIPC). Content is informational only and is not an offer to sell or a solicitation to buy any security, or tax or legal advice.
 
 Full text of all strategies and the complete insights library (concatenated for AI ingestion) is available at {{BASE}}/llms-full.txt
 
 ## Strategies
 - [Delaware Statutory Trusts]({{BASE}}/delaware-statutory-trusts.html): Delaware Statutory Trusts (DSTs) explained: how DST 1031 replacement property works, benefits and risks, minimums, and current sector yields. Baker 1031 places DSTs for accredited investors.
-- [1031 Exchanges]({{BASE}}/1031-exchanges.html): 1031 exchange rules explained: the 45- and 180-day deadlines, like-kind requirement, qualified intermediary, debt replacement, and how DSTs serve as replacement property.
-- [721 Exchanges (UPREIT)]({{BASE}}/721-exchange-upreit.html): 721 exchange (UPREIT) explained: how contributing property or DST interests for REIT operating-partnership units works, the tax deferral, benefits, and trade-offs vs a 1031 exchange.
-- [Opportunity Zone Funds]({{BASE}}/opportunity-zone-funds.html): Opportunity Zone funds explained: how reinvesting capital gains in a Qualified Opportunity Fund defers tax and makes 10-year appreciation tax-free, with timelines, benefits, and risks.
-- [Mineral & Royalty Interests]({{BASE}}/mineral-royalty-interests.html): Mineral and royalty interest DSTs explained: how oil-and-gas mineral rights qualify for 1031 exchanges, income and depletion tax treatment, benefits, and risks for accredited investors.
-- [REITs]({{BASE}}/reits.html): REITs explained: how Real Estate Investment Trusts work, public vs non-traded REITs, the 90% distribution rule, liquidity spectrum, and how REITs connect to DST and 721 UPREIT strategies.
+- [1031 Exchanges]({{BASE}}/1031-exchange-guide.html): 1031 exchange rules explained: the 45- and 180-day deadlines, like-kind requirement, qualified intermediary, debt replacement, and how DSTs serve as replacement property.
+- [721 Exchanges (UPREIT)]({{BASE}}/721-exchange-guide.html): 721 exchange (UPREIT) explained: how contributing property or DST interests for REIT operating-partnership units works, the tax deferral, benefits, and trade-offs vs a 1031 exchange.
+- [Opportunity Zone Funds]({{BASE}}/opportunity-zones-guide.html): Opportunity Zone funds explained: how reinvesting capital gains in a Qualified Opportunity Fund defers tax and makes 10-year appreciation tax-free, with timelines, benefits, and risks.
+- [Mineral & Royalty Interests]({{BASE}}/mineral-rights-1031-guide.html): Mineral and royalty interest DSTs explained: how oil-and-gas mineral rights qualify for 1031 exchanges, income and depletion tax treatment, benefits, and risks for accredited investors.
+- [REITs]({{BASE}}/reits-guide.html): REITs explained: how Real Estate Investment Trusts work, public vs non-traded REITs, the 90% distribution rule, liquidity spectrum, and how REITs connect to DST and 721 UPREIT strategies.
 
 ## Marketplace & Data
 - [DST Offerings Marketplace]({{BASE}}/): Current DST and 1031 replacement-property offerings.
 - [DST Market Data Center]({{BASE}}/data-center.html): Full-cycle DST returns and current sector yield benchmarks.
-- [Sponsor Directory]({{BASE}}/sponsors.html): 82 DST/1031 sponsors with AUM, Preferred status, and realized track records.
+- [Sponsor Directory]({{BASE}}/sponsors.html): tracked DST/1031 sponsors with AUM, Preferred status, current offerings, and realized track records.
+
+## Sources & Methodology
+- [Baker 1031 methodology]({{BASE}}/methodology.html): definitions, aggregation rules, limitations, and the distinction between sponsor-reported and independently verified information.
+- [IRS like-kind exchange guidance](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips)
+- [IRS Form 8824](https://www.irs.gov/forms-pubs/about-form-8824)
+- [Investor.gov](https://www.investor.gov/)
+- [FINRA](https://www.finra.org/)
 
 ## Current Offerings
 - [Blue Door Property III, DST]({{BASE}}/blue-door-property-iii-dst.html)

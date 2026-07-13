@@ -1442,7 +1442,7 @@ function build(s){
   if(s.kind==='done'){
     if(!data.callBooked){
       return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">You’re almost there'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
-        '<p class="q-sub" style="margin:10px auto;">Your registration is saved. To unlock investment opportunities, please schedule your required introductory call — <a href="#" onclick="goto(\'schedule\');return false;" style="color:#0099ff;">pick a time here</a>.</p><div id="submitState"></div></div>';
+        '<p class="q-sub" style="margin:10px auto;">Your registration is saved. To unlock investment opportunities, please schedule your required introductory call — <a href="#" onclick="goto(\'schedule\');return false;" style="color:#0099ff;">pick a time here</a>.</p><div class="submitState"></div></div>';
     }
     var eligible = data.accreditedLikely && nonUSsignals().length===0 && data.state!=='Outside the USA';
     var cl=calLinks();
@@ -1479,7 +1479,7 @@ function build(s){
     var fyBlock = fy.length? '<div class="foryou-wrap"><div class="foryou-h">For you — based on what you told us</div>'+
       fy.map(function(b){return '<div class="foryou"><h4>'+esc(b.h)+'</h4><p>'+esc(b.p)+'</p></div>';}).join('')+'</div>' : '';
     return '<div class="done"><div class="mark">✓</div><h3 class="rf-h1">Your call is scheduled'+(data.pref||data.first?', '+esc(data.pref||data.first):'')+'</h3>'+
-      appt+access+crsLine+fyBlock+'<div id="submitState"></div></div>';
+      appt+access+crsLine+fyBlock+'<div class="submitState"></div></div>';
   }
 
   if(s.kind==='schedule') return '<div class="kick">Final step — required for access</div><h2>Schedule your introductory call</h2>'+
@@ -1493,10 +1493,10 @@ function build(s){
 
   if(s.kind==='single'){
     if(s.select){ let o='<option value="">Select…</option>'+s.opts.map(v=>'<option'+(data[s.key]===v?' selected':'')+'>'+esc(v)+'</option>').join('');
-      return head+'<select id="fld_'+s.key+'">'+o+'</select>'+(s.key==='state'?'<div class="notice" id="usNotice"></div>':'')+navHTML(); }
+      return head+'<select id="'+fieldId(s.key)+'">'+o+'</select>'+(s.key==='state'?'<div class="notice usNotice"></div>':'')+navHTML(); }
     const L='ABCDEFGHIJK';
     let o=s.opts.map((v,i)=>'<div class="opt'+(data[s.key]===v?' sel':'')+'" data-v="'+esc(v)+'"><span class="key">'+L[i]+'</span><span>'+esc(v)+'</span></div>').join('');
-    return head+'<div class="opts" id="opts">'+o+'</div>'+navHTML();
+    return head+'<div class="opts">'+o+'</div>'+navHTML();
   }
   if(s.kind==='multi'||s.kind==='multix'){
     const cls=s.kind==='multix'?'selx':'sel';
@@ -1513,7 +1513,7 @@ function build(s){
     '<label class="q-lab">Email</label><input type="email" id="fld_email" value="'+esc(data.email||'')+'" placeholder="you@example.com">'+
     '<div class="suggest" id="emailSuggest"></div>'+
     '<label class="q-lab">Phone</label><input type="tel" id="fld_phone" value="'+esc(data.phone||'')+'" placeholder="(415) 555-0123">'+
-    '<div class="notice" id="usNotice"></div>'+navHTML();
+    '<div class="notice usNotice"></div>'+navHTML();
   if(s.kind==='dates') return head+
     '<label class="q-lab">Sale closing date of your relinquished property</label><input type="date" id="fld_saleDate" value="'+esc(data.saleDate||'')+'">'+
     '<div class="calc" id="deadlines">Enter your closing date to see your 45-day identification and 180-day closing deadlines.</div>'+navHTML('Continue',true);
@@ -1524,7 +1524,7 @@ function build(s){
   if(s.kind==='accred'){
     const M=['Single','Married'];
     return head+
-    '<label class="q-lab">Marital status</label><div class="opts" id="opts" style="grid-template-columns:1fr 1fr;">'+
+    '<label class="q-lab">Marital status</label><div class="opts" style="grid-template-columns:1fr 1fr;">'+
       M.map((v,i)=>'<div class="opt'+(data.marital===v?' sel':'')+'" data-v="'+v+'"><span class="key">'+'AB'[i]+'</span><span>'+v+'</span></div>').join('')+'</div>'+
     '<label class="q-lab" id="incLab">Annual income ($)</label><input type="number" id="fld_income" value="'+esc(data.income||'')+'" step="10000" placeholder="200,000">'+
     '<label class="q-lab">Net worth, excluding your primary residence</label><select id="fld_netWorth"><option value="">Select…</option>'+
@@ -1583,7 +1583,8 @@ function deadlines(sd){ if(!sd)return null; const d=new Date(sd+'T00:00:00'); if
   const f=x=>x.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
   const a=new Date(d),b=new Date(d); a.setDate(a.getDate()+45); b.setDate(b.getDate()+180); return {d45:f(a),d180:f(b)}; }
 
-function updateUSnotice(){ const el=main().querySelector('#usNotice'); if(!el)return; const sig=nonUSsignals();
+function fieldId(key){ return 'fld_'+key; }
+function updateUSnotice(){ const el=main().querySelector('.usNotice'); if(!el)return; const sig=nonUSsignals();
   if(sig.length){ el.classList.add('on'); el.innerHTML='<b>Please note:</b> '+sig.join(' and ')+' suggest you may be outside the U.S. DST/1031 offerings generally require you to be a U.S. citizen or permanent resident (a U.S. taxpayer). You’re welcome to continue, and an advisor will confirm whether we can proceed.'; }
   else el.classList.remove('on'); }
 
@@ -1593,7 +1594,7 @@ function bind(s){
     main().querySelectorAll('.opt').forEach(o=>o.onclick=()=>{ data[s.key]=o.dataset.v;
       main().querySelectorAll('.opt').forEach(x=>x.classList.remove('sel')); o.classList.add('sel'); setTimeout(()=>next(),170); });
   }
-  if(s.kind==='single'&&s.select&&s.key==='state'){ const sel=main().querySelector('#fld_state'); sel.onchange=()=>{ data.state=sel.value; updateUSnotice(); }; }
+  if(s.kind==='single'&&s.select&&s.key==='state'){ const sel=main().querySelector('#'+fieldId('state')); sel.onchange=()=>{ data.state=sel.value; updateUSnotice(); }; }
   if(s.kind==='multi'||s.kind==='multix'){
     main().querySelectorAll('.chip').forEach(c=>c.onclick=()=>{ const v=c.dataset.v; const arr=data[s.key]||(data[s.key]=[]);
       const i=arr.indexOf(v); if(i>=0)arr.splice(i,1);else arr.push(v); c.classList.toggle(s.kind==='multix'?'selx':'sel'); });
@@ -1835,11 +1836,11 @@ function autoPortfolio(){
   }catch(e){ return null; }
 }
 function submit(){ const p=payload();
-  const done=()=>{ const el=document.getElementById('submitState'); if(el)el.innerHTML='<button class="btn ghost" onclick="downloadJSON()">Download my responses</button>'; };
+  const done=()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<button class="btn ghost" onclick="downloadJSON()">Download my responses</button>'; };
   if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(()=>{}); setTimeout(done,50); }
   else { const body=encodeURIComponent(Object.entries(p).map(([k,v])=>k+': '+(Array.isArray(v)?v.join(', '):v)).join('\n'));
     const link='mailto:'+CONFIG.notifyEmail+'?subject='+encodeURIComponent('Investor Registration — '+(data.first||'')+' '+(data.last||''))+'&body='+body;
-    setTimeout(()=>{ const el=document.getElementById('submitState'); if(el)el.innerHTML='<p class="q-sub" style="margin:0 auto 14px;">To finish, send us your details:</p><a class="btn" href="'+link+'">Email my registration</a> <button class="btn ghost" onclick="downloadJSON()">Download a copy</button>'; },50); } }
+    setTimeout(()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<p class="q-sub" style="margin:0 auto 14px;">To finish, send us your details:</p><a class="btn" href="'+link+'">Email my registration</a> <button class="btn ghost" onclick="downloadJSON()">Download a copy</button>'; },50); } }
 function downloadJSON(){ const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='baker1031-registration.json'; a.click(); }
 function disc(){ return '<p class="disc">This registration is for informational purposes and is not an offer to sell or a solicitation of an offer to buy any security. DST and 1031 offerings are available only to accredited investors and are made solely through a sponsor’s Private Placement Memorandum — the official offering document, which takes precedence over anything described on this website. Nothing here is investment, tax, or legal advice. Securities offered through Aurora Securities, Inc., member FINRA/SIPC; Baker 1031 Investments is independent of Aurora Securities. Consult your own CPA and attorney regarding your exchange.</p>'; }
 

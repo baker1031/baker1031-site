@@ -12,6 +12,8 @@ Pipeline:
 Local test:  python3 ci_build.py          (uses fallback xlsx if no network)
 Netlify:     see netlify.toml
 """
+import datetime
+import html as html_lib
 import io, json, os, re, shutil, sys, unicodedata, urllib.request
 
 import openpyxl
@@ -20,6 +22,56 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
 SHEET_ID = os.environ.get('SHEET_ID', '1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7IlyZg')
 GA4_MEASUREMENT_ID = os.environ.get('GA4_MEASUREMENT_ID', 'G-P29LR49RL8')
+BASE_URL = os.environ.get('BASE_URL', 'https://baker1031-project3-site.netlify.app').rstrip('/')
+BUILD_DATE = os.environ.get('BUILD_DATE', datetime.date.today().isoformat())
+
+# These files remain available as authoring/source material but must never be
+# emitted as public, indexable pages.
+SKIP_SOURCE_PAGES = {'article-template.html', 'insight-1031-exchange-guide.html'}
+NOINDEX_PAGES = {'article-template.html', 'insight-1031-exchange-guide.html',
+                 'employee.html', 'account.html', '404.html', 'baker1031.html'}
+
+APPROVED_DISCLOSURE_LINK = (
+    'For entity and registration details, see the '
+    '<a href="disclosures.html">Baker 1031 disclosures</a> and the applicable '
+    'Private Placement Memorandum.'
+)
+
+PAGE_DESCRIPTIONS = {
+    'index.html': 'Baker 1031 Investments helps accredited investors evaluate 1031 exchanges, DST replacement property, 721 UPREIT strategies, Opportunity Zones, mineral interests, and REITs.',
+    'baker1031.html': 'Baker 1031 Investments provides 1031 exchange education, DST replacement-property research, current offerings, sponsor data, and investor resources.',
+    'about.html': 'Learn how Baker 1031 Investments evaluates 1031 replacement-property strategies, works with accredited investors, and coordinates offerings through Aurora Securities.',
+    'investments.html': 'Browse current Delaware Statutory Trust and 1031 exchange replacement-property offerings, with property details, sponsor information, projected income, and risks.',
+    'sponsors.html': 'Research DST and 1031 exchange sponsors, current offerings, sponsor facts, and realized full-cycle track-record data compiled by Baker 1031 Investments.',
+    'insights.html': 'Explore Baker 1031 Investments research on 1031 exchanges, DSTs, 721 UPREITs, Opportunity Zones, mineral and royalty interests, REITs, and real-estate tax planning.',
+    'delaware-statutory-trusts.html': 'Learn how Delaware Statutory Trusts can serve as 1031 exchange replacement property, including structure, benefits, risks, financing, income, and due diligence.',
+    '1031-exchange-guide.html': 'A practical guide to 1031 exchange rules, like-kind property, the 45-day identification period, the 180-day exchange period, boot, and replacement strategies.',
+    '721-exchange-guide.html': 'Understand 721 UPREIT exchanges, including how DST interests or real property may be contributed for operating-partnership units and the trade-offs involved.',
+    'opportunity-zones-guide.html': 'Understand Qualified Opportunity Zone funds, capital-gain deferral, the ten-year holding period, tax treatment, suitability, and investment risks.',
+    'mineral-rights-1031-guide.html': 'Learn how qualifying mineral and royalty interests may fit into a 1031 exchange, including perpetual-interest rules, income, depletion, and risk.',
+    'reits-guide.html': 'Compare public, non-traded, and private REITs, including liquidity, distributions, valuation, fees, risks, and connections to 721 UPREIT strategies.',
+    'methodology.html': 'Review how Baker 1031 compiles sponsor, offering, benchmark, and full-cycle data, including definitions, limitations, and sponsor-reported figures.',
+    'contact.html': 'Contact the Baker 1031 Investments desk about current offerings, 1031 replacement-property research, sponsor due diligence, or advisor coordination.',
+    'request-access.html': 'Request access to Baker 1031 Investments resources and current offerings for accredited investors, subject to suitability and required disclosures.',
+    'faq.html': 'Answers to common questions about 1031 exchanges, DSTs, 721 UPREITs, Opportunity Zones, REITs, mineral interests, eligibility, fees, and risks.',
+}
+
+HUB_FILES = {
+    '1031-exchange-guide.html', 'delaware-statutory-trusts.html',
+    '721-exchange-guide.html', 'opportunity-zones-guide.html',
+    'mineral-rights-1031-guide.html', 'reits-guide.html', 'strategies.html',
+    'investments.html', 'sponsors.html', 'insights.html', 'faq.html',
+}
+
+AUTHORITY_SOURCES = [
+    'https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips',
+    'https://www.irs.gov/forms-pubs/about-form-8824',
+    'https://www.investor.gov/',
+    'https://www.finra.org/',
+    'https://brokercheck.finra.org/individual/summary/7537416',
+]
+
+SEO_META = {}
 
 # ---------------------------------------------------------------- fetch
 def load_workbook():
@@ -104,6 +156,109 @@ def mult(v):
     if isinstance(v, (int, float)):
         return '{:.2f}x'.format(v)
     return str(v).strip()
+
+def html_json(value):
+    """Make JSON safe inside an HTML script element."""
+    return json.dumps(value, indent=1, ensure_ascii=False).replace('&', '\\u0026').replace('<', '\\u003c').replace('>', '\\u003e')
+
+def text_from_html(raw):
+    raw = re.sub(r'<(style|script|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.S | re.I)
+    raw = re.sub(r'<[^>]+>', ' ', raw)
+    raw = html_lib.unescape(raw)
+    return re.sub(r'\s+', ' ', raw).strip()
+
+def page_title(raw, fallback='Baker 1031 Investments'):
+    m = re.search(r'<title[^>]*>(.*?)</title>', raw, flags=re.S | re.I)
+    return re.sub(r'\s+', ' ', html_lib.unescape(re.sub(r'<[^>]+>', ' ', m.group(1)))).strip() if m else fallback
+
+def trim_description(value, limit=160):
+    value = re.sub(r'\s+', ' ', html_lib.unescape(str(value))).strip()
+    if len(value) <= limit:
+        return value
+    return value[:limit - 1].rsplit(' ', 1)[0].rstrip(' ,;:') + '…'
+
+def page_description(base, raw, meta=None):
+    if meta and meta.get('description'):
+        return trim_description(meta['description'])
+    if base in PAGE_DESCRIPTIONS:
+        return trim_description(PAGE_DESCRIPTIONS[base])
+    title = page_title(raw, base.replace('.html', '').replace('-', ' ').title())
+    paragraphs = re.findall(r'<p(?:\s[^>]*)?>(.*?)</p>', raw, flags=re.S | re.I)
+    body = ''
+    for p in paragraphs:
+        candidate = text_from_html(p)
+        if len(candidate) >= 40:
+            body = candidate
+            break
+    if not body:
+        m = re.search(r'<h1[^>]*>(.*?)</h1>', raw, flags=re.S | re.I)
+        body = text_from_html(m.group(1)) if m else title
+    body = body.rstrip(' .')
+    return trim_description(title + ' — ' + body + '. Baker 1031 Investments provides educational and investment-research resources for accredited investors.')
+
+def extract_citations(raw):
+    urls = re.findall(r"href=[\"'](https?://[^\"']+)", raw, flags=re.I)
+    selected = []
+    for url in urls:
+        if re.search(r'(irs\.gov|investor\.gov|sec\.gov|finra\.org|brokercheck\.finra\.org|ftb\.ca\.gov|tax\.)', url, re.I) and url not in selected:
+            selected.append(url)
+    return selected[:12]
+
+def seo_jsonld(base, title, description, canonical, raw):
+    author = {
+        '@type': 'Person',
+        'name': 'Jerry Baker',
+        'jobTitle': 'Founder & Managing Principal, Baker 1031 Investments',
+        'url': BASE_URL + '/jerry-baker-bio.html',
+        'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416'],
+    }
+    publisher = {
+        '@type': 'Organization',
+        'name': 'Baker 1031 Investments, LLC',
+        'url': BASE_URL + '/',
+        'logo': {'@type': 'ImageObject', 'url': BASE_URL + '/assets/logo.png'},
+    }
+    citations = extract_citations(raw)
+    if (base in HUB_FILES or base not in NOINDEX_PAGES) and not citations:
+        citations = AUTHORITY_SOURCES[:]
+    review_text = text_from_html(raw)
+    review_match = re.search(r'Reviewed by\s+(.+?)\s+—\s+(.+?)\.\s+Last reviewed\s+([A-Za-z]+\s+\d{4})', review_text, flags=re.I)
+    reviewer = None
+    if review_match:
+        reviewer = {
+            '@type': 'Person',
+            'name': review_match.group(1).strip(),
+            'jobTitle': review_match.group(2).strip(),
+        }
+    if base == 'jerry-baker-bio.html':
+        data = {
+            '@context': 'https://schema.org', '@type': ['ProfilePage', 'WebPage'],
+            'url': canonical, 'name': title, 'description': description,
+            'mainEntity': author, 'publisher': publisher,
+        }
+    elif base not in NOINDEX_PAGES and (base.endswith('.html')):
+        data = {
+            '@context': 'https://schema.org',
+            '@type': 'Article' if base not in HUB_FILES and base not in SEO_META and base not in ('contact.html', 'request-access.html') else 'WebPage',
+            'url': canonical, 'headline': title, 'name': title,
+            'description': description, 'publisher': publisher,
+        }
+        if data['@type'] == 'Article':
+            data['author'] = author
+            if reviewer:
+                data['reviewedBy'] = reviewer
+                data['dateModified'] = review_match.group(3)
+        if citations:
+            data['citation'] = citations
+    else:
+        data = {'@context': 'https://schema.org', '@type': 'WebPage', 'url': canonical, 'name': title, 'description': description, 'publisher': publisher}
+    return html_json(data)
+
+def remove_seo_tags(raw):
+    raw = re.sub(r"\s*<meta\b[^>]*(?:name|property)=[\"'](?:description|robots|og:[^\"']+|twitter:[^\"']+)[\"'][^>]*>", '', raw, flags=re.I)
+    raw = re.sub(r"\s*<link\b[^>]*rel=[\"']canonical[\"'][^>]*>", '', raw, flags=re.I)
+    raw = re.sub(r"\s*<script\b[^>]*type=[\"']application/ld\+json[\"'][^>]*>.*?</script>", '', raw, flags=re.S | re.I)
+    return raw
 
 # ---------------------------------------------------------------- maps
 def urlseg(u):
@@ -226,9 +381,14 @@ def build_offering(row):
     page = otpl
     page = re.sub(r'<title>.*?</title>', '<title>' + name.replace('&','&amp;') + ' | Baker 1031 Investments</title>', page, flags=re.S)
     page = re.sub(r'<script type="application/json" id="offering-data">\n.*?\n</script>',
-                  lambda _m: '<script type="application/json" id="offering-data">\n' + json.dumps(d, indent=1, ensure_ascii=False) + '\n</script>',
+                  lambda _m: '<script type="application/json" id="offering-data">\n' + html_json(d) + '\n</script>',
                   page, flags=re.S)
     page = page.replace('>AEI Healthcare Portfolio VII DST<', '>' + name + '<')
+    summary = ' '.join(x for x in [d.get('propertyType'), d.get('locationUse') or d.get('location'), d.get('status')] if x)
+    SEO_META[slug] = {
+        'title': name + ' | Baker 1031 Investments',
+        'description': (name + ' — ' + (summary or '1031 exchange replacement-property offering') + '. Review property details, projected income, financing, sponsor information, and risks from Baker 1031 Investments.')[:300],
+    }
     generated[slug] = page
     return d
 
@@ -276,9 +436,13 @@ for sp in SPON:
     page = stpl
     page = re.sub(r'<title>.*?</title>', '<title>' + nm.replace('&','&amp;') + ' | Baker 1031 Investments</title>', page, flags=re.S)
     page = re.sub(r'<script type="application/json" id="sponsor-data">\n.*?\n</script>',
-                  lambda _m: '<script type="application/json" id="sponsor-data">\n' + json.dumps(d, indent=1, ensure_ascii=False) + '\n</script>',
+                  lambda _m: '<script type="application/json" id="sponsor-data">\n' + html_json(d) + '\n</script>',
                   page, flags=re.S)
     page = page.replace('>AEI Capital Corporation<', '>' + nm + '<')
+    SEO_META[slug] = {
+        'title': nm + ' | Baker 1031 Investments',
+        'description': (nm + ' — DST sponsor profile with current offerings, strategy information, sponsor facts, and full-cycle track-record data from Baker 1031 Investments.')[:300],
+    }
     generated[slug] = page
     sp_dir.append({'name': nm, 'url': slug, 'founded': d.get('founded',''), 'aum': d.get('aum',''),
                    'hq': d.get('hq',''), 'website': d.get('website',''), 'logo': d.get('logo',''),
@@ -302,12 +466,68 @@ GA4_TAG = """<!-- Google tag (gtag.js) -->
   gtag('js', new Date());
   gtag('config', '%s');
 </script>""" % (GA4_MEASUREMENT_ID, GA4_MEASUREMENT_ID)
+ANALYTICS_SCRIPT = '<script src="assets/analytics.js" defer></script>'
 ANALYTICS_EXCLUDE = {'employee.html'}
+RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 1031 topics">
+  <div class="b1031-related-inner">
+    <div class="b1031-related-kicker">Explore the Baker 1031 research library</div>
+    <div class="b1031-related-links">
+      <a href="1031-exchange-guide.html">1031 Exchanges</a>
+      <a href="delaware-statutory-trusts.html">DSTs</a>
+      <a href="721-exchange-guide.html">721 / UPREITs</a>
+      <a href="opportunity-zones-guide.html">Opportunity Zones</a>
+      <a href="mineral-rights-1031-guide.html">Mineral &amp; Royalty Interests</a>
+      <a href="reits-guide.html">REITs</a>
+      <a href="investments.html">Current Offerings</a>
+      <a href="sponsors.html">Sponsor Directory</a>
+    </div>
+  </div>
+</section>"""
+
+def seo_inject(html_text, base):
+    html_text = html_text.replace('[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]', APPROVED_DISCLOSURE_LINK)
+    meta = SEO_META.get(base, {})
+    title = meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
+    description = page_description(base, html_text, meta)
+    canonical = BASE_URL + '/' if base in ('index.html', 'baker1031.html') else BASE_URL + '/' + base
+    robots = 'noindex, nofollow' if base in NOINDEX_PAGES else 'index, follow'
+    title_attr = html_lib.escape(title, quote=False)
+    desc_attr = html_lib.escape(description, quote=True)
+    canonical_attr = html_lib.escape(canonical, quote=True)
+    markup = """<meta name="description" content="%s">
+<meta name="robots" content="%s">
+<link rel="canonical" href="%s">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Baker 1031 Investments">
+<meta property="og:title" content="%s">
+<meta property="og:description" content="%s">
+<meta property="og:url" content="%s">
+<meta property="og:image" content="%s/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="%s">
+<meta name="twitter:description" content="%s">
+<meta name="twitter:image" content="%s/assets/logo.png">
+<link rel="stylesheet" href="assets/site-enhancements.css">""" % (
+        desc_attr, robots, canonical_attr, title_attr, desc_attr, canonical_attr,
+        BASE_URL, title_attr, desc_attr, BASE_URL)
+    html_text = remove_seo_tags(html_text)
+    html_text = re.sub(r'<title[^>]*>.*?</title>', '<title>' + title_attr + '</title>', html_text, count=1, flags=re.S | re.I)
+    jsonld = '<script type="application/ld+json">' + seo_jsonld(base, title, description, canonical, html_text) + '</script>'
+    if '</title>' in html_text.lower():
+        html_text = re.sub(r'(</title>)', lambda _m: _m.group(1) + '\n' + markup + '\n' + jsonld, html_text, count=1, flags=re.I)
+    elif '</head>' in html_text:
+        html_text = html_text.replace('</head>', markup + '\n' + jsonld + '\n</head>', 1)
+    return html_text
 
 def inject(html_text, base=''):
-    html_text = html_text.replace('<!-- @@NAV@@ -->', nav).replace('<!-- @@FOOTER@@ -->', footer)
+    html_text = html_text.replace('<!-- @@NAV@@ -->', nav)
+    if base not in NOINDEX_PAGES and '<!-- @@FOOTER@@ -->' in html_text:
+        html_text = html_text.replace('<!-- @@FOOTER@@ -->', RELATED_HUBS_HTML + '\n<!-- @@FOOTER@@ -->', 1)
+    html_text = html_text.replace('<!-- @@FOOTER@@ -->', footer)
+    html_text = seo_inject(html_text, base)
     if base not in ANALYTICS_EXCLUDE and GA4_TAG not in html_text and '</head>' in html_text:
         html_text = html_text.replace('</head>', GA4_TAG + '\n</head>', 1)
+        html_text = html_text.replace('</head>', ANALYTICS_SCRIPT + '\n</head>', 1)
     return html_text
 
 # Pages that stay OPEN (no soft gate): home, registration, About group, contact,
@@ -340,20 +560,22 @@ count = 0
 import glob as _glob
 for d in ('pages', 'pages-legacy'):
     for f in _glob.glob(os.path.join(ROOT, 'src', d, '*.html')):
-        html_text = open(f).read()
         base = os.path.basename(f)
+        if base in SKIP_SOURCE_PAGES:
+            continue
+        html_text = open(f).read()
         if base == 'investments.html':
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
-                               lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(dir_rows, indent=1, ensure_ascii=False) + '\n</script>',
+                               lambda _m: '<script type="application/json" id="directory-data">\n' + html_json(dir_rows) + '\n</script>',
                                html_text, flags=re.S)
         if base in ('employee.html', 'request-access.html'):
             html_text = html_text.replace('<script type="application/json" id="directory-data">[]</script>',
-                                          '<script type="application/json" id="directory-data">' + json.dumps(dir_rows, ensure_ascii=False) + '</script>')
+                                          '<script type="application/json" id="directory-data">' + html_json(dir_rows) + '</script>')
         if base == 'account.html':
             _bmindex = ([{'slug': r['url'].replace('.html', ''), 'name': r['name'], 'url': r['url']} for r in dir_rows]
                         + [{'slug': r['url'].replace('.html', ''), 'name': r['name'], 'url': r['url']} for r in sp_dir])
             html_text = re.sub(r'<script type="application/json" id="bookmark-index">.*?</script>',
-                               lambda _m: '<script type="application/json" id="bookmark-index">' + json.dumps(_bmindex, ensure_ascii=False) + '</script>',
+                               lambda _m: '<script type="application/json" id="bookmark-index">' + html_json(_bmindex) + '</script>',
                                html_text, flags=re.S)
         if base == 'delaware-statutory-trusts.html':
             bm_map = {s(b['Property Type']): b for b in BM}
@@ -376,7 +598,7 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<g fill="#777" font-size="10" text-anchor="middle">\n.*?</g>', lambda _m: lbl_block, html_text, count=1, flags=re.S)
         if base == 'sponsors.html':
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
-                               lambda _m: '<script type="application/json" id="directory-data">\n' + json.dumps(sp_dir, indent=1, ensure_ascii=False) + '\n</script>',
+                               lambda _m: '<script type="application/json" id="directory-data">\n' + html_json(sp_dir) + '\n</script>',
                                html_text, flags=re.S)
         open(os.path.join(DIST, base), 'w').write(gate(inject(html_text, base), base))
         count += 1
@@ -385,16 +607,16 @@ for base, html_text in generated.items():
     count += 1
 
 shutil.copytree(os.path.join(ROOT, 'src', 'assets'), os.path.join(DIST, 'assets'))
-shutil.copy(os.path.join(DIST, 'baker1031.html'), os.path.join(DIST, 'index.html'))
+home_source = open(os.path.join(ROOT, 'src', 'pages', 'baker1031.html')).read()
+open(os.path.join(DIST, 'index.html'), 'w').write(gate(inject(home_source, 'index.html'), 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
 
 # ---------------------------------------------------------------- sitemap.xml
-BASE_URL = os.environ.get('BASE_URL', 'https://baker1031-project3-site.netlify.app').rstrip('/')
 _pages = sorted(f for f in os.listdir(DIST) if f.endswith('.html'))
-_skip = {'article-template.html', 'baker1031.html', '404.html'}
 _urls = []
 for _p in _pages:
-    if _p in _skip:
+    _raw = open(os.path.join(DIST, _p), encoding='utf-8', errors='replace').read()
+    if re.search(r"<meta[^>]+name=[\"']robots[\"'][^>]+content=[\"'][^\"']*noindex", _raw, flags=re.I):
         continue
     loc = BASE_URL + '/' + ('' if _p == 'index.html' else _p)
     _urls.append('  <url><loc>%s</loc></url>' % loc)
@@ -405,6 +627,101 @@ open(os.path.join(DIST, 'sitemap.xml'), 'w').write(
 open(os.path.join(DIST, 'robots.txt'), 'w').write(
     'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % BASE_URL)
 print('sitemap.xml: %d urls' % len(_urls))
+
+# ---------------------------------------------------------------- generated-site validation
+def validate_dist():
+    html_files = sorted(f for f in os.listdir(DIST) if f.endswith('.html'))
+    failures = []
+    thin_pages = []
+    page_meta = {}
+    quality = {'generated_at': BUILD_DATE, 'html_pages': len(html_files), 'thin_pages': [], 'citation_gaps': []}
+
+    def plain(raw):
+        raw = re.sub(r'<(style|script|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.S | re.I)
+        raw = re.sub(r'<[^>]+>', ' ', raw)
+        return re.sub(r'\s+', ' ', html_lib.unescape(raw)).strip()
+
+    for base in html_files:
+        path = os.path.join(DIST, base)
+        raw = open(path, encoding='utf-8', errors='replace').read()
+        robots = re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\']([^"\']+)', raw, flags=re.I)
+        indexable = not robots or 'noindex' not in robots.group(1).lower()
+        title_m = re.search(r'<title[^>]*>(.*?)</title>', raw, flags=re.S | re.I)
+        desc_m = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']*)', raw, flags=re.I)
+        canonical_m = re.search(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)', raw, flags=re.I)
+        page_meta[base] = {
+            'title': text_from_html(title_m.group(1)) if title_m else '',
+            'description': html_lib.unescape(desc_m.group(1)) if desc_m else '',
+            'canonical': canonical_m.group(1) if canonical_m else '',
+            'indexable': indexable,
+        }
+        if indexable and not title_m:
+            failures.append('%s: missing title' % base)
+        if not desc_m:
+            failures.append('%s: missing meta description' % base)
+        if not canonical_m:
+            failures.append('%s: missing canonical URL' % base)
+        if not re.search(r'<meta[^>]+property=["\']og:title["\']', raw, flags=re.I) or not re.search(r'<meta[^>]+name=["\']twitter:card["\']', raw, flags=re.I):
+            failures.append('%s: missing Open Graph or Twitter metadata' % base)
+        placeholder_hits = re.findall(r'(?i)(?:Placeholder Article Title|Placeholder copy|Placeholder introduction|Placeholder body copy|Placeholder question|Placeholder answer|Placeholder bio|\[Placeholder regulatory disclosure)', raw)
+        if placeholder_hits:
+            failures.append('%s: public placeholder text: %s' % (base, ', '.join(sorted(set(placeholder_hits)))))
+        ids = re.findall(r'\bid=["\']([^"\']+)["\']', raw, flags=re.I)
+        seen = {}
+        duplicates = []
+        for value in ids:
+            seen[value] = seen.get(value, 0) + 1
+        duplicates = sorted(k for k, v in seen.items() if v > 1)
+        if duplicates:
+            failures.append('%s: duplicate HTML IDs: %s' % (base, ', '.join(duplicates)))
+        blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', raw, flags=re.S | re.I)
+        for i, block in enumerate(blocks, 1):
+            try:
+                json.loads(block)
+            except Exception as exc:
+                failures.append('%s: invalid JSON-LD block %d (%s)' % (base, i, exc))
+        word_count = len(re.findall(r"\b[\w’'-]+\b", plain(raw)))
+        if indexable and word_count < 800:
+            thin_pages.append({'page': base, 'words': word_count, 'reason': 'below 800-word review threshold'})
+        if indexable and base not in HUB_FILES and not extract_citations(raw):
+            quality['citation_gaps'].append(base)
+        for href in re.findall(r'href=["\']([^"\']+)["\']', raw, flags=re.I):
+            href = html_lib.unescape(href).split('#', 1)[0].split('?', 1)[0]
+            if not href or href.startswith(('#', 'http://', 'https://', '//', 'mailto:', 'tel:', 'javascript:')):
+                continue
+            target = os.path.normpath(os.path.join(DIST, href.lstrip('/')))
+            if href == '/':
+                target = os.path.join(DIST, 'index.html')
+            if not os.path.isfile(target):
+                failures.append('%s: broken local link %s' % (base, href))
+
+    title_groups = {}
+    desc_groups = {}
+    for base, meta in page_meta.items():
+        if not meta['indexable']:
+            continue
+        title_groups.setdefault(meta['title'], []).append(base)
+        desc_groups.setdefault(meta['description'], []).append(base)
+    for title, pages in title_groups.items():
+        if title and len(pages) > 1:
+            failures.append('duplicate indexable title %r: %s' % (title, ', '.join(pages)))
+    for desc, pages in desc_groups.items():
+        if desc and len(pages) > 1:
+            failures.append('duplicate indexable meta description on: %s' % ', '.join(pages))
+    quality['thin_pages'] = thin_pages
+    quality['duplicate_title_groups'] = {k: v for k, v in title_groups.items() if k and len(v) > 1}
+    quality['duplicate_description_groups'] = {k: v for k, v in desc_groups.items() if k and len(v) > 1}
+    quality['failure_count'] = len(failures)
+    open(os.path.join(DIST, 'content-quality-report.json'), 'w').write(json.dumps(quality, indent=2, ensure_ascii=False))
+    if failures:
+        print('BUILD VALIDATION FAILED:')
+        for failure in failures:
+            print(' - ' + failure)
+        raise SystemExit(1)
+    print('validation: %d HTML pages passed metadata, canonical, structured-data, link, placeholder, and duplicate-ID gates' % len(html_files))
+    print('content review report: %d thin pages and %d citation gaps recorded in dist/content-quality-report.json' % (len(thin_pages), len(quality['citation_gaps'])))
+
+validate_dist()
 
 # ---------------------------------------------------------------- llms.txt / llms-full.txt / favicon / manifest
 # llms.txt: curated index (template), with the Current Offerings section refreshed from the sheet
@@ -417,7 +734,7 @@ for _row in LIST:
     _off_lines.append('- [%s](%s/%s)' % (_nm, '{{BASE}}', off_slug[_nm]))
 _tpl = re.sub(r'## Current Offerings\n(?:- \[[^\n]*\n)*',
               '## Current Offerings\n' + '\n'.join(_off_lines) + '\n', _tpl, count=1)
-open(os.path.join(DIST, 'llms.txt'), 'w').write(_tpl.replace('{{BASE}}', BASE_URL))
+open(os.path.join(DIST, 'llms.txt'), 'w').write(_tpl.replace('{{BASE}}', BASE_URL).replace('{{GENERATED}}', BUILD_DATE))
 
 # llms-full.txt: concatenated plain text of every page for AI ingestion
 def _strip_html(raw):
@@ -432,6 +749,8 @@ with open(os.path.join(DIST, 'llms-full.txt'), 'w') as _fh:
         if not _p.endswith('.html') or _p in ('404.html', 'article-template.html', 'baker1031.html'):
             continue
         _raw = open(os.path.join(DIST, _p), encoding='utf-8', errors='replace').read()
+        if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', _raw, flags=re.I):
+            continue
         _title = re.search(r'<title>(.*?)</title>', _raw, re.S)
         _body = _strip_html(_raw)
         # drop repeated nav/footer noise: cut everything before the breadcrumb "Home ❯" and after "Continue Exploring"

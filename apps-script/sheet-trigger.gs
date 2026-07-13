@@ -10,7 +10,8 @@
  * Result: any edit to the sheet queues a rebuild (debounced ~5 min so a burst of
  * edits causes one build), plus a nightly safety rebuild at ~6am PT.
  */
-var BUILD_HOOK = 'https://api.netlify.com/build_hooks/6a5206c296c48bc50ee82a14';
+// Store the rotated hook in Apps Script project properties under
+// NETLIFY_BUILD_HOOK. Never commit the hook URL to this public repository.
 
 function onSheetEdit(e) {
   // debounce: schedule a single build 5 minutes after the last edit
@@ -30,6 +31,7 @@ function maybeBuild() {
 function nightlyBuild() { fireBuild(); }
 
 function fireBuild() {
+  var BUILD_HOOK = PropertiesService.getScriptProperties().getProperty('NETLIFY_BUILD_HOOK') || '';
   if (BUILD_HOOK.indexOf('http') !== 0) return;
   UrlFetchApp.fetch(BUILD_HOOK, { method: 'post', payload: '{}' });
 }

@@ -3,8 +3,8 @@
 // sends with privileged actions (e.g. granting a client portal access).
 import crypto from 'node:crypto';
 
-const PASSWORD = () => process.env.EMPLOYEE_PASSWORD || 'Benji';
-const KEY = () => process.env.CLERK_SECRET_KEY || process.env.ATTIO_API_TOKEN || 'baker1031-fallback-key';
+const PASSWORD = () => process.env.EMPLOYEE_PASSWORD;
+const KEY = () => process.env.CLERK_SECRET_KEY || process.env.ATTIO_API_TOKEN;
 const TTL = 12 * 3600; // seconds
 
 function b64url(buf){ return Buffer.from(buf).toString('base64').replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
@@ -26,6 +26,7 @@ function json(o, s = 200){ return new Response(JSON.stringify(o), { status: s, h
 export default async (req) => {
   if (req.method !== 'POST') return json({ error: 'method not allowed' }, 405);
   let body; try { body = await req.json(); } catch (e) { return json({ error: 'bad json' }, 400); }
+  if (!PASSWORD() || !KEY()) return json({ ok: false, error: 'employee authentication is not configured' }, 500);
   const supplied = String((body && body.password) || '');
   const expected = PASSWORD();
   const ok = supplied.length === expected.length &&
