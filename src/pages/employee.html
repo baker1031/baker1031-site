@@ -1318,7 +1318,7 @@
         <div class="grid3" style="margin-top:12px;">
           <div><label class="q-lab">Equity to reinvest ($)</label><input type="text" inputmode="numeric" class="num" id="i_equity" placeholder="1,000,000"></div>
           <div><label class="q-lab">Debt to replace ($)</label><input type="text" inputmode="numeric" class="num" id="i_debt" placeholder="0"></div>
-          <div><label class="q-lab">Target LTV (%)</label><input type="text" inputmode="decimal" class="num" id="i_ltv" placeholder="auto from debt"></div>
+          <div><label class="q-lab">Target LTV (%)</label><input type="text" inputmode="decimal" class="num" id="i_ltv" placeholder="auto from debt" aria-describedby="i_ltvHint"><small class="muted" id="i_ltvHint">Enter equity and debt to calculate the implied target.</small></div>
         </div>
         <div class="grid2" style="margin-top:12px;">
           <div><label class="q-lab">LTV threshold (± percentage points)</label><input type="text" inputmode="decimal" class="num" id="i_ltvtol" value="7"></div>
@@ -1436,7 +1436,47 @@
   function selected(id){ return [].slice.call(document.querySelectorAll('#'+id+' .chip.sel')).map(function(c){return c.dataset.v;}); }
 
   // ---------- portfolio construction ----------
-  function blendLtv(hold){ var e=0,d=0; hold.forEach(function(h){ e+=h.alloc; d+=h.alloc*(h.o.ltv/100); }); return e?(d/e*100):0; }
+  function debtRatio(ltv){ var p=Math.max(0,Math.min(99.9,Number(ltv)||0)); return p/(100-p); }
+  function blendLtv(hold){ var e=0,d=0; hold.forEach(function(h){ e+=h.alloc; d+=h.alloc*debtRatio(h.o.ltv); }); return e?(d/(e+d)*100):0; }
+  function chooseAllocation(picked, opts){
+    var hold=picked.map(function(o){ return {o:o, alloc:o.min}; });
+    var used=hold.reduce(function(s,h){return s+h.alloc;},0), remain=Math.max(0,opts.equity-used);
+    if(!opts.enforceLtv){
+      var best=hold.slice().sort(function(a,b){
+        return (Number(b.o._score)||Number(b.o.yield)||0)-(Number(a.o._score)||Number(a.o.yield)||0);
+      })[0];
+      best.alloc+=remain;
+    }
+    else {
+      var baseDebt=hold.reduce(function(s,h){return s+h.alloc*debtRatio(h.o.ltv);},0);
+      var targetQ=debtRatio(opts.targetLtv), requiredDebt=targetQ*opts.equity-baseDebt, plan=null, eps=0.01;
+      // Solve the LTV constraint and theme/yield objective together. With total
+      // allocation and total debt fixed, an optimum uses no more than two
+      // offerings for the unallocated balance, so enumerate those pairs.
+      for(var i=0;i<hold.length;i++){
+        for(var j=i;j<hold.length;j++){
+          var qi=debtRatio(hold[i].o.ltv), qj=debtRatio(hold[j].o.ltv), xi, xj;
+          if(i===j){
+            if(Math.abs(requiredDebt-remain*qi)>eps) continue;
+            xi=remain; xj=0;
+          } else {
+            if(Math.abs(qi-qj)<1e-9) continue;
+            xi=(requiredDebt-remain*qj)/(qi-qj); xj=remain-xi;
+            if(xi<-eps||xj<-eps) continue;
+            xi=Math.max(0,xi); xj=Math.max(0,xj);
+          }
+          var value=xi*(Number(hold[i].o._score)||Number(hold[i].o.yield)||0)+xj*(Number(hold[j].o._score)||Number(hold[j].o.yield)||0);
+          if(!plan||value>plan.value) plan={i:i,j:j,xi:xi,xj:xj,value:value};
+        }
+      }
+      if(plan){
+        hold[plan.i].alloc+=plan.xi;
+        if(plan.j!==plan.i) hold[plan.j].alloc+=plan.xj;
+      }
+    }
+    var total=hold.reduce(function(s,h){return s+h.alloc;},0), bl=blendLtv(hold);
+    return {hold:hold,total:total,blendLtv:bl,withinLtv:!opts.enforceLtv||Math.abs(bl-opts.targetLtv)<=opts.tol};
+  }
   function build(theme, opts){
     var pool=opts.pool.slice();
     var usage=opts.usage||{};
@@ -1449,44 +1489,40 @@
       // portfolio in this run, so the generated portfolios don't duplicate.
       o._score -= (usage[o.url]||0)*1000;
     });
-    // prefer diversification: pick best per property type first
+    pool=pool.filter(function(o){return o.min<=opts.equity;});
     pool.sort(function(a,b){ return b._score-a._score; });
-    var picked=[], typesUsed={};
-    for(var pass=0; pass<2 && picked.length<opts.count; pass++){
-      for(var i=0;i<pool.length && picked.length<opts.count;i++){
-        var o=pool[i]; if(picked.indexOf(o)>-1) continue;
-        if(pass===0 && typesUsed[o.type]) continue;      // pass 0: one per type
-        if(o.min>opts.equity) continue;                   // single min already exceeds budget
-        picked.push(o); typesUsed[o.type]=1;
-      }
+    if(!pool.length) return null;
+    var cap=18, candidates=[];
+    function add(o){ if(o&&candidates.indexOf(o)<0)candidates.push(o); }
+    // Keep the search bounded for live use: top theme matches, LTV anchors,
+    // and a few high-scoring representatives of other property types.
+    pool.slice(0,Math.max(8,cap-10)).forEach(add);
+    var byQ=pool.slice().sort(function(a,b){return debtRatio(a.ltv)-debtRatio(b.ltv);});
+    byQ.slice(0,3).forEach(add); byQ.slice(-3).forEach(add);
+    var byType={}; pool.forEach(function(o){ if(!byType[o.type])byType[o.type]=o; });
+    Object.keys(byType).map(function(k){return byType[k];}).sort(function(a,b){return b._score-a._score;}).forEach(function(o){ if(candidates.length<cap)add(o); });
+    var best=null, fallback=null;
+    function inspect(picked){
+      var minSum=picked.reduce(function(s,o){return s+o.min;},0); if(minSum>opts.equity)return;
+      var a=chooseAllocation(picked,opts), types=Array.from(new Set(picked.map(function(o){return o.type;}))).length;
+      var quality=a.total?picked.reduce(function(s,o){
+        var h=a.hold.find(function(x){return x.o===o;});
+        return s+(h?h.alloc:0)*(o._score-(opts.usage[o.url]||0)*1000);
+      },0)/a.total:0;
+      var score=quality+types*0.8+picked.length*0.15, result={a:a,score:score,types:types};
+      if(!fallback||score>fallback.score)fallback=result;
+      if(a.withinLtv&&(!best||score>best.score))best=result;
     }
-    if(!picked.length) return null;
-    // ensure sum of minimums fits; drop smallest-score until it does
-    picked.sort(function(a,b){ return b._score-a._score; });
-    while(picked.length>1 && picked.reduce(function(s,o){return s+o.min;},0)>opts.equity){ picked.pop(); }
-    // allocate: start at minimum, distribute remainder toward target LTV
-    var hold=picked.map(function(o){ return {o:o, alloc:o.min}; });
-    var used=hold.reduce(function(s,h){return s+h.alloc;},0);
-    var remain=opts.equity-used; if(remain<0) remain=0;
-    // weight extra allocation to steer blended LTV toward target
-    for(var iter=0; iter<40 && remain>1000; iter++){
-      var cur=blendLtv(hold);
-      var wantHigher = cur < opts.targetLtv;   // need more high-LTV weight
-      // choose a holding to add to
-      var cand=hold.slice().sort(function(a,b){
-        return wantHigher ? (b.o.ltv-a.o.ltv) : (a.o.ltv-b.o.ltv);
-      })[0];
-      var step=Math.min(remain, Math.max(5000, opts.equity*0.05));
-      cand.alloc+=step; remain-=step;
+    function visit(start,picked,target){
+      if(picked.length===target){ inspect(picked); return; }
+      for(var i=start;i<candidates.length;i++) visit(i+1,picked.concat(candidates[i]),target);
     }
-    // sweep any small remainder into the top holding
-    if(remain>0){ hold[0].alloc+=remain; remain=0; }
-    var total=hold.reduce(function(s,h){return s+h.alloc;},0);
-    var bl=blendLtv(hold);
-    var withinLtv = Math.abs(bl-opts.targetLtv)<=opts.tol || opts.targetLtv===0;
-    return { theme:theme, hold:hold, total:total, blendLtv:bl, withinLtv:withinLtv,
-             yield: hold.reduce(function(s,h){return s+h.alloc*h.o.yield;},0)/(total||1),
-             types: Array.from(new Set(hold.map(function(h){return h.o.type;}))).length };
+    var mins=pool.map(function(o){return o.min;}).sort(function(a,b){return a-b;}), maxCount=0,minTotal=0;
+    mins.some(function(min){ if(maxCount>=opts.count||minTotal+min>opts.equity)return true; minTotal+=min; maxCount++; return false; });
+    for(var target=maxCount;target>=1&&!best;target--) visit(0,[],target);
+    var chosen=best||(opts.enforceLtv?null:fallback); if(!chosen)return null;
+    return { theme:theme, hold:chosen.a.hold, total:chosen.a.total, blendLtv:chosen.a.blendLtv, withinLtv:chosen.a.withinLtv,
+             yield: chosen.a.hold.reduce(function(s,h){return s+h.alloc*h.o.yield;},0)/(chosen.a.total||1), types:chosen.types };
   }
 
   function renderPorts(ports, into, opts){
@@ -1526,7 +1562,7 @@
       if(excR.indexOf(o.region)>-1) return false;
       return true;
     });
-    return { equity:equity, debt:debt, targetLtv:targetLtv, tol:tol, count:count, pool:pool,
+    return { equity:equity, debt:debt, targetLtv:targetLtv, enforceLtv:(debt>0||targetLtv>0), tol:tol, count:count, pool:pool,
              goals:selected('c_goals'), incT:incT, excT:excT, incR:incR, excR:excR,
              client:document.getElementById('i_client').value.trim(), email:document.getElementById('i_email').value.trim() };
   }
@@ -1555,7 +1591,7 @@
       sigs[s]=1; ports.push(p);
       p.hold.forEach(function(h){ usage[h.o.url]=(usage[h.o.url]||0)+1; });
     });
-    if(!ports.length){ err.textContent='Could not assemble a portfolio within budget — the smallest minimums exceed the equity entered.'; return; }
+    if(!ports.length){ err.textContent=o.enforceLtv?'No portfolio can meet the target blended LTV within the current threshold and filters. Adjust the target, threshold, or property/region filters.':'Could not assemble a portfolio within budget — the smallest minimums exceed the equity entered.'; return; }
     if(collapsed>0){
       err.style.color='#555';
       err.textContent='Showing '+ports.length+' distinct portfolio'+(ports.length>1?'s':'')+'. The available inventory ('+o.pool.length+' matching offering'+(o.pool.length>1?'s':'')+') is too small to build more without repeating the same holdings — widen the type/region filters or lower the offerings-per-portfolio count for more variety.';
@@ -1747,7 +1783,7 @@
 
   // rebuild ports from a decoded state (client side, no gate)
   function portsFromState(s){
-    var o={ equity:s.e||0, debt:s.d||0, targetLtv:s.l||0, tol:(s.t==null?7:s.t), count:s.n||5,
+    var o={ equity:s.e||0, debt:s.d||0, targetLtv:s.l||0, enforceLtv:((s.d||0)>0||(s.l||0)>0), tol:(s.t==null?7:s.t), count:s.n||5,
       pool:POOL.filter(function(x){
         if((s.it||[]).length && s.it.indexOf(x.type)<0) return false;
         if((s.xt||[]).indexOf(x.type)>-1) return false;
@@ -1760,6 +1796,21 @@
     return themes.map(function(t){return build(t,o);}).filter(Boolean);
   }
 
+  var ltvUserEdited=false;
+  function updateLtvPreview(){
+    var equity=parseMoney(document.getElementById('i_equity').value), debt=parseMoney(document.getElementById('i_debt').value);
+    var implied=(debt>0&&equity+debt>0)?(debt/(equity+debt)*100):0;
+    var input=document.getElementById('i_ltv'), hint=document.getElementById('i_ltvHint');
+    if(!ltvUserEdited) input.value=implied>0?implied.toFixed(1):'';
+    hint.textContent=implied>0?'Implied from debt/equity: '+implied.toFixed(1)+'%'+(ltvUserEdited?' · manual target entered':''):'No debt entered — LTV target is optional.';
+  }
+  function wireLtvPreview(){
+    var equity=document.getElementById('i_equity'), debt=document.getElementById('i_debt'), input=document.getElementById('i_ltv');
+    [equity,debt].forEach(function(el){ el.addEventListener('input',updateLtvPreview); });
+    input.addEventListener('input',function(){ ltvUserEdited=!!input.value.trim(); updateLtvPreview(); });
+    updateLtvPreview();
+  }
+
   // ---------- boot ----------
   function showApp(){
     document.getElementById('empGate').style.display='none';
@@ -1767,6 +1818,7 @@
     fillChips('c_goals',GOALS);
     fillChips('c_typeInc',TYPES); fillChips('c_typeExc',TYPES);
     fillChips('c_regInc',REGIONS); fillChips('c_regExc',REGIONS);
+    wireLtvPreview();
     // offering picker for firm-add
     document.getElementById('fa_deal').innerHTML='<option value="">— choose an offering —</option>'+
       POOL.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(o){ return '<option value="'+esc(o.url)+'">'+esc(o.name)+' ('+esc(o.sponsor)+')</option>'; }).join('');
