@@ -8,11 +8,36 @@ const ATTIO = 'https://api.attio.com/v2';
 // #1: funnel status differentiates registered-but-not-scheduled from scheduled.
 const FUNNEL_REGISTERED = 'Registered - No Call';
 const FUNNEL_SCHEDULED = 'Intro Call Scheduled';
+const ALERT_EMAIL = () => process.env.ALERT_EMAIL || 'invest@baker1031.com';
 async function ensureFunnelStatus(token){
   await attio('/objects/people/attributes', 'POST', { data: { title: 'Funnel Status', api_slug: 'funnel_status', type: 'select', description: 'Registration funnel stage (managed by the baker1031 site).', is_multiselect: false, is_required: false, is_unique: false, config: {} } }, token).catch(() => {});
   for (const t of [FUNNEL_REGISTERED, FUNNEL_SCHEDULED]) {
     await attio('/objects/people/attributes/funnel_status/options', 'POST', { data: { title: t } }, token).catch(() => {});
   }
+}
+
+async function ensureEligibilityReviewAttribute(token){
+  await attio('/objects/people/attributes', 'POST', { data: {
+    title: 'Eligibility Review Alert Sent', api_slug: 'eligibility_review_alert_sent', type: 'checkbox',
+    description: 'Internal alert sent when registration details need eligibility review.',
+    is_multiselect: false, is_required: false, is_unique: false, config: {},
+  } }, token).catch(() => {});
+}
+
+function needsEligibilityReview(d){
+  return !d.accreditedLikely || d.state === 'Outside the USA' || (d.outsideUSSignals || []).length > 0;
+}
+
+function attrTrue(values, key){
+  const raw = values && values[key];
+  const item = Array.isArray(raw) ? raw[0] : raw;
+  return item === true || !!(item && item.value === true);
+}
+
+async function sendInternalAlert(subject, summary, details){
+  const mail = await sendMail(ALERT_EMAIL(), 'internalAlert', { subject, heading: 'Action needed', summary, details });
+  if (!mail.ok) console.error('Internal alert email failed', { subject, mail });
+  return mail;
 }
 
 const ROLE_MAP = {
@@ -93,7 +118,10 @@ async function attio(path, method, body, token) {
 export default async (req) => {
   if (req.method !== 'POST') return json({ error: 'method not allowed' }, 405);
   const token = process.env.ATTIO_API_TOKEN;
-  if (!token) return json({ error: 'integration not configured' }, 500);
+  if (!token) {
+    await sendInternalAlert('Registration integration is not configured', 'A registration could not be written to Attio.', 'Missing ATTIO_API_TOKEN');
+    return json({ error: 'integration not configured' }, 500);
+  }
 
   let d; try { d = await req.json(); } catch (e) { return json({ error: 'invalid json' }, 400); }
   if (!d || !d.email) return json({ error: 'email required' }, 400);
@@ -115,7 +143,18 @@ export default async (req) => {
   }, token);
 
   const recordId = assert.json && assert.json.data && assert.json.data.id && assert.json.data.id.record_id;
-  if (!recordId) return json({ error: 'attio person upsert failed', detail: assert.json }, 502);
+  if (!recordId) {
+    await sendInternalAlert('Attio registration upsert failed', 'A new registration could not be saved to Attio.', JSON.stringify({ email: d.email, status: assert.status, response: assert.json }, null, 2));
+    return json({ error: 'attio person upsert failed', detail: assert.json }, 502);
+  }
+
+  const reviewNeeded = needsEligibilityReview(d);
+  let reviewAlertAlreadySent = false;
+  if (reviewNeeded) {
+    await ensureEligibilityReviewAttribute(token);
+    const existing = await attio('/objects/people/records/' + recordId, 'GET', null, token);
+    reviewAlertAlreadySent = attrTrue(existing.json && existing.json.data && existing.json.data.values, 'eligibility_review_alert_sent');
+  }
 
   // 2) Best-effort: map every field to its Attio attribute (never block the lead on this)
   const values = { registration_date: new Date().toISOString().slice(0, 10) };
@@ -148,7 +187,10 @@ export default async (req) => {
   }
 
   await ensureFunnelStatus(token);
-  await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => {});
+  const mapped = await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values } }, token).catch(() => ({ ok: false, status: 0 }));
+  if (!mapped.ok) {
+    await sendInternalAlert('Attio registration details were not fully saved', 'A registration was created, but some follow-up details could not be written to Attio.', JSON.stringify({ email: d.email, recordId, status: mapped.status }, null, 2));
+  }
 
   // #2: when the intro call is booked, create a Deal in Attio.
   // Deal value = equity to reinvest x 0.05 x 0.9.
@@ -242,6 +284,30 @@ export default async (req) => {
     }
   }
 
+  if (reviewNeeded && !reviewAlertAlreadySent) {
+    const reasons = [];
+    if (!d.accreditedLikely) reasons.push('Accreditation was not confirmed by the registration responses.');
+    if (d.state === 'Outside the USA') reasons.push('State/residency was entered as Outside the USA.');
+    if ((d.outsideUSSignals || []).length) reasons.push('Possible non-US residency signals: ' + d.outsideUSSignals.join(', '));
+    const alert = await sendInternalAlert(
+      'Eligibility review needed — ' + (fullName || d.email),
+      'A registration needs advisor review before offerings or portal access are finalized.',
+      [
+        'Name: ' + (fullName || '(not provided)'),
+        'Email: ' + d.email,
+        'Phone: ' + (d.phone || '(not provided)'),
+        'Call booked: ' + (d.callBooked ? 'Yes' : 'No'),
+        'Call time: ' + (d.callTime || '(not scheduled)'),
+        'Reasons:',
+        reasons.map((reason) => '- ' + reason).join('\n'),
+        'Attio record ID: ' + recordId,
+      ].join('\n'),
+    );
+    if (alert.ok) {
+      await attio('/objects/people/records/' + recordId, 'PATCH', { data: { values: { eligibility_review_alert_sent: true } } }, token).catch(() => {});
+    }
+  }
+
   // 4) lifecycle emails (Resend). Portal access is provisioned directly here
   // after a booked call; the Attio webhook remains an idempotent retry path.
   const first = d.firstName || d.preferredName || '';
@@ -249,7 +315,10 @@ export default async (req) => {
   let welcomeEmail = null;
   if (!d.callBooked) {
     welcomeEmail = await sendMail(d.email, 'welcome', { name: first, scheduleUrl: schedUrl });
-    if (!welcomeEmail.ok) console.error('Registration welcome email failed', { email: d.email, welcomeEmail });
+    if (!welcomeEmail.ok) {
+      console.error('Registration welcome email failed', { email: d.email, welcomeEmail });
+      await sendInternalAlert('Registration welcome email failed', 'A registrant was saved, but the welcome email could not be delivered.', JSON.stringify({ email: d.email, recordId, welcomeEmail }, null, 2));
+    }
   }
 
   let provisioning = undefined;
@@ -263,6 +332,9 @@ export default async (req) => {
     } catch (e) {
       provisioning = { ok: false, status: 'pending', error: String(e && e.message || e) };
       console.error('Direct portal provisioning failed', { recordId, error: e });
+    }
+    if (provisioning && !provisioning.ok) {
+      await sendInternalAlert('Portal provisioning failed', 'A scheduled registrant could not be fully provisioned for portal access.', JSON.stringify({ email: d.email, recordId, provisioning }, null, 2));
     }
   }
 

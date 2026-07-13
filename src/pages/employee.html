@@ -1303,7 +1303,7 @@
         <p class="muted">Prepared by Baker 1031 Investments for illustrative purposes. These are sample allocations built from offerings currently tracked on our platform — not a recommendation or an offer. Any investment is made solely through a sponsor's private placement memorandum after a suitability determination.</p>
       </div>
       <div id="cvResults"></div>
-      <div class="card"><a class="btn" href="request-access.html">Request Investment Access</a></div>
+      <div class="card"><p class="muted">This is an illustrative preview link. To view portfolios saved for you, sign in to your secure client account.</p><a class="btn" href="account.html">Open Client Account</a></div>
     </div>
 
     <!-- ============ BUILDER APP ============ -->
@@ -1344,9 +1344,9 @@
 
       <div class="card" id="shareCard" style="display:none;">
         <h2 class="sec">Share, save &amp; grant access</h2>
-        <p class="muted">Create a client-facing link that reproduces the portfolios above (no password needed for the client), save a portfolio into a client's portal, or grant portal access.</p>
+        <p class="muted">Save the selected portfolios to the client&rsquo;s account, then send the secure account link. The client signs in there to see the portfolios prepared for them.</p>
         <div class="toolrow">
-          <button class="btn ghost" id="linkBtn">Generate client link</button>
+          <button class="btn ghost" id="linkBtn">Save &amp; generate account link</button>
           <button class="btn ghost" id="copyLink">Copy link</button>
         </div>
         <div class="linkbox" id="linkOut"></div>
@@ -1438,6 +1438,12 @@
   // ---------- portfolio construction ----------
   function debtRatio(ltv){ var p=Math.max(0,Math.min(99.9,Number(ltv)||0)); return p/(100-p); }
   function blendLtv(hold){ var e=0,d=0; hold.forEach(function(h){ e+=h.alloc; d+=h.alloc*debtRatio(h.o.ltv); }); return e?(d/(e+d)*100):0; }
+  function scoreOffering(theme,o,usage){
+    var score=theme==='Income' ? o.yield
+             : theme==='Growth' ? (o.yield*0.3 + (o.allCash?0:o.ltv)*0.1 + 3)
+             : (o.yield*0.6 + 2);
+    return score-(usage&&usage[o.url]||0)*1000;
+  }
   function chooseAllocation(picked, opts){
     var hold=picked.map(function(o){ return {o:o, alloc:o.min}; });
     var used=hold.reduce(function(s,h){return s+h.alloc;},0), remain=Math.max(0,opts.equity-used);
@@ -1481,14 +1487,7 @@
     var pool=opts.pool.slice();
     var usage=opts.usage||{};
     // theme scoring
-    pool.forEach(function(o){
-      o._score = theme==='Income' ? o.yield
-               : theme==='Growth' ? (o.yield*0.3 + (o.allCash?0:o.ltv)*0.1 + 3)
-               : /* Balanced */ (o.yield*0.6 + 2);
-      // diversity penalty: strongly prefer offerings not already used by another
-      // portfolio in this run, so the generated portfolios don't duplicate.
-      o._score -= (usage[o.url]||0)*1000;
-    });
+    pool.forEach(function(o){ o._score=scoreOffering(theme,o,usage); });
     pool=pool.filter(function(o){return o.min<=opts.equity;});
     pool.sort(function(a,b){ return b._score-a._score; });
     if(!pool.length) return null;
@@ -1507,7 +1506,7 @@
       var a=chooseAllocation(picked,opts), types=Array.from(new Set(picked.map(function(o){return o.type;}))).length;
       var quality=a.total?picked.reduce(function(s,o){
         var h=a.hold.find(function(x){return x.o===o;});
-        return s+(h?h.alloc:0)*(o._score-(opts.usage[o.url]||0)*1000);
+        return s+(h?h.alloc:0)*(o._score-(usage[o.url]||0)*1000);
       },0)/a.total:0;
       // The requested count is a ceiling, not a requirement. Income and
       // Growth can favor a tighter, higher-scoring mix; Balanced pays more for
@@ -1528,6 +1527,18 @@
     var chosen=best||(opts.enforceLtv?null:fallback); if(!chosen)return null;
     return { theme:theme, hold:chosen.a.hold, total:chosen.a.total, blendLtv:chosen.a.blendLtv, withinLtv:chosen.a.withinLtv,
              yield: chosen.a.hold.reduce(function(s,h){return s+h.alloc*h.o.yield;},0)/(chosen.a.total||1), types:chosen.types };
+  }
+
+  function rebalancePortfolio(p){
+    if(!p||!p.hold||!p.hold.length||!lastOpts)return {ok:false,error:'A portfolio needs at least one offering.'};
+    var usage=lastOpts.usage||{};
+    p.hold.forEach(function(h){ h.o._score=scoreOffering(p.theme||'Balanced',h.o,usage); });
+    var minimum=p.hold.reduce(function(s,h){return s+(Number(h.o.min)||0);},0);
+    if(minimum>lastOpts.equity) return {ok:false,error:'The selected minimum investments exceed the equity entered.'};
+    var a=chooseAllocation(p.hold.map(function(h){return h.o;}),lastOpts);
+    if(lastOpts.enforceLtv&&!a.withinLtv) return {ok:false,error:'That change cannot meet the target blended LTV with the selected offerings.'};
+    p.hold=a.hold; p.total=a.total; p.blendLtv=a.blendLtv; p.withinLtv=a.withinLtv; recalc(p);
+    return {ok:true};
   }
 
   function renderPorts(ports, into, opts){
@@ -1620,6 +1631,7 @@
     p.blendLtv=blendLtv(p.hold);
     p.yield=p.total? p.hold.reduce(function(s,h){return s+(Number(h.alloc)||0)*(h.o.yield||0);},0)/p.total : 0;
     p.types=Array.from(new Set(p.hold.map(function(h){return h.o.type;}))).length;
+    p.withinLtv=!lastOpts||!lastOpts.enforceLtv||Math.abs(p.blendLtv-lastOpts.targetLtv)<=lastOpts.tol;
   }
   function altsFor(o,p){
     var used={}; p.hold.forEach(function(h){ used[h.o.url]=1; });
@@ -1654,12 +1666,14 @@
         '<h3><label class="psel"><input type="checkbox" class="pcheck" data-pi="'+pi+'" checked> save</label>'+
           '<span class="pref" title="Reference — share this with the client">'+esc(p.ref)+'</span>'+
           '<input class="pname" data-pi="'+pi+'" value="'+esc(p.name)+'"><span class="hmeta">'+p.hold.length+' holdings</span></h3>'+
+        (p._notice?'<p class="muted" style="margin:6px 0;color:#2e7d32;">'+esc(p._notice)+'</p>':'')+
         '<div class="body">'+
           '<div class="holding" style="border-bottom:1px solid #e3e7ee;color:#8a97a6;font-size:12px;font-weight:700;"><div>Offering</div><div class="h-amt">Allocation</div><div class="h-meta">Y1 yld</div><div class="h-meta">Weight</div></div>'+
           (rows||'<p class="muted" style="padding:8px 0;">No holdings yet — add a deal below.</p>')+
-          '<div class="adddeal"><select data-add="'+pi+'"><option value="">+ Add a deal…</option>'+addOpts+'</select><button class="btn ghost addbtn" data-add="'+pi+'">Add</button></div>'+
+          '<div class="adddeal"><select data-add="'+pi+'"><option value="">+ Add a deal…</option>'+addOpts+'</select><button class="btn ghost addbtn" data-add="'+pi+'">Add</button><button class="btn ghost rebalance" data-pi="'+pi+'">Rebalance</button></div>'+
           '<div class="tot"><span>Total allocated · '+p.types+' sector'+(p.types!==1?'s':'')+'</span><span>'+money(p.total)+'</span></div>'+
           '<div class="tot" style="border-top:0;font-weight:400;color:#555;"><span>Blended LTV '+p.blendLtv.toFixed(1)+'% · blended Y1 yield '+p.yield.toFixed(1)+'%</span><span></span></div>'+
+          (p.withinLtv?'':'<div class="flag">This allocation is outside the target LTV band. Use Rebalance, swap, or remove an offering before saving.</div>')+
         '</div></div>';
     }).join('')+'<div style="margin:8px 0 4px;"><button class="btn ghost" id="newCustom">+ New custom portfolio</button></div>';
   }
@@ -1669,7 +1683,12 @@
       var t=e.target;
       if(t.id==='newCustom'){ lastPorts.push({theme:'Custom',name:'Custom portfolio',hold:[],total:0,blendLtv:0,yield:0,types:0,withinLtv:true}); renderResults(); return; }
       var pi=t.getAttribute('data-pi'), hi=t.getAttribute('data-hi');
-      if(t.classList.contains('rm')){ lastPorts[+pi].hold.splice(+hi,1); renderResults(); return; }
+      if(t.classList.contains('rm')){
+        var removed=lastPorts[+pi].hold.splice(+hi,1)[0], rr=rebalancePortfolio(lastPorts[+pi]);
+        if(!rr.ok){ lastPorts[+pi].hold.splice(+hi,0,removed); lastPorts[+pi]._notice=rr.error; }
+        else lastPorts[+pi]._notice='Portfolio rebalanced to the target LTV.';
+        renderResults(); return;
+      }
       if(t.classList.contains('swap')){
         var box=el.querySelector('.alts[data-altfor="'+pi+'-'+hi+'"]');
         if(box.style.display!=='none'){ box.style.display='none'; box.innerHTML=''; return; }
@@ -1679,12 +1698,25 @@
       }
       if(t.classList.contains('use')){
         var np=POOL.filter(function(x){return x.url===t.getAttribute('data-url');})[0]; if(!np)return;
-        var hold=lastPorts[+pi].hold[+hi]; hold.o=np; if(hold.alloc<np.min)hold.alloc=np.min; renderResults(); return;
+        var hold=lastPorts[+pi].hold[+hi], oldO=hold.o, oldAlloc=hold.alloc; hold.o=np; hold.alloc=Math.max(hold.alloc,np.min);
+        var sr=rebalancePortfolio(lastPorts[+pi]);
+        if(!sr.ok){ hold.o=oldO; hold.alloc=oldAlloc; lastPorts[+pi]._notice=sr.error; }
+        else lastPorts[+pi]._notice='Portfolio rebalanced to the target LTV.';
+        renderResults(); return;
       }
       if(t.classList.contains('addbtn')){
         var ai=t.getAttribute('data-add'); var sel=el.querySelector('select[data-add="'+ai+'"]'); var url=sel.value; if(!url)return;
         var o=POOL.filter(function(x){return x.url===url;})[0]; if(!o)return;
-        lastPorts[+ai].hold.push({o:o,alloc:o.min}); renderResults(); return;
+        if(lastOpts&&lastPorts[+ai].hold.length>=lastOpts.count){ lastPorts[+ai]._notice='This portfolio is already at the maximum number of offerings. Use Swap or Rebalance instead.'; renderResults(); return; }
+        lastPorts[+ai].hold.push({o:o,alloc:o.min});
+        var ar=rebalancePortfolio(lastPorts[+ai]);
+        if(!ar.ok){ lastPorts[+ai].hold.pop(); lastPorts[+ai]._notice=ar.error; }
+        else lastPorts[+ai]._notice='Deal added and portfolio rebalanced to the target LTV.';
+        renderResults(); return;
+      }
+      if(t.classList.contains('rebalance')){
+        var rp=lastPorts[+t.getAttribute('data-pi')], br=rebalancePortfolio(rp);
+        rp._notice=br.ok?'Portfolio rebalanced to the target LTV.':br.error; renderResults(); return;
       }
     });
     el.addEventListener('change',function(e){
@@ -1698,6 +1730,18 @@
       blendLtv:p.blendLtv, yield:p.yield, total:p.total,
       holdings:p.hold.map(function(h){ return { name:h.o.name, url:h.o.url, sponsor:h.o.sponsor, type:h.o.type, alloc:Math.round(h.alloc) }; }) };
   }
+  function selectedPortfolios(){
+    if(!lastPorts)return [];
+    var picks=[].slice.call(document.querySelectorAll('#results .pcheck:checked')).map(function(c){return +c.getAttribute('data-pi');});
+    return picks.map(function(i){return lastPorts[i];}).filter(function(p){return p&&p.hold&&p.hold.length;});
+  }
+  function savePortfolios(email,chosen,also){
+    return Promise.all(chosen.map(function(p){ return empPost('employee-portfolio',{action:'save',email:email,portfolio:portfolioPayload(p),alsoAddDeals:also}); }))
+      .then(function(reslist){
+        var ok=reslist.filter(function(r){return r.s>=200&&r.s<300&&r.j.ok;}).length;
+        return {ok:ok===chosen.length,count:ok,unauthorized:reslist.some(function(r){return r.s===401;})};
+      });
+  }
   function empPost(path, payload){
     return fetch('/.netlify/functions/'+path,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},body:JSON.stringify(payload)})
       .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});});
@@ -1708,20 +1752,16 @@
     if(!email){ msg.textContent='Enter a client email.'; return; }
     if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return; }
     if(!lastPorts){ msg.textContent='Build a portfolio first.'; return; }
-    // #1 multi-select: save every portfolio whose "save" box is ticked
-    var picks=[].slice.call(document.querySelectorAll('#results .pcheck:checked')).map(function(c){return +c.getAttribute('data-pi');});
-    if(!picks.length){ msg.textContent='Tick the "save" box on at least one portfolio above.'; return; }
-    var chosen=picks.map(function(i){return lastPorts[i];}).filter(function(p){return p && p.hold && p.hold.length;});
+    var chosen=selectedPortfolios();
+    if(!chosen.length){ msg.textContent='Tick the "save" box on at least one portfolio above.'; return; }
     if(!chosen.length){ msg.textContent='The selected portfolio has no holdings.'; return; }
     var also=document.getElementById('alsoDeals').checked;
     msg.style.color='#555'; msg.textContent='Saving '+chosen.length+' portfolio'+(chosen.length>1?'s':'')+'…';
-    Promise.all(chosen.map(function(p){ return empPost('employee-portfolio',{action:'save',email:email,portfolio:portfolioPayload(p),alsoAddDeals:also}); }))
-      .then(function(reslist){
-        var ok=reslist.filter(function(r){return r.s>=200&&r.s<300&&r.j.ok;}).length;
-        var un=reslist.some(function(r){return r.s===401;});
-        if(un){ msg.style.color='#c0392b'; msg.textContent='Session expired — re-enter the password.'; }
-        else if(ok===chosen.length){ msg.style.color='#2e7d32'; msg.textContent='Saved '+ok+' portfolio'+(ok>1?'s':'')+' to '+email+"'s portal"+(also?' · holdings firm-added ✓':' ✓'); }
-        else { msg.style.color='#c0392b'; msg.textContent='Saved '+ok+' of '+chosen.length+' — some failed.'; } })
+    savePortfolios(email,chosen,also)
+      .then(function(result){
+        if(result.unauthorized){ msg.style.color='#c0392b'; msg.textContent='Session expired — re-enter the password.'; }
+        else if(result.ok){ msg.style.color='#2e7d32'; msg.textContent='Saved '+result.count+' portfolio'+(result.count>1?'s':'')+' to '+email+"'s portal"+(also?' · holdings firm-added ✓':' ✓'); }
+        else { msg.style.color='#c0392b'; msg.textContent='Saved '+result.count+' of '+chosen.length+' — some failed.'; } })
       .catch(function(){ msg.style.color='#c0392b'; msg.textContent='Network error — try again.'; });
   }
   function firmAddDeal(){
@@ -1780,15 +1820,24 @@
   function decodeState(str){ try{ var b=str.replace(/-/g,'+').replace(/_/g,'/'); while(b.length%4)b+='='; return JSON.parse(decodeURIComponent(escape(atob(b)))); }catch(e){ return null; } }
 
   function genLink(){
-    if(!lastOpts) return;
-    var url=location.origin+location.pathname+'#p='+encodeState();
-    var box=document.getElementById('linkOut'); box.style.display='block'; box.textContent=url;
-    return url;
+    var msg=document.getElementById('grantMsg'), email=document.getElementById('grantEmail').value.trim(), chosen=selectedPortfolios();
+    if(!lastOpts){ msg.textContent='Build a portfolio first.'; return Promise.resolve(null); }
+    if(!email){ msg.textContent='Enter the client email before generating an account link.'; return Promise.resolve(null); }
+    if(!TOKEN){ msg.textContent='Session expired — re-enter the password.'; return Promise.resolve(null); }
+    if(!chosen.length){ msg.textContent='Tick the "save" box on at least one portfolio above.'; return Promise.resolve(null); }
+    msg.style.color='#555'; msg.textContent='Saving portfolios to the client account…';
+    return savePortfolios(email,chosen,document.getElementById('alsoDeals').checked).then(function(result){
+      if(result.unauthorized){ msg.style.color='#c0392b'; msg.textContent='Session expired — re-enter the password.'; return null; }
+      if(!result.ok){ msg.style.color='#c0392b'; msg.textContent='Saved '+result.count+' of '+chosen.length+' portfolios. The account link was not created.'; return null; }
+      var url=location.origin+'/account.html', box=document.getElementById('linkOut');
+      box.style.display='block'; box.textContent=url; msg.style.color='#2e7d32'; msg.textContent='Saved to '+email+"'s account. Send this link so the client can sign in.";
+      return url;
+    }).catch(function(){ msg.style.color='#c0392b'; msg.textContent='Could not save the portfolios or create the account link.'; return null; });
   }
 
   // rebuild ports from a decoded state (client side, no gate)
   function portsFromState(s){
-    var o={ equity:s.e||0, debt:s.d||0, targetLtv:s.l||0, enforceLtv:((s.d||0)>0||(s.l||0)>0), tol:(s.t==null?7:s.t), count:s.n||5,
+    var o={ equity:s.e||0, debt:s.d||0, targetLtv:s.l||0, enforceLtv:((s.d||0)>0||(s.l||0)>0), tol:(s.t==null?7:s.t), count:s.n||5, usage:{},
       pool:POOL.filter(function(x){
         if((s.it||[]).length && s.it.indexOf(x.type)<0) return false;
         if((s.xt||[]).indexOf(x.type)>-1) return false;
@@ -1829,7 +1878,7 @@
       POOL.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(o){ return '<option value="'+esc(o.url)+'">'+esc(o.name)+' ('+esc(o.sponsor)+')</option>'; }).join('');
     document.getElementById('buildBtn').onclick=runBuild;
     document.getElementById('linkBtn').onclick=genLink;
-    document.getElementById('copyLink').onclick=function(){ var u=genLink(); if(u&&navigator.clipboard){ navigator.clipboard.writeText(u).then(function(){ var b=document.getElementById('copyLink'); b.textContent='Copied ✓'; setTimeout(function(){b.textContent='Copy link';},1500); }); } };
+    document.getElementById('copyLink').onclick=function(){ genLink().then(function(u){ if(u&&navigator.clipboard){ navigator.clipboard.writeText(u).then(function(){ var b=document.getElementById('copyLink'); b.textContent='Copied ✓'; setTimeout(function(){b.textContent='Copy link';},1500); }); } }); };
     document.getElementById('grantBtn').onclick=grant;
     document.getElementById('saveBtn').onclick=saveToClient;
     document.getElementById('fa_add').onclick=firmAddDeal;

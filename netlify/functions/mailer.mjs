@@ -66,6 +66,12 @@ export const templates = {
       bodyHtml: p(hi(d.name)) + p('It looks like we weren’t able to connect for your introductory call. No problem — these things happen. Whenever you’re ready, you can grab a new time below.'),
       cta: { label: 'Pick a new time', url: CAL_SCHEDULER } }),
   }),
+  internalAlert: (d) => ({
+    subject: d.subject || 'Baker 1031 alert',
+    html: shell({ heading: d.heading || 'Action needed', preheader: d.preheader || d.summary || 'A Baker 1031 workflow needs attention.',
+      bodyHtml: p(hi('team')) + p(esc(d.summary || 'A Baker 1031 workflow needs attention.')) +
+        (d.details ? '<pre style="white-space:pre-wrap;background:#f5f6f8;border:1px solid #d9dde3;padding:12px;font-family:monospace;font-size:12px;line-height:1.5;">' + esc(d.details) + '</pre>' : '') }),
+  }),
   cancelled: (d) => ({
     subject: 'Your Baker 1031 introductory call was cancelled',
     html: shell({ heading: 'Call cancelled', preheader: 'Book a new time whenever it suits you.',

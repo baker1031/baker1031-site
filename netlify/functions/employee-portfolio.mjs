@@ -65,7 +65,13 @@ export default async (req) => {
     const entry = { id: newId('pf'), ref: pf.ref || '', name: pf.name || 'Example portfolio', theme: pf.theme || '',
       holdings: (pf.holdings || []).slice(0, 40), blendLtv: pf.blendLtv || 0, yield: pf.yield || 0,
       total: pf.total || 0, hidden: false, source: 'firm', createdAt: Date.now() };
-    portal.portfolios.unshift(entry);
+    const existingIndex = entry.ref ? portal.portfolios.findIndex(x => x.ref === entry.ref) : -1;
+    if (existingIndex >= 0) {
+      entry.id = portal.portfolios[existingIndex].id || entry.id;
+      portal.portfolios[existingIndex] = entry;
+    } else {
+      portal.portfolios.unshift(entry);
+    }
     // optionally firm-add the holdings as deals too
     if (body.alsoAddDeals) {
       for (const h of (entry.holdings || [])) {

@@ -66,6 +66,7 @@ Required Netlify environment variables:
 - ATTIO_API_TOKEN
 - CLERK_SECRET_KEY
 - RESEND_API_KEY (required for portal invitation email delivery)
+- ALERT_EMAIL (optional; internal workflow alerts default to invest@baker1031.com)
 - CAL_WEBHOOK_SECRET
 
 Optional contact-sync variables, used by `attio-google-contact-sync.mjs`:
