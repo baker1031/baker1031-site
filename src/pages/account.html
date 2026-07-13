@@ -1388,7 +1388,7 @@
       h+=ports.map(function(p){
         var rows=(p.holdings||[]).map(function(x){ return '<div class="holding"><a href="'+esc(x.url)+'">'+esc(x.name)+'</a><span class="hmeta">'+esc(x.type||'')+(x.alloc?(' · $'+Number(x.alloc).toLocaleString()):'')+'</span></div>'; }).join('');
         return '<div class="advport">'+
-          '<div class="advport-h">'+dot(p.isNew)+(p.ref?'<span class="pref">'+esc(p.ref)+'</span> ':'')+esc(p.name||p.theme||'Example portfolio')+'<span class="hmeta"> · '+((p.holdings||[]).length)+' holdings'+(p.total?(' · $'+Number(p.total).toLocaleString()):'')+'</span></div>'+
+          '<div class="advport-h">'+dot(p.isNew)+(p.ref?'<span class="pref">'+esc(p.ref)+'</span> ':'')+esc(p.name||p.theme||'Example portfolio')+'<span class="hmeta"> · '+((p.holdings||[]).length)+' holdings'+(p.total?(' · $'+Number(p.total).toLocaleString()):'')+(p.blendLtv!=null?(' · blended LTV '+Number(p.blendLtv).toFixed(1)+'%'):'')+(p.yield!=null?(' · Y1 yield '+Number(p.yield).toFixed(1)+'%'):'')+'</span></div>'+
           rows+'</div>';
       }).join('');
     }
