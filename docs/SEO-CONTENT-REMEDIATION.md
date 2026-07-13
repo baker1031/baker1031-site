@@ -7,6 +7,8 @@
 - Open Graph and Twitter metadata generation
 - Robots directives, including noindex for private/template routes
 - JSON-LD generation with Baker 1031 publisher, named author, citations, and page URLs
+- Named author identity: Gerald F. "Jerry" Baker, III; reviewer identity: Lori Kamen, Chief Compliance Officer, FINRA CRD #2805591
+- Official state tax-authority citations for state and state-metro pages, maintained in `data/state-tax-authorities.json`
 - Internal links from every public page to the six core strategy hubs, offerings, sponsors, and insights
 - LLM discovery files generated from current offerings and indexable pages
 - Validation gates for placeholders, metadata, canonical URLs, JSON-LD, duplicate IDs, duplicate metadata, and broken local links
@@ -41,7 +43,7 @@ The build reports thin pages so editorial changes can be prioritized without mas
 
 ## Authority, authorship, and citations
 
-Use primary sources wherever possible: IRS guidance and forms for 1031/OZ claims, SEC and Investor.gov material for securities/accreditation/REIT claims, FINRA and BrokerCheck for registration claims, and the relevant state authority for state-tax pages. Each article should have a named author, a named reviewer, credentials, a last-reviewed date, and a source list.
+Use primary sources wherever possible: IRS guidance and forms for 1031/OZ claims, SEC and Investor.gov material for securities/accreditation/REIT claims, FINRA and BrokerCheck for registration claims, and the relevant state authority for state-tax pages. Each article should have a named author, a named reviewer, credentials, a last-reviewed date, and a source list. State pages must retain their mapped state authority citation; a generic federal link cannot substitute for it.
 
 ## Maintainability and page weight
 

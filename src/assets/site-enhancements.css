@@ -39,6 +39,22 @@
   text-decoration: underline;
 }
 
+.b1031-state-source {
+  max-width: 960px;
+  margin: 18px auto 0;
+  padding: 12px 16px;
+  border-left: 3px solid #35647e;
+  background: #f6f8fb;
+  color: #53657b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.b1031-state-source a {
+  color: #243856;
+  font-weight: 700;
+}
+
 @media (max-width: 640px) {
   .b1031-related { padding: 16px; }
   .b1031-related-links { display: grid; gap: 8px; }

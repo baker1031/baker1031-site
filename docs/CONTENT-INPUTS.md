@@ -56,13 +56,10 @@ The visible placeholder was replaced with a neutral desk-contact paragraph. If y
 
 ## Article author and reviewer records
 
-The build now emits Jerry Baker as the named author entity where it generates Article structured data, using the existing bio and BrokerCheck references. To complete editorial provenance, provide:
+The build now uses Gerald F. "Jerry" Baker, III as the named author and Lori Kamen as the named reviewer where it generates Article structured data. Reviewer metadata identifies Lori Kamen as Chief Compliance Officer, Aurora Securities, Inc., FINRA CRD #2805591, with a BrokerCheck link. The visible bylines and review notes are normalized to the same identities.
 
-- Named reviewer
-- Reviewer title, licenses, and credentials
 - Which pages the reviewer may approve
-- Last-reviewed date for existing articles, or the review-date policy
-- Whether “Baker 1031 Research” should remain the visible byline for long-form guides
+- Last-reviewed date for existing articles, or the review-date policy. Existing June 2026 dates remain only where the source page already contained that date; no new review date is invented.
 
 ## Article template
 
@@ -70,4 +67,4 @@ article-template.html is now source-only and is not emitted. To publish a new ar
 
 ## State and local citations
 
-State pages should cite the applicable state tax authority. Provide the preferred source list or approval for the build to use each state’s Department of Revenue/Taxation/Revenue website. Do not rely on a generic federal citation for state-specific tax claims.
+State pages now use `data/state-tax-authorities.json` to cite the applicable official Department of Revenue, Department of Taxation, Comptroller, or equivalent authority. Each state page and state metro page receives a visible source note and a matching JSON-LD citation; the validator fails if the mapped authority is missing. Federal sources may remain supplemental, but they are not used as the sole citation for a state-specific page.

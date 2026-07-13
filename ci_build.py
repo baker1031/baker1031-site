@@ -71,6 +71,17 @@ AUTHORITY_SOURCES = [
     'https://brokercheck.finra.org/individual/summary/7537416',
 ]
 
+STATE_TAX_AUTHORITIES = json.load(open(os.path.join(ROOT, 'data', 'state-tax-authorities.json')))
+STATE_AUTHORITY_URLS = {item['url'] for item in STATE_TAX_AUTHORITIES.values()}
+AUTHOR_NAME = 'Gerald F. "Jerry" Baker, III'
+REVIEWER = {
+    '@type': 'Person',
+    'name': 'Lori Kamen',
+    'jobTitle': 'Chief Compliance Officer, Aurora Securities, Inc.',
+    'identifier': {'@type': 'PropertyValue', 'propertyID': 'FINRA CRD', 'value': '2805591'},
+    'sameAs': ['https://brokercheck.finra.org/individual/summary/2805591'],
+}
+
 SEO_META = {}
 
 # ---------------------------------------------------------------- fetch
@@ -200,14 +211,59 @@ def extract_citations(raw):
     urls = re.findall(r"href=[\"'](https?://[^\"']+)", raw, flags=re.I)
     selected = []
     for url in urls:
-        if re.search(r'(irs\.gov|investor\.gov|sec\.gov|finra\.org|brokercheck\.finra\.org|ftb\.ca\.gov|tax\.)', url, re.I) and url not in selected:
+        if (url in STATE_AUTHORITY_URLS or re.search(r'(irs\.gov|investor\.gov|sec\.gov|finra\.org|brokercheck\.finra\.org|ftb\.ca\.gov|tax\.)', url, re.I)) and url not in selected:
             selected.append(url)
     return selected[:12]
+
+def state_slug_for_page(base):
+    stem = base[:-5] if base.endswith('.html') else base
+    prefix = '1031-exchange-'
+    if not stem.startswith(prefix):
+        return None
+    suffix = stem[len(prefix):]
+    for slug in sorted(STATE_TAX_AUTHORITIES, key=len, reverse=True):
+        if suffix == slug or suffix.startswith(slug + '-'):
+            return slug
+    return None
+
+def page_citations(base, raw):
+    citations = extract_citations(raw)
+    state_slug = state_slug_for_page(base)
+    if state_slug:
+        authority_url = STATE_TAX_AUTHORITIES[state_slug]['url']
+        citations = [authority_url] + [url for url in citations if url != authority_url]
+    elif (base in HUB_FILES or base not in NOINDEX_PAGES) and not citations:
+        citations = AUTHORITY_SOURCES[:]
+    return citations[:12]
+
+def state_authority_note(base):
+    state_slug = state_slug_for_page(base)
+    if not state_slug:
+        return ''
+    authority = STATE_TAX_AUTHORITIES[state_slug]
+    name = html_lib.escape(authority['name'])
+    url = html_lib.escape(authority['url'], quote=True)
+    return ('<p class="b1031-state-source">State tax source: '
+            '<a href="%s" target="_blank" rel="noopener noreferrer">Official %s</a>. '
+            'State rules can change; confirm current treatment with the agency and your tax adviser.</p>' % (url, name))
+
+def normalize_editorial_identity(raw):
+    raw = raw.replace('Baker 1031 Research is the editorial desk at Baker 1031 Investments',
+                      'Gerald F. &quot;Jerry&quot; Baker, III leads the editorial work at Baker 1031 Investments')
+    raw = raw.replace('Source: Baker 1031 Research.', 'Source: Gerald F. &quot;Jerry&quot; Baker, III.')
+    raw = raw.replace('Baker 1031 Research', AUTHOR_NAME)
+    raw = raw.replace(
+        'President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal.',
+        'Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591).')
+    return raw.replace(
+        'President &amp; CCO, Aurora Securities',
+        'Chief Compliance Officer, Aurora Securities (FINRA CRD #2805591)')
 
 def seo_jsonld(base, title, description, canonical, raw):
     author = {
         '@type': 'Person',
-        'name': 'Jerry Baker',
+        'name': AUTHOR_NAME,
+        'alternateName': 'Jerry Baker',
         'jobTitle': 'Founder & Managing Principal, Baker 1031 Investments',
         'url': BASE_URL + '/jerry-baker-bio.html',
         'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416'],
@@ -218,18 +274,10 @@ def seo_jsonld(base, title, description, canonical, raw):
         'url': BASE_URL + '/',
         'logo': {'@type': 'ImageObject', 'url': BASE_URL + '/assets/logo.png'},
     }
-    citations = extract_citations(raw)
-    if (base in HUB_FILES or base not in NOINDEX_PAGES) and not citations:
-        citations = AUTHORITY_SOURCES[:]
+    citations = page_citations(base, raw)
     review_text = text_from_html(raw)
     review_match = re.search(r'Reviewed by\s+(.+?)\s+—\s+(.+?)\.\s+Last reviewed\s+([A-Za-z]+\s+\d{4})', review_text, flags=re.I)
-    reviewer = None
-    if review_match:
-        reviewer = {
-            '@type': 'Person',
-            'name': review_match.group(1).strip(),
-            'jobTitle': review_match.group(2).strip(),
-        }
+    reviewer = REVIEWER if review_match or base not in NOINDEX_PAGES else None
     if base == 'jerry-baker-bio.html':
         data = {
             '@context': 'https://schema.org', '@type': ['ProfilePage', 'WebPage'],
@@ -247,7 +295,8 @@ def seo_jsonld(base, title, description, canonical, raw):
             data['author'] = author
             if reviewer:
                 data['reviewedBy'] = reviewer
-                data['dateModified'] = review_match.group(3)
+                if review_match:
+                    data['dateModified'] = review_match.group(3)
         if citations:
             data['citation'] = citations
     else:
@@ -485,6 +534,7 @@ RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 
 </section>"""
 
 def seo_inject(html_text, base):
+    html_text = normalize_editorial_identity(html_text)
     html_text = html_text.replace('[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]', APPROVED_DISCLOSURE_LINK)
     meta = SEO_META.get(base, {})
     title = meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
@@ -521,6 +571,12 @@ def seo_inject(html_text, base):
 
 def inject(html_text, base=''):
     html_text = html_text.replace('<!-- @@NAV@@ -->', nav)
+    state_note = state_authority_note(base)
+    if state_note and 'class="b1031-state-source"' not in html_text:
+        if '<!-- @@FOOTER@@ -->' in html_text:
+            html_text = html_text.replace('<!-- @@FOOTER@@ -->', state_note + '\n<!-- @@FOOTER@@ -->', 1)
+        elif '</main>' in html_text.lower():
+            html_text = re.sub(r'(</main>)', state_note + '\n\\1', html_text, count=1, flags=re.I)
     if base not in NOINDEX_PAGES and '<!-- @@FOOTER@@ -->' in html_text:
         html_text = html_text.replace('<!-- @@FOOTER@@ -->', RELATED_HUBS_HTML + '\n<!-- @@FOOTER@@ -->', 1)
     html_text = html_text.replace('<!-- @@FOOTER@@ -->', footer)
@@ -683,7 +739,10 @@ def validate_dist():
         word_count = len(re.findall(r"\b[\w’'-]+\b", plain(raw)))
         if indexable and word_count < 800:
             thin_pages.append({'page': base, 'words': word_count, 'reason': 'below 800-word review threshold'})
-        if indexable and base not in HUB_FILES and not extract_citations(raw):
+        state_slug = state_slug_for_page(base)
+        if state_slug and STATE_TAX_AUTHORITIES[state_slug]['url'] not in raw:
+            failures.append('%s: missing official state tax authority citation' % base)
+        if indexable and base not in HUB_FILES and not page_citations(base, raw):
             quality['citation_gaps'].append(base)
         for href in re.findall(r'href=["\']([^"\']+)["\']', raw, flags=re.I):
             href = html_lib.unescape(href).split('#', 1)[0].split('?', 1)[0]
