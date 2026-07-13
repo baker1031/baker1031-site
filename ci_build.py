@@ -34,6 +34,7 @@ REVIEW_DATE_ISO = '2026-07-12'
 SKIP_SOURCE_PAGES = {'article-template.html', 'insight-1031-exchange-guide.html'}
 NOINDEX_PAGES = {'article-template.html', 'insight-1031-exchange-guide.html',
                  'employee.html', 'account.html', '404.html', 'baker1031.html'}
+NOINDEX_PAGES.add('site-search.html')
 
 APPROVED_DISCLOSURE_LINK = (
     'For entity and registration details, see the '
@@ -58,6 +59,8 @@ PAGE_DESCRIPTIONS = {
     'contact.html': 'Contact the Baker 1031 Investments desk about current offerings, 1031 replacement-property research, sponsor due diligence, or advisor coordination.',
     'request-access.html': 'Request access to Baker 1031 Investments resources and current offerings for accredited investors, subject to suitability and required disclosures.',
     'faq.html': 'Answers to common questions about 1031 exchanges, DSTs, 721 UPREITs, Opportunity Zones, REITs, mineral interests, eligibility, fees, and risks.',
+    'site-search.html': 'Search Baker 1031 Investments research, 1031 exchange guides, DST resources, calculators, offerings, sponsors, and investor education.',
+    'ask-llm.html': 'Use carefully designed prompts to ask ChatGPT, Claude, Gemini, Perplexity, or Copilot about Baker 1031 Investments and its published research.',
 }
 
 HUB_FILES = {
@@ -980,6 +983,7 @@ GATE_OPEN = set([
     'account.html', 'employee.html', '404.html',
     'privacy-policy.html', 'terms.html', 'ccpa.html', 'commitment-to-privacy.html',
     'reg-bi.html', 'accessibility.html', 'disclosures.html', 'sitemap.html', 'request-access.html',
+    'site-search.html', 'ask-llm.html',
 ])
 GATE_TAG = '<script src="assets/softgate.js" defer></script>'
 
@@ -1056,6 +1060,31 @@ open(os.path.join(DIST, 'site.webmanifest'), 'w').write(json.dumps({
 home_source = open(os.path.join(ROOT, 'src', 'pages', 'baker1031.html')).read()
 open(os.path.join(DIST, 'index.html'), 'w').write(gate(inject(home_source, 'index.html'), 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
+
+# Build a compact, public search index from indexable page titles, descriptions,
+# headings, and introductory copy. It keeps search entirely client-side: no
+# visitor data or third-party search account is required.
+search_rows = []
+for search_base in sorted(f for f in os.listdir(DIST) if f.endswith('.html')):
+    search_path = os.path.join(DIST, search_base)
+    search_raw = open(search_path, encoding='utf-8', errors='replace').read()
+    if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', search_raw, flags=re.I):
+        continue
+    if search_base in ('site-search.html', '404.html'):
+        continue
+    search_title = page_title(search_raw, search_base.replace('.html', '').replace('-', ' ').title())
+    search_description = page_description(search_base, search_raw, SEO_META.get(search_base, {}))
+    search_text = text_from_html(search_raw)
+    search_text = re.sub(r'\s+', ' ', search_text).strip()
+    search_rows.append({
+        'url': '/' + search_base,
+        'title': search_title,
+        'description': search_description,
+        'text': search_text[:900],
+    })
+open(os.path.join(DIST, 'search-index.json'), 'w', encoding='utf-8').write(
+    json.dumps(search_rows, ensure_ascii=False, separators=(',', ':'))
+)
 
 # Externalize exact repeated inline style blocks into shared assets. This keeps
 # page-specific CSS intact while removing the same large nav/footer/font rules

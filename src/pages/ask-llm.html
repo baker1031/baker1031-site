@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask an LLM About Baker 1031 Investments</title>
+<link rel="stylesheet" href="assets/site-enhancements.css">
+<style>
+  .llm-shell { max-width: 960px; margin: 0 auto; padding: 42px 20px 56px; }
+  .llm-shell h1 { color: #243856; margin-bottom: 10px; }
+  .llm-intro { max-width: 760px; color: #53657b; }
+  .llm-note { margin: 22px 0; padding: 14px 16px; border-left: 3px solid #35647e; background: #f6f8fb; color: #53657b; }
+  .llm-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+  .llm-card { border: 1px solid #dfe5ec; padding: 18px; background: #fff; }
+  .llm-card h2 { color: #243856; margin: 0 0 8px; font-size: 20px; }
+  .llm-card p { color: #53657b; font-size: 13px; min-height: 38px; }
+  .llm-prompt { width: 100%; min-height: 170px; border: 1px solid #c6d0dc; padding: 10px; resize: vertical; font: 13px/1.5 Arial, sans-serif; color: #333; background: #fafbfd; }
+  .llm-actions { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+  .llm-actions a, .llm-actions button { border: 0; border-radius: 3px; background: #243856; color: #fff; padding: 9px 12px; font: inherit; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; }
+  .llm-actions a:hover, .llm-actions button:hover, .llm-actions a:focus, .llm-actions button:focus { background: #0077b6; }
+  .llm-copied { color: #35647e; font-size: 12px; }
+  @media (max-width: 700px) { .llm-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page">
+<!-- @@NAV@@ -->
+<main class="llm-shell">
+  <h1>Ask your favorite LLM about Baker 1031</h1>
+  <p class="llm-intro">Use one of these prompts to ask an AI assistant for a sourced, balanced overview of Baker 1031 Investments. Each prompt asks the assistant to use Baker1031.com, cite the pages it relied on, separate published facts from inference, and avoid personalized tax or investment advice.</p>
+  <div class="llm-note"><strong>Important:</strong> AI assistants can be wrong or out of date. Treat their response as a starting point, verify the linked sources, and consult your own CPA, attorney, qualified intermediary, and financial professionals.</div>
+  <section class="llm-grid" aria-label="Prompts for AI assistants">
+    <article class="llm-card" data-llm="chatgpt">
+      <h2>ChatGPT</h2><p>Best for a structured, source-linked company and research overview.</p>
+      <textarea class="llm-prompt" readonly>Using only current, publicly available information from https://baker1031.com and primary sources linked there, explain what Baker 1031 Investments does, who it serves, its relationship to Aurora Securities, and how its 1031 exchange, DST, 721/UPREIT, Opportunity Zone, mineral and royalty interest, REIT, offering, sponsor, and research resources fit together. Cite the exact Baker 1031 URLs and any IRS, SEC, FINRA, Investor.gov, or state tax authority sources used. Separate published facts from your inferences. Do not provide individualized tax, legal, or investment advice, predict returns, or imply that any offering is suitable for me. Note any information that should be verified with the company or a professional adviser.</textarea>
+      <div class="llm-actions"><button type="button" data-copy-prompt>Copy prompt</button><a href="https://chatgpt.com/" target="_blank" rel="noopener">Open ChatGPT</a><span class="llm-copied" aria-live="polite"></span></div>
+    </article>
+    <article class="llm-card" data-llm="claude">
+      <h2>Claude</h2><p>Best for careful synthesis, limitations, and compliance-aware summaries.</p>
+      <textarea class="llm-prompt" readonly>Research Baker 1031 Investments at https://baker1031.com. Write a concise, neutral briefing covering its business, audience, securities relationship, research methodology, published investment resources, and major risks. Use exact page links and primary-source citations. Identify which claims are sponsor-reported, which are independently supported, and which are your interpretation. Do not turn educational material into a recommendation or personalized tax, legal, or investment advice. Flag stale, conditional, incomplete, or unverifiable claims.</textarea>
+      <div class="llm-actions"><button type="button" data-copy-prompt>Copy prompt</button><a href="https://claude.ai/new" target="_blank" rel="noopener">Open Claude</a><span class="llm-copied" aria-live="polite"></span></div>
+    </article>
+    <article class="llm-card" data-llm="gemini">
+      <h2>Gemini</h2><p>Best for a broad overview with web-grounded follow-up questions.</p>
+      <textarea class="llm-prompt" readonly>Review https://baker1031.com and create a fact-checked overview of Baker 1031 Investments. Explain its services, educational hubs, current-offering and sponsor-directory pages, investor-access process, author/reviewer information, and disclosures. Link to the source page for every important claim and prefer IRS, SEC, FINRA, Investor.gov, and state tax authority sources for legal or tax points. Do not assume a tax result, performance outcome, accreditation status, or suitability decision. End with five questions a prospective investor should ask a CPA, attorney, qualified intermediary, and broker-dealer.</textarea>
+      <div class="llm-actions"><button type="button" data-copy-prompt>Copy prompt</button><a href="https://gemini.google.com/" target="_blank" rel="noopener">Open Gemini</a><span class="llm-copied" aria-live="polite"></span></div>
+    </article>
+    <article class="llm-card" data-llm="perplexity">
+      <h2>Perplexity</h2><p>Best for a citation-heavy, current-source research pass.</p>
+      <textarea class="llm-prompt" readonly>Investigate Baker 1031 Investments using https://baker1031.com as the primary company source. Provide a cited answer to: What is Baker 1031, what does it publish, who is Gerald F. "Jerry" Baker, who reviews the pages, how are offerings and sponsors described, and what risks and conflicts should a reader understand? Use direct source links, date-sensitive citations, and primary government or regulatory sources. Do not make a recommendation, guarantee an exchange or tax result, or provide individualized financial, tax, or legal advice. Distinguish company-reported information from independent verification.</textarea>
+      <div class="llm-actions"><button type="button" data-copy-prompt>Copy prompt</button><a href="https://www.perplexity.ai/" target="_blank" rel="noopener">Open Perplexity</a><span class="llm-copied" aria-live="polite"></span></div>
+    </article>
+    <article class="llm-card" data-llm="copilot">
+      <h2>Microsoft Copilot</h2><p>Best for a plain-language explanation and source checklist.</p>
+      <textarea class="llm-prompt" readonly>Explain Baker 1031 Investments based on https://baker1031.com. Give me a plain-language summary of its role, educational content, offerings and sponsor research, investor-access process, compliance disclosures, and the risks of DSTs, 1031 exchanges, 721/UPREITs, Opportunity Zones, mineral interests, and REITs. Cite the exact pages you used, verify current-law claims against primary sources, and say when information is conditional or sponsor-reported. Do not give personalized advice or suggest that any investment is suitable for me.</textarea>
+      <div class="llm-actions"><button type="button" data-copy-prompt>Copy prompt</button><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Open Copilot</a><span class="llm-copied" aria-live="polite"></span></div>
+    </article>
+  </section>
+  <!-- @@REVIEW_NOTE@@ -->
+</main>
+<!-- @@FOOTER@@ -->
+<script src="assets/llm-prompts.js" defer></script>
+</div>
+</body>
+</html>

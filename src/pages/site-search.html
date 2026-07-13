@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Baker 1031 Investments</title>
+<link rel="stylesheet" href="assets/site-enhancements.css">
+<style>
+  .search-shell { max-width: 960px; margin: 0 auto; padding: 42px 20px 56px; }
+  .search-shell h1 { color: #243856; margin-bottom: 10px; }
+  .search-intro { max-width: 740px; color: #53657b; margin-bottom: 22px; }
+  .search-form { display: flex; gap: 10px; margin: 20px 0 12px; }
+  .search-form input { flex: 1; min-width: 0; border: 1px solid #9daabd; border-radius: 3px; padding: 12px 14px; font: inherit; font-size: 17px; }
+  .search-form button { border: 0; border-radius: 3px; background: #243856; color: #fff; padding: 0 20px; font: inherit; font-weight: 700; cursor: pointer; }
+  .search-form button:hover, .search-form button:focus { background: #0077b6; }
+  .search-status { color: #68788d; font-size: 13px; min-height: 22px; }
+  .search-results { display: grid; gap: 14px; margin-top: 14px; }
+  .search-result { border-top: 1px solid #dfe5ec; padding-top: 14px; }
+  .search-result h2 { margin: 0 0 5px; font-size: 20px; }
+  .search-result h2 a { color: #243856; }
+  .search-result p { color: #53657b; margin: 0; }
+  .search-result mark { background: #fff0b3; padding: 0 2px; }
+  @media (max-width: 560px) { .search-form { flex-direction: column; } .search-form button { min-height: 44px; } }
+</style>
+</head>
+<body>
+<div class="page">
+<!-- @@NAV@@ -->
+<main class="search-shell">
+  <h1>Search Baker 1031 Investments</h1>
+  <p class="search-intro">Search the Baker 1031 research library, guides, calculators, current offerings, sponsor profiles, and investor resources. Results are generated in your browser; your search terms are not sent to a search provider.</p>
+  <form class="search-form" id="site-search-form" role="search">
+    <label class="sr-only" for="site-search-input">Search the Baker 1031 website</label>
+    <input id="site-search-input" type="search" name="q" autocomplete="off" placeholder="Try “DST fees” or “45-day identification period”">
+    <button type="submit">Search</button>
+  </form>
+  <div class="search-status" id="site-search-status" aria-live="polite">Loading the research index…</div>
+  <section class="search-results" id="site-search-results" aria-live="polite"></section>
+  <!-- @@REVIEW_NOTE@@ -->
+</main>
+<!-- @@FOOTER@@ -->
+<script src="assets/site-search.js" defer></script>
+</div>
+</body>
+</html>
