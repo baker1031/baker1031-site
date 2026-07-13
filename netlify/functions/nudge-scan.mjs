@@ -1,7 +1,7 @@
 // Scheduled scan: nudge investors who registered but never scheduled their intro call.
 // Runs on Netlify's cron (config.schedule below) — no external trigger needed.
 // Finds people with funnel_status = "Registered - No Call" whose registration is older
-// than NUDGE_AFTER_DAYS (default 1) and newer than NUDGE_MAX_DAYS (default 30), that
+// than NUDGE_AFTER_DAYS (default 1) and newer than NUDGE_MAX_DAYS (default 60), that
 // haven't already been nudged, emails the "incomplete scheduling" template, and stamps
 // nudge_sent_date so nobody is nudged twice.
 import { attio, json } from './portal-common.mjs';
@@ -17,7 +17,7 @@ export default async () => {
   if (!process.env.RESEND_API_KEY) return json({ ok: true, skipped: 'resend not configured' });
 
   const afterDays = parseInt(process.env.NUDGE_AFTER_DAYS || '1', 10);
-  const maxDays = parseInt(process.env.NUDGE_MAX_DAYS || '30', 10);
+  const maxDays = parseInt(process.env.NUDGE_MAX_DAYS || '60', 10);
   const now = Date.now();
   const newerThan = dayStr(now - afterDays * 86400000); // registered on/before this date
   const olderThan = dayStr(now - maxDays * 86400000);   // but not before this date
