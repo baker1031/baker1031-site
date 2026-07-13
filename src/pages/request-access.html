@@ -1790,6 +1790,10 @@ function crsReceiptPDF(){
   a.download='Baker1031-FormCRS-Receipt.pdf'; document.body.appendChild(a); a.click(); a.remove();
 }
 function finishSchedule(detail){ data.callBooked=true; var cap=captureBooking(detail); data.callTime=cap.display; data.callStartISO=cap.startISO; data.callUid=cap.uid; clearLeaveGuards();
+  if(!data.__analyticsBookingTracked){
+    data.__analyticsBookingTracked=true;
+    analyticsEvent('cal_booking_success',{booking_type:'introductory_call',duration_minutes:25,booking_time_available:!!cap.startISO,page_path:location.pathname});
+  }
   try{ if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())}).catch(function(){}); } }catch(e){}
   const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();}
   // #5: account creation is handled server-side — attio-register.mjs sends a
@@ -1845,9 +1849,20 @@ function autoPortfolio(){
       holdings:(p.holdings||[]).map(function(h){ return {name:h.name,url:h.url,sponsor:h.sponsor,type:h.type,alloc:h.alloc}; }) };
   }catch(e){ return null; }
 }
+function analyticsEvent(name, params){
+  try{
+    if(window.b1031Analytics&&window.b1031Analytics.track) window.b1031Analytics.track(name, params||{});
+    else (window.__b1031PendingAnalytics||(window.__b1031PendingAnalytics=[])).push({name:name,params:params||{}});
+  }catch(e){}
+}
+function trackRegistrationSuccess(){
+  if(data.__analyticsLeadTracked)return;
+  data.__analyticsLeadTracked=true;
+  analyticsEvent('generate_lead',{form_name:'investor_registration',form_stage:'registration_submitted',page_path:location.pathname});
+}
 function submit(){ const p=payload();
   const done=()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<button class="btn ghost" onclick="downloadJSON()">Download my responses</button>'; };
-  if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(()=>{}); setTimeout(done,50); }
+  if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).then(r=>{ if(r&&r.ok)trackRegistrationSuccess(); }).catch(()=>{}); setTimeout(done,50); }
   else { const body=encodeURIComponent(Object.entries(p).map(([k,v])=>k+': '+(Array.isArray(v)?v.join(', '):v)).join('\n'));
     const link='mailto:'+CONFIG.notifyEmail+'?subject='+encodeURIComponent('Investor Registration — '+(data.first||'')+' '+(data.last||''))+'&body='+body;
     setTimeout(()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<p class="q-sub" style="margin:0 auto 14px;">To finish, send us your details:</p><a class="btn" href="'+link+'">Email my registration</a> <button class="btn ghost" onclick="downloadJSON()">Download a copy</button>'; },50); } }

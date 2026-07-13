@@ -1368,6 +1368,8 @@
       '<div id="clerkProfile"></div>'+
     '</div>';
     BODY.innerHTML=html; GATE.style.display='none'; BODY.style.display='block';
+    window.__b1031PortalAuthenticated=true;
+    try{ window.dispatchEvent(new Event('b1031:portal-login')); }catch(e){}
     wire(d);
     maybeTour(d);
   }

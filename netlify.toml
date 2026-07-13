@@ -10,6 +10,12 @@
   PYTHON_VERSION = "3.8"
 
 [[redirects]]
+  from = "/offerings.html"
+  to = "/investments.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/article-template.html"
   to = "/insights.html"
   status = 301
@@ -28,3 +34,8 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

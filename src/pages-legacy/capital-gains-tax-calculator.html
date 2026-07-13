@@ -1277,8 +1277,8 @@
 <div class="field"><label for="state">State capital gains rate</label>
 <div class="inprefix" style="max-width:140px"><input id="state" placeholder="0" step="0.1" style="padding-left:14px!important" type="number" value="0"/><span style="left:auto;right:13px">%</span></div>
 <p class="hint">Most states tax the full gain as ordinary income. Use 0 for no-tax states.</p></div>
-<button class="btn" id="calcBtn" type="button">Calculate</button>
-<button class="btn ghost" id="resetBtn" type="button">Reset</button>
+<button class="btn" id="calcBtn" type="button" onclick="window.b1031CapitalGainsCalc && window.b1031CapitalGainsCalc()">Calculate</button>
+<button class="btn ghost" id="resetBtn" type="button" onclick="window.b1031CapitalGainsReset && window.b1031CapitalGainsReset()">Reset</button>
 </div></div>
 <div class="card" id="resultCard"><div class="card-h"><span class="n">2</span><h2>Your estimate</h2></div><div class="pad">
 <div class="res-empty" id="emptyState">Enter your numbers and select <b>Calculate</b> to see your estimate.</div>
@@ -1331,11 +1331,11 @@
 <script>
 
   var el=function(id){return document.getElementById(id);};
-  function num(id){var v=parseFloat((el(id).value||"").toString().replace(/[^0-9.\-]/g,""));return isNaN(v)?0:v;}
-  function val(id){return el(id).value;}
+  function num(id){var node=el(id),v=parseFloat(((node&&node.value)||"").toString().replace(/[^0-9.\-]/g,""));return isNaN(v)?0:Math.max(0,v);}
+  function val(id){var node=el(id);return node?node.value:"";}
   function usd(n){return "$"+Math.round(n).toLocaleString("en-US");}
   function pct(n){return (Math.round(n*10)/10)+"%";}
-  function show(){el("emptyState").hidden=true;el("resultBody").hidden=false;el("resultBody").scrollIntoView({behavior:"smooth",block:"nearest"});}
+  function show(){var empty=el("emptyState"),body=el("resultBody");if(empty)empty.hidden=true;if(body){body.hidden=false;try{body.scrollIntoView({behavior:"smooth",block:"nearest"});}catch(_e){}}}
 
   var BR={single:[49450,545500],mfj:[98900,613700],hoh:[66200,579600],mfs:[49450,306850]};
   var NIIT={single:200000,mfj:250000,hoh:200000,mfs:125000};
@@ -1350,6 +1350,7 @@
   }
   function calc(){
     var f=val("filing");
+    if(!BR[f])f="mfj";
     var realized=num("sale")-num("costs");
     var basis=num("purchase")+num("improve")-num("depr");
     var gain=Math.max(0,realized-basis);
@@ -1361,25 +1362,19 @@
     var recapTax=recap*0.25;
     var lgTax=L.tax;
     var magi=income+gain;
-    var niBase=Math.max(0,Math.min(gain,magi-NIIT[f]));
+    var niBase=Math.max(0,Math.min(gain,magi-(NIIT[f]||NIIT.mfj)));
     var niTax=niBase*0.038;
     var sr=num("state")/100;
     var stTax=gain*sr;
     var total=recapTax+lgTax+niTax+stTax;
-    el("rGain").textContent=usd(gain);
-    el("rTax").textContent=usd(total);
-    el("rTax2").textContent=usd(total);
-    el("rNet").textContent=usd(gain-total);
-    el("rEff").textContent=gain>0?pct(total/gain*100):"0%";
-    el("rcAmt").textContent=usd(recap);el("rcTax").textContent=usd(recapTax);
-    el("lgAmt").textContent=usd(lg);el("lgTax").textContent=usd(lgTax);
-    el("niAmt").textContent=usd(niBase);el("niTax").textContent=usd(niTax);
-    el("stAmt").textContent=usd(gain);el("stTax").textContent=usd(stTax);
-    el("stPct").textContent="("+pct(num("state"))+")";
+    [["rGain",usd(gain)],["rTax",usd(total)],["rTax2",usd(total)],["rNet",usd(gain-total)],["rEff",gain>0?pct(total/gain*100):"0%"],["rcAmt",usd(recap)],["rcTax",usd(recapTax)],["lgAmt",usd(lg)],["lgTax",usd(lgTax)],["niAmt",usd(niBase)],["niTax",usd(niTax)],["stAmt",usd(gain)],["stTax",usd(stTax)],["stPct","("+pct(num("state"))+")"]].forEach(function(pair){var node=el(pair[0]);if(node)node.textContent=pair[1];});
     show();
   }
-  function reset(){["sale","costs","purchase","improve","depr","income","state"].forEach(function(i){el(i).value="";});el("filing").selectedIndex=1;el("resultBody").hidden=true;el("emptyState").hidden=false;}
-  el("calcBtn").addEventListener("click",calc);el("resetBtn").addEventListener("click",reset);
+  function reset(){["sale","costs","purchase","improve","depr","income","state"].forEach(function(i){var node=el(i);if(node)node.value="";});var filing=el("filing"),body=el("resultBody"),empty=el("emptyState");if(filing)filing.selectedIndex=1;if(body)body.hidden=true;if(empty)empty.hidden=false;}
+  window.b1031CapitalGainsCalc=calc;
+  window.b1031CapitalGainsReset=reset;
+  function bind(){var cb=el("calcBtn"),rb=el("resetBtn");if(cb&&!cb.dataset.bound){cb.addEventListener("click",calc);cb.dataset.bound="1";}if(rb&&!rb.dataset.bound){rb.addEventListener("click",reset);rb.dataset.bound="1";}}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();
 
   var _mt=document.querySelector(".menu-toggle");_mt&&_mt.addEventListener("click",function(){document.querySelector("nav").classList.toggle("open");});
   </script>

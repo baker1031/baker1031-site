@@ -34,7 +34,7 @@
   "new-york": {"name": "New York State Department of Taxation and Finance", "url": "https://www.tax.ny.gov/"},
   "north-carolina": {"name": "North Carolina Department of Revenue", "url": "https://www.ncdor.gov/"},
   "north-dakota": {"name": "North Dakota Office of State Tax Commissioner", "url": "https://www.tax.nd.gov/"},
-  "ohio": {"name": "Ohio Department of Taxation", "url": "https://tax.ohio.gov/"},
+  "ohio": {"name": "Ohio Department of Taxation eServices", "url": "https://myportal.tax.ohio.gov/tap/_/"},
   "oklahoma": {"name": "Oklahoma Tax Commission", "url": "https://oklahoma.gov/tax.html"},
   "oregon": {"name": "Oregon Department of Revenue", "url": "https://www.oregon.gov/dor/"},
   "pennsylvania": {"name": "Pennsylvania Department of Revenue", "url": "https://www.pa.gov/agencies/revenue.html"},
