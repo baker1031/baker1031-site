@@ -82,6 +82,14 @@ python3 ci_build.py
 
 The generated site is placed in dist/. A successful build must pass every validation gate before it can be deployed.
 
+## Article audio summaries
+
+Article audio is generated separately from the Netlify build. The generator uses Amazon Polly to create an MP3 executive summary from each published legacy article, uploads the file to Cloudinary, and writes the resulting public URLs to `data/audio-manifest.json`. The build then adds a native, lazy audio player and matching `AudioObject` JSON-LD only for entries present in that manifest. Pages without a real audio URL do not receive audio schema.
+
+Install the local generator dependencies with `python3 -m pip install -r scripts/audio-requirements.txt`. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in your local environment or a secrets manager; never commit them. Optional `POLLY_VOICE_ID` and `POLLY_ENGINE` default to Joanna and standard. Run `python3 scripts/generate-audio.py --limit 1` for a smoke test, then use `python3 scripts/generate-audio.py --missing-only --workers 4` to resume or complete the full manifest. The generator writes the manifest after each sequential batch or after a parallel batch completes, so interrupted work can be resumed without rebuilding the site. Review the generated audio and manifest before committing the manifest and deploying.
+
+For the initial smoke test, the AWS user was created with the AWS-managed `AmazonPollyFullAccess` policy. Before ongoing production use, replace that attachment with a customer-managed least-privilege policy granting only `polly:SynthesizeSpeech` (and, if needed, `polly:DescribeVoices`), then rotate the access key. Cloudinary signed uploads use the API secret transiently and publish audio under the `baker1031/audio` folder. Rotate any secret that has been pasted into chat or exposed outside the secrets manager after the initial upload.
+
 ## Editorial and SEO follow-up
 
 See:

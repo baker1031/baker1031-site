@@ -14,7 +14,8 @@ Netlify:     see netlify.toml
 """
 import datetime
 import html as html_lib
-import io, json, os, re, shutil, sys, unicodedata, urllib.request
+import io, json, os, posixpath, re, shutil, sys, unicodedata, urllib.request
+from urllib.parse import unquote, urljoin, urlparse
 
 import openpyxl
 
@@ -24,8 +25,8 @@ SHEET_ID = os.environ.get('SHEET_ID', '1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7Il
 GA4_MEASUREMENT_ID = os.environ.get('GA4_MEASUREMENT_ID', 'G-P29LR49RL8')
 BASE_URL = os.environ.get('BASE_URL', 'https://baker1031.com').rstrip('/')
 BUILD_DATE = os.environ.get('BUILD_DATE', datetime.date.today().isoformat())
-REVIEW_DATE = 'July 11, 2026'
-REVIEW_DATE_ISO = '2026-07-11'
+REVIEW_DATE = 'July 12, 2026'
+REVIEW_DATE_ISO = '2026-07-12'
 
 # These files remain available as authoring/source material but must never be
 # emitted as public, indexable pages.
@@ -65,6 +66,25 @@ HUB_FILES = {
     'investments.html', 'sponsors.html', 'insights.html', 'faq.html',
 }
 
+# Only these pages contain a user-facing interactive calculator. Article and
+# glossary URLs that happen to contain "calculator" are educational guides,
+# not WebApplications, so they should not receive calculator schema.
+INTERACTIVE_CALCULATOR_PAGES = {
+    'calculator-cost-segregation.html',
+    '1031-exchange-boot-calculator.html',
+    '1031-exchange-capital-gains-tax-calculator.html',
+    '45-180-day-deadline-calculator.html',
+    'cap-rate-cash-on-cash-calculator.html',
+    'capital-gains-tax-calculator.html',
+    'debt-replacement-ltv-calculator.html',
+    'depreciation-recapture-calculator.html',
+    'mineral-rights-valuation-calculator.html',
+    'oz-vs-1031-vs-cash-out-calculator.html',
+    'passive-income-calculator.html',
+    'royalties-vs-dst-income-calculator.html',
+    'sell-vs-1031-exchange-calculator.html',
+}
+
 AUTHORITY_SOURCES = [
     'https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips',
     'https://www.irs.gov/forms-pubs/about-form-8824',
@@ -76,6 +96,7 @@ AUTHORITY_SOURCES = [
 STATE_TAX_AUTHORITIES = json.load(open(os.path.join(ROOT, 'data', 'state-tax-authorities.json')))
 STATE_AUTHORITY_URLS = {item['url'] for item in STATE_TAX_AUTHORITIES.values()}
 AUTHOR_NAME = 'Gerald F. "Jerry" Baker, III'
+AUTHOR_IMAGE = 'https://res.cloudinary.com/opoazlei/image/upload/v1783927734/jerry-baker_ovhy2w.jpg'
 REVIEWER = {
     '@type': 'Person',
     'name': 'Lori Kamen',
@@ -83,8 +104,26 @@ REVIEWER = {
     'identifier': {'@type': 'PropertyValue', 'propertyID': 'FINRA CRD', 'value': '2805591'},
     'sameAs': ['https://brokercheck.finra.org/individual/summary/2805591'],
 }
+REVIEW_NOTE_HTML = (
+    '<p class="b1031-review-note"><strong>Reviewed by</strong> '
+    '<a href="https://brokercheck.finra.org/individual/summary/2805591" '
+    'target="_blank" rel="noopener noreferrer">Lori Kamen</a> — '
+    'Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591). '
+    'Last reviewed %s.</p>' % REVIEW_DATE
+)
 
 SEO_META = {}
+
+# Optional generated audio manifest. Audio is intentionally absent until the
+# synthesis/upload job has produced a real asset for a page. This keeps the
+# build truthful: no AudioObject schema or player is emitted for missing media.
+AUDIO_MANIFEST_PATH = os.path.join(ROOT, 'data', 'audio-manifest.json')
+try:
+    AUDIO_MANIFEST = json.load(open(AUDIO_MANIFEST_PATH, encoding='utf-8'))
+    if not isinstance(AUDIO_MANIFEST, dict):
+        AUDIO_MANIFEST = {}
+except (FileNotFoundError, json.JSONDecodeError):
+    AUDIO_MANIFEST = {}
 
 # ---------------------------------------------------------------- fetch
 def load_workbook():
@@ -249,15 +288,132 @@ def state_authority_note(base):
             '<a href="%s" target="_blank" rel="noopener noreferrer">Official %s</a>. '
             'State rules can change; confirm current treatment with the agency and your tax adviser.</p>' % (url, name))
 
-def normalize_editorial_identity(raw):
+def normalize_editorial_identity(raw, base=''):
     raw = raw.replace('Baker 1031 Research is the editorial desk at Baker 1031 Investments',
                       'Gerald F. &quot;Jerry&quot; Baker, III leads the editorial work at Baker 1031 Investments')
     raw = raw.replace('Source: Baker 1031 Research.', 'Source: Gerald F. &quot;Jerry&quot; Baker, III.')
     raw = raw.replace('Baker 1031 Research', AUTHOR_NAME)
+    raw = raw.replace('https://www.baker1031.com/assets/img/jerry-baker.jpg', AUTHOR_IMAGE)
+    raw = raw.replace('href="baker1031.html"', 'href="/"')
+    raw = raw.replace("href='baker1031.html'", "href='/'")
+    raw = raw.replace(
+        'https://www.irs.gov/credits-deductions/businesses/opportunity-zones-frequently-asked-questions',
+        'https://www.irs.gov/credits-deductions/opportunity-zones-frequently-asked-questions')
+    raw = raw.replace('https://www.irs.gov/irb/2000-40_IRB', 'https://www.irs.gov/pub/irs-irbs/irb00-37.pdf')
+    raw = raw.replace('tax-free exclusion', 'potential federal exclusion for eligible appreciation')
+    # Keep tax-benefit language explicitly conditional, including capitalized
+    # variants that appear in glossary definitions and comparison tables.
+    raw = re.sub(r'(?i)(?<!potentially )tax-free', 'potentially tax-free', raw)
+    raw = raw.replace('eliminating federal tax on all the appreciation',
+                      'potentially excluding eligible appreciation from federal tax after the applicable holding period, subject to statutory requirements and elections')
+    raw = raw.replace('1031 is fully intact in 2026',
+                      'Section 1031 remains available for qualifying real property as of the review date')
+    raw = raw.replace('the exchange is fully intact',
+                      'the exchange remains available for qualifying real property as of the review date')
+    raw = raw.replace('fully intact as of 2026',
+                      'available for qualifying real property as of the review date')
+    raw = raw.replace('fully intact rules', 'current rules')
+    raw = raw.replace('fully intact', 'available under the current published rules, subject to eligibility')
+    raw = raw.replace('tax eliminated on a decade of growth',
+                      'potentially excluded from federal tax on eligible appreciation after the applicable holding period')
+    raw = raw.replace('tax eliminated', 'potentially excluded from federal tax')
+    raw = raw.replace('so you never risk the exchange',
+                      'which may help you manage the exchange timeline, but cannot eliminate exchange risk')
+    raw = raw.replace('you never risk the exchange',
+                      'you can better manage the exchange timeline, but no strategy eliminates exchange risk')
+    # The conditional wording above must never alter a URL slug.
+    raw = raw.replace('the-10-year-hold-potentially tax-free-appreciation-explained.html',
+                      'the-10-year-hold-tax-free-appreciation-explained.html')
+    raw = raw.replace('Baker 1031 Research', AUTHOR_NAME)
+    raw = raw.replace('the preferred cohort has out-returned the broader field',
+                      'the preferred designation reflects coverage and diligence depth, not a performance ranking')
+    raw = raw.replace('preferred cohort has out-returned the broader field',
+                      'the preferred designation reflects coverage and diligence depth, not a performance ranking')
+    raw = raw.replace('has out-returned the broader field',
+                      'has not been established as a comparable, independently verified performance result')
+    raw = raw.replace(
+        'This Privacy Policy is a template provided for review and should be reviewed and finalized with qualified counsel before reliance.',
+        'This Privacy Policy describes the current website practices of Baker 1031 Investments, LLC and may be updated as our services, vendors, and legal obligations change.')
+    raw = raw.replace(
+        'This financial-privacy notice is a template provided for review and should be finalized with your broker-dealer and qualified counsel.',
+        'This financial-privacy notice describes the current information-handling practices used in connection with Baker 1031 Investments and the broker-dealer through which securities business is conducted.')
+    raw = raw.replace(
+        'This California Privacy Notice is a template provided for review and should be finalized with qualified counsel.',
+        'This California Privacy Notice describes the current privacy practices of Baker 1031 Investments, LLC and may be updated as our services and legal obligations change.')
+    raw = raw.replace(
+        'This Accessibility Statement is a template provided for review and reflects our ongoing, good-faith efforts.',
+        'This Accessibility Statement describes our ongoing efforts to improve access to the website and to address reported barriers.')
+    raw = raw.replace(
+        'These Terms are a template provided for review and should be finalized with qualified counsel before reliance.',
+        'These Terms describe the current conditions governing use of this website and may be updated as the site and applicable requirements change.')
+    raw = raw.replace(
+        'It is a template for review with counsel; the final policy your firm adopts controls.',
+        'It describes the current website practices of Baker 1031 Investments, LLC and may be updated as our services, vendors, and legal obligations change.')
+    raw = raw.replace(
+        'It is a template for review with counsel and your broker-dealer.',
+        'It describes the current information-handling practices used in connection with Baker 1031 Investments and the broker-dealer through which securities business is conducted.')
+    raw = raw.replace('It is a template for review with counsel.',
+                      'It describes the current California privacy practices of Baker 1031 Investments, LLC and may be updated as legal requirements change.')
+    raw = raw.replace(
+        'This is a template for review with counsel; the final terms your firm adopts control.',
+        'These Terms describe the current conditions governing use of this website and may be updated as the site and applicable requirements change.')
+    raw = raw.replace(
+        'It is a template for review with counsel; the final terms your firm adopts control.',
+        'These Terms describe the current conditions governing use of this website and may be updated as the site and applicable requirements change.')
+    raw = raw.replace(
+        'This is a template for review with counsel.',
+        'This page describes the current website practices of Baker 1031 Investments, LLC and may be updated as legal requirements change.')
+    raw = re.sub(r'\s*Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance\.', '', raw, flags=re.I)
+    raw = re.sub(r'\s*Content subject to registered-principal review\.', '', raw, flags=re.I)
     raw = re.sub(r'Last reviewed\s+[A-Za-z]+\s+(?:\d{1,2},\s+)?\d{4}', 'Last reviewed ' + REVIEW_DATE, raw)
     raw = raw.replace(
         'President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal.',
         'Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591).')
+    if base == 'opportunity-zone-deadlines-and-program-timeline.html':
+        raw = re.sub(r'(<div class="wrap abody">).*?(<h2 id="faq">)', r'''\1
+<article class="article">
+<p class="lead">Opportunity Zone timing depends on the date of the investment, the source of the gain, and the law in effect for that transaction. This guide separates the dates investors track from the tax outcomes that require individualized advice. Review the cited primary sources and confirm the current rules with your CPA before acting.</p>
+<h2 id="key-dates">Key Opportunity Zone dates</h2>
+<p>The main dates are the 180-day investment window for a qualifying gain, the applicable deferred-gain recognition date, the ten-year holding milestone for a possible exclusion of eligible appreciation, and any zone-designation transition dates. Pass-through gains may have special rules for when the 180-day period begins. The clock should be calculated from the taxpayer's facts, not from a generic calendar.</p>
+<h2 id="when-recognized">When deferred gain is recognized</h2>
+<p>The recognition date depends on the program and investment date. The original program and any later statutory changes must be analyzed separately; a general article cannot determine the inclusion date for an individual investor. Track the date in the governing statute, regulations, IRS guidance, and the investor's tax records, then confirm the result with a CPA.</p>
+<div class="pullquote"><p>Opportunity Zone benefits are conditional. A missed investment window, an inclusion event, a qualification failure, or a change in law can alter the result.</p></div>
+<h2 id="sunset-extensions">Program permanence &amp; transitions</h2>
+<p>Opportunity Zone legislation and administrative guidance have changed over time. The existence of a continuing program does not make every zone, fund, or tax benefit permanent for every investor. Confirm the applicable designation, eligibility tests, holding-period requirements, and effective dates from current government sources before relying on a timeline.</p>
+<h2 id="timing-benefits">How timing affects your benefits</h2>
+<p>Timing can affect whether a gain is eligible for deferral, when deferred tax becomes reportable, and whether a later appreciation exclusion may be available. Those outcomes depend on the type of gain, the investment vehicle, statutory requirements, and the taxpayer's compliance with them. A deadline calculator can organize dates, but it cannot establish eligibility or predict a tax result.</p>
+<div class="takeaways"><div class="tk-h">Key Takeaways</div><ul>
+<li>Calculate the 180-day window from the correct gain and taxpayer facts.</li>
+<li>Separate original-gain deferral from any possible treatment of later appreciation.</li>
+<li>Confirm zone designations and transition dates from current government sources.</li>
+<li>Treat every result as conditional and have a CPA review the transaction before funding.</li>
+</ul></div>
+<h2 id="staying-current">Staying current on the rules</h2>
+<p>Use the IRS, Treasury, CDFI Fund, and other applicable government sources for current rules and designations. Keep a dated copy of the sources used for the analysis because guidance and administrative materials can change. Baker 1031 provides educational research and does not provide tax or legal advice.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps with the timeline</h2>
+<p>Baker 1031 can help investors organize questions, compare available structures, and identify the documents a professional team should review. Any securities offering is made only through the applicable private placement memorandum and after the required suitability process; no timeline guarantees an exchange, a tax result, or an investment outcome.</p>
+\2''', raw, count=1, flags=re.S)
+    elif base == 'is-the-1031-exchange-going-away-policy-outlook.html':
+        raw = re.sub(r'(<div class="wrap abody">).*?(<h2 id="faq">)', r'''\1
+<article class="article">
+<p class="lead">Section 1031 policy is often discussed during tax legislation and budget negotiations. This page explains how to read those proposals without treating a proposal as current law. As of the July 12, 2026 review date, Section 1031 remains available for qualifying real property under the rules cited on this page; the statement is time-bound and should be rechecked before a transaction.</p>
+<h2 id="recurring-question">The recurring question</h2>
+<p>Investors often ask whether Section 1031 will be repealed or capped. Proposals may be introduced, scored, or discussed without becoming law. The useful distinction is between enacted statutory text, agency guidance, and advocacy or budget material.</p>
+<h2 id="why-targeted">Why 1031 is periodically targeted</h2>
+<p>Like-kind exchanges defer recognition of qualifying gain rather than permanently guaranteeing that tax will never be due. That deferral can appear in revenue estimates, which is why the provision periodically appears in policy debates. The policy argument does not determine the law that applies to a particular exchange.</p>
+<h2 id="recent-proposals">How to read proposals</h2>
+<p>Check the bill or enacted statute, its effective date, transition rules, and the IRS guidance that implements it. Headlines and summaries can omit those details. A proposal is not a change to a transaction already underway unless the enacted text says so and the taxpayer's facts satisfy the transition rules.</p>
+<h2 id="current-status">Current status as of the review date</h2>
+<p>The current federal rule for qualifying real property is Section 1031. The page's cited primary sources are the proper starting point for verification. State treatment, entity structure, debt, boot, related-party rules, and personal facts can change the tax analysis even when the federal provision is available.</p>
+<h2 id="economic-case">The economic case for 1031</h2>
+<p>Supporters point to reinvestment and transaction activity; critics focus on tax deferral and distributional effects. Both are policy arguments, not evidence of a future legislative outcome. Investors should separate that debate from the practical question of whether an exchange fits their own objectives and facts.</p>
+<h2 id="what-investors-do">What investors should do</h2>
+<p>Plan for the transaction you actually need, use current sources, and keep a qualified intermediary and tax adviser involved before the sale closes. Do not rush because of an unenacted proposal, and do not assume a future change will be prospective or favorable without reading the enacted transition language.</p>
+<h2 id="policy-takeaway">Policy context</h2>
+<p>Policy arguments can inform the debate, but they do not replace the enacted rule or the professional analysis of a specific exchange.</p>
+<h2 id="how-baker-helps">How Baker 1031 helps you navigate the outlook</h2>
+<p>Baker 1031 provides educational research, source links, and exchange-planning questions for investors and advisers. We do not predict legislation or provide tax or legal advice. Confirm the current law and your transaction-specific treatment with your CPA, attorney, and qualified intermediary.</p>
+\2''', raw, count=1, flags=re.S)
     return raw.replace(
         'President &amp; CCO, Aurora Securities',
         'Chief Compliance Officer, Aurora Securities (FINRA CRD #2805591)')
@@ -269,6 +425,7 @@ def seo_jsonld(base, title, description, canonical, raw):
         'alternateName': 'Jerry Baker',
         'jobTitle': 'Founder & Managing Principal, Baker 1031 Investments',
         'url': BASE_URL + '/jerry-baker-bio.html',
+        'image': AUTHOR_IMAGE,
         'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416'],
     }
     publisher = {
@@ -278,6 +435,8 @@ def seo_jsonld(base, title, description, canonical, raw):
         'logo': {'@type': 'ImageObject', 'url': BASE_URL + '/assets/logo.png'},
     }
     citations = page_citations(base, raw)
+    is_calculator = base in INTERACTIVE_CALCULATOR_PAGES
+    audio_urls = re.findall(r'<(?:audio|source)\b[^>]*\bsrc=["\']([^"\']+)', raw, flags=re.I)
     review_text = text_from_html(raw)
     review_match = re.search(r'Reviewed by\s+(.+?)\s+—\s+(.+?)\.\s+Last reviewed\s+([A-Za-z]+\s+(?:\d{1,2},\s+)?\d{4})', review_text, flags=re.I)
     reviewer = REVIEWER if base not in NOINDEX_PAGES else None
@@ -298,6 +457,26 @@ def seo_jsonld(base, title, description, canonical, raw):
             data['author'] = author
         if citations:
             data['citation'] = citations
+        if is_calculator:
+            data['mainEntity'] = {
+                '@type': 'WebApplication',
+                '@id': canonical + '#calculator',
+                'name': title,
+                'url': canonical,
+                'applicationCategory': 'FinanceApplication',
+                'operatingSystem': 'Web',
+                'isAccessibleForFree': True,
+                'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
+            }
+        if audio_urls:
+            data['associatedMedia'] = {
+                '@type': 'AudioObject',
+                'contentUrl': audio_urls[0],
+                'name': title + ' audio version',
+                'description': description,
+                'inLanguage': 'en-US',
+                'isAccessibleForFree': True,
+            }
     else:
         data = {'@context': 'https://schema.org', '@type': 'WebPage', 'url': canonical, 'name': title, 'description': description, 'publisher': publisher}
     if reviewer:
@@ -583,7 +762,7 @@ RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 
 </section>"""
 
 def seo_inject(html_text, base):
-    html_text = normalize_editorial_identity(html_text)
+    html_text = normalize_editorial_identity(html_text, base)
     html_text = html_text.replace('[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]', APPROVED_DISCLOSURE_LINK)
     meta = SEO_META.get(base, {})
     title = meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
@@ -618,7 +797,40 @@ def seo_inject(html_text, base):
         html_text = html_text.replace('</head>', markup + '\n' + jsonld + '\n</head>', 1)
     return html_text
 
+def strip_unused_audio_styles(html_text):
+    """Remove old Web Speech UI rules from published HTML.
+
+    The actual player is styled once in assets/site-enhancements.css. Keeping
+    this cleanup in the build removes the legacy rules from old article files
+    without requiring a risky 678-file source rewrite.
+    """
+    patterns = [
+        r'\n\s*\.audio-player\s*\{[^}]*\}',
+        r'\n\s*\.audio-player \.ap-label\s*\{[^}]*\}',
+        r'\n\s*\.audio-player button\s*\{[^}]*\}',
+        r'\n\s*\.audio-player button:hover\s*\{[^}]*\}',
+        r'\n\s*\.audio-player \.ap-status\s*\{[^}]*\}',
+    ]
+    for pattern in patterns:
+        html_text = re.sub(pattern, '', html_text, flags=re.I | re.S)
+    return html_text
+
+def audio_player_html(base, title):
+    item = AUDIO_MANIFEST.get(base)
+    if not isinstance(item, dict) or not item.get('url'):
+        return ''
+    url = html_lib.escape(str(item['url']), quote=True)
+    label = html_lib.escape('Listen to an executive summary of ' + title, quote=True)
+    return '''<div class="audio-player" data-b1031-audio="%s">
+  <span class="ap-label">Executive summary audio</span>
+  <audio controls preload="none" aria-label="%s">
+    <source src="%s" type="audio/mpeg">
+    Your browser does not support the audio player. <a href="%s">Open the audio summary</a>.
+  </audio>
+</div>''' % (html_lib.escape(base, quote=True), label, url, url)
+
 def inject(html_text, base=''):
+    html_text = strip_unused_audio_styles(html_text)
     html_text = html_text.replace('<!-- @@NAV@@ -->', nav)
     state_note = state_authority_note(base)
     if state_note and 'class="b1031-state-source"' not in html_text:
@@ -629,6 +841,22 @@ def inject(html_text, base=''):
     if base not in NOINDEX_PAGES and '<!-- @@FOOTER@@ -->' in html_text:
         html_text = html_text.replace('<!-- @@FOOTER@@ -->', RELATED_HUBS_HTML + '\n<!-- @@FOOTER@@ -->', 1)
     html_text = html_text.replace('<!-- @@FOOTER@@ -->', footer)
+    if base not in NOINDEX_PAGES:
+        html_text = html_text.replace('<!-- @@REVIEW_NOTE@@ -->', REVIEW_NOTE_HTML)
+    else:
+        html_text = html_text.replace('<!-- @@REVIEW_NOTE@@ -->', '')
+    if base in AUDIO_MANIFEST and '<div class="audio-player"' not in html_text:
+        title_for_audio = page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
+        player = audio_player_html(base, title_for_audio)
+        if player:
+            if re.search(r'</article>', html_text, flags=re.I):
+                html_text = re.sub(r'</article>', player + '\n</article>', html_text, count=1, flags=re.I)
+            elif re.search(r'</main>', html_text, flags=re.I):
+                html_text = re.sub(r'</main>', player + '\n</main>', html_text, count=1, flags=re.I)
+    # Keep non-critical third-party scripts off the parser's critical path and
+    # let below-the-fold images load only when they approach the viewport.
+    html_text = re.sub(r'<script(?![^>]*\b(?:async|defer)\b)(?=[^>]*\bsrc=)([^>]*)>', r'<script defer\1>', html_text, flags=re.I)
+    html_text = re.sub(r'<img(?![^>]*\b(?:loading|fetchpriority)=)(?![^>]*class=["\'][^"\']*\blogo\b)(?=[^>]*\bsrc=)', '<img loading="lazy" decoding="async"', html_text, flags=re.I)
     html_text = seo_inject(html_text, base)
     if FAVICON_TAG not in html_text and '</head>' in html_text:
         html_text = html_text.replace('</head>', FAVICON_TAG + '\n</head>', 1)
@@ -750,6 +978,34 @@ def validate_dist():
     thin_pages = []
     page_meta = {}
     quality = {'generated_at': BUILD_DATE, 'html_pages': len(html_files), 'thin_pages': [], 'citation_gaps': []}
+    site_host = urlparse(BASE_URL).netloc.lower()
+    if site_host.startswith('www.'):
+        site_host = site_host[4:]
+    redirect_paths = {'/offerings.html', '/article-template.html', '/insight-1031-exchange-guide.html'}
+    generated_paths = {'/llms.txt', '/llms-full.txt'}
+
+    def resolve_site_reference(ref, base):
+        """Return a same-site target and fragment, or None for true externals."""
+        ref = html_lib.unescape(ref).strip()
+        if not ref or ref.startswith(('mailto:', 'tel:', 'javascript:', 'data:')):
+            return None
+        if ref.startswith('//'):
+            parsed = urlparse('https:' + ref)
+        elif urlparse(ref).scheme:
+            parsed = urlparse(ref)
+        else:
+            parsed = urlparse(urljoin(BASE_URL + '/' + base, ref))
+        if parsed.scheme not in ('http', 'https'):
+            return None
+        parsed_host = parsed.netloc.lower()
+        if parsed_host.startswith('www.'):
+            parsed_host = parsed_host[4:]
+        if parsed_host and parsed_host != site_host:
+            return None
+        path = unquote(parsed.path or '/')
+        path = '/' + posixpath.normpath(path.lstrip('/')).lstrip('./')
+        target = os.path.join(DIST, 'index.html' if path == '/' else path.lstrip('/'))
+        return target, path, unquote(parsed.fragment or '')
 
     def plain(raw):
         raw = re.sub(r'<(style|script|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.S | re.I)
@@ -795,7 +1051,17 @@ def validate_dist():
                 json.loads(block)
             except Exception as exc:
                 failures.append('%s: invalid JSON-LD block %d (%s)' % (base, i, exc))
+        if base in INTERACTIVE_CALCULATOR_PAGES and not re.search(r'WebApplication', '\n'.join(blocks), flags=re.I):
+            failures.append('%s: calculator is missing WebApplication structured data' % base)
+        if re.search(r'<audio\b|<source\b[^>]*type=["\']audio/', raw, flags=re.I) and not re.search(r'AudioObject', '\n'.join(blocks), flags=re.I):
+            failures.append('%s: audio element is missing AudioObject structured data' % base)
         word_count = len(re.findall(r"\b[\w’'-]+\b", plain(raw)))
+        visible_text = plain(raw)
+        visible_placeholders = re.findall(r'(?i)template provided for review|template for review|should be finalized|needs approval|placeholder regulatory disclosure', visible_text)
+        if visible_placeholders:
+            failures.append('%s: visible placeholder/review language: %s' % (base, ', '.join(sorted(set(visible_placeholders)))))
+        if indexable and not re.search(r'Reviewed by\s+Lori Kamen.*?Last reviewed\s+' + re.escape(REVIEW_DATE), visible_text, flags=re.I | re.S):
+            failures.append('%s: missing visible reviewer and review date' % base)
         if indexable and word_count < 800:
             thin_pages.append({'page': base, 'words': word_count, 'reason': 'below 800-word review threshold'})
         state_slug = state_slug_for_page(base)
@@ -803,15 +1069,19 @@ def validate_dist():
             failures.append('%s: missing official state tax authority citation' % base)
         if indexable and base not in HUB_FILES and not page_citations(base, raw):
             quality['citation_gaps'].append(base)
-        for href in re.findall(r'href=["\']([^"\']+)["\']', raw, flags=re.I):
-            href = html_lib.unescape(href).split('#', 1)[0].split('?', 1)[0]
-            if not href or href.startswith(('#', 'http://', 'https://', '//', 'mailto:', 'tel:', 'javascript:')):
+        for attr, ref in re.findall(r'\b(href|src|poster)=["\']([^"\']+)["\']', raw, flags=re.I):
+            resolved = resolve_site_reference(ref, base)
+            if not resolved:
                 continue
-            target = os.path.normpath(os.path.join(DIST, href.lstrip('/')))
-            if href == '/':
-                target = os.path.join(DIST, 'index.html')
-            if not os.path.isfile(target):
-                failures.append('%s: broken local link %s' % (base, href))
+            target, target_path, fragment = resolved
+            if not os.path.isfile(target) and target_path not in redirect_paths and target_path not in generated_paths:
+                failures.append('%s: broken same-site %s %s' % (base, attr, ref))
+                continue
+            if fragment and os.path.isfile(target):
+                target_raw = open(target, encoding='utf-8', errors='replace').read()
+                anchors = set(re.findall(r'\b(?:id|name)=["\']([^"\']+)["\']', target_raw, flags=re.I))
+                if fragment not in anchors:
+                    failures.append('%s: missing anchor #%s in %s' % (base, fragment, ref))
 
     title_groups = {}
     desc_groups = {}
