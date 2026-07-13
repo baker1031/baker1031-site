@@ -28,6 +28,8 @@ BASE_URL = os.environ.get('BASE_URL', 'https://baker1031.com').rstrip('/')
 BUILD_DATE = os.environ.get('BUILD_DATE', datetime.date.today().isoformat())
 REVIEW_DATE = 'July 12, 2026'
 REVIEW_DATE_ISO = '2026-07-12'
+TITLE_LIMIT = 70
+DESCRIPTION_LIMIT = 155
 
 # These files remain available as authoring/source material but must never be
 # emitted as public, indexable pages.
@@ -227,7 +229,22 @@ def page_title(raw, fallback='Baker 1031 Investments'):
     m = re.search(r'<title[^>]*>(.*?)</title>', raw, flags=re.S | re.I)
     return re.sub(r'\s+', ' ', html_lib.unescape(re.sub(r'<[^>]+>', ' ', m.group(1)))).strip() if m else fallback
 
-def trim_description(value, limit=160):
+def trim_title(value, limit=TITLE_LIMIT):
+    value = re.sub(r'\s+', ' ', html_lib.unescape(str(value))).strip()
+    if len(value) <= limit:
+        return value
+    brand = ' | Baker 1031 Investments'
+    if value.endswith(brand):
+        subject = value[:-len(brand)].rstrip()
+        short_brand = ' | Baker 1031'
+        if len(subject) + len(short_brand) <= limit:
+            return subject + short_brand
+        value = subject
+    if len(value) <= limit:
+        return value
+    return value[:limit - 1].rsplit(' ', 1)[0].rstrip(' ,;:—-') + '…'
+
+def trim_description(value, limit=DESCRIPTION_LIMIT):
     value = re.sub(r'\s+', ' ', html_lib.unescape(str(value))).strip()
     if len(value) <= limit:
         return value
@@ -295,7 +312,7 @@ def faq_schema(raw, canonical):
             })
     if len(items) < 2:
         return None
-    return {'@type': 'FAQPage', 'url': canonical, 'mainEntity': items[:50]}
+    return {'@type': 'FAQPage', '@id': canonical + '#faq', 'url': canonical, 'mainEntity': items[:50]}
 
 def glossary_schema(raw, canonical, title):
     terms = []
@@ -309,6 +326,7 @@ def glossary_schema(raw, canonical, title):
         return None
     return {
         '@type': 'DefinedTermSet',
+        '@id': canonical + '#glossary',
         'name': title,
         'url': canonical,
         'hasDefinedTerm': terms[:100],
@@ -495,18 +513,20 @@ def seo_jsonld(base, title, description, canonical, raw):
     if base == 'jerry-baker-bio.html':
         data = {
             '@context': 'https://schema.org', '@type': ['ProfilePage', 'WebPage'],
-            'url': canonical, 'name': title, 'description': description,
+            '@id': canonical, 'url': canonical, 'name': title, 'description': description,
             'mainEntity': author, 'publisher': publisher,
         }
     elif base not in NOINDEX_PAGES and (base.endswith('.html')):
         data = {
             '@context': 'https://schema.org',
             '@type': 'Article' if base not in HUB_FILES and base not in SEO_META and base not in ('contact.html', 'request-access.html') else 'WebPage',
+            '@id': canonical + ('#article' if base not in HUB_FILES and base not in SEO_META and base not in ('contact.html', 'request-access.html') else '#webpage'),
             'url': canonical, 'headline': title, 'name': title,
             'description': description, 'publisher': publisher,
         }
         if data['@type'] == 'Article':
             data['author'] = author
+            data['mainEntityOfPage'] = canonical
         if citations:
             data['citation'] = citations
         if is_calculator:
@@ -523,6 +543,7 @@ def seo_jsonld(base, title, description, canonical, raw):
         if audio_urls:
             data['associatedMedia'] = {
                 '@type': 'AudioObject',
+                '@id': canonical + '#audio',
                 'contentUrl': audio_urls[0],
                 'name': title + ' audio version',
                 'description': description,
@@ -530,7 +551,7 @@ def seo_jsonld(base, title, description, canonical, raw):
                 'isAccessibleForFree': True,
             }
     else:
-        data = {'@context': 'https://schema.org', '@type': 'WebPage', 'url': canonical, 'name': title, 'description': description, 'publisher': publisher}
+        data = {'@context': 'https://schema.org', '@type': 'WebPage', '@id': canonical, 'url': canonical, 'name': title, 'description': description, 'publisher': publisher}
     if reviewer:
         data['reviewedBy'] = reviewer
         data['dateModified'] = REVIEW_DATE_ISO
@@ -543,6 +564,8 @@ def seo_jsonld(base, title, description, canonical, raw):
         if glossary:
             graph.append(glossary)
     if len(graph) > 1:
+        for entity in graph:
+            entity.pop('@context', None)
         data = {'@context': 'https://schema.org', '@graph': graph}
     return html_json(data)
 
@@ -869,7 +892,7 @@ def seo_inject(html_text, base):
     html_text = ensure_visible_review_and_sources(html_text, base)
     html_text = html_text.replace('[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]', APPROVED_DISCLOSURE_LINK)
     meta = SEO_META.get(base, {})
-    title = meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title())
+    title = trim_title(meta.get('title') or page_title(html_text, base.replace('.html', '').replace('-', ' ').title()))
     description = page_description(base, html_text, meta)
     canonical = BASE_URL + '/' if base in ('index.html', 'baker1031.html') else BASE_URL + '/' + base
     robots = 'noindex, nofollow' if base in NOINDEX_PAGES else 'index, follow'
@@ -933,8 +956,28 @@ def audio_player_html(base, title):
   </audio>
 </div>''' % (html_lib.escape(base, quote=True), label, url, url)
 
+def strip_internal_nofollow(html_text):
+    """Keep internal editorial links crawlable while preserving external policy."""
+    def clean_tag(match):
+        tag = match.group(0)
+        href_m = re.search(r'\bhref=["\']([^"\']+)', tag, flags=re.I)
+        if not href_m:
+            return tag
+        href = html_lib.unescape(href_m.group(1)).strip()
+        parsed = urlparse(href)
+        same_site = (not parsed.scheme and not parsed.netloc and not href.startswith(('#', 'mailto:', 'tel:'))) or (
+            parsed.netloc.lower().removeprefix('www.') == urlparse(BASE_URL).netloc.lower().removeprefix('www.')
+        )
+        if not same_site or 'nofollow' not in tag.lower():
+            return tag
+        tag = re.sub(r'\s+nofollow\b', '', tag, flags=re.I)
+        tag = re.sub(r'\s+rel=["\']\s*["\']', '', tag, flags=re.I)
+        return tag
+    return re.sub(r'<a\b[^>]*>', clean_tag, html_text, flags=re.I)
+
 def inject(html_text, base=''):
     html_text = strip_unused_audio_styles(html_text)
+    html_text = strip_internal_nofollow(html_text)
     html_text = html_text.replace('<!-- @@NAV@@ -->', nav)
     state_note = state_authority_note(base)
     if state_note and 'class="b1031-state-source"' not in html_text:
@@ -996,6 +1039,52 @@ def gate(html_text, base):
         return html_text.replace('</body>', '  ' + GATE_TAG + '\n</body>', 1)
     return html_text + '\n' + GATE_TAG
 
+def generated_sitemap_markup():
+    """Replace the stale hand-maintained HTML sitemap with current build data."""
+    source_files = []
+    for source_dir in ('pages', 'pages-legacy'):
+        source_files.extend(os.path.basename(p) for p in _glob.glob(os.path.join(ROOT, 'src', source_dir, '*.html')))
+    names = set(source_files) | set(generated) | {'index.html'}
+    names -= NOINDEX_PAGES
+    names -= SKIP_SOURCE_PAGES
+    names.discard('sitemap.html')
+
+    def label_for(base):
+        if base == 'index.html':
+            return 'Baker 1031 Investments — Home'
+        if base in SEO_META and SEO_META[base].get('title'):
+            return SEO_META[base]['title']
+        raw = generated.get(base)
+        if raw is None:
+            for source_dir in ('pages', 'pages-legacy'):
+                candidate = os.path.join(ROOT, 'src', source_dir, base)
+                if os.path.isfile(candidate):
+                    raw = open(candidate, encoding='utf-8', errors='replace').read()
+                    break
+        return page_title(raw or '', base[:-5].replace('-', ' ').title())
+
+    def link_item(base, label=None):
+        href = '/' if base == 'index.html' else base
+        return '<li><a href="%s">%s</a></li>' % (href, html_lib.escape(label or label_for(base)))
+
+    def group(title, items, collapsed=False):
+        attrs = '' if not collapsed else ''
+        body = '\n'.join(link_item(base, label) for base, label in items)
+        return '<div class="grp"><h2>%s</h2><hr class="rule"/><div class="cnt">%d pages</div><ul>%s</ul></div>' % (
+            html_lib.escape(title), len(items), body)
+
+    core_names = [base for base in PAGE_DESCRIPTIONS if base in names and base not in ('index.html', 'baker1031.html')]
+    core_items = [(base, label_for(base)) for base in sorted(set(core_names))]
+    offering_items = [('investments.html', 'Current Offerings')]
+    offering_items.extend((row['url'], row['name']) for row in dir_rows if row.get('url') in names)
+    sponsor_items = [('sponsors.html', 'Sponsor Directory')]
+    sponsor_items.extend((row['url'], row['name']) for row in sp_dir if row.get('url') in names)
+    used = set(core_names) | {base for base, _ in offering_items} | {base for base, _ in sponsor_items}
+    research_items = [(base, label_for(base)) for base in sorted(names - used)]
+    groups = [group('Primary Hubs', core_items), group('Current Offerings', offering_items),
+              group('Sponsors', sponsor_items), group('Insights, Guides, Calculators, Locations & Other Research', research_items)]
+    return '<section class="wrap smap">' + ''.join(groups) + '</section>'
+
 shutil.rmtree(DIST, ignore_errors=True)
 os.makedirs(DIST)
 count = 0
@@ -1042,6 +1131,8 @@ for d in ('pages', 'pages-legacy'):
             html_text = re.sub(r'<script type="application/json" id="directory-data">\n.*?\n</script>',
                                lambda _m: '<script type="application/json" id="directory-data">\n' + html_json(sp_dir) + '\n</script>',
                                html_text, flags=re.S)
+        if base == 'sitemap.html':
+            html_text = re.sub(r'<section class="wrap smap">.*?</section>', generated_sitemap_markup(), html_text, count=1, flags=re.S)
         open(os.path.join(DIST, base), 'w').write(gate(inject(html_text, base), base))
         count += 1
 for base, html_text in generated.items():
@@ -1208,8 +1299,12 @@ def validate_dist():
         }
         if indexable and not title_m:
             failures.append('%s: missing title' % base)
+        if indexable and len(page_meta[base]['title']) > TITLE_LIMIT:
+            failures.append('%s: title exceeds %d characters' % (base, TITLE_LIMIT))
         if not desc_m:
             failures.append('%s: missing meta description' % base)
+        if desc_m and len(page_meta[base]['description']) > DESCRIPTION_LIMIT:
+            failures.append('%s: meta description exceeds %d characters' % (base, DESCRIPTION_LIMIT))
         if not canonical_m:
             failures.append('%s: missing canonical URL' % base)
         if not re.search(r'<meta[^>]+property=["\']og:title["\']', raw, flags=re.I) or not re.search(r'<meta[^>]+name=["\']twitter:card["\']', raw, flags=re.I):
@@ -1230,6 +1325,8 @@ def validate_dist():
         for i, block in enumerate(blocks, 1):
             try:
                 parsed = json.loads(block)
+                if not isinstance(parsed, dict) or parsed.get('@context') != 'https://schema.org':
+                    failures.append('%s: JSON-LD block %d has an invalid Schema.org context' % (base, i))
                 entities = parsed.get('@graph', [parsed]) if isinstance(parsed, dict) else []
                 for entity in entities:
                     if not isinstance(entity, dict):
@@ -1239,6 +1336,32 @@ def validate_dist():
                         schema_types.update(str(item) for item in entity_type)
                     elif entity_type:
                         schema_types.add(str(entity_type))
+                    types = set(str(item) for item in entity_type) if isinstance(entity_type, list) else {str(entity_type)} if entity_type else set()
+                    if not types:
+                        failures.append('%s: JSON-LD block %d contains an entity without @type' % (base, i))
+                    if ('Article' in types or 'WebPage' in types) and not entity.get('url'):
+                        failures.append('%s: JSON-LD block %d page entity is missing url' % (base, i))
+                    if 'Article' in types:
+                        for required in ('headline', 'author', 'publisher', 'dateModified'):
+                            if not entity.get(required):
+                                failures.append('%s: Article schema is missing %s' % (base, required))
+                    if 'FAQPage' in types:
+                        questions = entity.get('mainEntity')
+                        if not isinstance(questions, list) or not questions or any(
+                            not isinstance(q, dict) or q.get('@type') != 'Question' or
+                            not q.get('name') or not isinstance(q.get('acceptedAnswer'), dict) or
+                            q['acceptedAnswer'].get('@type') != 'Answer' or not q['acceptedAnswer'].get('text')
+                            for q in questions
+                        ):
+                            failures.append('%s: FAQPage schema has an invalid question/answer structure' % base)
+                    if 'WebApplication' in types:
+                        for required in ('name', 'url', 'applicationCategory', 'operatingSystem'):
+                            if not entity.get(required):
+                                failures.append('%s: WebApplication schema is missing %s' % (base, required))
+                    if 'AudioObject' in types and not entity.get('contentUrl'):
+                        failures.append('%s: AudioObject schema is missing contentUrl' % base)
+                    if 'DefinedTermSet' in types and not isinstance(entity.get('hasDefinedTerm'), list):
+                        failures.append('%s: DefinedTermSet schema is missing hasDefinedTerm' % base)
             except Exception as exc:
                 failures.append('%s: invalid JSON-LD block %d (%s)' % (base, i, exc))
         if base in INTERACTIVE_CALCULATOR_PAGES and not re.search(r'WebApplication', '\n'.join(blocks), flags=re.I):

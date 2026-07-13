@@ -4,7 +4,7 @@ Static, data-driven website for Baker 1031 Investments. Netlify builds the site 
 
 ## Current build
 
-- 27 core source pages in src/pages/
+- 29 core source pages in src/pages/
 - 678 editorial and location pages in src/pages-legacy/
 - 63 offering pages and 85 sponsor pages generated from the workbook
 - Approximately 854 HTML pages emitted to dist/ (the exact count follows the live workbook)
@@ -38,10 +38,13 @@ ci_build.py:
 7. Runs validation gates across every emitted HTML page:
    - no public placeholder copy
    - title and description present
+   - titles at or below 70 characters and descriptions at or below 155 characters
    - canonical present
    - Open Graph and Twitter metadata present
    - valid JSON-LD
+   - required Schema.org entity fields and FAQ/calculator/audio structures
    - no duplicate IDs
+   - internal links remain followable and the generated HTML sitemap links current build pages
    - no broken local links
    - no duplicate indexable titles or descriptions
 
