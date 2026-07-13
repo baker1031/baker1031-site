@@ -958,6 +958,10 @@ def audio_player_html(base, title):
 
 def strip_internal_nofollow(html_text):
     """Keep internal editorial links crawlable while preserving external policy."""
+    base_host = urlparse(BASE_URL).netloc.lower()
+    if base_host.startswith('www.'):
+        base_host = base_host[4:]
+
     def clean_tag(match):
         tag = match.group(0)
         href_m = re.search(r'\bhref=["\']([^"\']+)', tag, flags=re.I)
@@ -965,8 +969,11 @@ def strip_internal_nofollow(html_text):
             return tag
         href = html_lib.unescape(href_m.group(1)).strip()
         parsed = urlparse(href)
+        parsed_host = parsed.netloc.lower()
+        if parsed_host.startswith('www.'):
+            parsed_host = parsed_host[4:]
         same_site = (not parsed.scheme and not parsed.netloc and not href.startswith(('#', 'mailto:', 'tel:'))) or (
-            parsed.netloc.lower().removeprefix('www.') == urlparse(BASE_URL).netloc.lower().removeprefix('www.')
+            parsed_host == base_host
         )
         if not same_site or 'nofollow' not in tag.lower():
             return tag
