@@ -63,8 +63,66 @@ The optional `apps-script/sheet-trigger.gs` file is not a second website or a se
 Required Netlify environment variables:
 
 - EMPLOYEE_PASSWORD
-- CLERK_SECRET_KEY or ATTIO_API_TOKEN
+- ATTIO_API_TOKEN
+- CLERK_SECRET_KEY
+- RESEND_API_KEY (required for portal invitation email delivery)
 - CAL_WEBHOOK_SECRET
+
+Optional contact-sync variables, used by `attio-google-contact-sync.mjs`:
+
+- ATTIO_CONTACT_WEBHOOK_SECRET
+- GOOGLE_CONTACTS_SYNC_WEBHOOK_URL
+- ATTIO_PEOPLE_OBJECT_ID
+
+Optional Constant Contact sync variables, used by
+`attio-constant-contact-sync.mjs`:
+
+- `ATTIO_CONSTANT_CONTACT_WEBHOOK_SECRET`
+- `ATTIO_CONSTANT_CONTACT_LIST_MAP` — JSON mapping of Attio List UUIDs to
+  Constant Contact List UUIDs, for example `{"attio-list-id":"cc-list-id"}`
+- `ATTIO_CONSTANT_CONTACT_AUTO_CREATE_DEAL_LISTS` — automatically match or
+  create Constant Contact lists for Attio lists whose `api_slug` starts with
+  `deal-` (defaults to enabled; set to `false` to disable)
+- `ATTIO_API_TOKEN` — must include Attio list-configuration read access when
+  automatic deal-list mapping is enabled
+- `CONSTANT_CONTACT_CLIENT_ID`
+- `CONSTANT_CONTACT_CLIENT_SECRET`
+- `CONSTANT_CONTACT_REFRESH_TOKEN` (preferred; request the `contact_data` and
+  `offline_access` scopes)
+- `CONSTANT_CONTACT_ACCESS_TOKEN` and optional
+  `CONSTANT_CONTACT_ACCESS_TOKEN_EXPIRES_AT` (fallback for a manually issued
+  token)
+
+### Attio -> Constant Contact list sync
+
+The sync is one-way and list-scoped. Configure an Attio V2 webhook with
+`list.created`, `list-entry.created`, `list-entry.updated`, and
+`list-entry.deleted` events,
+filtered to the explicitly mapped Attio Lists and/or the dynamically-created
+deal lists, with this target:
+
+```text
+https://baker1031.com/.netlify/functions/attio-constant-contact-sync
+```
+
+Adding or updating an entry adds the person to the mapped Constant Contact
+List. Removing an Attio entry removes
+only that Constant Contact list membership; it does not delete the contact or
+change an unsubscribe state. The mapped Attio List should therefore represent
+explicit marketing consent, not a general CRM segment.
+
+For automatically-created deal lists, the function uses the Attio list name to
+find or create a same-named Constant Contact list when the Attio list is
+created or receives its first entry. It does not create a new
+Constant Contact contact from a deal-list assignment; only people already in
+Constant Contact are added to the automatically-created list. Explicitly
+mapped consent lists retain the normal behavior of adding a new opted-in
+contact.
+
+The Constant Contact OAuth app must have `contact_data` and `offline_access`
+scopes. Automatic list creation additionally requires Constant Contact list-write
+access. The function preserves a Constant Contact `unsubscribed` contact and
+will not resubscribe that person from an Attio list edit.
 
 Do not rely on fallback credentials; the functions fail closed when these values are missing.
 

@@ -16,6 +16,7 @@ import datetime
 import hashlib
 import html as html_lib
 import io, json, os, posixpath, re, shutil, sys, unicodedata, urllib.request
+from decimal import Decimal, ROUND_HALF_UP
 from urllib.parse import unquote, urljoin, urlparse
 
 import openpyxl
@@ -180,7 +181,9 @@ def pct(v, dp=2):
     if v in (None, ''): return ''
     if isinstance(v, (int, float)):
         n = v * 100 if abs(v) <= 1.5 else v
-        return ('{:.' + str(dp) + 'f}%').format(n)
+        quantum = Decimal('1').scaleb(-dp)
+        rounded = Decimal(str(n)).quantize(quantum, rounding=ROUND_HALF_UP)
+        return format(rounded, '.' + str(dp) + 'f') + '%'
     return str(v).strip()
 
 def money(v):
@@ -1221,7 +1224,8 @@ def externalize_repeated_css():
             if attrs or len(body) < 500:
                 return match.group(0)
             digest = hashlib.sha1(body.encode('utf-8')).hexdigest()[:12]
-            if digest not in repeated:
+            shared_path = os.path.join(DIST, 'assets', 'shared-' + digest + '.css')
+            if digest not in repeated or not os.path.isfile(shared_path):
                 return match.group(0)
             replaced += 1
             return '<link rel="stylesheet" href="assets/shared-%s.css">' % digest

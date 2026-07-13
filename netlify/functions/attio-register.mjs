@@ -2,6 +2,7 @@
 // The Attio token lives ONLY here, as the ATTIO_API_TOKEN env var — never in the page.
 import { readPortal, writePortal, newId } from './portal-common.mjs';
 import { sendMail } from './mailer.mjs';
+import { provisionPortalRecord } from './portal-provision.mjs';
 const ATTIO = 'https://api.attio.com/v2';
 
 // #1: funnel status differentiates registered-but-not-scheduled from scheduled.
@@ -241,9 +242,8 @@ export default async (req) => {
     }
   }
 
-  // 4) lifecycle emails (Resend). Portal provisioning is deliberately not done
-  // here: portal_access is the Attio trigger and attio-webhook owns Clerk + the
-  // portal email, whether access was set by this form, Cal.com, or an Attio user.
+  // 4) lifecycle emails (Resend). Portal access is provisioned directly here
+  // after a booked call; the Attio webhook remains an idempotent retry path.
   const first = d.firstName || d.preferredName || '';
   const schedUrl = (process.env.SITE_URL || 'https://www.baker1031.com') + '/request-access.html';
   let welcomeEmail = null;
@@ -252,7 +252,21 @@ export default async (req) => {
     if (!welcomeEmail.ok) console.error('Registration welcome email failed', { email: d.email, welcomeEmail });
   }
 
-  return json({ ok: true, recordId, provisioning: d.callBooked ? 'attio-webhook' : undefined, welcomeEmail });
+  let provisioning = undefined;
+  if (d.callBooked) {
+    try {
+      provisioning = await provisionPortalRecord(recordId, {
+        attioToken: token,
+        clerkSecret: process.env.CLERK_SECRET_KEY,
+        site: process.env.SITE_URL || 'https://www.baker1031.com',
+      });
+    } catch (e) {
+      provisioning = { ok: false, status: 'pending', error: String(e && e.message || e) };
+      console.error('Direct portal provisioning failed', { recordId, error: e });
+    }
+  }
+
+  return json({ ok: true, recordId, provisioning, welcomeEmail });
 };
 
 function json(obj, status = 200) {
