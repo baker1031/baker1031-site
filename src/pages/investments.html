@@ -858,6 +858,12 @@
   .dir-table a.inv-name:hover { text-decoration: underline; }
   .dir-table .sub { display: block; font-weight: 400; color: #777; font-size: 12px; margin-top: 2px; }
   .dir-table .btn-access { display: inline-block; margin-top: 0; padding: 4px 8px; font-size: 12px; white-space: nowrap; }
+  .directory-section { margin-top: 24px; }
+  .directory-section:first-of-type { margin-top: 0; }
+  .directory-section h2 { margin: 0 0 4px; }
+  .directory-section .section-note { color: #777; font-size: 13px; margin: 0 0 10px; }
+  .closed-section { border-top: 1px solid #ccc; padding-top: 24px; }
+  .investment-status.status-closed { background: #f1f1f1; color: #666; }
   .investment-cell { min-width: 0; }
   .investment-heading { display: flex; align-items: flex-start; gap: 5px; }
   .investment-heading .inv-name { min-width: 0; }
@@ -1057,8 +1063,7 @@
       <div class="mobile-sort">
         <label for="sortSelect">Sort by</label>
         <select id="sortSelect">
-          <option value="">Default</option>
-          <option value="name">Investment</option>
+          <option value="name" selected>Investment (A–Z)</option>
           <option value="propertyType">Property Type</option>
           <option value="location">Location</option>
           <option value="ltv">LTV</option>
@@ -1071,31 +1076,65 @@
       <button type="button" id="savedToggle" class="saved-toggle"><span class="star">&#9734;</span> <span id="savedToggleLabel">Show saved</span></button>
     </div>
 
-    <div class="dir-table-wrap">
-      <table class="dir-table">
-        <colgroup>
-          <col style="width: 34%">
-          <col style="width: 14%">
-          <col style="width: 11%">
-          <col style="width: 9%">
-          <col style="width: 11%">
-          <col style="width: 14%">
-          <col style="width: 7%">
-        </colgroup>
-        <thead>
-          <tr>
-            <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
-            <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
-            <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
-            <th class="sortable" data-key="ltv">LTV<span class="arrow"></span></th>
-            <th class="sortable" data-key="minimum">Minimum<span class="arrow"></span></th>
-            <th class="sortable" data-key="y1Yield" title="Sort by Year 1 yield">Yield <span class="sub">Y1 / Avg.</span><span class="arrow"></span></th>
-            <th aria-label="Preview"></th>
-          </tr>
-        </thead>
-        <tbody id="dirBody"></tbody>
-      </table>
-    </div>
+    <section class="directory-section" aria-labelledby="current-offerings-heading">
+      <h2 class="optima" id="current-offerings-heading">Current and Upcoming Offerings</h2>
+      <p class="section-note">Available, limited-availability, and coming-soon offerings are shown here.</p>
+      <div class="dir-table-wrap">
+        <table class="dir-table">
+          <colgroup>
+            <col style="width: 34%">
+            <col style="width: 14%">
+            <col style="width: 11%">
+            <col style="width: 9%">
+            <col style="width: 11%">
+            <col style="width: 14%">
+            <col style="width: 7%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
+              <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
+              <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
+              <th class="sortable" data-key="ltv">LTV<span class="arrow"></span></th>
+              <th class="sortable" data-key="minimum">Minimum<span class="arrow"></span></th>
+              <th class="sortable" data-key="y1Yield" title="Sort by Year 1 yield">Yield <span class="sub">Y1 / Avg.</span><span class="arrow"></span></th>
+              <th aria-label="Preview"></th>
+            </tr>
+          </thead>
+          <tbody id="dirBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="directory-section closed-section" id="closed-offerings" aria-labelledby="closed-offerings-heading" hidden>
+      <h2 class="optima" id="closed-offerings-heading">Closed Offerings</h2>
+      <p class="section-note">These offerings are retained for historical research and are not currently available for investment.</p>
+      <div class="dir-table-wrap">
+        <table class="dir-table">
+          <colgroup>
+            <col style="width: 34%">
+            <col style="width: 14%">
+            <col style="width: 11%">
+            <col style="width: 9%">
+            <col style="width: 11%">
+            <col style="width: 14%">
+            <col style="width: 7%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="sortable" data-key="name">Investment<span class="arrow"></span></th>
+              <th class="sortable" data-key="propertyType">Property Type<span class="arrow"></span></th>
+              <th class="sortable" data-key="location">Location<span class="arrow"></span></th>
+              <th class="sortable" data-key="ltv">LTV<span class="arrow"></span></th>
+              <th class="sortable" data-key="minimum">Minimum<span class="arrow"></span></th>
+              <th class="sortable" data-key="y1Yield" title="Sort by Year 1 yield">Yield <span class="sub">Y1 / Avg.</span><span class="arrow"></span></th>
+              <th aria-label="Preview"></th>
+            </tr>
+          </thead>
+          <tbody id="closedDirBody"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
 <!-- @@FOOTER@@ -->
@@ -2074,7 +2113,9 @@ var DIR = [];
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
   var tbody = document.getElementById('dirBody');
-  var sortKey = null, sortDir = 1;
+  var closedTbody = document.getElementById('closedDirBody');
+  var closedSection = document.getElementById('closed-offerings');
+  var sortKey = 'name', sortDir = 1;
 
   function bmKey(o) { return 'b1031-bookmark-' + String(o.url || '').replace(/\.html$/, ''); }
   function isBm(o) { try { return localStorage.getItem(bmKey(o)) === '1'; } catch (e) { return false; } }
@@ -2084,15 +2125,21 @@ var DIR = [];
   var savedOnly = false;
   function paint() {
     var rows = savedOnly ? baseRows.filter(isBm) : baseRows;
-    renderRows(rows);
+    var currentRows = rows.filter(function (o) { return String(o.status).toLowerCase() !== 'closed'; });
+    var closedRows = rows.filter(function (o) { return String(o.status).toLowerCase() === 'closed'; });
+    renderRows(tbody, currentRows);
+    renderRows(closedTbody, closedRows);
+    closedSection.hidden = !closedRows.length;
     if (savedOnly && !rows.length) {
       tbody.innerHTML = '<tr><td colspan="7" style="padding:20px;color:#888;">No saved investments yet. Tap the ☆ on any row (or the Bookmark button on an offering page) to save it here.</td></tr>';
+      closedSection.hidden = true;
     }
   }
-  function renderRows(rows) {
-    tbody.innerHTML = rows.map(function (o) {
+  function renderRows(target, rows) {
+    target.innerHTML = rows.map(function (o) {
       var i = DIR.indexOf(o);
       var statusCls = o.status === 'Available' ? 'status-available' : '';
+      if (String(o.status).toLowerCase() === 'closed') statusCls = 'status-closed';
       var saved = isBm(o);
       return '<tr>' +
         '<td class="investment-cell"><div class="investment-heading"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a></div>' +
@@ -2112,21 +2159,25 @@ var DIR = [];
     var n = parseFloat(String(s).replace(/[$,%]/g, '').replace(/,/g, ''));
     return isNaN(n) ? null : n;
   }
-  function doSort(key) {
-    if (sortKey === key) { sortDir = -sortDir; } else { sortKey = key; sortDir = 1; }
-    var rows = DIR.slice().sort(function (a, b) {
-      var av = a[key], bv = b[key];
-      var an = numVal(av), bn = numVal(bv);
-      var r;
-      if (an !== null && bn !== null) { r = an - bn; }
-      else { r = String(av).toLowerCase().localeCompare(String(bv).toLowerCase()); }
-      return r * sortDir;
-    });
+  function compareRows(a, b) {
+    var av = a[sortKey], bv = b[sortKey];
+    var an = numVal(av), bn = numVal(bv);
+    var r;
+    if (an !== null && bn !== null) { r = an - bn; }
+    else { r = String(av).toLowerCase().localeCompare(String(bv).toLowerCase()); }
+    return r * sortDir;
+  }
+  function updateSortIndicators() {
     document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
       th.querySelector('.arrow').textContent =
         th.getAttribute('data-key') === sortKey ? (sortDir === 1 ? '\u25B2' : '\u25BC') : '';
     });
-    baseRows = rows; paint();
+  }
+  function doSort(key) {
+    if (sortKey === key) { sortDir = -sortDir; } else { sortKey = key; sortDir = 1; }
+    baseRows = DIR.slice().sort(compareRows);
+    updateSortIndicators();
+    paint();
   }
   document.querySelectorAll('.dir-table th.sortable').forEach(function (th) {
     th.addEventListener('click', function () { doSort(th.getAttribute('data-key')); });
@@ -2135,22 +2186,22 @@ var DIR = [];
   var sortSelect = document.getElementById('sortSelect');
   if (sortSelect) {
     sortSelect.addEventListener('change', function () {
-      if (!this.value) { sortKey = null; sortDir = 1; baseRows = DIR.slice(); paint(); return; }
-      sortKey = null; // force ascending on fresh pick
-      doSort(this.value);
+      if (this.value) doSort(this.value);
     });
   }
 
-  // star click (event delegation) \u2014 toggles the shared bookmark key
-  tbody.addEventListener('click', function (e) {
-    var btn = e.target.closest ? e.target.closest('.dir-star') : null;
-    if (!btn) return;
-    var o = DIR[+btn.getAttribute('data-i')]; if (!o) return;
-    var next = !isBm(o); setBm(o, next);
-    btn.textContent = next ? '\u2605' : '\u2606';
-    btn.classList.toggle('on', next);
-    btn.setAttribute('aria-pressed', next ? 'true' : 'false');
-    if (savedOnly && !next) paint(); // drop it from the filtered view
+  // star click (event delegation) — toggles the shared bookmark key
+  document.querySelectorAll('.dir-table tbody').forEach(function (body) {
+    body.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.dir-star') : null;
+      if (!btn) return;
+      var o = DIR[+btn.getAttribute('data-i')]; if (!o) return;
+      var next = !isBm(o); setBm(o, next);
+      btn.textContent = next ? '\u2605' : '\u2606';
+      btn.classList.toggle('on', next);
+      btn.setAttribute('aria-pressed', next ? 'true' : 'false');
+      if (savedOnly && !next) paint(); // drop it from the filtered view
+    });
   });
 
   var savedToggle = document.getElementById('savedToggle');
@@ -2167,6 +2218,8 @@ var DIR = [];
   // refresh stars when returning to the tab (bookmarks may have changed on an offering page)
   document.addEventListener('visibilitychange', function () { if (!document.hidden) paint(); });
 
+  baseRows = DIR.slice().sort(compareRows);
+  updateSortIndicators();
   paint();
 })();
 
