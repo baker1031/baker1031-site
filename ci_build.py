@@ -24,6 +24,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
 SHEET_ID = os.environ.get('SHEET_ID', '1vTqb5YX8pFjZxToGd2pJ_ncPbny2PXpW5gXx-7IlyZg')
 GA4_MEASUREMENT_ID = os.environ.get('GA4_MEASUREMENT_ID', 'G-P29LR49RL8')
+# Clarity project IDs are public client-side configuration, so this fallback
+# keeps local previews and Netlify builds aligned while still allowing an
+# environment override for a future project change.
+CLARITY_PROJECT_ID = os.environ.get('CLARITY_PROJECT_ID', 'xly64re3u1').strip()
 BASE_URL = os.environ.get('BASE_URL', 'https://baker1031.com').rstrip('/')
 BUILD_DATE = os.environ.get('BUILD_DATE', datetime.date.today().isoformat())
 REVIEW_DATE = 'July 12, 2026'
@@ -369,6 +373,12 @@ def normalize_editorial_identity(raw, base=''):
     raw = raw.replace(
         'https://www.irs.gov/credits-deductions/businesses/opportunity-zones-frequently-asked-questions',
         'https://www.irs.gov/credits-deductions/opportunity-zones-frequently-asked-questions')
+    raw = raw.replace(
+        'https://www.sec.gov/page/staff-statement-opportunity-zones-federal-and-state-securities-laws-considerations',
+        'https://www.sec.gov/resources-for-investors/investor-alerts-bulletins/private-placements-under-regulation-d-investor-bulletin')
+    raw = raw.replace(
+        'SEC &amp; NASAA — Staff Statement on Opportunity Zones: Federal and State Securities Laws Considerations',
+        'SEC Investor Bulletin on Private Placements Under Regulation D')
     raw = raw.replace('https://www.irs.gov/irb/2000-40_IRB', 'https://www.irs.gov/pub/irs-irbs/irb00-37.pdf')
     raw = raw.replace('tax-free exclusion', 'potential federal exclusion for eligible appreciation')
     # Keep tax-benefit language explicitly conditional, including capitalized
@@ -833,6 +843,16 @@ FAVICON_TAG = """<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="manifest" href="/site.webmanifest">"""
 ANALYTICS_SCRIPT = '<script src="assets/analytics.js" defer></script>'
 ANALYTICS_EXCLUDE = {'employee.html'}
+# Clarity is intentionally limited to public pages. Do not record the employee
+# terminal, authenticated investor account, or registration/accreditation flow.
+CLARITY_EXCLUDE = {'employee.html', 'account.html', 'request-access.html'}
+CLARITY_TAG = '''<script>
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "%s");
+</script>''' % CLARITY_PROJECT_ID
 # Sentry's browser loader is the official project-specific snippet generated in
 # the Sentry project settings. It is intentionally limited to public site
 # pages; the employee terminal is excluded so internal operational data is not
@@ -854,6 +874,29 @@ RELATED_HUBS_HTML = """<section class="b1031-related" aria-label="Explore Baker 
     </div>
   </div>
 </section>"""
+
+ORPHAN_RESOURCE_LINKS = {
+    'glossary.html': """<section class="b1031-related" aria-label="Related glossary resources">
+  <div class="b1031-related-inner">
+    <div class="b1031-related-kicker">Related glossary resources</div>
+    <div class="b1031-related-links">
+      <a href="glossary-drop-and-swap.html">Drop-and-Swap</a>
+      <a href="glossary-qualified-intermediary-bond.html">Qualified Intermediary Bond</a>
+      <a href="glossary-realized-gain-vs-recognized-gain.html">Realized vs. Recognized Gain</a>
+      <a href="glossary-dst-vs-tic.html">DST vs. TIC</a>
+      <a href="glossary-securitized-real-estate.html">Securitized Real Estate</a>
+    </div>
+  </div>
+</section>""",
+    'due-diligence.html': """<section class="b1031-related" aria-label="Related due diligence resources">
+  <div class="b1031-related-inner">
+    <div class="b1031-related-kicker">Related due-diligence resource</div>
+    <div class="b1031-related-links">
+      <a href="ppm-review-checklist.html">Interactive PPM Review Checklist</a>
+    </div>
+  </div>
+</section>""",
+}
 
 def seo_inject(html_text, base):
     html_text = normalize_editorial_identity(html_text, base)
@@ -982,6 +1025,41 @@ def strip_internal_nofollow(html_text):
         return tag
     return re.sub(r'<a\b[^>]*>', clean_tag, html_text, flags=re.I)
 
+def normalize_internal_hrefs(html_text):
+    """Point same-site links directly at emitted canonical HTML files.
+
+    Older research pages used extensionless relative links such as
+    ``calculators``. Netlify correctly redirects those URLs, but every source
+    link should go directly to the final file so crawlers and visitors avoid
+    a needless hop.
+    """
+    def rewrite(match):
+        attr, quote, ref = match.group(1), match.group(2), html_lib.unescape(match.group(3))
+        if not ref or ref.startswith(('#', 'mailto:', 'tel:', 'javascript:', 'data:', '//')):
+            return match.group(0)
+        parsed = urlparse(ref)
+        site_host = urlparse(BASE_URL).netloc.lower()
+        parsed_host = parsed.netloc.lower()
+        if site_host.startswith('www.'):
+            site_host = site_host[4:]
+        if parsed_host.startswith('www.'):
+            parsed_host = parsed_host[4:]
+        same_site = (not parsed.netloc and not parsed.scheme) or parsed_host == site_host
+        if not same_site:
+            return match.group(0)
+        path = parsed.path or ''
+        if not path or path == '/' or path.endswith('/') or path.endswith('.html'):
+            return match.group(0)
+        clean_path = path.lstrip('/')
+        if '/' in clean_path or not os.path.isfile(os.path.join(DIST, clean_path + '.html')):
+            return match.group(0)
+        new_path = '/' + clean_path + '.html'
+        if not parsed.netloc and not parsed.scheme:
+            new_path = clean_path + '.html'
+        new_ref = new_path + (('?' + parsed.query) if parsed.query else '') + (('#' + parsed.fragment) if parsed.fragment else '')
+        return '%s=%s%s%s' % (attr, quote, html_lib.escape(new_ref, quote=True), quote)
+    return re.sub(r'\b(href|src|poster)=("|\')([^"\']*)\2', rewrite, html_text, flags=re.I)
+
 def inject(html_text, base=''):
     html_text = strip_unused_audio_styles(html_text)
     html_text = strip_internal_nofollow(html_text)
@@ -993,7 +1071,10 @@ def inject(html_text, base=''):
         elif '</main>' in html_text.lower():
             html_text = re.sub(r'(</main>)', state_note + '\n\\1', html_text, count=1, flags=re.I)
     if base not in NOINDEX_PAGES and '<!-- @@FOOTER@@ -->' in html_text:
-        html_text = html_text.replace('<!-- @@FOOTER@@ -->', RELATED_HUBS_HTML + '\n<!-- @@FOOTER@@ -->', 1)
+        related = RELATED_HUBS_HTML
+        if base in ORPHAN_RESOURCE_LINKS:
+            related += '\n' + ORPHAN_RESOURCE_LINKS[base]
+        html_text = html_text.replace('<!-- @@FOOTER@@ -->', related + '\n<!-- @@FOOTER@@ -->', 1)
     html_text = html_text.replace('<!-- @@FOOTER@@ -->', footer)
     if base not in NOINDEX_PAGES:
         html_text = html_text.replace('<!-- @@REVIEW_NOTE@@ -->', REVIEW_NOTE_HTML)
@@ -1019,6 +1100,8 @@ def inject(html_text, base=''):
         html_text = html_text.replace('</head>', ANALYTICS_SCRIPT + '\n</head>', 1)
     if base not in SENTRY_EXCLUDE and SENTRY_TAG not in html_text and '</head>' in html_text:
         html_text = html_text.replace('</head>', SENTRY_TAG + '\n</head>', 1)
+    if CLARITY_PROJECT_ID and base not in CLARITY_EXCLUDE and CLARITY_TAG not in html_text and '</head>' in html_text:
+        html_text = html_text.replace('</head>', CLARITY_TAG + '\n</head>', 1)
     return html_text
 
 # Pages that stay OPEN (no soft gate): home, registration, About group, contact,
@@ -1158,6 +1241,15 @@ open(os.path.join(DIST, 'site.webmanifest'), 'w').write(json.dumps({
 home_source = open(os.path.join(ROOT, 'src', 'pages', 'baker1031.html')).read()
 open(os.path.join(DIST, 'index.html'), 'w').write(gate(inject(home_source, 'index.html'), 'index.html'))
 print('built %d pages -> dist/' % (count + 1))
+
+# Normalize links only after all source and generated pages have been written,
+# so the emitted file list is the source of truth for canonical targets.
+for _p in sorted(f for f in os.listdir(DIST) if f.endswith('.html')):
+    _path = os.path.join(DIST, _p)
+    _raw = open(_path, encoding='utf-8', errors='replace').read()
+    _updated = normalize_internal_hrefs(_raw)
+    if _updated != _raw:
+        open(_path, 'w', encoding='utf-8').write(_updated)
 
 # Build a compact, public search index from indexable page titles, descriptions,
 # headings, and introductory copy. It keeps search entirely client-side: no
