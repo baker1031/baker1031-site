@@ -108,17 +108,9 @@ REVIEWER = {
     'identifier': {'@type': 'PropertyValue', 'propertyID': 'FINRA CRD', 'value': '2805591'},
     'sameAs': ['https://brokercheck.finra.org/individual/summary/2805591'],
 }
-REVIEW_NOTE_HTML = (
-    '<p class="b1031-review-note"><strong>Reviewed by</strong> '
-    '<a href="https://brokercheck.finra.org/individual/summary/2805591" '
-    'target="_blank" rel="noopener noreferrer">Lori Kamen</a> — '
-    'Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591). '
-    'Last reviewed %s.</p>' % REVIEW_DATE
-)
-
-REVIEW_NOTE_HTML = '''<section class="b1031-review-note" aria-label="Content review">
-  <strong>Reviewed by Lori Kamen</strong> — Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591). Last reviewed July 11, 2026. Educational content is reviewed periodically for accuracy and regulatory compliance; current law, offering terms, and suitability depend on the applicable facts and documents.
-</section>'''
+REVIEW_NOTE_HTML = '''<p>
+Reviewed by Lori Kamen — Chief Compliance Officer, Aurora Securities, Inc. (FINRA CRD #2805591). Last reviewed July 12, 2026. Educational content is reviewed periodically for accuracy and regulatory compliance; current law, offering terms, and suitability depend on the applicable facts and documents.
+</p>'''
 
 CURRENT_1031_SOURCE_NOTE = '''<p class="b1031-current-law-source">Current-law source reviewed July 11, 2026: <a href="https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips" target="_blank" rel="noopener noreferrer">IRS guidance on like-kind exchanges</a>. Section 1031 treatment depends on the property, taxpayer, timing, and transaction documents; confirm current treatment with your CPA and attorney.</p>'''
 
@@ -326,7 +318,7 @@ def ensure_visible_review_and_sources(raw, base):
     if base in NOINDEX_PAGES:
         return raw
     visible = re.sub(r'<(style|script|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.S | re.I)
-    if not re.search(r'(?:class=["\'][^"\']*review-note|Reviewed by\s+Lori Kamen)', visible, flags=re.I):
+    if not re.search(r'(?:class=["\'][^"\']*review-note|Reviewed by\s+Lori Kamen)', visible, flags=re.I) and '<!-- @@REVIEW_NOTE@@ -->' not in raw:
         if re.search(r'</main>', raw, flags=re.I):
             raw = re.sub(r'</main>', REVIEW_NOTE_HTML + '\n</main>', raw, count=1, flags=re.I)
         elif re.search(r'</body>', raw, flags=re.I):

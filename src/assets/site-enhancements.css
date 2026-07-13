@@ -55,7 +55,6 @@
   font-weight: 700;
 }
 
-.b1031-review-note,
 .b1031-current-law-source {
   max-width: 960px;
   margin: 18px auto 0;
@@ -67,7 +66,6 @@
   line-height: 1.55;
 }
 
-.b1031-review-note strong,
 .b1031-current-law-source a {
   color: #243856;
   font-weight: 700;
@@ -225,6 +223,5 @@
 @media (max-width: 640px) {
   .b1031-related { padding: 16px; }
   .b1031-related-links { display: grid; gap: 8px; }
-  .b1031-review-note,
   .b1031-current-law-source { margin-left: 16px; margin-right: 16px; }
 }
