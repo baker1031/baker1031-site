@@ -1590,7 +1590,7 @@
     var prog=document.getElementById('prog');
     var links=[].slice.call(document.querySelectorAll('.toc a'));
     var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
-    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
+    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;if(prog)prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
     addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
     var cl=document.getElementById('copylink');cl&&cl.addEventListener('click',function(e){e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
     var pb=document.getElementById('printbtn');pb&&pb.addEventListener('click',function(e){e.preventDefault();window.print();});

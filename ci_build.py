@@ -848,7 +848,13 @@ def externalize_repeated_css():
             entry['pages'].add(base)
     repeated = {k: v for k, v in occurrences.items() if len(v['pages']) >= 2}
     for digest, entry in repeated.items():
-        open(os.path.join(DIST, 'assets', 'shared-' + digest + '.css'), 'w').write(entry['body'] + '\n')
+        # The original inline CSS lived in a page at the dist root, where
+        # url(assets/foo) resolved correctly. Shared styles now live inside
+        # dist/assets, so keep those references relative to that directory.
+        shared_body = re.sub(r'url\(\s*(["\']?)assets/([^"\')]+)\1\s*\)',
+                             lambda m: 'url(%s%s%s)' % (m.group(1), m.group(2), m.group(1)),
+                             entry['body'])
+        open(os.path.join(DIST, 'assets', 'shared-' + digest + '.css'), 'w').write(shared_body + '\n')
     replaced = 0
     for base in sorted(f for f in os.listdir(DIST) if f.endswith('.html')):
         path = os.path.join(DIST, base)
@@ -989,6 +995,15 @@ def validate_dist():
                 target = os.path.join(DIST, 'index.html')
             if not os.path.isfile(target):
                 failures.append('%s: broken local link %s' % (base, href))
+
+    for asset in sorted(f for f in os.listdir(os.path.join(DIST, 'assets')) if f.endswith('.css')):
+        css_path = os.path.join(DIST, 'assets', asset)
+        css = open(css_path, encoding='utf-8', errors='replace').read()
+        for css_url in re.findall(r'url\(\s*["\']?([^"\')]+)', css, flags=re.I):
+            if css_url.startswith(('data:', 'http://', 'https://', '//', '#')):
+                continue
+            if not os.path.isfile(os.path.normpath(os.path.join(os.path.dirname(css_path), css_url))):
+                failures.append('%s: broken CSS asset URL %s' % (asset, css_url))
 
     title_groups = {}
     desc_groups = {}
