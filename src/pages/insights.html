@@ -1052,9 +1052,11 @@
 
   .pagination {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 6px;
+    max-width: 100%;
     margin-top: 22px;
   }
   .page-btn {
@@ -1073,6 +1075,10 @@
   .page-btn:disabled { color: #ccc; cursor: default; box-shadow: none; }
   .page-btn .pg-caret { color: #ff9900; font-weight: 900; font-size: 12px; }
   .page-btn:disabled .pg-caret { color: #ccc; }
+  @media (max-width: 640px) {
+    .pagination { gap: 4px; padding: 0 8px; box-sizing: border-box; }
+    .page-btn { min-width: 28px; padding: 0 5px; }
+  }
 </style>
 </head>
 <body>

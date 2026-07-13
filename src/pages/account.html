@@ -1314,7 +1314,7 @@
     var out=[];
     (p.goals||[]).forEach(function(g){ if(GOAL_CONTENT[g]) out.push(GOAL_CONTENT[g]); });
     var st=p.exchangeStatus||'';
-    if(/Actively in 1031/i.test(st)) out.push({h:"Your exchange clock is running",p:"You're inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. We can identify suitable DSTs quickly so you never risk the exchange; DSTs are often used precisely because they can close fast within the window."});
+    if(/Actively in 1031/i.test(st)) out.push({h:"Your exchange clock is running",p:"You're inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. We can help you organize replacement-property research while you confirm timing, availability, and qualification with your qualified intermediary and tax adviser."});
     else if(/listed for sale|Thinking about/i.test(st)) out.push({h:"Line up replacements before you close",p:"The best exchanges are planned before the sale closes. We can pre-screen DSTs that fit your equity and debt so you're ready to identify on day one."});
     else if(/Non-1031 cash/i.test(st)) out.push({h:"Cash investors welcome",p:"DSTs aren't only for 1031 exchanges — accredited cash investors use them for passive, diversified real-estate income too."});
     if(/Not verified|May not|^$/i.test(p.accreditation||'')) out.push({h:"Confirming your accreditation",p:"DST offerings are limited to accredited investors. On your introductory call we'll confirm your status — a quick, standard step required before any offering can be shared."});

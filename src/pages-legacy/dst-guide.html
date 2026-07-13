@@ -1295,8 +1295,8 @@
 <div class="tk-h">What's new for 2026</div>
 <ul>
 <li>The One Big Beautiful Bill Act (2025) reinstated <strong><a href="big-beautiful-bill-bonus-depreciation-dst.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">100% bonus depreciation</a></strong> and made it permanent, reshaping the math on depreciation and the "lazy 1031."</li>
-<li><strong>Section 1031 was left fully intact</strong> — like-kind exchanges into DSTs continue exactly as before.</li>
-<li>Sponsor selection remains critical: historically, our data shows the preferred cohort has out-returned the broader field, while most sponsors still have <strong>no full-cycle track record</strong>. Past performance is not indicative of future results.</li>
+<li><strong>Section 1031 remains available for qualifying real property under current federal law as of July 11, 2026.</strong> A DST may qualify as replacement property only when the transaction satisfies the applicable requirements and documents.</li>
+<li>Sponsor selection remains critical: in the Baker 1031 full-cycle dataset shown in the <a href="data-center.html">Data Center</a>, the preferred cohort's reported average is higher than the broader tracked population for the period and population shown (reviewed July 11, 2026). The figures are sponsor-reported, not independently verified, and may reflect selection and survivorship bias; “Preferred” is Baker's internal designation, not a rating, endorsement, or prediction. Most sponsors still have <strong>no full-cycle track record</strong>. Past performance is not indicative of future results.</li>
 </ul>
 </div>
 <h2 id="what-is-dst">01 · What a DST Actually Is</h2>
@@ -1444,7 +1444,7 @@
 <h3>What to do when a sponsor has no track record</h3>
 <p>Filter the explorer to "No record" and you'll find 61 of the 82 names — including some of the largest asset managers in the world. Enormous AUM is not a DST track record. When a sponsor hasn't completed a full cycle, shift your underwriting to what you <em>can</em> verify: the experience of the principals and parent company, tenure and AUM, vertical integration, conservative leverage, and independent third-party validation — and size your position to the added uncertainty.</p>
 <h3>Preferred versus all sponsors</h3>
-<p>A "Preferred" designation reflects sponsors that have cleared a higher bar on track record, transparency, and terms. Historically, as the benchmark strip shows, the preferred cohort has out-returned the broader field, but that reflects past results and is not indicative of future performance. The designation is Baker 1031's own assessment; where a selling agreement or other compensation arrangement exists with a sponsor, that is a potential conflict of interest and is disclosed in the applicable offering materials. Preferred is a starting filter, not a guarantee, and it isn't the only place good deals live. Use it to focus your search, then still run every deal through the documents and the fit checklist.</p>
+<p>A "Preferred" designation reflects Baker's internal coverage and diligence criteria, not a rating, ranking, endorsement, or assurance. In the Q2 2026 full-cycle comparison shown in the <a href="data-center.html">Data Center</a>, the preferred cohort's reported average is higher than the broader tracked population for the disclosed period and population; the figures are sponsor-reported, not independently verified, and may be affected by selection and survivorship bias. Baker 1031's <a href="methodology.html">methodology</a> explains the inclusion rules and definitions. Business relationships or compensation arrangements may create conflicts and are disclosed in applicable offering materials. Past performance is not indicative of future results. Preferred is a starting filter, not a guarantee, and it is not the only place good deals live. Use it to focus your search, then still run every deal through the documents and the fit checklist.</p>
 <h2 id="process">09 · The Investing Process, Start to Finish</h2>
 <p>The sequence has one hard rule: you must never take possession of your sale proceeds. Engage a qualified intermediary <strong>before</strong> you close the sale, or the exchange is dead on arrival.</p>
 <ol class="bul">
@@ -1590,7 +1590,7 @@
     var prog=document.getElementById('prog');
     var links=[].slice.call(document.querySelectorAll('.toc a'));
     var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
-    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
+    function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;if(prog)prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';var idx=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=140)idx=i;});links.forEach(function(a,i){a.classList.toggle('on',i===idx);});}
     addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
     var cl=document.getElementById('copylink');cl&&cl.addEventListener('click',function(e){e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(location.href);cl.firstChild.textContent='Link Copied ';});
     var pb=document.getElementById('printbtn');pb&&pb.addEventListener('click',function(e){e.preventDefault();window.print();});

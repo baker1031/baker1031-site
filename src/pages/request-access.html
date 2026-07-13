@@ -1315,7 +1315,7 @@
 <!-- @@FOOTER@@ -->
 
 <script type="application/json" id="directory-data">[]</script>
-<script src="assets/pfbuilder.js"></script>
+<script src="assets/pfbuilder.js" defer></script>
 <script>
 const CONFIG = { submitUrl: "/.netlify/functions/attio-register", notifyEmail: "invest@baker1031.com" };
 
@@ -1348,7 +1348,7 @@ function personalizeReg(){
   var out=[];
   (data.goals||[]).forEach(function(g){ if(FORYOU_GOALS[g]) out.push(FORYOU_GOALS[g]); });
   var st=data.exchangeStatus||'';
-  if(/In process/i.test(st)) out.push({h:"Your exchange clock is running",p:"You’re inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. DSTs are often used precisely because they can close fast within the window, so you never risk the exchange."});
+  if(/In process/i.test(st)) out.push({h:"Your exchange clock is running",p:"You’re inside the 1031 window — the 45-day identification and 180-day closing deadlines are firm. We can help you organize replacement-property research while you confirm timing, availability, and qualification with your qualified intermediary and tax adviser."});
   else if(/Planning|Just exploring/i.test(st)) out.push({h:"Line up replacements before you close",p:"The best exchanges are planned before the sale closes. We can pre-screen DSTs that fit your equity and debt so you’re ready to identify on day one."});
   else if(/Cash investor/i.test(st)) out.push({h:"Cash investors welcome",p:"DSTs aren’t only for 1031 exchanges — accredited cash investors use them for passive, diversified real-estate income too."});
   if(!data.accreditedLikely) out.push({h:"Confirming your accreditation",p:"DST offerings are limited to accredited investors. On your introductory call we’ll confirm your status — a quick, standard step required before any offering can be shared."});
