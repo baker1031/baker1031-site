@@ -82,8 +82,10 @@ export const templates = {
     subject: 'Your Baker 1031 investor portal is ready',
     html: shell({ heading: 'Portal access granted', preheader: 'Sign in to view offerings and your portfolio.',
       bodyHtml: p(hi(d.name)) + p('Good news — your Baker 1031 investor portal access is active. You can now review current offerings, see any example portfolios we’ve prepared for you, and manage your preferences.') +
-        p('If you haven’t set your password yet, use the invitation we emailed you, then sign in with <b>Client Login</b> at the top of any page.'),
-      cta: { label: 'Open your portal', url: SITE + '/account.html' } }),
+        (d.invitationUrl
+          ? p('To finish setting up your secure portal account, accept your invitation below. After that, you can sign in anytime with <b>Client Login</b> at the top of any page.')
+          : p('You can sign in anytime with <b>Client Login</b> at the top of any page.')),
+      cta: { label: d.invitationUrl ? 'Accept invitation' : 'Open your portal', url: d.invitationUrl || (SITE + '/account.html') } }),
   }),
   newDeals: (d) => ({
     subject: 'New offerings added to your Baker 1031 portal',
