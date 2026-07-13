@@ -77,6 +77,23 @@ For the Sheet trigger:
 
 The companion setup guide is in apps-script/README.md. The script debounces edits, runs a nightly safety build, and leaves unrelated Apps Script triggers untouched.
 
+## Attio -> Google Contacts sync
+
+The optional `netlify/functions/attio-google-contact-sync.mjs` relay receives
+Attio `record.created` events, looks up the new person, and sends the contact to
+the Google Apps Script web app in `apps-script/attio-contacts-sync.gs`. The
+script writes to Google Contacts using the signed-in Google account and skips
+duplicates by email address.
+
+Configure these Netlify environment variables before enabling the Attio webhook:
+
+- `ATTIO_CONTACT_WEBHOOK_SECRET`
+- `GOOGLE_CONTACTS_SYNC_WEBHOOK_URL`
+- `ATTIO_PEOPLE_OBJECT_ID` (optional; defaults to `people`)
+
+Keep the Apps Script relay key and webhook secrets in service settings only;
+never commit them to the repository.
+
 ## Local build
 
 ~~~bash
