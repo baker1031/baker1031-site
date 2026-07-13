@@ -34,6 +34,7 @@ function value(values, key){
 
 export default async (req) => {
   const ATT = process.env.ATTIO_API_TOKEN, SK = process.env.CLERK_SECRET_KEY;
+  const SITE = process.env.SITE_URL || 'https://www.baker1031.com';
   if (!ATT || !SK) return json({ ok: true, skipped: 'not configured' }); // 200 so Attio keeps the webhook enabled
   let body; try { body = await req.json(); } catch (e) { return json({ ok: true }); }
   const events = body.events || (body.event_type ? [body] : []);
@@ -57,6 +58,7 @@ export default async (req) => {
       const nm = (v.name && v.name[0] && (v.name[0].first_name || v.name[0].full_name)) || '';
       let invitationSent = value(v, 'portal_invitation_sent') === true;
       const accessEmailSent = value(v, 'portal_access_email_sent') === true;
+      let invitationUrl = null;
 
       // These flags make Attio edits and webhook retries safe. A Clerk user counts
       // as provisioned; otherwise create one invitation with Clerk's duplicate guard.
@@ -69,8 +71,17 @@ export default async (req) => {
         } else {
           const inv = await fetch(CLERK + '/invitations', { method: 'POST',
             headers: { Authorization: 'Bearer ' + SK, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email_address: email, notify: true, ignore_existing: true, public_metadata: { source: 'attio-portal-access' } }) });
+            body: JSON.stringify({
+              email_address: email,
+              notify: false,
+              ignore_existing: true,
+              redirect_url: SITE + '/account.html',
+              public_metadata: { source: 'attio-portal-access' },
+            }) });
           if (!inv.ok) { result.errors.push({ recordId: rid, error: 'clerk invitation failed', status: inv.status }); continue; }
+          const invitation = await inv.json().catch(() => null);
+          invitationUrl = invitation && invitation.url;
+          if (!invitationUrl) { result.errors.push({ recordId: rid, error: 'clerk invitation did not return an acceptance URL' }); continue; }
           invitationSent = true;
           result.invited++;
         }
@@ -78,7 +89,7 @@ export default async (req) => {
       }
 
       if (accessEmailSent) { result.alreadyProvisioned++; continue; }
-      const mail = await sendMail(email, 'portalGranted', { name: nm });
+      const mail = await sendMail(email, 'portalGranted', { name: nm, invitationUrl });
       if (!mail.ok) {
         result.emailFailures++;
         result.errors.push({ recordId: rid, error: 'portal email failed', mail });
