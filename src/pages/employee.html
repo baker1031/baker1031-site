@@ -1322,7 +1322,7 @@
         </div>
         <div class="grid2" style="margin-top:12px;">
           <div><label class="q-lab">LTV threshold (± percentage points)</label><input type="text" inputmode="decimal" class="num" id="i_ltvtol" value="7"></div>
-          <div><label class="q-lab">Offerings per portfolio (max)</label><input type="text" inputmode="numeric" class="num" id="i_count" value="5"></div>
+          <div><label class="q-lab">Offerings per portfolio (max)</label><input type="text" inputmode="numeric" class="num" id="i_count" value="5"><small class="muted">This is a ceiling; the optimizer may use fewer when that improves the portfolio.</small></div>
         </div>
 
         <label class="q-lab" style="margin-top:14px;display:block;">Goals</label>
@@ -1509,7 +1509,12 @@
         var h=a.hold.find(function(x){return x.o===o;});
         return s+(h?h.alloc:0)*(o._score-(opts.usage[o.url]||0)*1000);
       },0)/a.total:0;
-      var score=quality+types*0.8+picked.length*0.15, result={a:a,score:score,types:types};
+      // The requested count is a ceiling, not a requirement. Income and
+      // Growth can favor a tighter, higher-scoring mix; Balanced pays more for
+      // diversification and will usually use more of the available slots.
+      var diversityWeight=theme==='Balanced'?0.8:0.5;
+      var complexityWeight=theme==='Balanced'?0.15:0.5;
+      var score=quality+types*diversityWeight-picked.length*complexityWeight, result={a:a,score:score,types:types};
       if(!fallback||score>fallback.score)fallback=result;
       if(a.withinLtv&&(!best||score>best.score))best=result;
     }
@@ -1519,7 +1524,7 @@
     }
     var mins=pool.map(function(o){return o.min;}).sort(function(a,b){return a-b;}), maxCount=0,minTotal=0;
     mins.some(function(min){ if(maxCount>=opts.count||minTotal+min>opts.equity)return true; minTotal+=min; maxCount++; return false; });
-    for(var target=maxCount;target>=1&&!best;target--) visit(0,[],target);
+    for(var target=maxCount;target>=1;target--) visit(0,[],target);
     var chosen=best||(opts.enforceLtv?null:fallback); if(!chosen)return null;
     return { theme:theme, hold:chosen.a.hold, total:chosen.a.total, blendLtv:chosen.a.blendLtv, withinLtv:chosen.a.withinLtv,
              yield: chosen.a.hold.reduce(function(s,h){return s+h.alloc*h.o.yield;},0)/(chosen.a.total||1), types:chosen.types };
