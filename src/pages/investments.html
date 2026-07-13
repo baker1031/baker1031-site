@@ -852,6 +852,7 @@
   .dir-table th.sortable { cursor: pointer; user-select: none; }
   .dir-table th.sortable:hover { background: #ededed; }
   .dir-table th .arrow { color: #ff9900; font-size: 10px; margin-left: 5px; }
+  .dir-table th .sub { display: inline; font-size: inherit; color: inherit; margin-top: 0; }
   .dir-table td:first-child, .dir-table th:first-child { text-align: left; white-space: normal; }
   .dir-table tr:nth-child(even) td { background: #fafafa; }
   .dir-table a.inv-name { color: #0099ff; text-decoration: none; font-weight: 700; }
@@ -865,8 +866,10 @@
   .closed-section { border-top: 1px solid #ccc; padding-top: 24px; }
   .investment-status.status-closed { background: #f1f1f1; color: #666; }
   .investment-cell { min-width: 0; }
-  .investment-heading { display: flex; align-items: flex-start; gap: 5px; }
-  .investment-heading .inv-name { min-width: 0; }
+  .investment-content { display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 8px; align-items: start; }
+  .investment-info { min-width: 0; }
+  .investment-info .inv-name { display: block; min-width: 0; }
+  .investment-content > .dir-star { grid-column: 1; grid-row: 1; margin-top: 1px; }
   .investment-status {
     display: inline-block;
     margin-top: 7px;
@@ -955,7 +958,8 @@
     .dir-table td:last-child { border-bottom: 0; justify-content: flex-end; }
     .dir-table td:last-child::before { content: none; }
     .dir-table td:last-child .btn-access { width: 100%; text-align: center; }
-    .investment-heading { align-items: center; }
+    .investment-content { grid-template-columns: 32px minmax(0, 1fr); column-gap: 8px; }
+    .dir-table td:first-child.investment-cell { display: block; }
     .investment-status { margin-top: 6px; }
     .yield-values { justify-content: flex-end; }
   }
@@ -2142,9 +2146,9 @@ var DIR = [];
       if (String(o.status).toLowerCase() === 'closed') statusCls = 'status-closed';
       var saved = isBm(o);
       return '<tr>' +
-        '<td class="investment-cell"><div class="investment-heading"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a></div>' +
+        '<td class="investment-cell"><div class="investment-content"><button type="button" class="dir-star' + (saved ? ' on' : '') + '" data-i="' + i + '" aria-pressed="' + (saved ? 'true' : 'false') + '" title="' + (saved ? 'Saved' : 'Save this investment') + '">' + (saved ? '★' : '☆') + '</button><div class="investment-info"><a class="inv-name" href="' + esc(o.url) + '">' + esc(o.name) + '</a>' +
           '<span class="sub">' + esc(o.sponsor) + '</span>' +
-          '<span class="investment-status ' + statusCls + '">Status: ' + esc(o.status) + '</span></td>' +
+          '<span class="investment-status ' + statusCls + '">Status: ' + esc(o.status) + '</span></div></div></td>' +
         '<td data-label="Property Type">' + esc(o.propertyType) + '</td>' +
         '<td data-label="Location">' + esc(o.location) + '</td>' +
         '<td data-label="LTV">' + esc(o.ltv) + '</td>' +
