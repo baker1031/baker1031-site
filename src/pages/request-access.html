@@ -1460,7 +1460,7 @@ function build(s){
     var appt='';
     if(data.callTime){
       appt='<div class="calc" style="max-width:520px;margin:12px auto;text-align:left;"><b>Your introductory call</b><br>'+esc(data.callTime)+
-        '<br><span class="hint">A calendar invite is on its way'+(data.email?(' to '+esc(data.email)):'')+'.</span>';
+        '<br><span class="hint">A calendar invite is on its way'+(data.email?(' to '+esc(data.email)):'')+'. If you don’t see it shortly, please check your spam, junk, or Promotions folder.</span>';
       if(cl){
         appt+='<div class="appt-actions" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">'+
           '<a class="btn ghost" href="'+cl.google+'" target="_blank" rel="noopener">Add to Google Calendar</a>'+
@@ -1473,14 +1473,18 @@ function build(s){
       }
       appt+='</div>';
     } else {
-      appt='<p class="q-sub" style="margin:10px auto;">You’ll receive a calendar invite by email'+(data.email?(' at <b>'+esc(data.email)+'</b>'):'')+', with links to reschedule, cancel, or add it to your calendar.</p>';
+      appt='<p class="q-sub" style="margin:10px auto;">You’ll receive a calendar invite by email'+(data.email?(' at <b>'+esc(data.email)+'</b>'):'')+', with links to reschedule, cancel, or add it to your calendar. If you don’t see it shortly, please check your spam, junk, or Promotions folder.</p>';
     }
-    // Access instructions
-    var access = eligible
+    // Access instructions: only claim the invitation was sent after the server
+    // confirms that Clerk and the portal email path completed.
+    var provisionStatus=data.provisioningStatus||'pending';
+    var access = eligible && provisionStatus==='sent'
       ? '<div class="calc" style="max-width:520px;margin:14px auto;text-align:left;background:#f3f6fb;"><b>Access your investor portal</b>'+
-          '<p class="hint" style="margin:6px 0 0;">We’ve emailed'+(data.email?(' <b>'+esc(data.email)+'</b>'):' you')+' an invitation to set your password. Once you set it, click <b>Client Login</b> at the top of any page to open your portal — you’ll find your saved offerings and a tailored example portfolio waiting. From there you can browse current offerings; final access to offering documents is confirmed on your call.</p>'+
+          '<p class="hint" style="margin:6px 0 0;">'+(data.provisioningExisting?'Your portal account is ready. You can use <b>Client Login</b> at the top of any page to access it. ':'We’ve emailed'+(data.email?(' <b>'+esc(data.email)+'</b>'):' you')+' an invitation to set your password. If you don’t see it within a few minutes, please check your spam, junk, or Promotions folder. Once you set your password, click <b>Client Login</b> at the top of any page to open your portal. ')+'You’ll find your saved offerings and a tailored example portfolio waiting. From there you can browse current offerings; final access to offering documents is confirmed on your call.</p>'+
           '<div style="margin-top:10px;"><a class="btn" href="investments.html">Browse Investment Opportunities</a></div></div>'
-      : '<p class="hint" style="margin-top:12px;max-width:56ch;margin-left:auto;margin-right:auto;">Because of your accreditation or residency responses, an advisor will confirm your eligibility on the call before any offerings or portal access are shared. If you qualify, we’ll email you an invitation to set up your login.</p>';
+      : eligible
+        ? '<div class="calc" style="max-width:520px;margin:14px auto;text-align:left;background:#fff8ed;border-left:4px solid #ff9900;"><b>Your registration is complete — we’re getting your portal ready</b><p class="hint" style="margin:6px 0 0;">Your call and registration are saved. We’re finishing your portal setup now, and you’ll receive an email with next steps shortly. If you don’t see it within a few minutes, please check your spam, junk, or Promotions folder. If it’s still missing, contact <a href="mailto:invest@baker1031.com" style="color:#0099ff;">invest@baker1031.com</a>.</p></div>'
+        : '<p class="hint" style="margin-top:12px;max-width:56ch;margin-left:auto;margin-right:auto;">Because of your accreditation or residency responses, an advisor will confirm your eligibility on the call before any offerings or portal access are shared. If you qualify, we’ll email you an invitation to set up your login. If you don’t see it, please check your spam, junk, or Promotions folder.</p>';
     var crsLine = data.consent.cCRS
       ? '<p class="hint" style="margin-top:12px;">Aurora Securities’ Form CRS was delivered and acknowledged on '+esc((data.crsAckAt||'').slice(0,10))+'. <a href="#" onclick="crsReceiptPDF();return false;" style="color:#0099ff;">Download your Form CRS receipt (PDF)</a>.</p>'
       : '';
@@ -1789,16 +1793,18 @@ function crsReceiptPDF(){
   var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download='Baker1031-FormCRS-Receipt.pdf'; document.body.appendChild(a); a.click(); a.remove();
 }
-function finishSchedule(detail){ data.callBooked=true; var cap=captureBooking(detail); data.callTime=cap.display; data.callStartISO=cap.startISO; data.callUid=cap.uid; clearLeaveGuards();
+function finishSchedule(detail){ data.callBooked=true; var cap=captureBooking(detail); data.callTime=cap.display; data.callStartISO=cap.startISO; data.callUid=cap.uid; data.provisioningStatus='checking'; clearLeaveGuards();
   if(!data.__analyticsBookingTracked){
     data.__analyticsBookingTracked=true;
     analyticsEvent('cal_booking_success',{booking_type:'introductory_call',duration_minutes:25,booking_time_available:!!cap.startISO,page_path:location.pathname});
   }
-  try{ if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())}).catch(function(){}); } }catch(e){}
   const list=steps(); const i=list.findIndex(x=>x.k==='done'); if(i>=0){idx=i;render();}
-  // #5: account creation is handled server-side — attio-register.mjs sends a
-  // Clerk invitation on booking, so the investor gets a branded set-password
-  // email instead of an inline sign-up modal here.
+  submitToServer().then(function(result){
+    data.provisioningStatus=result&&result.provisioning&&result.provisioning.status||'pending';
+    data.provisioningExisting=!!(result&&result.provisioning&&result.provisioning.existing);
+    if(result&&result.ok)trackRegistrationSuccess();
+    render();
+  }).catch(function(){ data.provisioningStatus='pending'; render(); });
 }
 function armLeaveGuards(){ __leaveArmed=true;
   window.onbeforeunload=function(e){ if(__leaveArmed&&!data.callBooked){ e.preventDefault(); e.returnValue=''; return ''; } };
@@ -1860,9 +1866,17 @@ function trackRegistrationSuccess(){
   data.__analyticsLeadTracked=true;
   analyticsEvent('generate_lead',{form_name:'investor_registration',form_stage:'registration_submitted',page_path:location.pathname});
 }
+function submitToServer(){
+  if(!CONFIG.submitUrl)return Promise.resolve({ok:false,provisioning:{status:'pending'}});
+  var ctl=window.AbortController?new AbortController():null;
+  var timer=ctl?setTimeout(function(){ctl.abort();},12000):null;
+  return fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload()),signal:ctl?ctl.signal:undefined})
+    .then(function(r){ return r.json().catch(function(){return {};}).then(function(body){ if(timer)clearTimeout(timer); if(!r.ok)throw new Error('registration service unavailable'); return body; }); })
+    .catch(function(e){ if(timer)clearTimeout(timer); throw e; });
+}
 function submit(){ const p=payload();
   const done=()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<button class="btn ghost" onclick="downloadJSON()">Download my responses</button>'; };
-  if(CONFIG.submitUrl){ fetch(CONFIG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).then(r=>{ if(r&&r.ok)trackRegistrationSuccess(); }).catch(()=>{}); setTimeout(done,50); }
+  if(CONFIG.submitUrl){ submitToServer().then(r=>{ if(r&&r.ok)trackRegistrationSuccess(); }).catch(()=>{}); setTimeout(done,50); }
   else { const body=encodeURIComponent(Object.entries(p).map(([k,v])=>k+': '+(Array.isArray(v)?v.join(', '):v)).join('\n'));
     const link='mailto:'+CONFIG.notifyEmail+'?subject='+encodeURIComponent('Investor Registration — '+(data.first||'')+' '+(data.last||''))+'&body='+body;
     setTimeout(()=>{ const el=document.querySelector('.submitState'); if(el)el.innerHTML='<p class="q-sub" style="margin:0 auto 14px;">To finish, send us your details:</p><a class="btn" href="'+link+'">Email my registration</a> <button class="btn ghost" onclick="downloadJSON()">Download a copy</button>'; },50); } }

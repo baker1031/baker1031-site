@@ -66,6 +66,11 @@ function authorizeContactSync() {
   console.log('Google Contacts authorization is ready.');
 }
 
+// Keeps the one-time authorization action available in the Apps Script run menu.
+function myFunction() {
+  authorizeContactSync();
+}
+
 function contactSyncFromAttio_(recordId) {
   var result = attioApi_('/objects/people/records/' + encodeURIComponent(recordId), 'get');
   if (!result.ok || !result.json || !result.json.data) {
